@@ -9661,7 +9661,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -9676,7 +9676,7 @@
                         {
                             "field": "d.a()", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }
                     ]
                 }, 
@@ -9707,14 +9707,24 @@
                             "type": "string16"
                         }, 
                         {
+                            "field": "b.getEncoded().length", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
                             "field": "b.getEncoded()", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "byte[]"
+                        }, 
+                        {
+                            "field": "c.length", 
+                            "operation": "write", 
+                            "type": "varint"
                         }, 
                         {
                             "field": "c", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "byte[]"
                         }
                     ]
                 }, 
@@ -9747,7 +9757,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }
                     ]
                 }, 
@@ -9773,14 +9783,24 @@
                     "id": 1, 
                     "instructions": [
                         {
+                            "field": "a.length", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "byte[]"
+                        }, 
+                        {
+                            "field": "b.length", 
+                            "operation": "write", 
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "byte[]"
                         }
                     ]
                 }, 
@@ -9794,7 +9814,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -9863,7 +9883,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -9897,7 +9917,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "e", 
@@ -9931,7 +9951,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -10005,7 +10025,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -10039,7 +10059,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -10088,7 +10108,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -10107,7 +10127,7 @@
                         {
                             "field": "a.size()", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "condition": "var2.hasNext()", 
@@ -10120,7 +10140,7 @@
                                 {
                                     "field": "(Integer)var3.getValue()).intValue(", 
                                     "operation": "write", 
-                                    "type": "position"
+                                    "type": "varint"
                                 }
                             ], 
                             "operation": "loop"
@@ -10137,7 +10157,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -10200,7 +10220,7 @@
                         {
                             "field": "static.a(d) & 4095", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }
                     ]
                 }, 
@@ -10219,7 +10239,7 @@
                         {
                             "field": "ajt.i.a(b)", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }
                     ]
                 }, 
@@ -10370,7 +10390,7 @@
                         {
                             "field": "a.length", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "condition": "var4 < var3", 
@@ -10429,7 +10449,7 @@
                         {
                             "field": "b.length", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "condition": "var4 < var3", 
@@ -10442,7 +10462,7 @@
                                 {
                                     "field": "ajt.i.a(var5.c())", 
                                     "operation": "write", 
-                                    "type": "position"
+                                    "type": "varint"
                                 }, 
                                 {
                                     "amount": "1", 
@@ -10628,12 +10648,12 @@
                         {
                             "field": "static.a(a)", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }
                     ]
                 }, 
@@ -10854,7 +10874,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }
                     ]
                 }, 
@@ -10883,12 +10903,12 @@
                         {
                             "field": "c", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "d.length", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "d", 
@@ -10989,7 +11009,7 @@
                                 {
                                     "field": "k[var3]", 
                                     "operation": "write", 
-                                    "type": "position"
+                                    "type": "varint"
                                 }, 
                                 {
                                     "amount": "1", 
@@ -11055,7 +11075,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -11070,7 +11090,7 @@
                         {
                             "field": "d.length", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "condition": "var4 < var3", 
@@ -11122,9 +11142,14 @@
                                     "type": "byte"
                                 }, 
                                 {
+                                    "field": "i.length", 
+                                    "operation": "write", 
+                                    "type": "varint"
+                                }, 
+                                {
                                     "field": "i", 
                                     "operation": "write", 
-                                    "type": "position"
+                                    "type": "byte[]"
                                 }
                             ], 
                             "operation": "if"
@@ -11141,7 +11166,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -11175,7 +11200,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -11219,7 +11244,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "e", 
@@ -11248,7 +11273,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }
                     ]
                 }, 
@@ -11344,7 +11369,7 @@
                                 {
                                     "field": "d", 
                                     "operation": "write", 
-                                    "type": "position"
+                                    "type": "varint"
                                 }, 
                                 {
                                     "field": "c", 
@@ -11362,7 +11387,7 @@
                                         {
                                             "field": "b", 
                                             "operation": "write", 
-                                            "type": "position"
+                                            "type": "varint"
                                         }, 
                                         {
                                             "field": "c", 
@@ -11397,7 +11422,7 @@
                         {
                             "field": "b.size()", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "condition": "var2.hasNext()", 
@@ -11430,7 +11455,7 @@
                                         {
                                             "field": "var3.a().getProperties().size()", 
                                             "operation": "write", 
-                                            "type": "position"
+                                            "type": "varint"
                                         }, 
                                         {
                                             "condition": "var4.hasNext()", 
@@ -11477,12 +11502,12 @@
                                         {
                                             "field": "var3.c().a()", 
                                             "operation": "write", 
-                                            "type": "position"
+                                            "type": "varint"
                                         }, 
                                         {
                                             "field": "var3.b()", 
                                             "operation": "write", 
-                                            "type": "position"
+                                            "type": "varint"
                                         }, 
                                         {
                                             "condition": "var3.d() == null", 
@@ -11523,7 +11548,7 @@
                                         {
                                             "field": "var3.c().a()", 
                                             "operation": "write", 
-                                            "type": "position"
+                                            "type": "varint"
                                         }, 
                                         {
                                             "operation": "break"
@@ -11540,7 +11565,7 @@
                                         {
                                             "field": "var3.b()", 
                                             "operation": "write", 
-                                            "type": "position"
+                                            "type": "varint"
                                         }, 
                                         {
                                             "operation": "break"
@@ -11638,7 +11663,7 @@
                         {
                             "field": "g", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }
                     ]
                 }, 
@@ -11652,7 +11677,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -11671,7 +11696,7 @@
                         {
                             "field": "a.length", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "condition": "var2 < a.length", 
@@ -11679,7 +11704,7 @@
                                 {
                                     "field": "a[var2]", 
                                     "operation": "write", 
-                                    "type": "position"
+                                    "type": "varint"
                                 }, 
                                 {
                                     "amount": "1", 
@@ -11701,7 +11726,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "static.a(b)", 
@@ -11768,7 +11793,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -11829,7 +11854,7 @@
                                 {
                                     "field": "g", 
                                     "operation": "write", 
-                                    "type": "position"
+                                    "type": "varlong"
                                 }, 
                                 {
                                     "operation": "break"
@@ -11858,7 +11883,7 @@
                                 {
                                     "field": "h", 
                                     "operation": "write", 
-                                    "type": "position"
+                                    "type": "varint"
                                 }, 
                                 {
                                     "operation": "break"
@@ -11870,7 +11895,7 @@
                                 {
                                     "field": "i", 
                                     "operation": "write", 
-                                    "type": "position"
+                                    "type": "varint"
                                 }, 
                                 {
                                     "operation": "break"
@@ -11902,22 +11927,22 @@
                                 {
                                     "field": "g", 
                                     "operation": "write", 
-                                    "type": "position"
+                                    "type": "varlong"
                                 }, 
                                 {
                                     "field": "b", 
                                     "operation": "write", 
-                                    "type": "position"
+                                    "type": "varint"
                                 }, 
                                 {
                                     "field": "i", 
                                     "operation": "write", 
-                                    "type": "position"
+                                    "type": "varint"
                                 }, 
                                 {
                                     "field": "h", 
                                     "operation": "write", 
-                                    "type": "position"
+                                    "type": "varint"
                                 }
                             ], 
                             "operation": "switch"
@@ -11934,7 +11959,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }
                     ]
                 }, 
@@ -11982,7 +12007,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -12021,7 +12046,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -12050,7 +12075,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -12079,12 +12104,12 @@
                         {
                             "field": "c", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }
                     ]
                 }, 
@@ -12103,7 +12128,7 @@
                         {
                             "field": "b", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "c", 
@@ -12157,12 +12182,12 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }
                     ]
                 }, 
@@ -12230,7 +12255,7 @@
                                 {
                                     "field": "h.size()", 
                                     "operation": "write", 
-                                    "type": "position"
+                                    "type": "varint"
                                 }, 
                                 {
                                     "condition": "var2.hasNext()", 
@@ -12276,7 +12301,7 @@
                                 {
                                     "field": "c", 
                                     "operation": "write", 
-                                    "type": "position"
+                                    "type": "varint"
                                 }
                             ], 
                             "operation": "if"
@@ -12403,7 +12428,7 @@
                         {
                             "field": "nf.a.a(a)", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -12466,12 +12491,12 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }
                     ]
                 }, 
@@ -12485,7 +12510,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -12529,7 +12554,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b.size()", 
@@ -12552,7 +12577,7 @@
                                 {
                                     "field": "var3.c().size()", 
                                     "operation": "write", 
-                                    "type": "position"
+                                    "type": "varint"
                                 }, 
                                 {
                                     "condition": "var4.hasNext()", 
@@ -12590,7 +12615,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -12605,7 +12630,7 @@
                         {
                             "field": "d", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "e", 
@@ -12624,7 +12649,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }
                     ]
                 }, 
@@ -12858,7 +12883,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -12909,7 +12934,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }
                     ]
                 }, 
@@ -13137,7 +13162,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }, 
                         {
                             "field": "b", 
@@ -13147,7 +13172,7 @@
                         {
                             "field": "c", 
                             "operation": "write", 
-                            "type": "position"
+                            "type": "varint"
                         }
                     ]
                 }, 
