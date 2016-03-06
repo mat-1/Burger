@@ -411,7 +411,8 @@
   <span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">());</span>
 <span class="hl_o">}</span>
 </pre></div></div><div class="entry"><a href="#packets:play_clientbound_40"><h3 id="packets:play_clientbound_40">PLAY_CLIENTBOUND_40</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>64</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
-<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">length</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarIntArray</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
 </pre></div></div><div class="entry"><a href="#packets:play_clientbound_41"><h3 id="packets:play_clientbound_41">PLAY_CLIENTBOUND_41</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>65</dd></dl><pre><span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
 <span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">i</span><span class="hl_o">);</span>
 <span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">i</span><span class="hl_o">)</span> <span class="hl_o">{</span>
