@@ -9738,6 +9738,12 @@
                     "id": 2, 
                     "instructions": [
                         {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.a.getId()", 
+                            "var": "var2"
+                        }, 
+                        {
                             "field": "(var2 == null) ? \"\" : var2.toString()", 
                             "operation": "write", 
                             "type": "string16"
@@ -10132,8 +10138,20 @@
                             "type": "varint"
                         }, 
                         {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.a.entrySet().iterator()", 
+                            "var": "var2"
+                        }, 
+                        {
                             "condition": "var2.hasNext()", 
                             "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((Map$Entry)var2.next())", 
+                                    "var": "var3"
+                                }, 
                                 {
                                     "field": "((np)var3.getKey()).e", 
                                     "operation": "write", 
@@ -10267,15 +10285,7 @@
                             "instructions": [
                                 {
                                     "operation": "case", 
-                                    "value": "144"
-                                }, 
-                                {
-                                    "operation": "case", 
-                                    "value": "145"
-                                }, 
-                                {
-                                    "operation": "case", 
-                                    "value": "146"
+                                    "value": "1"
                                 }, 
                                 {
                                     "field": "c", 
@@ -10307,14 +10317,14 @@
                                 }, 
                                 {
                                     "operation": "case", 
-                                    "value": "147"
+                                    "value": "2"
                                 }, 
                                 {
                                     "operation": "break"
                                 }, 
                                 {
                                     "operation": "case", 
-                                    "value": "148"
+                                    "value": "3"
                                 }, 
                                 {
                                     "field": "d", 
@@ -10326,7 +10336,7 @@
                                 }, 
                                 {
                                     "operation": "case", 
-                                    "value": "149"
+                                    "value": "4"
                                 }, 
                                 {
                                     "field": "c", 
@@ -10338,7 +10348,7 @@
                                 }, 
                                 {
                                     "operation": "case", 
-                                    "value": "150"
+                                    "value": "5"
                                 }, 
                                 {
                                     "field": "e", 
@@ -10355,7 +10365,7 @@
                                 }, 
                                 {
                                     "operation": "case", 
-                                    "value": "151"
+                                    "value": "6"
                                 }, 
                                 {
                                     "field": "j()", 
@@ -10395,8 +10405,32 @@
                             "type": "varint"
                         }, 
                         {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.a", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "var2.length", 
+                            "var": "var3"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "0", 
+                            "var": "var4"
+                        }, 
+                        {
                             "condition": "var4 < var3", 
                             "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "var2[var4]", 
+                                    "var": "var5"
+                                }, 
                                 {
                                     "field": "var5", 
                                     "operation": "write", 
@@ -10454,8 +10488,32 @@
                             "type": "varint"
                         }, 
                         {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.b", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "var2.length", 
+                            "var": "var3"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "0", 
+                            "var": "var4"
+                        }, 
+                        {
                             "condition": "var4 < var3", 
                             "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "var2[var4]", 
+                                    "var": "var5"
+                                }, 
                                 {
                                     "field": "var5.b()", 
                                     "operation": "write", 
@@ -10574,8 +10632,32 @@
                             "type": "short"
                         }, 
                         {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.b", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "var2.length", 
+                            "var": "var3"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "0", 
+                            "var": "var4"
+                        }, 
+                        {
                             "condition": "var4 < var3", 
                             "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "var2[var4]", 
+                                    "var": "var5"
+                                }, 
                                 {
                                     "field": "var5", 
                                     "operation": "write", 
@@ -10789,8 +10871,56 @@
                             "type": "int"
                         }, 
                         {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "((int)this.a)", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "((int)this.b)", 
+                            "var": "var3"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "((int)this.c)", 
+                            "var": "var4"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.e.iterator()", 
+                            "var": "var5"
+                        }, 
+                        {
                             "condition": "var5.hasNext()", 
                             "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((cj)var5.next())", 
+                                    "var": "var6"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "(var6.p() - var2)", 
+                                    "var": "var7"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "(var6.q() - var3)", 
+                                    "var": "var8"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "(var6.r() - var4)", 
+                                    "var": "var9"
+                                }, 
                                 {
                                     "field": "var7", 
                                     "operation": "write", 
@@ -11006,6 +11136,18 @@
                             "type": "int"
                         }, 
                         {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "this.a.d()", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "0", 
+                            "var": "var3"
+                        }, 
+                        {
                             "condition": "var3 < var2", 
                             "instructions": [
                                 {
@@ -11034,6 +11176,24 @@
                             "field": "a", 
                             "operation": "write", 
                             "type": "int"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "this.c.a()", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "b", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "(var2 | 0x8)", 
+                                    "var": "var2"
+                                }
+                            ], 
+                            "operation": "if"
                         }, 
                         {
                             "field": "var2", 
@@ -11095,10 +11255,34 @@
                             "type": "varint"
                         }, 
                         {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.d", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "var2.length", 
+                            "var": "var3"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "0", 
+                            "var": "var4"
+                        }, 
+                        {
                             "condition": "var4 < var3", 
                             "instructions": [
                                 {
-                                    "field": "(var5.a() & 0xf) << 4", 
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "var2[var4]", 
+                                    "var": "var5"
+                                }, 
+                                {
+                                    "field": "((var5.a() & 0xf) << 4) | (var5.d() & 0xf)", 
                                     "operation": "write", 
                                     "type": "byte"
                                 }, 
@@ -11336,6 +11520,60 @@
                     "id": 43, 
                     "instructions": [
                         {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "0", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "a()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "((byte)(var2 | 1))", 
+                                    "var": "var2"
+                                }
+                            ], 
+                            "operation": "if"
+                        }, 
+                        {
+                            "condition": "b()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "((byte)(var2 | 2))", 
+                                    "var": "var2"
+                                }
+                            ], 
+                            "operation": "if"
+                        }, 
+                        {
+                            "condition": "c()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "((byte)(var2 | 4))", 
+                                    "var": "var2"
+                                }
+                            ], 
+                            "operation": "if"
+                        }, 
+                        {
+                            "condition": "d()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "((byte)(var2 | 0x8))", 
+                                    "var": "var2"
+                                }
+                            ], 
+                            "operation": "if"
+                        }, 
+                        {
                             "field": "var2", 
                             "operation": "write", 
                             "type": "byte"
@@ -11427,22 +11665,26 @@
                             "type": "varint"
                         }, 
                         {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.b.iterator()", 
+                            "var": "var2"
+                        }, 
+                        {
                             "condition": "var2.hasNext()", 
                             "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((gz$b)var2.next())", 
+                                    "var": "var3"
+                                }, 
                                 {
                                     "field": "gz$1.a[this.a.ordinal()]", 
                                     "instructions": [
                                         {
                                             "operation": "case", 
-                                            "value": "331"
-                                        }, 
-                                        {
-                                            "operation": "case", 
-                                            "value": "332"
-                                        }, 
-                                        {
-                                            "operation": "case", 
-                                            "value": "333"
+                                            "value": "1"
                                         }, 
                                         {
                                             "field": "var3.a().getId()", 
@@ -11460,8 +11702,20 @@
                                             "type": "varint"
                                         }, 
                                         {
+                                            "operation": "store", 
+                                            "type": "Object", 
+                                            "value": "var3.a().getProperties().values().iterator()", 
+                                            "var": "var4"
+                                        }, 
+                                        {
                                             "condition": "var4.hasNext()", 
                                             "instructions": [
+                                                {
+                                                    "operation": "store", 
+                                                    "type": "Object", 
+                                                    "value": "((Property)var4.next())", 
+                                                    "var": "var5"
+                                                }, 
                                                 {
                                                     "field": "var5.getName()", 
                                                     "operation": "write", 
@@ -11540,7 +11794,7 @@
                                         }, 
                                         {
                                             "operation": "case", 
-                                            "value": "334"
+                                            "value": "2"
                                         }, 
                                         {
                                             "field": "var3.a().getId()", 
@@ -11557,7 +11811,7 @@
                                         }, 
                                         {
                                             "operation": "case", 
-                                            "value": "335"
+                                            "value": "3"
                                         }, 
                                         {
                                             "field": "var3.a().getId()", 
@@ -11574,7 +11828,7 @@
                                         }, 
                                         {
                                             "operation": "case", 
-                                            "value": "336"
+                                            "value": "4"
                                         }, 
                                         {
                                             "field": "var3.a().getId()", 
@@ -11610,7 +11864,7 @@
                                         }, 
                                         {
                                             "operation": "case", 
-                                            "value": "337"
+                                            "value": "5"
                                         }, 
                                         {
                                             "field": "var3.a().getId()", 
@@ -11699,6 +11953,12 @@
                             "field": "a.length", 
                             "operation": "write", 
                             "type": "varint"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "0", 
+                            "var": "var2"
                         }, 
                         {
                             "condition": "var2 < a.length", 
@@ -11821,15 +12081,7 @@
                             "instructions": [
                                 {
                                     "operation": "case", 
-                                    "value": "199"
-                                }, 
-                                {
-                                    "operation": "case", 
-                                    "value": "200"
-                                }, 
-                                {
-                                    "operation": "case", 
-                                    "value": "201"
+                                    "value": "1"
                                 }, 
                                 {
                                     "field": "e", 
@@ -11841,7 +12093,7 @@
                                 }, 
                                 {
                                     "operation": "case", 
-                                    "value": "202"
+                                    "value": "2"
                                 }, 
                                 {
                                     "field": "f", 
@@ -11863,7 +12115,7 @@
                                 }, 
                                 {
                                     "operation": "case", 
-                                    "value": "203"
+                                    "value": "3"
                                 }, 
                                 {
                                     "field": "c", 
@@ -11880,7 +12132,7 @@
                                 }, 
                                 {
                                     "operation": "case", 
-                                    "value": "205"
+                                    "value": "5"
                                 }, 
                                 {
                                     "field": "h", 
@@ -11892,7 +12144,7 @@
                                 }, 
                                 {
                                     "operation": "case", 
-                                    "value": "204"
+                                    "value": "4"
                                 }, 
                                 {
                                     "field": "i", 
@@ -11904,7 +12156,7 @@
                                 }, 
                                 {
                                     "operation": "case", 
-                                    "value": "206"
+                                    "value": "6"
                                 }, 
                                 {
                                     "field": "c", 
@@ -12265,8 +12517,20 @@
                                     "type": "varint"
                                 }, 
                                 {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "this.h.iterator()", 
+                                    "var": "var2"
+                                }, 
+                                {
                                     "condition": "var2.hasNext()", 
                                     "instructions": [
+                                        {
+                                            "operation": "store", 
+                                            "type": "Object", 
+                                            "value": "((String)var2.next())", 
+                                            "var": "var3"
+                                        }, 
                                         {
                                             "field": "var3", 
                                             "operation": "write", 
@@ -12406,6 +12670,12 @@
                             "field": "b", 
                             "operation": "write", 
                             "type": "position"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "0", 
+                            "var": "var2"
                         }, 
                         {
                             "condition": "var2 < 4", 
@@ -12569,8 +12839,20 @@
                             "type": "int"
                         }, 
                         {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.b.iterator()", 
+                            "var": "var2"
+                        }, 
+                        {
                             "condition": "var2.hasNext()", 
                             "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((id$a)var2.next())", 
+                                    "var": "var3"
+                                }, 
                                 {
                                     "field": "var3.a()", 
                                     "operation": "write", 
@@ -12587,8 +12869,20 @@
                                     "type": "varint"
                                 }, 
                                 {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "var3.c().iterator()", 
+                                    "var": "var4"
+                                }, 
+                                {
                                     "condition": "var4.hasNext()", 
                                     "instructions": [
+                                        {
+                                            "operation": "store", 
+                                            "type": "Object", 
+                                            "value": "((sn)var4.next())", 
+                                            "var": "var5"
+                                        }, 
                                         {
                                             "field": "var5.a()", 
                                             "operation": "write", 
@@ -12676,6 +12970,12 @@
                             "field": "b", 
                             "operation": "write", 
                             "type": "boolean"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "((this.c != null) ? 1 : 0)", 
+                            "var": "var2"
                         }, 
                         {
                             "field": "var2", 
@@ -13118,6 +13418,60 @@
                     "id": 18, 
                     "instructions": [
                         {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "0", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "a()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "((byte)(var2 | 1))", 
+                                    "var": "var2"
+                                }
+                            ], 
+                            "operation": "if"
+                        }, 
+                        {
+                            "condition": "b()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "((byte)(var2 | 2))", 
+                                    "var": "var2"
+                                }
+                            ], 
+                            "operation": "if"
+                        }, 
+                        {
+                            "condition": "c()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "((byte)(var2 | 4))", 
+                                    "var": "var2"
+                                }
+                            ], 
+                            "operation": "if"
+                        }, 
+                        {
+                            "condition": "d()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "((byte)(var2 | 0x8))", 
+                                    "var": "var2"
+                                }
+                            ], 
+                            "operation": "if"
+                        }, 
+                        {
                             "field": "var2", 
                             "operation": "write", 
                             "type": "byte"
@@ -13201,6 +13555,36 @@
                             "type": "float"
                         }, 
                         {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "0", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "c", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "((byte)(var2 | 1))", 
+                                    "var": "var2"
+                                }
+                            ], 
+                            "operation": "if"
+                        }, 
+                        {
+                            "condition": "d", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "((byte)(var2 | 2))", 
+                                    "var": "var2"
+                                }
+                            ], 
+                            "operation": "if"
+                        }, 
+                        {
                             "field": "var2", 
                             "operation": "write", 
                             "type": "byte"
@@ -13272,6 +13656,12 @@
                             "field": "a", 
                             "operation": "write", 
                             "type": "position"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "int", 
+                            "value": "0", 
+                            "var": "var2"
                         }, 
                         {
                             "condition": "var2 < 4", 
