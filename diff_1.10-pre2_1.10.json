@@ -1,0 +1,444 @@
+{
+    "achievements": {
+        "buildFurnace": [
+            {
+                "desc": "Construct a furnace out of eight stone blocks", 
+                "name": "Hot Topic"
+            }, 
+            {
+                "desc": "Construct a furnace out of eight cobblestone blocks", 
+                "name": "Hot Topic"
+            }
+        ], 
+        "diamondsToYou": [
+            {
+                "desc": "Throw diamonds at another player.", 
+                "name": "Diamonds to you!"
+            }, 
+            {
+                "desc": "Throw diamonds at another player", 
+                "name": "Diamonds to you!"
+            }
+        ], 
+        "openInventory": [
+            {
+                "desc": "Press '%1$s' to open your inventory.", 
+                "name": "Taking Inventory"
+            }, 
+            {
+                "desc": "Press '%1$s' to open your inventory", 
+                "name": "Taking Inventory"
+            }
+        ]
+    }, 
+    "biomes": {}, 
+    "blocks": {
+        "block": {
+            "stained_hardened_clay": [
+                {
+                    "class": "akw", 
+                    "display_name": "Stained Clay", 
+                    "field": "cu", 
+                    "hardness": 1.25, 
+                    "name": "clayHardenedStained", 
+                    "numeric_id": 159, 
+                    "text_id": "stained_hardened_clay"
+                }, 
+                {
+                    "class": "akw", 
+                    "display_name": "Stained Hardened Clay", 
+                    "field": "cu", 
+                    "hardness": 1.25, 
+                    "name": "clayHardenedStained", 
+                    "numeric_id": 159, 
+                    "text_id": "stained_hardened_clay"
+                }
+            ]
+        }
+    }, 
+    "entities": {
+        "alias": {}, 
+        "entity": {}, 
+        "object": {}
+    }, 
+    "items": {
+        "item": {
+            "stained_hardened_clay": [
+                {
+                    "class": "ade", 
+                    "display_name": "Stained Clay", 
+                    "name": "clayHardenedStained", 
+                    "numeric_id": 159, 
+                    "register_method": "block_and_item", 
+                    "text_id": "stained_hardened_clay"
+                }, 
+                {
+                    "class": "ade", 
+                    "display_name": "Stained Hardened Clay", 
+                    "name": "clayHardenedStained", 
+                    "numeric_id": 159, 
+                    "register_method": "block_and_item", 
+                    "text_id": "stained_hardened_clay"
+                }
+            ]
+        }
+    }, 
+    "language": {
+        "achievement": {
+            "buildFurnace.desc": [
+                "Construct a furnace out of eight stone blocks", 
+                "Construct a furnace out of eight cobblestone blocks"
+            ], 
+            "diamondsToYou.desc": [
+                "Throw diamonds at another player.", 
+                "Throw diamonds at another player"
+            ], 
+            "openInventory.desc": [
+                "Press '%1$s' to open your inventory.", 
+                "Press '%1$s' to open your inventory"
+            ]
+        }, 
+        "commands": {
+            "achievement.give.success.one": [
+                "Successfully given %s the stat %s", 
+                "Successfully given %s the achievement %s"
+            ], 
+            "achievement.statTooLow": [
+                "Player %s does not have the stat %s", 
+                null
+            ], 
+            "achievement.take.success.one": [
+                "Successfully taken the stat %s from %s", 
+                "Successfully taken the achievement %s from %s"
+            ], 
+            "achievement.unknownAchievement": [
+                "Unknown achievement or statistic '%s'", 
+                "Unknown achievement '%s'"
+            ], 
+            "achievement.usage": [
+                "/achievement <give|take> <stat_name|*> [player]", 
+                "/achievement <give|take> <name|*> [player]"
+            ], 
+            "save-off.alreadyOff": [
+                "Saving is already turned off.", 
+                "Saving is already turned off"
+            ], 
+            "save-on.alreadyOn": [
+                "Saving is already turned on.", 
+                "Saving is already turned on"
+            ], 
+            "scoreboard.players.test.usage": [
+                "/scoreboard players test <player> <objective> <min> <max>", 
+                "/scoreboard players test <player> <objective> <min> [max]"
+            ], 
+            "stats.entity.usage": [
+                "/stats entity <selector> <mode>", 
+                "/stats entity <selector> <mode> ..."
+            ], 
+            "testforblock.failed.data": [
+                "The block at %d,%d,%d had the data value of %s (expected: %s).", 
+                "The block at %d, %d, %d had the data value of %s (expected: %s)"
+            ], 
+            "testforblock.failed.nbt": [
+                "The block at %d,%d,%d did not have the required NBT keys.", 
+                "The block at %d, %d, %d did not have the required NBT keys"
+            ], 
+            "testforblock.failed.tile": [
+                "The block at %d,%d,%d is %s (expected: %s).", 
+                "The block at %d, %d, %d is %s (expected: %s)"
+            ], 
+            "testforblock.failed.tileEntity": [
+                "The block at %d,%d,%d is not a tile entity and cannot support tag matching.", 
+                "The block at %d, %d, %d is not a block entity and cannot support tag matching"
+            ], 
+            "testforblock.success": [
+                "Successfully found the block at %d,%d,%d.", 
+                "Successfully found the block at %d, %d, %d"
+            ], 
+            "tp.usage": [
+                "/tp [target player] <destination player> OR /tp [target player] <x> <y> <z> [<y-rot> <x-rot>]", 
+                "/tp [target player] <destination player> OR /tp [target player] <x> <y> <z> [<yaw> <pitch>]"
+            ], 
+            "worldborder.damage.usage": [
+                "/worldborder damage <buffer|amount>", 
+                "/worldborder damage <buffer|amount> ..."
+            ], 
+            "worldborder.warning.distance.usage": [
+                "/worldborder warning distance <blocks>", 
+                "/worldborder warning distance <distance>"
+            ], 
+            "worldborder.warning.usage": [
+                "/worldborder warning <time|distance>", 
+                "/worldborder warning <time|distance> ..."
+            ]
+        }, 
+        "entity": {
+            "Donkey.name": [
+                null, 
+                "Donkey"
+            ], 
+            "Mule.name": [
+                null, 
+                "Mule"
+            ], 
+            "SkeletonHorse.name": [
+                null, 
+                "Skeleton Horse"
+            ], 
+            "ZombieHorse.name": [
+                null, 
+                "Zombie Horse"
+            ], 
+            "donkey.name": [
+                "Donkey", 
+                null
+            ], 
+            "horse.name": [
+                "Horse", 
+                null
+            ], 
+            "mule.name": [
+                "Mule", 
+                null
+            ], 
+            "skeletonhorse.name": [
+                "Skeleton Horse", 
+                null
+            ], 
+            "zombiehorse.name": [
+                "Zombie Horse", 
+                null
+            ]
+        }, 
+        "item": {
+            "ruby.name": [
+                "Ruby", 
+                null
+            ]
+        }, 
+        "language": {
+            "region": [
+                "US", 
+                "United States"
+            ]
+        }, 
+        "menu": {
+            "simulating": [
+                "Simulating the world for a bit", 
+                null
+            ], 
+            "switchingLevel": [
+                "Switching worlds", 
+                null
+            ]
+        }, 
+        "multiplayer": {
+            "downloadingTerrain": [
+                "Downloading terrain", 
+                "Loading terrain"
+            ], 
+            "info1": [
+                "Minecraft Multiplayer is currently not finished, but there", 
+                null
+            ], 
+            "info2": [
+                "is some buggy early testing going on.", 
+                null
+            ]
+        }, 
+        "options": {
+            "advancedButton": [
+                "Advanced Video Settings...", 
+                null
+            ], 
+            "advancedOpengl": [
+                "Advanced OpenGL", 
+                null
+            ], 
+            "advancedVideoTitle": [
+                "Advanced Video Settings", 
+                null
+            ], 
+            "fboEnable": [
+                "Enable FBOs", 
+                null
+            ], 
+            "performanceButton": [
+                "Video Performance Settings...", 
+                null
+            ], 
+            "performanceVideoTitle": [
+                "Video Performance Settings", 
+                null
+            ], 
+            "qualityButton": [
+                "Video Quality Settings...", 
+                null
+            ], 
+            "qualityVideoTitle": [
+                "Video Quality Settings", 
+                null
+            ], 
+            "renderDistance.far": [
+                "Far", 
+                null
+            ], 
+            "renderDistance.normal": [
+                "Normal", 
+                null
+            ], 
+            "renderDistance.short": [
+                "Short", 
+                null
+            ], 
+            "renderDistance.tiny": [
+                "Tiny", 
+                null
+            ]
+        }, 
+        "subtitles": {
+            "entity.husk.ambient": [
+                null, 
+                "Husk groans"
+            ], 
+            "entity.husk.death": [
+                null, 
+                "Husk dies"
+            ], 
+            "entity.husk.hurt": [
+                null, 
+                "Husk hurts"
+            ], 
+            "entity.polar_bear.ambient": [
+                null, 
+                "Polar Bear groans"
+            ], 
+            "entity.polar_bear.baby_ambient": [
+                null, 
+                "Polar Bear hums"
+            ], 
+            "entity.polar_bear.death": [
+                null, 
+                "Polar Bear dies"
+            ], 
+            "entity.polar_bear.hurt": [
+                null, 
+                "Polar Bear hurts"
+            ], 
+            "entity.polar_bear.warning": [
+                null, 
+                "Polar Bear roars"
+            ], 
+            "entity.stray.ambient": [
+                null, 
+                "Stray rattles"
+            ], 
+            "entity.stray.death": [
+                null, 
+                "Stray dies"
+            ], 
+            "entity.stray.hurt": [
+                null, 
+                "Stray hurts"
+            ], 
+            "entity.wither_skeleton.ambient": [
+                null, 
+                "Wither Skeleton rattles"
+            ], 
+            "entity.wither_skeleton.death": [
+                null, 
+                "Wither Skeleton dies"
+            ], 
+            "entity.wither_skeleton.hurt": [
+                null, 
+                "Wither Skeleton hurts"
+            ]
+        }, 
+        "tile": {
+            "clayHardenedStained.black.name": [
+                "Black Stained Clay", 
+                "Black Hardened Clay"
+            ], 
+            "clayHardenedStained.blue.name": [
+                "Blue Stained Clay", 
+                "Blue Hardened Clay"
+            ], 
+            "clayHardenedStained.brown.name": [
+                "Brown Stained Clay", 
+                "Brown Hardened Clay"
+            ], 
+            "clayHardenedStained.cyan.name": [
+                "Cyan Stained Clay", 
+                "Cyan Hardened Clay"
+            ], 
+            "clayHardenedStained.gray.name": [
+                "Gray Stained Clay", 
+                "Gray Hardened Clay"
+            ], 
+            "clayHardenedStained.green.name": [
+                "Green Stained Clay", 
+                "Green Hardened Clay"
+            ], 
+            "clayHardenedStained.lightBlue.name": [
+                "Light Blue Stained Clay", 
+                "Light Blue Hardened Clay"
+            ], 
+            "clayHardenedStained.lime.name": [
+                "Lime Stained Clay", 
+                "Lime Hardened Clay"
+            ], 
+            "clayHardenedStained.magenta.name": [
+                "Magenta Stained Clay", 
+                "Magenta Hardened Clay"
+            ], 
+            "clayHardenedStained.name": [
+                "Stained Clay", 
+                "Stained Hardened Clay"
+            ], 
+            "clayHardenedStained.orange.name": [
+                "Orange Stained Clay", 
+                "Orange Hardened Clay"
+            ], 
+            "clayHardenedStained.pink.name": [
+                "Pink Stained Clay", 
+                "Pink Hardened Clay"
+            ], 
+            "clayHardenedStained.purple.name": [
+                "Purple Stained Clay", 
+                "Purple Hardened Clay"
+            ], 
+            "clayHardenedStained.red.name": [
+                "Red Stained Clay", 
+                "Red Hardened Clay"
+            ], 
+            "clayHardenedStained.silver.name": [
+                "Light Gray Stained Clay", 
+                "Light Gray Hardened Clay"
+            ], 
+            "clayHardenedStained.white.name": [
+                "White Stained Clay", 
+                "White Hardened Clay"
+            ], 
+            "clayHardenedStained.yellow.name": [
+                "Yellow Stained Clay", 
+                "Yellow Hardened Clay"
+            ], 
+            "oreRuby.name": [
+                "Ruby Ore", 
+                null
+            ]
+        }
+    }, 
+    "packets": {
+        "packet": {}
+    }, 
+    "recipes": null, 
+    "sounds": {}, 
+    "stats": {}, 
+    "version": {
+        "protocol": [
+            205, 
+            210
+        ]
+    }
+}
