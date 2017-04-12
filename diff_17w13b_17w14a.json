@@ -1,0 +1,354 @@
+{
+    "achievements": {}, 
+    "biomes": {
+        "biome": {}
+    }, 
+    "blocks": {
+        "block": {}
+    }, 
+    "entities": {
+        "entity": {}, 
+        "object": {}
+    }, 
+    "items": {
+        "item": {}
+    }, 
+    "language": {
+        "advancements": {
+            "toast.challenge": [
+                null, 
+                "Challenge Complete!"
+            ], 
+            "toast.goal": [
+                null, 
+                "Goal Reached!"
+            ], 
+            "toast.task": [
+                null, 
+                "Advancement Made!"
+            ]
+        }, 
+        "commands": {
+            "recipe.unknownrecipe": [
+                null, 
+                "%s is an unknown recipe"
+            ]
+        }, 
+        "recipe": {
+            "given": [
+                "New recipe unlocked for %s", 
+                null
+            ], 
+            "toast.description": [
+                null, 
+                "Check your recipe book"
+            ], 
+            "toast.title": [
+                null, 
+                "New Recipes Unlocked!"
+            ]
+        }
+    }, 
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_31": [
+                {
+                    "class": "it.class", 
+                    "direction": "CLIENTBOUND", 
+                    "from_client": false, 
+                    "from_server": true, 
+                    "id": 49, 
+                    "instructions": [
+                        {
+                            "field": "a.size()", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.a.entrySet().iterator()", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "var2.hasNext()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((Map$Entry)var2.next())", 
+                                    "var": "var3"
+                                }, 
+                                {
+                                    "field": "(md)var3.getKey()", 
+                                    "operation": "write", 
+                                    "type": "position"
+                                }, 
+                                {
+                                    "field": "((pi$a)var3.getValue()).a", 
+                                    "operation": "write", 
+                                    "type": "boolean"
+                                }, 
+                                {
+                                    "field": "((pi$a)var3.getValue()).b", 
+                                    "operation": "write", 
+                                    "type": "boolean"
+                                }
+                            ], 
+                            "operation": "loop"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }, 
+                {
+                    "class": "ix.class", 
+                    "direction": "CLIENTBOUND", 
+                    "from_client": false, 
+                    "from_server": true, 
+                    "id": 49, 
+                    "instructions": [
+                        {
+                            "field": "b", 
+                            "operation": "write", 
+                            "type": "boolean"
+                        }, 
+                        {
+                            "field": "c", 
+                            "operation": "write", 
+                            "type": "boolean"
+                        }, 
+                        {
+                            "field": "d", 
+                            "operation": "write", 
+                            "type": "boolean"
+                        }, 
+                        {
+                            "field": "a.size()", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.a.entrySet().iterator()", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "var2.hasNext()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((Map$Entry)var2.next())", 
+                                    "var": "var3"
+                                }, 
+                                {
+                                    "field": "(mh)var3.getKey()", 
+                                    "operation": "write", 
+                                    "type": "position"
+                                }, 
+                                {
+                                    "field": "((pm$a)var3.getValue()).a", 
+                                    "operation": "write", 
+                                    "type": "boolean"
+                                }, 
+                                {
+                                    "field": "((pm$a)var3.getValue()).b", 
+                                    "operation": "write", 
+                                    "type": "boolean"
+                                }
+                            ], 
+                            "operation": "loop"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }
+            ], 
+            "PLAY_SERVERBOUND_01": [
+                {
+                    "class": "jz.class", 
+                    "direction": "SERVERBOUND", 
+                    "from_client": true, 
+                    "from_server": false, 
+                    "id": 1, 
+                    "instructions": [
+                        {
+                            "field": "b", 
+                            "operation": "write", 
+                            "type": "byte"
+                        }, 
+                        {
+                            "field": "c", 
+                            "operation": "write", 
+                            "type": "short"
+                        }, 
+                        {
+                            "field": "a", 
+                            "operation": "write", 
+                            "type": "boolean"
+                        }, 
+                        {
+                            "field": "d.size()", 
+                            "operation": "write", 
+                            "type": "byte"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.d.iterator()", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "var2.hasNext()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((jz$a)var2.next())", 
+                                    "var": "var3"
+                                }, 
+                                {
+                                    "condition": "var3.a.b() == 0", 
+                                    "instructions": [
+                                        {
+                                            "operation": "store", 
+                                            "type": "Object", 
+                                            "value": "((md)ahd.g.b(var3.a.c())).a()", 
+                                            "var": "var4"
+                                        }, 
+                                        {
+                                            "field": "var4", 
+                                            "operation": "write", 
+                                            "type": "string16"
+                                        }, 
+                                        {
+                                            "field": "var3.a.j()", 
+                                            "operation": "write", 
+                                            "type": "short"
+                                        }
+                                    ], 
+                                    "operation": "if"
+                                }, 
+                                {
+                                    "instructions": [
+                                        {
+                                            "field": "\"empty\"", 
+                                            "operation": "write", 
+                                            "type": "string16"
+                                        }, 
+                                        {
+                                            "field": "0", 
+                                            "operation": "write", 
+                                            "type": "short"
+                                        }
+                                    ], 
+                                    "operation": "else"
+                                }, 
+                                {
+                                    "field": "var3.b", 
+                                    "operation": "write", 
+                                    "type": "byte"
+                                }, 
+                                {
+                                    "field": "var3.c", 
+                                    "operation": "write", 
+                                    "type": "byte"
+                                }
+                            ], 
+                            "operation": "loop"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }, 
+                {
+                    "class": "kd.class", 
+                    "direction": "SERVERBOUND", 
+                    "from_client": true, 
+                    "from_server": false, 
+                    "id": 1, 
+                    "state": "PLAY"
+                }
+            ], 
+            "PLAY_SERVERBOUND_17": [
+                {
+                    "class": "ks.class", 
+                    "direction": "SERVERBOUND", 
+                    "from_client": true, 
+                    "from_server": false, 
+                    "id": 23, 
+                    "instructions": [
+                        {
+                            "field": "c", 
+                            "operation": "write", 
+                            "type": "position"
+                        }, 
+                        {
+                            "field": "b", 
+                            "operation": "write", 
+                            "type": "int"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }, 
+                {
+                    "class": "kw.class", 
+                    "direction": "SERVERBOUND", 
+                    "from_client": true, 
+                    "from_server": false, 
+                    "id": 23, 
+                    "instructions": [
+                        {
+                            "field": "c", 
+                            "operation": "write", 
+                            "type": "int"
+                        }, 
+                        {
+                            "condition": "c == kw.a", 
+                            "instructions": [
+                                {
+                                    "field": "d", 
+                                    "operation": "write", 
+                                    "type": "position"
+                                }
+                            ], 
+                            "operation": "if"
+                        }, 
+                        {
+                            "instructions": [
+                                {
+                                    "condition": "c == kw.b", 
+                                    "instructions": [
+                                        {
+                                            "field": "e", 
+                                            "operation": "write", 
+                                            "type": "boolean"
+                                        }, 
+                                        {
+                                            "field": "f", 
+                                            "operation": "write", 
+                                            "type": "boolean"
+                                        }
+                                    ], 
+                                    "operation": "if"
+                                }
+                            ], 
+                            "operation": "else"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }
+            ]
+        }
+    }, 
+    "sounds": {}, 
+    "stats": {}, 
+    "tileentity": {
+        "tileentities": {}
+    }, 
+    "version": {
+        "protocol": [
+            319, 
+            320
+        ]
+    }
+}
