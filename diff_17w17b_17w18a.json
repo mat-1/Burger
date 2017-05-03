@@ -1,0 +1,1092 @@
+{
+    "achievements": {}, 
+    "biomes": {
+        "biome": {}
+    }, 
+    "blocks": {
+        "block": {}
+    }, 
+    "entities": {
+        "entity": {}, 
+        "object": {}
+    }, 
+    "items": {
+        "item": {}
+    }, 
+    "language": {
+        "advancements": {
+            "adventure.breed_all_animals.description": [
+                null, 
+                "Breed all the animals!"
+            ], 
+            "adventure.breed_all_animals.title": [
+                null, 
+                "Two by Two"
+            ], 
+            "adventure.breed_an_animal.description": [
+                null, 
+                "Breed two animals together"
+            ], 
+            "adventure.breed_an_animal.title": [
+                null, 
+                "The Parrots and the Bats"
+            ], 
+            "adventure.tame_an_animal.description": [
+                null, 
+                "Tame an animal"
+            ], 
+            "adventure.tame_an_animal.title": [
+                null, 
+                "Best Friends Forever"
+            ], 
+            "end.levitate.description": [
+                "Levitate for at least 30 seconds", 
+                "Levitate up 50 blocks from the attacks of a Shulker"
+            ]
+        }, 
+        "chat": {
+            "type.advancement.challenge": [
+                null, 
+                "%s has completed the challenge %s"
+            ], 
+            "type.advancement.goal": [
+                null, 
+                "%s has reached the goal %s"
+            ], 
+            "type.advancement.task": [
+                null, 
+                "%s has made the advancement %s"
+            ]
+        }, 
+        "commands": {
+            "reload.success": [
+                null, 
+                "Successfully reloaded loot tables and advancements"
+            ], 
+            "reload.usage": [
+                null, 
+                "/reload"
+            ]
+        }, 
+        "subtitles": {
+            "entity.imitates": [
+                "%s imitates %s", 
+                null
+            ], 
+            "entity.parrot.imitate.blaze": [
+                null, 
+                "Parrot breathes"
+            ], 
+            "entity.parrot.imitate.cave_spider": [
+                null, 
+                "Parrot hisses"
+            ], 
+            "entity.parrot.imitate.creeper": [
+                null, 
+                "Parrot hisses"
+            ], 
+            "entity.parrot.imitate.elder_guardian": [
+                null, 
+                "Parrot flaps"
+            ], 
+            "entity.parrot.imitate.enderdragon": [
+                null, 
+                "Parrot roars"
+            ], 
+            "entity.parrot.imitate.enderman": [
+                null, 
+                "Parrot vwoops"
+            ], 
+            "entity.parrot.imitate.endermite": [
+                null, 
+                "Parrot scuttles"
+            ], 
+            "entity.parrot.imitate.evocation_illager": [
+                null, 
+                "Parrot murmurs"
+            ], 
+            "entity.parrot.imitate.ghast": [
+                null, 
+                "Parrot cries"
+            ], 
+            "entity.parrot.imitate.husk": [
+                null, 
+                "Parrot groans"
+            ], 
+            "entity.parrot.imitate.illusion_illager": [
+                null, 
+                "Parrot murmurs"
+            ], 
+            "entity.parrot.imitate.magmacube": [
+                null, 
+                "Parrot squishes"
+            ], 
+            "entity.parrot.imitate.polar_bear": [
+                null, 
+                "Parrot groans"
+            ], 
+            "entity.parrot.imitate.shulker": [
+                null, 
+                "Parrot lurks"
+            ], 
+            "entity.parrot.imitate.silverfish": [
+                null, 
+                "Parrot hisses"
+            ], 
+            "entity.parrot.imitate.skeleton": [
+                null, 
+                "Parrot rattles"
+            ], 
+            "entity.parrot.imitate.slime": [
+                null, 
+                "Parrot squishes"
+            ], 
+            "entity.parrot.imitate.spider": [
+                null, 
+                "Parrot hisses"
+            ], 
+            "entity.parrot.imitate.stray": [
+                null, 
+                "Parrot rattles"
+            ], 
+            "entity.parrot.imitate.vex": [
+                null, 
+                "Parrot vexes"
+            ], 
+            "entity.parrot.imitate.vindication_illager": [
+                null, 
+                "Parrot mutters"
+            ], 
+            "entity.parrot.imitate.witch": [
+                null, 
+                "Parrot giggles"
+            ], 
+            "entity.parrot.imitate.wither": [
+                null, 
+                "Parrot angers"
+            ], 
+            "entity.parrot.imitate.wither_skeleton": [
+                null, 
+                "Parrot rattles"
+            ], 
+            "entity.parrot.imitate.wolf": [
+                null, 
+                "Parrot pants"
+            ], 
+            "entity.parrot.imitate.zombie": [
+                null, 
+                "Parrot groans"
+            ], 
+            "entity.parrot.imitate.zombie_pigman": [
+                null, 
+                "Parrot grunts"
+            ], 
+            "entity.parrot.imitate.zombie_villager": [
+                null, 
+                "Parrot groans"
+            ]
+        }
+    }, 
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_08": [
+                {
+                    "class": "kc.class", 
+                    "direction": "CLIENTBOUND", 
+                    "from_client": false, 
+                    "from_server": true, 
+                    "id": 8, 
+                    "instructions": [
+                        {
+                            "field": "a", 
+                            "operation": "write", 
+                            "type": "boolean"
+                        }, 
+                        {
+                            "field": "b.size()", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.b.entrySet().iterator()", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "var2.hasNext()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((Map$Entry)var2.next())", 
+                                    "var": "var3"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((ml)var3.getKey())", 
+                                    "var": "var4"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((i$a)var3.getValue())", 
+                                    "var": "var5"
+                                }, 
+                                {
+                                    "field": "var4", 
+                                    "operation": "write", 
+                                    "type": "position"
+                                }, 
+                                {
+                                    "condition": "var5.a == null", 
+                                    "instructions": [
+                                        {
+                                            "field": "0", 
+                                            "operation": "write", 
+                                            "type": "boolean"
+                                        }
+                                    ], 
+                                    "operation": "if"
+                                }, 
+                                {
+                                    "instructions": [
+                                        {
+                                            "field": "1", 
+                                            "operation": "write", 
+                                            "type": "boolean"
+                                        }, 
+                                        {
+                                            "field": "var5.a", 
+                                            "operation": "write", 
+                                            "type": "position"
+                                        }
+                                    ], 
+                                    "operation": "else"
+                                }, 
+                                {
+                                    "condition": "var5.c == null", 
+                                    "instructions": [
+                                        {
+                                            "field": "0", 
+                                            "operation": "write", 
+                                            "type": "boolean"
+                                        }
+                                    ], 
+                                    "operation": "if"
+                                }, 
+                                {
+                                    "instructions": [
+                                        {
+                                            "field": "1", 
+                                            "operation": "write", 
+                                            "type": "boolean"
+                                        }, 
+                                        {
+                                            "field": "var5.c.a", 
+                                            "operation": "write", 
+                                            "type": "chatcomponent"
+                                        }, 
+                                        {
+                                            "field": "var5.c.b", 
+                                            "operation": "write", 
+                                            "type": "chatcomponent"
+                                        }, 
+                                        {
+                                            "field": "var5.c.c", 
+                                            "operation": "write", 
+                                            "type": "itemstack"
+                                        }, 
+                                        {
+                                            "field": "var5.c.e", 
+                                            "operation": "write", 
+                                            "type": "enum"
+                                        }, 
+                                        {
+                                            "condition": "var5.c.d == null", 
+                                            "instructions": [
+                                                {
+                                                    "field": "0", 
+                                                    "operation": "write", 
+                                                    "type": "boolean"
+                                                }
+                                            ], 
+                                            "operation": "if"
+                                        }, 
+                                        {
+                                            "instructions": [
+                                                {
+                                                    "field": "1", 
+                                                    "operation": "write", 
+                                                    "type": "boolean"
+                                                }, 
+                                                {
+                                                    "field": "var5.c.d", 
+                                                    "operation": "write", 
+                                                    "type": "position"
+                                                }
+                                            ], 
+                                            "operation": "else"
+                                        }, 
+                                        {
+                                            "field": "var5.c.f", 
+                                            "operation": "write", 
+                                            "type": "varint"
+                                        }, 
+                                        {
+                                            "field": "var5.c.g", 
+                                            "operation": "write", 
+                                            "type": "varint"
+                                        }
+                                    ], 
+                                    "operation": "else"
+                                }, 
+                                {
+                                    "field": "var5.e.size()", 
+                                    "operation": "write", 
+                                    "type": "varint"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "var5.e.entrySet().iterator()", 
+                                    "var": "var2"
+                                }, 
+                                {
+                                    "condition": "var2.hasNext()", 
+                                    "instructions": [
+                                        {
+                                            "operation": "store", 
+                                            "type": "Object", 
+                                            "value": "((Map$Entry)var2.next())", 
+                                            "var": "var3"
+                                        }, 
+                                        {
+                                            "field": "(String)var3.getKey()", 
+                                            "operation": "write", 
+                                            "type": "string16"
+                                        }
+                                    ], 
+                                    "operation": "loop"
+                                }, 
+                                {
+                                    "field": "var5.f.length", 
+                                    "operation": "write", 
+                                    "type": "varint"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "var5.f", 
+                                    "var": "var2"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "var2.length", 
+                                    "var": "var3"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "0", 
+                                    "var": "var4"
+                                }, 
+                                {
+                                    "condition": "var4 < var3", 
+                                    "instructions": [
+                                        {
+                                            "operation": "store", 
+                                            "type": "Object", 
+                                            "value": "var2[var4]", 
+                                            "var": "var5"
+                                        }, 
+                                        {
+                                            "field": "var5.length", 
+                                            "operation": "write", 
+                                            "type": "varint"
+                                        }, 
+                                        {
+                                            "operation": "store", 
+                                            "type": "Object", 
+                                            "value": "var5", 
+                                            "var": "var6"
+                                        }, 
+                                        {
+                                            "operation": "store", 
+                                            "type": "int", 
+                                            "value": "var6.length", 
+                                            "var": "var7"
+                                        }, 
+                                        {
+                                            "operation": "store", 
+                                            "type": "int", 
+                                            "value": "0", 
+                                            "var": "var8"
+                                        }, 
+                                        {
+                                            "condition": "var8 < var7", 
+                                            "instructions": [
+                                                {
+                                                    "operation": "store", 
+                                                    "type": "Object", 
+                                                    "value": "var6[var8]", 
+                                                    "var": "var9"
+                                                }, 
+                                                {
+                                                    "field": "var9", 
+                                                    "operation": "write", 
+                                                    "type": "string16"
+                                                }, 
+                                                {
+                                                    "amount": "1", 
+                                                    "field": "var8", 
+                                                    "operation": "increment"
+                                                }
+                                            ], 
+                                            "operation": "loop"
+                                        }, 
+                                        {
+                                            "amount": "1", 
+                                            "field": "var4", 
+                                            "operation": "increment"
+                                        }
+                                    ], 
+                                    "operation": "loop"
+                                }
+                            ], 
+                            "operation": "loop"
+                        }, 
+                        {
+                            "field": "c.size()", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.c.iterator()", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "var2.hasNext()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((ml)var2.next())", 
+                                    "var": "var3"
+                                }, 
+                                {
+                                    "field": "var3", 
+                                    "operation": "write", 
+                                    "type": "position"
+                                }
+                            ], 
+                            "operation": "loop"
+                        }, 
+                        {
+                            "field": "d.size()", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.d.entrySet().iterator()", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "var2.hasNext()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((Map$Entry)var2.next())", 
+                                    "var": "var3"
+                                }, 
+                                {
+                                    "field": "(ml)var3.getKey()", 
+                                    "operation": "write", 
+                                    "type": "position"
+                                }, 
+                                {
+                                    "field": "(k)var3.getValue()).a.size(", 
+                                    "operation": "write", 
+                                    "type": "varint"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((k)var3.getValue()).a.entrySet().iterator()", 
+                                    "var": "var2"
+                                }, 
+                                {
+                                    "condition": "var2.hasNext()", 
+                                    "instructions": [
+                                        {
+                                            "operation": "store", 
+                                            "type": "Object", 
+                                            "value": "((Map$Entry)var2.next())", 
+                                            "var": "var3"
+                                        }, 
+                                        {
+                                            "field": "(String)var3.getKey()", 
+                                            "operation": "write", 
+                                            "type": "string16"
+                                        }, 
+                                        {
+                                            "field": "(((o)var3.getValue()).c != null) ? 1 : 0", 
+                                            "operation": "write", 
+                                            "type": "boolean"
+                                        }, 
+                                        {
+                                            "condition": "((o)var3.getValue()).c != null", 
+                                            "instructions": [
+                                                {
+                                                    "field": "((o)var3.getValue()).c", 
+                                                    "operation": "write", 
+                                                    "type": "position"
+                                                }
+                                            ], 
+                                            "operation": "if"
+                                        }
+                                    ], 
+                                    "operation": "loop"
+                                }
+                            ], 
+                            "operation": "loop"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }, 
+                {
+                    "class": "kh.class", 
+                    "direction": "CLIENTBOUND", 
+                    "from_client": false, 
+                    "from_server": true, 
+                    "id": 8, 
+                    "instructions": [
+                        {
+                            "field": "a", 
+                            "operation": "write", 
+                            "type": "boolean"
+                        }, 
+                        {
+                            "field": "b.size()", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.b.entrySet().iterator()", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "var2.hasNext()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((Map$Entry)var2.next())", 
+                                    "var": "var3"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((mq)var3.getKey())", 
+                                    "var": "var4"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((i$a)var3.getValue())", 
+                                    "var": "var5"
+                                }, 
+                                {
+                                    "field": "var4", 
+                                    "operation": "write", 
+                                    "type": "position"
+                                }, 
+                                {
+                                    "condition": "var5.a == null", 
+                                    "instructions": [
+                                        {
+                                            "field": "0", 
+                                            "operation": "write", 
+                                            "type": "boolean"
+                                        }
+                                    ], 
+                                    "operation": "if"
+                                }, 
+                                {
+                                    "instructions": [
+                                        {
+                                            "field": "1", 
+                                            "operation": "write", 
+                                            "type": "boolean"
+                                        }, 
+                                        {
+                                            "field": "var5.a", 
+                                            "operation": "write", 
+                                            "type": "position"
+                                        }
+                                    ], 
+                                    "operation": "else"
+                                }, 
+                                {
+                                    "condition": "var5.c == null", 
+                                    "instructions": [
+                                        {
+                                            "field": "0", 
+                                            "operation": "write", 
+                                            "type": "boolean"
+                                        }
+                                    ], 
+                                    "operation": "if"
+                                }, 
+                                {
+                                    "instructions": [
+                                        {
+                                            "field": "1", 
+                                            "operation": "write", 
+                                            "type": "boolean"
+                                        }, 
+                                        {
+                                            "field": "var5.c.a", 
+                                            "operation": "write", 
+                                            "type": "chatcomponent"
+                                        }, 
+                                        {
+                                            "field": "var5.c.b", 
+                                            "operation": "write", 
+                                            "type": "chatcomponent"
+                                        }, 
+                                        {
+                                            "field": "var5.c.c", 
+                                            "operation": "write", 
+                                            "type": "itemstack"
+                                        }, 
+                                        {
+                                            "field": "var5.c.e", 
+                                            "operation": "write", 
+                                            "type": "enum"
+                                        }, 
+                                        {
+                                            "condition": "var5.c.d == null", 
+                                            "instructions": [
+                                                {
+                                                    "field": "0", 
+                                                    "operation": "write", 
+                                                    "type": "boolean"
+                                                }
+                                            ], 
+                                            "operation": "if"
+                                        }, 
+                                        {
+                                            "instructions": [
+                                                {
+                                                    "field": "1", 
+                                                    "operation": "write", 
+                                                    "type": "boolean"
+                                                }, 
+                                                {
+                                                    "field": "var5.c.d", 
+                                                    "operation": "write", 
+                                                    "type": "position"
+                                                }
+                                            ], 
+                                            "operation": "else"
+                                        }, 
+                                        {
+                                            "field": "var5.c.f", 
+                                            "operation": "write", 
+                                            "type": "boolean"
+                                        }, 
+                                        {
+                                            "field": "var5.c.h", 
+                                            "operation": "write", 
+                                            "type": "float"
+                                        }, 
+                                        {
+                                            "field": "var5.c.i", 
+                                            "operation": "write", 
+                                            "type": "float"
+                                        }
+                                    ], 
+                                    "operation": "else"
+                                }, 
+                                {
+                                    "field": "var5.e.size()", 
+                                    "operation": "write", 
+                                    "type": "varint"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "var5.e.entrySet().iterator()", 
+                                    "var": "var2"
+                                }, 
+                                {
+                                    "condition": "var2.hasNext()", 
+                                    "instructions": [
+                                        {
+                                            "operation": "store", 
+                                            "type": "Object", 
+                                            "value": "((Map$Entry)var2.next())", 
+                                            "var": "var3"
+                                        }, 
+                                        {
+                                            "field": "(String)var3.getKey()", 
+                                            "operation": "write", 
+                                            "type": "string16"
+                                        }
+                                    ], 
+                                    "operation": "loop"
+                                }, 
+                                {
+                                    "field": "var5.f.length", 
+                                    "operation": "write", 
+                                    "type": "varint"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "var5.f", 
+                                    "var": "var2"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "var2.length", 
+                                    "var": "var3"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "0", 
+                                    "var": "var4"
+                                }, 
+                                {
+                                    "condition": "var4 < var3", 
+                                    "instructions": [
+                                        {
+                                            "operation": "store", 
+                                            "type": "Object", 
+                                            "value": "var2[var4]", 
+                                            "var": "var5"
+                                        }, 
+                                        {
+                                            "field": "var5.length", 
+                                            "operation": "write", 
+                                            "type": "varint"
+                                        }, 
+                                        {
+                                            "operation": "store", 
+                                            "type": "Object", 
+                                            "value": "var5", 
+                                            "var": "var6"
+                                        }, 
+                                        {
+                                            "operation": "store", 
+                                            "type": "int", 
+                                            "value": "var6.length", 
+                                            "var": "var7"
+                                        }, 
+                                        {
+                                            "operation": "store", 
+                                            "type": "int", 
+                                            "value": "0", 
+                                            "var": "var8"
+                                        }, 
+                                        {
+                                            "condition": "var8 < var7", 
+                                            "instructions": [
+                                                {
+                                                    "operation": "store", 
+                                                    "type": "Object", 
+                                                    "value": "var6[var8]", 
+                                                    "var": "var9"
+                                                }, 
+                                                {
+                                                    "field": "var9", 
+                                                    "operation": "write", 
+                                                    "type": "string16"
+                                                }, 
+                                                {
+                                                    "amount": "1", 
+                                                    "field": "var8", 
+                                                    "operation": "increment"
+                                                }
+                                            ], 
+                                            "operation": "loop"
+                                        }, 
+                                        {
+                                            "amount": "1", 
+                                            "field": "var4", 
+                                            "operation": "increment"
+                                        }
+                                    ], 
+                                    "operation": "loop"
+                                }
+                            ], 
+                            "operation": "loop"
+                        }, 
+                        {
+                            "field": "c.size()", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.c.iterator()", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "var2.hasNext()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((mq)var2.next())", 
+                                    "var": "var3"
+                                }, 
+                                {
+                                    "field": "var3", 
+                                    "operation": "write", 
+                                    "type": "position"
+                                }
+                            ], 
+                            "operation": "loop"
+                        }, 
+                        {
+                            "field": "d.size()", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.d.entrySet().iterator()", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "var2.hasNext()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((Map$Entry)var2.next())", 
+                                    "var": "var3"
+                                }, 
+                                {
+                                    "field": "(mq)var3.getKey()", 
+                                    "operation": "write", 
+                                    "type": "position"
+                                }, 
+                                {
+                                    "field": "(k)var3.getValue()).a.size(", 
+                                    "operation": "write", 
+                                    "type": "varint"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((k)var3.getValue()).a.entrySet().iterator()", 
+                                    "var": "var2"
+                                }, 
+                                {
+                                    "condition": "var2.hasNext()", 
+                                    "instructions": [
+                                        {
+                                            "operation": "store", 
+                                            "type": "Object", 
+                                            "value": "((Map$Entry)var2.next())", 
+                                            "var": "var3"
+                                        }, 
+                                        {
+                                            "field": "(String)var3.getKey()", 
+                                            "operation": "write", 
+                                            "type": "string16"
+                                        }, 
+                                        {
+                                            "field": "(((o)var3.getValue()).c != null) ? 1 : 0", 
+                                            "operation": "write", 
+                                            "type": "boolean"
+                                        }, 
+                                        {
+                                            "condition": "((o)var3.getValue()).c != null", 
+                                            "instructions": [
+                                                {
+                                                    "field": "((o)var3.getValue()).c", 
+                                                    "operation": "write", 
+                                                    "type": "position"
+                                                }
+                                            ], 
+                                            "operation": "if"
+                                        }
+                                    ], 
+                                    "operation": "loop"
+                                }
+                            ], 
+                            "operation": "loop"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }
+            ], 
+            "PLAY_CLIENTBOUND_48": [
+                {
+                    "class": "jy.class", 
+                    "direction": "CLIENTBOUND", 
+                    "from_client": false, 
+                    "from_server": true, 
+                    "id": 72, 
+                    "instructions": [
+                        {
+                            "field": "b", 
+                            "operation": "write", 
+                            "type": "enum"
+                        }, 
+                        {
+                            "condition": "a instanceof pj", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((pj)this.a)", 
+                                    "var": "var4"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "var4.b()", 
+                                    "var": "var2"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "var4.a().toString()", 
+                                    "var": "var3"
+                                }
+                            ], 
+                            "operation": "if"
+                        }, 
+                        {
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "int", 
+                                    "value": "pk.a.a(this.a)", 
+                                    "var": "var2"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "\"\"", 
+                                    "var": "var3"
+                                }
+                            ], 
+                            "operation": "else"
+                        }, 
+                        {
+                            "field": "var2", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "field": "var3", 
+                            "operation": "write", 
+                            "type": "string16"
+                        }, 
+                        {
+                            "field": "c", 
+                            "operation": "write", 
+                            "type": "int"
+                        }, 
+                        {
+                            "field": "d", 
+                            "operation": "write", 
+                            "type": "int"
+                        }, 
+                        {
+                            "field": "e", 
+                            "operation": "write", 
+                            "type": "int"
+                        }, 
+                        {
+                            "field": "f", 
+                            "operation": "write", 
+                            "type": "float"
+                        }, 
+                        {
+                            "field": "g", 
+                            "operation": "write", 
+                            "type": "float"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }, 
+                {
+                    "class": "kd.class", 
+                    "direction": "CLIENTBOUND", 
+                    "from_client": false, 
+                    "from_server": true, 
+                    "id": 72, 
+                    "instructions": [
+                        {
+                            "field": "po.a.a(a)", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "field": "b", 
+                            "operation": "write", 
+                            "type": "enum"
+                        }, 
+                        {
+                            "field": "c", 
+                            "operation": "write", 
+                            "type": "int"
+                        }, 
+                        {
+                            "field": "d", 
+                            "operation": "write", 
+                            "type": "int"
+                        }, 
+                        {
+                            "field": "e", 
+                            "operation": "write", 
+                            "type": "int"
+                        }, 
+                        {
+                            "field": "f", 
+                            "operation": "write", 
+                            "type": "float"
+                        }, 
+                        {
+                            "field": "g", 
+                            "operation": "write", 
+                            "type": "float"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }
+            ]
+        }
+    }, 
+    "recipes": {}, 
+    "stats": {}, 
+    "tileentity": {
+        "tileentities": {}
+    }, 
+    "version": {
+        "protocol": [
+            325, 
+            326
+        ]
+    }
+}

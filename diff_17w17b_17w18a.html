@@ -1,0 +1,192 @@
+<!doctype html>
+              <html>
+                <head>
+                  <title>Burger Vitrine</title>
+                  <link rel="stylesheet" href="resources/style.css" />
+                  <script src="resources/jquery.js"></script>
+                  <script src="resources/vitrine.js"></script>
+                </head>
+                <body>
+                    <div id="vitrine">
+                        <a href="#blocks"><h2 id="blocks">Blocks</h2></a><span class="info">No entries</span><a href="#items"><h2 id="items">Items</h2></a><span class="info">No entries</span><a href="#recipes"><h2 id="recipes">Recipes</h2></a><span class="info">No entries</span><a href="#entities"><h2 id="entities">Entities</h2></a><span class="info">No entries</span><a href="#objects"><h2 id="objects">Objects</h2></a><span class="info">No entries</span><a href="#packets"><h2 id="packets">Packets</h2></a><div class="split"><div class="left"><div class="entry"><a href="#packets:0x08"><h3 id="packets:0x08">PLAY_CLIENTBOUND_08</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>8</dd></dl><pre>writeBoolean(a);
+writeVarInt(b.size());
+Object var2 = this.b.entrySet().iterator();
+while(var2.hasNext()) {
+  Object var3 = ((Map$Entry)var2.next());
+  Object var4 = ((ml)var3.getKey());
+  Object var5 = ((i$a)var3.getValue());
+  writePosition(var4);
+  if(var5.a == null) {
+    writeBoolean(0);
+  } else {
+    writeBoolean(1);
+    writePosition(var5.a);
+  }
+  if(var5.c == null) {
+    writeBoolean(0);
+  } else {
+    writeBoolean(1);
+    writeChatComponent(var5.c.a);
+    writeChatComponent(var5.c.b);
+    writeItemStack(var5.c.c);
+    writeVarIntEnum(var5.c.e);
+    if(var5.c.d == null) {
+      writeBoolean(0);
+    } else {
+      writeBoolean(1);
+      writePosition(var5.c.d);
+    }
+    writeVarInt(var5.c.f);
+    writeVarInt(var5.c.g);
+  }
+  writeVarInt(var5.e.size());
+  Object var2 = var5.e.entrySet().iterator();
+  while(var2.hasNext()) {
+    Object var3 = ((Map$Entry)var2.next());
+    writeString((String)var3.getKey());
+  }
+  writeVarInt(var5.f.length);
+  Object var2 = var5.f;
+  int var3 = var2.length;
+  int var4 = 0;
+  while(var4 &lt; var3) {
+    Object var5 = var2[var4];
+    writeVarInt(var5.length);
+    Object var6 = var5;
+    int var7 = var6.length;
+    int var8 = 0;
+    while(var8 &lt; var7) {
+      Object var9 = var6[var8];
+      writeString(var9);
+      var8++;
+    }
+    var4++;
+  }
+}
+writeVarInt(c.size());
+Object var2 = this.c.iterator();
+while(var2.hasNext()) {
+  Object var3 = ((ml)var2.next());
+  writePosition(var3);
+}
+writeVarInt(d.size());
+Object var2 = this.d.entrySet().iterator();
+while(var2.hasNext()) {
+  Object var3 = ((Map$Entry)var2.next());
+  writePosition((ml)var3.getKey());
+  writeVarInt((k)var3.getValue()).a.size();
+  Object var2 = ((k)var3.getValue()).a.entrySet().iterator();
+  while(var2.hasNext()) {
+    Object var3 = ((Map$Entry)var2.next());
+    writeString((String)var3.getKey());
+    writeBoolean((((o)var3.getValue()).c != null) ? 1 : 0);
+    if(((o)var3.getValue()).c != null) {
+      writePosition(((o)var3.getValue()).c);
+    }
+  }
+}
+</pre></div></div></div><div class="right"><div class="entry"><a href="#packets:0x08"><h3 id="packets:0x08">PLAY_CLIENTBOUND_08</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>8</dd></dl><pre>writeBoolean(a);
+writeVarInt(b.size());
+Object var2 = this.b.entrySet().iterator();
+while(var2.hasNext()) {
+  Object var3 = ((Map$Entry)var2.next());
+  Object var4 = ((mq)var3.getKey());
+  Object var5 = ((i$a)var3.getValue());
+  writePosition(var4);
+  if(var5.a == null) {
+    writeBoolean(0);
+  } else {
+    writeBoolean(1);
+    writePosition(var5.a);
+  }
+  if(var5.c == null) {
+    writeBoolean(0);
+  } else {
+    writeBoolean(1);
+    writeChatComponent(var5.c.a);
+    writeChatComponent(var5.c.b);
+    writeItemStack(var5.c.c);
+    writeVarIntEnum(var5.c.e);
+    if(var5.c.d == null) {
+      writeBoolean(0);
+    } else {
+      writeBoolean(1);
+      writePosition(var5.c.d);
+    }
+    writeBoolean(var5.c.f);
+    writeFloat(var5.c.h);
+    writeFloat(var5.c.i);
+  }
+  writeVarInt(var5.e.size());
+  Object var2 = var5.e.entrySet().iterator();
+  while(var2.hasNext()) {
+    Object var3 = ((Map$Entry)var2.next());
+    writeString((String)var3.getKey());
+  }
+  writeVarInt(var5.f.length);
+  Object var2 = var5.f;
+  int var3 = var2.length;
+  int var4 = 0;
+  while(var4 &lt; var3) {
+    Object var5 = var2[var4];
+    writeVarInt(var5.length);
+    Object var6 = var5;
+    int var7 = var6.length;
+    int var8 = 0;
+    while(var8 &lt; var7) {
+      Object var9 = var6[var8];
+      writeString(var9);
+      var8++;
+    }
+    var4++;
+  }
+}
+writeVarInt(c.size());
+Object var2 = this.c.iterator();
+while(var2.hasNext()) {
+  Object var3 = ((mq)var2.next());
+  writePosition(var3);
+}
+writeVarInt(d.size());
+Object var2 = this.d.entrySet().iterator();
+while(var2.hasNext()) {
+  Object var3 = ((Map$Entry)var2.next());
+  writePosition((mq)var3.getKey());
+  writeVarInt((k)var3.getValue()).a.size();
+  Object var2 = ((k)var3.getValue()).a.entrySet().iterator();
+  while(var2.hasNext()) {
+    Object var3 = ((Map$Entry)var2.next());
+    writeString((String)var3.getKey());
+    writeBoolean((((o)var3.getValue()).c != null) ? 1 : 0);
+    if(((o)var3.getValue()).c != null) {
+      writePosition(((o)var3.getValue()).c);
+    }
+  }
+}
+</pre></div></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x48"><h3 id="packets:0x48">PLAY_CLIENTBOUND_48</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>72</dd></dl><pre>writeVarIntEnum(b);
+if(a instanceof pj) {
+  Object var4 = ((pj)this.a);
+  int var2 = var4.b();
+  Object var3 = var4.a().toString();
+} else {
+  int var2 = pk.a.a(this.a);
+  Object var3 = "";
+}
+writeVarInt(var2);
+writeString(var3);
+writeInt(c);
+writeInt(d);
+writeInt(e);
+writeFloat(f);
+writeFloat(g);
+</pre></div></div></div><div class="right"><div class="entry"><a href="#packets:0x48"><h3 id="packets:0x48">PLAY_CLIENTBOUND_48</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>72</dd></dl><pre>writeVarInt(po.a.a(a));
+writeVarIntEnum(b);
+writeInt(c);
+writeInt(d);
+writeInt(e);
+writeFloat(f);
+writeFloat(g);
+</pre></div></div></div></div><a href="#tile_entities"><h2 id="tile_entities">Tile entities</h2></a><span class="info">No entries</span><a href="#versions"><h2 id="versions">Versions</h2></a><div class="split"><div class="left"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>325</div></div></div><div class="right"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>326</div></div></div></div><a href="#stats"><h2 id="stats">Stats</h2></a><span class="info">No entries</span><a href="#achievements"><h2 id="achievements">Achievements</h2></a><span class="info">No entries</span><a href="#language"><h2 id="language">Language</h2></a><div class="split"><div class="left"><div class="entry"><a href="#language:advancements"><h3 id="language:advancements">advancements</h3></a><div><dl class="wide"><dt>end.levitate.description</dt><dd>Levitate for at least 30 seconds</dd><dt>adventure.breed_all_animals.title</dt><dd>-</dd><dt>adventure.tame_an_animal.description</dt><dd>-</dd><dt>adventure.breed_an_animal.title</dt><dd>-</dd><dt>adventure.breed_all_animals.description</dt><dd>-</dd><dt>adventure.tame_an_animal.title</dt><dd>-</dd><dt>adventure.breed_an_animal.description</dt><dd>-</dd></dl></div></div></div><div class="right"><div class="entry"><a href="#language:advancements"><h3 id="language:advancements">advancements</h3></a><div><dl class="wide"><dt>end.levitate.description</dt><dd>Levitate up 50 blocks from the attacks of a Shulker</dd><dt>adventure.breed_all_animals.title</dt><dd>Two by Two</dd><dt>adventure.tame_an_animal.description</dt><dd>Tame an animal</dd><dt>adventure.breed_an_animal.title</dt><dd>The Parrots and the Bats</dd><dt>adventure.breed_all_animals.description</dt><dd>Breed all the animals!</dd><dt>adventure.tame_an_animal.title</dt><dd>Best Friends Forever</dd><dt>adventure.breed_an_animal.description</dt><dd>Breed two animals together</dd></dl></div></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#language:chat"><h3 id="language:chat">chat</h3></a><div><dl class="wide"><dt>type.advancement.task</dt><dd>-</dd><dt>type.advancement.goal</dt><dd>-</dd><dt>type.advancement.challenge</dt><dd>-</dd></dl></div></div></div><div class="right"><div class="entry"><a href="#language:chat"><h3 id="language:chat">chat</h3></a><div><dl class="wide"><dt>type.advancement.task</dt><dd>%s has made the advancement %s</dd><dt>type.advancement.goal</dt><dd>%s has reached the goal %s</dd><dt>type.advancement.challenge</dt><dd>%s has completed the challenge %s</dd></dl></div></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#language:commands"><h3 id="language:commands">commands</h3></a><div><dl class="wide"><dt>reload.usage</dt><dd>-</dd><dt>reload.success</dt><dd>-</dd></dl></div></div></div><div class="right"><div class="entry"><a href="#language:commands"><h3 id="language:commands">commands</h3></a><div><dl class="wide"><dt>reload.usage</dt><dd>/reload</dd><dt>reload.success</dt><dd>Successfully reloaded loot tables and advancements</dd></dl></div></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#language:subtitles"><h3 id="language:subtitles">subtitles</h3></a><div><dl class="wide"><dt>entity.parrot.imitate.blaze</dt><dd>-</dd><dt>entity.imitates</dt><dd>%s imitates %s</dd><dt>entity.parrot.imitate.skeleton</dt><dd>-</dd><dt>entity.parrot.imitate.cave_spider</dt><dd>-</dd><dt>entity.parrot.imitate.endermite</dt><dd>-</dd><dt>entity.parrot.imitate.polar_bear</dt><dd>-</dd><dt>entity.parrot.imitate.evocation_illager</dt><dd>-</dd><dt>entity.parrot.imitate.wither_skeleton</dt><dd>-</dd><dt>entity.parrot.imitate.wolf</dt><dd>-</dd><dt>entity.parrot.imitate.silverfish</dt><dd>-</dd><dt>entity.parrot.imitate.witch</dt><dd>-</dd><dt>entity.parrot.imitate.creeper</dt><dd>-</dd><dt>entity.parrot.imitate.illusion_illager</dt><dd>-</dd><dt>entity.parrot.imitate.ghast</dt><dd>-</dd><dt>entity.parrot.imitate.shulker</dt><dd>-</dd><dt>entity.parrot.imitate.enderdragon</dt><dd>-</dd><dt>entity.parrot.imitate.enderman</dt><dd>-</dd><dt>entity.parrot.imitate.spider</dt><dd>-</dd><dt>entity.parrot.imitate.vindication_illager</dt><dd>-</dd><dt>entity.parrot.imitate.stray</dt><dd>-</dd><dt>entity.parrot.imitate.wither</dt><dd>-</dd><dt>entity.parrot.imitate.magmacube</dt><dd>-</dd><dt>entity.parrot.imitate.elder_guardian</dt><dd>-</dd><dt>entity.parrot.imitate.husk</dt><dd>-</dd><dt>entity.parrot.imitate.zombie</dt><dd>-</dd><dt>entity.parrot.imitate.vex</dt><dd>-</dd><dt>entity.parrot.imitate.slime</dt><dd>-</dd><dt>entity.parrot.imitate.zombie_pigman</dt><dd>-</dd><dt>entity.parrot.imitate.zombie_villager</dt><dd>-</dd></dl></div></div></div><div class="right"><div class="entry"><a href="#language:subtitles"><h3 id="language:subtitles">subtitles</h3></a><div><dl class="wide"><dt>entity.parrot.imitate.blaze</dt><dd>Parrot breathes</dd><dt>entity.imitates</dt><dd>-</dd><dt>entity.parrot.imitate.skeleton</dt><dd>Parrot rattles</dd><dt>entity.parrot.imitate.cave_spider</dt><dd>Parrot hisses</dd><dt>entity.parrot.imitate.endermite</dt><dd>Parrot scuttles</dd><dt>entity.parrot.imitate.polar_bear</dt><dd>Parrot groans</dd><dt>entity.parrot.imitate.evocation_illager</dt><dd>Parrot murmurs</dd><dt>entity.parrot.imitate.wither_skeleton</dt><dd>Parrot rattles</dd><dt>entity.parrot.imitate.wolf</dt><dd>Parrot pants</dd><dt>entity.parrot.imitate.silverfish</dt><dd>Parrot hisses</dd><dt>entity.parrot.imitate.witch</dt><dd>Parrot giggles</dd><dt>entity.parrot.imitate.creeper</dt><dd>Parrot hisses</dd><dt>entity.parrot.imitate.illusion_illager</dt><dd>Parrot murmurs</dd><dt>entity.parrot.imitate.ghast</dt><dd>Parrot cries</dd><dt>entity.parrot.imitate.shulker</dt><dd>Parrot lurks</dd><dt>entity.parrot.imitate.enderdragon</dt><dd>Parrot roars</dd><dt>entity.parrot.imitate.enderman</dt><dd>Parrot vwoops</dd><dt>entity.parrot.imitate.spider</dt><dd>Parrot hisses</dd><dt>entity.parrot.imitate.vindication_illager</dt><dd>Parrot mutters</dd><dt>entity.parrot.imitate.stray</dt><dd>Parrot rattles</dd><dt>entity.parrot.imitate.wither</dt><dd>Parrot angers</dd><dt>entity.parrot.imitate.magmacube</dt><dd>Parrot squishes</dd><dt>entity.parrot.imitate.elder_guardian</dt><dd>Parrot flaps</dd><dt>entity.parrot.imitate.husk</dt><dd>Parrot groans</dd><dt>entity.parrot.imitate.zombie</dt><dd>Parrot groans</dd><dt>entity.parrot.imitate.vex</dt><dd>Parrot vexes</dd><dt>entity.parrot.imitate.slime</dt><dd>Parrot squishes</dd><dt>entity.parrot.imitate.zombie_pigman</dt><dd>Parrot grunts</dd><dt>entity.parrot.imitate.zombie_villager</dt><dd>Parrot groans</dd></dl></div></div></div></div><a href="#biomes"><h2 id="biomes">Biomes</h2></a><span class="info">No entries</span>
+                    </div>
+                </body>
+              </html>
