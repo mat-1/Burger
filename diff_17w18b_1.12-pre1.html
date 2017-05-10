@@ -1,0 +1,177 @@
+<!doctype html>
+              <html>
+                <head>
+                  <title>Burger Vitrine</title>
+                  <link rel="stylesheet" href="resources/style.css" />
+                  <script src="resources/jquery.js"></script>
+                  <script src="resources/vitrine.js"></script>
+                </head>
+                <body>
+                    <div id="vitrine">
+                        <a href="#blocks"><h2 id="blocks">Blocks</h2></a><span class="info">No entries</span><a href="#items"><h2 id="items">Items</h2></a><span class="info">No entries</span><a href="#recipes"><h2 id="recipes">Recipes</h2></a><span class="info">No entries</span><a href="#entities"><h2 id="entities">Entities</h2></a><span class="info">No entries</span><a href="#objects"><h2 id="objects">Objects</h2></a><span class="info">No entries</span><a href="#packets"><h2 id="packets">Packets</h2></a><div class="split"><div class="left"><div class="entry"><a href="#packets:0x08"><h3 id="packets:0x08">PLAY_CLIENTBOUND_08</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>8</dd></dl><pre>writeBoolean(a);
+writeVarInt(b.size());
+Object var2 = this.b.entrySet().iterator();
+while(var2.hasNext()) {
+  Object var3 = ((Map$Entry)var2.next());
+  Object var4 = ((mt)var3.getKey());
+  Object var5 = ((i$a)var3.getValue());
+  writePosition(var4);
+  if(var5.a == null) {
+    writeBoolean(0);
+  } else {
+    writeBoolean(1);
+    writePosition(var5.a);
+  }
+  if(var5.c == null) {
+    writeBoolean(0);
+  } else {
+    writeBoolean(1);
+    writeChatComponent(var5.c.a);
+    writeChatComponent(var5.c.b);
+    writeItemStack(var5.c.c);
+    writeVarIntEnum(var5.c.e);
+    if(var5.c.d == null) {
+      writeBoolean(0);
+    } else {
+      writeBoolean(1);
+      writePosition(var5.c.d);
+    }
+    writeBoolean(var5.c.f);
+    writeFloat(var5.c.h);
+    writeFloat(var5.c.i);
+  }
+  writeVarInt(var5.e.size());
+  Object var2 = var5.e.entrySet().iterator();
+  while(var2.hasNext()) {
+    Object var3 = ((Map$Entry)var2.next());
+    writeString((String)var3.getKey());
+  }
+  writeVarInt(var5.f.length);
+  Object var2 = var5.f;
+  int var3 = var2.length;
+  int var4 = 0;
+  while(var4 &lt; var3) {
+    Object var5 = var2[var4];
+    writeVarInt(var5.length);
+    Object var6 = var5;
+    int var7 = var6.length;
+    int var8 = 0;
+    while(var8 &lt; var7) {
+      Object var9 = var6[var8];
+      writeString(var9);
+      var8++;
+    }
+    var4++;
+  }
+}
+writeVarInt(c.size());
+Object var2 = this.c.iterator();
+while(var2.hasNext()) {
+  Object var3 = ((mt)var2.next());
+  writePosition(var3);
+}
+writeVarInt(d.size());
+Object var2 = this.d.entrySet().iterator();
+while(var2.hasNext()) {
+  Object var3 = ((Map$Entry)var2.next());
+  writePosition((mt)var3.getKey());
+  writeVarInt((k)var3.getValue()).a.size();
+  Object var2 = ((k)var3.getValue()).a.entrySet().iterator();
+  while(var2.hasNext()) {
+    Object var3 = ((Map$Entry)var2.next());
+    writeString((String)var3.getKey());
+    writeBoolean((((o)var3.getValue()).c != null) ? 1 : 0);
+    if(((o)var3.getValue()).c != null) {
+      writePosition(((o)var3.getValue()).c);
+    }
+  }
+}
+</pre></div></div></div><div class="right"><div class="entry"><a href="#packets:0x08"><h3 id="packets:0x08">PLAY_CLIENTBOUND_08</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>8</dd></dl><pre>writeBoolean(a);
+writeVarInt(b.size());
+Object var2 = this.b.entrySet().iterator();
+while(var2.hasNext()) {
+  Object var3 = ((Map$Entry)var2.next());
+  Object var4 = ((na)var3.getKey());
+  Object var5 = ((i$a)var3.getValue());
+  writePosition(var4);
+  if(var5.a == null) {
+    writeBoolean(0);
+  } else {
+    writeBoolean(1);
+    writePosition(var5.a);
+  }
+  if(var5.c == null) {
+    writeBoolean(0);
+  } else {
+    writeBoolean(1);
+    writeChatComponent(var5.c.a);
+    writeChatComponent(var5.c.b);
+    writeItemStack(var5.c.c);
+    writeVarIntEnum(var5.c.e);
+    int var2 = 0;
+    if(var5.c.d != null) {
+      int var2 = (var2 | 1);
+    }
+    if(var5.c.f) {
+      int var2 = (var2 | 2);
+    }
+    if(var5.c.h) {
+      int var2 = (var2 | 4);
+    }
+    writeInt(var2);
+    if(var5.c.d != null) {
+      writePosition(var5.c.d);
+    }
+    writeFloat(var5.c.i);
+    writeFloat(var5.c.j);
+  }
+  writeVarInt(var5.e.size());
+  Object var2 = var5.e.entrySet().iterator();
+  while(var2.hasNext()) {
+    Object var3 = ((Map$Entry)var2.next());
+    writeString((String)var3.getKey());
+  }
+  writeVarInt(var5.f.length);
+  Object var2 = var5.f;
+  int var3 = var2.length;
+  int var4 = 0;
+  while(var4 &lt; var3) {
+    Object var5 = var2[var4];
+    writeVarInt(var5.length);
+    Object var6 = var5;
+    int var7 = var6.length;
+    int var8 = 0;
+    while(var8 &lt; var7) {
+      Object var9 = var6[var8];
+      writeString(var9);
+      var8++;
+    }
+    var4++;
+  }
+}
+writeVarInt(c.size());
+Object var2 = this.c.iterator();
+while(var2.hasNext()) {
+  Object var3 = ((na)var2.next());
+  writePosition(var3);
+}
+writeVarInt(d.size());
+Object var2 = this.d.entrySet().iterator();
+while(var2.hasNext()) {
+  Object var3 = ((Map$Entry)var2.next());
+  writePosition((na)var3.getKey());
+  writeVarInt((k)var3.getValue()).a.size();
+  Object var2 = ((k)var3.getValue()).a.entrySet().iterator();
+  while(var2.hasNext()) {
+    Object var3 = ((Map$Entry)var2.next());
+    writeString((String)var3.getKey());
+    writeBoolean((((o)var3.getValue()).c != null) ? 1 : 0);
+    if(((o)var3.getValue()).c != null) {
+      writePosition(((o)var3.getValue()).c);
+    }
+  }
+}
+</pre></div></div></div></div><a href="#tile_entities"><h2 id="tile_entities">Tile entities</h2></a><span class="info">No entries</span><a href="#versions"><h2 id="versions">Versions</h2></a><div class="split"><div class="left"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>327</div></div></div><div class="right"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>328</div></div></div></div><a href="#stats"><h2 id="stats">Stats</h2></a><span class="info">No entries</span><a href="#achievements"><h2 id="achievements">Achievements</h2></a><span class="info">No entries</span><a href="#language"><h2 id="language">Language</h2></a><div class="split"><div class="left"><div class="entry"><a href="#language:advancements"><h3 id="language:advancements">advancements</h3></a><div><dl class="wide"><dt>nether.all_potions.title</dt><dd>-</dd><dt>adventure.totem_of_undying.title</dt><dd>-</dd><dt>adventure.totem_of_undying.description</dt><dd>-</dd><dt>nether.uneasy_alliance.description</dt><dd>-</dd><dt>nether.fast_travel.description</dt><dd>-</dd><dt>nether.fast_travel.title</dt><dd>-</dd><dt>nether.uneasy_alliance.title</dt><dd>-</dd><dt>nether.all_potions.description</dt><dd>-</dd></dl></div></div></div><div class="right"><div class="entry"><a href="#language:advancements"><h3 id="language:advancements">advancements</h3></a><div><dl class="wide"><dt>nether.all_potions.title</dt><dd>A Furious Cocktail</dd><dt>adventure.totem_of_undying.title</dt><dd>Postmortal</dd><dt>adventure.totem_of_undying.description</dt><dd>Use a Totem of Undying to cheat death</dd><dt>nether.uneasy_alliance.description</dt><dd>Rescue a Ghast from the Nether, bring it safely home to the Overworld... and then kill it.</dd><dt>nether.fast_travel.description</dt><dd>Use the Nether to travel 7km in the Overworld</dd><dt>nether.fast_travel.title</dt><dd>Subspace Bubble</dd><dt>nether.uneasy_alliance.title</dt><dd>Uneasy Alliance</dd><dt>nether.all_potions.description</dt><dd>Have every potion effect applied at the same time</dd></dl></div></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#language:commands"><h3 id="language:commands">commands</h3></a><div><dl class="wide"><dt>function.unknown</dt><dd>-</dd><dt>function.usage</dt><dd>-</dd><dt>function.success</dt><dd>-</dd></dl></div></div></div><div class="right"><div class="entry"><a href="#language:commands"><h3 id="language:commands">commands</h3></a><div><dl class="wide"><dt>function.unknown</dt><dd>Unknown function '%s'</dd><dt>function.usage</dt><dd>/function &lt;name&gt;</dd><dt>function.success</dt><dd>Executed %2$s commands from function '%1$s'</dd></dl></div></div></div></div><a href="#biomes"><h2 id="biomes">Biomes</h2></a><span class="info">No entries</span>
+                    </div>
+                </body>
+              </html>
