@@ -1,0 +1,139 @@
+{
+    "achievements": {}, 
+    "biomes": {
+        "biome": {}
+    }, 
+    "blocks": {
+        "block": {}
+    }, 
+    "entities": {
+        "entity": {}, 
+        "object": {}
+    }, 
+    "items": {
+        "item": {}
+    }, 
+    "language": {
+        "advMode": {
+            "self": [
+                "Use \"@s\" to target yourself", 
+                "Use \"@s\" to target a player in /execute"
+            ]
+        }, 
+        "chat": {
+            "type.text.narrate": [
+                null, 
+                "%s says %s"
+            ]
+        }, 
+        "commands": {
+            "function.success": [
+                "Executed %2$s commands from function '%1$s'", 
+                "Executed %2$s command(s) from function '%1$s'"
+            ], 
+            "reload.success": [
+                "Successfully reloaded loot tables and advancements", 
+                "Successfully reloaded loot tables, advancements and functions"
+            ]
+        }, 
+        "container": {
+            "enchant.level.requirement": [
+                null, 
+                "Level requirement: %s"
+            ]
+        }, 
+        "key": {
+            "advancements": [
+                null, 
+                "Advancements"
+            ]
+        }, 
+        "stat": {
+            "playOneMinute": [
+                "Minutes Played", 
+                "Time Played"
+            ]
+        }
+    }, 
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_4E": [
+                null, 
+                {
+                    "class": "jx.class", 
+                    "direction": "CLIENTBOUND", 
+                    "from_client": false, 
+                    "from_server": true, 
+                    "id": 78, 
+                    "instructions": [
+                        {
+                            "field": "(a != null) ? 1 : 0", 
+                            "operation": "write", 
+                            "type": "boolean"
+                        }, 
+                        {
+                            "condition": "a != null", 
+                            "instructions": [
+                                {
+                                    "field": "a", 
+                                    "operation": "write", 
+                                    "type": "position"
+                                }
+                            ], 
+                            "operation": "if"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }
+            ], 
+            "PLAY_SERVERBOUND_20": [
+                null, 
+                {
+                    "class": "lt.class", 
+                    "direction": "SERVERBOUND", 
+                    "from_client": true, 
+                    "from_server": false, 
+                    "id": 32, 
+                    "instructions": [
+                        {
+                            "field": "a", 
+                            "operation": "write", 
+                            "type": "enum"
+                        }, 
+                        {
+                            "condition": "a == lt$a.a", 
+                            "instructions": [
+                                {
+                                    "field": "b", 
+                                    "operation": "write", 
+                                    "type": "position"
+                                }
+                            ], 
+                            "operation": "if"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }
+            ]
+        }
+    }, 
+    "stats": {
+        "playOneMinute": [
+            {
+                "desc": "Minutes Played"
+            }, 
+            {
+                "desc": "Time Played"
+            }
+        ]
+    }, 
+    "tileentity": {
+        "tileentities": {}
+    }, 
+    "version": {
+        "protocol": [
+            329, 
+            330
+        ]
+    }
+}
