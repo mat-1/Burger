@@ -1,0 +1,721 @@
+{
+    "achievements": {}, 
+    "biomes": {
+        "biome": {}
+    }, 
+    "blocks": {
+        "block": {}
+    }, 
+    "entities": {
+        "entity": {}, 
+        "object": {}
+    }, 
+    "items": {
+        "item": {}
+    }, 
+    "language": {
+        "advMode": {
+            "self": [
+                "Use \"@s\" to target a player in /execute", 
+                "Use \"@s\" to target the executing entity"
+            ]
+        }, 
+        "commands": {
+            "recipe.unsupported": [
+                null, 
+                "%s is an unsupported recipe"
+            ], 
+            "setidletimeout.usage": [
+                "/setidletimeout <Minutes until kick>", 
+                "/setidletimeout <minutes>"
+            ], 
+            "spreadplayers.failure.players": [
+                "Could not spread %s player(s) around %s,%s (too many players for space - try using spread of at most %s)", 
+                "Could not spread %s player(s) around %s, %s (too many players for space - try using spread of at most %s)"
+            ], 
+            "spreadplayers.failure.teams": [
+                "Could not spread %s team(s) around %s,%s (too many players for space - try using spread of at most %s)", 
+                "Could not spread %s team(s) around %s, %s (too many players for space - try using spread of at most %s)"
+            ], 
+            "spreadplayers.spreading.players": [
+                "Spreading %s player(s) %s blocks around %s,%s (min %s blocks apart)", 
+                "Spreading %s player(s) %s blocks around %s, %s (min %s blocks apart)"
+            ], 
+            "spreadplayers.spreading.teams": [
+                "Spreading %s team(s) %s blocks around %s,%s (min %s blocks apart)", 
+                "Spreading %s team(s) %s blocks around %s, %s (min %s blocks apart)"
+            ], 
+            "spreadplayers.success.players": [
+                "Successfully spread %s player(s) around %s,%s", 
+                "Successfully spread %s player(s) around %s, %s"
+            ], 
+            "spreadplayers.success.teams": [
+                "Successfully spread %s team(s) around %s,%s", 
+                "Successfully spread %s team(s) around %s, %s"
+            ], 
+            "worldborder.center.success": [
+                "Set world border center to %s,%s", 
+                "Set world border center to %s, %s"
+            ]
+        }, 
+        "debug": {
+            "prefix": [
+                null, 
+                "[Debug]:"
+            ]
+        }, 
+        "demo": {
+            "help.inventory": [
+                "Use %1$s to open your inventory", 
+                "Use the %1$s key to open your inventory"
+            ], 
+            "help.jump": [
+                "Jump by pressing %1$s", 
+                "Jump by pressing the %1$s key"
+            ], 
+            "help.movement": [
+                "Use %1$s, %2$s, %3$s, %4$s and the mouse to move around", 
+                "Use the %1$s, %2$s, %3$s, %4$s keys and the mouse to move around"
+            ], 
+            "help.movementShort": [
+                "Move by pressing %1$s, %2$s, %3$s, %4$s", 
+                "Move by pressing the %1$s, %2$s, %3$s, %4$s keys"
+            ]
+        }, 
+        "disconnect": {
+            "loginFailedInfo.invalidSession": [
+                "Invalid session (Try restarting your game)", 
+                "Invalid session (Try restarting your game and the launcher)"
+            ]
+        }, 
+        "filled_map": {
+            "level": [
+                null, 
+                "(Level %s/%s)"
+            ], 
+            "scale": [
+                null, 
+                "Scaling at 1:%s"
+            ], 
+            "unknown": [
+                null, 
+                "Unknown Map"
+            ]
+        }, 
+        "gui": {
+            "hold.moreRecipes": [
+                "Click and hold for more", 
+                null
+            ], 
+            "recipebook.moreRecipes": [
+                null, 
+                "Right Click for more"
+            ], 
+            "recipebook.toggleRecipes.all": [
+                null, 
+                "Showing all"
+            ], 
+            "recipebook.toggleRecipes.craftable": [
+                null, 
+                "Showing craftable"
+            ], 
+            "toggleRecipes.all": [
+                "Showing all", 
+                null
+            ], 
+            "toggleRecipes.craftable": [
+                "Showing craftable", 
+                null
+            ]
+        }, 
+        "item": {
+            "banner.stripe_bottom.black": [
+                "Black Base Fess", 
+                "Black Base"
+            ], 
+            "banner.stripe_bottom.blue": [
+                "Blue Base Fess", 
+                "Blue Base"
+            ], 
+            "banner.stripe_bottom.brown": [
+                "Brown Base Fess", 
+                "Brown Base"
+            ], 
+            "banner.stripe_bottom.cyan": [
+                "Cyan Base Fess", 
+                "Cyan Base"
+            ], 
+            "banner.stripe_bottom.gray": [
+                "Gray Base Fess", 
+                "Gray Base"
+            ], 
+            "banner.stripe_bottom.green": [
+                "Green Base Fess", 
+                "Green Base"
+            ], 
+            "banner.stripe_bottom.lightBlue": [
+                "Light Blue Base Fess", 
+                "Light Blue Base"
+            ], 
+            "banner.stripe_bottom.lime": [
+                "Lime Base Fess", 
+                "Lime Base"
+            ], 
+            "banner.stripe_bottom.magenta": [
+                "Magenta Base Fess", 
+                "Magenta Base"
+            ], 
+            "banner.stripe_bottom.orange": [
+                "Orange Base Fess", 
+                "Orange Base"
+            ], 
+            "banner.stripe_bottom.pink": [
+                "Pink Base Fess", 
+                "Pink Base"
+            ], 
+            "banner.stripe_bottom.purple": [
+                "Purple Base Fess", 
+                "Purple Base"
+            ], 
+            "banner.stripe_bottom.red": [
+                "Red Base Fess", 
+                "Red Base"
+            ], 
+            "banner.stripe_bottom.silver": [
+                "Light Gray Base Fess", 
+                "Light Gray Base"
+            ], 
+            "banner.stripe_bottom.white": [
+                "White Base Fess", 
+                "White Base"
+            ], 
+            "banner.stripe_bottom.yellow": [
+                "Yellow Base Fess", 
+                "Yellow Base"
+            ], 
+            "banner.stripe_top.black": [
+                "Black Chief Fess", 
+                "Black Chief"
+            ], 
+            "banner.stripe_top.blue": [
+                "Blue Chief Fess", 
+                "Blue Chief"
+            ], 
+            "banner.stripe_top.brown": [
+                "Brown Chief Fess", 
+                "Brown Chief"
+            ], 
+            "banner.stripe_top.cyan": [
+                "Cyan Chief Fess", 
+                "Cyan Chief"
+            ], 
+            "banner.stripe_top.gray": [
+                "Gray Chief Fess", 
+                "Gray Chief"
+            ], 
+            "banner.stripe_top.green": [
+                "Green Chief Fess", 
+                "Green Chief"
+            ], 
+            "banner.stripe_top.lightBlue": [
+                "Light Blue Chief Fess", 
+                "Light Blue Chief"
+            ], 
+            "banner.stripe_top.lime": [
+                "Lime Chief Fess", 
+                "Lime Chief"
+            ], 
+            "banner.stripe_top.magenta": [
+                "Magenta Chief Fess", 
+                "Magenta Chief"
+            ], 
+            "banner.stripe_top.orange": [
+                "Orange Chief Fess", 
+                "Orange Chief"
+            ], 
+            "banner.stripe_top.pink": [
+                "Pink Chief Fess", 
+                "Pink Chief"
+            ], 
+            "banner.stripe_top.purple": [
+                "Purple Chief Fess", 
+                "Purple Chief"
+            ], 
+            "banner.stripe_top.red": [
+                "Red Chief Fess", 
+                "Red Chief"
+            ], 
+            "banner.stripe_top.silver": [
+                "Light Gray Chief Fess", 
+                "Light Gray Chief"
+            ], 
+            "banner.stripe_top.white": [
+                "White Chief Fess", 
+                "White Chief"
+            ], 
+            "banner.stripe_top.yellow": [
+                "Yellow Chief Fess", 
+                "Yellow Chief"
+            ]
+        }, 
+        "multiplayer": {
+            "disconnect.authservers_down": [
+                null, 
+                "Authentication servers are down. Please try again later, sorry!"
+            ], 
+            "disconnect.banned": [
+                null, 
+                "You are banned from this server."
+            ], 
+            "disconnect.duplicate_login": [
+                null, 
+                "You logged in from another location"
+            ], 
+            "disconnect.flying": [
+                null, 
+                "Flying is not enabled on this server"
+            ], 
+            "disconnect.generic": [
+                null, 
+                "Disconnected"
+            ], 
+            "disconnect.idling": [
+                null, 
+                "You have been idle for too long!"
+            ], 
+            "disconnect.illegal_characters": [
+                null, 
+                "Illegal characters in chat"
+            ], 
+            "disconnect.invalid_entity_attacked": [
+                null, 
+                "Attempting to attack an invalid entity"
+            ], 
+            "disconnect.invalid_player_movement": [
+                null, 
+                "Invalid move player packet received"
+            ], 
+            "disconnect.invalid_vehicle_movement": [
+                null, 
+                "Invalid move vehicle packet received"
+            ], 
+            "disconnect.ip_banned": [
+                null, 
+                "You have been IP banned."
+            ], 
+            "disconnect.kicked": [
+                null, 
+                "Kicked by an operator."
+            ], 
+            "disconnect.outdated_client": [
+                null, 
+                "Outdated client! Please use %s"
+            ], 
+            "disconnect.outdated_server": [
+                null, 
+                "Outdated server! I'm still on %s"
+            ], 
+            "disconnect.server_shutdown": [
+                null, 
+                "Server closed"
+            ], 
+            "disconnect.slow_login": [
+                null, 
+                "Took too long to log in"
+            ], 
+            "disconnect.unverified_username": [
+                null, 
+                "Failed to verify username!"
+            ], 
+            "status.and_more": [
+                null, 
+                "... and %s more ..."
+            ], 
+            "status.cancelled": [
+                null, 
+                "Cancelled"
+            ], 
+            "status.cannot_connect": [
+                null, 
+                "Can't connect to server"
+            ], 
+            "status.cannot_resolve": [
+                null, 
+                "Can't resolve hostname"
+            ], 
+            "status.client_out_of_date": [
+                null, 
+                "Client out of date!"
+            ], 
+            "status.no_connection": [
+                null, 
+                "(no connection)"
+            ], 
+            "status.old": [
+                null, 
+                "Old"
+            ], 
+            "status.pinging": [
+                null, 
+                "Pinging..."
+            ], 
+            "status.server_out_of_date": [
+                null, 
+                "Server out of date!"
+            ], 
+            "status.unknown": [
+                null, 
+                "???"
+            ], 
+            "status.unrequested": [
+                null, 
+                "Received unrequested status"
+            ]
+        }, 
+        "options": {
+            "clouds.fancy": [
+                null, 
+                "Fancy"
+            ], 
+            "clouds.fast": [
+                null, 
+                "Fast"
+            ], 
+            "farWarning1": [
+                "A 64 bit Java installation is recommended", 
+                null
+            ], 
+            "farWarning2": [
+                "for 'Far' render distance (you have 32 bit)", 
+                null
+            ], 
+            "postButton": [
+                "Post-Processing Settings...", 
+                null
+            ], 
+            "postProcessEnable": [
+                "Enable Post-Processing", 
+                null
+            ], 
+            "postVideoTitle": [
+                "Post-Processing Settings", 
+                null
+            ]
+        }, 
+        "selectWorld": {
+            "versionJoinButton": [
+                "Use anyway", 
+                "Use Anyway"
+            ]
+        }, 
+        "structure_block": {
+            "mode.corner": [
+                "[C]", 
+                "Corner"
+            ], 
+            "mode.data": [
+                "[D]", 
+                "Data"
+            ], 
+            "mode.load": [
+                "[L]", 
+                "Load"
+            ], 
+            "mode.save": [
+                "[S]", 
+                "Save"
+            ]
+        }, 
+        "title": {
+            "oldjava1": [
+                "Old java detected; this will prevent you from playing", 
+                null
+            ], 
+            "oldjava2": [
+                "in the future as Java 8 will be required.", 
+                null
+            ]
+        }
+    }, 
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_30": [
+                {
+                    "class": "jr.class", 
+                    "direction": "CLIENTBOUND", 
+                    "from_client": false, 
+                    "from_server": true, 
+                    "id": 48, 
+                    "instructions": [
+                        {
+                            "field": "a", 
+                            "operation": "write", 
+                            "type": "short"
+                        }, 
+                        {
+                            "field": "d", 
+                            "operation": "write", 
+                            "type": "boolean"
+                        }, 
+                        {
+                            "field": "e", 
+                            "operation": "write", 
+                            "type": "boolean"
+                        }, 
+                        {
+                            "field": "b.size()", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.b.iterator()", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "var2.hasNext()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((akq)var2.next())", 
+                                    "var": "var3"
+                                }, 
+                                {
+                                    "field": "static.a(var3)", 
+                                    "operation": "write", 
+                                    "type": "int"
+                                }
+                            ], 
+                            "operation": "loop"
+                        }, 
+                        {
+                            "field": "c.size()", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.c.iterator()", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "var2.hasNext()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((akq)var2.next())", 
+                                    "var": "var3"
+                                }, 
+                                {
+                                    "field": "static.a(var3)", 
+                                    "operation": "write", 
+                                    "type": "int"
+                                }
+                            ], 
+                            "operation": "loop"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }, 
+                {
+                    "class": "jr.class", 
+                    "direction": "CLIENTBOUND", 
+                    "from_client": false, 
+                    "from_server": true, 
+                    "id": 48, 
+                    "instructions": [
+                        {
+                            "field": "a", 
+                            "operation": "write", 
+                            "type": "enum"
+                        }, 
+                        {
+                            "field": "d", 
+                            "operation": "write", 
+                            "type": "boolean"
+                        }, 
+                        {
+                            "field": "e", 
+                            "operation": "write", 
+                            "type": "boolean"
+                        }, 
+                        {
+                            "field": "b.size()", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.b.iterator()", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "var2.hasNext()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((akr)var2.next())", 
+                                    "var": "var3"
+                                }, 
+                                {
+                                    "field": "static.a(var3)", 
+                                    "operation": "write", 
+                                    "type": "varint"
+                                }
+                            ], 
+                            "operation": "loop"
+                        }, 
+                        {
+                            "condition": "a == jr$a.a", 
+                            "instructions": [
+                                {
+                                    "field": "c.size()", 
+                                    "operation": "write", 
+                                    "type": "varint"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "this.c.iterator()", 
+                                    "var": "var2"
+                                }, 
+                                {
+                                    "condition": "var2.hasNext()", 
+                                    "instructions": [
+                                        {
+                                            "operation": "store", 
+                                            "type": "Object", 
+                                            "value": "((akr)var2.next())", 
+                                            "var": "var3"
+                                        }, 
+                                        {
+                                            "field": "static.a(var3)", 
+                                            "operation": "write", 
+                                            "type": "varint"
+                                        }
+                                    ], 
+                                    "operation": "loop"
+                                }
+                            ], 
+                            "operation": "if"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }
+            ], 
+            "PLAY_SERVERBOUND_17": [
+                {
+                    "class": "lr.class", 
+                    "direction": "SERVERBOUND", 
+                    "from_client": true, 
+                    "from_server": false, 
+                    "id": 23, 
+                    "instructions": [
+                        {
+                            "field": "c", 
+                            "operation": "write", 
+                            "type": "int"
+                        }, 
+                        {
+                            "condition": "c == lr.a", 
+                            "instructions": [
+                                {
+                                    "field": "static.a(d)", 
+                                    "operation": "write", 
+                                    "type": "int"
+                                }
+                            ], 
+                            "operation": "if"
+                        }, 
+                        {
+                            "instructions": [
+                                {
+                                    "condition": "c == lr.b", 
+                                    "instructions": [
+                                        {
+                                            "field": "e", 
+                                            "operation": "write", 
+                                            "type": "boolean"
+                                        }, 
+                                        {
+                                            "field": "f", 
+                                            "operation": "write", 
+                                            "type": "boolean"
+                                        }
+                                    ], 
+                                    "operation": "if"
+                                }
+                            ], 
+                            "operation": "else"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }, 
+                {
+                    "class": "lr.class", 
+                    "direction": "SERVERBOUND", 
+                    "from_client": true, 
+                    "from_server": false, 
+                    "id": 23, 
+                    "instructions": [
+                        {
+                            "field": "a", 
+                            "operation": "write", 
+                            "type": "enum"
+                        }, 
+                        {
+                            "condition": "a == lr$a.a", 
+                            "instructions": [
+                                {
+                                    "field": "static.a(b)", 
+                                    "operation": "write", 
+                                    "type": "int"
+                                }
+                            ], 
+                            "operation": "if"
+                        }, 
+                        {
+                            "instructions": [
+                                {
+                                    "condition": "a == lr$a.b", 
+                                    "instructions": [
+                                        {
+                                            "field": "c", 
+                                            "operation": "write", 
+                                            "type": "boolean"
+                                        }, 
+                                        {
+                                            "field": "d", 
+                                            "operation": "write", 
+                                            "type": "boolean"
+                                        }
+                                    ], 
+                                    "operation": "if"
+                                }
+                            ], 
+                            "operation": "else"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }
+            ]
+        }
+    }, 
+    "recipes": {}, 
+    "stats": {}, 
+    "tileentity": {
+        "tileentities": {}
+    }, 
+    "version": {
+        "protocol": [
+            332, 
+            null
+        ]
+    }
+}
