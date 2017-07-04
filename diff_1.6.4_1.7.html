@@ -1,0 +1,1061 @@
+<!doctype html>
+              <html>
+                <head>
+                  <title>Burger Vitrine</title>
+                  <link rel="stylesheet" href="resources/style.css" />
+                  <script src="resources/jquery.js"></script>
+                  <script src="resources/vitrine.js"></script>
+                </head>
+                <body>
+                    <div id="vitrine">
+                        <a href="#packets"><h2 id="packets">Packets</h2></a><div class="split"><div class="left"><div class="entry"><a href="#packets:0x00"><h3 id="packets:0x00">0</h3></a><div><dl><dt>Direction</dt><dd>Both</dd><dt>ID</dt><dd>0</dd><dt>Size</dt><dd>4</dd></dl><pre>writeInt(a);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x01"><h3 id="packets:0x01">1</h3></a><div><dl><dt>Direction</dt><dd>Both</dd><dt>ID</dt><dd>1</dd></dl><pre>writeInt(a);
+writeString((b == null) ? "" : b.a());
+writeByte(var2);
+writeByte(e);
+writeByte(f);
+writeByte(g);
+writeByte(h);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x0a"><h3 id="packets:0x0a">10</h3></a><div><dl><dt>Direction</dt><dd>Both</dd><dt>ID</dt><dd>10</dd><dt>Size</dt><dd>1</dd></dl><pre>writeByte((g) ? 1 : 0);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x64"><h3 id="packets:0x64">100</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>100</dd></dl><pre>writeByte(a &amp; 255);
+writeByte(b &amp; 255);
+writeString(c);
+writeByte(d &amp; 255);
+writeBoolean(e);
+if(b == 0xb) {
+  writeInt(f);
+}
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x65"><h3 id="packets:0x65">101</h3></a><div><dl><dt>Direction</dt><dd>Both</dd><dt>ID</dt><dd>101</dd><dt>Size</dt><dd>1</dd></dl><pre>writeByte(a);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x66"><h3 id="packets:0x66">102</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>102</dd></dl><pre>writeByte(a);
+writeShort(b);
+writeByte(c);
+writeShort(d);
+writeByte(f);
+if(e == null) {
+  writeShort(-1);
+} else {
+  writeShort(e.d);
+  writeByte(e.b);
+  writeShort(e.k());
+  if(var2 == null) {
+    writeShort(-1);
+  } else {
+    writeShort((short)var2.length);
+    writeBytes(var2);
+  }
+}
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x67"><h3 id="packets:0x67">103</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>103</dd></dl><pre>writeByte(a);
+writeShort(b);
+if(c == null) {
+  writeShort(-1);
+} else {
+  writeShort(c.d);
+  writeByte(c.b);
+  writeShort(c.k());
+  if(var2 == null) {
+    writeShort(-1);
+  } else {
+    writeShort((short)var2.length);
+    writeBytes(var2);
+  }
+}
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x68"><h3 id="packets:0x68">104</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>104</dd></dl><pre>writeByte(a);
+writeShort(b.length);
+while(var2 &lt; b.length) {
+  if(b[var2] == null) {
+    writeShort(-1);
+  } else {
+    writeShort(b[var2].d);
+    writeByte(b[var2].b);
+    writeShort(b[var2].k());
+    if(var2 == null) {
+      writeShort(-1);
+    } else {
+      writeShort((short)var2.length);
+      writeBytes(var2);
+    }
+  }
+  var2++;
+}
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x69"><h3 id="packets:0x69">105</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>105</dd><dt>Size</dt><dd>5</dd></dl><pre>writeByte(a);
+writeShort(b);
+writeShort(c);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x6a"><h3 id="packets:0x6a">106</h3></a><div><dl><dt>Direction</dt><dd>Both</dd><dt>ID</dt><dd>106</dd><dt>Size</dt><dd>4</dd></dl><pre>writeByte(a);
+writeShort(b);
+writeByte((c) ? 1 : 0);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x6b"><h3 id="packets:0x6b">107</h3></a><div><dl><dt>Direction</dt><dd>Both</dd><dt>ID</dt><dd>107</dd></dl><pre>writeShort(a);
+if(b == null) {
+  writeShort(-1);
+} else {
+  writeShort(b.d);
+  writeByte(b.b);
+  writeShort(b.k());
+  if(var2 == null) {
+    writeShort(-1);
+  } else {
+    writeShort((short)var2.length);
+    writeBytes(var2);
+  }
+}
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x6c"><h3 id="packets:0x6c">108</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>108</dd><dt>Size</dt><dd>2</dd></dl><pre>writeByte(a);
+writeByte(b);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x0b"><h3 id="packets:0x0b">11</h3></a><div><dl><dt>Direction</dt><dd>Both</dd><dt>ID</dt><dd>11</dd><dt>Size</dt><dd>33</dd></dl><pre>writeDouble(a);
+writeDouble(b);
+writeDouble(d);
+writeDouble(c);
+writeByte((g) ? 1 : 0);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x0c"><h3 id="packets:0x0c">12</h3></a><div><dl><dt>Direction</dt><dd>Both</dd><dt>ID</dt><dd>12</dd><dt>Size</dt><dd>9</dd></dl><pre>writeFloat(e);
+writeFloat(f);
+writeByte((g) ? 1 : 0);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x0d"><h3 id="packets:0x0d">13</h3></a><div><dl><dt>Direction</dt><dd>Both</dd><dt>ID</dt><dd>13</dd><dt>Size</dt><dd>41</dd></dl><pre>writeDouble(a);
+writeDouble(b);
+writeDouble(d);
+writeDouble(c);
+writeFloat(e);
+writeFloat(f);
+writeByte((g) ? 1 : 0);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x82"><h3 id="packets:0x82">130</h3></a><div><dl><dt>Direction</dt><dd>Both</dd><dt>ID</dt><dd>130</dd></dl><pre>writeInt(a);
+writeShort(b);
+writeInt(c);
+while(var2 &lt; 4) {
+  writeString(d[var2]);
+  var2++;
+}
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x83"><h3 id="packets:0x83">131</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>131</dd></dl><pre>writeShort(a);
+writeShort(b);
+writeShort(c.length);
+writeBytes(c);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x84"><h3 id="packets:0x84">132</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>132</dd></dl><pre>writeInt(a);
+writeShort(b);
+writeInt(c);
+writeByte((byte)d);
+if(e == null) {
+  writeShort(-1);
+} else {
+  writeShort((short)var2.length);
+  writeBytes(var2);
+}
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x85"><h3 id="packets:0x85">133</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>133</dd><dt>Size</dt><dd>13</dd></dl><pre>writeByte(a);
+writeInt(b);
+writeInt(c);
+writeInt(d);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x0e"><h3 id="packets:0x0e">14</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>14</dd><dt>Size</dt><dd>11</dd></dl><pre>writeByte(e);
+writeInt(a);
+writeByte(b);
+writeInt(c);
+writeByte(d);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x0f"><h3 id="packets:0x0f">15</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>15</dd></dl><pre>writeInt(a);
+writeByte(b);
+writeInt(c);
+writeByte(d);
+if(e == null) {
+  writeShort(-1);
+} else {
+  writeShort(e.d);
+  writeByte(e.b);
+  writeShort(e.k());
+  if(var2 == null) {
+    writeShort(-1);
+  } else {
+    writeShort((short)var2.length);
+    writeBytes(var2);
+  }
+}
+writeByte((int)(f * 16.0));
+writeByte((int)(g * 16.0));
+writeByte((int)(h * 16.0));
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x10"><h3 id="packets:0x10">16</h3></a><div><dl><dt>Direction</dt><dd>Both</dd><dt>ID</dt><dd>16</dd><dt>Size</dt><dd>2</dd></dl><pre>writeShort(a);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x11"><h3 id="packets:0x11">17</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>17</dd><dt>Size</dt><dd>14</dd></dl><pre>writeInt(a);
+writeByte(e);
+writeInt(b);
+writeByte(c);
+writeInt(d);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x12"><h3 id="packets:0x12">18</h3></a><div><dl><dt>Direction</dt><dd>Both</dd><dt>ID</dt><dd>18</dd><dt>Size</dt><dd>5</dd></dl><pre>writeInt(a);
+writeByte(b);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x13"><h3 id="packets:0x13">19</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>19</dd><dt>Size</dt><dd>9</dd></dl><pre>writeInt(a);
+writeByte(b);
+writeInt(c);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x02"><h3 id="packets:0x02">2</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>2</dd></dl><pre>writeByte(a);
+writeString(b);
+writeString(c);
+writeInt(d);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x14"><h3 id="packets:0x14">20</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>20</dd></dl><pre>writeInt(a);
+writeString(b);
+writeInt(c);
+writeInt(d);
+writeInt(e);
+writeByte(f);
+writeByte(g);
+writeShort(h);
+while(var2.hasNext()) {
+  writeByte(var2);
+  switch(var3.c()) {
+    case 0:
+      writeByte((Byte)var3.b()).byteValue();
+      break;
+    case 1:
+      writeShort((Short)var3.b()).shortValue();
+      break;
+    case 2:
+      writeInt((Integer)var3.b()).intValue();
+      break;
+    case 3:
+      writeFloat((Float)var3.b()).floatValue();
+      break;
+    case 4:
+      writeString((String)var3.b());
+      break;
+    case 5:
+      if(var3 == null) {
+        writeShort(-1);
+      } else {
+        writeShort(var3.d);
+        writeByte(var3.b);
+        writeShort(var3.k());
+        if(var2 == null) {
+          writeShort(-1);
+        } else {
+          writeShort((short)var2.length);
+          writeBytes(var2);
+        }
+      }
+      break;
+    case 6:
+      writeInt(var3.a);
+      writeInt(var3.b);
+      writeInt(var3.c);
+  }
+}
+writeByte(0x7f);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0xc8"><h3 id="packets:0xc8">200</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>200</dd><dt>Size</dt><dd>8</dd></dl><pre>writeInt(a);
+writeInt(b);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0xc9"><h3 id="packets:0xc9">201</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>201</dd></dl><pre>writeString(a);
+writeByte((b) ? 1 : 0);
+writeShort(c);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0xca"><h3 id="packets:0xca">202</h3></a><div><dl><dt>Direction</dt><dd>Both</dd><dt>ID</dt><dd>202</dd><dt>Size</dt><dd>9</dd></dl><pre>writeByte(var2);
+writeFloat(e);
+writeFloat(f);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0xcb"><h3 id="packets:0xcb">203</h3></a><div><dl><dt>Direction</dt><dd>Both</dd><dt>ID</dt><dd>203</dd></dl><pre>writeString(static.substring(a, 0, 32767));
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0xcc"><h3 id="packets:0xcc">204</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>204</dd></dl><pre>writeString(a);
+writeByte(b);
+writeByte(c);
+writeByte(e);
+writeBoolean(f);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0xcd"><h3 id="packets:0xcd">205</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>205</dd><dt>Size</dt><dd>1</dd></dl><pre>writeByte(a &amp; 255);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0xce"><h3 id="packets:0xce">206</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>206</dd></dl><pre>writeString(a);
+writeString(b);
+writeByte(c);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0xcf"><h3 id="packets:0xcf">207</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>207</dd></dl><pre>writeString(a);
+writeByte(d);
+if(d != 1) {
+  writeString(b);
+  writeInt(c);
+}
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0xd0"><h3 id="packets:0xd0">208</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>208</dd></dl><pre>writeByte(a);
+writeString(b);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0xd1"><h3 id="packets:0xd1">209</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>209</dd></dl><pre>writeString(a);
+writeByte(f);
+if(f) {
+  writeString(b);
+  writeString(c);
+  writeString(d);
+  writeByte(g);
+}
+if(f) {
+  writeShort(e.size());
+  while(var2.hasNext()) {
+    writeString(var3);
+  }
+}
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x16"><h3 id="packets:0x16">22</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>22</dd><dt>Size</dt><dd>8</dd></dl><pre>writeInt(a);
+writeInt(b);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x17"><h3 id="packets:0x17">23</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>23</dd></dl><pre>writeInt(a);
+writeByte(j);
+writeInt(b);
+writeInt(c);
+writeInt(d);
+writeByte(h);
+writeByte(i);
+writeInt(k);
+if(k &gt; 0) {
+  writeShort(e);
+  writeShort(f);
+  writeShort(g);
+}
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x18"><h3 id="packets:0x18">24</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>24</dd></dl><pre>writeInt(a);
+writeByte(b &amp; 255);
+writeInt(c);
+writeInt(d);
+writeInt(e);
+writeByte(i);
+writeByte(j);
+writeByte(k);
+writeShort(f);
+writeShort(g);
+writeShort(h);
+while(var2.hasNext()) {
+  writeByte(var2);
+  switch(var3.c()) {
+    case 0:
+      writeByte((Byte)var3.b()).byteValue();
+      break;
+    case 1:
+      writeShort((Short)var3.b()).shortValue();
+      break;
+    case 2:
+      writeInt((Integer)var3.b()).intValue();
+      break;
+    case 3:
+      writeFloat((Float)var3.b()).floatValue();
+      break;
+    case 4:
+      writeString((String)var3.b());
+      break;
+    case 5:
+      if(var3 == null) {
+        writeShort(-1);
+      } else {
+        writeShort(var3.d);
+        writeByte(var3.b);
+        writeShort(var3.k());
+        if(var2 == null) {
+          writeShort(-1);
+        } else {
+          writeShort((short)var2.length);
+          writeBytes(var2);
+        }
+      }
+      break;
+    case 6:
+      writeInt(var3.a);
+      writeInt(var3.b);
+      writeInt(var3.c);
+  }
+}
+writeByte(0x7f);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x19"><h3 id="packets:0x19">25</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>25</dd></dl><pre>writeInt(a);
+writeString(f);
+writeInt(b);
+writeInt(c);
+writeInt(d);
+writeInt(e);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0xfa"><h3 id="packets:0xfa">250</h3></a><div><dl><dt>Direction</dt><dd>Both</dd><dt>ID</dt><dd>250</dd></dl><pre>writeString(a);
+writeShort((short)b);
+if(c != null) {
+  writeBytes(c);
+}
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0xfc"><h3 id="packets:0xfc">252</h3></a><div><dl><dt>Direction</dt><dd>Both</dd><dt>ID</dt><dd>252</dd></dl><pre>writeShort(a.length);
+writeBytes(a);
+writeShort(b.length);
+writeBytes(b);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0xfd"><h3 id="packets:0xfd">253</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>253</dd></dl><pre>writeString(a);
+writeShort(b.getEncoded().length);
+writeBytes(b.getEncoded());
+writeShort(c.length);
+writeBytes(c);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0xfe"><h3 id="packets:0xfe">254</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>254</dd></dl><pre>writeByte(1);
+writeByte(eg.d);
+writeString("MC|PingHost");
+writeShort((3 + (2 * b.length())) + 4);
+writeByte(a);
+writeString(b);
+writeInt(c);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0xff"><h3 id="packets:0xff">255</h3></a><div><dl><dt>Direction</dt><dd>Both</dd><dt>ID</dt><dd>255</dd></dl><pre>writeString(a);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x1a"><h3 id="packets:0x1a">26</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>26</dd><dt>Size</dt><dd>18</dd></dl><pre>writeInt(a);
+writeInt(b);
+writeInt(c);
+writeInt(d);
+writeShort(e);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x1b"><h3 id="packets:0x1b">27</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>27</dd><dt>Size</dt><dd>10</dd></dl><pre>writeFloat(a);
+writeFloat(b);
+writeBoolean(c);
+writeBoolean(d);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x1c"><h3 id="packets:0x1c">28</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>28</dd><dt>Size</dt><dd>10</dd></dl><pre>writeInt(a);
+writeShort(b);
+writeShort(c);
+writeShort(d);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x1d"><h3 id="packets:0x1d">29</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>29</dd></dl><pre>writeByte(a.length);
+while(var2 &lt; a.length) {
+  writeInt(a[var2]);
+  var2++;
+}
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x03"><h3 id="packets:0x03">3</h3></a><div><dl><dt>Direction</dt><dd>Both</dd><dt>ID</dt><dd>3</dd></dl><pre>writeString(a);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x1e"><h3 id="packets:0x1e">30</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>30</dd><dt>Size</dt><dd>4</dd></dl><pre>writeInt(a);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x1f"><h3 id="packets:0x1f">31</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>31</dd><dt>Size</dt><dd>7</dd></dl><pre>writeInt(a);
+writeByte(b);
+writeByte(c);
+writeByte(d);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x20"><h3 id="packets:0x20">32</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>32</dd><dt>Size</dt><dd>6</dd></dl><pre>writeInt(a);
+writeByte(e);
+writeByte(f);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x21"><h3 id="packets:0x21">33</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>33</dd><dt>Size</dt><dd>9</dd></dl><pre>writeInt(a);
+writeByte(b);
+writeByte(c);
+writeByte(d);
+writeByte(e);
+writeByte(f);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x22"><h3 id="packets:0x22">34</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>34</dd><dt>Size</dt><dd>18</dd></dl><pre>writeInt(a);
+writeInt(b);
+writeInt(c);
+writeInt(d);
+writeByte(e);
+writeByte(f);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x23"><h3 id="packets:0x23">35</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>35</dd><dt>Size</dt><dd>5</dd></dl><pre>writeInt(a);
+writeByte(b);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x26"><h3 id="packets:0x26">38</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>38</dd><dt>Size</dt><dd>5</dd></dl><pre>writeInt(a);
+writeByte(b);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x27"><h3 id="packets:0x27">39</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>39</dd><dt>Size</dt><dd>9</dd></dl><pre>writeInt(b);
+writeInt(c);
+writeByte(a);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x04"><h3 id="packets:0x04">4</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>4</dd><dt>Size</dt><dd>16</dd></dl><pre>writeLong(a);
+writeLong(b);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x28"><h3 id="packets:0x28">40</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>40</dd></dl><pre>writeInt(a);
+if(b != null) {
+  while(var2.hasNext()) {
+    writeByte(var2);
+    switch(var3.c()) {
+      case 0:
+        writeByte((Byte)var3.b()).byteValue();
+        break;
+      case 1:
+        writeShort((Short)var3.b()).shortValue();
+        break;
+      case 2:
+        writeInt((Integer)var3.b()).intValue();
+        break;
+      case 3:
+        writeFloat((Float)var3.b()).floatValue();
+        break;
+      case 4:
+        writeString((String)var3.b());
+        break;
+      case 5:
+        if(var3 == null) {
+          writeShort(-1);
+        } else {
+          writeShort(var3.d);
+          writeByte(var3.b);
+          writeShort(var3.k());
+          if(var2 == null) {
+            writeShort(-1);
+          } else {
+            writeShort((short)var2.length);
+            writeBytes(var2);
+          }
+        }
+        break;
+      case 6:
+        writeInt(var3.a);
+        writeInt(var3.b);
+        writeInt(var3.c);
+    }
+  }
+}
+writeByte(0x7f);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x29"><h3 id="packets:0x29">41</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>41</dd><dt>Size</dt><dd>8</dd></dl><pre>writeInt(a);
+writeByte(b);
+writeByte(c);
+writeShort(d);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x2a"><h3 id="packets:0x2a">42</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>42</dd><dt>Size</dt><dd>5</dd></dl><pre>writeInt(a);
+writeByte(b);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x2b"><h3 id="packets:0x2b">43</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>43</dd><dt>Size</dt><dd>8</dd></dl><pre>writeFloat(a);
+writeShort(c);
+writeShort(b);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x2c"><h3 id="packets:0x2c">44</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>44</dd></dl><pre>writeInt(a);
+writeInt(b.size());
+while(var2.hasNext()) {
+  writeString(var3.a());
+  writeDouble(var3.b());
+  writeShort(var3.c().size());
+  while(var4.hasNext()) {
+    writeLong(var5.a().getMostSignificantBits());
+    writeLong(var5.a().getLeastSignificantBits());
+    writeDouble(var5.d());
+    writeByte(var5.c());
+  }
+}
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x05"><h3 id="packets:0x05">5</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>5</dd></dl><pre>writeInt(a);
+writeShort(b);
+if(c == null) {
+  writeShort(-1);
+} else {
+  writeShort(c.d);
+  writeByte(c.b);
+  writeShort(c.k());
+  if(var2 == null) {
+    writeShort(-1);
+  } else {
+    writeShort((short)var2.length);
+    writeBytes(var2);
+  }
+}
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x33"><h3 id="packets:0x33">51</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>51</dd></dl><pre>writeInt(a);
+writeInt(b);
+writeBoolean(e);
+writeShort((short)(c &amp; 65535));
+writeShort((short)(d &amp; 65535));
+writeInt(h);
+writeBytes(f);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x34"><h3 id="packets:0x34">52</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>52</dd></dl><pre>writeInt(a);
+writeInt(b);
+writeShort((short)d);
+if(c != null) {
+  writeInt(c.length);
+  writeBytes(c);
+} else {
+  writeInt(0);
+}
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x35"><h3 id="packets:0x35">53</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>53</dd><dt>Size</dt><dd>12</dd></dl><pre>writeInt(a);
+writeByte(b);
+writeInt(c);
+writeShort(d);
+writeByte(e);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x36"><h3 id="packets:0x36">54</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>54</dd><dt>Size</dt><dd>14</dd></dl><pre>writeInt(a);
+writeShort(b);
+writeInt(c);
+writeByte(d);
+writeByte(e);
+writeShort(f &amp; 4095);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x37"><h3 id="packets:0x37">55</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>55</dd><dt>Size</dt><dd>17</dd></dl><pre>writeInt(a);
+writeInt(b);
+writeInt(c);
+writeInt(d);
+writeByte(e);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x38"><h3 id="packets:0x38">56</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>56</dd></dl><pre>writeShort(c.length);
+writeInt(g);
+writeBoolean(h);
+writeBytes(e);
+while(var2 &lt; c.length) {
+  writeInt(c[var2]);
+  writeInt(d[var2]);
+  writeShort((short)(a[var2] &amp; 65535));
+  writeShort((short)(b[var2] &amp; 65535));
+  var2++;
+}
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x06"><h3 id="packets:0x06">6</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>6</dd><dt>Size</dt><dd>12</dd></dl><pre>writeInt(a);
+writeInt(b);
+writeInt(c);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x3c"><h3 id="packets:0x3c">60</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>60</dd></dl><pre>writeDouble(a);
+writeDouble(b);
+writeDouble(c);
+writeFloat(d);
+writeInt(e.size());
+while(var5.hasNext()) {
+  writeByte(var7);
+  writeByte(var8);
+  writeByte(var9);
+}
+writeFloat(f);
+writeFloat(g);
+writeFloat(h);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x3d"><h3 id="packets:0x3d">61</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>61</dd><dt>Size</dt><dd>18</dd></dl><pre>writeInt(a);
+writeInt(c);
+writeByte(d &amp; 255);
+writeInt(e);
+writeInt(b);
+writeBoolean(f);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x3e"><h3 id="packets:0x3e">62</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>62</dd></dl><pre>writeString(a);
+writeInt(b);
+writeInt(c);
+writeInt(d);
+writeFloat(e);
+writeByte(f);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x3f"><h3 id="packets:0x3f">63</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>63</dd></dl><pre>writeString(a);
+writeFloat(b);
+writeFloat(c);
+writeFloat(d);
+writeFloat(e);
+writeFloat(f);
+writeFloat(g);
+writeFloat(h);
+writeInt(i);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x07"><h3 id="packets:0x07">7</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>7</dd><dt>Size</dt><dd>9</dd></dl><pre>writeInt(a);
+writeInt(b);
+writeByte(c);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x46"><h3 id="packets:0x46">70</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>70</dd><dt>Size</dt><dd>2</dd></dl><pre>writeByte(b);
+writeByte(c);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x47"><h3 id="packets:0x47">71</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>71</dd><dt>Size</dt><dd>17</dd></dl><pre>writeInt(a);
+writeByte(e);
+writeInt(b);
+writeInt(c);
+writeInt(d);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x08"><h3 id="packets:0x08">8</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>8</dd><dt>Size</dt><dd>10</dd></dl><pre>writeFloat(a);
+writeShort(b);
+writeFloat(c);
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x09"><h3 id="packets:0x09">9</h3></a><div><dl><dt>Direction</dt><dd>Both</dd><dt>ID</dt><dd>9</dd></dl><pre>writeInt(a);
+writeByte(b);
+writeByte(d.a());
+writeShort(c);
+writeString(e.a());
+</pre></div></div></div><div class="right"><div class="no entry"></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x00"><h3 id="packets:0x00">HANDSHAKING_SERVERBOUND_00</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>0</dd></dl><pre>writeVarInt(a);
+writeString(b);
+writeShort(c);
+writeVarInt(d.c());
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x00"><h3 id="packets:0x00">LOGIN_CLIENTBOUND_00</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>0</dd></dl><pre>writeChatComponent(a);
+writeString(packetbuffer);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x01"><h3 id="packets:0x01">LOGIN_CLIENTBOUND_01</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>1</dd></dl><pre>writeString(a);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x02"><h3 id="packets:0x02">LOGIN_CLIENTBOUND_02</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>2</dd></dl><pre>writeString(a.getId());
+writeString(a.getName());
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x00"><h3 id="packets:0x00">LOGIN_SERVERBOUND_00</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>0</dd></dl><pre>writeString(a.getName());
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x01"><h3 id="packets:0x01">LOGIN_SERVERBOUND_01</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>1</dd><dt>Size</dt><dd>0</dd></dl><pre></pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x00"><h3 id="packets:0x00">PLAY_CLIENTBOUND_00</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>0</dd><dt>Size</dt><dd>4</dd></dl><pre>writeInt(a);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x01"><h3 id="packets:0x01">PLAY_CLIENTBOUND_01</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>1</dd></dl><pre>writeInt(a);
+int var2 = this.c.a();
+if(b) {
+  int var2 = (var2 | 0x8);
+}
+writeByte(var2);
+writeByte(d);
+writeByte(e.a());
+writeByte(f);
+writeString(g.a());
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x02"><h3 id="packets:0x02">PLAY_CLIENTBOUND_02</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>2</dd></dl><pre>writeChatComponent(a);
+writeString(packetbuffer);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x03"><h3 id="packets:0x03">PLAY_CLIENTBOUND_03</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>3</dd><dt>Size</dt><dd>16</dd></dl><pre>writeLong(a);
+writeLong(b);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x04"><h3 id="packets:0x04">PLAY_CLIENTBOUND_04</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>4</dd></dl><pre>writeInt(a);
+writeShort(b);
+writeItemStack(c);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x05"><h3 id="packets:0x05">PLAY_CLIENTBOUND_05</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>5</dd><dt>Size</dt><dd>12</dd></dl><pre>writeInt(a);
+writeInt(b);
+writeInt(c);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x06"><h3 id="packets:0x06">PLAY_CLIENTBOUND_06</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>6</dd><dt>Size</dt><dd>10</dd></dl><pre>writeFloat(a);
+writeShort(b);
+writeFloat(c);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x07"><h3 id="packets:0x07">PLAY_CLIENTBOUND_07</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>7</dd></dl><pre>writeInt(a);
+writeByte(b.a());
+writeByte(c.a());
+writeString(d.a());
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x08"><h3 id="packets:0x08">PLAY_CLIENTBOUND_08</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>8</dd><dt>Size</dt><dd>33</dd></dl><pre>writeDouble(a);
+writeDouble(b);
+writeDouble(c);
+writeFloat(d);
+writeFloat(e);
+writeBoolean(f);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x09"><h3 id="packets:0x09">PLAY_CLIENTBOUND_09</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>9</dd><dt>Size</dt><dd>1</dd></dl><pre>writeByte(a);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x0a"><h3 id="packets:0x0a">PLAY_CLIENTBOUND_0A</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>10</dd><dt>Size</dt><dd>13</dd></dl><pre>writeInt(a);
+writeInt(b);
+writeByte(c);
+writeInt(d);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x0b"><h3 id="packets:0x0b">PLAY_CLIENTBOUND_0B</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>11</dd></dl><pre>writeVarInt(a);
+writeByte(b);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x0c"><h3 id="packets:0x0c">PLAY_CLIENTBOUND_0C</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>12</dd></dl><pre>writeVarInt(a);
+writeString(b.getId());
+writeString(b.getName());
+writeInt(c);
+writeInt(d);
+writeInt(e);
+writeByte(f);
+writeByte(g);
+writeShort(h);
+writeMetadata(i);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x0d"><h3 id="packets:0x0d">PLAY_CLIENTBOUND_0D</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>13</dd><dt>Size</dt><dd>8</dd></dl><pre>writeInt(a);
+writeInt(b);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x0e"><h3 id="packets:0x0e">PLAY_CLIENTBOUND_0E</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>14</dd></dl><pre>writeVarInt(a);
+writeByte(j);
+writeInt(b);
+writeInt(c);
+writeInt(d);
+writeByte(h);
+writeByte(i);
+writeInt(k);
+if(k &gt; 0) {
+  writeShort(e);
+  writeShort(f);
+  writeShort(g);
+}
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x0f"><h3 id="packets:0x0f">PLAY_CLIENTBOUND_0F</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>15</dd></dl><pre>writeVarInt(a);
+writeByte(b &amp; 255);
+writeInt(c);
+writeInt(d);
+writeInt(e);
+writeByte(i);
+writeByte(j);
+writeByte(k);
+writeShort(f);
+writeShort(g);
+writeShort(h);
+writeMetadata(l);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x10"><h3 id="packets:0x10">PLAY_CLIENTBOUND_10</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>16</dd></dl><pre>writeVarInt(a);
+writeString(f);
+writeInt(b);
+writeInt(c);
+writeInt(d);
+writeInt(e);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x11"><h3 id="packets:0x11">PLAY_CLIENTBOUND_11</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>17</dd></dl><pre>writeVarInt(a);
+writeInt(b);
+writeInt(c);
+writeInt(d);
+writeShort(e);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x12"><h3 id="packets:0x12">PLAY_CLIENTBOUND_12</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>18</dd><dt>Size</dt><dd>10</dd></dl><pre>writeInt(a);
+writeShort(b);
+writeShort(c);
+writeShort(d);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x13"><h3 id="packets:0x13">PLAY_CLIENTBOUND_13</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>19</dd></dl><pre>writeByte(a.length);
+int var2 = 0;
+while(var2 &lt; a.length) {
+  writeInt(a[var2]);
+  var2++;
+}
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x14"><h3 id="packets:0x14">PLAY_CLIENTBOUND_14</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>20</dd><dt>Size</dt><dd>4</dd></dl><pre>writeInt(a);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x15"><h3 id="packets:0x15">PLAY_CLIENTBOUND_15</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>21</dd><dt>Size</dt><dd>7</dd></dl><pre>writeInt(a);
+writeByte(b);
+writeByte(c);
+writeByte(d);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x16"><h3 id="packets:0x16">PLAY_CLIENTBOUND_16</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>22</dd><dt>Size</dt><dd>6</dd></dl><pre>writeInt(a);
+writeByte(e);
+writeByte(f);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x17"><h3 id="packets:0x17">PLAY_CLIENTBOUND_17</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>23</dd><dt>Size</dt><dd>9</dd></dl><pre>writeInt(a);
+writeByte(b);
+writeByte(c);
+writeByte(d);
+writeByte(e);
+writeByte(f);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x18"><h3 id="packets:0x18">PLAY_CLIENTBOUND_18</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>24</dd><dt>Size</dt><dd>18</dd></dl><pre>writeInt(a);
+writeInt(b);
+writeInt(c);
+writeInt(d);
+writeByte(e);
+writeByte(f);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x19"><h3 id="packets:0x19">PLAY_CLIENTBOUND_19</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>25</dd><dt>Size</dt><dd>5</dd></dl><pre>writeInt(a);
+writeByte(b);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x1a"><h3 id="packets:0x1a">PLAY_CLIENTBOUND_1A</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>26</dd><dt>Size</dt><dd>5</dd></dl><pre>writeInt(a);
+writeByte(b);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x1b"><h3 id="packets:0x1b">PLAY_CLIENTBOUND_1B</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>27</dd><dt>Size</dt><dd>9</dd></dl><pre>writeInt(b);
+writeInt(c);
+writeByte(a);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x1c"><h3 id="packets:0x1c">PLAY_CLIENTBOUND_1C</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>28</dd></dl><pre>writeInt(a);
+writeMetadata(b);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x1d"><h3 id="packets:0x1d">PLAY_CLIENTBOUND_1D</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>29</dd><dt>Size</dt><dd>8</dd></dl><pre>writeInt(a);
+writeByte(b);
+writeByte(c);
+writeShort(d);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x1e"><h3 id="packets:0x1e">PLAY_CLIENTBOUND_1E</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>30</dd><dt>Size</dt><dd>5</dd></dl><pre>writeInt(a);
+writeByte(b);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x1f"><h3 id="packets:0x1f">PLAY_CLIENTBOUND_1F</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>31</dd><dt>Size</dt><dd>8</dd></dl><pre>writeFloat(a);
+writeShort(c);
+writeShort(b);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x20"><h3 id="packets:0x20">PLAY_CLIENTBOUND_20</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>32</dd></dl><pre>writeInt(a);
+writeInt(b.size());
+Object var2 = this.b.iterator();
+while(var2.hasNext()) {
+  Object var3 = ((hy)var2.next());
+  writeString(var3.a());
+  writeDouble(var3.b());
+  writeShort(var3.c().size());
+  Object var4 = var3.c().iterator();
+  while(var4.hasNext()) {
+    Object var5 = ((ru)var4.next());
+    writeLong(var5.a().getMostSignificantBits());
+    writeLong(var5.a().getLeastSignificantBits());
+    writeDouble(var5.d());
+    writeByte(var5.c());
+  }
+}
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x21"><h3 id="packets:0x21">PLAY_CLIENTBOUND_21</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>33</dd></dl><pre>writeInt(a);
+writeInt(b);
+writeBoolean(g);
+writeShort((short)(c &amp; 65535));
+writeShort((short)(d &amp; 65535));
+writeInt(h);
+writeBytes(h);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x22"><h3 id="packets:0x22">PLAY_CLIENTBOUND_22</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>34</dd></dl><pre>writeVarInt(b.a);
+writeVarInt(b.b);
+writeShort((short)d);
+if(c != null) {
+  writeInt(c.length);
+  writeBytes(c);
+} else {
+  writeInt(0);
+}
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x23"><h3 id="packets:0x23">PLAY_CLIENTBOUND_23</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>35</dd></dl><pre>writeInt(a);
+writeByte(b);
+writeInt(c);
+writeVarInt(static.b(d));
+writeByte(e);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x24"><h3 id="packets:0x24">PLAY_CLIENTBOUND_24</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>36</dd></dl><pre>writeInt(a);
+writeShort(b);
+writeInt(c);
+writeByte(d);
+writeByte(e);
+writeVarInt(static.b(f) &amp; 4095);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x25"><h3 id="packets:0x25">PLAY_CLIENTBOUND_25</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>37</dd></dl><pre>writeVarInt(a);
+writeInt(b);
+writeInt(c);
+writeInt(d);
+writeByte(e);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x26"><h3 id="packets:0x26">PLAY_CLIENTBOUND_26</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>38</dd></dl><pre>writeShort(a.length);
+writeInt(g);
+writeBoolean(h);
+writeBytes(g);
+int var2 = 0;
+while(var2 &lt; a.length) {
+  writeInt(a[var2]);
+  writeInt(b[var2]);
+  writeShort((short)(c[var2] &amp; 65535));
+  writeShort((short)(d[var2] &amp; 65535));
+  var2++;
+}
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x27"><h3 id="packets:0x27">PLAY_CLIENTBOUND_27</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>39</dd></dl><pre>writeFloat((double)a);
+writeFloat((double)b);
+writeFloat((double)c);
+writeFloat(d);
+writeInt(e.size());
+int var2 = ((int)this.a);
+int var3 = ((int)this.b);
+int var4 = ((int)this.c);
+Object var5 = this.e.iterator();
+while(var5.hasNext()) {
+  Object var6 = ((afe)var5.next());
+  int var7 = (var6.a - var2);
+  int var8 = (var6.b - var3);
+  int var9 = (var6.c - var4);
+  writeByte(var7);
+  writeByte(var8);
+  writeByte(var9);
+}
+writeFloat(f);
+writeFloat(g);
+writeFloat(h);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x28"><h3 id="packets:0x28">PLAY_CLIENTBOUND_28</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>40</dd><dt>Size</dt><dd>18</dd></dl><pre>writeInt(a);
+writeInt(c);
+writeByte(d &amp; 255);
+writeInt(e);
+writeInt(b);
+writeBoolean(f);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x29"><h3 id="packets:0x29">PLAY_CLIENTBOUND_29</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>41</dd></dl><pre>writeString(a);
+writeInt(b);
+writeInt(c);
+writeInt(d);
+writeFloat(e);
+writeByte(f);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x2a"><h3 id="packets:0x2a">PLAY_CLIENTBOUND_2A</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>42</dd></dl><pre>writeString(a);
+writeFloat(b);
+writeFloat(c);
+writeFloat(d);
+writeFloat(e);
+writeFloat(f);
+writeFloat(g);
+writeFloat(h);
+writeInt(i);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x2b"><h3 id="packets:0x2b">PLAY_CLIENTBOUND_2B</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>43</dd><dt>Size</dt><dd>5</dd></dl><pre>writeByte(b);
+writeFloat(c);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x2c"><h3 id="packets:0x2c">PLAY_CLIENTBOUND_2C</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>44</dd></dl><pre>writeVarInt(a);
+writeByte(e);
+writeInt(b);
+writeInt(c);
+writeInt(d);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x2d"><h3 id="packets:0x2d">PLAY_CLIENTBOUND_2D</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>45</dd></dl><pre>writeByte(a);
+writeByte(b);
+writeString(c);
+writeByte(d);
+writeBoolean(e);
+if(b == 0xb) {
+  writeInt(f);
+}
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x2e"><h3 id="packets:0x2e">PLAY_CLIENTBOUND_2E</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>46</dd><dt>Size</dt><dd>1</dd></dl><pre>writeByte(a);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x2f"><h3 id="packets:0x2f">PLAY_CLIENTBOUND_2F</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>47</dd></dl><pre>writeByte(a);
+writeShort(b);
+writeItemStack(c);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x30"><h3 id="packets:0x30">PLAY_CLIENTBOUND_30</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>48</dd></dl><pre>writeByte(a);
+writeShort(b.length);
+Object var2 = this.b;
+int var3 = var2.length;
+int var4 = 0;
+while(var4 &lt; var3) {
+  Object var5 = var2[var4];
+  writeItemStack(var5);
+  var4++;
+}
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x31"><h3 id="packets:0x31">PLAY_CLIENTBOUND_31</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>49</dd><dt>Size</dt><dd>5</dd></dl><pre>writeByte(a);
+writeShort(b);
+writeShort(c);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x32"><h3 id="packets:0x32">PLAY_CLIENTBOUND_32</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>50</dd><dt>Size</dt><dd>4</dd></dl><pre>writeByte(a);
+writeShort(b);
+writeBoolean(c);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x33"><h3 id="packets:0x33">PLAY_CLIENTBOUND_33</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>51</dd></dl><pre>writeInt(a);
+writeShort(b);
+writeInt(c);
+int var2 = 0;
+while(var2 &lt; 4) {
+  writeString(d[var2]);
+  var2++;
+}
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x34"><h3 id="packets:0x34">PLAY_CLIENTBOUND_34</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>52</dd></dl><pre>writeVarInt(a);
+writeShort(b.length);
+writeBytes(b);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x35"><h3 id="packets:0x35">PLAY_CLIENTBOUND_35</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>53</dd></dl><pre>writeInt(a);
+writeShort(b);
+writeInt(c);
+writeByte((byte)d);
+writeNBTCompound(e);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x36"><h3 id="packets:0x36">PLAY_CLIENTBOUND_36</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>54</dd><dt>Size</dt><dd>12</dd></dl><pre>writeInt(a);
+writeInt(b);
+writeInt(c);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x37"><h3 id="packets:0x37">PLAY_CLIENTBOUND_37</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>55</dd></dl><pre>writeVarInt(a.size());
+Object var2 = this.a.entrySet().iterator();
+while(var2.hasNext()) {
+  Object var3 = ((Map$Entry)var2.next());
+  writeString(((nu)var3.getKey()).e);
+  writeVarInt((Integer)var3.getValue()).intValue();
+}
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x38"><h3 id="packets:0x38">PLAY_CLIENTBOUND_38</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>56</dd></dl><pre>writeString(a);
+writeBoolean(b);
+writeShort(c);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x39"><h3 id="packets:0x39">PLAY_CLIENTBOUND_39</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>57</dd><dt>Size</dt><dd>9</dd></dl><pre>int var2 = 0;
+if(c()) {
+  int var2 = ((byte)(var2 | 1));
+}
+if(d()) {
+  int var2 = ((byte)(var2 | 2));
+}
+if(e()) {
+  int var2 = ((byte)(var2 | 4));
+}
+if(f()) {
+  int var2 = ((byte)(var2 | 0x8));
+}
+writeByte(var2);
+writeFloat(e);
+writeFloat(f);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x3a"><h3 id="packets:0x3a">PLAY_CLIENTBOUND_3A</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>58</dd></dl><pre>writeVarInt(a.length);
+Object var2 = this.a;
+int var3 = var2.length;
+int var4 = 0;
+while(var4 &lt; var3) {
+  Object var5 = var2[var4];
+  writeString(var5);
+  var4++;
+}
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x3b"><h3 id="packets:0x3b">PLAY_CLIENTBOUND_3B</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>59</dd></dl><pre>writeString(a);
+writeString(b);
+writeByte(c);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x3c"><h3 id="packets:0x3c">PLAY_CLIENTBOUND_3C</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>60</dd></dl><pre>writeString(a);
+writeByte(d);
+if(d != 1) {
+  writeString(b);
+  writeInt(c);
+}
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x3d"><h3 id="packets:0x3d">PLAY_CLIENTBOUND_3D</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>61</dd></dl><pre>writeByte(a);
+writeString(b);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x3e"><h3 id="packets:0x3e">PLAY_CLIENTBOUND_3E</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>62</dd></dl><pre>writeString(a);
+writeByte(f);
+if(f) {
+  writeString(b);
+  writeString(c);
+  writeString(d);
+  writeByte(g);
+}
+if(f) {
+  writeShort(e.size());
+  Object var2 = this.e.iterator();
+  while(var2.hasNext()) {
+    Object var3 = ((String)var2.next());
+    writeString(var3);
+  }
+}
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x3f"><h3 id="packets:0x3f">PLAY_CLIENTBOUND_3F</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>63</dd></dl><pre>writeString(a);
+writeShort(b.length);
+writeBytes(b);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x40"><h3 id="packets:0x40">PLAY_CLIENTBOUND_40</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>64</dd></dl><pre>writeChatComponent(a);
+writeString(packetbuffer);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x00"><h3 id="packets:0x00">PLAY_SERVERBOUND_00</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>0</dd><dt>Size</dt><dd>4</dd></dl><pre>writeInt(a);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x01"><h3 id="packets:0x01">PLAY_SERVERBOUND_01</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>1</dd></dl><pre>writeString(a);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x02"><h3 id="packets:0x02">PLAY_SERVERBOUND_02</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>2</dd><dt>Size</dt><dd>5</dd></dl><pre>writeInt(a);
+writeByte(static.a(b));
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x03"><h3 id="packets:0x03">PLAY_SERVERBOUND_03</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>3</dd><dt>Size</dt><dd>1</dd></dl><pre>writeByte((g) ? 1 : 0);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x04"><h3 id="packets:0x04">PLAY_SERVERBOUND_04</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>4</dd><dt>Size</dt><dd>33</dd></dl><pre>writeDouble(a);
+writeDouble(b);
+writeDouble(d);
+writeDouble(c);
+writeByte((g) ? 1 : 0);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x05"><h3 id="packets:0x05">PLAY_SERVERBOUND_05</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>5</dd><dt>Size</dt><dd>9</dd></dl><pre>writeFloat(e);
+writeFloat(f);
+writeByte((g) ? 1 : 0);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x06"><h3 id="packets:0x06">PLAY_SERVERBOUND_06</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>6</dd><dt>Size</dt><dd>41</dd></dl><pre>writeDouble(a);
+writeDouble(b);
+writeDouble(d);
+writeDouble(c);
+writeFloat(e);
+writeFloat(f);
+writeByte((g) ? 1 : 0);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x07"><h3 id="packets:0x07">PLAY_SERVERBOUND_07</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>7</dd><dt>Size</dt><dd>11</dd></dl><pre>writeByte(e);
+writeInt(a);
+writeByte(b);
+writeInt(c);
+writeByte(d);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x08"><h3 id="packets:0x08">PLAY_SERVERBOUND_08</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>8</dd></dl><pre>writeInt(a);
+writeByte(b);
+writeInt(c);
+writeByte(d);
+writeItemStack(e);
+writeByte((int)(f * 16.0));
+writeByte((int)(g * 16.0));
+writeByte((int)(h * 16.0));
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x09"><h3 id="packets:0x09">PLAY_SERVERBOUND_09</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>9</dd><dt>Size</dt><dd>2</dd></dl><pre>writeShort(a);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x0a"><h3 id="packets:0x0a">PLAY_SERVERBOUND_0A</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>10</dd><dt>Size</dt><dd>5</dd></dl><pre>writeInt(a);
+writeByte(b);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x0b"><h3 id="packets:0x0b">PLAY_SERVERBOUND_0B</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>11</dd><dt>Size</dt><dd>9</dd></dl><pre>writeInt(a);
+writeByte(b);
+writeInt(c);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x0c"><h3 id="packets:0x0c">PLAY_SERVERBOUND_0C</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>12</dd><dt>Size</dt><dd>10</dd></dl><pre>writeFloat(a);
+writeFloat(b);
+writeBoolean(c);
+writeBoolean(d);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x0d"><h3 id="packets:0x0d">PLAY_SERVERBOUND_0D</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>13</dd><dt>Size</dt><dd>1</dd></dl><pre>writeByte(a);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x0e"><h3 id="packets:0x0e">PLAY_SERVERBOUND_0E</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>14</dd></dl><pre>writeByte(a);
+writeShort(b);
+writeByte(c);
+writeShort(d);
+writeByte(f);
+writeItemStack(e);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x0f"><h3 id="packets:0x0f">PLAY_SERVERBOUND_0F</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>15</dd><dt>Size</dt><dd>4</dd></dl><pre>writeByte(a);
+writeShort(b);
+writeByte((c) ? 1 : 0);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x10"><h3 id="packets:0x10">PLAY_SERVERBOUND_10</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>16</dd></dl><pre>writeShort(a);
+writeItemStack(b);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x11"><h3 id="packets:0x11">PLAY_SERVERBOUND_11</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>17</dd><dt>Size</dt><dd>2</dd></dl><pre>writeByte(a);
+writeByte(b);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x12"><h3 id="packets:0x12">PLAY_SERVERBOUND_12</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>18</dd></dl><pre>writeInt(a);
+writeShort(b);
+writeInt(c);
+int var2 = 0;
+while(var2 &lt; 4) {
+  writeString(d[var2]);
+  var2++;
+}
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x13"><h3 id="packets:0x13">PLAY_SERVERBOUND_13</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>19</dd><dt>Size</dt><dd>9</dd></dl><pre>int var2 = 0;
+if(c()) {
+  int var2 = ((byte)(var2 | 1));
+}
+if(d()) {
+  int var2 = ((byte)(var2 | 2));
+}
+if(e()) {
+  int var2 = ((byte)(var2 | 4));
+}
+if(f()) {
+  int var2 = ((byte)(var2 | 0x8));
+}
+writeByte(var2);
+writeFloat(e);
+writeFloat(f);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x14"><h3 id="packets:0x14">PLAY_SERVERBOUND_14</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>20</dd></dl><pre>writeString(static.substring(a, 0, 32767));
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x15"><h3 id="packets:0x15">PLAY_SERVERBOUND_15</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>21</dd></dl><pre>writeString(a);
+writeByte(b);
+writeByte(c.a());
+writeBoolean(d);
+writeByte(e.a());
+writeBoolean(f);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x16"><h3 id="packets:0x16">PLAY_SERVERBOUND_16</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>22</dd><dt>Size</dt><dd>1</dd></dl><pre>writeByte(static.a(a));
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x17"><h3 id="packets:0x17">PLAY_SERVERBOUND_17</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>23</dd></dl><pre>writeString(a);
+writeShort((short)b);
+if(c != null) {
+  writeBytes(c);
+}
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x00"><h3 id="packets:0x00">STATUS_CLIENTBOUND_00</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>0</dd></dl><pre>writeString(jn.a.toJson(b));
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x01"><h3 id="packets:0x01">STATUS_CLIENTBOUND_01</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>1</dd><dt>Size</dt><dd>8</dd></dl><pre>writeLong(a);
+</pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x00"><h3 id="packets:0x00">STATUS_SERVERBOUND_00</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>0</dd><dt>Size</dt><dd>0</dd></dl><pre></pre></div></div></div></div><div class="split"><div class="left"><div class="no entry"></div></div><div class="right"><div class="entry"><a href="#packets:0x01"><h3 id="packets:0x01">STATUS_SERVERBOUND_01</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>1</dd><dt>Size</dt><dd>8</dd></dl><pre>writeLong(a);
+</pre></div></div></div></div>
+                    </div>
+                </body>
+              </html>
