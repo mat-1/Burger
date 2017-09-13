@@ -1,0 +1,103 @@
+{
+    "achievements": {}, 
+    "biomes": {
+        "biome": {}
+    }, 
+    "blocks": {
+        "block": {}
+    }, 
+    "entities": {
+        "entity": {}, 
+        "object": {}
+    }, 
+    "items": {
+        "item": {}
+    }, 
+    "language": {}, 
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_1F": [
+                {
+                    "class": "jd.class", 
+                    "direction": "CLIENTBOUND", 
+                    "from_client": false, 
+                    "from_server": true, 
+                    "id": 31, 
+                    "instructions": [
+                        {
+                            "field": "a", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }, 
+                {
+                    "class": "jd.class", 
+                    "direction": "CLIENTBOUND", 
+                    "from_client": false, 
+                    "from_server": true, 
+                    "id": 31, 
+                    "instructions": [
+                        {
+                            "field": "a", 
+                            "operation": "write", 
+                            "type": "long"
+                        }
+                    ], 
+                    "size": 8, 
+                    "state": "PLAY"
+                }
+            ], 
+            "PLAY_SERVERBOUND_0B": [
+                {
+                    "class": "lj.class", 
+                    "direction": "SERVERBOUND", 
+                    "from_client": true, 
+                    "from_server": false, 
+                    "id": 11, 
+                    "instructions": [
+                        {
+                            "field": "a", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }, 
+                {
+                    "class": "lj.class", 
+                    "direction": "SERVERBOUND", 
+                    "from_client": true, 
+                    "from_server": false, 
+                    "id": 11, 
+                    "instructions": [
+                        {
+                            "field": "a", 
+                            "operation": "write", 
+                            "type": "long"
+                        }
+                    ], 
+                    "size": 8, 
+                    "state": "PLAY"
+                }
+            ]
+        }
+    }, 
+    "recipes": {}, 
+    "sounds": {}, 
+    "stats": {}, 
+    "tileentity": {
+        "tileentities": {}
+    }, 
+    "version": {
+        "name": [
+            "1.12.1", 
+            "1.12.2-pre1"
+        ], 
+        "protocol": [
+            338, 
+            339
+        ]
+    }
+}
