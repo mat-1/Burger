@@ -3099,7 +3099,7 @@
                                 {
                                     "field": "var5", 
                                     "operation": "write", 
-                                    "type": "string16"
+                                    "type": "string"
                                 }, 
                                 {
                                     "amount": "1", 
@@ -3303,7 +3303,6 @@
                     "from_server": true, 
                     "id": 16, 
                     "instructions": [], 
-                    "size": 0, 
                     "state": "PLAY"
                 }
             ], 
@@ -3318,7 +3317,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "string16"
+                            "type": "string"
                         }, 
                         {
                             "field": "b", 
@@ -3546,13 +3545,15 @@
                             "type": "int"
                         }, 
                         {
+                            "args": "packetbuffer", 
                             "field": "j", 
                             "method": "a(Lfp;)V", 
+                            "name": "a", 
                             "operation": "interfacecall", 
-                            "target": "ef"
+                            "target": "ef", 
+                            "type": "interface"
                         }
                     ], 
-                    "size": 37, 
                     "state": "PLAY"
                 }
             ], 
@@ -4080,7 +4081,7 @@
                                         {
                                             "field": "(String)var3.getKey()", 
                                             "operation": "write", 
-                                            "type": "string16"
+                                            "type": "string"
                                         }
                                     ], 
                                     "operation": "loop"
@@ -4152,7 +4153,7 @@
                                                 {
                                                     "field": "var9", 
                                                     "operation": "write", 
-                                                    "type": "string16"
+                                                    "type": "string"
                                                 }, 
                                                 {
                                                     "amount": "1", 
@@ -4227,7 +4228,7 @@
                                     "type": "identifier"
                                 }, 
                                 {
-                                    "field": "(k)var3.getValue()).a.size(", 
+                                    "field": "((k)var3.getValue()).a.size()", 
                                     "operation": "write", 
                                     "type": "varint"
                                 }, 
@@ -4249,7 +4250,7 @@
                                         {
                                             "field": "(String)var3.getKey()", 
                                             "operation": "write", 
-                                            "type": "string16"
+                                            "type": "string"
                                         }, 
                                         {
                                             "field": "(((o)var3.getValue()).c != null) ? 1 : 0", 
@@ -4260,9 +4261,9 @@
                                             "condition": "((o)var3.getValue()).c != null", 
                                             "instructions": [
                                                 {
-                                                    "field": "((o)var3.getValue()).c", 
+                                                    "field": "((o)var3.getValue()).c.getTime()", 
                                                     "operation": "write", 
-                                                    "type": "position"
+                                                    "type": "long"
                                                 }
                                             ], 
                                             "operation": "if"
@@ -4358,7 +4359,7 @@
                                 {
                                     "field": "var3.a()", 
                                     "operation": "write", 
-                                    "type": "string16"
+                                    "type": "string"
                                 }, 
                                 {
                                     "field": "var3.b()", 
@@ -4616,7 +4617,7 @@
                                         {
                                             "field": "(String)var3.getKey()", 
                                             "operation": "write", 
-                                            "type": "string16"
+                                            "type": "string"
                                         }
                                     ], 
                                     "operation": "loop"
@@ -4688,7 +4689,7 @@
                                                 {
                                                     "field": "var9", 
                                                     "operation": "write", 
-                                                    "type": "string16"
+                                                    "type": "string"
                                                 }, 
                                                 {
                                                     "amount": "1", 
@@ -4763,7 +4764,7 @@
                                     "type": "identifier"
                                 }, 
                                 {
-                                    "field": "(k)var3.getValue()).a.size(", 
+                                    "field": "((k)var3.getValue()).a.size()", 
                                     "operation": "write", 
                                     "type": "varint"
                                 }, 
@@ -4785,7 +4786,7 @@
                                         {
                                             "field": "(String)var3.getKey()", 
                                             "operation": "write", 
-                                            "type": "string16"
+                                            "type": "string"
                                         }, 
                                         {
                                             "field": "(((o)var3.getValue()).c != null) ? 1 : 0", 
@@ -4796,9 +4797,9 @@
                                             "condition": "((o)var3.getValue()).c != null", 
                                             "instructions": [
                                                 {
-                                                    "field": "((o)var3.getValue()).c", 
+                                                    "field": "((o)var3.getValue()).c.getTime()", 
                                                     "operation": "write", 
-                                                    "type": "position"
+                                                    "type": "long"
                                                 }
                                             ], 
                                             "operation": "if"
@@ -4884,7 +4885,7 @@
                                 {
                                     "field": "var3.a()", 
                                     "operation": "write", 
-                                    "type": "string16"
+                                    "type": "string"
                                 }, 
                                 {
                                     "field": "var3.b()", 
@@ -4983,9 +4984,9 @@
                     "id": 1, 
                     "instructions": [
                         {
-                            "field": "static.substring(a, 0, 32767)", 
+                            "field": "org.apache.commons.lang3.StringUtils.substring(a, 0, 0x7fff)", 
                             "operation": "write", 
-                            "type": "string16"
+                            "type": "string"
                         }, 
                         {
                             "field": "b", 
@@ -5027,7 +5028,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "string16"
+                            "type": "string"
                         }
                     ], 
                     "state": "PLAY"
@@ -5044,7 +5045,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "string16"
+                            "type": "string"
                         }
                     ], 
                     "state": "PLAY"
@@ -5091,7 +5092,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "string16"
+                            "type": "string"
                         }, 
                         {
                             "field": "b", 
@@ -5133,7 +5134,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "string16"
+                            "type": "string"
                         }, 
                         {
                             "field": "b", 
@@ -5186,7 +5187,6 @@
                             "type": "byte"
                         }
                     ], 
-                    "size": 4, 
                     "state": "PLAY"
                 }
             ], 
@@ -5214,7 +5214,6 @@
                             "type": "byte"
                         }
                     ], 
-                    "size": 4, 
                     "state": "PLAY"
                 }, 
                 {
@@ -5235,7 +5234,6 @@
                             "type": "byte"
                         }
                     ], 
-                    "size": 2, 
                     "state": "PLAY"
                 }
             ], 
@@ -5258,7 +5256,6 @@
                             "type": "byte"
                         }
                     ], 
-                    "size": 2, 
                     "state": "PLAY"
                 }, 
                 {
@@ -5356,7 +5353,6 @@
                             "type": "byte"
                         }
                     ], 
-                    "size": 1, 
                     "state": "PLAY"
                 }
             ], 
@@ -5374,7 +5370,6 @@
                             "type": "byte"
                         }
                     ], 
-                    "size": 1, 
                     "state": "PLAY"
                 }, 
                 {
@@ -5387,7 +5382,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "string16"
+                            "type": "string"
                         }, 
                         {
                             "field": "b", 
@@ -5409,7 +5404,7 @@
                         {
                             "field": "a", 
                             "operation": "write", 
-                            "type": "string16"
+                            "type": "string"
                         }, 
                         {
                             "field": "b", 
@@ -5440,17 +5435,17 @@
                             "condition": "b == jz$a.c", 
                             "instructions": [
                                 {
-                                    "field": "(double)c.b", 
+                                    "field": "(float)c.b", 
                                     "operation": "write", 
                                     "type": "float"
                                 }, 
                                 {
-                                    "field": "(double)c.c", 
+                                    "field": "(float)c.c", 
                                     "operation": "write", 
                                     "type": "float"
                                 }, 
                                 {
-                                    "field": "(double)c.d", 
+                                    "field": "(float)c.d", 
                                     "operation": "write", 
                                     "type": "float"
                                 }
@@ -5494,17 +5489,17 @@
                             "condition": "b == li$a.c", 
                             "instructions": [
                                 {
-                                    "field": "(double)c.b", 
+                                    "field": "(float)c.b", 
                                     "operation": "write", 
                                     "type": "float"
                                 }, 
                                 {
-                                    "field": "(double)c.c", 
+                                    "field": "(float)c.c", 
                                     "operation": "write", 
                                     "type": "float"
                                 }, 
                                 {
-                                    "field": "(double)c.d", 
+                                    "field": "(float)c.d", 
                                     "operation": "write", 
                                     "type": "float"
                                 }
@@ -5538,7 +5533,6 @@
                             "type": "long"
                         }
                     ], 
-                    "size": 8, 
                     "state": "PLAY"
                 }
             ], 
@@ -5556,7 +5550,6 @@
                             "type": "long"
                         }
                     ], 
-                    "size": 8, 
                     "state": "PLAY"
                 }, 
                 {
@@ -5572,7 +5565,6 @@
                             "type": "byte"
                         }
                     ], 
-                    "size": 1, 
                     "state": "PLAY"
                 }
             ], 
@@ -5590,7 +5582,6 @@
                             "type": "byte"
                         }
                     ], 
-                    "size": 1, 
                     "state": "PLAY"
                 }, 
                 {
@@ -5621,7 +5612,6 @@
                             "type": "byte"
                         }
                     ], 
-                    "size": 25, 
                     "state": "PLAY"
                 }
             ], 
@@ -5654,7 +5644,6 @@
                             "type": "byte"
                         }
                     ], 
-                    "size": 25, 
                     "state": "PLAY"
                 }, 
                 {
@@ -5695,7 +5684,6 @@
                             "type": "byte"
                         }
                     ], 
-                    "size": 33, 
                     "state": "PLAY"
                 }
             ], 
@@ -5738,7 +5726,6 @@
                             "type": "byte"
                         }
                     ], 
-                    "size": 33, 
                     "state": "PLAY"
                 }, 
                 {
@@ -5764,7 +5751,6 @@
                             "type": "byte"
                         }
                     ], 
-                    "size": 9, 
                     "state": "PLAY"
                 }
             ], 
@@ -5792,7 +5778,6 @@
                             "type": "byte"
                         }
                     ], 
-                    "size": 9, 
                     "state": "PLAY"
                 }, 
                 {
@@ -5828,7 +5813,6 @@
                             "type": "float"
                         }
                     ], 
-                    "size": 32, 
                     "state": "PLAY"
                 }
             ], 
@@ -5866,7 +5850,6 @@
                             "type": "float"
                         }
                     ], 
-                    "size": 32, 
                     "state": "PLAY"
                 }, 
                 {
@@ -5887,7 +5870,6 @@
                             "type": "boolean"
                         }
                     ], 
-                    "size": 2, 
                     "state": "PLAY"
                 }
             ], 
@@ -5910,7 +5892,6 @@
                             "type": "boolean"
                         }
                     ], 
-                    "size": 2, 
                     "state": "PLAY"
                 }, 
                 {
@@ -5926,7 +5907,7 @@
                             "type": "byte"
                         }, 
                         {
-                            "field": "static.a(b)", 
+                            "field": "amy.a(b)", 
                             "operation": "write", 
                             "type": "varint"
                         }, 
@@ -5953,7 +5934,7 @@
                             "type": "byte"
                         }, 
                         {
-                            "field": "static.a(b)", 
+                            "field": "alx.a(b)", 
                             "operation": "write", 
                             "type": "varint"
                         }, 
@@ -6042,7 +6023,6 @@
                             "type": "float"
                         }
                     ], 
-                    "size": 9, 
                     "state": "PLAY"
                 }
             ], 
@@ -6124,7 +6104,6 @@
                             "type": "float"
                         }
                     ], 
-                    "size": 9, 
                     "state": "PLAY"
                 }, 
                 {
@@ -6284,7 +6263,6 @@
                             "type": "byte"
                         }
                     ], 
-                    "size": 9, 
                     "state": "PLAY"
                 }
             ], 
@@ -6342,7 +6320,6 @@
                             "type": "byte"
                         }
                     ], 
-                    "size": 9, 
                     "state": "PLAY"
                 }, 
                 {
@@ -6361,7 +6338,7 @@
                             "condition": "a == kj$a.a", 
                             "instructions": [
                                 {
-                                    "field": "static.a(b)", 
+                                    "field": "amy.a(b)", 
                                     "operation": "write", 
                                     "type": "int"
                                 }
@@ -6410,7 +6387,7 @@
                             "condition": "a == ls$a.a", 
                             "instructions": [
                                 {
-                                    "field": "static.a(b)", 
+                                    "field": "alx.a(b)", 
                                     "operation": "write", 
                                     "type": "int"
                                 }
@@ -6540,7 +6517,6 @@
                             "type": "short"
                         }
                     ], 
-                    "size": 2, 
                     "state": "PLAY"
                 }
             ], 
@@ -6558,7 +6534,6 @@
                             "type": "short"
                         }
                     ], 
-                    "size": 2, 
                     "state": "PLAY"
                 }, 
                 {
@@ -6627,7 +6602,7 @@
                                 {
                                     "field": "b[var2]", 
                                     "operation": "write", 
-                                    "type": "string16"
+                                    "type": "string"
                                 }, 
                                 {
                                     "amount": "1", 
@@ -6666,7 +6641,7 @@
                                 {
                                     "field": "b[var2]", 
                                     "operation": "write", 
-                                    "type": "string16"
+                                    "type": "string"
                                 }, 
                                 {
                                     "amount": "1", 
@@ -6864,6 +6839,7 @@
     "recipes": {}, 
     "sounds": {}, 
     "stats": {}, 
+    "tags": {}, 
     "tileentity": {
         "tileentities": {}
     }, 

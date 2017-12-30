@@ -541,7 +541,7 @@
                             "type": "byte"
                         }, 
                         {
-                            "field": "static.a(b)", 
+                            "field": "aoc.a(b)", 
                             "operation": "write", 
                             "type": "varint"
                         }
@@ -613,7 +613,7 @@
                                     "var": "var3"
                                 }, 
                                 {
-                                    "field": "static.a(var3)", 
+                                    "field": "aoc.a(var3)", 
                                     "operation": "write", 
                                     "type": "varint"
                                 }
@@ -644,7 +644,7 @@
                                             "var": "var3"
                                         }, 
                                         {
-                                            "field": "static.a(var3)", 
+                                            "field": "aoc.a(var3)", 
                                             "operation": "write", 
                                             "type": "varint"
                                         }
@@ -782,7 +782,7 @@
                                 {
                                     "field": "var3.b().a()", 
                                     "operation": "write", 
-                                    "type": "string16"
+                                    "type": "string"
                                 }, 
                                 {
                                     "operation": "store", 
@@ -791,9 +791,10 @@
                                     "var": "var2"
                                 }, 
                                 {
-                                    "args": "[packetbuffer [1], var3 [1]]", 
+                                    "args": "packetbuffer, var3", 
                                     "field": "var2", 
                                     "method": "a(Lgf;Laod;)V", 
+                                    "name": "a", 
                                     "operation": "interfacecall", 
                                     "target": "aof", 
                                     "type": "interface"
@@ -819,7 +820,7 @@
                             "type": "byte"
                         }, 
                         {
-                            "field": "static.a(b)", 
+                            "field": "aoc.a(b)", 
                             "operation": "write", 
                             "type": "varint"
                         }, 
@@ -2369,6 +2370,7 @@
     }, 
     "sounds": {}, 
     "stats": {}, 
+    "tags": {}, 
     "tileentity": {
         "tileentities": {}
     }, 
