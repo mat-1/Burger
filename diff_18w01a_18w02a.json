@@ -1,0 +1,191 @@
+{
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_04": [
+                {
+                    "class": "ii.class", 
+                    "direction": "CLIENTBOUND", 
+                    "from_client": false, 
+                    "from_server": true, 
+                    "id": 4, 
+                    "instructions": [
+                        {
+                            "field": "a", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "field": "b", 
+                            "operation": "write", 
+                            "type": "uuid"
+                        }, 
+                        {
+                            "field": "e", 
+                            "operation": "write", 
+                            "type": "string"
+                        }, 
+                        {
+                            "field": "c", 
+                            "operation": "write", 
+                            "type": "position"
+                        }, 
+                        {
+                            "field": "d.b()", 
+                            "operation": "write", 
+                            "type": "byte"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }, 
+                {
+                    "class": "ij.class", 
+                    "direction": "CLIENTBOUND", 
+                    "from_client": false, 
+                    "from_server": true, 
+                    "id": 4, 
+                    "instructions": [
+                        {
+                            "field": "a", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "field": "b", 
+                            "operation": "write", 
+                            "type": "uuid"
+                        }, 
+                        {
+                            "field": "e", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "field": "c", 
+                            "operation": "write", 
+                            "type": "position"
+                        }, 
+                        {
+                            "field": "d.b()", 
+                            "operation": "write", 
+                            "type": "byte"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }
+            ], 
+            "PLAY_CLIENTBOUND_30": [
+                {
+                    "class": "jx.class", 
+                    "direction": "CLIENTBOUND", 
+                    "from_client": false, 
+                    "from_server": true, 
+                    "id": 48, 
+                    "instructions": [
+                        {
+                            "field": "e", 
+                            "operation": "write", 
+                            "type": "boolean"
+                        }, 
+                        {
+                            "condition": "e", 
+                            "instructions": [
+                                {
+                                    "field": "d", 
+                                    "operation": "write", 
+                                    "type": "varint"
+                                }
+                            ], 
+                            "operation": "if"
+                        }, 
+                        {
+                            "instructions": [
+                                {
+                                    "field": "a", 
+                                    "operation": "write", 
+                                    "type": "double"
+                                }, 
+                                {
+                                    "field": "b", 
+                                    "operation": "write", 
+                                    "type": "double"
+                                }, 
+                                {
+                                    "field": "c", 
+                                    "operation": "write", 
+                                    "type": "double"
+                                }
+                            ], 
+                            "operation": "else"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }, 
+                {
+                    "class": "jy.class", 
+                    "direction": "CLIENTBOUND", 
+                    "from_client": false, 
+                    "from_server": true, 
+                    "id": 48, 
+                    "instructions": [
+                        {
+                            "field": "e", 
+                            "operation": "write", 
+                            "type": "enum"
+                        }, 
+                        {
+                            "field": "a", 
+                            "operation": "write", 
+                            "type": "double"
+                        }, 
+                        {
+                            "field": "b", 
+                            "operation": "write", 
+                            "type": "double"
+                        }, 
+                        {
+                            "field": "c", 
+                            "operation": "write", 
+                            "type": "double"
+                        }, 
+                        {
+                            "field": "g", 
+                            "operation": "write", 
+                            "type": "boolean"
+                        }, 
+                        {
+                            "condition": "g", 
+                            "instructions": [
+                                {
+                                    "field": "d", 
+                                    "operation": "write", 
+                                    "type": "varint"
+                                }, 
+                                {
+                                    "field": "f", 
+                                    "operation": "write", 
+                                    "type": "enum"
+                                }
+                            ], 
+                            "operation": "if"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }
+            ]
+        }
+    }, 
+    "version": {
+        "data": [
+            1459, 
+            1461
+        ], 
+        "name": [
+            "18w01a", 
+            "18w02a"
+        ], 
+        "protocol": [
+            352, 
+            353
+        ]
+    }
+}
