@@ -1,0 +1,95 @@
+<!doctype html>
+              <html>
+                <head>
+                  <title>Burger Vitrine</title>
+                  <link rel="stylesheet" href="resources/style.css" />
+                  <script src="resources/jquery.js"></script>
+                  <script src="resources/vitrine.js"></script>
+                </head>
+                <body>
+                    <div id="vitrine">
+                        <a href="#packets"><h2 id="packets">Packets</h2></a><div class="split"><div class="left"><div class="entry"><a href="#packets:0x10"><h3 id="packets:0x10">PLAY_CLIENTBOUND_10</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>16</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">getRange</span><span class="hl_o">().</span><span class="hl_na">getStart</span><span class="hl_o">());</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">getRange</span><span class="hl_o">().</span><span class="hl_na">getLength</span><span class="hl_o">());</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">getList</span><span class="hl_o">().</span><span class="hl_na">size</span><span class="hl_o">());</span>
+<span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">.</span><span class="hl_na">getList</span><span class="hl_o">().</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+  <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">String</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
+  <span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:0x10"><h3 id="packets:0x10">PLAY_CLIENTBOUND_10</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>16</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">getRange</span><span class="hl_o">().</span><span class="hl_na">getStart</span><span class="hl_o">());</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">getRange</span><span class="hl_o">().</span><span class="hl_na">getLength</span><span class="hl_o">());</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">getList</span><span class="hl_o">().</span><span class="hl_na">size</span><span class="hl_o">());</span>
+<span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">.</span><span class="hl_na">getList</span><span class="hl_o">().</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+  <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">com</span><span class="hl_o">.</span><span class="hl_na">mojang</span><span class="hl_o">.</span><span class="hl_na">brigadier</span><span class="hl_o">.</span><span class="hl_na">suggestion</span><span class="hl_o">.</span><span class="hl_na">Suggestion</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
+  <span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">.</span><span class="hl_na">getText</span><span class="hl_o">());</span>
+  <span class="hl_n">writeBoolean</span><span class="hl_o">((</span><span class="hl_n">var3</span><span class="hl_o">.</span><span class="hl_na">getTooltip</span><span class="hl_o">()</span> <span class="hl_o">!=</span> <span class="hl_kc">null</span><span class="hl_o">)</span> <span class="hl_o">?</span> <span class="hl_mi">1</span> <span class="hl_o">:</span> <span class="hl_mi">0</span><span class="hl_o">);</span>
+  <span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">.</span><span class="hl_na">getTooltip</span><span class="hl_o">()</span> <span class="hl_o">!=</span> <span class="hl_kc">null</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+    <span class="hl_n">writeChatComponent</span><span class="hl_o">(</span><span class="hl_n">hs</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">.</span><span class="hl_na">getTooltip</span><span class="hl_o">()));</span>
+  <span class="hl_o">}</span>
+<span class="hl_o">}</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x33"><h3 id="packets:0x33">PLAY_CLIENTBOUND_33</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>51</dd></dl><pre><span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
+<span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+  <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">ns</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
+  <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">a</span> <span class="hl_o">==</span> <span class="hl_n">kb$a</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
+  <span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">c</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+  <span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+    <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">ns</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
+    <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">);</span>
+  <span class="hl_o">}</span>
+<span class="hl_o">}</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:0x33"><h3 id="packets:0x33">PLAY_CLIENTBOUND_33</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>51</dd></dl><pre><span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">f</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">g</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
+<span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+  <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">nx</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
+  <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">a</span> <span class="hl_o">==</span> <span class="hl_n">ke$a</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
+  <span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">c</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+  <span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+    <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">nx</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
+    <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">);</span>
+  <span class="hl_o">}</span>
+<span class="hl_o">}</span>
+</pre></div></div>
+</div></div>
+<a href="#versions"><h2 id="versions">Versions</h2></a><div class="split"><div class="left"><div class="entry"><a href="#versions:data"><h3 id="versions:data">data</h3></a><div>1464</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:data"><h3 id="versions:data">data</h3></a><div>1466</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:name"><h3 id="versions:name">name</h3></a><div>18w05a</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:name"><h3 id="versions:name">name</h3></a><div>18w06a</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>356</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>357</div></div>
+</div></div>
+<a href="#language"><h2 id="language">Language</h2></a><div class="split"><div class="left"><div class="no entry"></div>
+</div><div class="right"><div class="entry"><a href="#language:argument"><h3 id="language:argument">argument</h3></a><div><dl class="wide"><dt>entity.options.limit.description</dt><dd>Maximum number of entities to return</dd><dt>entity.selector.self</dt><dd>Current entity</dd><dt>entity.options.advancements.description</dt><dd>Players with advancements</dd><dt>entity.options.y.description</dt><dd>y position</dd><dt>entity.options.dy.description</dt><dd>Entities between y and dy</dd><dt>entity.options.scores.description</dt><dd>Entities with scores</dd><dt>entity.options.dz.description</dt><dd>Entities between z and dz</dd><dt>entity.options.name.description</dt><dd>Entity name</dd><dt>entity.selector.nearestPlayer</dt><dd>Nearest player</dd><dt>entity.options.team.description</dt><dd>Entities on team</dd><dt>entity.options.tag.description</dt><dd>Entities with tag</dd><dt>entity.options.level.description</dt><dd>Experience level</dd><dt>entity.options.z.description</dt><dd>z position</dd><dt>entity.selector.allPlayers</dt><dd>All players</dd><dt>entity.options.y_rotation.description</dt><dd>Entity's y rotation</dd><dt>entity.options.dx.description</dt><dd>Entities between x and dx</dd><dt>entity.options.type.description</dt><dd>Entities of type</dd><dt>entity.options.distance.description</dt><dd>Distance to entity</dd><dt>entity.selector.randomPlayer</dt><dd>Random player</dd><dt>entity.options.nbt.description</dt><dd>Entities with NBT</dd><dt>entity.options.x.description</dt><dd>x position</dd><dt>entity.options.x_rotation.description</dt><dd>Entity's x rotation</dd><dt>entity.options.gamemode.description</dt><dd>Players with gamemode</dd><dt>entity.options.sort.description</dt><dd>Sort the entities</dd><dt>entity.selector.allEntities</dt><dd>All entities</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:block"><h3 id="language:block">block</h3></a><div><dl class="wide"><dt>minecraft.void_air</dt><dd>-</dd><dt>minecraft.cave_air</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:block"><h3 id="language:block">block</h3></a><div><dl class="wide"><dt>minecraft.void_air</dt><dd>Void Air</dd><dt>minecraft.cave_air</dt><dd>Cave Air</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:commands"><h3 id="language:commands">commands</h3></a><div><dl class="wide"><dt>enchant.success.single</dt><dd>-</dd><dt>enchant.success.multiple</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:commands"><h3 id="language:commands">commands</h3></a><div><dl class="wide"><dt>enchant.success.single</dt><dd>Applied enchantment %s to %s's item</dd><dt>enchant.success.multiple</dt><dd>Applied enchantment %s to %s entities</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:entity"><h3 id="language:entity">entity</h3></a><div><dl class="wide"><dt>minecraft.fishing_bobber</dt><dd>-</dd><dt>minecraft.lightning_bolt</dt><dd>-</dd><dt>minecraft.player</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:entity"><h3 id="language:entity">entity</h3></a><div><dl class="wide"><dt>minecraft.fishing_bobber</dt><dd>Fishing Bobber</dd><dt>minecraft.lightning_bolt</dt><dd>Bolt of Lightning</dd><dt>minecraft.player</dt><dd>Player</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:selectworld"><h3 id="language:selectworld">selectWorld</h3></a><div><dl class="wide"><dt>tooltip.unsupported</dt><dd>-</dd><dt>unsupported.customized.text</dt><dd>-</dd><dt>unsupported.customized.title</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:selectworld"><h3 id="language:selectworld">selectWorld</h3></a><div><dl class="wide"><dt>tooltip.unsupported</dt><dd>This world is no longer supported and can only be played in %s</dd><dt>unsupported.customized.text</dt><dd>Unfortunately, we cannot support Customized Worlds in this version of Minecraft. Please downgrade to %s to play this world. We are sorry for the inconvenience.</dd><dt>unsupported.customized.title</dt><dd>Unsupported world!</dd></dl></div></div>
+</div></div>
+
+                    </div>
+                </body>
+              </html>

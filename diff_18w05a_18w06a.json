@@ -1,0 +1,410 @@
+{
+    "language": {
+        "argument": [
+            null, 
+            {
+                "entity.options.advancements.description": "Players with advancements", 
+                "entity.options.distance.description": "Distance to entity", 
+                "entity.options.dx.description": "Entities between x and dx", 
+                "entity.options.dy.description": "Entities between y and dy", 
+                "entity.options.dz.description": "Entities between z and dz", 
+                "entity.options.gamemode.description": "Players with gamemode", 
+                "entity.options.level.description": "Experience level", 
+                "entity.options.limit.description": "Maximum number of entities to return", 
+                "entity.options.name.description": "Entity name", 
+                "entity.options.nbt.description": "Entities with NBT", 
+                "entity.options.scores.description": "Entities with scores", 
+                "entity.options.sort.description": "Sort the entities", 
+                "entity.options.tag.description": "Entities with tag", 
+                "entity.options.team.description": "Entities on team", 
+                "entity.options.type.description": "Entities of type", 
+                "entity.options.x.description": "x position", 
+                "entity.options.x_rotation.description": "Entity's x rotation", 
+                "entity.options.y.description": "y position", 
+                "entity.options.y_rotation.description": "Entity's y rotation", 
+                "entity.options.z.description": "z position", 
+                "entity.selector.allEntities": "All entities", 
+                "entity.selector.allPlayers": "All players", 
+                "entity.selector.nearestPlayer": "Nearest player", 
+                "entity.selector.randomPlayer": "Random player", 
+                "entity.selector.self": "Current entity"
+            }
+        ], 
+        "block": {
+            "minecraft.cave_air": [
+                null, 
+                "Cave Air"
+            ], 
+            "minecraft.void_air": [
+                null, 
+                "Void Air"
+            ]
+        }, 
+        "commands": {
+            "enchant.success.multiple": [
+                null, 
+                "Applied enchantment %s to %s entities"
+            ], 
+            "enchant.success.single": [
+                null, 
+                "Applied enchantment %s to %s's item"
+            ]
+        }, 
+        "entity": {
+            "minecraft.fishing_bobber": [
+                null, 
+                "Fishing Bobber"
+            ], 
+            "minecraft.lightning_bolt": [
+                null, 
+                "Bolt of Lightning"
+            ], 
+            "minecraft.player": [
+                null, 
+                "Player"
+            ]
+        }, 
+        "selectWorld": {
+            "tooltip.unsupported": [
+                null, 
+                "This world is no longer supported and can only be played in %s"
+            ], 
+            "unsupported.customized.text": [
+                null, 
+                "Unfortunately, we cannot support Customized Worlds in this version of Minecraft. Please downgrade to %s to play this world. We are sorry for the inconvenience."
+            ], 
+            "unsupported.customized.title": [
+                null, 
+                "Unsupported world!"
+            ]
+        }
+    }, 
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_10": [
+                {
+                    "class": "iv.class", 
+                    "direction": "CLIENTBOUND", 
+                    "from_client": false, 
+                    "from_server": true, 
+                    "id": 16, 
+                    "instructions": [
+                        {
+                            "field": "a", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "field": "b.getRange().getStart()", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "field": "b.getRange().getLength()", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "field": "b.getList().size()", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.b.getList().iterator()", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "var2.hasNext()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((String)var2.next())", 
+                                    "var": "var3"
+                                }, 
+                                {
+                                    "field": "var3", 
+                                    "operation": "write", 
+                                    "type": "string"
+                                }
+                            ], 
+                            "operation": "loop"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }, 
+                {
+                    "class": "iy.class", 
+                    "direction": "CLIENTBOUND", 
+                    "from_client": false, 
+                    "from_server": true, 
+                    "id": 16, 
+                    "instructions": [
+                        {
+                            "field": "a", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "field": "b.getRange().getStart()", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "field": "b.getRange().getLength()", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "field": "b.getList().size()", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.b.getList().iterator()", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "var2.hasNext()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((com.mojang.brigadier.suggestion.Suggestion)var2.next())", 
+                                    "var": "var3"
+                                }, 
+                                {
+                                    "field": "var3.getText()", 
+                                    "operation": "write", 
+                                    "type": "string"
+                                }, 
+                                {
+                                    "field": "(var3.getTooltip() != null) ? 1 : 0", 
+                                    "operation": "write", 
+                                    "type": "boolean"
+                                }, 
+                                {
+                                    "condition": "var3.getTooltip() != null", 
+                                    "instructions": [
+                                        {
+                                            "field": "hs.a(var3.getTooltip())", 
+                                            "operation": "write", 
+                                            "type": "chatcomponent"
+                                        }
+                                    ], 
+                                    "operation": "if"
+                                }
+                            ], 
+                            "operation": "loop"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }
+            ], 
+            "PLAY_CLIENTBOUND_33": [
+                {
+                    "class": "kb.class", 
+                    "direction": "CLIENTBOUND", 
+                    "from_client": false, 
+                    "from_server": true, 
+                    "id": 51, 
+                    "instructions": [
+                        {
+                            "field": "a", 
+                            "operation": "write", 
+                            "type": "enum"
+                        }, 
+                        {
+                            "field": "d", 
+                            "operation": "write", 
+                            "type": "boolean"
+                        }, 
+                        {
+                            "field": "e", 
+                            "operation": "write", 
+                            "type": "boolean"
+                        }, 
+                        {
+                            "field": "b.size()", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.b.iterator()", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "var2.hasNext()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((ns)var2.next())", 
+                                    "var": "var3"
+                                }, 
+                                {
+                                    "field": "var3", 
+                                    "operation": "write", 
+                                    "type": "identifier"
+                                }
+                            ], 
+                            "operation": "loop"
+                        }, 
+                        {
+                            "condition": "a == kb$a.a", 
+                            "instructions": [
+                                {
+                                    "field": "c.size()", 
+                                    "operation": "write", 
+                                    "type": "varint"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "this.c.iterator()", 
+                                    "var": "var2"
+                                }, 
+                                {
+                                    "condition": "var2.hasNext()", 
+                                    "instructions": [
+                                        {
+                                            "operation": "store", 
+                                            "type": "Object", 
+                                            "value": "((ns)var2.next())", 
+                                            "var": "var3"
+                                        }, 
+                                        {
+                                            "field": "var3", 
+                                            "operation": "write", 
+                                            "type": "identifier"
+                                        }
+                                    ], 
+                                    "operation": "loop"
+                                }
+                            ], 
+                            "operation": "if"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }, 
+                {
+                    "class": "ke.class", 
+                    "direction": "CLIENTBOUND", 
+                    "from_client": false, 
+                    "from_server": true, 
+                    "id": 51, 
+                    "instructions": [
+                        {
+                            "field": "a", 
+                            "operation": "write", 
+                            "type": "enum"
+                        }, 
+                        {
+                            "field": "d", 
+                            "operation": "write", 
+                            "type": "boolean"
+                        }, 
+                        {
+                            "field": "e", 
+                            "operation": "write", 
+                            "type": "boolean"
+                        }, 
+                        {
+                            "field": "f", 
+                            "operation": "write", 
+                            "type": "boolean"
+                        }, 
+                        {
+                            "field": "g", 
+                            "operation": "write", 
+                            "type": "boolean"
+                        }, 
+                        {
+                            "field": "b.size()", 
+                            "operation": "write", 
+                            "type": "varint"
+                        }, 
+                        {
+                            "operation": "store", 
+                            "type": "Object", 
+                            "value": "this.b.iterator()", 
+                            "var": "var2"
+                        }, 
+                        {
+                            "condition": "var2.hasNext()", 
+                            "instructions": [
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "((nx)var2.next())", 
+                                    "var": "var3"
+                                }, 
+                                {
+                                    "field": "var3", 
+                                    "operation": "write", 
+                                    "type": "identifier"
+                                }
+                            ], 
+                            "operation": "loop"
+                        }, 
+                        {
+                            "condition": "a == ke$a.a", 
+                            "instructions": [
+                                {
+                                    "field": "c.size()", 
+                                    "operation": "write", 
+                                    "type": "varint"
+                                }, 
+                                {
+                                    "operation": "store", 
+                                    "type": "Object", 
+                                    "value": "this.c.iterator()", 
+                                    "var": "var2"
+                                }, 
+                                {
+                                    "condition": "var2.hasNext()", 
+                                    "instructions": [
+                                        {
+                                            "operation": "store", 
+                                            "type": "Object", 
+                                            "value": "((nx)var2.next())", 
+                                            "var": "var3"
+                                        }, 
+                                        {
+                                            "field": "var3", 
+                                            "operation": "write", 
+                                            "type": "identifier"
+                                        }
+                                    ], 
+                                    "operation": "loop"
+                                }
+                            ], 
+                            "operation": "if"
+                        }
+                    ], 
+                    "state": "PLAY"
+                }
+            ]
+        }
+    }, 
+    "version": {
+        "data": [
+            1464, 
+            1466
+        ], 
+        "name": [
+            "18w05a", 
+            "18w06a"
+        ], 
+        "protocol": [
+            356, 
+            357
+        ]
+    }
+}
