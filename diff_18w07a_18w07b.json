@@ -1,34 +1,620 @@
 {
-    "language": {
+    "achievements": {},
+    "biomes": {
+        "biome": {}
+    },
+    "blocks": {
+        "block": {
+            "bubble_column": [
+                {
+                    "class": "ayb",
+                    "field": "C",
+                    "max_state_id": 6921,
+                    "min_state_id": 6920,
+                    "num_states": 2,
+                    "numeric_id": 548,
+                    "states": [
+                        {
+                            "declared_in": "ayb",
+                            "field_name": "a",
+                            "name": "drag",
+                            "num_values": 2,
+                            "type": "bool"
+                        }
+                    ],
+                    "text_id": "bubble_column"
+                },
+                {
+                    "class": "axv",
+                    "field": "C",
+                    "max_state_id": 6911,
+                    "min_state_id": 6910,
+                    "num_states": 2,
+                    "numeric_id": 548,
+                    "states": [
+                        {
+                            "declared_in": "axv",
+                            "field_name": "a",
+                            "name": "drag",
+                            "num_values": 2,
+                            "type": "bool"
+                        }
+                    ],
+                    "text_id": "bubble_column"
+                }
+            ],
+            "cave_air": [
+                {
+                    "class": "axl",
+                    "display_name": "Cave Air",
+                    "field": "jC",
+                    "max_state_id": 6919,
+                    "min_state_id": 6919,
+                    "num_states": 1,
+                    "numeric_id": 547,
+                    "states": [],
+                    "text_id": "cave_air"
+                },
+                {
+                    "class": "axf",
+                    "display_name": "Cave Air",
+                    "field": "jC",
+                    "max_state_id": 6909,
+                    "min_state_id": 6909,
+                    "num_states": 1,
+                    "numeric_id": 547,
+                    "states": [],
+                    "text_id": "cave_air"
+                }
+            ],
+            "dried_kelp_block": [
+                {
+                    "class": "axw",
+                    "display_name": "Dried Kelp Block",
+                    "field": "jz",
+                    "hardness": 0.5,
+                    "max_state_id": 6905,
+                    "min_state_id": 6905,
+                    "num_states": 1,
+                    "numeric_id": 544,
+                    "states": [],
+                    "text_id": "dried_kelp_block"
+                },
+                {
+                    "class": "axq",
+                    "display_name": "Dried Kelp Block",
+                    "field": "jz",
+                    "hardness": 0.5,
+                    "max_state_id": 6895,
+                    "min_state_id": 6895,
+                    "num_states": 1,
+                    "numeric_id": 544,
+                    "states": [],
+                    "text_id": "dried_kelp_block"
+                }
+            ],
+            "kelp_top": [
+                {
+                    "class": "ban",
+                    "display_name": "Kelp",
+                    "field": "jy",
+                    "hardness": 0.0,
+                    "max_state_id": 6904,
+                    "min_state_id": 6869,
+                    "num_states": 36,
+                    "numeric_id": 543,
+                    "states": [
+                        {
+                            "declared_in": "ban",
+                            "field_name": "a",
+                            "max": 35,
+                            "min": 0,
+                            "name": "age",
+                            "num_values": 36,
+                            "type": "int"
+                        }
+                    ],
+                    "text_id": "kelp_top"
+                },
+                {
+                    "class": "bah",
+                    "display_name": "Kelp",
+                    "field": "jy",
+                    "hardness": 0.0,
+                    "max_state_id": 6894,
+                    "min_state_id": 6869,
+                    "num_states": 26,
+                    "numeric_id": 543,
+                    "states": [
+                        {
+                            "declared_in": "bah",
+                            "field_name": "a",
+                            "max": 25,
+                            "min": 0,
+                            "name": "age",
+                            "num_values": 26,
+                            "type": "int"
+                        }
+                    ],
+                    "text_id": "kelp_top"
+                }
+            ],
+            "structure_block": [
+                {
+                    "class": "bda",
+                    "display_name": "Structure Block",
+                    "field": "jD",
+                    "hardness": -1.0,
+                    "max_state_id": 6925,
+                    "min_state_id": 6922,
+                    "num_states": 4,
+                    "numeric_id": 549,
+                    "states": [
+                        {
+                            "declared_in": "bda",
+                            "enum_class": "bfb$a",
+                            "field_name": "a",
+                            "name": "mode",
+                            "num_values": 4,
+                            "type": "enum",
+                            "values": [
+                                "SAVE",
+                                "LOAD",
+                                "CORNER",
+                                "DATA"
+                            ]
+                        }
+                    ],
+                    "text_id": "structure_block"
+                },
+                {
+                    "class": "bcu",
+                    "display_name": "Structure Block",
+                    "field": "jD",
+                    "hardness": -1.0,
+                    "max_state_id": 6915,
+                    "min_state_id": 6912,
+                    "num_states": 4,
+                    "numeric_id": 549,
+                    "states": [
+                        {
+                            "declared_in": "bcu",
+                            "enum_class": "bev$a",
+                            "field_name": "a",
+                            "name": "mode",
+                            "num_values": 4,
+                            "type": "enum",
+                            "values": [
+                                "SAVE",
+                                "LOAD",
+                                "CORNER",
+                                "DATA"
+                            ]
+                        }
+                    ],
+                    "text_id": "structure_block"
+                }
+            ],
+            "turtle_egg": [
+                {
+                    "class": "bdm",
+                    "display_name": "Turtle Egg",
+                    "field": "jA",
+                    "hardness": 0.5,
+                    "max_state_id": 6917,
+                    "min_state_id": 6906,
+                    "num_states": 12,
+                    "numeric_id": 545,
+                    "states": [
+                        {
+                            "declared_in": "bdm",
+                            "field_name": "a",
+                            "max": 2,
+                            "min": 0,
+                            "name": "hatch",
+                            "num_values": 3,
+                            "type": "int"
+                        },
+                        {
+                            "declared_in": "bdm",
+                            "field_name": "b",
+                            "max": 4,
+                            "min": 1,
+                            "name": "eggs",
+                            "num_values": 4,
+                            "type": "int"
+                        }
+                    ],
+                    "text_id": "turtle_egg"
+                },
+                {
+                    "class": "bdg",
+                    "display_name": "Turtle Egg",
+                    "field": "jA",
+                    "hardness": 0.5,
+                    "max_state_id": 6907,
+                    "min_state_id": 6896,
+                    "num_states": 12,
+                    "numeric_id": 545,
+                    "states": [
+                        {
+                            "declared_in": "bdg",
+                            "field_name": "a",
+                            "max": 2,
+                            "min": 0,
+                            "name": "hatch",
+                            "num_values": 3,
+                            "type": "int"
+                        },
+                        {
+                            "declared_in": "bdg",
+                            "field_name": "b",
+                            "max": 4,
+                            "min": 1,
+                            "name": "eggs",
+                            "num_values": 4,
+                            "type": "int"
+                        }
+                    ],
+                    "text_id": "turtle_egg"
+                }
+            ],
+            "void_air": [
+                {
+                    "class": "axl",
+                    "display_name": "Void Air",
+                    "field": "jB",
+                    "max_state_id": 6918,
+                    "min_state_id": 6918,
+                    "num_states": 1,
+                    "numeric_id": 546,
+                    "states": [],
+                    "text_id": "void_air"
+                },
+                {
+                    "class": "axf",
+                    "display_name": "Void Air",
+                    "field": "jB",
+                    "max_state_id": 6908,
+                    "min_state_id": 6908,
+                    "num_states": 1,
+                    "numeric_id": 546,
+                    "states": [],
+                    "text_id": "void_air"
+                }
+            ]
+        }
+    },
+    "entities": {
+        "entity": {}
+    },
+    "items": {
         "item": {
-            "minecraft.lingering_potion.effect.turtle_master": [
-                "Potion of the Turtle Master", 
-                "Lingering Potion of the Turtle Master"
-            ], 
-            "minecraft.scute": [
-                null, 
-                "Scute"
-            ], 
-            "minecraft.turtle_shell_piece": [
-                "Turtle Shell Piece", 
+            "scute": [
+                null,
+                {
+                    "class": "aov",
+                    "display_name": "Scute",
+                    "field": "eM",
+                    "numeric_id": 431,
+                    "text_id": "scute"
+                }
+            ],
+            "turtle_shell_piece": [
+                {
+                    "class": "apa",
+                    "display_name": "Turtle Shell Piece",
+                    "field": "eM",
+                    "numeric_id": 431,
+                    "text_id": "turtle_shell_piece"
+                },
                 null
             ]
         }
-    }, 
+    },
+    "language": {
+        "item": {
+            "minecraft.lingering_potion.effect.turtle_master": [
+                "Potion of the Turtle Master",
+                "Lingering Potion of the Turtle Master"
+            ],
+            "minecraft.scute": [
+                null,
+                "Scute"
+            ],
+            "minecraft.turtle_shell_piece": [
+                "Turtle Shell Piece",
+                null
+            ]
+        }
+    },
     "packets": {
         "packet": {}
-    }, 
+    },
+    "recipes": {
+        "turtle_helmet": [
+            [
+                {
+                    "id": "minecraft:turtle_helmet",
+                    "makes": {
+                        "count": 1,
+                        "name": "turtle_helmet",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "XXX",
+                            "X X"
+                        ],
+                        "subs": {
+                            "X": {
+                                "name": "turtle_shell_piece",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "turtle_shell_piece",
+                                "type": "item"
+                            },
+                            {
+                                "name": "turtle_shell_piece",
+                                "type": "item"
+                            },
+                            {
+                                "name": "turtle_shell_piece",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "turtle_shell_piece",
+                                "type": "item"
+                            },
+                            null,
+                            {
+                                "name": "turtle_shell_piece",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ],
+            [
+                {
+                    "id": "minecraft:turtle_helmet",
+                    "makes": {
+                        "count": 1,
+                        "name": "turtle_helmet",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "XXX",
+                            "X X"
+                        ],
+                        "subs": {
+                            "X": {
+                                "name": "scute",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "scute",
+                                "type": "item"
+                            },
+                            {
+                                "name": "scute",
+                                "type": "item"
+                            },
+                            {
+                                "name": "scute",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "scute",
+                                "type": "item"
+                            },
+                            null,
+                            {
+                                "name": "scute",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ]
+    },
+    "sounds": {},
+    "stats": {},
+    "tags": {
+        "blocks/rails": [
+            null,
+            {
+                "name": "rails",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:rail",
+                    "minecraft:powered_rail",
+                    "minecraft:detector_rail",
+                    "minecraft:activator_rail"
+                ]
+            }
+        ],
+        "blocks/sand": [
+            null,
+            {
+                "name": "sand",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:sand",
+                    "minecraft:red_sand"
+                ]
+            }
+        ],
+        "blocks/water_hacked": [
+            {
+                "name": "water_hacked",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "#minecraft:stairs",
+                    "#minecraft:slabs",
+                    "minecraft:bubble_column",
+                    "minecraft:kelp",
+                    "minecraft:kelp_top",
+                    "minecraft:sea_grass",
+                    "minecraft:tall_sea_grass"
+                ]
+            },
+            {
+                "name": "water_hacked",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "#minecraft:stairs",
+                    "#minecraft:waterlogged",
+                    "#minecraft:slabs"
+                ]
+            }
+        ],
+        "blocks/waterlogged": [
+            null,
+            {
+                "name": "waterlogged",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:bubble_column",
+                    "minecraft:kelp",
+                    "minecraft:kelp_top",
+                    "minecraft:sea_grass",
+                    "minecraft:tall_sea_grass"
+                ]
+            }
+        ],
+        "items/anvil": [
+            null,
+            {
+                "name": "anvil",
+                "replace": false,
+                "type": "items",
+                "values": [
+                    "minecraft:anvil",
+                    "minecraft:chipped_anvil",
+                    "minecraft:damaged_anvil"
+                ]
+            }
+        ],
+        "items/rails": [
+            null,
+            {
+                "name": "rails",
+                "replace": false,
+                "type": "items",
+                "values": [
+                    "minecraft:rail",
+                    "minecraft:powered_rail",
+                    "minecraft:detector_rail",
+                    "minecraft:activator_rail"
+                ]
+            }
+        ],
+        "items/sand": [
+            null,
+            {
+                "name": "sand",
+                "replace": false,
+                "type": "items",
+                "values": [
+                    "minecraft:sand",
+                    "minecraft:red_sand"
+                ]
+            }
+        ],
+        "items/slabs": [
+            null,
+            {
+                "name": "slabs",
+                "replace": false,
+                "type": "items",
+                "values": [
+                    "minecraft:stone_slab",
+                    "minecraft:stone_brick_slab",
+                    "minecraft:sandstone_slab",
+                    "minecraft:acacia_slab",
+                    "minecraft:birch_slab",
+                    "minecraft:dark_oak_slab",
+                    "minecraft:jungle_slab",
+                    "minecraft:oak_slab",
+                    "minecraft:spruce_slab",
+                    "minecraft:purpur_slab",
+                    "minecraft:quartz_slab",
+                    "minecraft:red_sandstone_slab",
+                    "minecraft:brick_slab",
+                    "minecraft:cobblestone_slab",
+                    "minecraft:nether_brick_slab",
+                    "minecraft:petrified_oak_slab",
+                    "minecraft:prismarine_slab",
+                    "minecraft:prismarine_bricks_slab",
+                    "minecraft:dark_prismarine_slab"
+                ]
+            }
+        ],
+        "items/stairs": [
+            null,
+            {
+                "name": "stairs",
+                "replace": false,
+                "type": "items",
+                "values": [
+                    "minecraft:oak_stairs",
+                    "minecraft:cobblestone_stairs",
+                    "minecraft:spruce_stairs",
+                    "minecraft:sandstone_stairs",
+                    "minecraft:acacia_stairs",
+                    "minecraft:jungle_stairs",
+                    "minecraft:birch_stairs",
+                    "minecraft:dark_oak_stairs",
+                    "minecraft:nether_brick_stairs",
+                    "minecraft:stone_brick_stairs",
+                    "minecraft:brick_stairs",
+                    "minecraft:purpur_stairs",
+                    "minecraft:quartz_stairs",
+                    "minecraft:red_sandstone_stairs",
+                    "minecraft:prismarine_bricks_stairs",
+                    "minecraft:prismarine_stairs",
+                    "minecraft:dark_prismarine_stairs"
+                ]
+            }
+        ]
+    },
+    "tileentity": {
+        "tileentities": {}
+    },
     "version": {
         "data": [
-            1467, 
+            1467,
             1468
-        ], 
+        ],
         "name": [
-            "18w07a", 
+            "18w07a",
             "18w07b"
-        ], 
+        ],
         "protocol": [
-            358, 
+            358,
             359
         ]
     }

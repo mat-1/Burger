@@ -8,8 +8,8 @@
                 </head>
                 <body>
                     <div id="vitrine">
-                        <a href="#blocks"><h2 id="blocks">Blocks</h2></a><div class="split"><div class="left"><div class="entry"><h3 id="blocks:redstone_wire" class="item_title"><a href="#blocks:redstone_wire"><div title="Redstone Wire" class="craftitem">redstone_wire</div></a></h3><div><dl><dt>ID</dt><dd>redstone_wire</dd><dt>Numeric ID</dt><dd>131</dd><dt>Hardness</dt><dd>0.0</dd><dt>State IDs</dt><dd>1296 from 1621 to 2916</dd><dt>States</dt><dd>5 total<dl><dt>north</dt><dd>UP<br/>NONE<br/>SIDE</dd><dt>east</dt><dd>UP<br/>NONE<br/>SIDE</dd><dt>south</dt><dd>UP<br/>NONE<br/>SIDE</dd><dt>west</dt><dd>UP<br/>NONE<br/>SIDE</dd><dt>power</dt><dd>[0...15]</dd></dl></dd></dl></div></div>
-</div><div class="right"><div class="entry"><h3 id="blocks:redstone_wire" class="item_title"><a href="#blocks:redstone_wire"><div title="Redstone Dust" class="craftitem">redstone_wire</div></a></h3><div><dl><dt>ID</dt><dd>redstone_wire</dd><dt>Numeric ID</dt><dd>131</dd><dt>Hardness</dt><dd>0.0</dd><dt>State IDs</dt><dd>1296 from 1621 to 2916</dd><dt>States</dt><dd>5 total<dl><dt>north</dt><dd>UP<br/>NONE<br/>SIDE</dd><dt>east</dt><dd>UP<br/>NONE<br/>SIDE</dd><dt>south</dt><dd>UP<br/>NONE<br/>SIDE</dd><dt>west</dt><dd>UP<br/>NONE<br/>SIDE</dd><dt>power</dt><dd>[0...15]</dd></dl></dd></dl></div></div>
+                        <a href="#blocks"><h2 id="blocks">Blocks</h2></a><div class="split"><div class="left"><div class="entry"><h3 id="blocks:redstone_wire" class="item_title"><a href="#blocks:redstone_wire"><div title="Redstone Wire" class="craftitem">redstone_wire</div></a></h3><div><dl><dt>ID</dt><dd>redstone_wire</dd><dt>Numeric ID</dt><dd>131</dd><dt>Hardness</dt><dd>0.0</dd><dt>State IDs</dt><dd>1296 from 1621 to 2916</dd><dt>States</dt><dd>5 total<dl><dt>north</dt><dd>UP<br/>SIDE<br/>NONE</dd><dt>east</dt><dd>UP<br/>SIDE<br/>NONE</dd><dt>south</dt><dd>UP<br/>SIDE<br/>NONE</dd><dt>west</dt><dd>UP<br/>SIDE<br/>NONE</dd><dt>power</dt><dd>[0...15]</dd></dl></dd></dl></div></div>
+</div><div class="right"><div class="entry"><h3 id="blocks:redstone_wire" class="item_title"><a href="#blocks:redstone_wire"><div title="Redstone Dust" class="craftitem">redstone_wire</div></a></h3><div><dl><dt>ID</dt><dd>redstone_wire</dd><dt>Numeric ID</dt><dd>131</dd><dt>Hardness</dt><dd>0.0</dd><dt>State IDs</dt><dd>1296 from 1621 to 2916</dd><dt>States</dt><dd>5 total<dl><dt>north</dt><dd>UP<br/>SIDE<br/>NONE</dd><dt>east</dt><dd>UP<br/>SIDE<br/>NONE</dd><dt>south</dt><dd>UP<br/>SIDE<br/>NONE</dd><dt>west</dt><dd>UP<br/>SIDE<br/>NONE</dd><dt>power</dt><dd>[0...15]</dd></dl></dd></dl></div></div>
 </div></div>
 <a href="#items"><h2 id="items">Items</h2></a><div class="split"><div class="left"><div class="entry"><h3 id="items:acacia_fence" class="item_title"><a href="#items:acacia_fence"><div class="item" title="Acacia Fence" style="background-image:none;"></div></a></h3><div><dl><dt>ID</dt><dd>acacia_fence</dd><dt>Numeric ID</dt><dd>163</dd><dt>Name</dt><dd>Acacia Fence</dd></dl></div></div>
 </div><div class="right"><div class="entry"><h3 id="items:acacia_fence" class="item_title"><a href="#items:acacia_fence"><div class="item" title="Acacia Fence" style="background-image:none;"></div></a></h3><div><dl><dt>ID</dt><dd>acacia_fence</dd><dt>Numeric ID</dt><dd>162</dd><dt>Name</dt><dd>Acacia Fence</dd></dl></div></div>
@@ -58,67 +58,66 @@
 </div><div class="right"><div class="no entry"></div>
 </div></div>
 <a href="#entities"><h2 id="entities">Entities</h2></a><span class="info">No entries</span>
-<a href="#objects"><h2 id="objects">Objects</h2></a><span class="info">No entries</span>
-<a href="#packets"><h2 id="packets">Packets</h2></a><div class="split"><div class="left"><div class="entry"><a href="#packets:0x2c"><h3 id="packets:0x2c">PLAY_CLIENTBOUND_2C</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>44</dd></dl><pre><span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
-<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">aoc</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">));</span>
+<a href="#packets"><h2 id="packets">Packets</h2></a><div class="split"><div class="left"><div class="entry"><a href="#packets:0x2c"><h3 id="packets:0x2c">PLAY_CLIENTBOUND_2C</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>44</dd></dl><pre>writeByte(a);
+writeVarInt(aoc.a(b));
 </pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:0x2c"><h3 id="packets:0x2c">PLAY_CLIENTBOUND_2C</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>44</dd></dl><pre><span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
-<span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+</div><div class="right"><div class="entry"><a href="#packets:0x2c"><h3 id="packets:0x2c">PLAY_CLIENTBOUND_2C</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>44</dd></dl><pre>writeByte(a);
+writeIdentifier(b);
 </pre></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x32"><h3 id="packets:0x32">PLAY_CLIENTBOUND_32</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>50</dd></dl><pre><span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
-<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
-<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">);</span>
-<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
-<span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
-<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
-  <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">aob</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
-  <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">aoc</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">));</span>
-<span class="hl_o">}</span>
-<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">a</span> <span class="hl_o">==</span> <span class="hl_n">ja$a</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">)</span> <span class="hl_o">{</span>
-  <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
-  <span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">c</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
-  <span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
-    <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">aob</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
-    <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">aoc</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">));</span>
-  <span class="hl_o">}</span>
-<span class="hl_o">}</span>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x32"><h3 id="packets:0x32">PLAY_CLIENTBOUND_32</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>50</dd></dl><pre>writeVarIntEnum(a);
+writeBoolean(d);
+writeBoolean(e);
+writeVarInt(b.size());
+Object var2 = this.b.iterator();
+while(var2.hasNext()) {
+  Object var3 = ((aob)var2.next());
+  writeVarInt(aoc.a(var3));
+}
+if(a == ja$a.a) {
+  writeVarInt(c.size());
+  Object var2 = this.c.iterator();
+  while(var2.hasNext()) {
+    Object var3 = ((aob)var2.next());
+    writeVarInt(aoc.a(var3));
+  }
+}
 </pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:0x32"><h3 id="packets:0x32">PLAY_CLIENTBOUND_32</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>50</dd></dl><pre><span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
-<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
-<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">);</span>
-<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
-<span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
-<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
-  <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">mq</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
-  <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">);</span>
-<span class="hl_o">}</span>
-<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">a</span> <span class="hl_o">==</span> <span class="hl_n">ja$a</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">)</span> <span class="hl_o">{</span>
-  <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
-  <span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">c</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
-  <span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
-    <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">mq</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
-    <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">);</span>
-  <span class="hl_o">}</span>
-<span class="hl_o">}</span>
+</div><div class="right"><div class="entry"><a href="#packets:0x32"><h3 id="packets:0x32">PLAY_CLIENTBOUND_32</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>50</dd></dl><pre>writeVarIntEnum(a);
+writeBoolean(d);
+writeBoolean(e);
+writeVarInt(b.size());
+Object var2 = this.b.iterator();
+while(var2.hasNext()) {
+  Object var3 = ((mq)var2.next());
+  writeIdentifier(var3);
+}
+if(a == ja$a.a) {
+  writeVarInt(c.size());
+  Object var2 = this.c.iterator();
+  while(var2.hasNext()) {
+    Object var3 = ((mq)var2.next());
+    writeIdentifier(var3);
+  }
+}
 </pre></div></div>
 </div></div><div class="split"><div class="left"><div class="no entry"></div>
-</div><div class="right"><div class="entry"><a href="#packets:0x52"><h3 id="packets:0x52">PLAY_CLIENTBOUND_52</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>82</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
-<span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
-<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
-  <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">aod</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
-  <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">.</span><span class="hl_na">c</span><span class="hl_o">());</span>
-  <span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">().</span><span class="hl_na">a</span><span class="hl_o">());</span>
-  <span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_n">var3</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">();</span>
-  <span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">(</span><span class="hl_n">packetbuffer</span><span class="hl_o">,</span> <span class="hl_n">var3</span><span class="hl_o">);</span> <span class="hl_c1">// interface call to aof.a(Lgf;Laod;)V: behavior may vary</span>
-<span class="hl_o">}</span>
+</div><div class="right"><div class="entry"><a href="#packets:0x52"><h3 id="packets:0x52">PLAY_CLIENTBOUND_52</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>82</dd></dl><pre>writeVarInt(a.size());
+Object var2 = this.a.iterator();
+while(var2.hasNext()) {
+  Object var3 = ((aod)var2.next());
+  writeIdentifier(var3.c());
+  writeString(var3.b().a());
+  Object var2 = var3.b();
+  var2.a(packetbuffer, var3); // interface call to aof.a(Lgf;Laod;)V: behavior may vary
+}
 </pre></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x12"><h3 id="packets:0x12">PLAY_SERVERBOUND_12</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>18</dd></dl><pre><span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
-<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">aoc</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">));</span>
-<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x12"><h3 id="packets:0x12">PLAY_SERVERBOUND_12</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>18</dd></dl><pre>writeByte(a);
+writeVarInt(aoc.a(b));
+writeBoolean(c);
 </pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:0x12"><h3 id="packets:0x12">PLAY_SERVERBOUND_12</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>18</dd></dl><pre><span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
-<span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
-<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+</div><div class="right"><div class="entry"><a href="#packets:0x12"><h3 id="packets:0x12">PLAY_SERVERBOUND_12</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>18</dd></dl><pre>writeByte(a);
+writeIdentifier(b);
+writeBoolean(c);
 </pre></div></div>
 </div></div>
 <a href="#block_entities"><h2 id="block_entities">Block entities</h2></a><span class="info">No entries</span>

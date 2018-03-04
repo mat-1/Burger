@@ -1,1635 +1,1632 @@
 {
-    "achievements": {}, 
+    "achievements": {},
     "biomes": {
         "biome": {}
-    }, 
+    },
     "blocks": {
         "block": {}
-    }, 
+    },
     "entities": {
-        "entity": {}, 
-        "object": {}
-    }, 
+        "entity": {}
+    },
     "items": {
         "item": {
             "player_head": [
                 {
-                    "class": "aml", 
-                    "display_name": "Head", 
-                    "field": "dx", 
-                    "numeric_id": 634, 
-                    "register_method": "block_and_item", 
+                    "class": "aml",
+                    "display_name": "Head",
+                    "field": "dx",
+                    "numeric_id": 634,
                     "text_id": "player_head"
-                }, 
+                },
                 {
-                    "class": "amv", 
-                    "display_name": "Player Head", 
-                    "field": "dx", 
-                    "numeric_id": 634, 
-                    "register_method": "block_and_item", 
+                    "class": "amv",
+                    "display_name": "Player Head",
+                    "field": "dx",
+                    "numeric_id": 634,
                     "text_id": "player_head"
                 }
             ]
         }
-    }, 
+    },
     "language": {
         "block": {
             "minecraft.player_head.named": [
-                null, 
+                null,
                 "%s's Head"
             ]
-        }, 
+        },
         "item": {
             "minecraft.player_head": [
-                "Head", 
+                "Head",
                 null
-            ], 
+            ],
             "minecraft.player_head.named": [
-                "%s's Head", 
+                "%s's Head",
                 null
             ]
         }
-    }, 
+    },
     "packets": {
         "packet": {
             "PLAY_CLIENTBOUND_53": [
-                null, 
+                null,
                 {
-                    "class": "kl.class", 
-                    "direction": "CLIENTBOUND", 
-                    "from_client": false, 
-                    "from_server": true, 
-                    "id": 83, 
+                    "class": "kl.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 83,
                     "instructions": [
                         {
-                            "field": "a.a.d.size()", 
-                            "operation": "write", 
+                            "field": "a.a.d.size()",
+                            "operation": "write",
                             "type": "varint"
-                        }, 
+                        },
                         {
-                            "operation": "store", 
-                            "type": "Object", 
-                            "value": "this.a.a.d.entrySet().iterator()", 
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.a.a.d.entrySet().iterator()",
                             "var": "var2"
-                        }, 
+                        },
                         {
-                            "condition": "var2.hasNext()", 
+                            "condition": "var2.hasNext()",
                             "instructions": [
                                 {
-                                    "operation": "store", 
-                                    "type": "Object", 
-                                    "value": "((Map$Entry)var2.next())", 
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((Map$Entry)var2.next())",
                                     "var": "var3"
-                                }, 
+                                },
                                 {
-                                    "field": "(mv)var3.getKey()", 
-                                    "operation": "write", 
+                                    "field": "(mv)var3.getKey()",
+                                    "operation": "write",
                                     "type": "identifier"
-                                }, 
+                                },
                                 {
-                                    "field": "((ty)var3.getValue()).a().size()", 
-                                    "operation": "write", 
+                                    "field": "((ty)var3.getValue()).a().size()",
+                                    "operation": "write",
                                     "type": "varint"
-                                }, 
+                                },
                                 {
-                                    "operation": "store", 
-                                    "type": "Object", 
-                                    "value": "((ty)var3.getValue()).a().iterator()", 
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((ty)var3.getValue()).a().iterator()",
                                     "var": "var4"
-                                }, 
+                                },
                                 {
-                                    "condition": "var4.hasNext()", 
+                                    "condition": "var4.hasNext()",
                                     "instructions": [
                                         {
-                                            "operation": "store", 
-                                            "type": "Object", 
-                                            "value": "var4.next()", 
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "var4.next()",
                                             "var": "var5"
-                                        }, 
+                                        },
                                         {
-                                            "field": "a.a.e.a(var5)", 
-                                            "operation": "write", 
+                                            "field": "a.a.e.a(var5)",
+                                            "operation": "write",
                                             "type": "varint"
                                         }
-                                    ], 
+                                    ],
                                     "operation": "loop"
                                 }
-                            ], 
+                            ],
                             "operation": "loop"
-                        }, 
+                        },
                         {
-                            "field": "a.b.d.size()", 
-                            "operation": "write", 
+                            "field": "a.b.d.size()",
+                            "operation": "write",
                             "type": "varint"
-                        }, 
+                        },
                         {
-                            "operation": "store", 
-                            "type": "Object", 
-                            "value": "this.a.b.d.entrySet().iterator()", 
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.a.b.d.entrySet().iterator()",
                             "var": "var2"
-                        }, 
+                        },
                         {
-                            "condition": "var2.hasNext()", 
+                            "condition": "var2.hasNext()",
                             "instructions": [
                                 {
-                                    "operation": "store", 
-                                    "type": "Object", 
-                                    "value": "((Map$Entry)var2.next())", 
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((Map$Entry)var2.next())",
                                     "var": "var3"
-                                }, 
+                                },
                                 {
-                                    "field": "(mv)var3.getKey()", 
-                                    "operation": "write", 
+                                    "field": "(mv)var3.getKey()",
+                                    "operation": "write",
                                     "type": "identifier"
-                                }, 
+                                },
                                 {
-                                    "field": "((ty)var3.getValue()).a().size()", 
-                                    "operation": "write", 
+                                    "field": "((ty)var3.getValue()).a().size()",
+                                    "operation": "write",
                                     "type": "varint"
-                                }, 
+                                },
                                 {
-                                    "operation": "store", 
-                                    "type": "Object", 
-                                    "value": "((ty)var3.getValue()).a().iterator()", 
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((ty)var3.getValue()).a().iterator()",
                                     "var": "var4"
-                                }, 
+                                },
                                 {
-                                    "condition": "var4.hasNext()", 
+                                    "condition": "var4.hasNext()",
                                     "instructions": [
                                         {
-                                            "operation": "store", 
-                                            "type": "Object", 
-                                            "value": "var4.next()", 
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "var4.next()",
                                             "var": "var5"
-                                        }, 
+                                        },
                                         {
-                                            "field": "a.b.e.a(var5)", 
-                                            "operation": "write", 
+                                            "field": "a.b.e.a(var5)",
+                                            "operation": "write",
                                             "type": "varint"
                                         }
-                                    ], 
+                                    ],
                                     "operation": "loop"
                                 }
-                            ], 
+                            ],
                             "operation": "loop"
                         }
-                    ], 
+                    ],
                     "state": "PLAY"
                 }
             ]
         }
-    }, 
+    },
     "recipes": {
         "acacia_button": [
             [
                 {
-                    "group": "wooden_button", 
-                    "id": "minecraft:acacia_button", 
+                    "group": "wooden_button",
+                    "id": "minecraft:acacia_button",
                     "makes": {
-                        "count": 1, 
-                        "name": "acacia_button", 
+                        "count": 1,
+                        "name": "acacia_button",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "acacia_planks", 
+                                "name": "acacia_planks",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "acacia_planks", 
+                                "name": "acacia_planks",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "group": "wooden_button", 
-                    "id": "minecraft:acacia_button", 
+                    "group": "wooden_button",
+                    "id": "minecraft:acacia_button",
                     "ingredients": [
                         {
-                            "name": "acacia_planks", 
+                            "name": "acacia_planks",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 1, 
-                        "name": "acacia_button", 
+                        "count": 1,
+                        "name": "acacia_button",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "acacia_planks": [
             [
                 {
-                    "group": "planks", 
-                    "id": "minecraft:acacia_planks", 
+                    "group": "planks",
+                    "id": "minecraft:acacia_planks",
                     "makes": {
-                        "count": 4, 
-                        "name": "acacia_planks", 
+                        "count": 4,
+                        "name": "acacia_planks",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "acacia_log", 
+                                "name": "acacia_log",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "acacia_log", 
+                                "name": "acacia_log",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "group": "planks", 
-                    "id": "minecraft:acacia_planks", 
+                    "group": "planks",
+                    "id": "minecraft:acacia_planks",
                     "ingredients": [
                         {
-                            "name": "acacia_log", 
+                            "name": "acacia_log",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 1, 
-                        "name": "acacia_planks", 
+                        "count": 1,
+                        "name": "acacia_planks",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "birch_button": [
             [
                 {
-                    "group": "wooden_button", 
-                    "id": "minecraft:birch_button", 
+                    "group": "wooden_button",
+                    "id": "minecraft:birch_button",
                     "makes": {
-                        "count": 1, 
-                        "name": "birch_button", 
+                        "count": 1,
+                        "name": "birch_button",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "birch_planks", 
+                                "name": "birch_planks",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "birch_planks", 
+                                "name": "birch_planks",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "group": "wooden_button", 
-                    "id": "minecraft:birch_button", 
+                    "group": "wooden_button",
+                    "id": "minecraft:birch_button",
                     "ingredients": [
                         {
-                            "name": "birch_planks", 
+                            "name": "birch_planks",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 1, 
-                        "name": "birch_button", 
+                        "count": 1,
+                        "name": "birch_button",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "birch_planks": [
             [
                 {
-                    "group": "planks", 
-                    "id": "minecraft:birch_planks", 
+                    "group": "planks",
+                    "id": "minecraft:birch_planks",
                     "makes": {
-                        "count": 4, 
-                        "name": "birch_planks", 
+                        "count": 4,
+                        "name": "birch_planks",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "birch_log", 
+                                "name": "birch_log",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "birch_log", 
+                                "name": "birch_log",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "group": "planks", 
-                    "id": "minecraft:birch_planks", 
+                    "group": "planks",
+                    "id": "minecraft:birch_planks",
                     "ingredients": [
                         {
-                            "name": "birch_log", 
+                            "name": "birch_log",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 1, 
-                        "name": "birch_planks", 
+                        "count": 1,
+                        "name": "birch_planks",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "coal": [
             [
                 {
-                    "id": "minecraft:coal", 
+                    "id": "minecraft:coal",
                     "makes": {
-                        "count": 9, 
-                        "name": "coal", 
+                        "count": 9,
+                        "name": "coal",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "coal_block", 
+                                "name": "coal_block",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "coal_block", 
+                                "name": "coal_block",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "id": "minecraft:coal", 
+                    "id": "minecraft:coal",
                     "ingredients": [
                         {
-                            "name": "coal_block", 
+                            "name": "coal_block",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 9, 
-                        "name": "coal", 
+                        "count": 9,
+                        "name": "coal",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "dark_oak_button": [
             [
                 {
-                    "group": "wooden_button", 
-                    "id": "minecraft:dark_oak_button", 
+                    "group": "wooden_button",
+                    "id": "minecraft:dark_oak_button",
                     "makes": {
-                        "count": 1, 
-                        "name": "dark_oak_button", 
+                        "count": 1,
+                        "name": "dark_oak_button",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "dark_oak_planks", 
+                                "name": "dark_oak_planks",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "dark_oak_planks", 
+                                "name": "dark_oak_planks",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "group": "wooden_button", 
-                    "id": "minecraft:dark_oak_button", 
+                    "group": "wooden_button",
+                    "id": "minecraft:dark_oak_button",
                     "ingredients": [
                         {
-                            "name": "dark_oak_planks", 
+                            "name": "dark_oak_planks",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 1, 
-                        "name": "dark_oak_button", 
+                        "count": 1,
+                        "name": "dark_oak_button",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "dark_oak_planks": [
             [
                 {
-                    "group": "planks", 
-                    "id": "minecraft:dark_oak_planks", 
+                    "group": "planks",
+                    "id": "minecraft:dark_oak_planks",
                     "makes": {
-                        "count": 4, 
-                        "name": "dark_oak_planks", 
+                        "count": 4,
+                        "name": "dark_oak_planks",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "dark_oak_log", 
+                                "name": "dark_oak_log",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "dark_oak_log", 
+                                "name": "dark_oak_log",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "group": "planks", 
-                    "id": "minecraft:dark_oak_planks", 
+                    "group": "planks",
+                    "id": "minecraft:dark_oak_planks",
                     "ingredients": [
                         {
-                            "name": "dark_oak_log", 
+                            "name": "dark_oak_log",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 1, 
-                        "name": "dark_oak_planks", 
+                        "count": 1,
+                        "name": "dark_oak_planks",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "diamond": [
             [
                 {
-                    "id": "minecraft:diamond", 
+                    "id": "minecraft:diamond",
                     "makes": {
-                        "count": 9, 
-                        "name": "diamond", 
+                        "count": 9,
+                        "name": "diamond",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "diamond_block", 
+                                "name": "diamond_block",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "diamond_block", 
+                                "name": "diamond_block",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "id": "minecraft:diamond", 
+                    "id": "minecraft:diamond",
                     "ingredients": [
                         {
-                            "name": "diamond_block", 
+                            "name": "diamond_block",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 9, 
-                        "name": "diamond", 
+                        "count": 9,
+                        "name": "diamond",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "emerald": [
             [
                 {
-                    "id": "minecraft:emerald", 
+                    "id": "minecraft:emerald",
                     "makes": {
-                        "count": 9, 
-                        "name": "emerald", 
+                        "count": 9,
+                        "name": "emerald",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "emerald_block", 
+                                "name": "emerald_block",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "emerald_block", 
+                                "name": "emerald_block",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "id": "minecraft:emerald", 
+                    "id": "minecraft:emerald",
                     "ingredients": [
                         {
-                            "name": "emerald_block", 
+                            "name": "emerald_block",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 9, 
-                        "name": "emerald", 
+                        "count": 9,
+                        "name": "emerald",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "gold_ingot": [
             [
                 {
-                    "group": "gold_ingot", 
-                    "id": "minecraft:gold_ingot_from_gold_block", 
+                    "group": "gold_ingot",
+                    "id": "minecraft:gold_ingot_from_gold_block",
                     "makes": {
-                        "count": 9, 
-                        "name": "gold_ingot", 
+                        "count": 9,
+                        "name": "gold_ingot",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "gold_block", 
+                                "name": "gold_block",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "gold_block", 
+                                "name": "gold_block",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "group": "gold_ingot", 
-                    "id": "minecraft:gold_ingot_from_gold_block", 
+                    "group": "gold_ingot",
+                    "id": "minecraft:gold_ingot_from_gold_block",
                     "ingredients": [
                         {
-                            "name": "gold_block", 
+                            "name": "gold_block",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 9, 
-                        "name": "gold_ingot", 
+                        "count": 9,
+                        "name": "gold_ingot",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "gold_nugget": [
             [
                 {
-                    "id": "minecraft:gold_nugget", 
+                    "id": "minecraft:gold_nugget",
                     "makes": {
-                        "count": 9, 
-                        "name": "gold_nugget", 
+                        "count": 9,
+                        "name": "gold_nugget",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "gold_ingot", 
+                                "name": "gold_ingot",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "gold_ingot", 
+                                "name": "gold_ingot",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "id": "minecraft:gold_nugget", 
+                    "id": "minecraft:gold_nugget",
                     "ingredients": [
                         {
-                            "name": "gold_ingot", 
+                            "name": "gold_ingot",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 9, 
-                        "name": "gold_nugget", 
+                        "count": 9,
+                        "name": "gold_nugget",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "iron_ingot": [
             [
                 {
-                    "group": "iron_ingot", 
-                    "id": "minecraft:iron_ingot_from_iron_block", 
+                    "group": "iron_ingot",
+                    "id": "minecraft:iron_ingot_from_iron_block",
                     "makes": {
-                        "count": 9, 
-                        "name": "iron_ingot", 
+                        "count": 9,
+                        "name": "iron_ingot",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "iron_block", 
+                                "name": "iron_block",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "iron_block", 
+                                "name": "iron_block",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "group": "iron_ingot", 
-                    "id": "minecraft:iron_ingot_from_iron_block", 
+                    "group": "iron_ingot",
+                    "id": "minecraft:iron_ingot_from_iron_block",
                     "ingredients": [
                         {
-                            "name": "iron_block", 
+                            "name": "iron_block",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 9, 
-                        "name": "iron_ingot", 
+                        "count": 9,
+                        "name": "iron_ingot",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "iron_nugget": [
             [
                 {
-                    "id": "minecraft:iron_nugget", 
+                    "id": "minecraft:iron_nugget",
                     "makes": {
-                        "count": 9, 
-                        "name": "iron_nugget", 
+                        "count": 9,
+                        "name": "iron_nugget",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "iron_ingot", 
+                                "name": "iron_ingot",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "iron_ingot", 
+                                "name": "iron_ingot",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "id": "minecraft:iron_nugget", 
+                    "id": "minecraft:iron_nugget",
                     "ingredients": [
                         {
-                            "name": "iron_ingot", 
+                            "name": "iron_ingot",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 9, 
-                        "name": "iron_nugget", 
+                        "count": 9,
+                        "name": "iron_nugget",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "jungle_button": [
             [
                 {
-                    "group": "wooden_button", 
-                    "id": "minecraft:jungle_button", 
+                    "group": "wooden_button",
+                    "id": "minecraft:jungle_button",
                     "makes": {
-                        "count": 1, 
-                        "name": "jungle_button", 
+                        "count": 1,
+                        "name": "jungle_button",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "jungle_planks", 
+                                "name": "jungle_planks",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "jungle_planks", 
+                                "name": "jungle_planks",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "group": "wooden_button", 
-                    "id": "minecraft:jungle_button", 
+                    "group": "wooden_button",
+                    "id": "minecraft:jungle_button",
                     "ingredients": [
                         {
-                            "name": "jungle_planks", 
+                            "name": "jungle_planks",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 1, 
-                        "name": "jungle_button", 
+                        "count": 1,
+                        "name": "jungle_button",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "jungle_planks": [
             [
                 {
-                    "group": "planks", 
-                    "id": "minecraft:jungle_planks", 
+                    "group": "planks",
+                    "id": "minecraft:jungle_planks",
                     "makes": {
-                        "count": 4, 
-                        "name": "jungle_planks", 
+                        "count": 4,
+                        "name": "jungle_planks",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "jungle_log", 
+                                "name": "jungle_log",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "jungle_log", 
+                                "name": "jungle_log",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "group": "planks", 
-                    "id": "minecraft:jungle_planks", 
+                    "group": "planks",
+                    "id": "minecraft:jungle_planks",
                     "ingredients": [
                         {
-                            "name": "jungle_log", 
+                            "name": "jungle_log",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 1, 
-                        "name": "jungle_planks", 
+                        "count": 1,
+                        "name": "jungle_planks",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "lapis_lazuli": [
             [
                 {
-                    "id": "minecraft:lapis_lazuli", 
+                    "id": "minecraft:lapis_lazuli",
                     "makes": {
-                        "count": 9, 
-                        "name": "lapis_lazuli", 
+                        "count": 9,
+                        "name": "lapis_lazuli",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "lapis_block", 
+                                "name": "lapis_block",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "lapis_block", 
+                                "name": "lapis_block",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "id": "minecraft:lapis_lazuli", 
+                    "id": "minecraft:lapis_lazuli",
                     "ingredients": [
                         {
-                            "name": "lapis_block", 
+                            "name": "lapis_block",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 9, 
-                        "name": "lapis_lazuli", 
+                        "count": 9,
+                        "name": "lapis_lazuli",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "melon_seeds": [
             [
                 {
-                    "id": "minecraft:melon_seeds", 
+                    "id": "minecraft:melon_seeds",
                     "makes": {
-                        "count": 1, 
-                        "name": "melon_seeds", 
+                        "count": 1,
+                        "name": "melon_seeds",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "M"
-                        ], 
+                        ],
                         "subs": {
                             "M": {
-                                "name": "melon", 
+                                "name": "melon",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "melon", 
+                                "name": "melon",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "id": "minecraft:melon_seeds", 
+                    "id": "minecraft:melon_seeds",
                     "ingredients": [
                         {
-                            "name": "melon", 
+                            "name": "melon",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 1, 
-                        "name": "melon_seeds", 
+                        "count": 1,
+                        "name": "melon_seeds",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "oak_button": [
             [
                 {
-                    "group": "wooden_button", 
-                    "id": "minecraft:oak_button", 
+                    "group": "wooden_button",
+                    "id": "minecraft:oak_button",
                     "makes": {
-                        "count": 1, 
-                        "name": "oak_button", 
+                        "count": 1,
+                        "name": "oak_button",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "oak_planks", 
+                                "name": "oak_planks",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "oak_planks", 
+                                "name": "oak_planks",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "group": "wooden_button", 
-                    "id": "minecraft:oak_button", 
+                    "group": "wooden_button",
+                    "id": "minecraft:oak_button",
                     "ingredients": [
                         {
-                            "name": "oak_planks", 
+                            "name": "oak_planks",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 1, 
-                        "name": "oak_button", 
+                        "count": 1,
+                        "name": "oak_button",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "oak_planks": [
             [
                 {
-                    "group": "planks", 
-                    "id": "minecraft:oak_planks", 
+                    "group": "planks",
+                    "id": "minecraft:oak_planks",
                     "makes": {
-                        "count": 4, 
-                        "name": "oak_planks", 
+                        "count": 4,
+                        "name": "oak_planks",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "oak_log", 
+                                "name": "oak_log",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "oak_log", 
+                                "name": "oak_log",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "group": "planks", 
-                    "id": "minecraft:oak_planks", 
+                    "group": "planks",
+                    "id": "minecraft:oak_planks",
                     "ingredients": [
                         {
-                            "name": "oak_log", 
+                            "name": "oak_log",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 1, 
-                        "name": "oak_planks", 
+                        "count": 1,
+                        "name": "oak_planks",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "pumpkin_seeds": [
             [
                 {
-                    "id": "minecraft:pumpkin_seeds", 
+                    "id": "minecraft:pumpkin_seeds",
                     "makes": {
-                        "count": 4, 
-                        "name": "pumpkin_seeds", 
+                        "count": 4,
+                        "name": "pumpkin_seeds",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "M"
-                        ], 
+                        ],
                         "subs": {
                             "M": {
-                                "name": "pumpkin", 
+                                "name": "pumpkin",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "pumpkin", 
+                                "name": "pumpkin",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "id": "minecraft:pumpkin_seeds", 
+                    "id": "minecraft:pumpkin_seeds",
                     "ingredients": [
                         {
-                            "name": "pumpkin", 
+                            "name": "pumpkin",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 4, 
-                        "name": "pumpkin_seeds", 
+                        "count": 4,
+                        "name": "pumpkin_seeds",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "redstone": [
             [
                 {
-                    "id": "minecraft:redstone", 
+                    "id": "minecraft:redstone",
                     "makes": {
-                        "count": 9, 
-                        "name": "redstone", 
+                        "count": 9,
+                        "name": "redstone",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "redstone_block", 
+                                "name": "redstone_block",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "redstone_block", 
+                                "name": "redstone_block",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "id": "minecraft:redstone", 
+                    "id": "minecraft:redstone",
                     "ingredients": [
                         {
-                            "name": "redstone_block", 
+                            "name": "redstone_block",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 9, 
-                        "name": "redstone", 
+                        "count": 9,
+                        "name": "redstone",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "slime_ball": [
             [
                 {
-                    "id": "minecraft:slime_ball", 
+                    "id": "minecraft:slime_ball",
                     "makes": {
-                        "count": 9, 
-                        "name": "slime_ball", 
+                        "count": 9,
+                        "name": "slime_ball",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "slime_block", 
+                                "name": "slime_block",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "slime_block", 
+                                "name": "slime_block",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "id": "minecraft:slime_ball", 
+                    "id": "minecraft:slime_ball",
                     "ingredients": [
                         {
-                            "name": "slime_block", 
+                            "name": "slime_block",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 9, 
-                        "name": "slime_ball", 
+                        "count": 9,
+                        "name": "slime_ball",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "spruce_button": [
             [
                 {
-                    "group": "wooden_button", 
-                    "id": "minecraft:spruce_button", 
+                    "group": "wooden_button",
+                    "id": "minecraft:spruce_button",
                     "makes": {
-                        "count": 1, 
-                        "name": "spruce_button", 
+                        "count": 1,
+                        "name": "spruce_button",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "spruce_planks", 
+                                "name": "spruce_planks",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "spruce_planks", 
+                                "name": "spruce_planks",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "group": "wooden_button", 
-                    "id": "minecraft:spruce_button", 
+                    "group": "wooden_button",
+                    "id": "minecraft:spruce_button",
                     "ingredients": [
                         {
-                            "name": "spruce_planks", 
+                            "name": "spruce_planks",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 1, 
-                        "name": "spruce_button", 
+                        "count": 1,
+                        "name": "spruce_button",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "spruce_planks": [
             [
                 {
-                    "group": "planks", 
-                    "id": "minecraft:spruce_planks", 
+                    "group": "planks",
+                    "id": "minecraft:spruce_planks",
                     "makes": {
-                        "count": 4, 
-                        "name": "spruce_planks", 
+                        "count": 4,
+                        "name": "spruce_planks",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "spruce_log", 
+                                "name": "spruce_log",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "spruce_log", 
+                                "name": "spruce_log",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "group": "planks", 
-                    "id": "minecraft:spruce_planks", 
+                    "group": "planks",
+                    "id": "minecraft:spruce_planks",
                     "ingredients": [
                         {
-                            "name": "spruce_log", 
+                            "name": "spruce_log",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 1, 
-                        "name": "spruce_planks", 
+                        "count": 1,
+                        "name": "spruce_planks",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "stone_button": [
             [
                 {
-                    "id": "minecraft:stone_button", 
+                    "id": "minecraft:stone_button",
                     "makes": {
-                        "count": 1, 
-                        "name": "stone_button", 
+                        "count": 1,
+                        "name": "stone_button",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "stone", 
+                                "name": "stone",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "stone", 
+                                "name": "stone",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "id": "minecraft:stone_button", 
+                    "id": "minecraft:stone_button",
                     "ingredients": [
                         {
-                            "name": "stone", 
+                            "name": "stone",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 1, 
-                        "name": "stone_button", 
+                        "count": 1,
+                        "name": "stone_button",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "sugar": [
             [
                 {
-                    "id": "minecraft:sugar", 
+                    "id": "minecraft:sugar",
                     "makes": {
-                        "count": 1, 
-                        "name": "sugar", 
+                        "count": 1,
+                        "name": "sugar",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "sugar_cane", 
+                                "name": "sugar_cane",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "sugar_cane", 
+                                "name": "sugar_cane",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "id": "minecraft:sugar", 
+                    "id": "minecraft:sugar",
                     "ingredients": [
                         {
-                            "name": "sugar_cane", 
+                            "name": "sugar_cane",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 1, 
-                        "name": "sugar", 
+                        "count": 1,
+                        "name": "sugar",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
-        ], 
+        ],
         "wheat": [
             [
                 {
-                    "id": "minecraft:wheat", 
+                    "id": "minecraft:wheat",
                     "makes": {
-                        "count": 9, 
-                        "name": "wheat", 
+                        "count": 9,
+                        "name": "wheat",
                         "type": "item"
-                    }, 
+                    },
                     "raw": {
                         "rows": [
                             "#"
-                        ], 
+                        ],
                         "subs": {
                             "#": {
-                                "name": "hay_block", 
+                                "name": "hay_block",
                                 "type": "item"
                             }
                         }
-                    }, 
+                    },
                     "shape": [
                         [
                             {
-                                "name": "hay_block", 
+                                "name": "hay_block",
                                 "type": "item"
                             }
                         ]
-                    ], 
+                    ],
                     "type": "shape"
                 }
-            ], 
+            ],
             [
                 {
-                    "id": "minecraft:wheat", 
+                    "id": "minecraft:wheat",
                     "ingredients": [
                         {
-                            "name": "hay_block", 
+                            "name": "hay_block",
                             "type": "item"
                         }
-                    ], 
+                    ],
                     "makes": {
-                        "count": 9, 
-                        "name": "wheat", 
+                        "count": 9,
+                        "name": "wheat",
                         "type": "item"
-                    }, 
+                    },
                     "type": "shapeless"
                 }
             ]
         ]
-    }, 
-    "sounds": {}, 
-    "stats": {}, 
+    },
+    "sounds": {},
+    "stats": {},
     "tags": {
         "blocks/planks": [
-            null, 
+            null,
             {
-                "name": "planks", 
-                "type": "blocks", 
+                "name": "planks",
+                "type": "blocks",
                 "values": [
-                    "minecraft:acacia_planks", 
-                    "minecraft:oak_planks", 
-                    "minecraft:dark_oak_planks", 
-                    "minecraft:jungle_planks", 
-                    "minecraft:birch_planks", 
+                    "minecraft:acacia_planks",
+                    "minecraft:oak_planks",
+                    "minecraft:dark_oak_planks",
+                    "minecraft:jungle_planks",
+                    "minecraft:birch_planks",
                     "minecraft:spruce_planks"
                 ]
             }
-        ], 
+        ],
         "blocks/wool": [
-            null, 
+            null,
             {
-                "name": "wool", 
-                "type": "blocks", 
+                "name": "wool",
+                "type": "blocks",
                 "values": [
-                    "minecraft:light_blue_wool", 
-                    "minecraft:orange_wool", 
-                    "minecraft:light_gray_wool", 
-                    "minecraft:black_wool", 
-                    "minecraft:gray_wool", 
-                    "minecraft:magenta_wool", 
-                    "minecraft:lime_wool", 
-                    "minecraft:cyan_wool", 
-                    "minecraft:red_wool", 
-                    "minecraft:green_wool", 
-                    "minecraft:white_wool", 
-                    "minecraft:pink_wool", 
-                    "minecraft:purple_wool", 
-                    "minecraft:blue_wool", 
-                    "minecraft:brown_wool", 
+                    "minecraft:light_blue_wool",
+                    "minecraft:orange_wool",
+                    "minecraft:light_gray_wool",
+                    "minecraft:black_wool",
+                    "minecraft:gray_wool",
+                    "minecraft:magenta_wool",
+                    "minecraft:lime_wool",
+                    "minecraft:cyan_wool",
+                    "minecraft:red_wool",
+                    "minecraft:green_wool",
+                    "minecraft:white_wool",
+                    "minecraft:pink_wool",
+                    "minecraft:purple_wool",
+                    "minecraft:blue_wool",
+                    "minecraft:brown_wool",
                     "minecraft:yellow_wool"
                 ]
             }
-        ], 
+        ],
         "items/planks": [
-            null, 
+            null,
             {
-                "name": "planks", 
-                "type": "items", 
+                "name": "planks",
+                "type": "items",
                 "values": [
-                    "minecraft:birch_planks", 
-                    "minecraft:jungle_planks", 
-                    "minecraft:spruce_planks", 
-                    "minecraft:oak_planks", 
-                    "minecraft:acacia_planks", 
+                    "minecraft:birch_planks",
+                    "minecraft:jungle_planks",
+                    "minecraft:spruce_planks",
+                    "minecraft:oak_planks",
+                    "minecraft:acacia_planks",
                     "minecraft:dark_oak_planks"
                 ]
             }
-        ], 
+        ],
         "items/wool": [
-            null, 
+            null,
             {
-                "name": "wool", 
-                "type": "items", 
+                "name": "wool",
+                "type": "items",
                 "values": [
-                    "minecraft:cyan_wool", 
-                    "minecraft:light_gray_wool", 
-                    "minecraft:pink_wool", 
-                    "minecraft:red_wool", 
-                    "minecraft:black_wool", 
-                    "minecraft:white_wool", 
-                    "minecraft:magenta_wool", 
-                    "minecraft:gray_wool", 
-                    "minecraft:orange_wool", 
-                    "minecraft:yellow_wool", 
-                    "minecraft:brown_wool", 
-                    "minecraft:green_wool", 
-                    "minecraft:light_blue_wool", 
-                    "minecraft:lime_wool", 
-                    "minecraft:purple_wool", 
+                    "minecraft:cyan_wool",
+                    "minecraft:light_gray_wool",
+                    "minecraft:pink_wool",
+                    "minecraft:red_wool",
+                    "minecraft:black_wool",
+                    "minecraft:white_wool",
+                    "minecraft:magenta_wool",
+                    "minecraft:gray_wool",
+                    "minecraft:orange_wool",
+                    "minecraft:yellow_wool",
+                    "minecraft:brown_wool",
+                    "minecraft:green_wool",
+                    "minecraft:light_blue_wool",
+                    "minecraft:lime_wool",
+                    "minecraft:purple_wool",
                     "minecraft:blue_wool"
                 ]
             }
         ]
-    }, 
+    },
     "tileentity": {
         "tileentities": {}
-    }, 
+    },
     "version": {
         "data": [
-            1453, 
+            1453,
             1454
-        ], 
+        ],
         "name": [
-            "17w48a", 
+            "17w48a",
             "17w49a"
-        ], 
+        ],
         "protocol": [
-            348, 
+            348,
             349
         ]
     }

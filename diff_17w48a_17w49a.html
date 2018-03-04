@@ -131,32 +131,31 @@
 <div class="entry"><dl></dl><dl><dt>type</dt><dd>shapeless</dd><dt>id</dt><dd>minecraft:wheat</dd></dl><div class="workbench"><div class="craftgrid"><div class="craftrow"><div class="empty"></div><div class="empty"></div><div class="empty"></div></div><div class="craftrow"><div class="empty"></div><div class="empty"></div><div class="empty"></div></div><div class="craftrow"><div class="empty"></div><div class="empty"></div><div class="empty"></div></div><div class="craftrow"></div></div><div class="result"><div class="empty"></div></div></div></div>
 </div></div>
 <a href="#entities"><h2 id="entities">Entities</h2></a><span class="info">No entries</span>
-<a href="#objects"><h2 id="objects">Objects</h2></a><span class="info">No entries</span>
 <a href="#packets"><h2 id="packets">Packets</h2></a><div class="split"><div class="left"><div class="no entry"></div>
-</div><div class="right"><div class="entry"><a href="#packets:0x53"><h3 id="packets:0x53">PLAY_CLIENTBOUND_53</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>83</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">.</span><span class="hl_na">d</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
-<span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">.</span><span class="hl_na">d</span><span class="hl_o">.</span><span class="hl_na">entrySet</span><span class="hl_o">().</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
-<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
-  <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">Map$Entry</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
-  <span class="hl_n">writeIdentifier</span><span class="hl_o">((</span><span class="hl_n">mv</span><span class="hl_o">)</span><span class="hl_n">var3</span><span class="hl_o">.</span><span class="hl_na">getKey</span><span class="hl_o">());</span>
-  <span class="hl_n">writeVarInt</span><span class="hl_o">(((</span><span class="hl_n">ty</span><span class="hl_o">)</span><span class="hl_n">var3</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">()).</span><span class="hl_na">a</span><span class="hl_o">().</span><span class="hl_na">size</span><span class="hl_o">());</span>
-  <span class="hl_n">Object</span> <span class="hl_n">var4</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">ty</span><span class="hl_o">)</span><span class="hl_n">var3</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">()).</span><span class="hl_na">a</span><span class="hl_o">().</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
-  <span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var4</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
-    <span class="hl_n">Object</span> <span class="hl_n">var5</span> <span class="hl_o">=</span> <span class="hl_n">var4</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">();</span>
-    <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">.</span><span class="hl_na">e</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">(</span><span class="hl_n">var5</span><span class="hl_o">));</span>
-  <span class="hl_o">}</span>
-<span class="hl_o">}</span>
-<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">.</span><span class="hl_na">d</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
-<span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">.</span><span class="hl_na">d</span><span class="hl_o">.</span><span class="hl_na">entrySet</span><span class="hl_o">().</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
-<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
-  <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">Map$Entry</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
-  <span class="hl_n">writeIdentifier</span><span class="hl_o">((</span><span class="hl_n">mv</span><span class="hl_o">)</span><span class="hl_n">var3</span><span class="hl_o">.</span><span class="hl_na">getKey</span><span class="hl_o">());</span>
-  <span class="hl_n">writeVarInt</span><span class="hl_o">(((</span><span class="hl_n">ty</span><span class="hl_o">)</span><span class="hl_n">var3</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">()).</span><span class="hl_na">a</span><span class="hl_o">().</span><span class="hl_na">size</span><span class="hl_o">());</span>
-  <span class="hl_n">Object</span> <span class="hl_n">var4</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">ty</span><span class="hl_o">)</span><span class="hl_n">var3</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">()).</span><span class="hl_na">a</span><span class="hl_o">().</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
-  <span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var4</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
-    <span class="hl_n">Object</span> <span class="hl_n">var5</span> <span class="hl_o">=</span> <span class="hl_n">var4</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">();</span>
-    <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">.</span><span class="hl_na">e</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">(</span><span class="hl_n">var5</span><span class="hl_o">));</span>
-  <span class="hl_o">}</span>
-<span class="hl_o">}</span>
+</div><div class="right"><div class="entry"><a href="#packets:0x53"><h3 id="packets:0x53">PLAY_CLIENTBOUND_53</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>83</dd></dl><pre>writeVarInt(a.a.d.size());
+Object var2 = this.a.a.d.entrySet().iterator();
+while(var2.hasNext()) {
+  Object var3 = ((Map$Entry)var2.next());
+  writeIdentifier((mv)var3.getKey());
+  writeVarInt(((ty)var3.getValue()).a().size());
+  Object var4 = ((ty)var3.getValue()).a().iterator();
+  while(var4.hasNext()) {
+    Object var5 = var4.next();
+    writeVarInt(a.a.e.a(var5));
+  }
+}
+writeVarInt(a.b.d.size());
+Object var2 = this.a.b.d.entrySet().iterator();
+while(var2.hasNext()) {
+  Object var3 = ((Map$Entry)var2.next());
+  writeIdentifier((mv)var3.getKey());
+  writeVarInt(((ty)var3.getValue()).a().size());
+  Object var4 = ((ty)var3.getValue()).a().iterator();
+  while(var4.hasNext()) {
+    Object var5 = var4.next();
+    writeVarInt(a.b.e.a(var5));
+  }
+}
 </pre></div></div>
 </div></div>
 <a href="#block_entities"><h2 id="block_entities">Block entities</h2></a><span class="info">No entries</span>
