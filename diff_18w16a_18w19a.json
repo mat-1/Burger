@@ -1354,7 +1354,11 @@
                     "display_name": "Sea Grass",
                     "field": "aO",
                     "hardness": 0.0,
+                    "max_state_id": 954,
+                    "min_state_id": 954,
+                    "num_states": 1,
                     "numeric_id": 91,
+                    "states": [],
                     "text_id": "sea_grass"
                 },
                 null
@@ -1366,7 +1370,11 @@
                     "display_name": "Seagrass",
                     "field": "aO",
                     "hardness": 0.0,
+                    "max_state_id": 954,
+                    "min_state_id": 954,
+                    "num_states": 1,
                     "numeric_id": 91,
+                    "states": [],
                     "text_id": "seagrass"
                 }
             ],
@@ -1376,7 +1384,24 @@
                     "display_name": "Tall Sea Grass",
                     "field": "aP",
                     "hardness": 0.0,
+                    "max_state_id": 956,
+                    "min_state_id": 955,
+                    "num_states": 2,
                     "numeric_id": 92,
+                    "states": [
+                        {
+                            "declared_in": "baw",
+                            "enum_class": "baw$a",
+                            "field_name": "a",
+                            "name": "half",
+                            "num_values": 2,
+                            "type": "enum",
+                            "values": [
+                                "UPPER",
+                                "LOWER"
+                            ]
+                        }
+                    ],
                     "text_id": "tall_sea_grass"
                 },
                 null
@@ -1388,7 +1413,24 @@
                     "display_name": "Tall Seagrass",
                     "field": "aP",
                     "hardness": 0.0,
+                    "max_state_id": 956,
+                    "min_state_id": 955,
+                    "num_states": 2,
                     "numeric_id": 92,
+                    "states": [
+                        {
+                            "declared_in": "bfd",
+                            "enum_class": "bfd$a",
+                            "field_name": "a",
+                            "name": "half",
+                            "num_values": 2,
+                            "type": "enum",
+                            "values": [
+                                "UPPER",
+                                "LOWER"
+                            ]
+                        }
+                    ],
                     "text_id": "tall_seagrass"
                 }
             ]
@@ -1443,6 +1485,7 @@
                     "class": "aps",
                     "display_name": "Clownfish",
                     "field": "bd",
+                    "max_stack_size": 64,
                     "numeric_id": 557,
                     "text_id": "clownfish"
                 },
@@ -1450,6 +1493,7 @@
                     "class": "atz",
                     "display_name": "Tropical Fish",
                     "field": "bd",
+                    "max_stack_size": 64,
                     "numeric_id": 557,
                     "text_id": "clownfish"
                 }
@@ -1459,6 +1503,7 @@
                     "class": "arc",
                     "display_name": "Spawn Puffer Fish",
                     "field": "cY",
+                    "max_stack_size": 64,
                     "numeric_id": 650,
                     "text_id": "puffer_fish_spawn_egg"
                 },
@@ -1469,6 +1514,7 @@
                     "class": "apr",
                     "display_name": "Puffer Fish Bucket",
                     "field": "aL",
+                    "max_stack_size": 1,
                     "numeric_id": 536,
                     "text_id": "pufferfish_bucket"
                 },
@@ -1476,6 +1522,7 @@
                     "class": "aty",
                     "display_name": "Pufferfish Bucket",
                     "field": "aL",
+                    "max_stack_size": 1,
                     "numeric_id": 536,
                     "text_id": "pufferfish_bucket"
                 }
@@ -1486,6 +1533,7 @@
                     "class": "avk",
                     "display_name": "Spawn Pufferfish",
                     "field": "cY",
+                    "max_stack_size": 64,
                     "numeric_id": 650,
                     "text_id": "pufferfish_spawn_egg"
                 }
@@ -1493,6 +1541,7 @@
             "sea_grass": [
                 {
                     "display_name": "Sea Grass",
+                    "max_stack_size": 64,
                     "numeric_id": 73,
                     "text_id": "sea_grass"
                 },
@@ -1502,6 +1551,7 @@
                 null,
                 {
                     "display_name": "Seagrass",
+                    "max_stack_size": 64,
                     "numeric_id": 73,
                     "text_id": "seagrass"
                 }
@@ -17824,7 +17874,16 @@
             {
                 "field": "fS",
                 "id": 381,
-                "name": "entity.parrot.imitate.phantom"
+                "name": "entity.parrot.imitate.phantom",
+                "sounds": [
+                    {
+                        "name": "entity.phantom.ambient",
+                        "pitch": 1.7,
+                        "type": "event",
+                        "volume": 0.6
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.parrot.imitate.phantom"
             }
         ],
         "entity.parrot.imitate.polar_bear": [
@@ -17850,9 +17909,9 @@
                 "sounds": [
                     {
                         "name": "entity.polar_bear.ambient",
-                        "pitch": 0.8,
+                        "pitch": 1.8,
                         "type": "event",
-                        "volume": 0.7
+                        "volume": 0.5
                     }
                 ],
                 "subtitle": "Parrot groans",
