@@ -17,6 +17,7 @@
                     "class": "aml",
                     "display_name": "Head",
                     "field": "dx",
+                    "max_stack_size": 64,
                     "numeric_id": 634,
                     "text_id": "player_head"
                 },
@@ -24,6 +25,7 @@
                     "class": "amv",
                     "display_name": "Player Head",
                     "field": "dx",
+                    "max_stack_size": 64,
                     "numeric_id": 634,
                     "text_id": "player_head"
                 }
@@ -50,6 +52,75 @@
     },
     "packets": {
         "packet": {
+            "PLAY_CLIENTBOUND_43": [
+                {
+                    "class": "jr.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 67,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "condition": "c == 0",
+                            "instructions": [
+                                {
+                                    "field": "b",
+                                    "operation": "write",
+                                    "type": "string"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "jv.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 67,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "condition": "d",
+                            "instructions": [
+                                {
+                                    "field": "b",
+                                    "operation": "write",
+                                    "type": "string"
+                                },
+                                {
+                                    "field": "c",
+                                    "operation": "write",
+                                    "type": "enum"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
             "PLAY_CLIENTBOUND_53": [
                 null,
                 {

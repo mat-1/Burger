@@ -9,11 +9,11 @@
                 <body>
                     <div id="vitrine">
                         <a href="#blocks"><h2 id="blocks">Blocks</h2></a><div class="split"><div class="left"><div class="no entry"></div>
-</div><div class="right"><div class="entry"><h3 id="blocks:cave_air" class="item_title"><a href="#blocks:cave_air"><div title="Cave Air" class="craftitem">cave_air</div></a></h3><div><dl><dt>ID</dt><dd>cave_air</dd><dt>Numeric ID</dt><dd>529</dd><dt>State IDs</dt><dd>1 from 6719 to 6719</dd><dt>States</dt><dd>0 total<dl></dl></dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><h3 id="blocks:structure_block" class="item_title"><a href="#blocks:structure_block"><div title="Structure Block" class="craftitem">structure_block</div></a></h3><div><dl><dt>ID</dt><dd>structure_block</dd><dt>Numeric ID</dt><dd>528</dd><dt>Hardness</dt><dd>-1.0</dd><dt>State IDs</dt><dd>4 from 6718 to 6721</dd><dt>States</dt><dd>1 total<dl><dt>mode</dt><dd>SAVE<br/>LOAD<br/>CORNER<br/>DATA</dd></dl></dd></dl></div></div>
-</div><div class="right"><div class="entry"><h3 id="blocks:structure_block" class="item_title"><a href="#blocks:structure_block"><div title="Structure Block" class="craftitem">structure_block</div></a></h3><div><dl><dt>ID</dt><dd>structure_block</dd><dt>Numeric ID</dt><dd>530</dd><dt>Hardness</dt><dd>-1.0</dd><dt>State IDs</dt><dd>4 from 6720 to 6723</dd><dt>States</dt><dd>1 total<dl><dt>mode</dt><dd>SAVE<br/>LOAD<br/>CORNER<br/>DATA</dd></dl></dd></dl></div></div>
+</div><div class="right"><div class="entry"><h3 id="blocks:cave_air" class="item_title"><a href="#blocks:cave_air"><div title="Cave Air" class="craftitem">cave_air</div></a></h3><div><dl><dt>ID</dt><dd>cave_air</dd><dt>Numeric ID</dt><dd>529</dd><dt>Name</dt><dd>Cave Air</dd><dt>State IDs</dt><dd>1 from 6719 to 6719</dd><dt>States</dt><dd>0 total<dl></dl></dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><h3 id="blocks:structure_block" class="item_title"><a href="#blocks:structure_block"><div title="Structure Block" class="craftitem">structure_block</div></a></h3><div><dl><dt>ID</dt><dd>structure_block</dd><dt>Numeric ID</dt><dd>528</dd><dt>Name</dt><dd>Structure Block</dd><dt>Hardness</dt><dd>-1.0</dd><dt>State IDs</dt><dd>4 from 6718 to 6721</dd><dt>States</dt><dd>1 total<dl><dt>mode</dt><dd>SAVE<br/>LOAD<br/>CORNER<br/>DATA</dd></dl></dd></dl></div></div>
+</div><div class="right"><div class="entry"><h3 id="blocks:structure_block" class="item_title"><a href="#blocks:structure_block"><div title="Structure Block" class="craftitem">structure_block</div></a></h3><div><dl><dt>ID</dt><dd>structure_block</dd><dt>Numeric ID</dt><dd>530</dd><dt>Name</dt><dd>Structure Block</dd><dt>Hardness</dt><dd>-1.0</dd><dt>State IDs</dt><dd>4 from 6720 to 6723</dd><dt>States</dt><dd>1 total<dl><dt>mode</dt><dd>SAVE<br/>LOAD<br/>CORNER<br/>DATA</dd></dl></dd></dl></div></div>
 </div></div><div class="split"><div class="left"><div class="no entry"></div>
-</div><div class="right"><div class="entry"><h3 id="blocks:void_air" class="item_title"><a href="#blocks:void_air"><div title="Void Air" class="craftitem">void_air</div></a></h3><div><dl><dt>ID</dt><dd>void_air</dd><dt>Numeric ID</dt><dd>528</dd><dt>State IDs</dt><dd>1 from 6718 to 6718</dd><dt>States</dt><dd>0 total<dl></dl></dd></dl></div></div>
+</div><div class="right"><div class="entry"><h3 id="blocks:void_air" class="item_title"><a href="#blocks:void_air"><div title="Void Air" class="craftitem">void_air</div></a></h3><div><dl><dt>ID</dt><dd>void_air</dd><dt>Numeric ID</dt><dd>528</dd><dt>Name</dt><dd>Void Air</dd><dt>State IDs</dt><dd>1 from 6718 to 6718</dd><dt>States</dt><dd>0 total<dl></dl></dd></dl></div></div>
 </div></div>
 <a href="#items"><h2 id="items">Items</h2></a><span class="info">No entries</span>
 <a href="#tags"><h2 id="tags">Tags</h2></a><div class="split"><div class="left"><div class="no entry"></div>
@@ -46,67 +46,89 @@
 <a href="#objects"><h2 id="objects">Objects</h2></a><div class="split"><div class="left"><div class="entry"><a href="#objects:90"><h3 id="objects:90">90</h3></a><div><dl><dt>ID</dt><dd>90</dd></dl></div></div>
 </div><div class="right"><div class="entry"><a href="#objects:fishing_bobber"><h3 id="objects:fishing_bobber">fishing_bobber</h3></a><div><dl><dt>ID</dt><dd>90</dd><dt>Name</dt><dd>fishing_bobber</dd><dt>Entity ID</dt><dd>85</dd></dl></div></div>
 </div></div>
-<a href="#packets"><h2 id="packets">Packets</h2></a><div class="split"><div class="left"><div class="entry"><a href="#packets:0x10"><h3 id="packets:0x10">PLAY_CLIENTBOUND_10</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>16</dd></dl><pre>writeVarInt(a);
-writeVarInt(b.getRange().getStart());
-writeVarInt(b.getRange().getLength());
-writeVarInt(b.getList().size());
-Object var2 = this.b.getList().iterator();
-while(var2.hasNext()) {
-  Object var3 = ((String)var2.next());
-  writeString(var3);
-}
+<a href="#packets"><h2 id="packets">Packets</h2></a><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_10"><h3 id="packets:play_clientbound_10">PLAY_CLIENTBOUND_10</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>16</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">getRange</span><span class="hl_o">().</span><span class="hl_na">getStart</span><span class="hl_o">());</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">getRange</span><span class="hl_o">().</span><span class="hl_na">getLength</span><span class="hl_o">());</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">getList</span><span class="hl_o">().</span><span class="hl_na">size</span><span class="hl_o">());</span>
+<span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">.</span><span class="hl_na">getList</span><span class="hl_o">().</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+  <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">String</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
+  <span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
 </pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:0x10"><h3 id="packets:0x10">PLAY_CLIENTBOUND_10</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>16</dd></dl><pre>writeVarInt(a);
-writeVarInt(b.getRange().getStart());
-writeVarInt(b.getRange().getLength());
-writeVarInt(b.getList().size());
-Object var2 = this.b.getList().iterator();
-while(var2.hasNext()) {
-  Object var3 = ((com.mojang.brigadier.suggestion.Suggestion)var2.next());
-  writeString(var3.getText());
-  writeBoolean((var3.getTooltip() != null) ? 1 : 0);
-  if(var3.getTooltip() != null) {
-    writeChatComponent(hs.a(var3.getTooltip()));
-  }
-}
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_10"><h3 id="packets:play_clientbound_10">PLAY_CLIENTBOUND_10</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>16</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">getRange</span><span class="hl_o">().</span><span class="hl_na">getStart</span><span class="hl_o">());</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">getRange</span><span class="hl_o">().</span><span class="hl_na">getLength</span><span class="hl_o">());</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">getList</span><span class="hl_o">().</span><span class="hl_na">size</span><span class="hl_o">());</span>
+<span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">.</span><span class="hl_na">getList</span><span class="hl_o">().</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+  <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">com</span><span class="hl_o">.</span><span class="hl_na">mojang</span><span class="hl_o">.</span><span class="hl_na">brigadier</span><span class="hl_o">.</span><span class="hl_na">suggestion</span><span class="hl_o">.</span><span class="hl_na">Suggestion</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
+  <span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">.</span><span class="hl_na">getText</span><span class="hl_o">());</span>
+  <span class="hl_n">writeBoolean</span><span class="hl_o">((</span><span class="hl_n">var3</span><span class="hl_o">.</span><span class="hl_na">getTooltip</span><span class="hl_o">()</span> <span class="hl_o">!=</span> <span class="hl_kc">null</span><span class="hl_o">)</span> <span class="hl_o">?</span> <span class="hl_mi">1</span> <span class="hl_o">:</span> <span class="hl_mi">0</span><span class="hl_o">);</span>
+  <span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">.</span><span class="hl_na">getTooltip</span><span class="hl_o">()</span> <span class="hl_o">!=</span> <span class="hl_kc">null</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+    <span class="hl_n">writeChatComponent</span><span class="hl_o">(</span><span class="hl_n">hs</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">.</span><span class="hl_na">getTooltip</span><span class="hl_o">()));</span>
+  <span class="hl_o">}</span>
+<span class="hl_o">}</span>
 </pre></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:0x33"><h3 id="packets:0x33">PLAY_CLIENTBOUND_33</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>51</dd></dl><pre>writeVarIntEnum(a);
-writeBoolean(d);
-writeBoolean(e);
-writeVarInt(b.size());
-Object var2 = this.b.iterator();
-while(var2.hasNext()) {
-  Object var3 = ((ns)var2.next());
-  writeIdentifier(var3);
-}
-if(a == kb$a.a) {
-  writeVarInt(c.size());
-  Object var2 = this.c.iterator();
-  while(var2.hasNext()) {
-    Object var3 = ((ns)var2.next());
-    writeIdentifier(var3);
-  }
-}
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_33"><h3 id="packets:play_clientbound_33">PLAY_CLIENTBOUND_33</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>51</dd></dl><pre><span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
+<span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+  <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">ns</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
+  <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">a</span> <span class="hl_o">==</span> <span class="hl_n">kb$a</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
+  <span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">c</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+  <span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+    <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">ns</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
+    <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">);</span>
+  <span class="hl_o">}</span>
+<span class="hl_o">}</span>
 </pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:0x33"><h3 id="packets:0x33">PLAY_CLIENTBOUND_33</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>51</dd></dl><pre>writeVarIntEnum(a);
-writeBoolean(d);
-writeBoolean(e);
-writeBoolean(f);
-writeBoolean(g);
-writeVarInt(b.size());
-Object var2 = this.b.iterator();
-while(var2.hasNext()) {
-  Object var3 = ((nx)var2.next());
-  writeIdentifier(var3);
-}
-if(a == ke$a.a) {
-  writeVarInt(c.size());
-  Object var2 = this.c.iterator();
-  while(var2.hasNext()) {
-    Object var3 = ((nx)var2.next());
-    writeIdentifier(var3);
-  }
-}
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_33"><h3 id="packets:play_clientbound_33">PLAY_CLIENTBOUND_33</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>51</dd></dl><pre><span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">f</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">g</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
+<span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+  <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">nx</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
+  <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">a</span> <span class="hl_o">==</span> <span class="hl_n">ke$a</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
+  <span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">c</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+  <span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+    <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">nx</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
+    <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">);</span>
+  <span class="hl_o">}</span>
+<span class="hl_o">}</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_serverbound_17"><h3 id="packets:play_serverbound_17">PLAY_SERVERBOUND_17</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>23</dd></dl><pre><span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">a</span> <span class="hl_o">==</span> <span class="hl_n">me$a</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_o">}</span> <span class="hl_k">else</span> <span class="hl_o">{</span>
+  <span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">a</span> <span class="hl_o">==</span> <span class="hl_n">me$a</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+    <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+    <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+  <span class="hl_o">}</span>
+<span class="hl_o">}</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_serverbound_17"><h3 id="packets:play_serverbound_17">PLAY_SERVERBOUND_17</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>23</dd></dl><pre><span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">a</span> <span class="hl_o">==</span> <span class="hl_n">mh$a</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_o">}</span> <span class="hl_k">else</span> <span class="hl_o">{</span>
+  <span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">a</span> <span class="hl_o">==</span> <span class="hl_n">mh$a</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+    <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+    <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+    <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">);</span>
+    <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">f</span><span class="hl_o">);</span>
+  <span class="hl_o">}</span>
+<span class="hl_o">}</span>
 </pre></div></div>
 </div></div>
 <a href="#block_entities"><h2 id="block_entities">Block entities</h2></a><span class="info">No entries</span>
@@ -131,36 +153,36 @@ if(a == ke$a.a) {
 </div><div class="right"><div class="entry"><a href="#language:selectworld"><h3 id="language:selectworld">selectWorld</h3></a><div><dl class="wide"><dt>tooltip.unsupported</dt><dd>This world is no longer supported and can only be played in %s</dd><dt>unsupported.customized.text</dt><dd>Unfortunately, we cannot support Customized Worlds in this version of Minecraft. Please downgrade to %s to play this world. We are sorry for the inconvenience.</dd><dt>unsupported.customized.title</dt><dd>Unsupported world!</dd></dl></div></div>
 </div></div>
 <a href="#sounds"><h2 id="sounds">Sounds</h2></a><span class="info">No entries</span>
-<a href="#biomes"><h2 id="biomes">Biomes</h2></a><div class="split"><div class="left"><div class="entry"><a href="#biomes:birch_forest"><h3 id="biomes:birch_forest">Birch Forest<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>27</dd><dt>Text ID</dt><dd>birch_forest</dd><dt>Temperature</dt><dd>0.6000000238418579</dd><dt>Rainfall</dt><dd>0.6000000238418579</dd><dt>Min height</dt><dd>0.1</dd><dt>Max height</dt><dd>0.2</dd></dl></div></div>
-</div><div class="right"><div class="entry"><a href="#biomes:birch_forest"><h3 id="biomes:birch_forest">Birch Forest<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>27</dd><dt>Text ID</dt><dd>birch_forest</dd><dt>Temperature</dt><dd>0.6000000238418579</dd><dt>Rainfall</dt><dd>0.6000000238418579</dd><dt>Min height</dt><dd>0.10000000149011612</dd><dt>Max height</dt><dd>0.20000000298023224</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:forest"><h3 id="biomes:forest">Forest<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>4</dd><dt>Text ID</dt><dd>forest</dd><dt>Temperature</dt><dd>0.699999988079071</dd><dt>Rainfall</dt><dd>0.800000011920929</dd><dt>Min height</dt><dd>0.1</dd><dt>Max height</dt><dd>0.2</dd></dl></div></div>
-</div><div class="right"><div class="entry"><a href="#biomes:forest"><h3 id="biomes:forest">Forest<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>4</dd><dt>Text ID</dt><dd>forest</dd><dt>Temperature</dt><dd>0.699999988079071</dd><dt>Rainfall</dt><dd>0.800000011920929</dd><dt>Min height</dt><dd>0.10000000149011612</dd><dt>Max height</dt><dd>0.20000000298023224</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:hell"><h3 id="biomes:hell">Hell<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>8</dd><dt>Text ID</dt><dd>hell</dd><dt>Temperature</dt><dd>2.0</dd><dt>Rainfall</dt><dd>0.0</dd><dt>Min height</dt><dd>0.1</dd><dt>Max height</dt><dd>0.2</dd></dl></div></div>
-</div><div class="right"><div class="entry"><a href="#biomes:hell"><h3 id="biomes:hell">Hell<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>8</dd><dt>Text ID</dt><dd>hell</dd><dt>Temperature</dt><dd>2.0</dd><dt>Rainfall</dt><dd>0.0</dd><dt>Min height</dt><dd>0.10000000149011612</dd><dt>Max height</dt><dd>0.20000000298023224</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:jungle"><h3 id="biomes:jungle">Jungle<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>21</dd><dt>Text ID</dt><dd>jungle</dd><dt>Temperature</dt><dd>0.949999988079071</dd><dt>Rainfall</dt><dd>0.8999999761581421</dd><dt>Min height</dt><dd>0.1</dd><dt>Max height</dt><dd>0.2</dd></dl></div></div>
-</div><div class="right"><div class="entry"><a href="#biomes:jungle"><h3 id="biomes:jungle">Jungle<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>21</dd><dt>Text ID</dt><dd>jungle</dd><dt>Temperature</dt><dd>0.949999988079071</dd><dt>Rainfall</dt><dd>0.8999999761581421</dd><dt>Min height</dt><dd>0.10000000149011612</dd><dt>Max height</dt><dd>0.20000000298023224</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:jungleedge"><h3 id="biomes:jungleedge">JungleEdge<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>23</dd><dt>Text ID</dt><dd>jungle_edge</dd><dt>Temperature</dt><dd>0.949999988079071</dd><dt>Rainfall</dt><dd>0.800000011920929</dd><dt>Min height</dt><dd>0.1</dd><dt>Max height</dt><dd>0.2</dd></dl></div></div>
-</div><div class="right"><div class="entry"><a href="#biomes:jungleedge"><h3 id="biomes:jungleedge">JungleEdge<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>23</dd><dt>Text ID</dt><dd>jungle_edge</dd><dt>Temperature</dt><dd>0.949999988079071</dd><dt>Rainfall</dt><dd>0.800000011920929</dd><dt>Min height</dt><dd>0.10000000149011612</dd><dt>Max height</dt><dd>0.20000000298023224</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:mesa"><h3 id="biomes:mesa">Mesa<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>37</dd><dt>Text ID</dt><dd>mesa</dd><dt>Temperature</dt><dd>2.0</dd><dt>Rainfall</dt><dd>0.0</dd><dt>Min height</dt><dd>0.1</dd><dt>Max height</dt><dd>0.2</dd></dl></div></div>
-</div><div class="right"><div class="entry"><a href="#biomes:mesa"><h3 id="biomes:mesa">Mesa<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>37</dd><dt>Text ID</dt><dd>mesa</dd><dt>Temperature</dt><dd>2.0</dd><dt>Rainfall</dt><dd>0.0</dd><dt>Min height</dt><dd>0.10000000149011612</dd><dt>Max height</dt><dd>0.20000000298023224</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:flower_forest"><h3 id="biomes:flower_forest">Flower Forest<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>132</dd><dt>Text ID</dt><dd>mutated_forest</dd><dt>Temperature</dt><dd>0.699999988079071</dd><dt>Rainfall</dt><dd>0.800000011920929</dd><dt>Min height</dt><dd>0.1</dd><dt>Max height</dt><dd>0.4000000059604645</dd><dt>Mutated from</dt><dd>forest</dd></dl></div></div>
-</div><div class="right"><div class="entry"><a href="#biomes:flower_forest"><h3 id="biomes:flower_forest">Flower Forest<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>132</dd><dt>Text ID</dt><dd>mutated_forest</dd><dt>Temperature</dt><dd>0.699999988079071</dd><dt>Rainfall</dt><dd>0.800000011920929</dd><dt>Min height</dt><dd>0.10000000149011612</dd><dt>Max height</dt><dd>0.4000000059604645</dd><dt>Mutated from</dt><dd>forest</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:mesa_(bryce)"><h3 id="biomes:mesa_(bryce)">Mesa (Bryce)<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>165</dd><dt>Text ID</dt><dd>mutated_mesa</dd><dt>Temperature</dt><dd>2.0</dd><dt>Rainfall</dt><dd>0.0</dd><dt>Min height</dt><dd>0.1</dd><dt>Max height</dt><dd>0.2</dd><dt>Mutated from</dt><dd>mesa</dd></dl></div></div>
-</div><div class="right"><div class="entry"><a href="#biomes:mesa_(bryce)"><h3 id="biomes:mesa_(bryce)">Mesa (Bryce)<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>165</dd><dt>Text ID</dt><dd>mutated_mesa</dd><dt>Temperature</dt><dd>2.0</dd><dt>Rainfall</dt><dd>0.0</dd><dt>Min height</dt><dd>0.10000000149011612</dd><dt>Max height</dt><dd>0.20000000298023224</dd><dt>Mutated from</dt><dd>mesa</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:roofed_forest"><h3 id="biomes:roofed_forest">Roofed Forest<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>29</dd><dt>Text ID</dt><dd>roofed_forest</dd><dt>Temperature</dt><dd>0.699999988079071</dd><dt>Rainfall</dt><dd>0.800000011920929</dd><dt>Min height</dt><dd>0.1</dd><dt>Max height</dt><dd>0.2</dd></dl></div></div>
-</div><div class="right"><div class="entry"><a href="#biomes:roofed_forest"><h3 id="biomes:roofed_forest">Roofed Forest<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>29</dd><dt>Text ID</dt><dd>roofed_forest</dd><dt>Temperature</dt><dd>0.699999988079071</dd><dt>Rainfall</dt><dd>0.800000011920929</dd><dt>Min height</dt><dd>0.10000000149011612</dd><dt>Max height</dt><dd>0.20000000298023224</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:the_end"><h3 id="biomes:the_end">The End<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>9</dd><dt>Text ID</dt><dd>sky</dd><dt>Temperature</dt><dd>0.5</dd><dt>Rainfall</dt><dd>0.5</dd><dt>Min height</dt><dd>0.1</dd><dt>Max height</dt><dd>0.2</dd></dl></div></div>
-</div><div class="right"><div class="entry"><a href="#biomes:the_end"><h3 id="biomes:the_end">The End<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>9</dd><dt>Text ID</dt><dd>sky</dd><dt>Temperature</dt><dd>0.5</dd><dt>Rainfall</dt><dd>0.5</dd><dt>Min height</dt><dd>0.10000000149011612</dd><dt>Max height</dt><dd>0.20000000298023224</dd></dl></div></div>
+<a href="#biomes"><h2 id="biomes">Biomes</h2></a><div class="split"><div class="left"><div class="entry"><a href="#biomes:birch_forest"><h3 id="biomes:birch_forest">Birch Forest<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>27</dd><dt>Text ID</dt><dd>birch_forest</dd><dt>Temperature</dt><dd>0.6000000238418579</dd><dt>Rainfall</dt><dd>0.6000000238418579</dd><dt>Depth</dt><dd>0.1</dd><dt>Scale</dt><dd>0.2</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#biomes:birch_forest"><h3 id="biomes:birch_forest">Birch Forest<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>27</dd><dt>Text ID</dt><dd>birch_forest</dd><dt>Temperature</dt><dd>0.6000000238418579</dd><dt>Rainfall</dt><dd>0.6000000238418579</dd><dt>Depth</dt><dd>0.10000000149011612</dd><dt>Scale</dt><dd>0.20000000298023224</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:forest"><h3 id="biomes:forest">Forest<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>4</dd><dt>Text ID</dt><dd>forest</dd><dt>Temperature</dt><dd>0.699999988079071</dd><dt>Rainfall</dt><dd>0.800000011920929</dd><dt>Depth</dt><dd>0.1</dd><dt>Scale</dt><dd>0.2</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#biomes:forest"><h3 id="biomes:forest">Forest<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>4</dd><dt>Text ID</dt><dd>forest</dd><dt>Temperature</dt><dd>0.699999988079071</dd><dt>Rainfall</dt><dd>0.800000011920929</dd><dt>Depth</dt><dd>0.10000000149011612</dd><dt>Scale</dt><dd>0.20000000298023224</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:hell"><h3 id="biomes:hell">Hell<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>8</dd><dt>Text ID</dt><dd>hell</dd><dt>Temperature</dt><dd>2.0</dd><dt>Rainfall</dt><dd>0.0</dd><dt>Depth</dt><dd>0.1</dd><dt>Scale</dt><dd>0.2</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#biomes:hell"><h3 id="biomes:hell">Hell<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>8</dd><dt>Text ID</dt><dd>hell</dd><dt>Temperature</dt><dd>2.0</dd><dt>Rainfall</dt><dd>0.0</dd><dt>Depth</dt><dd>0.10000000149011612</dd><dt>Scale</dt><dd>0.20000000298023224</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:jungle"><h3 id="biomes:jungle">Jungle<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>21</dd><dt>Text ID</dt><dd>jungle</dd><dt>Temperature</dt><dd>0.949999988079071</dd><dt>Rainfall</dt><dd>0.8999999761581421</dd><dt>Depth</dt><dd>0.1</dd><dt>Scale</dt><dd>0.2</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#biomes:jungle"><h3 id="biomes:jungle">Jungle<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>21</dd><dt>Text ID</dt><dd>jungle</dd><dt>Temperature</dt><dd>0.949999988079071</dd><dt>Rainfall</dt><dd>0.8999999761581421</dd><dt>Depth</dt><dd>0.10000000149011612</dd><dt>Scale</dt><dd>0.20000000298023224</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:jungleedge"><h3 id="biomes:jungleedge">JungleEdge<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>23</dd><dt>Text ID</dt><dd>jungle_edge</dd><dt>Temperature</dt><dd>0.949999988079071</dd><dt>Rainfall</dt><dd>0.800000011920929</dd><dt>Depth</dt><dd>0.1</dd><dt>Scale</dt><dd>0.2</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#biomes:jungleedge"><h3 id="biomes:jungleedge">JungleEdge<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>23</dd><dt>Text ID</dt><dd>jungle_edge</dd><dt>Temperature</dt><dd>0.949999988079071</dd><dt>Rainfall</dt><dd>0.800000011920929</dd><dt>Depth</dt><dd>0.10000000149011612</dd><dt>Scale</dt><dd>0.20000000298023224</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:mesa"><h3 id="biomes:mesa">Mesa<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>37</dd><dt>Text ID</dt><dd>mesa</dd><dt>Temperature</dt><dd>2.0</dd><dt>Rainfall</dt><dd>0.0</dd><dt>Depth</dt><dd>0.1</dd><dt>Scale</dt><dd>0.2</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#biomes:mesa"><h3 id="biomes:mesa">Mesa<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>37</dd><dt>Text ID</dt><dd>mesa</dd><dt>Temperature</dt><dd>2.0</dd><dt>Rainfall</dt><dd>0.0</dd><dt>Depth</dt><dd>0.10000000149011612</dd><dt>Scale</dt><dd>0.20000000298023224</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:flower_forest"><h3 id="biomes:flower_forest">Flower Forest<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>132</dd><dt>Text ID</dt><dd>mutated_forest</dd><dt>Temperature</dt><dd>0.699999988079071</dd><dt>Rainfall</dt><dd>0.800000011920929</dd><dt>Depth</dt><dd>0.1</dd><dt>Scale</dt><dd>0.4000000059604645</dd><dt>Mutated from</dt><dd>forest</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#biomes:flower_forest"><h3 id="biomes:flower_forest">Flower Forest<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>132</dd><dt>Text ID</dt><dd>mutated_forest</dd><dt>Temperature</dt><dd>0.699999988079071</dd><dt>Rainfall</dt><dd>0.800000011920929</dd><dt>Depth</dt><dd>0.10000000149011612</dd><dt>Scale</dt><dd>0.4000000059604645</dd><dt>Mutated from</dt><dd>forest</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:mesa_(bryce)"><h3 id="biomes:mesa_(bryce)">Mesa (Bryce)<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>165</dd><dt>Text ID</dt><dd>mutated_mesa</dd><dt>Temperature</dt><dd>2.0</dd><dt>Rainfall</dt><dd>0.0</dd><dt>Depth</dt><dd>0.1</dd><dt>Scale</dt><dd>0.2</dd><dt>Mutated from</dt><dd>mesa</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#biomes:mesa_(bryce)"><h3 id="biomes:mesa_(bryce)">Mesa (Bryce)<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>165</dd><dt>Text ID</dt><dd>mutated_mesa</dd><dt>Temperature</dt><dd>2.0</dd><dt>Rainfall</dt><dd>0.0</dd><dt>Depth</dt><dd>0.10000000149011612</dd><dt>Scale</dt><dd>0.20000000298023224</dd><dt>Mutated from</dt><dd>mesa</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:roofed_forest"><h3 id="biomes:roofed_forest">Roofed Forest<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>29</dd><dt>Text ID</dt><dd>roofed_forest</dd><dt>Temperature</dt><dd>0.699999988079071</dd><dt>Rainfall</dt><dd>0.800000011920929</dd><dt>Depth</dt><dd>0.1</dd><dt>Scale</dt><dd>0.2</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#biomes:roofed_forest"><h3 id="biomes:roofed_forest">Roofed Forest<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>29</dd><dt>Text ID</dt><dd>roofed_forest</dd><dt>Temperature</dt><dd>0.699999988079071</dd><dt>Rainfall</dt><dd>0.800000011920929</dd><dt>Depth</dt><dd>0.10000000149011612</dd><dt>Scale</dt><dd>0.20000000298023224</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:the_end"><h3 id="biomes:the_end">The End<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>9</dd><dt>Text ID</dt><dd>sky</dd><dt>Temperature</dt><dd>0.5</dd><dt>Rainfall</dt><dd>0.5</dd><dt>Depth</dt><dd>0.1</dd><dt>Scale</dt><dd>0.2</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#biomes:the_end"><h3 id="biomes:the_end">The End<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>9</dd><dt>Text ID</dt><dd>sky</dd><dt>Temperature</dt><dd>0.5</dd><dt>Rainfall</dt><dd>0.5</dd><dt>Depth</dt><dd>0.10000000149011612</dd><dt>Scale</dt><dd>0.20000000298023224</dd></dl></div></div>
 </div></div><div class="split"><div class="left"><div class="no entry"></div>
-</div><div class="right"><div class="entry"><a href="#biomes:the_end_-_barren_island"><h3 id="biomes:the_end_-_barren_island">The End - Barren island<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>43</dd><dt>Text ID</dt><dd>sky_island_barren</dd><dt>Temperature</dt><dd>0.5</dd><dt>Rainfall</dt><dd>0.5</dd><dt>Min height</dt><dd>0.10000000149011612</dd><dt>Max height</dt><dd>0.20000000298023224</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#biomes:the_end_-_barren_island"><h3 id="biomes:the_end_-_barren_island">The End - Barren island<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>43</dd><dt>Text ID</dt><dd>sky_island_barren</dd><dt>Temperature</dt><dd>0.5</dd><dt>Rainfall</dt><dd>0.5</dd><dt>Depth</dt><dd>0.10000000149011612</dd><dt>Scale</dt><dd>0.20000000298023224</dd></dl></div></div>
 </div></div><div class="split"><div class="left"><div class="no entry"></div>
-</div><div class="right"><div class="entry"><a href="#biomes:the_end_-_high_island"><h3 id="biomes:the_end_-_high_island">The End - High island<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>42</dd><dt>Text ID</dt><dd>sky_island_high</dd><dt>Temperature</dt><dd>0.5</dd><dt>Rainfall</dt><dd>0.5</dd><dt>Min height</dt><dd>0.10000000149011612</dd><dt>Max height</dt><dd>0.20000000298023224</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#biomes:the_end_-_high_island"><h3 id="biomes:the_end_-_high_island">The End - High island<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>42</dd><dt>Text ID</dt><dd>sky_island_high</dd><dt>Temperature</dt><dd>0.5</dd><dt>Rainfall</dt><dd>0.5</dd><dt>Depth</dt><dd>0.10000000149011612</dd><dt>Scale</dt><dd>0.20000000298023224</dd></dl></div></div>
 </div></div><div class="split"><div class="left"><div class="no entry"></div>
-</div><div class="right"><div class="entry"><a href="#biomes:the_end_-_floating_islands"><h3 id="biomes:the_end_-_floating_islands">The End - Floating islands<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>40</dd><dt>Text ID</dt><dd>sky_island_low</dd><dt>Temperature</dt><dd>0.5</dd><dt>Rainfall</dt><dd>0.5</dd><dt>Min height</dt><dd>0.10000000149011612</dd><dt>Max height</dt><dd>0.20000000298023224</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#biomes:the_end_-_floating_islands"><h3 id="biomes:the_end_-_floating_islands">The End - Floating islands<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>40</dd><dt>Text ID</dt><dd>sky_island_low</dd><dt>Temperature</dt><dd>0.5</dd><dt>Rainfall</dt><dd>0.5</dd><dt>Depth</dt><dd>0.10000000149011612</dd><dt>Scale</dt><dd>0.20000000298023224</dd></dl></div></div>
 </div></div><div class="split"><div class="left"><div class="no entry"></div>
-</div><div class="right"><div class="entry"><a href="#biomes:the_end_-_medium_island"><h3 id="biomes:the_end_-_medium_island">The End - Medium island<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>41</dd><dt>Text ID</dt><dd>sky_island_medium</dd><dt>Temperature</dt><dd>0.5</dd><dt>Rainfall</dt><dd>0.5</dd><dt>Min height</dt><dd>0.10000000149011612</dd><dt>Max height</dt><dd>0.20000000298023224</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:the_void"><h3 id="biomes:the_void">The Void<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>127</dd><dt>Text ID</dt><dd>void</dd><dt>Temperature</dt><dd>0.5</dd><dt>Rainfall</dt><dd>0.5</dd><dt>Min height</dt><dd>0.1</dd><dt>Max height</dt><dd>0.2</dd></dl></div></div>
-</div><div class="right"><div class="entry"><a href="#biomes:the_void"><h3 id="biomes:the_void">The Void<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>127</dd><dt>Text ID</dt><dd>void</dd><dt>Temperature</dt><dd>0.5</dd><dt>Rainfall</dt><dd>0.5</dd><dt>Min height</dt><dd>0.10000000149011612</dd><dt>Max height</dt><dd>0.20000000298023224</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#biomes:the_end_-_medium_island"><h3 id="biomes:the_end_-_medium_island">The End - Medium island<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>41</dd><dt>Text ID</dt><dd>sky_island_medium</dd><dt>Temperature</dt><dd>0.5</dd><dt>Rainfall</dt><dd>0.5</dd><dt>Depth</dt><dd>0.10000000149011612</dd><dt>Scale</dt><dd>0.20000000298023224</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#biomes:the_void"><h3 id="biomes:the_void">The Void<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>127</dd><dt>Text ID</dt><dd>void</dd><dt>Temperature</dt><dd>0.5</dd><dt>Rainfall</dt><dd>0.5</dd><dt>Depth</dt><dd>0.1</dd><dt>Scale</dt><dd>0.2</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#biomes:the_void"><h3 id="biomes:the_void">The Void<div class="color" style="background:none;"></div></h3></a><div><dl><dt>ID</dt><dd>127</dd><dt>Text ID</dt><dd>void</dd><dt>Temperature</dt><dd>0.5</dd><dt>Rainfall</dt><dd>0.5</dd><dt>Depth</dt><dd>0.10000000149011612</dd><dt>Scale</dt><dd>0.20000000298023224</dd></dl></div></div>
 </div></div>
 
                     </div>
