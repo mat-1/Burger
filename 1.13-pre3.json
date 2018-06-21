@@ -16440,6 +16440,7 @@
             "nethandler.server": "tp",
             "packet.connectionstate": "hw",
             "packet.packetbuffer": "hx",
+            "position": "ei",
             "recipe.superclass": "ge",
             "sounds.event": "vu",
             "sounds.list": "vv",
@@ -27477,6 +27478,33 @@
                     "from_client": false,
                     "from_server": true,
                     "id": 4,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "uuid"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "d.b()",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
                     "state": "PLAY"
                 },
                 "PLAY_CLIENTBOUND_05": {
@@ -27609,6 +27637,23 @@
                     "from_client": false,
                     "from_server": true,
                     "id": 8,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
                     "state": "PLAY"
                 },
                 "PLAY_CLIENTBOUND_09": {
@@ -27617,6 +27662,23 @@
                     "from_client": false,
                     "from_server": true,
                     "id": 9,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "(byte)b",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "nbtcompound"
+                        }
+                    ],
                     "state": "PLAY"
                 },
                 "PLAY_CLIENTBOUND_0A": {
@@ -27625,6 +27687,28 @@
                     "from_client": false,
                     "from_server": true,
                     "id": 10,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "bgg.e.a(d)",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
                     "state": "PLAY"
                 },
                 "PLAY_CLIENTBOUND_0B": {
@@ -27633,6 +27717,18 @@
                     "from_client": false,
                     "from_server": true,
                     "id": 11,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "bgg.k(b)",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
                     "state": "PLAY"
                 },
                 "PLAY_CLIENTBOUND_0C": {
@@ -28789,6 +28885,28 @@
                     "from_client": false,
                     "from_server": true,
                     "id": 34,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
                     "state": "PLAY"
                 },
                 "PLAY_CLIENTBOUND_23": {
@@ -29236,6 +29354,13 @@
                     "from_client": false,
                     "from_server": true,
                     "id": 43,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        }
+                    ],
                     "state": "PLAY"
                 },
                 "PLAY_CLIENTBOUND_2C": {
@@ -29729,6 +29854,18 @@
                     "from_client": false,
                     "from_server": true,
                     "id": 50,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "position"
+                        }
+                    ],
                     "state": "PLAY"
                 },
                 "PLAY_CLIENTBOUND_33": {
@@ -30532,6 +30669,13 @@
                     "from_client": false,
                     "from_server": true,
                     "id": 72,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        }
+                    ],
                     "state": "PLAY"
                 },
                 "PLAY_CLIENTBOUND_49": {
@@ -32146,6 +32290,23 @@
                     "from_client": true,
                     "from_server": false,
                     "id": 20,
+                    "instructions": [
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
                     "state": "PLAY"
                 },
                 "PLAY_SERVERBOUND_15": {
@@ -32367,6 +32528,35 @@
                     "from_client": true,
                     "from_server": false,
                     "id": 28,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2 < 4",
+                            "instructions": [
+                                {
+                                    "field": "b[var2]",
+                                    "operation": "write",
+                                    "type": "string"
+                                },
+                                {
+                                    "amount": "1",
+                                    "field": "var2",
+                                    "operation": "increment"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
                     "state": "PLAY"
                 },
                 "PLAY_SERVERBOUND_1D": {
@@ -32405,6 +32595,38 @@
                     "from_client": true,
                     "from_server": false,
                     "id": 31,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "float"
+                        }
+                    ],
                     "state": "PLAY"
                 },
                 "PLAY_SERVERBOUND_20": {
@@ -81203,6 +81425,23 @@
                 "from_client": false,
                 "from_server": true,
                 "id": 9,
+                "instructions": [
+                    {
+                        "field": "a",
+                        "operation": "write",
+                        "type": "position"
+                    },
+                    {
+                        "field": "(byte)b",
+                        "operation": "write",
+                        "type": "byte"
+                    },
+                    {
+                        "field": "c",
+                        "operation": "write",
+                        "type": "nbtcompound"
+                    }
+                ],
                 "state": "PLAY"
             }
         },

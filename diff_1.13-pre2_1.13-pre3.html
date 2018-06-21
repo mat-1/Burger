@@ -74,76 +74,12 @@
 <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">length</span><span class="hl_o">);</span>
 <span class="hl_n">writeBytes</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
 </pre></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_04"><h3 id="packets:play_clientbound_04">PLAY_CLIENTBOUND_04</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>4</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
-<span class="hl_n">writeUUID</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
-<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">);</span>
-<span class="hl_n">writePosition</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
-<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">());</span>
-</pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_04"><h3 id="packets:play_clientbound_04">PLAY_CLIENTBOUND_04</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>4</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_08"><h3 id="packets:play_clientbound_08">PLAY_CLIENTBOUND_08</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>8</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
-<span class="hl_n">writePosition</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
-<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
-</pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_08"><h3 id="packets:play_clientbound_08">PLAY_CLIENTBOUND_08</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>8</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_09"><h3 id="packets:play_clientbound_09">PLAY_CLIENTBOUND_09</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>9</dd></dl><pre><span class="hl_n">writePosition</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
-<span class="hl_n">writeByte</span><span class="hl_o">((</span><span class="hl_kt">byte</span><span class="hl_o">)</span><span class="hl_n">b</span><span class="hl_o">);</span>
-<span class="hl_n">writeNBTCompound</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
-</pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_09"><h3 id="packets:play_clientbound_09">PLAY_CLIENTBOUND_09</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>9</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_0a"><h3 id="packets:play_clientbound_0a">PLAY_CLIENTBOUND_0A</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>10</dd></dl><pre><span class="hl_n">writePosition</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
-<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
-<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
-<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">bfy</span><span class="hl_o">.</span><span class="hl_na">e</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">));</span>
-</pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_0a"><h3 id="packets:play_clientbound_0a">PLAY_CLIENTBOUND_0A</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>10</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_0b"><h3 id="packets:play_clientbound_0b">PLAY_CLIENTBOUND_0B</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>11</dd></dl><pre><span class="hl_n">writePosition</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
-<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">bfy</span><span class="hl_o">.</span><span class="hl_na">k</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">));</span>
-</pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_0b"><h3 id="packets:play_clientbound_0b">PLAY_CLIENTBOUND_0B</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>11</dd></dl></div></div>
 </div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_19"><h3 id="packets:play_clientbound_19">PLAY_CLIENTBOUND_19</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>25</dd></dl><pre><span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
 <span class="hl_n">writeBytes</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">copy</span><span class="hl_o">());</span>
 </pre></div></div>
 </div><div class="right"><div class="entry"><a href="#packets:play_clientbound_19"><h3 id="packets:play_clientbound_19">PLAY_CLIENTBOUND_19</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>25</dd></dl><pre><span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">i</span><span class="hl_o">);</span>
 <span class="hl_n">writeBytes</span><span class="hl_o">(</span><span class="hl_n">j</span><span class="hl_o">.</span><span class="hl_na">copy</span><span class="hl_o">());</span>
 </pre></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_22"><h3 id="packets:play_clientbound_22">PLAY_CLIENTBOUND_22</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>34</dd></dl><pre><span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
-<span class="hl_n">writePosition</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
-<span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
-<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
-</pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_22"><h3 id="packets:play_clientbound_22">PLAY_CLIENTBOUND_22</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>34</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_2b"><h3 id="packets:play_clientbound_2b">PLAY_CLIENTBOUND_2B</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>43</dd></dl><pre><span class="hl_n">writePosition</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
-</pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_2b"><h3 id="packets:play_clientbound_2b">PLAY_CLIENTBOUND_2B</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>43</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_32"><h3 id="packets:play_clientbound_32">PLAY_CLIENTBOUND_32</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>50</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
-<span class="hl_n">writePosition</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
-</pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_32"><h3 id="packets:play_clientbound_32">PLAY_CLIENTBOUND_32</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>50</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_48"><h3 id="packets:play_clientbound_48">PLAY_CLIENTBOUND_48</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>72</dd></dl><pre><span class="hl_n">writePosition</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
-</pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_48"><h3 id="packets:play_clientbound_48">PLAY_CLIENTBOUND_48</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>72</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_serverbound_14"><h3 id="packets:play_serverbound_14">PLAY_SERVERBOUND_14</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>20</dd></dl><pre><span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
-<span class="hl_n">writePosition</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
-<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">());</span>
-</pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:play_serverbound_14"><h3 id="packets:play_serverbound_14">PLAY_SERVERBOUND_14</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>20</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_serverbound_1c"><h3 id="packets:play_serverbound_1c">PLAY_SERVERBOUND_1C</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>28</dd></dl><pre><span class="hl_n">writePosition</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
-<span class="hl_kt">int</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_mi">0</span><span class="hl_o">;</span>
-<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span> <span class="hl_o">&lt;</span> <span class="hl_mi">4</span><span class="hl_o">)</span> <span class="hl_o">{</span>
-  <span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">[</span><span class="hl_n">var2</span><span class="hl_o">]);</span>
-  <span class="hl_n">var2</span><span class="hl_o">++;</span>
-<span class="hl_o">}</span>
-</pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:play_serverbound_1c"><h3 id="packets:play_serverbound_1c">PLAY_SERVERBOUND_1C</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>28</dd></dl></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_serverbound_1f"><h3 id="packets:play_serverbound_1f">PLAY_SERVERBOUND_1F</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>31</dd></dl><pre><span class="hl_n">writePosition</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
-<span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
-<span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
-<span class="hl_n">writeFloat</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
-<span class="hl_n">writeFloat</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">);</span>
-<span class="hl_n">writeFloat</span><span class="hl_o">(</span><span class="hl_n">f</span><span class="hl_o">);</span>
-</pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:play_serverbound_1f"><h3 id="packets:play_serverbound_1f">PLAY_SERVERBOUND_1F</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>31</dd></dl></div></div>
 </div></div>
 <a href="#block_entities"><h2 id="block_entities">Block entities</h2></a><span class="info">No entries</span>
 <a href="#versions"><h2 id="versions">Versions</h2></a><div class="split"><div class="left"><div class="entry"><a href="#versions:data"><h3 id="versions:data">data</h3></a><div>1502</div></div>
