@@ -60,35 +60,42 @@ def update_result(*args, **kwargs):
     document.select("#version-main span")[0].textContent = left
     document.select("#version-diff span")[0].textContent = right
 
-    def single(request):
-        data = json.loads(request.responseText)
-        try:
-            content = vitrine(data)
-            document.getElementById("vitrine").innerHTML = content
-        except:
-            import html
-            document.getElementById("vitrine").innerHTML = '<div class="entry"><h3>Error</h3><pre>' + html.escape(traceback.format_exc()) + '</pre></div>'
-            traceback.print_exc()
-
-    def both1(request):
-        main = json.loads(request.responseText)
-        def both2(request2):
-            diff = json.loads(request2.responseText)
-
+    def updates_vitrine(f):
+        def method(*args, **kwargs):
             try:
-                combined = hamburglar(main, diff)
-
-                content = vitrine(combined)
+                content = f(*args, **kwargs)
                 document.getElementById("vitrine").innerHTML = content
             except:
                 import html
                 document.getElementById("vitrine").innerHTML = '<div class="entry"><h3>Error</h3><pre>' + html.escape(traceback.format_exc()) + '</pre></div>'
                 traceback.print_exc()
 
-        req = ajax.ajax()
-        req.open("GET", "https://pokechu22.github.io/Burger/" + right + ".json", True)
-        req.bind("complete", both2)
-        req.send()
+        return method
+
+    @updates_vitrine
+    def single(request):
+        data = json.loads(request.responseText)
+        return vitrine(data)
+
+    class BothCallback:
+        def __init__(self):
+            self.main = None
+            self.diff = None
+
+        def onmain(self, request):
+            self.main = json.loads(request.responseText)
+            if self.main is not None and self.diff is not None:
+                self.done()
+
+        def ondiff(self, request):
+            self.diff = json.loads(request.responseText)
+            if self.main is not None and self.diff is not None:
+                self.done()
+
+        @updates_vitrine
+        def done(self):
+            combined = hamburglar(self.main, self.diff)
+            return vitrine(combined)
 
     if left == "None" and right == "None":
         #window.location = "about"
@@ -104,9 +111,14 @@ def update_result(*args, **kwargs):
         req.bind("complete", single)
         req.send()
     else:
+        callback = BothCallback()
         req = ajax.ajax()
         req.open("GET", "https://pokechu22.github.io/Burger/" + left + ".json", True)
-        req.bind("complete", both1)
+        req.bind("complete", callback.onmain)
+        req.send()
+        req = ajax.ajax()
+        req.open("GET", "https://pokechu22.github.io/Burger/" + right + ".json", True)
+        req.bind("complete", callback.ondiff)
         req.send()
 
 document.select("#version-main select")[0].bind("change", update_result)
