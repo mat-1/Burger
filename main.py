@@ -3,6 +3,8 @@
 from browser import document, window, html, ajax
 import json
 import traceback
+import hamburglar_main
+import vitrine_main
 
 def hamburglar(main, diff):
     def import_toppings():
@@ -25,45 +27,17 @@ def hamburglar(main, diff):
         return (AchivementsTopping, PacketsTopping, RecipesTopping, StatsTopping, TagsTopping, VersionTopping, BiomesTopping, BlocksTopping, EntitiesTopping, ObjectsTopping, ItemsTopping, SoundsTopping, TileEntitiesTopping, LanguageTopping)
 
     toppings = import_toppings()
-    versions = [main[0], diff[0]]
 
-    # Compare versions
-    aggregate = {}
-
-    for topping in toppings:
-        if topping.KEY == None:
-            continue
-        keys = topping.KEY.split(".")
-        obj1 = versions[0]
-        obj2 = versions[1]
-        target = aggregate
-        skip = False
-        for key in keys:
-            if not (key in obj1 and key in obj2):
-                skip = True
-                break
-            obj1 = obj1[key]
-            obj2 = obj2[key]
-        if skip:
-            continue
-        for key in keys[:-1]:
-            if not key in target:
-                target[key] = {}
-            target = target[key]
-
-        print(topping)
-        target[keys[-1]] = topping().filter(obj1, obj2)
-
-    return aggregate
+    return hamburglar_main.compare(toppings, main[0], diff[0])
 
 def vitrine(data):
     def import_toppings():
         # Silly hardcoded thing
         from vitrine.toppings.achievements import AchievementsTopping
         from vitrine.toppings.biomes import BiomesTopping
-        import vitrine.toppings.entities #EntitiessTopping
+        from vitrine.toppings.entities import EntitiesTopping
         from vitrine.toppings.language import LanguageTopping
-        import vitrine.toppings.objects #EntitiessTopping
+        from vitrine.toppings.objects import ObjectsTopping
         from vitrine.toppings.packets import PacketsTopping
         from vitrine.toppings.recipes import RecipesTopping
         from vitrine.toppings.sounds import SoundsTopping
@@ -74,41 +48,11 @@ def vitrine(data):
         from vitrine.toppings.blocks import BlocksTopping
         from vitrine.toppings.items import ItemsTopping
 
-        return (AchievementsTopping, BiomesTopping, vitrine.toppings.entities.EntitiessTopping, LanguageTopping, vitrine.toppings.objects.EntitiessTopping, PacketsTopping, RecipesTopping, SoundsTopping, StatsTopping, TagsTopping, TileEntities, VersionsTopping, BlocksTopping, ItemsTopping)
+        return (AchievementsTopping, BiomesTopping, EntitiesTopping, LanguageTopping, ObjectsTopping, PacketsTopping, RecipesTopping, SoundsTopping, StatsTopping, TagsTopping, TileEntities, VersionsTopping, BlocksTopping, ItemsTopping)
 
     toppings = import_toppings()
 
-    diff = not isinstance(data, list)
-    if not diff:
-        data = data[0]
-
-    wiki = None
-
-    # Generate HTML
-    aggregate = [] # changed for performance
-    for topping in sorted(toppings, key=lambda x: -x.PRIORITY):
-        if topping.KEY == None:
-            continue
-
-        keys = topping.KEY.split(".")
-        obj = data
-        skip = False
-        for key in keys:
-            if key not in obj:
-                skip = True
-                break
-            obj = obj[key]
-        if skip:
-            continue
-
-        try:
-            print(topping)
-            aggregate.append(str(topping(obj, data, diff, wiki)))
-        except:
-            aggregate.append('<h2>%s</h2><div class="entry"><h3>Error</h3><pre>%s</pre></div>' % (topping.NAME, traceback.format_exc()))
-            traceback.print_exc()
-
-    return "".join(aggregate)
+    return vitrine_main.generate_html(toppings, data, wiki=None)
 
 def update_result(*args, **kwargs):
     left = document.select("#version-main select")[0].value
@@ -122,7 +66,8 @@ def update_result(*args, **kwargs):
             content = vitrine(data)
             document.getElementById("vitrine").innerHTML = content
         except:
-            document.getElementById("vitrine").innerHTML = '<div class="entry"><h3>Error</h3><pre>' + traceback.format_exc() + '</pre></div>'
+            import html
+            document.getElementById("vitrine").innerHTML = '<div class="entry"><h3>Error</h3><pre>' + html.escape(traceback.format_exc()) + '</pre></div>'
             traceback.print_exc()
 
     def both1(request):
@@ -135,7 +80,8 @@ def update_result(*args, **kwargs):
                 content = vitrine(combined)
                 document.getElementById("vitrine").innerHTML = content
             except:
-                document.getElementById("vitrine").innerHTML = '<div class="entry"><h3>Error</h3><pre>' + traceback.format_exc() + '</pre></div>'
+                import html
+                document.getElementById("vitrine").innerHTML = '<div class="entry"><h3>Error</h3><pre>' + html.escape(traceback.format_exc()) + '</pre></div>'
                 traceback.print_exc()
 
         req = ajax.ajax()
