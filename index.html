@@ -1,97 +1,43 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Burger by Pokechu22</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Burger</h1>
-        <p>A simple tool for picking out information from the minecraft JARs, primarily useful for developers.</p>
-
-        <p class="view"><a href="https://github.com/Pokechu22/Burger">View the Project on GitHub <small>Pokechu22/Burger</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/Pokechu22/Burger/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/Pokechu22/Burger/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/Pokechu22/Burger">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <p><strong>NOTE: This page is really only used to host one of the results.  See <a href="//b.wiki.vg">b.wiki.vg</a> for older results.</strong></p>
-
-<h1><a id="pages" class="anchor" href="#pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pages</h1>
-
-<p>Pages are in the form <code>${version}.html</code>, <code>${version}.json</code>, <code>diff_${old}_${new}.html</code> and <code>diff_${old}_${new}.json</code>.</p>
-
-<h1>
-<a id="burger" class="anchor" href="#burger" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Burger</h1>
-
-<p>Burger is a tiny "framework" for automatically extracting data
-from the minecraft game for the purpose of writing the protocol
-specification, interoperability, and other neat uses.</p>
-
-<h2>
-<a id="the-idea" class="anchor" href="#the-idea" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Idea</h2>
-
-<p>Burger is made up of <em>toppings</em>, which can provide and satisfy
-simple dependencies, and which can be run all-together or just
-a few specifically. Each topping is then aggregated by
-<code>munch.py</code> into the whole and output as a JSON dictionary.</p>
-
-<h2>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
-
-<p>The simplest way to use Burger is to pass the <code>-d</code> or <code>--download</code>
-flag, which will download the minecraft client for you.</p>
-
-<pre><code>$ python munch.py --download
-</code></pre>
-
-<p>Alternatively, you can specify either the client or the server
-JAR by passing it as an argument.</p>
-
-<pre><code>$ python munch.py minecraft_server.jar
-</code></pre>
-
-<p>We can redirect the output from the default <code>stdout</code> by passing
-<code>-o &lt;path&gt;</code> or <code>--output &lt;path&gt;</code>.</p>
-
-<pre><code>$ python munch.py -d --output output.json
-</code></pre>
-
-<p>We can see what toppings are available by passing <code>-l</code> or <code>--list</code>.</p>
-
-<pre><code>$ python munch.py --list
-</code></pre>
-
-<p>We can also run specific toppings by passing a comma-delimited list
-to <code>-t</code> or <code>--toppings</code>. If a topping cannot be used because it's
-missing a dependency, it will output an error telling you what 
-also needs to be included.</p>
-
-<pre><code>$ python munch.py -d --toppings language,stats
-</code></pre>
-
-<p>The above example would only extract the language information, as
-well as the stats and achievements (both part of <code>stats</code>).</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/Pokechu22">Pokechu22</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+<head>
+<meta charset="utf-8">
+<title>Vitrine</title>
+<link rel="shortcut icon" href="static/favicon.ico" />
+<link rel="pythonpath" href="//pokechu22.github.io/Burger/BurgerVitrine">
+<link rel="pythonpath" href="//pokechu22.github.io/Burger/Hamburglar">
+<link rel="stylesheet" href="static/style.css" />
+<link rel="stylesheet" href="static/local.css" />
+<script type="text/javascript" src="http://brython.info/src/brython.js"></script>
+<script type="text/javascript" src="http://brython.info/src/brython_stdlib.js"></script>
+<script type="text/python" src="main.py"></script>
+</head>
+<body onload="brython(1)">
+    <div id="header">
+        <a href="/"><h1>Burger Vitrine</h1></a>
+        <div class="topmenu">
+            <div class="select" id="version-main">
+                <select disabled>
+                    <option value="None" selected>None</option>
+                </select>
+                <span>Loading</span>
+            </div>
+            <div class="select" id="version-diff">
+                <select disabled>
+                    <option value="None" selected>None</option>
+                </select>
+                <span>None</span>
+            </div>
+        </div>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
+    <div id="vitrine">
+    <h2>Loading...</h2>
+    <noscript>
+    <div class="entry">Burger Vitrine requires JavaScript to be enabled.</div>
+    </noscript>
+    </div>
+    <footer>
+        <a href="https://github.com/pokechu22/Burger">GitHub</a>
+    </footer>
+</body>
 </html>
