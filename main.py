@@ -74,9 +74,10 @@ def update_result(*args, **kwargs):
         main = json.loads(request.responseText)
         def both2(request2):
             diff = json.loads(request2.responseText)
-            combined = hamburglar(main, diff)
 
             try:
+                combined = hamburglar(main, diff)
+
                 content = vitrine(combined)
                 document.getElementById("vitrine").innerHTML = content
             except:
