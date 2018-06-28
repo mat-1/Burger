@@ -1,58 +1,18 @@
-# Based on vitrine.py and hamburglar.py
-
-from browser import document, window, html, ajax
+from browser import document, window, html, ajax, webworker
 import json
 import traceback
-import hamburglar_main
-import vitrine_main
-
-def hamburglar(main, diff):
-    def import_toppings():
-        # Silly hardcoded thing; we can't go through all files here
-        from hamburglar.toppings.achivements import AchivementsTopping
-        from hamburglar.toppings.packets import PacketsTopping
-        from hamburglar.toppings.recipes import RecipesTopping
-        from hamburglar.toppings.stats import StatsTopping
-        from hamburglar.toppings.tags import TagsTopping
-        from hamburglar.toppings.version import VersionTopping
-        from hamburglar.toppings.biomes import BiomesTopping
-        from hamburglar.toppings.blocks import BlocksTopping
-        from hamburglar.toppings.entities import EntitiesTopping
-        from hamburglar.toppings.entities import ObjectsTopping
-        from hamburglar.toppings.items import ItemsTopping
-        from hamburglar.toppings.sounds import SoundsTopping
-        from hamburglar.toppings.tileentities import TileEntitiesTopping
-        from hamburglar.toppings.language import LanguageTopping
-
-        return (AchivementsTopping, PacketsTopping, RecipesTopping, StatsTopping, TagsTopping, VersionTopping, BiomesTopping, BlocksTopping, EntitiesTopping, ObjectsTopping, ItemsTopping, SoundsTopping, TileEntitiesTopping, LanguageTopping)
-
-    toppings = import_toppings()
-
-    return hamburglar_main.compare(toppings, main[0], diff[0])
-
-def vitrine(data):
-    def import_toppings():
-        # Silly hardcoded thing
-        from vitrine.toppings.achievements import AchievementsTopping
-        from vitrine.toppings.biomes import BiomesTopping
-        from vitrine.toppings.entities import EntitiesTopping
-        from vitrine.toppings.language import LanguageTopping
-        from vitrine.toppings.objects import ObjectsTopping
-        from vitrine.toppings.packets import PacketsTopping
-        from vitrine.toppings.recipes import RecipesTopping
-        from vitrine.toppings.sounds import SoundsTopping
-        from vitrine.toppings.stats import StatsTopping
-        from vitrine.toppings.tags import TagsTopping
-        from vitrine.toppings.tileentities import TileEntities
-        from vitrine.toppings.versions import VersionsTopping
-        from vitrine.toppings.blocks import BlocksTopping
-        from vitrine.toppings.items import ItemsTopping
-
-        return (AchievementsTopping, BiomesTopping, EntitiesTopping, LanguageTopping, ObjectsTopping, PacketsTopping, RecipesTopping, SoundsTopping, StatsTopping, TagsTopping, TileEntities, VersionsTopping, BlocksTopping, ItemsTopping)
-
-    toppings = import_toppings()
-
-    return vitrine_main.generate_html(toppings, data, wiki=None)
+import sys
+# Ugly hack due to how same-origin stuff works...  https://stackoverflow.com/a/40581869/3991344
+print("Old script", webworker.WorkerParent.WORKER_SCRIPT)
+req = ajax.ajax()
+req.open("GET", webworker.WorkerParent.WORKER_SCRIPT, False) # sync, also awful hack
+def callback(request):
+    webworker.WorkerParent.WORKER_SCRIPT = window.URL.createObjectURL(window.Blob.new([request.responseText]))
+req.bind("complete", callback)
+req.send()
+print("Now", webworker.WorkerParent.WORKER_SCRIPT)
+worker = webworker.WorkerParent('http://localhost:8080/worker.py')
+active_future = None
 
 def update_result(*args, **kwargs):
     left = document.select("#version-main select")[0].value
@@ -60,22 +20,40 @@ def update_result(*args, **kwargs):
     document.select("#version-main span")[0].textContent = left
     document.select("#version-diff span")[0].textContent = right
 
+    document.getElementById("vitrine").innerHTML = '<h2>Working...</h2>'
+
     def updates_vitrine(f):
+        print("Decorator")
+        """
+        Decorator to update vitrine based on the future returned by the given method,
+        using a webworker.
+        """
         def method(*args, **kwargs):
-            try:
-                content = f(*args, **kwargs)
-                document.getElementById("vitrine").innerHTML = content
-            except:
-                import html
-                document.getElementById("vitrine").innerHTML = '<div class="entry"><h3>Error</h3><pre>' + html.escape(traceback.format_exc()) + '</pre></div>'
-                traceback.print_exc()
+            print("Inner method")
+            global active_future
+            if active_future is not None:
+                active_future.terminate()
+                active_future = None
+
+            active_future = f(*args, **kwargs)
+            def callback(future):
+                active_future.terminate()
+                active_future = None
+                try:
+                    document.getElementById("vitrine").innerHTML = future.result()
+                except:
+                    import html
+                    document.getElementById("vitrine").innerHTML = '<div class="entry"><h3>Error</h3><pre>' + html.escape(traceback.format_exc()) + '</pre></div>'
+                    traceback.print_exc()
+            active_future.add_done_callback(callback)
 
         return method
 
     @updates_vitrine
     def single(request):
+        print("Preparing vitrine worker")
         data = json.loads(request.responseText)
-        return vitrine(data)
+        return worker.post_message(webworker.Message('vitrine', data), want_reply=True)
 
     class BothCallback:
         def __init__(self):
@@ -94,8 +72,8 @@ def update_result(*args, **kwargs):
 
         @updates_vitrine
         def done(self):
-            combined = hamburglar(self.main, self.diff)
-            return vitrine(combined)
+            print("Preparing hamburglar worker")
+            return worker.post_message(webworker.Message('hamburglar', {'main': self.main, 'diff': self.diff}), want_reply=True)
 
     if left == "None" and right == "None":
         #window.location = "about"
