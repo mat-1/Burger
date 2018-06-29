@@ -1,17 +1,9 @@
-from browser import document, window, html, ajax, webworker
-import json
+from html import escape
+from browser import document, window, html, ajax, webworker, console
 import traceback
+import json
 import sys
-# Ugly hack due to how same-origin stuff works...  https://stackoverflow.com/a/40581869/3991344
-print("Old script", webworker.WorkerParent.WORKER_SCRIPT)
-req = ajax.ajax()
-req.open("GET", webworker.WorkerParent.WORKER_SCRIPT, False) # sync, also awful hack
-def callback(request):
-    webworker.WorkerParent.WORKER_SCRIPT = window.URL.createObjectURL(window.Blob.new([request.responseText]))
-req.bind("complete", callback)
-req.send()
-print("Now", webworker.WorkerParent.WORKER_SCRIPT)
-worker = webworker.WorkerParent('http://localhost:8080/worker.py')
+worker = None
 active_future = None
 
 def update_result(*args, **kwargs):
@@ -23,28 +15,33 @@ def update_result(*args, **kwargs):
     document.getElementById("vitrine").innerHTML = '<h2>Working...</h2>'
 
     def updates_vitrine(f):
-        print("Decorator")
+        global worker
+
+        if not worker:
+            # Ugly hack to get an absolute URL from a relative one
+            # https://stackoverflow.com/a/34020609/3991344
+            url = html.A(href='worker.py').href
+            worker = webworker.WorkerParent(url, sys.path)
+
         """
         Decorator to update vitrine based on the future returned by the given method,
         using a webworker.
         """
         def method(*args, **kwargs):
-            print("Inner method")
             global active_future
             if active_future is not None:
-                active_future.terminate()
+                active_future.cancel()
                 active_future = None
 
             active_future = f(*args, **kwargs)
             def callback(future):
-                active_future.terminate()
+                active_future.cancel()
                 active_future = None
                 try:
-                    document.getElementById("vitrine").innerHTML = future.result()
+                    document.getElementById("vitrine").innerHTML = future.result().data.to_dict()['result']
                 except:
-                    import html
-                    document.getElementById("vitrine").innerHTML = '<div class="entry"><h3>Error</h3><pre>' + html.escape(traceback.format_exc()) + '</pre></div>'
                     traceback.print_exc()
+                    document.getElementById("vitrine").innerHTML = '<div class="entry"><h3>Error callback</h3><pre>' + escape(traceback.format_exc()) + '</pre></div>'
             active_future.add_done_callback(callback)
 
         return method
@@ -52,8 +49,8 @@ def update_result(*args, **kwargs):
     @updates_vitrine
     def single(request):
         print("Preparing vitrine worker")
-        data = json.loads(request.responseText)
-        return worker.post_message(webworker.Message('vitrine', data), want_reply=True)
+        data = request.responseText
+        return worker.post_message(webworker.Message('vitrine', {'data': data}), want_reply=True)
 
     class BothCallback:
         def __init__(self):
@@ -61,12 +58,12 @@ def update_result(*args, **kwargs):
             self.diff = None
 
         def onmain(self, request):
-            self.main = json.loads(request.responseText)
+            self.main = request.responseText
             if self.main is not None and self.diff is not None:
                 self.done()
 
         def ondiff(self, request):
-            self.diff = json.loads(request.responseText)
+            self.diff = request.responseText
             if self.main is not None and self.diff is not None:
                 self.done()
 

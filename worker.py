@@ -1,3 +1,11 @@
+import sys
+# HACK: Paths from main script aren't copied.  Transfer via sys.argv
+new_path = [loc for loc in sys.argv if loc not in sys.path]
+sys.path.extend(new_path)
+
+import json
+import traceback
+from html import escape
 from browser.webworker import current_worker, Message
 import hamburglar_main
 import vitrine_main
@@ -50,19 +58,32 @@ def vitrine(data):
 
     return vitrine_main.generate_html(toppings, data, wiki=None)
 
-def vitrine_worker(message):
-    print("vitrine_worker:", message)
-    result = vitrine(message.data)
+def vitrine_worker(message_name, message, src):
+    try:
+        print("vitrine_worker:", message)
+        data = message.data.to_dict()
+        result = vitrine(json.loads(data['data']))
+    except:
+        traceback.print_exc()
+        result = '<div class="entry"><h3>Error</h3><pre>' + escape(traceback.format_exc()) + '</pre></div>'
     print("Done!")
-    current_worker.post_reply(message, Message('vitrine', result))
+    current_worker.post_reply(message, Message('_vitrine', {"result": result}))
 
-def hamburglar_worker(message):
-    print("hamburglar_worker:", message)
-    combined = hamburglar(message.data['main'], message.data['diff'])
-    print("Halfway done")
-    result = vitrine(combined)
+def hamburglar_worker(message_name, message, src):
+    try:
+        print("hamburglar_worker:", message)
+        data = message.data.to_dict()
+        combined = hamburglar(json.loads(data['main']), json.loads(data['diff']))
+        print("Halfway done")
+        result = vitrine(combined)
+    except:
+        print("!!!")
+        traceback.print_exc()
+        print("!!!")
+        result = '<div class="entry"><h3>Error</h3><pre>' + escape(traceback.format_exc()) + '</pre></div>'
     print("Done")
-    current_worker.post_reply(message, Message('hamburglar', result))
+
+    current_worker.post_reply(message, Message('_hamburglar', {"result": result}))
 
 current_worker.bind_message('vitrine', vitrine_worker)
 current_worker.bind_message('hamburglar', hamburglar_worker)
