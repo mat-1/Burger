@@ -1,7 +1,9 @@
 import sys
 # HACK: Paths from main script aren't copied.  Transfer via sys.argv
+print("old:", sys.path)
 new_path = [loc for loc in sys.argv if loc not in sys.path]
 sys.path.extend(new_path)
+print("new:", sys.path)
 
 import json
 import traceback

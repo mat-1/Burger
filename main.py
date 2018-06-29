@@ -1,5 +1,6 @@
 from html import escape
 from browser import document, window, html, ajax, webworker, console
+from time import time
 import traceback
 import json
 import sys
@@ -20,7 +21,8 @@ def update_result(*args, **kwargs):
         if not worker:
             # Ugly hack to get an absolute URL from a relative one
             # https://stackoverflow.com/a/34020609/3991344
-            url = html.A(href='worker.py').href
+            # Also, timestamp to avoid caching issues
+            url = html.A(href='worker.py').href + "?" + str(int(time() * 1000))
             worker = webworker.WorkerParent(url, sys.path)
 
         """
