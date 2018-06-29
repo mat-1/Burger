@@ -7,10 +7,20 @@ import json
 import traceback
 from html import escape
 from browser.webworker import current_worker, Message
-import hamburglar_main
-import vitrine_main
+
+def progress_update(text, value=None, max=None):
+    data = {'desc': text}
+    if value is not None and max is not None:
+        data['value'] = value
+        data['max'] = max
+
+    current_worker.post_message(Message('progress', data))
+
 
 def hamburglar(main, diff):
+    progress_update('Hamburglar: Importing hamburglar')
+    import hamburglar_main
+
     def import_toppings():
         # Silly hardcoded thing; we can't go through all files here
         from hamburglar.toppings.achivements import AchivementsTopping
@@ -30,11 +40,21 @@ def hamburglar(main, diff):
 
         return (AchivementsTopping, PacketsTopping, RecipesTopping, StatsTopping, TagsTopping, VersionTopping, BiomesTopping, BlocksTopping, EntitiesTopping, ObjectsTopping, ItemsTopping, SoundsTopping, TileEntitiesTopping, LanguageTopping)
 
+    progress_update('Hamburglar: Importing toppings')
     toppings = import_toppings()
 
-    return hamburglar_main.compare(toppings, main[0], diff[0])
+    num_updates = 0
+    def progress_callback(name):
+        nonlocal num_updates
+        progress_update("Hamburglar: " + name, num_updates, len(toppings))
+        num_updates += 1
+
+    return hamburglar_main.compare(toppings, main[0], diff[0], progress_callback=progress_callback)
 
 def vitrine(data):
+    progress_update('Vitrine: Importing vitrine')
+    import vitrine_main
+
     def import_toppings():
         # Silly hardcoded thing
         from vitrine.toppings.achievements import AchievementsTopping
@@ -54,9 +74,16 @@ def vitrine(data):
 
         return (AchievementsTopping, BiomesTopping, EntitiesTopping, LanguageTopping, ObjectsTopping, PacketsTopping, RecipesTopping, SoundsTopping, StatsTopping, TagsTopping, TileEntities, VersionsTopping, BlocksTopping, ItemsTopping)
 
+    progress_update('Vitrine: Importing toppings')
     toppings = import_toppings()
 
-    return vitrine_main.generate_html(toppings, data, wiki=None)
+    num_updates = 0
+    def progress_callback(name):
+        nonlocal num_updates
+        progress_update("Vitrine: " + name, num_updates, len(toppings))
+        num_updates += 1
+
+    return vitrine_main.generate_html(toppings, data, progress_callback=progress_callback)
 
 def vitrine_worker(message_name, message, src):
     try:

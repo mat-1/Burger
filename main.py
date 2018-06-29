@@ -12,16 +12,37 @@ def update_result(*args, **kwargs):
     document.select("#version-main span")[0].textContent = left
     document.select("#version-diff span")[0].textContent = right
 
-    document.getElementById("vitrine").innerHTML = '<h2>Working...</h2>'
+    document.getElementById("vitrine").innerHTML = '''
+    <h2>Working...</h2><div class="entry">
+    <h3><label for="vitrine-progress" id="vitrine-progress-label">Loading burger JSONs...</label></h3>
+    <progress id="vitrine-progress"></progress>
+    </div>
+    '''
+    progress_label = document.getElementById("vitrine-progress-label")
+    progress_bar = document.getElementById("vitrine-progress") # starts in indeterminate state
 
     def updates_vitrine(f):
         global worker
 
         if not worker:
+            progress_label.textContent = "Starting worker..."
+            def progress_handler(message_name, message, src):
+                data = message.data.to_dict()
+                print("Progress update:", data)
+
+                progress_label.textContent = data['desc']
+                if 'value' in data:
+                    progress_bar.max = data['max']
+                    progress_bar.value = data['value']
+                else:
+                    progress_bar.removeAttribute('max')
+                    progress_bar.removeAttribute('value')
+
             # Ugly hack to get an absolute URL from a relative one
             # https://stackoverflow.com/a/34020609/3991344
             url = html.A(href='worker.py').href
             worker = webworker.WorkerParent(url, sys.path)
+            worker.bind_message('progress', progress_handler)
 
         """
         Decorator to update vitrine based on the future returned by the given method,
