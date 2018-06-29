@@ -60,6 +60,8 @@ def update_result(*args, **kwargs):
                 active_future = None
                 try:
                     document.getElementById("vitrine").innerHTML = future.result().data.to_dict()['result']
+                except CancelledError:
+                    pass
                 except:
                     traceback.print_exc()
                     document.getElementById("vitrine").innerHTML = '<div class="entry"><h3>Error callback</h3><pre>' + escape(traceback.format_exc()) + '</pre></div>'
