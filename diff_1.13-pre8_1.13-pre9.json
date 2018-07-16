@@ -1,0 +1,2414 @@
+{
+    "achievements": {},
+    "biomes": {
+        "biome": {}
+    },
+    "blocks": {
+        "block": {}
+    },
+    "entities": {
+        "entity": {},
+        "object": {}
+    },
+    "items": {
+        "item": {}
+    },
+    "language": {
+        "subtitles": {
+            "block.bubble_column.bubble_pop": [
+                null,
+                "Bubbles pop"
+            ],
+            "block.bubble_column.upwards_ambient": [
+                null,
+                "Bubbles flow"
+            ],
+            "block.bubble_column.upwards_inside": [
+                null,
+                "Bubbles woosh"
+            ],
+            "block.bubble_column.whirlpool_ambient": [
+                null,
+                "Bubbles whirl"
+            ],
+            "block.bubble_column.whirlpool_inside": [
+                null,
+                "Bubbles zoom"
+            ],
+            "entity.cod.death": [
+                null,
+                "Cod dies"
+            ],
+            "entity.cod.flop": [
+                null,
+                "Cod flops"
+            ],
+            "entity.cod.hurt": [
+                null,
+                "Cod hurts"
+            ],
+            "entity.dolphin.ambient": [
+                null,
+                "Dolphin chirps"
+            ],
+            "entity.dolphin.ambient_water": [
+                null,
+                "Dolphin whistles"
+            ],
+            "entity.dolphin.attack": [
+                null,
+                "Dolphin attacks"
+            ],
+            "entity.dolphin.death": [
+                null,
+                "Dolphin dies"
+            ],
+            "entity.dolphin.eat": [
+                null,
+                "Dolphin eats"
+            ],
+            "entity.dolphin.hurt": [
+                null,
+                "Dolphin hurts"
+            ],
+            "entity.dolphin.jump": [
+                null,
+                "Dolphin jumps"
+            ],
+            "entity.dolphin.play": [
+                null,
+                "Dolphin plays"
+            ],
+            "entity.dolphin.splash": [
+                null,
+                "Dolphin splashes"
+            ],
+            "entity.dolphin.swim": [
+                null,
+                "Dolphin swims"
+            ],
+            "entity.puffer_fish.blow_out": [
+                null,
+                "Pufferfish deflates"
+            ],
+            "entity.puffer_fish.blow_up": [
+                null,
+                "Pufferfish inflates"
+            ],
+            "entity.puffer_fish.death": [
+                null,
+                "Pufferfish dies"
+            ],
+            "entity.puffer_fish.flop": [
+                null,
+                "Pufferfish flops"
+            ],
+            "entity.puffer_fish.hurt": [
+                null,
+                "Pufferfish hurts"
+            ],
+            "entity.puffer_fish.sting": [
+                null,
+                "Pufferfish stings"
+            ],
+            "entity.salmon.death": [
+                null,
+                "Salmon dies"
+            ],
+            "entity.salmon.flop": [
+                null,
+                "Salmon flops"
+            ],
+            "entity.salmon.hurt": [
+                null,
+                "Salmon hurts"
+            ],
+            "item.armor.equip_turtle": [
+                null,
+                "Turtle shell thunks"
+            ],
+            "item.trident.hit": [
+                null,
+                "Trident stabs"
+            ],
+            "item.trident.hit_ground": [
+                null,
+                "Trident vibrates"
+            ],
+            "item.trident.return": [
+                null,
+                "Trident returns"
+            ],
+            "item.trident.riptide": [
+                null,
+                "Trident zooms"
+            ],
+            "item.trident.throw": [
+                null,
+                "Trident clangs"
+            ],
+            "item.trident.thunder": [
+                null,
+                "Trident thunder cracks"
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "LOGIN_CLIENTBOUND_00": [
+                {
+                    "class": "ny.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 0,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "c.copy()",
+                            "operation": "write",
+                            "type": "byte[]"
+                        }
+                    ],
+                    "state": "LOGIN"
+                },
+                {
+                    "class": "oc.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 0,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "chatcomponent"
+                        }
+                    ],
+                    "state": "LOGIN"
+                }
+            ],
+            "LOGIN_CLIENTBOUND_01": [
+                {
+                    "class": "oc.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 1,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "chatcomponent"
+                        }
+                    ],
+                    "state": "LOGIN"
+                },
+                {
+                    "class": "oa.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 1,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "b.getEncoded().length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b.getEncoded()",
+                            "operation": "write",
+                            "type": "byte[]"
+                        },
+                        {
+                            "field": "c.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "byte[]"
+                        }
+                    ],
+                    "state": "LOGIN"
+                }
+            ],
+            "LOGIN_CLIENTBOUND_02": [
+                {
+                    "class": "oa.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 2,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "b.getEncoded().length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b.getEncoded()",
+                            "operation": "write",
+                            "type": "byte[]"
+                        },
+                        {
+                            "field": "c.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "byte[]"
+                        }
+                    ],
+                    "state": "LOGIN"
+                },
+                {
+                    "class": "nz.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 2,
+                    "instructions": [
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.a.getId()",
+                            "var": "var2"
+                        },
+                        {
+                            "field": "(var2 == null) ? \"\" : var2.toString()",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "a.getName()",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "LOGIN"
+                }
+            ],
+            "LOGIN_CLIENTBOUND_03": [
+                {
+                    "class": "nz.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 3,
+                    "instructions": [
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.a.getId()",
+                            "var": "var2"
+                        },
+                        {
+                            "field": "(var2 == null) ? \"\" : var2.toString()",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "a.getName()",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "LOGIN"
+                },
+                {
+                    "class": "ob.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 3,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "LOGIN"
+                }
+            ],
+            "LOGIN_CLIENTBOUND_04": [
+                {
+                    "class": "ob.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 4,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "LOGIN"
+                },
+                {
+                    "class": "ny.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 4,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "c.copy()",
+                            "operation": "write",
+                            "type": "byte[]"
+                        }
+                    ],
+                    "state": "LOGIN"
+                }
+            ],
+            "LOGIN_SERVERBOUND_00": [
+                {
+                    "class": "oe.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 0,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "condition": "b != null",
+                            "instructions": [
+                                {
+                                    "field": "1",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                },
+                                {
+                                    "field": "b.copy()",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "field": "0",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "state": "LOGIN"
+                },
+                {
+                    "class": "of.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 0,
+                    "instructions": [
+                        {
+                            "field": "a.getName()",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "LOGIN"
+                }
+            ],
+            "LOGIN_SERVERBOUND_01": [
+                {
+                    "class": "of.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 1,
+                    "instructions": [
+                        {
+                            "field": "a.getName()",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "LOGIN"
+                },
+                {
+                    "class": "og.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 1,
+                    "instructions": [
+                        {
+                            "field": "a.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte[]"
+                        },
+                        {
+                            "field": "b.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "byte[]"
+                        }
+                    ],
+                    "state": "LOGIN"
+                }
+            ],
+            "LOGIN_SERVERBOUND_02": [
+                {
+                    "class": "og.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 2,
+                    "instructions": [
+                        {
+                            "field": "a.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte[]"
+                        },
+                        {
+                            "field": "b.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "byte[]"
+                        }
+                    ],
+                    "state": "LOGIN"
+                },
+                {
+                    "class": "oe.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 2,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "condition": "b != null",
+                            "instructions": [
+                                {
+                                    "field": "1",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                },
+                                {
+                                    "field": "b.copy()",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "field": "0",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "state": "LOGIN"
+                }
+            ]
+        }
+    },
+    "recipes": {},
+    "sounds": {
+        "block.bubble_column.bubble_pop": [
+            {
+                "field": "ac",
+                "id": 20,
+                "name": "block.bubble_column.bubble_pop",
+                "sounds": [
+                    {
+                        "hash": "7c6d3020a1a11e34e722cc7e5283de54ca8cae19",
+                        "name": "block/bubble_column/bubble1",
+                        "volume": 0.1
+                    },
+                    {
+                        "hash": "ae1490438f67b186d9d92a3dd0fbb6eaa604b31d",
+                        "name": "block/bubble_column/bubble2",
+                        "volume": 0.1
+                    },
+                    {
+                        "hash": "b80ca9ecba20183399aaddc4539f2cab84f61bfd",
+                        "name": "block/bubble_column/bubble3",
+                        "volume": 0.1
+                    }
+                ],
+                "subtitle_key": "subtitles.block.bubble_column.bubble_pop"
+            },
+            {
+                "field": "ac",
+                "id": 20,
+                "name": "block.bubble_column.bubble_pop",
+                "sounds": [
+                    {
+                        "hash": "7c6d3020a1a11e34e722cc7e5283de54ca8cae19",
+                        "name": "block/bubble_column/bubble1",
+                        "volume": 0.1
+                    },
+                    {
+                        "hash": "ae1490438f67b186d9d92a3dd0fbb6eaa604b31d",
+                        "name": "block/bubble_column/bubble2",
+                        "volume": 0.1
+                    },
+                    {
+                        "hash": "b80ca9ecba20183399aaddc4539f2cab84f61bfd",
+                        "name": "block/bubble_column/bubble3",
+                        "volume": 0.1
+                    }
+                ],
+                "subtitle": "Bubbles pop",
+                "subtitle_key": "subtitles.block.bubble_column.bubble_pop"
+            }
+        ],
+        "block.bubble_column.upwards_ambient": [
+            {
+                "field": "ad",
+                "id": 21,
+                "name": "block.bubble_column.upwards_ambient",
+                "sounds": [
+                    {
+                        "hash": "c54914b241363f9152af7bbb7bdbf103eb1ec63c",
+                        "name": "block/bubble_column/upwards_ambient1",
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "7d6c1342b6b32e85c4796dbd56e4036d14d6b843",
+                        "name": "block/bubble_column/upwards_ambient2",
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "13f2ea2f0466950814efe5f4d16be2962bc21eaa",
+                        "name": "block/bubble_column/upwards_ambient3",
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "1eecbb056b9f9c8bb1b69fde9e21a875c77738a4",
+                        "name": "block/bubble_column/upwards_ambient4",
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "becc6cf96c7de261ea95761aea34df7932610cc6",
+                        "name": "block/bubble_column/upwards_ambient5",
+                        "volume": 0.6
+                    }
+                ],
+                "subtitle_key": "subtitles.block.bubble_column.upwards_ambient"
+            },
+            {
+                "field": "ad",
+                "id": 21,
+                "name": "block.bubble_column.upwards_ambient",
+                "sounds": [
+                    {
+                        "hash": "c54914b241363f9152af7bbb7bdbf103eb1ec63c",
+                        "name": "block/bubble_column/upwards_ambient1",
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "7d6c1342b6b32e85c4796dbd56e4036d14d6b843",
+                        "name": "block/bubble_column/upwards_ambient2",
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "13f2ea2f0466950814efe5f4d16be2962bc21eaa",
+                        "name": "block/bubble_column/upwards_ambient3",
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "1eecbb056b9f9c8bb1b69fde9e21a875c77738a4",
+                        "name": "block/bubble_column/upwards_ambient4",
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "becc6cf96c7de261ea95761aea34df7932610cc6",
+                        "name": "block/bubble_column/upwards_ambient5",
+                        "volume": 0.6
+                    }
+                ],
+                "subtitle": "Bubbles flow",
+                "subtitle_key": "subtitles.block.bubble_column.upwards_ambient"
+            }
+        ],
+        "block.bubble_column.upwards_inside": [
+            {
+                "field": "ae",
+                "id": 22,
+                "name": "block.bubble_column.upwards_inside",
+                "sounds": [
+                    {
+                        "hash": "87ee57c83676952bea27198e7393449d4fa36129",
+                        "name": "block/bubble_column/upwards_inside"
+                    }
+                ],
+                "subtitle_key": "subtitles.block.bubble_column.upwards_inside"
+            },
+            {
+                "field": "ae",
+                "id": 22,
+                "name": "block.bubble_column.upwards_inside",
+                "sounds": [
+                    {
+                        "hash": "87ee57c83676952bea27198e7393449d4fa36129",
+                        "name": "block/bubble_column/upwards_inside"
+                    }
+                ],
+                "subtitle": "Bubbles woosh",
+                "subtitle_key": "subtitles.block.bubble_column.upwards_inside"
+            }
+        ],
+        "block.bubble_column.whirlpool_ambient": [
+            {
+                "field": "af",
+                "id": 23,
+                "name": "block.bubble_column.whirlpool_ambient",
+                "sounds": [
+                    {
+                        "hash": "14c43698c10079ec8230d6deccb3d14d9fe4d07f",
+                        "name": "block/bubble_column/whirlpool_ambient1",
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "d37e0050ac3bf4514d4331da5b4fc6b76d40fc47",
+                        "name": "block/bubble_column/whirlpool_ambient2",
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "739d157cea881e2ce67ed7deb4bb87f7fc7eb3e3",
+                        "name": "block/bubble_column/whirlpool_ambient3",
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "c2367ef1e142e531aa03808236325b5ded5cb184",
+                        "name": "block/bubble_column/whirlpool_ambient4",
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "711db30a0ea786c95247d89a0a34b0043dd16210",
+                        "name": "block/bubble_column/whirlpool_ambient5",
+                        "volume": 0.6
+                    }
+                ],
+                "subtitle_key": "subtitles.block.bubble_column.whirlpool_ambient"
+            },
+            {
+                "field": "af",
+                "id": 23,
+                "name": "block.bubble_column.whirlpool_ambient",
+                "sounds": [
+                    {
+                        "hash": "14c43698c10079ec8230d6deccb3d14d9fe4d07f",
+                        "name": "block/bubble_column/whirlpool_ambient1",
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "d37e0050ac3bf4514d4331da5b4fc6b76d40fc47",
+                        "name": "block/bubble_column/whirlpool_ambient2",
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "739d157cea881e2ce67ed7deb4bb87f7fc7eb3e3",
+                        "name": "block/bubble_column/whirlpool_ambient3",
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "c2367ef1e142e531aa03808236325b5ded5cb184",
+                        "name": "block/bubble_column/whirlpool_ambient4",
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "711db30a0ea786c95247d89a0a34b0043dd16210",
+                        "name": "block/bubble_column/whirlpool_ambient5",
+                        "volume": 0.6
+                    }
+                ],
+                "subtitle": "Bubbles whirl",
+                "subtitle_key": "subtitles.block.bubble_column.whirlpool_ambient"
+            }
+        ],
+        "block.bubble_column.whirlpool_inside": [
+            {
+                "field": "ag",
+                "id": 24,
+                "name": "block.bubble_column.whirlpool_inside",
+                "sounds": [
+                    {
+                        "hash": "3ec63275fffdf755e78cc01fa22d050830034fb8",
+                        "name": "block/bubble_column/whirlpool_inside"
+                    }
+                ],
+                "subtitle_key": "subtitles.block.bubble_column.whirlpool_inside"
+            },
+            {
+                "field": "ag",
+                "id": 24,
+                "name": "block.bubble_column.whirlpool_inside",
+                "sounds": [
+                    {
+                        "hash": "3ec63275fffdf755e78cc01fa22d050830034fb8",
+                        "name": "block/bubble_column/whirlpool_inside"
+                    }
+                ],
+                "subtitle": "Bubbles zoom",
+                "subtitle_key": "subtitles.block.bubble_column.whirlpool_inside"
+            }
+        ],
+        "entity.cod.death": [
+            {
+                "field": "aK",
+                "id": 198,
+                "name": "entity.cod.death",
+                "sounds": [
+                    {
+                        "hash": "7c913182e2d4ddba07c784252a52c12f6bd9e326",
+                        "name": "entity/fish/hurt1"
+                    },
+                    {
+                        "hash": "0d49fd8c436e66eb5af3a1c0244d20606e4f7716",
+                        "name": "entity/fish/hurt2"
+                    },
+                    {
+                        "hash": "209a37c10f716cd20eb9837e2a89fb2b60614703",
+                        "name": "entity/fish/hurt3"
+                    },
+                    {
+                        "hash": "2d52b67698da28316cd9cdb50eb8d6eb93a2abf4",
+                        "name": "entity/fish/hurt4"
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.cod.death"
+            },
+            {
+                "field": "aK",
+                "id": 198,
+                "name": "entity.cod.death",
+                "sounds": [
+                    {
+                        "hash": "7c913182e2d4ddba07c784252a52c12f6bd9e326",
+                        "name": "entity/fish/hurt1"
+                    },
+                    {
+                        "hash": "0d49fd8c436e66eb5af3a1c0244d20606e4f7716",
+                        "name": "entity/fish/hurt2"
+                    },
+                    {
+                        "hash": "209a37c10f716cd20eb9837e2a89fb2b60614703",
+                        "name": "entity/fish/hurt3"
+                    },
+                    {
+                        "hash": "2d52b67698da28316cd9cdb50eb8d6eb93a2abf4",
+                        "name": "entity/fish/hurt4"
+                    }
+                ],
+                "subtitle": "Cod dies",
+                "subtitle_key": "subtitles.entity.cod.death"
+            }
+        ],
+        "entity.cod.flop": [
+            {
+                "field": "aL",
+                "id": 199,
+                "name": "entity.cod.flop",
+                "sounds": [
+                    {
+                        "hash": "a0cf662ca3aa0cece0f7b1a1ca79677edc76a491",
+                        "name": "entity/fish/flop1",
+                        "volume": 0.3
+                    },
+                    {
+                        "hash": "90575d7943863f224993ac6a583d6702ba5f4607",
+                        "name": "entity/fish/flop2",
+                        "volume": 0.3
+                    },
+                    {
+                        "hash": "f99b1795ca65dda4d74d83922fbb3af49bbd752f",
+                        "name": "entity/fish/flop3",
+                        "volume": 0.3
+                    },
+                    {
+                        "hash": "25c195e57a783cf41bbae7ab7a417717b8fc0e0a",
+                        "name": "entity/fish/flop4",
+                        "volume": 0.3
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.cod.flop"
+            },
+            {
+                "field": "aL",
+                "id": 199,
+                "name": "entity.cod.flop",
+                "sounds": [
+                    {
+                        "hash": "a0cf662ca3aa0cece0f7b1a1ca79677edc76a491",
+                        "name": "entity/fish/flop1",
+                        "volume": 0.3
+                    },
+                    {
+                        "hash": "90575d7943863f224993ac6a583d6702ba5f4607",
+                        "name": "entity/fish/flop2",
+                        "volume": 0.3
+                    },
+                    {
+                        "hash": "f99b1795ca65dda4d74d83922fbb3af49bbd752f",
+                        "name": "entity/fish/flop3",
+                        "volume": 0.3
+                    },
+                    {
+                        "hash": "25c195e57a783cf41bbae7ab7a417717b8fc0e0a",
+                        "name": "entity/fish/flop4",
+                        "volume": 0.3
+                    }
+                ],
+                "subtitle": "Cod flops",
+                "subtitle_key": "subtitles.entity.cod.flop"
+            }
+        ],
+        "entity.cod.hurt": [
+            {
+                "field": "aM",
+                "id": 200,
+                "name": "entity.cod.hurt",
+                "sounds": [
+                    {
+                        "hash": "7c913182e2d4ddba07c784252a52c12f6bd9e326",
+                        "name": "entity/fish/hurt1"
+                    },
+                    {
+                        "hash": "0d49fd8c436e66eb5af3a1c0244d20606e4f7716",
+                        "name": "entity/fish/hurt2"
+                    },
+                    {
+                        "hash": "209a37c10f716cd20eb9837e2a89fb2b60614703",
+                        "name": "entity/fish/hurt3"
+                    },
+                    {
+                        "hash": "2d52b67698da28316cd9cdb50eb8d6eb93a2abf4",
+                        "name": "entity/fish/hurt4"
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.cod.hurt"
+            },
+            {
+                "field": "aM",
+                "id": 200,
+                "name": "entity.cod.hurt",
+                "sounds": [
+                    {
+                        "hash": "7c913182e2d4ddba07c784252a52c12f6bd9e326",
+                        "name": "entity/fish/hurt1"
+                    },
+                    {
+                        "hash": "0d49fd8c436e66eb5af3a1c0244d20606e4f7716",
+                        "name": "entity/fish/hurt2"
+                    },
+                    {
+                        "hash": "209a37c10f716cd20eb9837e2a89fb2b60614703",
+                        "name": "entity/fish/hurt3"
+                    },
+                    {
+                        "hash": "2d52b67698da28316cd9cdb50eb8d6eb93a2abf4",
+                        "name": "entity/fish/hurt4"
+                    }
+                ],
+                "subtitle": "Cod hurts",
+                "subtitle_key": "subtitles.entity.cod.hurt"
+            }
+        ],
+        "entity.dolphin.ambient": [
+            {
+                "field": "be",
+                "id": 209,
+                "name": "entity.dolphin.ambient",
+                "sounds": [
+                    {
+                        "hash": "450a1ff0ea91374722bde3a23c8b5903f31012ac",
+                        "name": "mob/dolphin/idle1"
+                    },
+                    {
+                        "hash": "b3ebddd5d7f448e918729131f9cfc1609dc3f2e3",
+                        "name": "mob/dolphin/idle2"
+                    },
+                    {
+                        "hash": "2c72a29643916884c3e5b7e5e3cd52642a7bc43b",
+                        "name": "mob/dolphin/idle3"
+                    },
+                    {
+                        "hash": "8b0c151ad0b2ef252ce28f562e036201a51959f8",
+                        "name": "mob/dolphin/idle4"
+                    },
+                    {
+                        "hash": "0c6cb9f73193e345654d12d929d040e72552dd74",
+                        "name": "mob/dolphin/idle5"
+                    },
+                    {
+                        "hash": "4dabe9a76dae4e7373854bf525276591c69356eb",
+                        "name": "mob/dolphin/idle6"
+                    },
+                    {
+                        "hash": "fdb68edb27c9316374d070ff69fbf9de08b10c55",
+                        "name": "mob/dolphin/blowhole1"
+                    },
+                    {
+                        "hash": "ca9ec799358bdcea9723d99c1c3ff57827402896",
+                        "name": "mob/dolphin/blowhole2"
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.dolphin.ambient"
+            },
+            {
+                "field": "be",
+                "id": 209,
+                "name": "entity.dolphin.ambient",
+                "sounds": [
+                    {
+                        "hash": "450a1ff0ea91374722bde3a23c8b5903f31012ac",
+                        "name": "mob/dolphin/idle1"
+                    },
+                    {
+                        "hash": "b3ebddd5d7f448e918729131f9cfc1609dc3f2e3",
+                        "name": "mob/dolphin/idle2"
+                    },
+                    {
+                        "hash": "2c72a29643916884c3e5b7e5e3cd52642a7bc43b",
+                        "name": "mob/dolphin/idle3"
+                    },
+                    {
+                        "hash": "8b0c151ad0b2ef252ce28f562e036201a51959f8",
+                        "name": "mob/dolphin/idle4"
+                    },
+                    {
+                        "hash": "0c6cb9f73193e345654d12d929d040e72552dd74",
+                        "name": "mob/dolphin/idle5"
+                    },
+                    {
+                        "hash": "4dabe9a76dae4e7373854bf525276591c69356eb",
+                        "name": "mob/dolphin/idle6"
+                    },
+                    {
+                        "hash": "fdb68edb27c9316374d070ff69fbf9de08b10c55",
+                        "name": "mob/dolphin/blowhole1"
+                    },
+                    {
+                        "hash": "ca9ec799358bdcea9723d99c1c3ff57827402896",
+                        "name": "mob/dolphin/blowhole2"
+                    }
+                ],
+                "subtitle": "Dolphin chirps",
+                "subtitle_key": "subtitles.entity.dolphin.ambient"
+            }
+        ],
+        "entity.dolphin.ambient_water": [
+            {
+                "field": "bf",
+                "id": 210,
+                "name": "entity.dolphin.ambient_water",
+                "sounds": [
+                    {
+                        "hash": "3c6fa8b97c23835b3709d2acfbe6b101b76c020d",
+                        "name": "mob/dolphin/idle_water1",
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "dbf19a5b95eb31315a6473bd9f8f2060f040e4c2",
+                        "name": "mob/dolphin/idle_water2"
+                    },
+                    {
+                        "hash": "6e40ab0e90bb7897af26901371a98cb4deb09ffc",
+                        "name": "mob/dolphin/idle_water3"
+                    },
+                    {
+                        "hash": "f98038e0294203f333ae3733a2b2b868b3eb29ac",
+                        "name": "mob/dolphin/idle_water4"
+                    },
+                    {
+                        "hash": "b5de2f5201a941523daeed23c7871ce333964d54",
+                        "name": "mob/dolphin/idle_water5"
+                    },
+                    {
+                        "hash": "e4517d17aee0ab65dcd6354a0f7486b6c799d30a",
+                        "name": "mob/dolphin/idle_water6"
+                    },
+                    {
+                        "hash": "a42bb44bf03c6fb98a8080bbfe94e8bdc3eb1a8d",
+                        "name": "mob/dolphin/idle_water7",
+                        "volume": 0.75
+                    },
+                    {
+                        "hash": "4b8adff22c2768fd50d860f41c6d82c5ac86d7e8",
+                        "name": "mob/dolphin/idle_water8",
+                        "volume": 0.75
+                    },
+                    {
+                        "hash": "a8f5e17cbf8dd7a63d6830a7c4abf5c04156e831",
+                        "name": "mob/dolphin/idle_water9"
+                    },
+                    {
+                        "hash": "c631a01b5cb9ef975ddb4af938e3fe96651b0720",
+                        "name": "mob/dolphin/idle_water10",
+                        "volume": 0.8
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.dolphin.ambient_water"
+            },
+            {
+                "field": "bf",
+                "id": 210,
+                "name": "entity.dolphin.ambient_water",
+                "sounds": [
+                    {
+                        "hash": "3c6fa8b97c23835b3709d2acfbe6b101b76c020d",
+                        "name": "mob/dolphin/idle_water1",
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "dbf19a5b95eb31315a6473bd9f8f2060f040e4c2",
+                        "name": "mob/dolphin/idle_water2"
+                    },
+                    {
+                        "hash": "6e40ab0e90bb7897af26901371a98cb4deb09ffc",
+                        "name": "mob/dolphin/idle_water3"
+                    },
+                    {
+                        "hash": "f98038e0294203f333ae3733a2b2b868b3eb29ac",
+                        "name": "mob/dolphin/idle_water4"
+                    },
+                    {
+                        "hash": "b5de2f5201a941523daeed23c7871ce333964d54",
+                        "name": "mob/dolphin/idle_water5"
+                    },
+                    {
+                        "hash": "e4517d17aee0ab65dcd6354a0f7486b6c799d30a",
+                        "name": "mob/dolphin/idle_water6"
+                    },
+                    {
+                        "hash": "a42bb44bf03c6fb98a8080bbfe94e8bdc3eb1a8d",
+                        "name": "mob/dolphin/idle_water7",
+                        "volume": 0.75
+                    },
+                    {
+                        "hash": "4b8adff22c2768fd50d860f41c6d82c5ac86d7e8",
+                        "name": "mob/dolphin/idle_water8",
+                        "volume": 0.75
+                    },
+                    {
+                        "hash": "a8f5e17cbf8dd7a63d6830a7c4abf5c04156e831",
+                        "name": "mob/dolphin/idle_water9"
+                    },
+                    {
+                        "hash": "c631a01b5cb9ef975ddb4af938e3fe96651b0720",
+                        "name": "mob/dolphin/idle_water10",
+                        "volume": 0.8
+                    }
+                ],
+                "subtitle": "Dolphin whistles",
+                "subtitle_key": "subtitles.entity.dolphin.ambient_water"
+            }
+        ],
+        "entity.dolphin.attack": [
+            {
+                "field": "bg",
+                "id": 211,
+                "name": "entity.dolphin.attack",
+                "sounds": [
+                    {
+                        "hash": "8fd770ac5a5727ee5bb56a1714f0f59491824551",
+                        "name": "mob/dolphin/attack1"
+                    },
+                    {
+                        "hash": "e6601b7808697980946a1bed4c75c7b5909cad40",
+                        "name": "mob/dolphin/attack2"
+                    },
+                    {
+                        "hash": "a22843a2c23161efc3000a4df669e3bf2e60c39a",
+                        "name": "mob/dolphin/attack3"
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.dolphin.attack"
+            },
+            {
+                "field": "bg",
+                "id": 211,
+                "name": "entity.dolphin.attack",
+                "sounds": [
+                    {
+                        "hash": "8fd770ac5a5727ee5bb56a1714f0f59491824551",
+                        "name": "mob/dolphin/attack1"
+                    },
+                    {
+                        "hash": "e6601b7808697980946a1bed4c75c7b5909cad40",
+                        "name": "mob/dolphin/attack2"
+                    },
+                    {
+                        "hash": "a22843a2c23161efc3000a4df669e3bf2e60c39a",
+                        "name": "mob/dolphin/attack3"
+                    }
+                ],
+                "subtitle": "Dolphin attacks",
+                "subtitle_key": "subtitles.entity.dolphin.attack"
+            }
+        ],
+        "entity.dolphin.death": [
+            {
+                "field": "bh",
+                "id": 212,
+                "name": "entity.dolphin.death",
+                "sounds": [
+                    {
+                        "hash": "f5b9a9bd7a0a4b48dcdf64a4b4222fa96b7a7dc3",
+                        "name": "mob/dolphin/death1"
+                    },
+                    {
+                        "hash": "5e8bc6feae574a7c03b76e15def990a0312e8dfa",
+                        "name": "mob/dolphin/death2"
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.dolphin.death"
+            },
+            {
+                "field": "bh",
+                "id": 212,
+                "name": "entity.dolphin.death",
+                "sounds": [
+                    {
+                        "hash": "f5b9a9bd7a0a4b48dcdf64a4b4222fa96b7a7dc3",
+                        "name": "mob/dolphin/death1"
+                    },
+                    {
+                        "hash": "5e8bc6feae574a7c03b76e15def990a0312e8dfa",
+                        "name": "mob/dolphin/death2"
+                    }
+                ],
+                "subtitle": "Dolphin dies",
+                "subtitle_key": "subtitles.entity.dolphin.death"
+            }
+        ],
+        "entity.dolphin.eat": [
+            {
+                "field": "bi",
+                "id": 213,
+                "name": "entity.dolphin.eat",
+                "sounds": [
+                    {
+                        "hash": "1d355313b9da07fc2e5c5fb9f3869e9390ec739a",
+                        "name": "mob/dolphin/eat1",
+                        "volume": 0.75
+                    },
+                    {
+                        "hash": "0350e909da2d06ff930e61307f019e029d7dff0f",
+                        "name": "mob/dolphin/eat2",
+                        "volume": 0.75
+                    },
+                    {
+                        "hash": "3474596da23898033a4fc7dbd376de65db928c0a",
+                        "name": "mob/dolphin/eat3",
+                        "volume": 0.75
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.dolphin.eat"
+            },
+            {
+                "field": "bi",
+                "id": 213,
+                "name": "entity.dolphin.eat",
+                "sounds": [
+                    {
+                        "hash": "1d355313b9da07fc2e5c5fb9f3869e9390ec739a",
+                        "name": "mob/dolphin/eat1",
+                        "volume": 0.75
+                    },
+                    {
+                        "hash": "0350e909da2d06ff930e61307f019e029d7dff0f",
+                        "name": "mob/dolphin/eat2",
+                        "volume": 0.75
+                    },
+                    {
+                        "hash": "3474596da23898033a4fc7dbd376de65db928c0a",
+                        "name": "mob/dolphin/eat3",
+                        "volume": 0.75
+                    }
+                ],
+                "subtitle": "Dolphin eats",
+                "subtitle_key": "subtitles.entity.dolphin.eat"
+            }
+        ],
+        "entity.dolphin.hurt": [
+            {
+                "field": "bj",
+                "id": 214,
+                "name": "entity.dolphin.hurt",
+                "sounds": [
+                    {
+                        "hash": "b67a80e53ea93c7831894e553fbf6aa74959b0cd",
+                        "name": "mob/dolphin/hurt1"
+                    },
+                    {
+                        "hash": "916e06134d121d3e629df1c26b795ea917aeaab3",
+                        "name": "mob/dolphin/hurt2"
+                    },
+                    {
+                        "hash": "e826c5df36b64ac233d81a493254e619fcf2f333",
+                        "name": "mob/dolphin/hurt3"
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.dolphin.hurt"
+            },
+            {
+                "field": "bj",
+                "id": 214,
+                "name": "entity.dolphin.hurt",
+                "sounds": [
+                    {
+                        "hash": "b67a80e53ea93c7831894e553fbf6aa74959b0cd",
+                        "name": "mob/dolphin/hurt1"
+                    },
+                    {
+                        "hash": "916e06134d121d3e629df1c26b795ea917aeaab3",
+                        "name": "mob/dolphin/hurt2"
+                    },
+                    {
+                        "hash": "e826c5df36b64ac233d81a493254e619fcf2f333",
+                        "name": "mob/dolphin/hurt3"
+                    }
+                ],
+                "subtitle": "Dolphin hurts",
+                "subtitle_key": "subtitles.entity.dolphin.hurt"
+            }
+        ],
+        "entity.dolphin.jump": [
+            {
+                "field": "bk",
+                "id": 215,
+                "name": "entity.dolphin.jump",
+                "sounds": [
+                    {
+                        "hash": "461b888a53017781d39bab8a20d57f9df3878450",
+                        "name": "mob/dolphin/jump1",
+                        "volume": 0.75
+                    },
+                    {
+                        "hash": "fd91b2a87c1781d52f5414801d683cc742d3905a",
+                        "name": "mob/dolphin/jump2",
+                        "volume": 0.75
+                    },
+                    {
+                        "hash": "99b6ea6178df4dbf162c33f7486cec906593f908",
+                        "name": "mob/dolphin/jump3",
+                        "volume": 0.75
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.dolphin.jump"
+            },
+            {
+                "field": "bk",
+                "id": 215,
+                "name": "entity.dolphin.jump",
+                "sounds": [
+                    {
+                        "hash": "461b888a53017781d39bab8a20d57f9df3878450",
+                        "name": "mob/dolphin/jump1",
+                        "volume": 0.75
+                    },
+                    {
+                        "hash": "fd91b2a87c1781d52f5414801d683cc742d3905a",
+                        "name": "mob/dolphin/jump2",
+                        "volume": 0.75
+                    },
+                    {
+                        "hash": "99b6ea6178df4dbf162c33f7486cec906593f908",
+                        "name": "mob/dolphin/jump3",
+                        "volume": 0.75
+                    }
+                ],
+                "subtitle": "Dolphin jumps",
+                "subtitle_key": "subtitles.entity.dolphin.jump"
+            }
+        ],
+        "entity.dolphin.play": [
+            {
+                "field": "bl",
+                "id": 216,
+                "name": "entity.dolphin.play",
+                "sounds": [
+                    {
+                        "hash": "8cd977493f856e71363b84992e45c774bcd3fa1f",
+                        "name": "mob/dolphin/play1"
+                    },
+                    {
+                        "hash": "ed3f6e6e20e38abf2f8fc4dbb5eec330f51aee97",
+                        "name": "mob/dolphin/play2"
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.dolphin.play"
+            },
+            {
+                "field": "bl",
+                "id": 216,
+                "name": "entity.dolphin.play",
+                "sounds": [
+                    {
+                        "hash": "8cd977493f856e71363b84992e45c774bcd3fa1f",
+                        "name": "mob/dolphin/play1"
+                    },
+                    {
+                        "hash": "ed3f6e6e20e38abf2f8fc4dbb5eec330f51aee97",
+                        "name": "mob/dolphin/play2"
+                    }
+                ],
+                "subtitle": "Dolphin plays",
+                "subtitle_key": "subtitles.entity.dolphin.play"
+            }
+        ],
+        "entity.dolphin.splash": [
+            {
+                "field": "bm",
+                "id": 217,
+                "name": "entity.dolphin.splash",
+                "sounds": [
+                    {
+                        "hash": "1125cbb42bed5ce7d91ff530d543c844ac80f735",
+                        "name": "mob/dolphin/splash1"
+                    },
+                    {
+                        "hash": "ea6877421607da5668fe07debac455f054868809",
+                        "name": "mob/dolphin/splash2"
+                    },
+                    {
+                        "hash": "487dd072ac3d62348c57e255a9d800bd06f505af",
+                        "name": "mob/dolphin/splash3"
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.dolphin.splash"
+            },
+            {
+                "field": "bm",
+                "id": 217,
+                "name": "entity.dolphin.splash",
+                "sounds": [
+                    {
+                        "hash": "1125cbb42bed5ce7d91ff530d543c844ac80f735",
+                        "name": "mob/dolphin/splash1"
+                    },
+                    {
+                        "hash": "ea6877421607da5668fe07debac455f054868809",
+                        "name": "mob/dolphin/splash2"
+                    },
+                    {
+                        "hash": "487dd072ac3d62348c57e255a9d800bd06f505af",
+                        "name": "mob/dolphin/splash3"
+                    }
+                ],
+                "subtitle": "Dolphin splashes",
+                "subtitle_key": "subtitles.entity.dolphin.splash"
+            }
+        ],
+        "entity.dolphin.swim": [
+            {
+                "field": "bn",
+                "id": 218,
+                "name": "entity.dolphin.swim",
+                "sounds": [
+                    {
+                        "hash": "5c46b478067d883d19756255b7fb132c686389b7",
+                        "name": "mob/dolphin/swim1"
+                    },
+                    {
+                        "hash": "5f4b4f79c04df853893c38c64f40d625e5e96929",
+                        "name": "mob/dolphin/swim2"
+                    },
+                    {
+                        "hash": "c2ec60b2cdcda5725fbe192c9a4832d322551ee4",
+                        "name": "mob/dolphin/swim3"
+                    },
+                    {
+                        "hash": "13beba907bd219f3b2d3f50e716805fa63124cbf",
+                        "name": "mob/dolphin/swim4"
+                    },
+                    {
+                        "hash": "2fc54a0a9f4946c4df344399dcb8872e79d1c379",
+                        "name": "entity/fish/swim5"
+                    },
+                    {
+                        "hash": "4c51f308cb42bc51779a5461d317d5415c07b294",
+                        "name": "entity/fish/swim6"
+                    },
+                    {
+                        "hash": "b4af31228aaf97aa8f83260ca90f64ce6fbc3d9b",
+                        "name": "entity/fish/swim7"
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.dolphin.swim"
+            },
+            {
+                "field": "bn",
+                "id": 218,
+                "name": "entity.dolphin.swim",
+                "sounds": [
+                    {
+                        "hash": "5c46b478067d883d19756255b7fb132c686389b7",
+                        "name": "mob/dolphin/swim1"
+                    },
+                    {
+                        "hash": "5f4b4f79c04df853893c38c64f40d625e5e96929",
+                        "name": "mob/dolphin/swim2"
+                    },
+                    {
+                        "hash": "c2ec60b2cdcda5725fbe192c9a4832d322551ee4",
+                        "name": "mob/dolphin/swim3"
+                    },
+                    {
+                        "hash": "13beba907bd219f3b2d3f50e716805fa63124cbf",
+                        "name": "mob/dolphin/swim4"
+                    },
+                    {
+                        "hash": "2fc54a0a9f4946c4df344399dcb8872e79d1c379",
+                        "name": "entity/fish/swim5"
+                    },
+                    {
+                        "hash": "4c51f308cb42bc51779a5461d317d5415c07b294",
+                        "name": "entity/fish/swim6"
+                    },
+                    {
+                        "hash": "b4af31228aaf97aa8f83260ca90f64ce6fbc3d9b",
+                        "name": "entity/fish/swim7"
+                    }
+                ],
+                "subtitle": "Dolphin swims",
+                "subtitle_key": "subtitles.entity.dolphin.swim"
+            }
+        ],
+        "entity.puffer_fish.blow_out": [
+            {
+                "field": "hn",
+                "id": 446,
+                "name": "entity.puffer_fish.blow_out",
+                "sounds": [
+                    {
+                        "hash": "2b39e6f85286eb29d02f76d3e6560d09040f0d65",
+                        "name": "entity/pufferfish/blow_out1",
+                        "volume": 0.7
+                    },
+                    {
+                        "hash": "6d7b8dee1c4246bbcd8d860a99235f5adc0693cf",
+                        "name": "entity/pufferfish/blow_out2",
+                        "volume": 0.7
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.puffer_fish.blow_out"
+            },
+            {
+                "field": "hn",
+                "id": 446,
+                "name": "entity.puffer_fish.blow_out",
+                "sounds": [
+                    {
+                        "hash": "2b39e6f85286eb29d02f76d3e6560d09040f0d65",
+                        "name": "entity/pufferfish/blow_out1",
+                        "volume": 0.7
+                    },
+                    {
+                        "hash": "6d7b8dee1c4246bbcd8d860a99235f5adc0693cf",
+                        "name": "entity/pufferfish/blow_out2",
+                        "volume": 0.7
+                    }
+                ],
+                "subtitle": "Pufferfish deflates",
+                "subtitle_key": "subtitles.entity.puffer_fish.blow_out"
+            }
+        ],
+        "entity.puffer_fish.blow_up": [
+            {
+                "field": "ho",
+                "id": 447,
+                "name": "entity.puffer_fish.blow_up",
+                "sounds": [
+                    {
+                        "hash": "9c259771d24f49058f0c68d0f6fdb50559abf8c1",
+                        "name": "entity/pufferfish/blow_up1",
+                        "volume": 0.45
+                    },
+                    {
+                        "hash": "827a0a4ae4ae15bbb6e6aca13cd9804c2e93d82a",
+                        "name": "entity/pufferfish/blow_up2",
+                        "volume": 0.45
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.puffer_fish.blow_up"
+            },
+            {
+                "field": "ho",
+                "id": 447,
+                "name": "entity.puffer_fish.blow_up",
+                "sounds": [
+                    {
+                        "hash": "9c259771d24f49058f0c68d0f6fdb50559abf8c1",
+                        "name": "entity/pufferfish/blow_up1",
+                        "volume": 0.45
+                    },
+                    {
+                        "hash": "827a0a4ae4ae15bbb6e6aca13cd9804c2e93d82a",
+                        "name": "entity/pufferfish/blow_up2",
+                        "volume": 0.45
+                    }
+                ],
+                "subtitle": "Pufferfish inflates",
+                "subtitle_key": "subtitles.entity.puffer_fish.blow_up"
+            }
+        ],
+        "entity.puffer_fish.death": [
+            {
+                "field": "hp",
+                "id": 448,
+                "name": "entity.puffer_fish.death",
+                "sounds": [
+                    {
+                        "hash": "1b2836933094cb2d8a1da3c4f31d88c1aed3dab2",
+                        "name": "entity/pufferfish/death1"
+                    },
+                    {
+                        "hash": "38bd80df3daffdc57acf5bdb6f3a7ced662b9faf",
+                        "name": "entity/pufferfish/death2"
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.puffer_fish.death"
+            },
+            {
+                "field": "hp",
+                "id": 448,
+                "name": "entity.puffer_fish.death",
+                "sounds": [
+                    {
+                        "hash": "1b2836933094cb2d8a1da3c4f31d88c1aed3dab2",
+                        "name": "entity/pufferfish/death1"
+                    },
+                    {
+                        "hash": "38bd80df3daffdc57acf5bdb6f3a7ced662b9faf",
+                        "name": "entity/pufferfish/death2"
+                    }
+                ],
+                "subtitle": "Pufferfish dies",
+                "subtitle_key": "subtitles.entity.puffer_fish.death"
+            }
+        ],
+        "entity.puffer_fish.flop": [
+            {
+                "field": "hq",
+                "id": 449,
+                "name": "entity.puffer_fish.flop",
+                "sounds": [
+                    {
+                        "hash": "e054f5ac99734a9a34623e18e61bd34656065a36",
+                        "name": "entity/pufferfish/flop1",
+                        "volume": 0.3
+                    },
+                    {
+                        "hash": "25b287d0f5b881618ceb8dcb867130bf63e87f30",
+                        "name": "entity/pufferfish/flop2",
+                        "volume": 0.3
+                    },
+                    {
+                        "hash": "9a9cebef7d5ecb48edf3ea9e9ee0936259eb2fb5",
+                        "name": "entity/pufferfish/flop3",
+                        "volume": 0.3
+                    },
+                    {
+                        "hash": "fd136da589bcb1668581eb07195317d613de9993",
+                        "name": "entity/pufferfish/flop4",
+                        "volume": 0.3
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.puffer_fish.flop"
+            },
+            {
+                "field": "hq",
+                "id": 449,
+                "name": "entity.puffer_fish.flop",
+                "sounds": [
+                    {
+                        "hash": "e054f5ac99734a9a34623e18e61bd34656065a36",
+                        "name": "entity/pufferfish/flop1",
+                        "volume": 0.3
+                    },
+                    {
+                        "hash": "25b287d0f5b881618ceb8dcb867130bf63e87f30",
+                        "name": "entity/pufferfish/flop2",
+                        "volume": 0.3
+                    },
+                    {
+                        "hash": "9a9cebef7d5ecb48edf3ea9e9ee0936259eb2fb5",
+                        "name": "entity/pufferfish/flop3",
+                        "volume": 0.3
+                    },
+                    {
+                        "hash": "fd136da589bcb1668581eb07195317d613de9993",
+                        "name": "entity/pufferfish/flop4",
+                        "volume": 0.3
+                    }
+                ],
+                "subtitle": "Pufferfish flops",
+                "subtitle_key": "subtitles.entity.puffer_fish.flop"
+            }
+        ],
+        "entity.puffer_fish.hurt": [
+            {
+                "field": "hr",
+                "id": 450,
+                "name": "entity.puffer_fish.hurt",
+                "sounds": [
+                    {
+                        "hash": "e199ff64ffeb5af2ff6a932a79921e7c4af8a26d",
+                        "name": "entity/pufferfish/hurt1"
+                    },
+                    {
+                        "hash": "0113fbf3e047f4fa4ef680ae7781326427e30f02",
+                        "name": "entity/pufferfish/hurt2"
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.puffer_fish.hurt"
+            },
+            {
+                "field": "hr",
+                "id": 450,
+                "name": "entity.puffer_fish.hurt",
+                "sounds": [
+                    {
+                        "hash": "e199ff64ffeb5af2ff6a932a79921e7c4af8a26d",
+                        "name": "entity/pufferfish/hurt1"
+                    },
+                    {
+                        "hash": "0113fbf3e047f4fa4ef680ae7781326427e30f02",
+                        "name": "entity/pufferfish/hurt2"
+                    }
+                ],
+                "subtitle": "Pufferfish hurts",
+                "subtitle_key": "subtitles.entity.puffer_fish.hurt"
+            }
+        ],
+        "entity.puffer_fish.sting": [
+            {
+                "field": "hs",
+                "id": 451,
+                "name": "entity.puffer_fish.sting",
+                "sounds": [
+                    {
+                        "hash": "aae33a7c2a1392a44fc735e2bbd27ab66f58e9b8",
+                        "name": "entity/pufferfish/sting1"
+                    },
+                    {
+                        "hash": "e9f3b0fa15011bda6a5d62c5f6f3137663019ac4",
+                        "name": "entity/pufferfish/sting2"
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.puffer_fish.sting"
+            },
+            {
+                "field": "hs",
+                "id": 451,
+                "name": "entity.puffer_fish.sting",
+                "sounds": [
+                    {
+                        "hash": "aae33a7c2a1392a44fc735e2bbd27ab66f58e9b8",
+                        "name": "entity/pufferfish/sting1"
+                    },
+                    {
+                        "hash": "e9f3b0fa15011bda6a5d62c5f6f3137663019ac4",
+                        "name": "entity/pufferfish/sting2"
+                    }
+                ],
+                "subtitle": "Pufferfish stings",
+                "subtitle_key": "subtitles.entity.puffer_fish.sting"
+            }
+        ],
+        "entity.salmon.death": [
+            {
+                "field": "hN",
+                "id": 458,
+                "name": "entity.salmon.death",
+                "sounds": [
+                    {
+                        "hash": "7c913182e2d4ddba07c784252a52c12f6bd9e326",
+                        "name": "entity/fish/hurt1",
+                        "pitch": 0.8
+                    },
+                    {
+                        "hash": "0d49fd8c436e66eb5af3a1c0244d20606e4f7716",
+                        "name": "entity/fish/hurt2",
+                        "pitch": 0.8
+                    },
+                    {
+                        "hash": "209a37c10f716cd20eb9837e2a89fb2b60614703",
+                        "name": "entity/fish/hurt3",
+                        "pitch": 0.8
+                    },
+                    {
+                        "hash": "2d52b67698da28316cd9cdb50eb8d6eb93a2abf4",
+                        "name": "entity/fish/hurt4",
+                        "pitch": 0.8
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.salmon.death"
+            },
+            {
+                "field": "hN",
+                "id": 458,
+                "name": "entity.salmon.death",
+                "sounds": [
+                    {
+                        "hash": "7c913182e2d4ddba07c784252a52c12f6bd9e326",
+                        "name": "entity/fish/hurt1",
+                        "pitch": 0.8
+                    },
+                    {
+                        "hash": "0d49fd8c436e66eb5af3a1c0244d20606e4f7716",
+                        "name": "entity/fish/hurt2",
+                        "pitch": 0.8
+                    },
+                    {
+                        "hash": "209a37c10f716cd20eb9837e2a89fb2b60614703",
+                        "name": "entity/fish/hurt3",
+                        "pitch": 0.8
+                    },
+                    {
+                        "hash": "2d52b67698da28316cd9cdb50eb8d6eb93a2abf4",
+                        "name": "entity/fish/hurt4",
+                        "pitch": 0.8
+                    }
+                ],
+                "subtitle": "Salmon dies",
+                "subtitle_key": "subtitles.entity.salmon.death"
+            }
+        ],
+        "entity.salmon.flop": [
+            {
+                "field": "hO",
+                "id": 459,
+                "name": "entity.salmon.flop",
+                "sounds": [
+                    {
+                        "hash": "a0cf662ca3aa0cece0f7b1a1ca79677edc76a491",
+                        "name": "entity/fish/flop1",
+                        "pitch": 0.8,
+                        "volume": 0.3
+                    },
+                    {
+                        "hash": "90575d7943863f224993ac6a583d6702ba5f4607",
+                        "name": "entity/fish/flop2",
+                        "pitch": 0.8,
+                        "volume": 0.3
+                    },
+                    {
+                        "hash": "f99b1795ca65dda4d74d83922fbb3af49bbd752f",
+                        "name": "entity/fish/flop3",
+                        "pitch": 0.8,
+                        "volume": 0.3
+                    },
+                    {
+                        "hash": "25c195e57a783cf41bbae7ab7a417717b8fc0e0a",
+                        "name": "entity/fish/flop4",
+                        "pitch": 0.8,
+                        "volume": 0.3
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.salmon.flop"
+            },
+            {
+                "field": "hO",
+                "id": 459,
+                "name": "entity.salmon.flop",
+                "sounds": [
+                    {
+                        "hash": "a0cf662ca3aa0cece0f7b1a1ca79677edc76a491",
+                        "name": "entity/fish/flop1",
+                        "pitch": 0.8,
+                        "volume": 0.3
+                    },
+                    {
+                        "hash": "90575d7943863f224993ac6a583d6702ba5f4607",
+                        "name": "entity/fish/flop2",
+                        "pitch": 0.8,
+                        "volume": 0.3
+                    },
+                    {
+                        "hash": "f99b1795ca65dda4d74d83922fbb3af49bbd752f",
+                        "name": "entity/fish/flop3",
+                        "pitch": 0.8,
+                        "volume": 0.3
+                    },
+                    {
+                        "hash": "25c195e57a783cf41bbae7ab7a417717b8fc0e0a",
+                        "name": "entity/fish/flop4",
+                        "pitch": 0.8,
+                        "volume": 0.3
+                    }
+                ],
+                "subtitle": "Salmon flops",
+                "subtitle_key": "subtitles.entity.salmon.flop"
+            }
+        ],
+        "entity.salmon.hurt": [
+            {
+                "field": "hP",
+                "id": 460,
+                "name": "entity.salmon.hurt",
+                "sounds": [
+                    {
+                        "hash": "7c913182e2d4ddba07c784252a52c12f6bd9e326",
+                        "name": "entity/fish/hurt1",
+                        "pitch": 0.8
+                    },
+                    {
+                        "hash": "0d49fd8c436e66eb5af3a1c0244d20606e4f7716",
+                        "name": "entity/fish/hurt2",
+                        "pitch": 0.8
+                    },
+                    {
+                        "hash": "209a37c10f716cd20eb9837e2a89fb2b60614703",
+                        "name": "entity/fish/hurt3",
+                        "pitch": 0.8
+                    },
+                    {
+                        "hash": "2d52b67698da28316cd9cdb50eb8d6eb93a2abf4",
+                        "name": "entity/fish/hurt4",
+                        "pitch": 0.8
+                    }
+                ],
+                "subtitle_key": "subtitles.entity.salmon.hurt"
+            },
+            {
+                "field": "hP",
+                "id": 460,
+                "name": "entity.salmon.hurt",
+                "sounds": [
+                    {
+                        "hash": "7c913182e2d4ddba07c784252a52c12f6bd9e326",
+                        "name": "entity/fish/hurt1",
+                        "pitch": 0.8
+                    },
+                    {
+                        "hash": "0d49fd8c436e66eb5af3a1c0244d20606e4f7716",
+                        "name": "entity/fish/hurt2",
+                        "pitch": 0.8
+                    },
+                    {
+                        "hash": "209a37c10f716cd20eb9837e2a89fb2b60614703",
+                        "name": "entity/fish/hurt3",
+                        "pitch": 0.8
+                    },
+                    {
+                        "hash": "2d52b67698da28316cd9cdb50eb8d6eb93a2abf4",
+                        "name": "entity/fish/hurt4",
+                        "pitch": 0.8
+                    }
+                ],
+                "subtitle": "Salmon hurts",
+                "subtitle_key": "subtitles.entity.salmon.hurt"
+            }
+        ],
+        "item.armor.equip_turtle": [
+            {
+                "field": "w",
+                "id": 608,
+                "name": "item.armor.equip_turtle",
+                "sounds": [
+                    {
+                        "hash": "18e070182052d63ec9b28ccec571a64db9137341",
+                        "name": "mob/turtle/armor"
+                    },
+                    {
+                        "hash": "18e070182052d63ec9b28ccec571a64db9137341",
+                        "name": "mob/turtle/armor",
+                        "pitch": 0.85
+                    },
+                    {
+                        "hash": "18e070182052d63ec9b28ccec571a64db9137341",
+                        "name": "mob/turtle/armor",
+                        "pitch": 1.1
+                    }
+                ],
+                "subtitle_key": "subtitles.item.armor.equip_turtle"
+            },
+            {
+                "field": "w",
+                "id": 608,
+                "name": "item.armor.equip_turtle",
+                "sounds": [
+                    {
+                        "hash": "18e070182052d63ec9b28ccec571a64db9137341",
+                        "name": "mob/turtle/armor"
+                    },
+                    {
+                        "hash": "18e070182052d63ec9b28ccec571a64db9137341",
+                        "name": "mob/turtle/armor",
+                        "pitch": 0.85
+                    },
+                    {
+                        "hash": "18e070182052d63ec9b28ccec571a64db9137341",
+                        "name": "mob/turtle/armor",
+                        "pitch": 1.1
+                    }
+                ],
+                "subtitle": "Turtle shell thunks",
+                "subtitle_key": "subtitles.item.armor.equip_turtle"
+            }
+        ],
+        "item.trident.hit": [
+            {
+                "field": "jH",
+                "id": 628,
+                "name": "item.trident.hit",
+                "sounds": [
+                    {
+                        "hash": "984fd3ba81b712adfd9269ade2cd334cca015883",
+                        "name": "item/trident/pierce1"
+                    },
+                    {
+                        "hash": "338130e9b7b6cedcd7ea28f17e8d842ada49ba3c",
+                        "name": "item/trident/pierce2"
+                    },
+                    {
+                        "hash": "09032eac266ed23615fdd565c05422b9dfd1a355",
+                        "name": "item/trident/pierce3"
+                    }
+                ],
+                "subtitle_key": "subtitles.item.trident.hit"
+            },
+            {
+                "field": "jH",
+                "id": 628,
+                "name": "item.trident.hit",
+                "sounds": [
+                    {
+                        "hash": "984fd3ba81b712adfd9269ade2cd334cca015883",
+                        "name": "item/trident/pierce1"
+                    },
+                    {
+                        "hash": "338130e9b7b6cedcd7ea28f17e8d842ada49ba3c",
+                        "name": "item/trident/pierce2"
+                    },
+                    {
+                        "hash": "09032eac266ed23615fdd565c05422b9dfd1a355",
+                        "name": "item/trident/pierce3"
+                    }
+                ],
+                "subtitle": "Trident stabs",
+                "subtitle_key": "subtitles.item.trident.hit"
+            }
+        ],
+        "item.trident.hit_ground": [
+            {
+                "field": "jI",
+                "id": 629,
+                "name": "item.trident.hit_ground",
+                "sounds": [
+                    {
+                        "hash": "7b19c3abdf4a3ba1cd50947b87a097b40d9d8204",
+                        "name": "item/trident/ground_impact1",
+                        "volume": 0.9
+                    },
+                    {
+                        "hash": "3321bac1e45f90d65ef24d0e0d82de9ff516f930",
+                        "name": "item/trident/ground_impact2",
+                        "volume": 0.9
+                    },
+                    {
+                        "hash": "3f01b991bdb4b672fd661b87256999e79fb2aee8",
+                        "name": "item/trident/ground_impact3",
+                        "volume": 0.9
+                    },
+                    {
+                        "hash": "d6618a87b4409d5aeb3978dbe183824356aafb04",
+                        "name": "item/trident/ground_impact4",
+                        "volume": 0.9
+                    }
+                ],
+                "subtitle_key": "subtitles.item.trident.hit_ground"
+            },
+            {
+                "field": "jI",
+                "id": 629,
+                "name": "item.trident.hit_ground",
+                "sounds": [
+                    {
+                        "hash": "7b19c3abdf4a3ba1cd50947b87a097b40d9d8204",
+                        "name": "item/trident/ground_impact1",
+                        "volume": 0.9
+                    },
+                    {
+                        "hash": "3321bac1e45f90d65ef24d0e0d82de9ff516f930",
+                        "name": "item/trident/ground_impact2",
+                        "volume": 0.9
+                    },
+                    {
+                        "hash": "3f01b991bdb4b672fd661b87256999e79fb2aee8",
+                        "name": "item/trident/ground_impact3",
+                        "volume": 0.9
+                    },
+                    {
+                        "hash": "d6618a87b4409d5aeb3978dbe183824356aafb04",
+                        "name": "item/trident/ground_impact4",
+                        "volume": 0.9
+                    }
+                ],
+                "subtitle": "Trident vibrates",
+                "subtitle_key": "subtitles.item.trident.hit_ground"
+            }
+        ],
+        "item.trident.return": [
+            {
+                "field": "jJ",
+                "id": 630,
+                "name": "item.trident.return",
+                "sounds": [
+                    {
+                        "hash": "a4cb098b05e25ae78cb4454087b3dea3a4791736",
+                        "name": "item/trident/return1",
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "79bd529dadda8bb541b9ee8994a35b9bd5a8abad",
+                        "name": "item/trident/return2",
+                        "pitch": 1.2,
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "0d79b43129dc37508ccc97069839667817b406cf",
+                        "name": "item/trident/return3",
+                        "pitch": 0.8,
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "79bd529dadda8bb541b9ee8994a35b9bd5a8abad",
+                        "name": "item/trident/return2",
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "79bd529dadda8bb541b9ee8994a35b9bd5a8abad",
+                        "name": "item/trident/return2",
+                        "pitch": 1.2,
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "79bd529dadda8bb541b9ee8994a35b9bd5a8abad",
+                        "name": "item/trident/return2",
+                        "pitch": 0.8,
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "0d79b43129dc37508ccc97069839667817b406cf",
+                        "name": "item/trident/return3",
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "0d79b43129dc37508ccc97069839667817b406cf",
+                        "name": "item/trident/return3",
+                        "pitch": 1.2,
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "0d79b43129dc37508ccc97069839667817b406cf",
+                        "name": "item/trident/return3",
+                        "pitch": 0.8,
+                        "volume": 0.8
+                    }
+                ],
+                "subtitle_key": "subtitles.item.trident.return"
+            },
+            {
+                "field": "jJ",
+                "id": 630,
+                "name": "item.trident.return",
+                "sounds": [
+                    {
+                        "hash": "a4cb098b05e25ae78cb4454087b3dea3a4791736",
+                        "name": "item/trident/return1",
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "79bd529dadda8bb541b9ee8994a35b9bd5a8abad",
+                        "name": "item/trident/return2",
+                        "pitch": 1.2,
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "0d79b43129dc37508ccc97069839667817b406cf",
+                        "name": "item/trident/return3",
+                        "pitch": 0.8,
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "79bd529dadda8bb541b9ee8994a35b9bd5a8abad",
+                        "name": "item/trident/return2",
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "79bd529dadda8bb541b9ee8994a35b9bd5a8abad",
+                        "name": "item/trident/return2",
+                        "pitch": 1.2,
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "79bd529dadda8bb541b9ee8994a35b9bd5a8abad",
+                        "name": "item/trident/return2",
+                        "pitch": 0.8,
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "0d79b43129dc37508ccc97069839667817b406cf",
+                        "name": "item/trident/return3",
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "0d79b43129dc37508ccc97069839667817b406cf",
+                        "name": "item/trident/return3",
+                        "pitch": 1.2,
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "0d79b43129dc37508ccc97069839667817b406cf",
+                        "name": "item/trident/return3",
+                        "pitch": 0.8,
+                        "volume": 0.8
+                    }
+                ],
+                "subtitle": "Trident returns",
+                "subtitle_key": "subtitles.item.trident.return"
+            }
+        ],
+        "item.trident.riptide_1": [
+            {
+                "field": "jK",
+                "id": 631,
+                "name": "item.trident.riptide_1",
+                "sounds": [
+                    {
+                        "hash": "57b54789999ded5a14976061ec741ec722061661",
+                        "name": "item/trident/riptide1"
+                    }
+                ],
+                "subtitle_key": "subtitles.item.trident.riptide"
+            },
+            {
+                "field": "jK",
+                "id": 631,
+                "name": "item.trident.riptide_1",
+                "sounds": [
+                    {
+                        "hash": "57b54789999ded5a14976061ec741ec722061661",
+                        "name": "item/trident/riptide1"
+                    }
+                ],
+                "subtitle": "Trident zooms",
+                "subtitle_key": "subtitles.item.trident.riptide"
+            }
+        ],
+        "item.trident.riptide_2": [
+            {
+                "field": "jL",
+                "id": 632,
+                "name": "item.trident.riptide_2",
+                "sounds": [
+                    {
+                        "hash": "c8926c577b8c453b5851cb26c406e3781b52ab12",
+                        "name": "item/trident/riptide2"
+                    }
+                ],
+                "subtitle_key": "subtitles.item.trident.riptide"
+            },
+            {
+                "field": "jL",
+                "id": 632,
+                "name": "item.trident.riptide_2",
+                "sounds": [
+                    {
+                        "hash": "c8926c577b8c453b5851cb26c406e3781b52ab12",
+                        "name": "item/trident/riptide2"
+                    }
+                ],
+                "subtitle": "Trident zooms",
+                "subtitle_key": "subtitles.item.trident.riptide"
+            }
+        ],
+        "item.trident.riptide_3": [
+            {
+                "field": "jM",
+                "id": 633,
+                "name": "item.trident.riptide_3",
+                "sounds": [
+                    {
+                        "hash": "dc694d148d9c91400dd3325368abe2884d933a67",
+                        "name": "item/trident/riptide3"
+                    }
+                ],
+                "subtitle_key": "subtitles.item.trident.riptide"
+            },
+            {
+                "field": "jM",
+                "id": 633,
+                "name": "item.trident.riptide_3",
+                "sounds": [
+                    {
+                        "hash": "dc694d148d9c91400dd3325368abe2884d933a67",
+                        "name": "item/trident/riptide3"
+                    }
+                ],
+                "subtitle": "Trident zooms",
+                "subtitle_key": "subtitles.item.trident.riptide"
+            }
+        ],
+        "item.trident.throw": [
+            {
+                "field": "jN",
+                "id": 634,
+                "name": "item.trident.throw",
+                "sounds": [
+                    {
+                        "hash": "5fd6b4f425c513c1d339aa1f96ec2453cd7c06fc",
+                        "name": "item/trident/throw1"
+                    },
+                    {
+                        "hash": "5773e41833f3dfd4882bc470a6dd3302a4c63950",
+                        "name": "item/trident/throw2"
+                    }
+                ],
+                "subtitle_key": "subtitles.item.trident.throw"
+            },
+            {
+                "field": "jN",
+                "id": 634,
+                "name": "item.trident.throw",
+                "sounds": [
+                    {
+                        "hash": "5fd6b4f425c513c1d339aa1f96ec2453cd7c06fc",
+                        "name": "item/trident/throw1"
+                    },
+                    {
+                        "hash": "5773e41833f3dfd4882bc470a6dd3302a4c63950",
+                        "name": "item/trident/throw2"
+                    }
+                ],
+                "subtitle": "Trident clangs",
+                "subtitle_key": "subtitles.item.trident.throw"
+            }
+        ],
+        "item.trident.thunder": [
+            {
+                "field": "jO",
+                "id": 635,
+                "name": "item.trident.thunder",
+                "sounds": [
+                    {
+                        "hash": "312a6d306ea9b10281840f17991f210ba2e27e2e",
+                        "name": "item/trident/thunder1"
+                    },
+                    {
+                        "hash": "0ae1a47773d41d7ae39539d2b8363dbed3e77580",
+                        "name": "item/trident/thunder2"
+                    }
+                ],
+                "subtitle_key": "subtitles.item.trident.thunder"
+            },
+            {
+                "field": "jO",
+                "id": 635,
+                "name": "item.trident.thunder",
+                "sounds": [
+                    {
+                        "hash": "312a6d306ea9b10281840f17991f210ba2e27e2e",
+                        "name": "item/trident/thunder1"
+                    },
+                    {
+                        "hash": "0ae1a47773d41d7ae39539d2b8363dbed3e77580",
+                        "name": "item/trident/thunder2"
+                    }
+                ],
+                "subtitle": "Trident thunder cracks",
+                "subtitle_key": "subtitles.item.trident.thunder"
+            }
+        ]
+    },
+    "stats": {},
+    "tags": {},
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            1516,
+            1517
+        ],
+        "name": [
+            "1.13-pre8",
+            "1.13-pre9"
+        ],
+        "protocol": [
+            390,
+            391
+        ]
+    }
+}
