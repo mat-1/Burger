@@ -14,3 +14,8 @@ $(function() {
 		$("#tooltip").hide()
 	});
 });
+
+playSound = function(element) {
+	var link = element.dataset.link;
+	element.parentElement.innerHTML = "<audio autoplay controls><source src=\"" + link + "\" type=\"audio/ogg\" /></audio>";
+}
