@@ -20277,8 +20277,10 @@
         "classes": {
             "anvilchunkloader": "bot",
             "biome.list": "bac",
+            "biome.register": "bac",
             "biome.superclass": "azx",
             "block.list": "bdy",
+            "block.register": "bdy",
             "block.superclass": "bdx",
             "blockstatecontainer": "bma$a",
             "chatcomponent": "iw",
@@ -20287,6 +20289,7 @@
             "enumfacing.plane": "ev$c",
             "identifier": "pt",
             "item.list": "aud",
+            "item.register": "aud",
             "item.superclass": "atx",
             "itemstack": "auc",
             "metadata": "pl",
@@ -20295,6 +20298,7 @@
             "nethandler.server": "uq",
             "packet.connectionstate": "il",
             "packet.packetbuffer": "im",
+            "position": "eq",
             "recipe.superclass": "gr",
             "sounds.event": "ww",
             "sounds.list": "ww",
@@ -20303,150 +20307,1062 @@
             "tileentity.superclass": "bkf"
         },
         "entities": {
+            "dataserializers": {
+                "BlockPos": {
+                    "class": "pk$4",
+                    "field": "l",
+                    "id": 9,
+                    "instructions": [
+                        {
+                            "field": "(eq)value",
+                            "operation": "write",
+                            "type": "position"
+                        }
+                    ],
+                    "name": "BlockPos",
+                    "type": "eq"
+                },
+                "Boolean": {
+                    "class": "pk$16",
+                    "field": "i",
+                    "id": 7,
+                    "instructions": [
+                        {
+                            "field": "((Boolean)value).booleanValue()",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "name": "Boolean",
+                    "type": "java/lang/Boolean"
+                },
+                "Byte": {
+                    "class": "pk$1",
+                    "field": "a",
+                    "id": 0,
+                    "instructions": [
+                        {
+                            "field": "((Byte)value).byteValue()",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "name": "Byte",
+                    "type": "java/lang/Byte"
+                },
+                "Chat": {
+                    "class": "pk$12",
+                    "field": "e",
+                    "id": 4,
+                    "instructions": [
+                        {
+                            "field": "(iw)value",
+                            "operation": "write",
+                            "type": "chatcomponent"
+                        }
+                    ],
+                    "name": "Chat",
+                    "type": "iw"
+                },
+                "Facing": {
+                    "class": "pk$6",
+                    "field": "n",
+                    "id": 11,
+                    "instructions": [
+                        {
+                            "field": "(ev)value",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "name": "Facing",
+                    "type": "ev"
+                },
+                "Float": {
+                    "class": "pk$10",
+                    "field": "c",
+                    "id": 2,
+                    "instructions": [
+                        {
+                            "field": "((Float)value).floatValue()",
+                            "operation": "write",
+                            "type": "float"
+                        }
+                    ],
+                    "name": "Float",
+                    "type": "java/lang/Float"
+                },
+                "Integer": {
+                    "class": "pk$9",
+                    "field": "b",
+                    "id": 1,
+                    "instructions": [
+                        {
+                            "field": "((Integer)value).intValue()",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "name": "Integer",
+                    "type": "java/lang/Integer"
+                },
+                "NBT": {
+                    "class": "pk$8",
+                    "field": "p",
+                    "id": 14,
+                    "instructions": [
+                        {
+                            "field": "(hl)value",
+                            "operation": "write",
+                            "type": "nbtcompound"
+                        }
+                    ],
+                    "name": "NBT",
+                    "type": "hl"
+                },
+                "OptBlockPos": {
+                    "class": "pk$5",
+                    "field": "m",
+                    "id": 10,
+                    "instructions": [
+                        {
+                            "field": "((Optional)value).isPresent()",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "((Optional)value).isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "(eq)((Optional)value).get()",
+                                    "operation": "write",
+                                    "type": "position"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "name": "OptBlockPos",
+                    "type": "java/util/Optional<Leq;>"
+                },
+                "OptBlockState": {
+                    "class": "pk$15",
+                    "field": "h",
+                    "id": 13,
+                    "instructions": [
+                        {
+                            "condition": "((Optional)value).isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "bdx.l(((blz)((Optional)value).get()))",
+                                    "operation": "write",
+                                    "type": "varint"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "field": "0",
+                                    "operation": "write",
+                                    "type": "varint"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "name": "OptBlockState",
+                    "type": "java/util/Optional<Lblz;>"
+                },
+                "OptChat": {
+                    "class": "pk$13",
+                    "field": "f",
+                    "id": 5,
+                    "instructions": [
+                        {
+                            "condition": "((Optional)value).isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "1",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                },
+                                {
+                                    "field": "(iw)((Optional)value).get()",
+                                    "operation": "write",
+                                    "type": "chatcomponent"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "field": "0",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "name": "OptChat",
+                    "type": "java/util/Optional<Liw;>"
+                },
+                "OptUUID": {
+                    "class": "pk$7",
+                    "field": "o",
+                    "id": 12,
+                    "instructions": [
+                        {
+                            "field": "((Optional)value).isPresent()",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "((Optional)value).isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "(UUID)((Optional)value).get()",
+                                    "operation": "write",
+                                    "type": "uuid"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "name": "OptUUID",
+                    "type": "java/util/Optional<Ljava/util/UUID;>"
+                },
+                "Particle": {
+                    "class": "pk$2",
+                    "field": "j",
+                    "id": 15,
+                    "instructions": [
+                        {
+                            "field": "fh.t.a(((fq)value).b())",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "args": "packetbuffer",
+                            "field": "(fq)value",
+                            "method": "a(Lim;)V",
+                            "name": "a",
+                            "operation": "interfacecall",
+                            "target": "fq",
+                            "type": "interface"
+                        }
+                    ],
+                    "name": "Particle",
+                    "type": "fq"
+                },
+                "Rotations": {
+                    "class": "pk$3",
+                    "field": "k",
+                    "id": 8,
+                    "instructions": [
+                        {
+                            "field": "((fi)value).b()",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "((fi)value).c()",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "((fi)value).d()",
+                            "operation": "write",
+                            "type": "float"
+                        }
+                    ],
+                    "name": "Rotations",
+                    "type": "fi"
+                },
+                "Slot": {
+                    "class": "pk$14",
+                    "field": "g",
+                    "id": 6,
+                    "instructions": [
+                        {
+                            "field": "(auc)value",
+                            "operation": "write",
+                            "type": "itemstack"
+                        }
+                    ],
+                    "name": "Slot",
+                    "type": "auc"
+                },
+                "String": {
+                    "class": "pk$11",
+                    "field": "d",
+                    "id": 3,
+                    "instructions": [
+                        {
+                            "field": "(String)value",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "name": "String",
+                    "type": "java/lang/String"
+                }
+            },
             "entity": {
                 "area_effect_cloud": {
                     "class": "aff",
                     "display_name": "Area Effect Cloud",
+                    "field": "a",
                     "id": 0,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "aff",
+                            "data": [
+                                {
+                                    "default": 0.5,
+                                    "field": "b",
+                                    "index": 6,
+                                    "serializer": "Float",
+                                    "serializer_id": 2
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "c",
+                                    "index": 7,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": false,
+                                    "field": "d",
+                                    "index": 8,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "field": "e",
+                                    "index": 9,
+                                    "serializer": "Particle",
+                                    "serializer_id": 15
+                                }
+                            ]
+                        }
+                    ],
                     "name": "area_effect_cloud"
                 },
                 "armor_stand": {
                     "class": "amr",
                     "display_name": "Armor Stand",
+                    "field": "b",
                     "height": 1.98,
                     "id": 1,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "amr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "field": "b",
+                                    "index": 12,
+                                    "serializer": "Rotations",
+                                    "serializer_id": 8
+                                },
+                                {
+                                    "field": "c",
+                                    "index": 13,
+                                    "serializer": "Rotations",
+                                    "serializer_id": 8
+                                },
+                                {
+                                    "field": "d",
+                                    "index": 14,
+                                    "serializer": "Rotations",
+                                    "serializer_id": 8
+                                },
+                                {
+                                    "field": "e",
+                                    "index": 15,
+                                    "serializer": "Rotations",
+                                    "serializer_id": 8
+                                },
+                                {
+                                    "field": "f",
+                                    "index": 16,
+                                    "serializer": "Rotations",
+                                    "serializer_id": 8
+                                },
+                                {
+                                    "field": "bv",
+                                    "index": 17,
+                                    "serializer": "Rotations",
+                                    "serializer_id": 8
+                                }
+                            ]
+                        }
+                    ],
                     "name": "armor_stand",
                     "width": 0.5
                 },
                 "arrow": {
                     "class": "aph",
                     "display_name": "Arrow",
+                    "field": "c",
                     "id": 2,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "apf",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "av",
+                                    "index": 6,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "a",
+                                    "index": 7,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "aw",
+                                    "index": 8,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "aph",
+                            "data": [
+                                {
+                                    "default": -1,
+                                    "field": "au",
+                                    "index": 9,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "arrow"
                 },
                 "bat": {
                     "class": "akc",
                     "display_name": "Bat",
+                    "field": "d",
                     "height": 0.9,
                     "id": 3,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "akc",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "bat",
                     "width": 0.5
                 },
                 "blaze": {
                     "class": "anj",
                     "display_name": "Blaze",
+                    "field": "e",
                     "id": 4,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "anj",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "c",
+                                    "index": 12,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "blaze"
                 },
                 "boat": {
                     "class": "aqe",
                     "display_name": "Boat",
+                    "field": "f",
                     "height": 0.56,
                     "id": 5,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "aqe",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 6,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 1,
+                                    "field": "b",
+                                    "index": 7,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0.0,
+                                    "field": "c",
+                                    "index": 8,
+                                    "serializer": "Float",
+                                    "serializer_id": 2
+                                },
+                                {
+                                    "field": "d",
+                                    "index": 9,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": false,
+                                    "field": "e",
+                                    "index": 10,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "f",
+                                    "index": 11,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "au",
+                                    "index": 12,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "boat",
                     "width": 1.38
                 },
                 "cave_spider": {
                     "class": "ank",
                     "display_name": "Cave Spider",
+                    "field": "g",
                     "height": 0.5,
                     "id": 6,
+                    "metadata": [
+                        {
+                            "class": "aol",
+                            "entity": "spider"
+                        }
+                    ],
                     "name": "cave_spider",
                     "width": 0.7
                 },
                 "chest_minecart": {
                     "class": "aqg",
                     "display_name": "Minecart with Chest",
+                    "field": "O",
                     "id": 40,
+                    "metadata": [
+                        {
+                            "class": "aqc",
+                            "entity": "~abstract_minecart"
+                        }
+                    ],
                     "name": "chest_minecart"
                 },
                 "chicken": {
                     "class": "aki",
                     "display_name": "Chicken",
+                    "field": "h",
                     "height": 0.7,
                     "id": 7,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "afe",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "chicken",
                     "width": 0.4
                 },
                 "cod": {
                     "class": "akj",
                     "display_name": "Cod",
+                    "field": "i",
                     "height": 0.3,
                     "id": 8,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "ake",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "cod",
                     "width": 0.5
                 },
                 "command_block_minecart": {
                     "class": "aqh",
                     "display_name": "Minecart with Command Block",
+                    "field": "P",
                     "id": 41,
+                    "metadata": [
+                        {
+                            "class": "aqc",
+                            "entity": "~abstract_minecart"
+                        },
+                        {
+                            "class": "aqh",
+                            "data": [
+                                {
+                                    "default": "",
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "String",
+                                    "serializer_id": 3
+                                },
+                                {
+                                    "default": {
+                                        "text": ""
+                                    },
+                                    "field": "b",
+                                    "index": 13,
+                                    "serializer": "Chat",
+                                    "serializer_id": 4
+                                }
+                            ]
+                        }
+                    ],
                     "name": "command_block_minecart"
                 },
                 "cow": {
                     "class": "akk",
                     "display_name": "Cow",
+                    "field": "j",
                     "height": 1.4,
                     "id": 9,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "afe",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "cow",
                     "width": 0.9
                 },
                 "creeper": {
                     "class": "anl",
                     "display_name": "Creeper",
+                    "field": "k",
                     "height": 1.7,
                     "id": 10,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "anl",
+                            "data": [
+                                {
+                                    "default": -1,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 13,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "c",
+                                    "index": 14,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "creeper",
                     "width": 0.6
                 },
                 "dolphin": {
                     "class": "akl",
                     "display_name": "Dolphin",
+                    "field": "m",
                     "height": 0.6,
                     "id": 12,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "akl",
+                            "data": [
+                                {
+                                    "default": "(0, 0, 0)",
+                                    "field": "b",
+                                    "index": 12,
+                                    "serializer": "BlockPos",
+                                    "serializer_id": 9
+                                },
+                                {
+                                    "default": false,
+                                    "field": "c",
+                                    "index": 13,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": 2400,
+                                    "field": "bC",
+                                    "index": 14,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "dolphin",
                     "width": 0.9
                 },
                 "donkey": {
                     "class": "alh",
                     "display_name": "Donkey",
+                    "field": "l",
                     "id": 11,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "afe",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "alg",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bN",
+                                    "index": 13,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bO",
+                                    "index": 14,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        },
+                        {
+                            "class": "alf",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bM",
+                                    "index": 15,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "donkey"
                 },
                 "dragon_fireball": {
                     "class": "api",
                     "display_name": "Dragon Fireball",
+                    "field": "n",
                     "id": 13,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "dragon_fireball"
                 },
                 "drowned": {
                     "class": "anm",
                     "display_name": "Drowned",
+                    "field": "o",
                     "id": 14,
+                    "metadata": [
+                        {
+                            "class": "aor",
+                            "entity": "zombie"
+                        }
+                    ],
                     "name": "drowned"
                 },
                 "egg": {
                     "class": "apv",
                     "display_name": "Thrown Egg",
+                    "field": "ax",
                     "id": 75,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "egg"
                 },
                 "elder_guardian": {
                     "class": "ann",
                     "display_name": "Elder Guardian",
+                    "field": "p",
                     "id": 15,
+                    "metadata": [
+                        {
+                            "class": "anu",
+                            "entity": "guardian"
+                        }
+                    ],
                     "name": "elder_guardian"
                 },
                 "end_crystal": {
                     "class": "alu",
                     "display_name": "End Crystal",
+                    "field": "q",
                     "id": 16,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "alu",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "b",
+                                    "index": 6,
+                                    "serializer": "OptBlockPos",
+                                    "serializer_id": 10
+                                },
+                                {
+                                    "default": true,
+                                    "field": "c",
+                                    "index": 7,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "end_crystal"
                 },
                 "ender_dragon": {
                     "class": "alv",
                     "display_name": "Ender Dragon",
+                    "field": "r",
                     "height": 8.0,
                     "id": 17,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "alv",
+                            "data": [
+                                {
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "ender_dragon",
                     "texture": "wing",
                     "width": 16.0
@@ -20454,278 +21370,1163 @@
                 "ender_pearl": {
                     "class": "apw",
                     "display_name": "Thrown Ender Pearl",
+                    "field": "ay",
                     "id": 76,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "ender_pearl"
                 },
                 "enderman": {
                     "class": "ano",
                     "display_name": "Enderman",
+                    "field": "s",
                     "height": 2.9,
                     "id": 18,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "ano",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "c",
+                                    "index": 12,
+                                    "serializer": "OptBlockState",
+                                    "serializer_id": 13
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 13,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "enderman",
                     "width": 0.6
                 },
                 "endermite": {
                     "class": "anp",
                     "display_name": "Endermite",
+                    "field": "t",
                     "height": 0.3,
                     "id": 19,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        }
+                    ],
                     "name": "endermite",
                     "width": 0.4
                 },
                 "evoker": {
                     "class": "anr",
                     "display_name": "Evoker",
+                    "field": "v",
                     "height": 1.95,
                     "id": 21,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "anh",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "aok",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "c",
+                                    "index": 13,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "evoker",
                     "width": 0.6
                 },
                 "evoker_fangs": {
                     "class": "apj",
                     "display_name": "Evoker Fangs",
+                    "field": "u",
                     "height": 0.8,
                     "id": 20,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "evoker_fangs",
                     "width": 0.5
                 },
                 "experience_bottle": {
                     "class": "apx",
                     "display_name": "Thrown Bottle o' Enchanting",
+                    "field": "az",
                     "id": 77,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "experience_bottle"
                 },
                 "experience_orb": {
                     "class": "afn",
                     "display_name": "Experience Orb",
+                    "field": "w",
                     "height": 0.5,
                     "id": 22,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "experience_orb",
                     "width": 0.5
                 },
                 "eye_of_ender": {
                     "class": "apk",
                     "display_name": "Eye of Ender",
+                    "field": "x",
                     "height": 0.25,
                     "id": 23,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "eye_of_ender",
                     "width": 0.25
                 },
                 "falling_block": {
                     "class": "and",
                     "display_name": "Falling Block",
+                    "field": "y",
                     "id": 24,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "and",
+                            "data": [
+                                {
+                                    "default": "(0, 0, 0)",
+                                    "field": "d",
+                                    "index": 6,
+                                    "serializer": "BlockPos",
+                                    "serializer_id": 9
+                                }
+                            ]
+                        }
+                    ],
                     "name": "falling_block"
                 },
                 "fireball": {
                     "class": "apm",
                     "display_name": "Fireball",
+                    "field": "I",
                     "id": 34,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "fireball"
                 },
                 "firework_rocket": {
                     "class": "apl",
                     "display_name": "Firework Rocket",
+                    "field": "z",
                     "height": 0.25,
                     "id": 25,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "apl",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "a",
+                                    "index": 6,
+                                    "serializer": "Slot",
+                                    "serializer_id": 6
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 7,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": false,
+                                    "field": "c",
+                                    "index": 8,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "firework_rocket",
                     "width": 0.25
                 },
                 "fishing_bobber": {
                     "class": "amy",
                     "display_name": "Fishing Bobber",
+                    "field": "aS",
                     "id": 96,
-                    "name": "fishing_bobber"
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "amy",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 6,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "fishing_bobber",
+                    "serializable": "false"
                 },
                 "furnace_minecart": {
                     "class": "aqi",
                     "display_name": "Minecart with Furnace",
+                    "field": "Q",
                     "id": 42,
+                    "metadata": [
+                        {
+                            "class": "aqc",
+                            "entity": "~abstract_minecart"
+                        },
+                        {
+                            "class": "aqi",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "c",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "furnace_minecart"
                 },
                 "ghast": {
                     "class": "ans",
                     "display_name": "Ghast",
+                    "field": "A",
                     "height": 4.0,
                     "id": 26,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "ans",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "ghast",
                     "width": 4.0
                 },
                 "giant": {
                     "class": "ant",
                     "display_name": "Giant",
+                    "field": "B",
                     "id": 27,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        }
+                    ],
                     "name": "giant"
                 },
                 "guardian": {
                     "class": "anu",
                     "display_name": "Guardian",
+                    "field": "C",
                     "height": 0.85,
                     "id": 28,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "anu",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bF",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bG",
+                                    "index": 13,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "guardian",
                     "width": 0.85
                 },
                 "hopper_minecart": {
                     "class": "aqj",
                     "display_name": "Minecart with Hopper",
+                    "field": "R",
                     "id": 43,
+                    "metadata": [
+                        {
+                            "class": "aqc",
+                            "entity": "~abstract_minecart"
+                        }
+                    ],
                     "name": "hopper_minecart"
                 },
                 "horse": {
                     "class": "ali",
                     "display_name": "Horse",
+                    "field": "D",
                     "id": 29,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "afe",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "alg",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bN",
+                                    "index": 13,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bO",
+                                    "index": 14,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        },
+                        {
+                            "class": "ali",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bN",
+                                    "index": 15,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "field": "bO",
+                                    "index": 16,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "horse"
                 },
                 "husk": {
                     "class": "anv",
                     "display_name": "Husk",
+                    "field": "E",
                     "id": 30,
+                    "metadata": [
+                        {
+                            "class": "aor",
+                            "entity": "zombie"
+                        }
+                    ],
                     "name": "husk"
                 },
                 "illager_beast": {
                     "class": "anw",
                     "display_name": "Illager Beast",
+                    "field": "aP",
                     "height": 2.2,
                     "id": 93,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        }
+                    ],
                     "name": "illager_beast",
                     "width": 1.95
                 },
                 "illusioner": {
                     "class": "anx",
                     "display_name": "Illusioner",
+                    "field": "F",
                     "height": 1.95,
                     "id": 31,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "anh",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "aok",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "c",
+                                    "index": 13,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "illusioner",
                     "width": 0.6
                 },
                 "iron_golem": {
                     "class": "akn",
                     "display_name": "Iron Golem",
+                    "field": "aD",
                     "height": 2.7,
                     "id": 81,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "akn",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "iron_golem",
                     "width": 1.4
                 },
                 "item": {
                     "class": "ane",
                     "display_name": "Item",
+                    "field": "G",
                     "height": 0.25,
                     "id": 32,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "ane",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "b",
+                                    "index": 6,
+                                    "serializer": "Slot",
+                                    "serializer_id": 6
+                                }
+                            ]
+                        }
+                    ],
                     "name": "item",
                     "width": 0.25
                 },
                 "item_frame": {
                     "class": "amt",
                     "display_name": "Item Frame",
+                    "field": "H",
                     "id": 33,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "amt",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "e",
+                                    "index": 6,
+                                    "serializer": "Slot",
+                                    "serializer_id": 6
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "f",
+                                    "index": 7,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "item_frame"
                 },
                 "leash_knot": {
                     "class": "amu",
                     "display_name": "Leash Knot",
+                    "field": "J",
                     "id": 35,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "leash_knot"
                 },
                 "lightning_bolt": {
                     "class": "anb",
                     "display_name": "Lightning Bolt",
+                    "field": "aQ",
                     "id": 94,
-                    "name": "lightning_bolt"
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
+                    "name": "lightning_bolt",
+                    "serializable": "false"
                 },
                 "llama": {
                     "class": "alk",
                     "display_name": "Llama",
+                    "field": "K",
                     "height": 1.87,
                     "id": 36,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "afe",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "alg",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bN",
+                                    "index": 13,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bO",
+                                    "index": 14,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        },
+                        {
+                            "class": "alf",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bM",
+                                    "index": 15,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "alk",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bM",
+                                    "index": 16,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": -1,
+                                    "field": "bN",
+                                    "index": 17,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bO",
+                                    "index": 18,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "llama",
                     "width": 0.9
                 },
                 "llama_spit": {
                     "class": "apn",
                     "display_name": "Llama Spit",
+                    "field": "L",
                     "height": 0.25,
                     "id": 37,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "llama_spit",
                     "width": 0.25
                 },
                 "magma_cube": {
                     "class": "any",
                     "display_name": "Magma Cube",
+                    "field": "M",
                     "id": 38,
+                    "metadata": [
+                        {
+                            "class": "aoj",
+                            "entity": "slime"
+                        }
+                    ],
                     "name": "magma_cube"
                 },
                 "minecart": {
                     "class": "aqf",
                     "display_name": "Minecart",
+                    "field": "N",
                     "id": 39,
+                    "metadata": [
+                        {
+                            "class": "aqc",
+                            "entity": "~abstract_minecart"
+                        }
+                    ],
                     "name": "minecart"
                 },
                 "mooshroom": {
                     "class": "ako",
                     "display_name": "Mooshroom",
+                    "field": "V",
                     "height": 1.4,
                     "id": 47,
+                    "metadata": [
+                        {
+                            "class": "akk",
+                            "entity": "cow"
+                        }
+                    ],
                     "name": "mooshroom",
                     "width": 0.9
                 },
                 "mule": {
                     "class": "all",
                     "display_name": "Mule",
+                    "field": "U",
                     "id": 46,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "afe",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "alg",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bN",
+                                    "index": 13,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bO",
+                                    "index": 14,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        },
+                        {
+                            "class": "alf",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bM",
+                                    "index": 15,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "mule"
                 },
                 "ocelot": {
                     "class": "akp",
                     "display_name": "Ocelot",
+                    "field": "W",
                     "height": 0.7,
                     "id": 48,
+                    "metadata": [
+                        {
+                            "class": "agb",
+                            "entity": "~abstract_tameable"
+                        },
+                        {
+                            "class": "akp",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bH",
+                                    "index": 15,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "ocelot",
                     "width": 0.6
                 },
                 "painting": {
                     "class": "amw",
                     "display_name": "Painting",
+                    "field": "X",
                     "id": 49,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "painting"
                 },
                 "panda": {
                     "class": "akq",
                     "display_name": "Panda",
+                    "field": "Y",
                     "height": 1.25,
                     "id": 50,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "afe",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "akq",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bD",
+                                    "index": 13,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bE",
+                                    "index": 14,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bG",
+                                    "index": 15,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bH",
+                                    "index": 16,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bI",
+                                    "index": 17,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bJ",
+                                    "index": 18,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "panda",
                     "width": 1.3
                 },
                 "parrot": {
                     "class": "akr",
                     "display_name": "Parrot",
+                    "field": "Z",
                     "height": 0.9,
                     "id": 51,
+                    "metadata": [
+                        {
+                            "class": "agb",
+                            "entity": "~abstract_tameable"
+                        },
+                        {
+                            "class": "akr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bL",
+                                    "index": 15,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "parrot",
                     "width": 0.5
                 },
                 "phantom": {
                     "class": "aob",
                     "display_name": "Phantom",
+                    "field": "aO",
                     "height": 0.5,
                     "id": 92,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "aob",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "phantom",
                     "width": 0.9
                 },
                 "pig": {
                     "class": "aks",
                     "display_name": "Pig",
+                    "field": "aa",
                     "height": 0.9,
                     "id": 52,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "afe",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "aks",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 13,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bD",
+                                    "index": 14,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "pig",
                     "width": 0.9
                 },
                 "pillager": {
                     "class": "aod",
                     "display_name": "Pillager",
+                    "field": "aF",
                     "height": 1.95,
                     "id": 83,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "anh",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "aod",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 13,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "pillager",
                     "texture": "Inventory",
                     "width": 0.6
@@ -20733,270 +22534,1611 @@
                 "player": {
                     "class": "apb",
                     "display_name": "Player",
+                    "field": "aR",
                     "id": 95,
-                    "name": "player"
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "apb",
+                            "data": [
+                                {
+                                    "default": 0.0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Float",
+                                    "serializer_id": 2
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 12,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bv",
+                                    "index": 13,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": 1,
+                                    "field": "bw",
+                                    "index": 14,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bx",
+                                    "index": 15,
+                                    "serializer": "NBT",
+                                    "serializer_id": 14
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "by",
+                                    "index": 16,
+                                    "serializer": "NBT",
+                                    "serializer_id": 14
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "player",
+                    "serializable": "false"
                 },
                 "polar_bear": {
                     "class": "akt",
                     "display_name": "Polar Bear",
+                    "field": "ad",
                     "height": 1.4,
                     "id": 55,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "afe",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "akt",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 13,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "polar_bear",
                     "width": 1.3
                 },
                 "potion": {
                     "class": "apy",
                     "display_name": "Potion",
+                    "field": "aA",
                     "id": 78,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "apy",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "f",
+                                    "index": 6,
+                                    "serializer": "Slot",
+                                    "serializer_id": 6
+                                }
+                            ]
+                        }
+                    ],
                     "name": "potion"
                 },
                 "pufferfish": {
                     "class": "aku",
                     "display_name": "Pufferfish",
+                    "field": "ab",
                     "height": 0.7,
                     "id": 53,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "ake",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "aku",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 13,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "pufferfish",
                     "width": 0.7
                 },
                 "rabbit": {
                     "class": "akv",
                     "display_name": "Rabbit",
+                    "field": "af",
                     "height": 0.5,
                     "id": 57,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "afe",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "akv",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bC",
+                                    "index": 13,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "rabbit",
                     "width": 0.4
                 },
                 "salmon": {
                     "class": "akw",
                     "display_name": "Salmon",
+                    "field": "ag",
                     "height": 0.4,
                     "id": 58,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "ake",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "salmon",
                     "width": 0.7
                 },
                 "sheep": {
                     "class": "akx",
                     "display_name": "Sheep",
+                    "field": "ah",
                     "height": 1.3,
                     "id": 59,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "afe",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "akx",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bC",
+                                    "index": 13,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "sheep",
                     "width": 0.9
                 },
                 "shulker": {
                     "class": "aog",
                     "display_name": "Shulker",
+                    "field": "ai",
                     "id": 60,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "aog",
+                            "data": [
+                                {
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Facing",
+                                    "serializer_id": 11
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "b",
+                                    "index": 13,
+                                    "serializer": "OptBlockPos",
+                                    "serializer_id": 10
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "c",
+                                    "index": 14,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": 16,
+                                    "field": "bC",
+                                    "index": 15,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "shulker"
                 },
                 "shulker_bullet": {
                     "class": "apq",
                     "display_name": "Shulker Bullet",
+                    "field": "aj",
                     "height": 0.31,
                     "id": 61,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "shulker_bullet",
                     "width": 0.31
                 },
                 "silverfish": {
                     "class": "aoh",
                     "display_name": "Silverfish",
+                    "field": "ak",
                     "height": 0.3,
                     "id": 62,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        }
+                    ],
                     "name": "silverfish",
                     "width": 0.4
                 },
                 "skeleton": {
                     "class": "aoi",
                     "display_name": "Skeleton",
+                    "field": "al",
                     "id": 63,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "ani",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "skeleton"
                 },
                 "skeleton_horse": {
                     "class": "alm",
                     "display_name": "Skeleton Horse",
+                    "field": "am",
                     "id": 64,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "afe",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "alg",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bN",
+                                    "index": 13,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bO",
+                                    "index": 14,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        }
+                    ],
                     "name": "skeleton_horse"
                 },
                 "slime": {
                     "class": "aoj",
                     "display_name": "Slime",
+                    "field": "an",
                     "id": 65,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "aoj",
+                            "data": [
+                                {
+                                    "default": 1,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "slime"
                 },
                 "small_fireball": {
                     "class": "apr",
                     "display_name": "Small Fireball",
+                    "field": "ao",
                     "id": 66,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "small_fireball"
                 },
                 "snow_golem": {
                     "class": "akz",
                     "display_name": "Snow Golem",
+                    "field": "ap",
                     "height": 1.9,
                     "id": 67,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "akz",
+                            "data": [
+                                {
+                                    "default": 16,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "snow_golem",
                     "width": 0.7
                 },
                 "snowball": {
                     "class": "aps",
                     "display_name": "Snowball",
+                    "field": "aq",
                     "id": 68,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "snowball"
                 },
                 "spawner_minecart": {
                     "class": "aqk",
                     "display_name": "Minecart with Spawner",
+                    "field": "S",
                     "id": 44,
+                    "metadata": [
+                        {
+                            "class": "aqc",
+                            "entity": "~abstract_minecart"
+                        }
+                    ],
                     "name": "spawner_minecart"
                 },
                 "spectral_arrow": {
                     "class": "apt",
                     "display_name": "Spectral Arrow",
+                    "field": "ar",
                     "id": 69,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "apf",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "av",
+                                    "index": 6,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "a",
+                                    "index": 7,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "aw",
+                                    "index": 8,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "spectral_arrow"
                 },
                 "spider": {
                     "class": "aol",
                     "display_name": "Spider",
+                    "field": "as",
                     "height": 0.9,
                     "id": 70,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "aol",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "spider",
                     "width": 1.4
                 },
                 "squid": {
                     "class": "ala",
                     "display_name": "Squid",
+                    "field": "at",
                     "height": 0.8,
                     "id": 71,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "squid",
                     "width": 0.8
                 },
                 "stray": {
                     "class": "aom",
                     "display_name": "Stray",
+                    "field": "au",
                     "id": 72,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "ani",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "stray"
                 },
                 "tnt": {
                     "class": "anf",
                     "display_name": "Primed TNT",
+                    "field": "ae",
                     "height": 0.98,
                     "id": 56,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "anf",
+                            "data": [
+                                {
+                                    "default": 80,
+                                    "field": "a",
+                                    "index": 6,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "tnt",
                     "width": 0.98
                 },
                 "tnt_minecart": {
                     "class": "aql",
                     "display_name": "Minecart with TNT",
+                    "field": "T",
                     "id": 45,
+                    "metadata": [
+                        {
+                            "class": "aqc",
+                            "entity": "~abstract_minecart"
+                        }
+                    ],
                     "name": "tnt_minecart"
                 },
                 "trident": {
                     "class": "apz",
                     "display_name": "Trident",
+                    "field": "aT",
                     "id": 97,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "apf",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "av",
+                                    "index": 6,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "a",
+                                    "index": 7,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "aw",
+                                    "index": 8,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "apz",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "av",
+                                    "index": 9,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "trident"
                 },
                 "tropical_fish": {
                     "class": "alb",
                     "display_name": "Tropical Fish",
+                    "field": "av",
                     "height": 0.4,
                     "id": 73,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "ake",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "alb",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 13,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "tropical_fish",
                     "width": 0.5
                 },
                 "turtle": {
                     "class": "alc",
                     "display_name": "Turtle",
+                    "field": "aw",
                     "height": 0.4,
                     "id": 74,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "afe",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "alc",
+                            "data": [
+                                {
+                                    "default": "(0, 0, 0)",
+                                    "field": "bD",
+                                    "index": 13,
+                                    "serializer": "BlockPos",
+                                    "serializer_id": 9
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bE",
+                                    "index": 14,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bG",
+                                    "index": 15,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": "(0, 0, 0)",
+                                    "field": "bH",
+                                    "index": 16,
+                                    "serializer": "BlockPos",
+                                    "serializer_id": 9
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bI",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bJ",
+                                    "index": 18,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "turtle",
                     "width": 1.2
                 },
                 "vex": {
                     "class": "aon",
                     "display_name": "Vex",
+                    "field": "aB",
                     "height": 0.8,
                     "id": 79,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "aon",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "vex",
                     "width": 0.4
                 },
                 "villager": {
                     "class": "aow",
                     "display_name": "Villager",
+                    "field": "aC",
                     "id": 80,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "afe",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "aow",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bD",
+                                    "index": 13,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "villager"
                 },
                 "vindicator": {
                     "class": "aoo",
                     "display_name": "Vindicator",
+                    "field": "aE",
                     "height": 1.95,
                     "id": 82,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "anh",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "vindicator",
                     "width": 0.6
                 },
                 "witch": {
                     "class": "aop",
                     "display_name": "Witch",
+                    "field": "aG",
                     "height": 1.95,
                     "id": 84,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "aop",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "c",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "witch",
                     "width": 0.6
                 },
                 "wither": {
                     "class": "amp",
                     "display_name": "Wither",
+                    "field": "aH",
                     "height": 3.5,
                     "id": 85,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "amp",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 13,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "c",
+                                    "index": 14,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bD",
+                                    "index": 15,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "wither",
                     "width": 0.9
                 },
                 "wither_skeleton": {
                     "class": "aoq",
                     "display_name": "Wither Skeleton",
+                    "field": "aI",
                     "height": 2.4,
                     "id": 86,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "ani",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "wither_skeleton",
                     "width": 0.7
                 },
                 "wither_skull": {
                     "class": "aqa",
                     "display_name": "Wither Skull",
+                    "field": "aJ",
                     "id": 87,
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "aqa",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "e",
+                                    "index": 6,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "wither_skull"
                 },
                 "wolf": {
                     "class": "ale",
                     "display_name": "Wolf",
+                    "field": "aK",
                     "height": 0.85,
                     "id": 88,
+                    "metadata": [
+                        {
+                            "class": "agb",
+                            "entity": "~abstract_tameable"
+                        },
+                        {
+                            "class": "ale",
+                            "data": [
+                                {
+                                    "field": "bG",
+                                    "index": 15,
+                                    "serializer": "Float",
+                                    "serializer_id": 2
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bH",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "field": "bI",
+                                    "index": 17,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "wolf",
                     "width": 0.6
                 },
                 "zombie": {
                     "class": "aor",
                     "display_name": "Zombie",
+                    "field": "aL",
                     "height": 1.95,
                     "id": 89,
+                    "metadata": [
+                        {
+                            "class": "anz",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "aor",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bD",
+                                    "index": 13,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bE",
+                                    "index": 14,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bF",
+                                    "index": 15,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "zombie",
                     "width": 0.6
                 },
                 "zombie_horse": {
                     "class": "alo",
                     "display_name": "Zombie Horse",
+                    "field": "aM",
                     "id": 90,
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "afe",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "alg",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bN",
+                                    "index": 13,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bO",
+                                    "index": 14,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        }
+                    ],
                     "name": "zombie_horse"
                 },
                 "zombie_pigman": {
                     "class": "aoc",
                     "display_name": "Zombie Pigman",
+                    "field": "ac",
                     "id": 54,
+                    "metadata": [
+                        {
+                            "class": "aor",
+                            "entity": "zombie"
+                        }
+                    ],
                     "name": "zombie_pigman"
                 },
                 "zombie_villager": {
                     "class": "aos",
                     "display_name": "Zombie Villager",
+                    "field": "aN",
                     "id": 91,
+                    "metadata": [
+                        {
+                            "class": "aor",
+                            "entity": "zombie"
+                        },
+                        {
+                            "class": "aos",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "a",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 17,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "zombie_villager"
+                },
+                "~abstract_entity": {
+                    "class": "afh",
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "aa",
+                                    "index": 0,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "field": "aD",
+                                    "index": 1,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "aE",
+                                    "index": 2,
+                                    "serializer": "OptChat",
+                                    "serializer_id": 5
+                                },
+                                {
+                                    "default": false,
+                                    "field": "aF",
+                                    "index": 3,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "aG",
+                                    "index": 4,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "aH",
+                                    "index": 5,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "~abstract_entity"
+                },
+                "~abstract_insentient": {
+                    "class": "anz",
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "~abstract_insentient"
+                },
+                "~abstract_living": {
+                    "class": "afq",
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "afq",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "au",
+                                    "index": 6,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": 1.0,
+                                    "field": "f",
+                                    "index": 7,
+                                    "serializer": "Float",
+                                    "serializer_id": 2
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bv",
+                                    "index": 8,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bw",
+                                    "index": 9,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bx",
+                                    "index": 10,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "~abstract_living"
+                },
+                "~abstract_minecart": {
+                    "class": "aqc",
+                    "metadata": [
+                        {
+                            "class": "afh",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "aqc",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 6,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 1,
+                                    "field": "b",
+                                    "index": 7,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0.0,
+                                    "field": "c",
+                                    "index": 8,
+                                    "serializer": "Float",
+                                    "serializer_id": 2
+                                },
+                                {
+                                    "field": "d",
+                                    "index": 9,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 6,
+                                    "field": "e",
+                                    "index": 10,
+                                    "serializer": "Integer",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": false,
+                                    "field": "f",
+                                    "index": 11,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "~abstract_minecart"
+                },
+                "~abstract_tameable": {
+                    "class": "agb",
+                    "metadata": [
+                        {
+                            "class": "afq",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "afr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "afe",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "agb",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bC",
+                                    "index": 13,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bD",
+                                    "index": 14,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "~abstract_tameable"
                 }
             },
             "info": {
@@ -21009,6 +24151,7 @@
                     "class": "aqe",
                     "entity": {
                         "display_name": "Boat",
+                        "field": "f",
                         "height": 0.56,
                         "id": 5,
                         "name": "boat",
@@ -21020,6 +24163,7 @@
                     "class": "ane",
                     "entity": {
                         "display_name": "Item",
+                        "field": "G",
                         "height": 0.25,
                         "id": 32,
                         "name": "item",
@@ -21031,6 +24175,7 @@
                     "class": "aff",
                     "entity": {
                         "display_name": "Area Effect Cloud",
+                        "field": "a",
                         "id": 0,
                         "name": "area_effect_cloud"
                     },
@@ -21040,6 +24185,7 @@
                     "class": "anf",
                     "entity": {
                         "display_name": "Primed TNT",
+                        "field": "ae",
                         "height": 0.98,
                         "id": 56,
                         "name": "tnt",
@@ -21051,6 +24197,7 @@
                     "class": "alu",
                     "entity": {
                         "display_name": "End Crystal",
+                        "field": "q",
                         "id": 16,
                         "name": "end_crystal"
                     },
@@ -21060,6 +24207,7 @@
                     "class": "aph",
                     "entity": {
                         "display_name": "Arrow",
+                        "field": "c",
                         "id": 2,
                         "name": "arrow"
                     },
@@ -21069,6 +24217,7 @@
                     "class": "aps",
                     "entity": {
                         "display_name": "Snowball",
+                        "field": "aq",
                         "id": 68,
                         "name": "snowball"
                     },
@@ -21078,6 +24227,7 @@
                     "class": "apv",
                     "entity": {
                         "display_name": "Thrown Egg",
+                        "field": "ax",
                         "id": 75,
                         "name": "egg"
                     },
@@ -21087,6 +24237,7 @@
                     "class": "apm",
                     "entity": {
                         "display_name": "Fireball",
+                        "field": "I",
                         "id": 34,
                         "name": "fireball"
                     },
@@ -21096,6 +24247,7 @@
                     "class": "apr",
                     "entity": {
                         "display_name": "Small Fireball",
+                        "field": "ao",
                         "id": 66,
                         "name": "small_fireball"
                     },
@@ -21105,6 +24257,7 @@
                     "class": "apw",
                     "entity": {
                         "display_name": "Thrown Ender Pearl",
+                        "field": "ay",
                         "id": 76,
                         "name": "ender_pearl"
                     },
@@ -21114,6 +24267,7 @@
                     "class": "aqa",
                     "entity": {
                         "display_name": "Wither Skull",
+                        "field": "aJ",
                         "id": 87,
                         "name": "wither_skull"
                     },
@@ -21123,6 +24277,7 @@
                     "class": "apq",
                     "entity": {
                         "display_name": "Shulker Bullet",
+                        "field": "aj",
                         "height": 0.31,
                         "id": 61,
                         "name": "shulker_bullet",
@@ -21134,6 +24289,7 @@
                     "class": "apn",
                     "entity": {
                         "display_name": "Llama Spit",
+                        "field": "L",
                         "height": 0.25,
                         "id": 37,
                         "name": "llama_spit",
@@ -21145,6 +24301,7 @@
                     "class": "and",
                     "entity": {
                         "display_name": "Falling Block",
+                        "field": "y",
                         "id": 24,
                         "name": "falling_block"
                     },
@@ -21158,6 +24315,7 @@
                     "class": "apk",
                     "entity": {
                         "display_name": "Eye of Ender",
+                        "field": "x",
                         "height": 0.25,
                         "id": 23,
                         "name": "eye_of_ender",
@@ -21169,6 +24327,7 @@
                     "class": "apy",
                     "entity": {
                         "display_name": "Potion",
+                        "field": "aA",
                         "id": 78,
                         "name": "potion"
                     },
@@ -21178,6 +24337,7 @@
                     "class": "apx",
                     "entity": {
                         "display_name": "Thrown Bottle o' Enchanting",
+                        "field": "az",
                         "id": 77,
                         "name": "experience_bottle"
                     },
@@ -21187,6 +24347,7 @@
                     "class": "apl",
                     "entity": {
                         "display_name": "Firework Rocket",
+                        "field": "z",
                         "height": 0.25,
                         "id": 25,
                         "name": "firework_rocket",
@@ -21202,6 +24363,7 @@
                     "class": "amr",
                     "entity": {
                         "display_name": "Armor Stand",
+                        "field": "b",
                         "height": 1.98,
                         "id": 1,
                         "name": "armor_stand",
@@ -21213,6 +24375,7 @@
                     "class": "apj",
                     "entity": {
                         "display_name": "Evoker Fangs",
+                        "field": "u",
                         "height": 0.8,
                         "id": 20,
                         "name": "evoker_fangs",
@@ -21224,8 +24387,10 @@
                     "class": "amy",
                     "entity": {
                         "display_name": "Fishing Bobber",
+                        "field": "aS",
                         "id": 96,
-                        "name": "fishing_bobber"
+                        "name": "fishing_bobber",
+                        "serializable": "false"
                     },
                     "id": 90
                 },
@@ -21233,6 +24398,7 @@
                     "class": "apt",
                     "entity": {
                         "display_name": "Spectral Arrow",
+                        "field": "ar",
                         "id": 69,
                         "name": "spectral_arrow"
                     },
@@ -21242,6 +24408,7 @@
                     "class": "api",
                     "entity": {
                         "display_name": "Dragon Fireball",
+                        "field": "n",
                         "id": 13,
                         "name": "dragon_fireball"
                     },
@@ -21251,6 +24418,7 @@
                     "class": "apz",
                     "entity": {
                         "display_name": "Trident",
+                        "field": "aT",
                         "id": 97,
                         "name": "trident"
                     },
