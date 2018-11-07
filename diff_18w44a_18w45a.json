@@ -1,0 +1,356 @@
+{
+    "achievements": {},
+    "biomes": {
+        "biome": {}
+    },
+    "blocks": {
+        "block": {
+            "scaffolding": [
+                null,
+                {
+                    "class": "bji",
+                    "display_name": "Scaffolding",
+                    "field": "lG",
+                    "hardness": 2.0,
+                    "max_state_id": 10798,
+                    "min_state_id": 10787,
+                    "num_states": 12,
+                    "numeric_id": 656,
+                    "resistance": 3.0,
+                    "states": [
+                        {
+                            "declared_in": "bol",
+                            "field_name": "a",
+                            "max": 5,
+                            "min": 0,
+                            "name": "distance",
+                            "num_values": 6,
+                            "type": "int"
+                        },
+                        {
+                            "declared_in": "bol",
+                            "field_name": "b",
+                            "name": "waterlogged",
+                            "num_values": 2,
+                            "type": "bool"
+                        }
+                    ],
+                    "text_id": "scaffolding"
+                }
+            ]
+        }
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {},
+        "object": {}
+    },
+    "items": {
+        "item": {
+            "scaffolding": [
+                null,
+                {
+                    "class": "avq",
+                    "display_name": "Scaffolding",
+                    "field": "iJ",
+                    "max_stack_size": 64,
+                    "numeric_id": 503,
+                    "text_id": "scaffolding"
+                }
+            ]
+        }
+    },
+    "language": {
+        "block": {
+            "minecraft.illager_banner": [
+                null,
+                "Illager Banner"
+            ],
+            "minecraft.scaffolding": [
+                null,
+                "Scaffolding"
+            ]
+        }
+    },
+    "packets": {
+        "packet": {}
+    },
+    "recipes": {
+        "scaffolding": [
+            null,
+            [
+                {
+                    "id": "minecraft:scaffolding",
+                    "makes": {
+                        "count": 6,
+                        "name": "scaffolding",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "I~I",
+                            "I I",
+                            "I I"
+                        ],
+                        "subs": {
+                            "I": {
+                                "name": "bamboo",
+                                "type": "item"
+                            },
+                            "~": {
+                                "name": "string",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "bamboo",
+                                "type": "item"
+                            },
+                            {
+                                "name": "string",
+                                "type": "item"
+                            },
+                            {
+                                "name": "bamboo",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "bamboo",
+                                "type": "item"
+                            },
+                            null,
+                            {
+                                "name": "bamboo",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "bamboo",
+                                "type": "item"
+                            },
+                            null,
+                            {
+                                "name": "bamboo",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ]
+    },
+    "sounds": {
+        "block.scaffolding.break": [
+            null,
+            {
+                "field": "iM",
+                "id": 506,
+                "name": "block.scaffolding.break",
+                "sounds": [
+                    {
+                        "hash": "e54f93b413612f82ac995c4d3be9d4a0be0b86b8",
+                        "name": "block/scaffold/place1",
+                        "pitch": 1.4,
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "fbc96020d3410733cd97cbfa99ed8471ace343ef",
+                        "name": "block/scaffold/place2",
+                        "pitch": 1.4,
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "e13cd6eaea8057ab3c7b637af4c58a2165d84c42",
+                        "name": "block/scaffold/place3",
+                        "pitch": 1.4,
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "1b33ca18f1e7d8e9427ab9bd7246bb1ff58812a7",
+                        "name": "block/scaffold/place4",
+                        "pitch": 1.4,
+                        "volume": 0.8
+                    }
+                ],
+                "subtitle": "Block broken",
+                "subtitle_key": "subtitles.block.generic.break"
+            }
+        ],
+        "block.scaffolding.fall": [
+            null,
+            {
+                "field": "iN",
+                "id": 507,
+                "name": "block.scaffolding.fall",
+                "sounds": [
+                    {
+                        "hash": "8d3d6a13305ec2aa63065b8fd72953e0fbc06348",
+                        "name": "step/scaffold1"
+                    },
+                    {
+                        "hash": "fee15c18c2a51afebbc2c7579437525f5d0fdbb1",
+                        "name": "step/scaffold2"
+                    },
+                    {
+                        "hash": "fc1cc25f6808340610f2556745662bb16d426327",
+                        "name": "step/scaffold3"
+                    },
+                    {
+                        "hash": "aa83c9d0c1198899f9e8dc3fa45c8d27760d2310",
+                        "name": "step/scaffold4"
+                    },
+                    {
+                        "hash": "773b5282fa8c170f6966f3d7330d6c000e43e293",
+                        "name": "step/scaffold5"
+                    },
+                    {
+                        "hash": "e376c227976d305aaa1ede9ad04ff02c4325f03f",
+                        "name": "step/scaffold6"
+                    },
+                    {
+                        "hash": "6c4603afe9498f3d5f25b01f3f28807b3184fa83",
+                        "name": "step/scaffold7"
+                    }
+                ]
+            }
+        ],
+        "block.scaffolding.hit": [
+            null,
+            {
+                "field": "iO",
+                "id": 508,
+                "name": "block.scaffolding.hit",
+                "sounds": [
+                    {
+                        "hash": "8d3d6a13305ec2aa63065b8fd72953e0fbc06348",
+                        "name": "step/scaffold1"
+                    },
+                    {
+                        "hash": "fee15c18c2a51afebbc2c7579437525f5d0fdbb1",
+                        "name": "step/scaffold2"
+                    },
+                    {
+                        "hash": "fc1cc25f6808340610f2556745662bb16d426327",
+                        "name": "step/scaffold3"
+                    },
+                    {
+                        "hash": "aa83c9d0c1198899f9e8dc3fa45c8d27760d2310",
+                        "name": "step/scaffold4"
+                    },
+                    {
+                        "hash": "773b5282fa8c170f6966f3d7330d6c000e43e293",
+                        "name": "step/scaffold5"
+                    },
+                    {
+                        "hash": "e376c227976d305aaa1ede9ad04ff02c4325f03f",
+                        "name": "step/scaffold6"
+                    },
+                    {
+                        "hash": "6c4603afe9498f3d5f25b01f3f28807b3184fa83",
+                        "name": "step/scaffold7"
+                    }
+                ],
+                "subtitle": "Block breaking",
+                "subtitle_key": "subtitles.block.generic.hit"
+            }
+        ],
+        "block.scaffolding.place": [
+            null,
+            {
+                "field": "iP",
+                "id": 509,
+                "name": "block.scaffolding.place",
+                "sounds": [
+                    {
+                        "hash": "e54f93b413612f82ac995c4d3be9d4a0be0b86b8",
+                        "name": "block/scaffold/place1",
+                        "volume": 0.9
+                    },
+                    {
+                        "hash": "fbc96020d3410733cd97cbfa99ed8471ace343ef",
+                        "name": "block/scaffold/place2",
+                        "volume": 0.9
+                    },
+                    {
+                        "hash": "e13cd6eaea8057ab3c7b637af4c58a2165d84c42",
+                        "name": "block/scaffold/place3",
+                        "volume": 0.9
+                    },
+                    {
+                        "hash": "1b33ca18f1e7d8e9427ab9bd7246bb1ff58812a7",
+                        "name": "block/scaffold/place4",
+                        "volume": 0.9
+                    }
+                ],
+                "subtitle": "Block placed",
+                "subtitle_key": "subtitles.block.generic.place"
+            }
+        ],
+        "block.scaffolding.step": [
+            null,
+            {
+                "field": "iQ",
+                "id": 510,
+                "name": "block.scaffolding.step",
+                "sounds": [
+                    {
+                        "hash": "8d3d6a13305ec2aa63065b8fd72953e0fbc06348",
+                        "name": "step/scaffold1"
+                    },
+                    {
+                        "hash": "fee15c18c2a51afebbc2c7579437525f5d0fdbb1",
+                        "name": "step/scaffold2"
+                    },
+                    {
+                        "hash": "fc1cc25f6808340610f2556745662bb16d426327",
+                        "name": "step/scaffold3"
+                    },
+                    {
+                        "hash": "aa83c9d0c1198899f9e8dc3fa45c8d27760d2310",
+                        "name": "step/scaffold4"
+                    },
+                    {
+                        "hash": "773b5282fa8c170f6966f3d7330d6c000e43e293",
+                        "name": "step/scaffold5"
+                    },
+                    {
+                        "hash": "e376c227976d305aaa1ede9ad04ff02c4325f03f",
+                        "name": "step/scaffold6"
+                    },
+                    {
+                        "hash": "6c4603afe9498f3d5f25b01f3f28807b3184fa83",
+                        "name": "step/scaffold7"
+                    }
+                ],
+                "subtitle": "Footsteps",
+                "subtitle_key": "subtitles.block.generic.footsteps"
+            }
+        ]
+    },
+    "stats": {},
+    "tags": {},
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            1907,
+            1908
+        ],
+        "name": [
+            "18w44a",
+            "18w45a"
+        ],
+        "protocol": [
+            443,
+            444
+        ]
+    }
+}
