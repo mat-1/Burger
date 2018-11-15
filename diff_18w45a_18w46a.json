@@ -1,0 +1,331 @@
+{
+    "achievements": {},
+    "biomes": {
+        "biome": {}
+    },
+    "blocks": {
+        "block": {
+            "jigsaw": [
+                null,
+                {
+                    "class": "bhz",
+                    "display_name": "Jigsaw block",
+                    "field": "lU",
+                    "hardness": -1.0,
+                    "max_state_id": 10888,
+                    "min_state_id": 10883,
+                    "num_states": 6,
+                    "numeric_id": 670,
+                    "resistance": 3600000.0,
+                    "states": [
+                        {
+                            "declared_in": "bow",
+                            "field_name": "a",
+                            "name": "facing",
+                            "num_values": 6,
+                            "type": "direction",
+                            "values": [
+                                "NORTH",
+                                "EAST",
+                                "SOUTH",
+                                "WEST",
+                                "UP",
+                                "DOWN"
+                            ]
+                        }
+                    ],
+                    "text_id": "jigsaw"
+                }
+            ],
+            "lantern": [
+                null,
+                {
+                    "class": "bie",
+                    "display_name": "Lantern",
+                    "field": "lS",
+                    "hardness": 3.5,
+                    "light": 15,
+                    "max_state_id": 10878,
+                    "min_state_id": 10877,
+                    "num_states": 2,
+                    "numeric_id": 668,
+                    "resistance": 3.5,
+                    "states": [
+                        {
+                            "declared_in": "bow",
+                            "field_name": "a",
+                            "name": "hanging",
+                            "num_values": 2,
+                            "type": "bool"
+                        }
+                    ],
+                    "text_id": "lantern"
+                }
+            ],
+            "scaffolding": [
+                {
+                    "class": "bji",
+                    "display_name": "Scaffolding",
+                    "field": "lG",
+                    "hardness": 2.0,
+                    "max_state_id": 10798,
+                    "min_state_id": 10787,
+                    "num_states": 12,
+                    "numeric_id": 656,
+                    "resistance": 3.0,
+                    "states": [
+                        {
+                            "declared_in": "bol",
+                            "field_name": "a",
+                            "max": 5,
+                            "min": 0,
+                            "name": "distance",
+                            "num_values": 6,
+                            "type": "int"
+                        },
+                        {
+                            "declared_in": "bol",
+                            "field_name": "b",
+                            "name": "waterlogged",
+                            "num_values": 2,
+                            "type": "bool"
+                        }
+                    ],
+                    "text_id": "scaffolding"
+                },
+                {
+                    "class": "bjs",
+                    "display_name": "Scaffolding",
+                    "field": "lG",
+                    "hardness": 2.0,
+                    "max_state_id": 10818,
+                    "min_state_id": 10787,
+                    "num_states": 32,
+                    "numeric_id": 656,
+                    "resistance": 3.0,
+                    "states": [
+                        {
+                            "declared_in": "bow",
+                            "field_name": "a",
+                            "max": 7,
+                            "min": 0,
+                            "name": "distance",
+                            "num_values": 8,
+                            "type": "int"
+                        },
+                        {
+                            "declared_in": "bow",
+                            "field_name": "b",
+                            "name": "waterlogged",
+                            "num_values": 2,
+                            "type": "bool"
+                        },
+                        {
+                            "declared_in": "bow",
+                            "field_name": "c",
+                            "name": "bottom",
+                            "num_values": 2,
+                            "type": "bool"
+                        }
+                    ],
+                    "text_id": "scaffolding"
+                }
+            ]
+        }
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {},
+        "object": {}
+    },
+    "items": {
+        "item": {
+            "jigsaw": [
+                null,
+                {
+                    "class": "auv",
+                    "display_name": "Jigsaw block",
+                    "field": "iU",
+                    "max_stack_size": 64,
+                    "numeric_id": 514,
+                    "text_id": "jigsaw"
+                }
+            ],
+            "lantern": [
+                null,
+                {
+                    "display_name": "Lantern",
+                    "field": "pI",
+                    "max_stack_size": 64,
+                    "numeric_id": 866,
+                    "text_id": "lantern"
+                }
+            ]
+        }
+    },
+    "language": {
+        "block": {
+            "minecraft.jigsaw": [
+                null,
+                "Jigsaw block"
+            ],
+            "minecraft.lantern": [
+                null,
+                "Lantern"
+            ]
+        },
+        "jigsaw_block": [
+            null,
+            {
+                "attachement_type": "Attachment type:",
+                "final_state": "Turns into:",
+                "target_pool": "Target pool:"
+            }
+        ]
+    },
+    "packets": {
+        "packet": {}
+    },
+    "recipes": {
+        "lantern": [
+            null,
+            [
+                {
+                    "id": "minecraft:lantern",
+                    "makes": {
+                        "count": 1,
+                        "name": "lantern",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "XXX",
+                            "X#X",
+                            "XXX"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "torch",
+                                "type": "item"
+                            },
+                            "X": {
+                                "name": "iron_nugget",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "iron_nugget",
+                                "type": "item"
+                            },
+                            {
+                                "name": "iron_nugget",
+                                "type": "item"
+                            },
+                            {
+                                "name": "iron_nugget",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "iron_nugget",
+                                "type": "item"
+                            },
+                            {
+                                "name": "torch",
+                                "type": "item"
+                            },
+                            {
+                                "name": "iron_nugget",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "iron_nugget",
+                                "type": "item"
+                            },
+                            {
+                                "name": "iron_nugget",
+                                "type": "item"
+                            },
+                            {
+                                "name": "iron_nugget",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ]
+    },
+    "sounds": {},
+    "stats": {},
+    "tags": {
+        "blocks/fences": [
+            null,
+            {
+                "name": "fences",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:nether_brick_fence",
+                    "minecraft:oak_fence",
+                    "minecraft:acacia_fence",
+                    "minecraft:dark_oak_fence",
+                    "minecraft:spruce_fence",
+                    "minecraft:birch_fence",
+                    "minecraft:jungle_fence"
+                ]
+            }
+        ],
+        "items/fences": [
+            null,
+            {
+                "name": "fences",
+                "replace": false,
+                "type": "items",
+                "values": [
+                    "minecraft:nether_brick_fence",
+                    "minecraft:oak_fence",
+                    "minecraft:acacia_fence",
+                    "minecraft:dark_oak_fence",
+                    "minecraft:spruce_fence",
+                    "minecraft:birch_fence",
+                    "minecraft:jungle_fence"
+                ]
+            }
+        ]
+    },
+    "tileentity": {
+        "tileentities": {
+            "jigsaw": [
+                null,
+                {
+                    "blocks": [],
+                    "class": "bmr",
+                    "name": "jigsaw",
+                    "network_id": 12
+                }
+            ]
+        }
+    },
+    "version": {
+        "data": [
+            1908,
+            1910
+        ],
+        "name": [
+            "18w45a",
+            "18w46a"
+        ],
+        "protocol": [
+            444,
+            445
+        ]
+    }
+}
