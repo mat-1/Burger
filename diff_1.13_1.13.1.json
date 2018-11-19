@@ -79,6 +79,7 @@
             ],
             "conduit": [
                 {
+                    "block_entity": "conduit",
                     "class": "bdg",
                     "display_name": "Conduit",
                     "field": "kj",
@@ -93,6 +94,7 @@
                     "text_id": "conduit"
                 },
                 {
+                    "block_entity": "conduit",
                     "class": "bdo",
                     "display_name": "Conduit",
                     "field": "ko",
@@ -382,7 +384,234 @@
         }
     },
     "entities": {
-        "entity": {},
+        "dataserializers": {},
+        "entity": {
+            "arrow": [
+                {
+                    "class": "aoi",
+                    "display_name": "Arrow",
+                    "field": "d",
+                    "id": 2,
+                    "metadata": [
+                        {
+                            "class": "aeo",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "aog",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "g",
+                                    "index": 6,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "aoi",
+                            "data": [
+                                {
+                                    "default": -1,
+                                    "field": "f",
+                                    "index": 7,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "arrow"
+                },
+                {
+                    "class": "aol",
+                    "display_name": "Arrow",
+                    "field": "c",
+                    "id": 2,
+                    "metadata": [
+                        {
+                            "class": "aer",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "aoj",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "h",
+                                    "index": 6,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "a",
+                                    "index": 7,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        },
+                        {
+                            "class": "aol",
+                            "data": [
+                                {
+                                    "default": -1,
+                                    "field": "g",
+                                    "index": 8,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "arrow"
+                }
+            ],
+            "spectral_arrow": [
+                {
+                    "class": "aou",
+                    "display_name": "Spectral Arrow",
+                    "field": "ar",
+                    "id": 68,
+                    "metadata": [
+                        {
+                            "class": "aeo",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "aog",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "g",
+                                    "index": 6,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "spectral_arrow"
+                },
+                {
+                    "class": "aox",
+                    "display_name": "Spectral Arrow",
+                    "field": "aq",
+                    "id": 68,
+                    "metadata": [
+                        {
+                            "class": "aer",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "aoj",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "h",
+                                    "index": 6,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "a",
+                                    "index": 7,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "spectral_arrow"
+                }
+            ],
+            "trident": [
+                {
+                    "class": "apa",
+                    "display_name": "Trident",
+                    "field": "aR",
+                    "id": 94,
+                    "metadata": [
+                        {
+                            "class": "aeo",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "aog",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "g",
+                                    "index": 6,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "apa",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "g",
+                                    "index": 7,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "trident"
+                },
+                {
+                    "class": "apd",
+                    "display_name": "Trident",
+                    "field": "aQ",
+                    "id": 94,
+                    "metadata": [
+                        {
+                            "class": "aer",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "aoj",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "h",
+                                    "index": 6,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "a",
+                                    "index": 7,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        },
+                        {
+                            "class": "apd",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "h",
+                                    "index": 8,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "trident"
+                }
+            ]
+        },
         "object": {}
     },
     "items": {

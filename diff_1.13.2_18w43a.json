@@ -41,6 +41,7 @@
             "acacia_sign": [
                 null,
                 {
+                    "block_entity": "sign",
                     "class": "biv",
                     "display_name": "Acacia Sign",
                     "field": "ca",
@@ -74,6 +75,7 @@
             "acacia_wall_sign": [
                 null,
                 {
+                    "block_entity": "sign",
                     "class": "bjp",
                     "display_name": "Acacia Wall Sign",
                     "field": "ck",
@@ -335,6 +337,7 @@
             "birch_sign": [
                 null,
                 {
+                    "block_entity": "sign",
                     "class": "biv",
                     "display_name": "Birch Sign",
                     "field": "bZ",
@@ -368,6 +371,7 @@
             "birch_wall_sign": [
                 null,
                 {
+                    "block_entity": "sign",
                     "class": "bjp",
                     "display_name": "Birch Wall Sign",
                     "field": "cj",
@@ -480,6 +484,7 @@
             "dark_oak_sign": [
                 null,
                 {
+                    "block_entity": "sign",
                     "class": "biv",
                     "display_name": "Dark Oak Sign",
                     "field": "cc",
@@ -513,6 +518,7 @@
             "dark_oak_wall_sign": [
                 null,
                 {
+                    "block_entity": "sign",
                     "class": "bjp",
                     "display_name": "Dark Oak Wall Sign",
                     "field": "cm",
@@ -1030,6 +1036,7 @@
             "jungle_sign": [
                 null,
                 {
+                    "block_entity": "sign",
                     "class": "biv",
                     "display_name": "Jungle Sign",
                     "field": "cb",
@@ -1063,6 +1070,7 @@
             "jungle_wall_sign": [
                 null,
                 {
+                    "block_entity": "sign",
                     "class": "bjp",
                     "display_name": "Jungle Wall Sign",
                     "field": "cl",
@@ -1466,6 +1474,7 @@
             "oak_sign": [
                 null,
                 {
+                    "block_entity": "sign",
                     "class": "biv",
                     "display_name": "Oak Sign",
                     "field": "bX",
@@ -1499,6 +1508,7 @@
             "oak_wall_sign": [
                 null,
                 {
+                    "block_entity": "sign",
                     "class": "bjp",
                     "display_name": "Oak Wall Sign",
                     "field": "ch",
@@ -2391,6 +2401,7 @@
             ],
             "sign": [
                 {
+                    "block_entity": "sign",
                     "class": "bhy",
                     "display_name": "Sign",
                     "field": "cs",
@@ -2765,6 +2776,7 @@
             "spruce_sign": [
                 null,
                 {
+                    "block_entity": "sign",
                     "class": "biv",
                     "display_name": "Spruce Sign",
                     "field": "bY",
@@ -2798,6 +2810,7 @@
             "spruce_wall_sign": [
                 null,
                 {
+                    "block_entity": "sign",
                     "class": "bjp",
                     "display_name": "Spruce Wall Sign",
                     "field": "ci",
@@ -2957,6 +2970,7 @@
             ],
             "wall_sign": [
                 {
+                    "block_entity": "sign",
                     "class": "bit",
                     "display_name": "Wall Sign",
                     "field": "cC",
@@ -3050,7 +3064,7 @@
                                     "default": -1,
                                     "field": "g",
                                     "index": 8,
-                                    "serializer": "Integer",
+                                    "serializer": "VarInt",
                                     "serializer_id": 1
                                 }
                             ]
@@ -3101,7 +3115,7 @@
                                     "default": -1,
                                     "field": "au",
                                     "index": 9,
-                                    "serializer": "Integer",
+                                    "serializer": "VarInt",
                                     "serializer_id": 1
                                 }
                             ]
@@ -3136,7 +3150,7 @@
                                     "default": 0,
                                     "field": "b",
                                     "index": 7,
-                                    "serializer": "Integer",
+                                    "serializer": "VarInt",
                                     "serializer_id": 1
                                 }
                             ]
@@ -3170,7 +3184,7 @@
                                     "default": 0,
                                     "field": "b",
                                     "index": 7,
-                                    "serializer": "Integer",
+                                    "serializer": "VarInt",
                                     "serializer_id": 1
                                 },
                                 {
@@ -3237,21 +3251,21 @@
                                     "default": 0,
                                     "field": "bD",
                                     "index": 13,
-                                    "serializer": "Integer",
+                                    "serializer": "VarInt",
                                     "serializer_id": 1
                                 },
                                 {
                                     "default": 0,
                                     "field": "bE",
                                     "index": 14,
-                                    "serializer": "Integer",
+                                    "serializer": "VarInt",
                                     "serializer_id": 1
                                 },
                                 {
                                     "default": 0,
                                     "field": "bG",
                                     "index": 15,
-                                    "serializer": "Integer",
+                                    "serializer": "VarInt",
                                     "serializer_id": 1
                                 },
                                 {
@@ -19739,7 +19753,38 @@
         ]
     },
     "tileentity": {
-        "tileentities": {}
+        "tileentities": {
+            "sign": [
+                {
+                    "blocks": [
+                        "sign",
+                        "wall_sign"
+                    ],
+                    "class": "bkc",
+                    "name": "sign",
+                    "network_id": 9
+                },
+                {
+                    "blocks": [
+                        "oak_sign",
+                        "spruce_sign",
+                        "birch_sign",
+                        "acacia_sign",
+                        "jungle_sign",
+                        "dark_oak_sign",
+                        "oak_wall_sign",
+                        "spruce_wall_sign",
+                        "birch_wall_sign",
+                        "acacia_wall_sign",
+                        "jungle_wall_sign",
+                        "dark_oak_wall_sign"
+                    ],
+                    "class": "bkz",
+                    "name": "sign",
+                    "network_id": 9
+                }
+            ]
+        }
     },
     "version": {
         "data": [

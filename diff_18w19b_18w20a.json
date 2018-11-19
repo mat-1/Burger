@@ -386,13 +386,33 @@
         }
     },
     "entities": {
+        "dataserializers": {},
         "entity": {
             "cod": [
                 null,
                 {
                     "class": "amx",
+                    "field": "j",
                     "height": 0.3,
                     "id": 8,
+                    "metadata": [
+                        {
+                            "class": "aih",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "amt",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "cod",
                     "width": 0.5
                 }
@@ -400,8 +420,27 @@
             "cod_mob": [
                 {
                     "class": "amt",
+                    "field": "j",
                     "height": 0.25,
                     "id": 8,
+                    "metadata": [
+                        {
+                            "class": "aid",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "amp",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "cod_mob",
                     "width": 0.5
                 },
@@ -411,22 +450,57 @@
                 {
                     "class": "apk",
                     "display_name": "Bolt of Lightning",
+                    "field": "aO",
                     "id": 91,
-                    "name": "lightning_bolt"
+                    "metadata": [
+                        {
+                            "class": "aht",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
+                    "name": "lightning_bolt",
+                    "serializable": "false"
                 },
                 {
                     "class": "apo",
                     "display_name": "Lightning Bolt",
+                    "field": "aO",
                     "id": 91,
-                    "name": "lightning_bolt"
+                    "metadata": [
+                        {
+                            "class": "ahx",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
+                    "name": "lightning_bolt",
+                    "serializable": "false"
                 }
             ],
             "salmon": [
                 null,
                 {
                     "class": "ani",
+                    "field": "ag",
                     "height": 0.4,
                     "id": 57,
+                    "metadata": [
+                        {
+                            "class": "aih",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "amt",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "salmon",
                     "width": 0.7
                 }
@@ -434,8 +508,27 @@
             "salmon_mob": [
                 {
                     "class": "ane",
+                    "field": "ag",
                     "height": 0.5,
                     "id": 57,
+                    "metadata": [
+                        {
+                            "class": "aid",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "amp",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "salmon_mob",
                     "width": 0.7
                 },
@@ -444,16 +537,78 @@
             "tropical_fish": [
                 {
                     "class": "anj",
+                    "field": "av",
                     "height": 0.4,
                     "id": 72,
+                    "metadata": [
+                        {
+                            "class": "aid",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "amp",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "anj",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 13,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "tropical_fish",
                     "width": 0.5
                 },
                 {
                     "class": "ann",
                     "display_name": "Tropical Fish",
+                    "field": "av",
                     "height": 0.4,
                     "id": 72,
+                    "metadata": [
+                        {
+                            "class": "aih",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "amt",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "ann",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 13,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "tropical_fish",
                     "width": 0.5
                 }

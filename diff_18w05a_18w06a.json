@@ -101,52 +101,215 @@
         }
     },
     "entities": {
+        "dataserializers": {},
         "entity": {
             "fishing_bobber": [
-                null,
-                {
-                    "class": "aih",
-                    "display_name": "Fishing Bobber",
-                    "id": 85,
-                    "name": "fishing_bobber"
-                }
-            ],
-            "lightning_bolt": [
-                null,
-                {
-                    "class": "aik",
-                    "display_name": "Bolt of Lightning",
-                    "id": 83,
-                    "name": "lightning_bolt"
-                }
-            ],
-            "player": [
-                null,
-                {
-                    "class": "akf",
-                    "display_name": "Player",
-                    "id": 84,
-                    "name": "player"
-                }
-            ]
-        },
-        "object": {
-            "90": [
                 {
                     "class": "ahj",
-                    "id": 90
+                    "field": "aI",
+                    "id": 85,
+                    "metadata": [
+                        {
+                            "class": "aaj",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "ahj",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 6,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "fishing_bobber",
+                    "serializable": "false"
                 },
                 {
                     "class": "aih",
-                    "entity": {
-                        "display_name": "Fishing Bobber",
-                        "id": 85,
-                        "name": "fishing_bobber"
-                    },
-                    "id": 90
+                    "display_name": "Fishing Bobber",
+                    "field": "aI",
+                    "id": 85,
+                    "metadata": [
+                        {
+                            "class": "abh",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "aih",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 6,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "fishing_bobber",
+                    "serializable": "false"
+                }
+            ],
+            "lightning_bolt": [
+                {
+                    "class": "ahm",
+                    "field": "aG",
+                    "id": 83,
+                    "metadata": [
+                        {
+                            "class": "aaj",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
+                    "name": "lightning_bolt",
+                    "serializable": "false"
+                },
+                {
+                    "class": "aik",
+                    "display_name": "Bolt of Lightning",
+                    "field": "aG",
+                    "id": 83,
+                    "metadata": [
+                        {
+                            "class": "abh",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
+                    "name": "lightning_bolt",
+                    "serializable": "false"
+                }
+            ],
+            "player": [
+                {
+                    "class": "ajh",
+                    "field": "aH",
+                    "id": 84,
+                    "metadata": [
+                        {
+                            "class": "aat",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "ajh",
+                            "data": [
+                                {
+                                    "default": 0.0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Float",
+                                    "serializer_id": 2
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 12,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bs",
+                                    "index": 13,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": 1,
+                                    "field": "bt",
+                                    "index": 14,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bu",
+                                    "index": 15,
+                                    "serializer": "NBT",
+                                    "serializer_id": 14
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bv",
+                                    "index": 16,
+                                    "serializer": "NBT",
+                                    "serializer_id": 14
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "player",
+                    "serializable": "false"
+                },
+                {
+                    "class": "akf",
+                    "display_name": "Player",
+                    "field": "aH",
+                    "id": 84,
+                    "metadata": [
+                        {
+                            "class": "abr",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "class": "akf",
+                            "data": [
+                                {
+                                    "default": 0.0,
+                                    "field": "a",
+                                    "index": 11,
+                                    "serializer": "Float",
+                                    "serializer_id": 2
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 12,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bs",
+                                    "index": 13,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": 1,
+                                    "field": "bt",
+                                    "index": 14,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bu",
+                                    "index": 15,
+                                    "serializer": "NBT",
+                                    "serializer_id": 14
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bv",
+                                    "index": 16,
+                                    "serializer": "NBT",
+                                    "serializer_id": 14
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "player",
+                    "serializable": "false"
                 }
             ]
-        }
+        },
+        "object": {}
     },
     "items": {
         "item": {}

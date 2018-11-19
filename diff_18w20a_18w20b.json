@@ -607,18 +607,71 @@
         }
     },
     "entities": {
+        "dataserializers": {},
         "entity": {
             "ender_crystal": [
                 {
                     "class": "aoh",
                     "display_name": "Ender Crystal",
+                    "field": "r",
                     "id": 16,
+                    "metadata": [
+                        {
+                            "class": "ahx",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "aoh",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "b",
+                                    "index": 6,
+                                    "serializer": "OptBlockPos",
+                                    "serializer_id": 10
+                                },
+                                {
+                                    "default": true,
+                                    "field": "c",
+                                    "index": 7,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "ender_crystal"
                 },
                 {
                     "class": "aoh",
                     "display_name": "End Crystal",
+                    "field": "r",
                     "id": 16,
+                    "metadata": [
+                        {
+                            "class": "ahx",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "aoh",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "b",
+                                    "index": 6,
+                                    "serializer": "OptBlockPos",
+                                    "serializer_id": 10
+                                },
+                                {
+                                    "default": true,
+                                    "field": "c",
+                                    "index": 7,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "ender_crystal"
                 }
             ],
@@ -626,67 +679,60 @@
                 {
                     "class": "aps",
                     "display_name": "Block of TNT",
+                    "field": "ae",
                     "height": 0.98,
                     "id": 55,
+                    "metadata": [
+                        {
+                            "class": "ahx",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "aps",
+                            "data": [
+                                {
+                                    "default": 80,
+                                    "field": "a",
+                                    "index": 6,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "tnt",
                     "width": 0.98
                 },
                 {
                     "class": "aps",
                     "display_name": "Primed TNT",
+                    "field": "ae",
                     "height": 0.98,
                     "id": 55,
+                    "metadata": [
+                        {
+                            "class": "ahx",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "class": "aps",
+                            "data": [
+                                {
+                                    "default": 80,
+                                    "field": "a",
+                                    "index": 6,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "tnt",
                     "width": 0.98
                 }
             ]
         },
-        "object": {
-            "50": [
-                {
-                    "class": "aps",
-                    "entity": {
-                        "display_name": "Block of TNT",
-                        "height": 0.98,
-                        "id": 55,
-                        "name": "tnt",
-                        "width": 0.98
-                    },
-                    "id": 50
-                },
-                {
-                    "class": "aps",
-                    "entity": {
-                        "display_name": "Primed TNT",
-                        "height": 0.98,
-                        "id": 55,
-                        "name": "tnt",
-                        "width": 0.98
-                    },
-                    "id": 50
-                }
-            ],
-            "51": [
-                {
-                    "class": "aoh",
-                    "entity": {
-                        "display_name": "Ender Crystal",
-                        "id": 16,
-                        "name": "ender_crystal"
-                    },
-                    "id": 51
-                },
-                {
-                    "class": "aoh",
-                    "entity": {
-                        "display_name": "End Crystal",
-                        "id": 16,
-                        "name": "ender_crystal"
-                    },
-                    "id": 51
-                }
-            ]
-        }
+        "object": {}
     },
     "items": {
         "item": {
