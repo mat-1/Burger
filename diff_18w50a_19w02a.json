@@ -1,0 +1,4976 @@
+{
+    "achievements": {},
+    "biomes": {
+        "biome": {}
+    },
+    "blocks": {
+        "block": {
+            "campfire": [
+                null,
+                {
+                    "block_entity": "campfire",
+                    "class": "bhs",
+                    "display_name": "Campfire",
+                    "field": "lU",
+                    "hardness": 2.0,
+                    "light": 9,
+                    "max_state_id": 10906,
+                    "min_state_id": 10899,
+                    "num_states": 8,
+                    "numeric_id": 670,
+                    "resistance": 2.0,
+                    "states": [
+                        {
+                            "declared_in": "bqv",
+                            "field_name": "b",
+                            "name": "lit",
+                            "num_values": 2,
+                            "type": "bool"
+                        },
+                        {
+                            "declared_in": "bqv",
+                            "field_name": "c",
+                            "name": "signal_fire",
+                            "num_values": 2,
+                            "type": "bool"
+                        },
+                        {
+                            "declared_in": "bqv",
+                            "field_name": "d",
+                            "name": "waterlogged",
+                            "num_values": 2,
+                            "type": "bool"
+                        }
+                    ],
+                    "text_id": "campfire"
+                }
+            ],
+            "grindstone": [
+                {
+                    "class": "bjc",
+                    "display_name": "Grindstone",
+                    "field": "lN",
+                    "hardness": 5.0,
+                    "max_state_id": 10858,
+                    "min_state_id": 10847,
+                    "num_states": 12,
+                    "numeric_id": 663,
+                    "resistance": 1200.0,
+                    "states": [
+                        {
+                            "declared_in": "bqd",
+                            "field_name": "ay",
+                            "name": "facing",
+                            "num_values": 4,
+                            "type": "direction",
+                            "values": [
+                                "NORTH",
+                                "EAST",
+                                "SOUTH",
+                                "WEST"
+                            ]
+                        },
+                        {
+                            "declared_in": "bqd",
+                            "enum_class": "bpz",
+                            "field_name": "C",
+                            "name": "face",
+                            "num_values": 3,
+                            "type": "enum",
+                            "values": [
+                                "FLOOR",
+                                "WALL",
+                                "CEILING"
+                            ]
+                        }
+                    ],
+                    "text_id": "grindstone"
+                },
+                {
+                    "class": "bjt",
+                    "display_name": "Grindstone",
+                    "field": "lN",
+                    "hardness": 2.0,
+                    "max_state_id": 10858,
+                    "min_state_id": 10847,
+                    "num_states": 12,
+                    "numeric_id": 663,
+                    "resistance": 6.0,
+                    "states": [
+                        {
+                            "declared_in": "bqv",
+                            "field_name": "ay",
+                            "name": "facing",
+                            "num_values": 4,
+                            "type": "direction",
+                            "values": [
+                                "NORTH",
+                                "EAST",
+                                "SOUTH",
+                                "WEST"
+                            ]
+                        },
+                        {
+                            "declared_in": "bqv",
+                            "enum_class": "bqr",
+                            "field_name": "C",
+                            "name": "face",
+                            "num_values": 3,
+                            "type": "enum",
+                            "values": [
+                                "FLOOR",
+                                "WALL",
+                                "CEILING"
+                            ]
+                        }
+                    ],
+                    "text_id": "grindstone"
+                }
+            ],
+            "lectern": [
+                {
+                    "block_entity": "lectern",
+                    "class": "bjs",
+                    "display_name": "Lectern",
+                    "field": "lO",
+                    "hardness": 2.5,
+                    "max_state_id": 10862,
+                    "min_state_id": 10859,
+                    "num_states": 4,
+                    "numeric_id": 664,
+                    "resistance": 2.5,
+                    "states": [
+                        {
+                            "declared_in": "bqd",
+                            "field_name": "a",
+                            "name": "facing",
+                            "num_values": 4,
+                            "type": "direction",
+                            "values": [
+                                "NORTH",
+                                "EAST",
+                                "SOUTH",
+                                "WEST"
+                            ]
+                        }
+                    ],
+                    "text_id": "lectern"
+                },
+                {
+                    "block_entity": "lectern",
+                    "class": "bkj",
+                    "display_name": "Lectern",
+                    "field": "lO",
+                    "hardness": 2.5,
+                    "max_state_id": 10874,
+                    "min_state_id": 10859,
+                    "num_states": 16,
+                    "numeric_id": 664,
+                    "resistance": 2.5,
+                    "states": [
+                        {
+                            "declared_in": "bqv",
+                            "field_name": "a",
+                            "name": "facing",
+                            "num_values": 4,
+                            "type": "direction",
+                            "values": [
+                                "NORTH",
+                                "EAST",
+                                "SOUTH",
+                                "WEST"
+                            ]
+                        },
+                        {
+                            "declared_in": "bqv",
+                            "field_name": "b",
+                            "name": "powered",
+                            "num_values": 2,
+                            "type": "bool"
+                        },
+                        {
+                            "declared_in": "bqv",
+                            "field_name": "c",
+                            "name": "has_book",
+                            "num_values": 2,
+                            "type": "bool"
+                        }
+                    ],
+                    "text_id": "lectern"
+                }
+            ]
+        }
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {
+            "pillager": [
+                {
+                    "class": "apy",
+                    "display_name": "Pillager",
+                    "field": "aG",
+                    "height": 1.95,
+                    "id": 84,
+                    "metadata": [
+                        {
+                            "class": "apu",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "class": "apb",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "a",
+                                    "index": 12,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "apy",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 13,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "pillager",
+                    "texture": "Inventory",
+                    "width": 0.6
+                },
+                {
+                    "class": "aqh",
+                    "display_name": "Pillager",
+                    "field": "aG",
+                    "height": 1.95,
+                    "id": 84,
+                    "metadata": [
+                        {
+                            "class": "aqd",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "class": "apk",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 12,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "aqh",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "c",
+                                    "index": 13,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "pillager",
+                    "width": 0.6
+                }
+            ]
+        },
+        "object": {}
+    },
+    "items": {
+        "item": {
+            "campfire": [
+                null,
+                {
+                    "display_name": "Campfire",
+                    "field": "pK",
+                    "max_stack_size": 64,
+                    "numeric_id": 868,
+                    "text_id": "campfire"
+                }
+            ]
+        }
+    },
+    "language": {
+        "block": {
+            "minecraft.campfire": [
+                null,
+                "Campfire"
+            ]
+        },
+        "chat": {
+            "type.team.hover": [
+                null,
+                "Message Team"
+            ],
+            "type.team.sent": [
+                null,
+                "-> %s <%s> %s"
+            ],
+            "type.team.text": [
+                null,
+                "%s <%s> %s"
+            ]
+        },
+        "commands": {
+            "data.modify.invalid_index": [
+                null,
+                "Invalid list index: %s"
+            ],
+            "teammsg.failed.noteam": [
+                null,
+                "You must be on a team to message your team"
+            ]
+        },
+        "container": {
+            "cartography_table": [
+                null,
+                "Cartography Table"
+            ],
+            "lectern": [
+                null,
+                "Lectern"
+            ]
+        },
+        "filled_map": {
+            "locked": [
+                null,
+                "Locked"
+            ]
+        },
+        "lectern": [
+            null,
+            {
+                "take_book": "Take book"
+            }
+        ],
+        "menu": {
+            "preparingSpawn": [
+                "Preparing spawn area",
+                "Preparing spawn area: %s%%"
+            ]
+        },
+        "stat": {
+            "minecraft.clean_shulker_box": [
+                "Shulker Box Cleaned",
+                "Shulker Boxes Cleaned"
+            ],
+            "minecraft.interact_with_blast_furnace": [
+                null,
+                "Interactions with Blast Furnace"
+            ],
+            "minecraft.interact_with_campfire": [
+                null,
+                "Interactions with Campfire"
+            ],
+            "minecraft.interact_with_lectern": [
+                null,
+                "Interactions with Lectern"
+            ],
+            "minecraft.interact_with_smoker": [
+                null,
+                "Interactions with Smoker"
+            ]
+        },
+        "subtitles": {
+            "block.campfire.crackle": [
+                null,
+                "Campfire crackles"
+            ],
+            "item.book.page_turn": [
+                null,
+                "Page rustles"
+            ],
+            "item.book.put": [
+                null,
+                "Book thumps"
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_14": [
+                {
+                    "class": "kp.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 20,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "chatcomponent"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "condition": "b.equals(\"EntityHorse\")",
+                            "instructions": [
+                                {
+                                    "field": "e",
+                                    "operation": "write",
+                                    "type": "int"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "la.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 20,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "int"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_26": [
+                {
+                    "class": "lh.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 38,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "d.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.d",
+                            "var": "var2"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "var2.length",
+                            "var": "var3"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var4"
+                        },
+                        {
+                            "condition": "var4 < var3",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "var2[var4]",
+                                    "var": "var5"
+                                },
+                                {
+                                    "field": "var5.b()",
+                                    "operation": "write",
+                                    "type": "enum"
+                                },
+                                {
+                                    "field": "var5.c()",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "var5.d()",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "var5.e() & 0xf",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "condition": "var5.g() != null",
+                                    "instructions": [
+                                        {
+                                            "field": "1",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "var5.g()",
+                                            "operation": "write",
+                                            "type": "chatcomponent"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "instructions": [
+                                        {
+                                            "field": "0",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        }
+                                    ],
+                                    "operation": "else"
+                                },
+                                {
+                                    "amount": "1",
+                                    "field": "var4",
+                                    "operation": "increment"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "condition": "g > 0",
+                            "instructions": [
+                                {
+                                    "field": "h",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "e",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "f",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "i.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "i",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "lh.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 38,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "e.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.e",
+                            "var": "var2"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "var2.length",
+                            "var": "var3"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var4"
+                        },
+                        {
+                            "condition": "var4 < var3",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "var2[var4]",
+                                    "var": "var5"
+                                },
+                                {
+                                    "field": "var5.b()",
+                                    "operation": "write",
+                                    "type": "enum"
+                                },
+                                {
+                                    "field": "var5.c()",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "var5.d()",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "var5.e() & 0xf",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "condition": "var5.g() != null",
+                                    "instructions": [
+                                        {
+                                            "field": "1",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "var5.g()",
+                                            "operation": "write",
+                                            "type": "chatcomponent"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "instructions": [
+                                        {
+                                            "field": "0",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        }
+                                    ],
+                                    "operation": "else"
+                                },
+                                {
+                                    "amount": "1",
+                                    "field": "var4",
+                                    "operation": "increment"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "condition": "h > 0",
+                            "instructions": [
+                                {
+                                    "field": "i",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "f",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "g",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "j.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "j",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_59": [
+                null,
+                {
+                    "class": "lm.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 89,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "chatcomponent"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_5A": [
+                null,
+                {
+                    "class": "li.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 90,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "(byte)(b.size() & 0xff)",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2 < b.size()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((bbk)this.b.get(var2))",
+                                    "var": "var3"
+                                },
+                                {
+                                    "field": "var3.a()",
+                                    "operation": "write",
+                                    "type": "itemstack"
+                                },
+                                {
+                                    "field": "var3.c()",
+                                    "operation": "write",
+                                    "type": "itemstack"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "var3.b()",
+                                    "var": "var4"
+                                },
+                                {
+                                    "field": "(var4.a() == 0) ? 1 : 0",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                },
+                                {
+                                    "condition": "var4.a() == 0",
+                                    "instructions": [
+                                        {
+                                            "field": "var4",
+                                            "operation": "write",
+                                            "type": "itemstack"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "field": "var3.g()",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                },
+                                {
+                                    "field": "var3.d()",
+                                    "operation": "write",
+                                    "type": "int"
+                                },
+                                {
+                                    "field": "var3.e()",
+                                    "operation": "write",
+                                    "type": "int"
+                                },
+                                {
+                                    "amount": "1",
+                                    "field": "var2",
+                                    "operation": "increment"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "recipes": {
+        "campfire": [
+            null,
+            [
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "dark_oak_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "dark_oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "dark_oak_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "dark_oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "dark_oak_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "dark_oak_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "dark_oak_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "dark_oak_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_dark_oak_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_dark_oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_dark_oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_dark_oak_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_dark_oak_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_dark_oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_dark_oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_dark_oak_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_dark_oak_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_dark_oak_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_dark_oak_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_dark_oak_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_dark_oak_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_dark_oak_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_dark_oak_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_dark_oak_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "oak_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "oak_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "oak_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "oak_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "oak_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "oak_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_oak_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_oak_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_oak_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_oak_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_oak_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_oak_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_oak_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_oak_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_oak_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_oak_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_oak_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_oak_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "acacia_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "acacia_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "acacia_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "acacia_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "acacia_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "acacia_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "acacia_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "acacia_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_acacia_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_acacia_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_acacia_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_acacia_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_acacia_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_acacia_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_acacia_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_acacia_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_acacia_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_acacia_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_acacia_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_acacia_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_acacia_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_acacia_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_acacia_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_acacia_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "birch_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "birch_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "birch_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "birch_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "birch_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "birch_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "birch_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "birch_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_birch_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_birch_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_birch_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_birch_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_birch_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_birch_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_birch_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_birch_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_birch_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_birch_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_birch_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_birch_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_birch_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_birch_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_birch_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_birch_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "jungle_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "jungle_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "jungle_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "jungle_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "jungle_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "jungle_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "jungle_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "jungle_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_jungle_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_jungle_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_jungle_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_jungle_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_jungle_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_jungle_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_jungle_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_jungle_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_jungle_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_jungle_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_jungle_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_jungle_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_jungle_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_jungle_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_jungle_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_jungle_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "spruce_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "spruce_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "spruce_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "spruce_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "spruce_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "spruce_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "spruce_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "spruce_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_spruce_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_spruce_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_spruce_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_spruce_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_spruce_log",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_spruce_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_spruce_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_spruce_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_spruce_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "coal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_spruce_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_spruce_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_spruce_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:campfire",
+                    "makes": {
+                        "count": 1,
+                        "name": "campfire",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " S ",
+                            "SCS",
+                            "LLL"
+                        ],
+                        "subs": {
+                            "C": {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            "L": {
+                                "name": "stripped_spruce_wood",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            },
+                            {
+                                "name": "charcoal",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stick",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_spruce_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_spruce_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_spruce_wood",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "cartography_table": [
+            null,
+            [
+                {
+                    "id": "minecraft:cartography_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "cartography_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:cartography_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "cartography_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:cartography_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "cartography_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:cartography_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "cartography_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:cartography_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "cartography_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:cartography_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "cartography_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "lectern": [
+            null,
+            [
+                {
+                    "id": "minecraft:lectern",
+                    "makes": {
+                        "count": 1,
+                        "name": "lectern",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "SSS",
+                            " B ",
+                            " S "
+                        ],
+                        "subs": {
+                            "B": {
+                                "name": "bookshelf",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "oak_slab",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "oak_slab",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_slab",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_slab",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "bookshelf",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "oak_slab",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:lectern",
+                    "makes": {
+                        "count": 1,
+                        "name": "lectern",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "SSS",
+                            " B ",
+                            " S "
+                        ],
+                        "subs": {
+                            "B": {
+                                "name": "bookshelf",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "spruce_slab",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "spruce_slab",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_slab",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_slab",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "bookshelf",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "spruce_slab",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:lectern",
+                    "makes": {
+                        "count": 1,
+                        "name": "lectern",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "SSS",
+                            " B ",
+                            " S "
+                        ],
+                        "subs": {
+                            "B": {
+                                "name": "bookshelf",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "birch_slab",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "birch_slab",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_slab",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_slab",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "bookshelf",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "birch_slab",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:lectern",
+                    "makes": {
+                        "count": 1,
+                        "name": "lectern",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "SSS",
+                            " B ",
+                            " S "
+                        ],
+                        "subs": {
+                            "B": {
+                                "name": "bookshelf",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "jungle_slab",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "jungle_slab",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_slab",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_slab",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "bookshelf",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "jungle_slab",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:lectern",
+                    "makes": {
+                        "count": 1,
+                        "name": "lectern",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "SSS",
+                            " B ",
+                            " S "
+                        ],
+                        "subs": {
+                            "B": {
+                                "name": "bookshelf",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "acacia_slab",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "acacia_slab",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_slab",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_slab",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "bookshelf",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "acacia_slab",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:lectern",
+                    "makes": {
+                        "count": 1,
+                        "name": "lectern",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "SSS",
+                            " B ",
+                            " S "
+                        ],
+                        "subs": {
+                            "B": {
+                                "name": "bookshelf",
+                                "type": "item"
+                            },
+                            "S": {
+                                "name": "dark_oak_slab",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "dark_oak_slab",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_slab",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_slab",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "bookshelf",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "dark_oak_slab",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ]
+    },
+    "sounds": {
+        "block.campfire.crackle": [
+            null,
+            {
+                "field": "ay",
+                "id": 76,
+                "name": "block.campfire.crackle",
+                "sounds": [
+                    {
+                        "hash": "5cc75e9e824a6ae798e657282694cc4174bfdd15",
+                        "name": "block/campfire/crackle1"
+                    },
+                    {
+                        "hash": "c076377ba38821a3b050ebcf333043cb4cf59b81",
+                        "name": "block/campfire/crackle2"
+                    },
+                    {
+                        "hash": "f1a2ede27259b0b2321e36b2d70c2fd63d82e862",
+                        "name": "block/campfire/crackle3"
+                    },
+                    {
+                        "hash": "d696e2d6640747987a056319dfd6e15c25e75191",
+                        "name": "block/campfire/crackle4"
+                    },
+                    {
+                        "hash": "2b15d255ecf10baa81d8f51df3d2e43c68b52152",
+                        "name": "block/campfire/crackle5"
+                    },
+                    {
+                        "hash": "e1e793d3c910f0c270eeb9d590774583451f94f5",
+                        "name": "block/campfire/crackle6"
+                    }
+                ],
+                "subtitle": "Campfire crackles",
+                "subtitle_key": "subtitles.block.campfire.crackle"
+            }
+        ],
+        "item.book.page_turn": [
+            null,
+            {
+                "field": "ae",
+                "id": 56,
+                "name": "item.book.page_turn",
+                "sounds": [
+                    {
+                        "hash": "234d6a686516c264a370ea834b87d47ae7334ef7",
+                        "name": "item/book/open_flip1",
+                        "volume": 2
+                    },
+                    {
+                        "hash": "c7d1608c706d75df8f074fd04da027fdbf9ec5c1",
+                        "name": "item/book/open_flip2",
+                        "volume": 2
+                    },
+                    {
+                        "hash": "95f697cb272bb10a744a5062463a6e737a1c4ec2",
+                        "name": "item/book/open_flip3",
+                        "volume": 2
+                    }
+                ],
+                "subtitle": "Page rustles",
+                "subtitle_key": "subtitles.item.book.page_turn"
+            }
+        ],
+        "item.book.put": [
+            null,
+            {
+                "field": "af",
+                "id": 57,
+                "name": "item.book.put",
+                "sounds": [
+                    {
+                        "hash": "1bd5a33c1b50627d5fd45a44cf78ad6d96f483dd",
+                        "name": "item/book/close_put1"
+                    },
+                    {
+                        "hash": "eefec8ea4c0e3a2cf4357226bdcc1b2b7919e8ac",
+                        "name": "item/book/close_put2"
+                    }
+                ],
+                "subtitle": "Book thumps",
+                "subtitle_key": "subtitles.item.book.put"
+            }
+        ],
+        "ui.cartography_table.take_result": [
+            null,
+            {
+                "field": "lo",
+                "id": 638,
+                "name": "ui.cartography_table.take_result"
+            }
+        ]
+    },
+    "stats": {
+        "minecraft.clean_shulker_box": [
+            {
+                "desc": "Shulker Box Cleaned"
+            },
+            {
+                "desc": "Shulker Boxes Cleaned"
+            }
+        ],
+        "minecraft.interact_with_blast_furnace": [
+            null,
+            {
+                "desc": "Interactions with Blast Furnace"
+            }
+        ],
+        "minecraft.interact_with_campfire": [
+            null,
+            {
+                "desc": "Interactions with Campfire"
+            }
+        ],
+        "minecraft.interact_with_lectern": [
+            null,
+            {
+                "desc": "Interactions with Lectern"
+            }
+        ],
+        "minecraft.interact_with_smoker": [
+            null,
+            {
+                "desc": "Interactions with Smoker"
+            }
+        ]
+    },
+    "tags": {
+        "items/coals": [
+            null,
+            {
+                "name": "coals",
+                "replace": false,
+                "type": "items",
+                "values": [
+                    "minecraft:coal",
+                    "minecraft:charcoal"
+                ]
+            }
+        ]
+    },
+    "tileentity": {
+        "tileentities": {
+            "campfire": [
+                null,
+                {
+                    "blocks": [
+                        "campfire"
+                    ],
+                    "class": "bol",
+                    "name": "campfire",
+                    "network_id": 13
+                }
+            ]
+        }
+    },
+    "version": {
+        "data": [
+            1919,
+            1921
+        ],
+        "name": [
+            "18w50a",
+            "19w02a"
+        ],
+        "protocol": [
+            451,
+            452
+        ]
+    }
+}
