@@ -77,6 +77,7 @@
         }
     },
     "entities": {
+        "dataserializers": {},
         "entity": {
             "fox": [
                 null,
@@ -86,6 +87,57 @@
                     "field": "B",
                     "height": 0.5,
                     "id": 27,
+                    "metadata": [
+                        {
+                            "class": "ahv",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "ahj",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "ana",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bC",
+                                    "index": 13,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bD",
+                                    "index": 14,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bE",
+                                    "index": 15,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bG",
+                                    "index": 16,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        }
+                    ],
                     "name": "fox",
                     "width": 0.6
                 }
