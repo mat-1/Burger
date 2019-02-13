@@ -1,0 +1,538 @@
+{
+    "achievements": {},
+    "biomes": {
+        "biome": {}
+    },
+    "blocks": {
+        "block": {
+            "barrel": [
+                {
+                    "block_entity": "barrel",
+                    "class": "bhh",
+                    "display_name": "Barrel",
+                    "field": "lI",
+                    "hardness": 2.5,
+                    "max_state_id": 10828,
+                    "min_state_id": 10823,
+                    "num_states": 6,
+                    "numeric_id": 658,
+                    "resistance": 2.5,
+                    "states": [
+                        {
+                            "declared_in": "brj",
+                            "field_name": "a",
+                            "name": "facing",
+                            "num_values": 6,
+                            "type": "direction",
+                            "values": [
+                                "NORTH",
+                                "EAST",
+                                "SOUTH",
+                                "WEST",
+                                "UP",
+                                "DOWN"
+                            ]
+                        }
+                    ],
+                    "text_id": "barrel"
+                },
+                {
+                    "block_entity": "barrel",
+                    "class": "bho",
+                    "display_name": "Barrel",
+                    "field": "lI",
+                    "hardness": 2.5,
+                    "max_state_id": 10834,
+                    "min_state_id": 10823,
+                    "num_states": 12,
+                    "numeric_id": 658,
+                    "resistance": 2.5,
+                    "states": [
+                        {
+                            "declared_in": "brq",
+                            "field_name": "a",
+                            "name": "facing",
+                            "num_values": 6,
+                            "type": "direction",
+                            "values": [
+                                "NORTH",
+                                "EAST",
+                                "SOUTH",
+                                "WEST",
+                                "UP",
+                                "DOWN"
+                            ]
+                        },
+                        {
+                            "declared_in": "brq",
+                            "field_name": "b",
+                            "name": "open",
+                            "num_values": 2,
+                            "type": "bool"
+                        }
+                    ],
+                    "text_id": "barrel"
+                }
+            ]
+        }
+    },
+    "entities": {
+        "entity": {
+            "fox": [
+                null,
+                {
+                    "class": "ana",
+                    "display_name": "Fox",
+                    "field": "B",
+                    "height": 0.5,
+                    "id": 27,
+                    "name": "fox",
+                    "width": 0.6
+                }
+            ]
+        }
+    },
+    "items": {
+        "item": {
+            "fox_spawn_egg": [
+                null,
+                {
+                    "class": "ayt",
+                    "display_name": "Fox Spawn Egg",
+                    "field": "mI",
+                    "max_stack_size": 64,
+                    "numeric_id": 710,
+                    "text_id": "fox_spawn_egg"
+                }
+            ]
+        }
+    },
+    "language": {
+        "entity": {
+            "minecraft.fox": [
+                null,
+                "Fox"
+            ]
+        },
+        "gui": {
+            "narrate.button": [
+                null,
+                "%s button"
+            ],
+            "narrate.slider": [
+                null,
+                "%s slider"
+            ]
+        },
+        "item": {
+            "minecraft.fox_spawn_egg": [
+                null,
+                "Fox Spawn Egg"
+            ]
+        },
+        "subtitles": {
+            "entity.fox.aggro": [
+                null,
+                "Fox angers"
+            ],
+            "entity.fox.ambient": [
+                null,
+                "Fox squeaks"
+            ],
+            "entity.fox.bark": [
+                null,
+                "Fox barks"
+            ],
+            "entity.fox.bite": [
+                null,
+                "Fox bites"
+            ],
+            "entity.fox.death": [
+                null,
+                "Fox dies"
+            ],
+            "entity.fox.eat": [
+                null,
+                "Fox eats"
+            ],
+            "entity.fox.hurt": [
+                null,
+                "Fox hurts"
+            ],
+            "entity.fox.sleep": [
+                null,
+                "Fox snores"
+            ],
+            "entity.fox.sniff": [
+                null,
+                "Fox sniffs"
+            ],
+            "entity.fox.spit": [
+                null,
+                "Fox spits"
+            ]
+        }
+    },
+    "packets": {
+        "packet": {}
+    },
+    "recipes": {},
+    "sounds": {
+        "entity.fox.aggro": [
+            null,
+            {
+                "field": "dr",
+                "id": 225,
+                "name": "entity.fox.aggro",
+                "sounds": [
+                    {
+                        "hash": "9ba55f3373d2e6a89319143dc792cbc0872ae5e7",
+                        "name": "mob/fox/aggro1",
+                        "volume": 0.65
+                    },
+                    {
+                        "hash": "0760f75c8aca96e03e046c892e6b15276ee7991d",
+                        "name": "mob/fox/aggro2",
+                        "volume": 0.65
+                    },
+                    {
+                        "hash": "6d5ef6c2912c3dd93f5b79ddc90bfd750139855b",
+                        "name": "mob/fox/aggro3",
+                        "volume": 0.65
+                    },
+                    {
+                        "hash": "b560dd945d5b34948ef5fa75e7b1ecfc1afaf18a",
+                        "name": "mob/fox/aggro4",
+                        "volume": 0.65
+                    },
+                    {
+                        "hash": "fa6a70a21f9f9bbb569694241fa6152f7a3c166c",
+                        "name": "mob/fox/aggro5",
+                        "volume": 0.65
+                    },
+                    {
+                        "hash": "c2475eceb5ea233d66ac407eae74835b1c178e05",
+                        "name": "mob/fox/aggro6",
+                        "volume": 0.65
+                    },
+                    {
+                        "hash": "15949a3df44bf1628d85cec31991355e1e73ec57",
+                        "name": "mob/fox/aggro7",
+                        "volume": 0.65
+                    }
+                ],
+                "subtitle": "Fox angers",
+                "subtitle_key": "subtitles.entity.fox.aggro"
+            }
+        ],
+        "entity.fox.ambient": [
+            null,
+            {
+                "field": "ds",
+                "id": 226,
+                "name": "entity.fox.ambient",
+                "sounds": [
+                    {
+                        "hash": "7ab9e39691e28779fd0e9744c56a1054e9614baa",
+                        "name": "mob/fox/idle1",
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "8b84ab7d590fbffbdb6daae5864628e4a3faa4c6",
+                        "name": "mob/fox/idle2",
+                        "volume": 1
+                    },
+                    {
+                        "hash": "2d73def4b1d72718b659c3507e63b4aa468b9ca0",
+                        "name": "mob/fox/idle3",
+                        "volume": 1
+                    },
+                    {
+                        "hash": "91fd124f052a3866876408dca9a3e75aca9fcf1f",
+                        "name": "mob/fox/idle4",
+                        "volume": 1
+                    },
+                    {
+                        "hash": "e5cd2ef51a9f6398f46d85564735363dcf2df935",
+                        "name": "mob/fox/idle5",
+                        "volume": 1
+                    },
+                    {
+                        "hash": "b2a1a1282d0a527b33aa11018822006bbf702b25",
+                        "name": "mob/fox/idle6",
+                        "volume": 1
+                    }
+                ],
+                "subtitle": "Fox squeaks",
+                "subtitle_key": "subtitles.entity.fox.ambient"
+            }
+        ],
+        "entity.fox.bark": [
+            null,
+            {
+                "field": "dt",
+                "id": 227,
+                "name": "entity.fox.bark",
+                "sounds": [
+                    {
+                        "attenuation_distance": 32,
+                        "hash": "f2723fac7572a1b5b36531fa55947a500b3f56f5",
+                        "name": "mob/fox/bark1",
+                        "volume": 0.45
+                    },
+                    {
+                        "attenuation_distance": 32,
+                        "hash": "7daefe2c4ccb793791fde20d51997ccd954af5a0",
+                        "name": "mob/fox/bark2",
+                        "volume": 0.45
+                    },
+                    {
+                        "attenuation_distance": 32,
+                        "hash": "ad931f657e9bac3544cce94918956a5c88315d71",
+                        "name": "mob/fox/bark3",
+                        "volume": 0.45
+                    },
+                    {
+                        "attenuation_distance": 32,
+                        "hash": "44500fd8d6ab440580c550db5cc245461f998da7",
+                        "name": "mob/fox/bark4",
+                        "volume": 0.4
+                    },
+                    {
+                        "attenuation_distance": 32,
+                        "name": "mob/fox/bark5",
+                        "volume": 0.3
+                    }
+                ],
+                "subtitle": "Fox barks",
+                "subtitle_key": "subtitles.entity.fox.bark"
+            }
+        ],
+        "entity.fox.bite": [
+            null,
+            {
+                "field": "du",
+                "id": 228,
+                "name": "entity.fox.bite",
+                "sounds": [
+                    {
+                        "hash": "368316d53d5060e3bc230342905cd880fc7e570e",
+                        "name": "mob/fox/bite1",
+                        "pitch": 1.1,
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "6ad055ff72b07fe6764c259b7cbd10287687638e",
+                        "name": "mob/fox/bite2",
+                        "pitch": 1.1,
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "6021b099c2fa05c9c44b4edc12862fac5867c54b",
+                        "name": "mob/fox/bite3",
+                        "pitch": 1.1,
+                        "volume": 0.6
+                    }
+                ],
+                "subtitle": "Fox bites",
+                "subtitle_key": "subtitles.entity.fox.bite"
+            }
+        ],
+        "entity.fox.death": [
+            null,
+            {
+                "field": "dv",
+                "id": 229,
+                "name": "entity.fox.death",
+                "sounds": [
+                    {
+                        "hash": "9adc158f240c1a5a86ec23fff29a647fd803eca3",
+                        "name": "mob/fox/death1",
+                        "volume": 0.9
+                    },
+                    {
+                        "hash": "390f6e662d4825f0ae88d0f4b92a5f9e43429652",
+                        "name": "mob/fox/death2",
+                        "volume": 0.9
+                    }
+                ],
+                "subtitle": "Fox dies",
+                "subtitle_key": "subtitles.entity.fox.death"
+            }
+        ],
+        "entity.fox.eat": [
+            null,
+            {
+                "field": "dw",
+                "id": 230,
+                "name": "entity.fox.eat",
+                "sounds": [
+                    {
+                        "hash": "4d177a9ab02e514a9b72dd3352e126f63822dce3",
+                        "name": "mob/fox/eat1",
+                        "volume": 0.65
+                    },
+                    {
+                        "hash": "84cb1412eef14915234afd4d67b664da0f1049b7",
+                        "name": "mob/fox/eat2",
+                        "volume": 0.65
+                    },
+                    {
+                        "hash": "bb861b65ddc45cd04859e1532492193a66f58373",
+                        "name": "mob/fox/eat3",
+                        "volume": 0.65
+                    }
+                ],
+                "subtitle": "Fox eats",
+                "subtitle_key": "subtitles.entity.fox.eat"
+            }
+        ],
+        "entity.fox.hurt": [
+            null,
+            {
+                "field": "dx",
+                "id": 231,
+                "name": "entity.fox.hurt",
+                "sounds": [
+                    {
+                        "hash": "9562404ee0e24467f7d2c0d715b1c5dfa16fa9e8",
+                        "name": "mob/fox/hurt1",
+                        "volume": 0.75
+                    },
+                    {
+                        "hash": "4f3a2c3edf64d8559d3ecd79b0cd14d54ec3d51f",
+                        "name": "mob/fox/hurt2",
+                        "volume": 0.75
+                    },
+                    {
+                        "hash": "d7aa6f32a21b10577d9f8a33a0c67560b9d8131d",
+                        "name": "mob/fox/hurt3",
+                        "volume": 0.75
+                    },
+                    {
+                        "hash": "aaea02b509aae02a380a2e90dd8a6c66b0bccb25",
+                        "name": "mob/fox/hurt4",
+                        "volume": 0.75
+                    }
+                ],
+                "subtitle": "Fox hurts",
+                "subtitle_key": "subtitles.entity.fox.hurt"
+            }
+        ],
+        "entity.fox.sleep": [
+            null,
+            {
+                "field": "dy",
+                "id": 232,
+                "name": "entity.fox.sleep",
+                "sounds": [
+                    {
+                        "hash": "19ba043db0954941955f7132ccd67d5b777c226b",
+                        "name": "mob/fox/sleep1",
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "9e743fd55eb8fee778514e9882ef303d714550d6",
+                        "name": "mob/fox/sleep2",
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "b2925156f26131f9e762951360d066284caf5a5a",
+                        "name": "mob/fox/sleep3",
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "01fedceeef03d06f3f419b371c0dfa6e1dca0939",
+                        "name": "mob/fox/sleep4",
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "f4895142852b2fadc78939bbf37fdcfc9524d3fd",
+                        "name": "mob/fox/sleep5",
+                        "volume": 0.8
+                    }
+                ],
+                "subtitle": "Fox snores",
+                "subtitle_key": "subtitles.entity.fox.sleep"
+            }
+        ],
+        "entity.fox.sniff": [
+            null,
+            {
+                "field": "dz",
+                "id": 233,
+                "name": "entity.fox.sniff",
+                "sounds": [
+                    {
+                        "hash": "5a25e46c2e04a151df997af3824a8f37eb0a6826",
+                        "name": "mob/fox/sniff1",
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "4635dcc99501a4a3dab6875b48d2011c5a0064f1",
+                        "name": "mob/fox/sniff2",
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "62e1d8bee8e027e1d2e665f1a81092fd851d1265",
+                        "name": "mob/fox/sniff3",
+                        "volume": 0.6
+                    },
+                    {
+                        "hash": "821018ad1ae5eb291ca7de5b0a4f781585601f86",
+                        "name": "mob/fox/sniff4",
+                        "volume": 0.6
+                    }
+                ],
+                "subtitle": "Fox sniffs",
+                "subtitle_key": "subtitles.entity.fox.sniff"
+            }
+        ],
+        "entity.fox.spit": [
+            null,
+            {
+                "field": "dA",
+                "id": 234,
+                "name": "entity.fox.spit",
+                "sounds": [
+                    {
+                        "hash": "716690f678f8a260ebbef179fcac9e0352cb1f4c",
+                        "name": "mob/fox/spit1",
+                        "volume": 0.7
+                    },
+                    {
+                        "hash": "ab50f3de8720865fd2e7b64b965078f05accdb68",
+                        "name": "mob/fox/spit2",
+                        "volume": 0.7
+                    },
+                    {
+                        "hash": "421c3c31074b2714229bde2d177723bbc9f2e37e",
+                        "name": "mob/fox/spit3",
+                        "volume": 0.7
+                    }
+                ],
+                "subtitle": "Fox spits",
+                "subtitle_key": "subtitles.entity.fox.spit"
+            }
+        ]
+    },
+    "stats": {},
+    "tags": {},
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            1931,
+            1932
+        ],
+        "name": [
+            "19w06a",
+            "19w07a"
+        ],
+        "protocol": [
+            459,
+            460
+        ]
+    }
+}
