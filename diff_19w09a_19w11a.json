@@ -1,0 +1,5319 @@
+{
+    "achievements": {},
+    "biomes": {
+        "biome": {}
+    },
+    "blocks": {
+        "block": {}
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {}
+    },
+    "items": {
+        "item": {
+            "globe_banner_pattern": [
+                null,
+                {
+                    "class": "ayr",
+                    "display_name": "Globe Pattern",
+                    "field": "pD",
+                    "max_stack_size": 1,
+                    "numeric_id": 861,
+                    "text_id": "globe_banner_pattern"
+                }
+            ]
+        }
+    },
+    "language": {
+        "block": {
+            "minecraft.bed.obstructed": [
+                null,
+                "This bed is obstructed"
+            ]
+        },
+        "createWorld": {
+            "customize.flat.addLayer": [
+                "Add Layer",
+                null
+            ],
+            "customize.flat.editLayer": [
+                "Edit Layer",
+                null
+            ]
+        },
+        "entity": {
+            "minecraft.villager.none": [
+                null,
+                "Villager"
+            ]
+        },
+        "item": {
+            "minecraft.crossbow.projectile": [
+                null,
+                "Projectile:"
+            ],
+            "minecraft.globe_banner_pattern": [
+                null,
+                "Globe Pattern"
+            ],
+            "minecraft.globe_banner_pattern.desc": [
+                null,
+                "Globe"
+            ]
+        },
+        "merchant": {
+            "current_level": [
+                null,
+                "Trader's current level"
+            ],
+            "deprecated": [
+                "Trade something else to unlock!",
+                "Villagers restock up to two times per day."
+            ],
+            "level.1": [
+                null,
+                "Novice"
+            ],
+            "level.2": [
+                null,
+                "Apprentice"
+            ],
+            "level.3": [
+                null,
+                "Journeyman"
+            ],
+            "level.4": [
+                null,
+                "Expert"
+            ],
+            "level.5": [
+                null,
+                "Master"
+            ],
+            "next_level": [
+                null,
+                "Trader's next level"
+            ]
+        },
+        "options": {
+            "accessibility.text_background": [
+                null,
+                "Text Background"
+            ],
+            "accessibility.text_background.chat": [
+                null,
+                "Chat"
+            ],
+            "accessibility.text_background.everywhere": [
+                null,
+                "Everywhere"
+            ],
+            "accessibility.text_background_opacity": [
+                null,
+                "Text Background Opacity"
+            ],
+            "accessibility.title": [
+                null,
+                "Accessibility Settings..."
+            ],
+            "chat.opacity": [
+                "Opacity",
+                "Chat Opacity"
+            ]
+        },
+        "selectWorld": {
+            "edit.backupFailed": [
+                null,
+                "Backup failed"
+            ]
+        },
+        "subtitles": {
+            "entity.parrot.imitate.guardian": [
+                null,
+                "Parrot moans"
+            ],
+            "entity.parrot.imitate.panda": [
+                null,
+                "Parrot pants"
+            ],
+            "entity.parrot.imitate.pillager": [
+                null,
+                "Parrot murmurs"
+            ],
+            "entity.parrot.imitate.ravager": [
+                null,
+                "Parrot grunts"
+            ],
+            "entity.villager.work_armorer": [
+                null,
+                "Armorer works"
+            ],
+            "entity.villager.work_butcher": [
+                null,
+                "Butcher works"
+            ],
+            "entity.villager.work_cartographer": [
+                null,
+                "Cartographer works"
+            ],
+            "entity.villager.work_cleric": [
+                null,
+                "Cleric works"
+            ],
+            "entity.villager.work_farmer": [
+                null,
+                "Farmer works"
+            ],
+            "entity.villager.work_fisherman": [
+                null,
+                "Fisherman works"
+            ],
+            "entity.villager.work_fletcher": [
+                null,
+                "Fletcher works"
+            ],
+            "entity.villager.work_leatherworker": [
+                null,
+                "Leatherworker works"
+            ],
+            "entity.villager.work_librarian": [
+                null,
+                "Librarian works"
+            ],
+            "entity.villager.work_mason": [
+                null,
+                "Mason works"
+            ],
+            "entity.villager.work_shepherd": [
+                null,
+                "Shepherd works"
+            ],
+            "entity.villager.work_toolsmith": [
+                null,
+                "Toolsmith works"
+            ],
+            "entity.villager.work_weaponsmith": [
+                null,
+                "Weaponsmith works"
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_0D": [
+                {
+                    "class": "kn.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 13,
+                    "instructions": [
+                        {
+                            "field": "a.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "kq.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 13,
+                    "instructions": [
+                        {
+                            "field": "a.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_25": [
+                {
+                    "class": "ll.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 37,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "this.c.a()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "b",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 0x8)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "d.b()",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "e.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "g.a()",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "lo.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 37,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "this.c.a()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "b",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 0x8)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "d.b()",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f.a()",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_38": [
+                {
+                    "class": "md.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 56,
+                    "instructions": [
+                        {
+                            "field": "a.b()",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "c.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "d.a()",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "mg.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 56,
+                    "instructions": [
+                        {
+                            "field": "a.b()",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "c.a()",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_59": [
+                {
+                    "class": "ln.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 89,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "(byte)(b.size() & 0xff)",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2 < b.size()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((bcj)this.b.get(var2))",
+                                    "var": "var3"
+                                },
+                                {
+                                    "field": "var3.a()",
+                                    "operation": "write",
+                                    "type": "itemstack"
+                                },
+                                {
+                                    "field": "var3.c()",
+                                    "operation": "write",
+                                    "type": "itemstack"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "var3.b()",
+                                    "var": "var4"
+                                },
+                                {
+                                    "field": "(var4.a() == 0) ? 1 : 0",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                },
+                                {
+                                    "condition": "var4.a() == 0",
+                                    "instructions": [
+                                        {
+                                            "field": "var4",
+                                            "operation": "write",
+                                            "type": "itemstack"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "field": "var3.h()",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                },
+                                {
+                                    "field": "var3.e()",
+                                    "operation": "write",
+                                    "type": "int"
+                                },
+                                {
+                                    "field": "var3.f()",
+                                    "operation": "write",
+                                    "type": "int"
+                                },
+                                {
+                                    "amount": "1",
+                                    "field": "var2",
+                                    "operation": "increment"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "lq.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 89,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "(byte)(b.size() & 0xff)",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2 < b.size()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((bfc)this.b.get(var2))",
+                                    "var": "var3"
+                                },
+                                {
+                                    "field": "var3.b()",
+                                    "operation": "write",
+                                    "type": "itemstack"
+                                },
+                                {
+                                    "field": "var3.d()",
+                                    "operation": "write",
+                                    "type": "itemstack"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "var3.c()",
+                                    "var": "var4"
+                                },
+                                {
+                                    "field": "(var4.a() == 0) ? 1 : 0",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                },
+                                {
+                                    "condition": "var4.a() == 0",
+                                    "instructions": [
+                                        {
+                                            "field": "var4",
+                                            "operation": "write",
+                                            "type": "itemstack"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "field": "var3.o()",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                },
+                                {
+                                    "field": "var3.g()",
+                                    "operation": "write",
+                                    "type": "int"
+                                },
+                                {
+                                    "field": "var3.i()",
+                                    "operation": "write",
+                                    "type": "int"
+                                },
+                                {
+                                    "field": "var3.n()",
+                                    "operation": "write",
+                                    "type": "int"
+                                },
+                                {
+                                    "field": "var3.l()",
+                                    "operation": "write",
+                                    "type": "int"
+                                },
+                                {
+                                    "field": "var3.m()",
+                                    "operation": "write",
+                                    "type": "float"
+                                },
+                                {
+                                    "amount": "1",
+                                    "field": "var2",
+                                    "operation": "increment"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_02": [
+                {
+                    "class": "nm.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 2,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "nr.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 2,
+                    "instructions": [
+                        {
+                            "field": "a.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_03": [
+                {
+                    "class": "nn.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 3,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "ns.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 3,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_04": [
+                {
+                    "class": "no.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 4,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "nt.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 4,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_05": [
+                {
+                    "class": "np.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 5,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "nu.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 5,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_06": [
+                {
+                    "class": "nq.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 6,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "(c) ? 1 : 0",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "nv.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 6,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_07": [
+                {
+                    "class": "nr.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 7,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "nw.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 7,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "(c) ? 1 : 0",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_08": [
+                {
+                    "class": "ns.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 8,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "itemstack"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "nx.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 8,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_09": [
+                {
+                    "class": "nt.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 9,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "ny.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 9,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "itemstack"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_0A": [
+                {
+                    "class": "nu.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 10,
+                    "instructions": [
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "byte[]"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "nz.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 10,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_0B": [
+                {
+                    "class": "nv.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 11,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "itemstack"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "oa.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 11,
+                    "instructions": [
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "byte[]"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_0C": [
+                {
+                    "class": "nw.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 12,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "ob.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 12,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "itemstack"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_0D": [
+                {
+                    "class": "nx.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 13,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "condition": "b == nx$a.c",
+                            "instructions": [
+                                {
+                                    "field": "(float)c.b",
+                                    "operation": "write",
+                                    "type": "float"
+                                },
+                                {
+                                    "field": "(float)c.c",
+                                    "operation": "write",
+                                    "type": "float"
+                                },
+                                {
+                                    "field": "(float)c.d",
+                                    "operation": "write",
+                                    "type": "float"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "b != nx$a.a",
+                            "instructions": [
+                                {
+                                    "field": "d",
+                                    "operation": "write",
+                                    "type": "enum"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "oc.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 13,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_0E": [
+                {
+                    "class": "ny.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 14,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "long"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "od.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 14,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "condition": "b == od$a.c",
+                            "instructions": [
+                                {
+                                    "field": "(float)c.b",
+                                    "operation": "write",
+                                    "type": "float"
+                                },
+                                {
+                                    "field": "(float)c.c",
+                                    "operation": "write",
+                                    "type": "float"
+                                },
+                                {
+                                    "field": "(float)c.d",
+                                    "operation": "write",
+                                    "type": "float"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "b != od$a.a",
+                            "instructions": [
+                                {
+                                    "field": "d",
+                                    "operation": "write",
+                                    "type": "enum"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_0F": [
+                {
+                    "class": "nz.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 15,
+                    "instructions": [
+                        {
+                            "field": "(f) ? 1 : 0",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "of.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 15,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_10": [
+                {
+                    "class": "nz$a.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 16,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "(f) ? 1 : 0",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "oe.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 16,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "long"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_11": [
+                {
+                    "class": "nz$b.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 17,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "(f) ? 1 : 0",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "og.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 17,
+                    "instructions": [
+                        {
+                            "field": "(f) ? 1 : 0",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_12": [
+                {
+                    "class": "nz$c.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 18,
+                    "instructions": [
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "(f) ? 1 : 0",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "og$a.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 18,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "(f) ? 1 : 0",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_13": [
+                {
+                    "class": "oa.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 19,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "og$b.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 19,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "(f) ? 1 : 0",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_14": [
+                {
+                    "class": "ob.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 20,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "og$c.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 20,
+                    "instructions": [
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "(f) ? 1 : 0",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_15": [
+                {
+                    "class": "oc.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 21,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "oh.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 21,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_16": [
+                {
+                    "class": "od.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 22,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "oi.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 22,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_17": [
+                {
+                    "class": "oe.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 23,
+                    "instructions": [
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "b()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 1))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "c()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 2))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "d()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 4))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "e()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 0x8))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "float"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "oj.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 23,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_18": [
+                {
+                    "class": "of.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 24,
+                    "instructions": [
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "ok.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 24,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_19": [
+                {
+                    "class": "og.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 25,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "ol.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 25,
+                    "instructions": [
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "b()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 1))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "c()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 2))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "d()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 4))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "e()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 0x8))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "float"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_1A": [
+                {
+                    "class": "oh.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 26,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "c",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 1))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "d",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 2))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "om.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 26,
+                    "instructions": [
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_1B": [
+                {
+                    "class": "oi.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 27,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "condition": "a == oi$a.a",
+                            "instructions": [
+                                {
+                                    "field": "b",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "condition": "a == oi$a.b",
+                                    "instructions": [
+                                        {
+                                            "field": "c",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "d",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "e",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "f",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "g",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "h",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "i",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "j",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "on.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 27,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_1C": [
+                {
+                    "class": "oj.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 28,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "oo.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 28,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "c",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 1))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "d",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 2))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_1D": [
+                {
+                    "class": "ok.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 29,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "op.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 29,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "condition": "a == op$a.a",
+                            "instructions": [
+                                {
+                                    "field": "b",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "condition": "a == op$a.b",
+                                    "instructions": [
+                                        {
+                                            "field": "c",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "d",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "e",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "f",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "g",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "h",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "i",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "j",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_1E": [
+                {
+                    "class": "ol.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 30,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "condition": "a == ol$a.a",
+                            "instructions": [
+                                {
+                                    "field": "b",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "oq.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 30,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_1F": [
+                {
+                    "class": "om.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 31,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "or.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 31,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_20": [
+                {
+                    "class": "on.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 32,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "os.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 32,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "condition": "a == os$a.a",
+                            "instructions": [
+                                {
+                                    "field": "b",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_21": [
+                {
+                    "class": "oo.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 33,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "short"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "ot.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 33,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_22": [
+                {
+                    "class": "op.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 34,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "c",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 1)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "d",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 2)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "e",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 4)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "ou.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 34,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_23": [
+                {
+                    "class": "oq.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 35,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "ov.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 35,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "short"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_24": [
+                {
+                    "class": "or.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 36,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "itemstack"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "ow.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 36,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "c",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 1)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "d",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 2)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "e",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 4)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_25": [
+                {
+                    "class": "ot.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 37,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "e.o()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e.p()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e.q()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f.o()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f.p()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f.q()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "i",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "m",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "n",
+                            "operation": "write",
+                            "type": "varlong"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "j",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 1)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "k",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 2)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "l",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 4)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "ox.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 37,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_26": [
+                {
+                    "class": "ou.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 38,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2 < 4",
+                            "instructions": [
+                                {
+                                    "field": "b[var2]",
+                                    "operation": "write",
+                                    "type": "string"
+                                },
+                                {
+                                    "amount": "1",
+                                    "field": "var2",
+                                    "operation": "increment"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "oy.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 38,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "itemstack"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_27": [
+                {
+                    "class": "ov.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 39,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "pa.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 39,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "e.o()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e.p()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e.q()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f.o()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f.p()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f.q()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "i",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "m",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "n",
+                            "operation": "write",
+                            "type": "varlong"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "j",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 1)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "k",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 2)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "l",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 4)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_28": [
+                {
+                    "class": "ow.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 40,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "uuid"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "pb.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 40,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2 < 4",
+                            "instructions": [
+                                {
+                                    "field": "b[var2]",
+                                    "operation": "write",
+                                    "type": "string"
+                                },
+                                {
+                                    "amount": "1",
+                                    "field": "var2",
+                                    "operation": "increment"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_29": [
+                {
+                    "class": "ox.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 41,
+                    "instructions": [
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.a.a()",
+                            "var": "var2"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "a.b()",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.a.e()",
+                            "var": "var3"
+                        },
+                        {
+                            "field": "(float)(var3.b - ((double)var2.o()))",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "(float)(var3.c - ((double)var2.p()))",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "(float)(var3.d - ((double)var2.q()))",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "a.d()",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "pc.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 41,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_2A": [
+                {
+                    "class": "oy.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 42,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "pd.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 42,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "uuid"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_2B": [
+                null,
+                {
+                    "class": "pe.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 43,
+                    "instructions": [
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.a.a()",
+                            "var": "var2"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "a.b()",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.a.e()",
+                            "var": "var3"
+                        },
+                        {
+                            "field": "(float)(var3.b - ((double)var2.o()))",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "(float)(var3.c - ((double)var2.p()))",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "(float)(var3.d - ((double)var2.q()))",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "a.d()",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_2C": [
+                null,
+                {
+                    "class": "pf.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 44,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "recipes": {
+        "cartography_table": [
+            [
+                {
+                    "id": "minecraft:cartography_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "cartography_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:cartography_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "cartography_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:cartography_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "cartography_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:cartography_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "cartography_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:cartography_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "cartography_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:cartography_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "cartography_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ],
+            [
+                {
+                    "id": "minecraft:cartography_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "cartography_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:cartography_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "cartography_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:cartography_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "cartography_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:cartography_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "cartography_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:cartography_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "cartography_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:cartography_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "cartography_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "paper",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "fletching_table": [
+            null,
+            [
+                {
+                    "id": "minecraft:fletching_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "fletching_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "flint",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "flint",
+                                "type": "item"
+                            },
+                            {
+                                "name": "flint",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:fletching_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "fletching_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "flint",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "flint",
+                                "type": "item"
+                            },
+                            {
+                                "name": "flint",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:fletching_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "fletching_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "flint",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "flint",
+                                "type": "item"
+                            },
+                            {
+                                "name": "flint",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:fletching_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "fletching_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "flint",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "flint",
+                                "type": "item"
+                            },
+                            {
+                                "name": "flint",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:fletching_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "fletching_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "flint",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "flint",
+                                "type": "item"
+                            },
+                            {
+                                "name": "flint",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:fletching_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "fletching_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "flint",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "flint",
+                                "type": "item"
+                            },
+                            {
+                                "name": "flint",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "smithing_table": [
+            null,
+            [
+                {
+                    "id": "minecraft:smithing_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "smithing_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smithing_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "smithing_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smithing_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "smithing_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smithing_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "smithing_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smithing_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "smithing_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smithing_table",
+                    "makes": {
+                        "count": 1,
+                        "name": "smithing_table",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "@@",
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            "@": {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ]
+    },
+    "sounds": {
+        "entity.parrot.imitate.guardian": [
+            null,
+            {
+                "field": "hF",
+                "id": 447,
+                "name": "entity.parrot.imitate.guardian",
+                "sounds": [
+                    {
+                        "name": "entity.guardian.ambient",
+                        "pitch": 1.8,
+                        "type": "event",
+                        "volume": 0.4
+                    }
+                ],
+                "subtitle": "Parrot moans",
+                "subtitle_key": "subtitles.entity.parrot.imitate.guardian"
+            }
+        ],
+        "entity.parrot.imitate.panda": [
+            null,
+            {
+                "field": "hJ",
+                "id": 451,
+                "name": "entity.parrot.imitate.panda",
+                "sounds": [
+                    {
+                        "name": "entity.panda.ambient",
+                        "pitch": 1.8,
+                        "type": "event",
+                        "volume": 0.4
+                    }
+                ],
+                "subtitle": "Parrot pants",
+                "subtitle_key": "subtitles.entity.parrot.imitate.panda"
+            }
+        ],
+        "entity.parrot.imitate.pillager": [
+            null,
+            {
+                "field": "hL",
+                "id": 453,
+                "name": "entity.parrot.imitate.pillager",
+                "sounds": [
+                    {
+                        "name": "entity.pillager.ambient",
+                        "pitch": 1.8,
+                        "type": "event",
+                        "volume": 0.4
+                    }
+                ],
+                "subtitle": "Parrot murmurs",
+                "subtitle_key": "subtitles.entity.parrot.imitate.pillager"
+            }
+        ],
+        "entity.parrot.imitate.ravager": [
+            null,
+            {
+                "field": "hN",
+                "id": 455,
+                "name": "entity.parrot.imitate.ravager",
+                "sounds": [
+                    {
+                        "name": "entity.ravager.ambient",
+                        "pitch": 1.8,
+                        "type": "event",
+                        "volume": 0.2
+                    }
+                ],
+                "subtitle": "Parrot grunts",
+                "subtitle_key": "subtitles.entity.parrot.imitate.ravager"
+            }
+        ],
+        "entity.villager.work_armorer": [
+            null,
+            {
+                "field": "mw",
+                "id": 698,
+                "name": "entity.villager.work_armorer",
+                "sounds": [
+                    {
+                        "hash": "37310577c903e85a9ae6b1393a94b9127a1a4c76",
+                        "name": "block/blastfurnace/blastfurnace1",
+                        "volume": 1
+                    },
+                    {
+                        "hash": "4d1d157536fd24989860a8adaa615c6d2dba5c9d",
+                        "name": "block/blastfurnace/blastfurnace2",
+                        "volume": 1
+                    },
+                    {
+                        "hash": "0cc576cae7a4c2e2bb969f545ba09a1d4f746e4f",
+                        "name": "block/blastfurnace/blastfurnace3",
+                        "volume": 1
+                    },
+                    {
+                        "hash": "b7a496f571a432f8a20cdd725b8a10f0cc30d5bb",
+                        "name": "block/blastfurnace/blastfurnace4",
+                        "volume": 1
+                    },
+                    {
+                        "hash": "9f6f7c5a11aeb75ed6f943b5d9ee02e49a0bf26f",
+                        "name": "block/blastfurnace/blastfurnace5",
+                        "volume": 1
+                    }
+                ],
+                "subtitle": "Blast furnace crackles",
+                "subtitle_key": "subtitles.block.blastfurnace.fire_crackle"
+            }
+        ],
+        "entity.villager.work_butcher": [
+            null,
+            {
+                "field": "mx",
+                "id": 699,
+                "name": "entity.villager.work_butcher",
+                "sounds": [
+                    {
+                        "hash": "3823be0610bf07a50494227faaa32e1c24e029c9",
+                        "name": "block/smoker/smoker1",
+                        "volume": 1
+                    },
+                    {
+                        "hash": "48febffe0acaccd3075fb2224131813567792a39",
+                        "name": "block/smoker/smoker2",
+                        "volume": 1
+                    },
+                    {
+                        "hash": "0b193a63393d447054165c3f9c19dbc288b0d5f1",
+                        "name": "block/smoker/smoker3",
+                        "volume": 1
+                    },
+                    {
+                        "hash": "1e23183e9b9325a13ab09f182d39c58601c7078c",
+                        "name": "block/smoker/smoker4",
+                        "volume": 1
+                    },
+                    {
+                        "hash": "b68f15789dba02714352f90f2f3f2f966a4360bd",
+                        "name": "block/smoker/smoker5",
+                        "volume": 1
+                    }
+                ]
+            }
+        ],
+        "entity.villager.work_cartographer": [
+            null,
+            {
+                "field": "my",
+                "id": 700,
+                "name": "entity.villager.work_cartographer",
+                "sounds": [
+                    {
+                        "hash": "9aa4cb9f9b429ef69a8e2ce7f2b9b96be3be540b",
+                        "name": "ui/cartography_table/drawmap1"
+                    },
+                    {
+                        "hash": "ce47e698379fa88be08b5db0039cb316b6585d5e",
+                        "name": "ui/cartography_table/drawmap2"
+                    },
+                    {
+                        "hash": "f0d0d2cc12bda03b297a06672de9519022403cc3",
+                        "name": "ui/cartography_table/drawmap3"
+                    }
+                ]
+            }
+        ],
+        "entity.villager.work_cleric": [
+            null,
+            {
+                "field": "mz",
+                "id": 701,
+                "name": "entity.villager.work_cleric",
+                "sounds": [
+                    {
+                        "hash": "b91c8cf157979540e517895beefe0390acac6454",
+                        "name": "block/brewing_stand/brew1"
+                    },
+                    {
+                        "hash": "030a3d36cccac21197db2ec078f96cbc2caa1311",
+                        "name": "block/brewing_stand/brew2"
+                    }
+                ],
+                "subtitle": "Brewing Stand bubbles",
+                "subtitle_key": "subtitles.block.brewing_stand.brew"
+            }
+        ],
+        "entity.villager.work_farmer": [
+            null,
+            {
+                "field": "mA",
+                "id": 702,
+                "name": "entity.villager.work_farmer",
+                "sounds": [
+                    {
+                        "hash": "4b736a9adb36eda550acc630b51f32c5ddbca76f",
+                        "name": "block/composter/fill_success1",
+                        "volume": 1
+                    },
+                    {
+                        "hash": "3aafe51655104d95dcf41b55de9731622db1845f",
+                        "name": "block/composter/fill_success2",
+                        "volume": 1
+                    },
+                    {
+                        "hash": "d82a2dfe9007742a19637fb82256c8b3bb2248ef",
+                        "name": "block/composter/fill_success3",
+                        "volume": 1
+                    },
+                    {
+                        "hash": "b21d524d15e9bf9007bb959ec13640033f06e939",
+                        "name": "block/composter/fill_success4",
+                        "volume": 1
+                    }
+                ]
+            }
+        ],
+        "entity.villager.work_fisherman": [
+            null,
+            {
+                "field": "mB",
+                "id": 703,
+                "name": "entity.villager.work_fisherman",
+                "sounds": [
+                    {
+                        "hash": "61e6dd472994567359f850973bef350c1e7dd930",
+                        "name": "block/barrel/open1",
+                        "pitch": 1,
+                        "volume": 1
+                    },
+                    {
+                        "hash": "408ed2c778ee54d75c772ceca260554add920a85",
+                        "name": "block/barrel/open2",
+                        "pitch": 1,
+                        "volume": 1
+                    }
+                ]
+            }
+        ],
+        "entity.villager.work_fletcher": [
+            null,
+            {
+                "field": "mC",
+                "id": 704,
+                "name": "entity.villager.work_fletcher",
+                "sounds": [
+                    {
+                        "hash": "11f7d6ffbd84861bf397adad3d3f3b7624a1cf8c",
+                        "name": "block/fletching_table/fletching_table1",
+                        "pitch": 1,
+                        "volume": 1
+                    },
+                    {
+                        "hash": "2f69bcdb9f7300dd855c86a8c3594267723acc8b",
+                        "name": "block/fletching_table/fletching_table2",
+                        "pitch": 1,
+                        "volume": 1
+                    }
+                ]
+            }
+        ],
+        "entity.villager.work_leatherworker": [
+            null,
+            {
+                "field": "mD",
+                "id": 705,
+                "name": "entity.villager.work_leatherworker",
+                "sounds": [
+                    {
+                        "hash": "23af44d4ebfc4bb8245e3fe1906e620daf78367c",
+                        "name": "block/cauldron/dye1",
+                        "volume": 0.9
+                    },
+                    {
+                        "hash": "8375496eac88f2ca8e52693d2ce5cb4976539917",
+                        "name": "block/cauldron/dye2",
+                        "volume": 0.9
+                    },
+                    {
+                        "hash": "135320552365d45103d97443ad9aa2a13c63a030",
+                        "name": "block/cauldron/dye3",
+                        "volume": 0.9
+                    }
+                ]
+            }
+        ],
+        "entity.villager.work_librarian": [
+            null,
+            {
+                "field": "mE",
+                "id": 706,
+                "name": "entity.villager.work_librarian",
+                "sounds": [
+                    {
+                        "hash": "234d6a686516c264a370ea834b87d47ae7334ef7",
+                        "name": "item/book/open_flip1",
+                        "volume": 2
+                    },
+                    {
+                        "hash": "c7d1608c706d75df8f074fd04da027fdbf9ec5c1",
+                        "name": "item/book/open_flip2",
+                        "volume": 2
+                    },
+                    {
+                        "hash": "95f697cb272bb10a744a5062463a6e737a1c4ec2",
+                        "name": "item/book/open_flip3",
+                        "volume": 2
+                    }
+                ],
+                "subtitle": "Page rustles",
+                "subtitle_key": "subtitles.item.book.page_turn"
+            }
+        ],
+        "entity.villager.work_mason": [
+            null,
+            {
+                "field": "mF",
+                "id": 707,
+                "name": "entity.villager.work_mason",
+                "sounds": [
+                    {
+                        "hash": "f9c33914acfd606ea5c624f25d33cccc60663e22",
+                        "name": "ui/stonecutter/cut1",
+                        "volume": 1
+                    },
+                    {
+                        "hash": "f9c33914acfd606ea5c624f25d33cccc60663e22",
+                        "name": "ui/stonecutter/cut1",
+                        "pitch": 0.92,
+                        "volume": 1
+                    },
+                    {
+                        "hash": "34eec70d1a60aba94b92065274fd456a97b1e036",
+                        "name": "ui/stonecutter/cut2",
+                        "volume": 1
+                    },
+                    {
+                        "hash": "34eec70d1a60aba94b92065274fd456a97b1e036",
+                        "name": "ui/stonecutter/cut2",
+                        "pitch": 0.92,
+                        "volume": 1
+                    }
+                ]
+            }
+        ],
+        "entity.villager.work_shepherd": [
+            null,
+            {
+                "field": "mG",
+                "id": 708,
+                "name": "entity.villager.work_shepherd",
+                "sounds": [
+                    {
+                        "hash": "2f13d6eecbaa35c81d5ddd94a7d5a9c6478a7e27",
+                        "name": "ui/loom/take_result1",
+                        "volume": 0.5
+                    },
+                    {
+                        "hash": "9cfe4eb22eacb882f21d6bf63afeb51c2825c7fa",
+                        "name": "ui/loom/take_result2",
+                        "volume": 0.5
+                    }
+                ]
+            }
+        ],
+        "entity.villager.work_toolsmith": [
+            null,
+            {
+                "field": "mH",
+                "id": 709,
+                "name": "entity.villager.work_toolsmith",
+                "sounds": [
+                    {
+                        "hash": "222cd346222e0145d21ced318a7a293bfbe7ba79",
+                        "name": "block/smithing_table/smithing_table1",
+                        "pitch": 1,
+                        "volume": 1
+                    },
+                    {
+                        "hash": "b3581bc0f5d1b450feaac02cea4d676f421baf64",
+                        "name": "block/smithing_table/smithing_table2",
+                        "pitch": 1,
+                        "volume": 1
+                    },
+                    {
+                        "hash": "b861e4cf448c870a4f2e21dc3322a77ce3693065",
+                        "name": "block/smithing_table/smithing_table3",
+                        "pitch": 1,
+                        "volume": 1
+                    }
+                ]
+            }
+        ],
+        "entity.villager.work_weaponsmith": [
+            null,
+            {
+                "field": "mI",
+                "id": 710,
+                "name": "entity.villager.work_weaponsmith",
+                "sounds": [
+                    {
+                        "hash": "035df7547acd8451e76b4f26fc01db3baeb6d006",
+                        "name": "block/grindstone/grindstone1",
+                        "volume": 0.5
+                    },
+                    {
+                        "hash": "2cf5f1639e8e3bdca4977dd0e46ac0d7cab42ecf",
+                        "name": "block/grindstone/grindstone2",
+                        "volume": 0.5
+                    },
+                    {
+                        "hash": "9b665e99a4ae8eb6e3334f3750eda8a2485e798f",
+                        "name": "block/grindstone/grindstone3",
+                        "volume": 0.5
+                    }
+                ],
+                "subtitle": "Grindstone used",
+                "subtitle_key": "subtitles.block.grindstone.use"
+            }
+        ]
+    },
+    "stats": {},
+    "tags": {
+        "blocks/armorer_poi": [
+            null,
+            {
+                "name": "armorer_poi",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:blast_furnace"
+                ]
+            }
+        ],
+        "blocks/butcher_poi": [
+            null,
+            {
+                "name": "butcher_poi",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:smoker"
+                ]
+            }
+        ],
+        "blocks/cartographer_poi": [
+            null,
+            {
+                "name": "cartographer_poi",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:cartography_table"
+                ]
+            }
+        ],
+        "blocks/cleric_poi": [
+            null,
+            {
+                "name": "cleric_poi",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:brewing_stand"
+                ]
+            }
+        ],
+        "blocks/farmer_poi": [
+            null,
+            {
+                "name": "farmer_poi",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:composter"
+                ]
+            }
+        ],
+        "blocks/fisherman_poi": [
+            null,
+            {
+                "name": "fisherman_poi",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:barrel"
+                ]
+            }
+        ],
+        "blocks/fletcher_poi": [
+            null,
+            {
+                "name": "fletcher_poi",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:fletching_table"
+                ]
+            }
+        ],
+        "blocks/job_site_poi": [
+            null,
+            {
+                "name": "job_site_poi",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:blast_furnace",
+                    "minecraft:smoker",
+                    "minecraft:cartography_table",
+                    "minecraft:brewing_stand",
+                    "minecraft:composter",
+                    "minecraft:barrel",
+                    "minecraft:fletching_table",
+                    "minecraft:cauldron",
+                    "minecraft:lectern",
+                    "minecraft:stonecutter",
+                    "minecraft:loom",
+                    "minecraft:smithing_table",
+                    "minecraft:grindstone"
+                ]
+            }
+        ],
+        "blocks/leatherworker_poi": [
+            null,
+            {
+                "name": "leatherworker_poi",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:cauldron"
+                ]
+            }
+        ],
+        "blocks/librarian_poi": [
+            null,
+            {
+                "name": "librarian_poi",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:lectern"
+                ]
+            }
+        ],
+        "blocks/mason_poi": [
+            null,
+            {
+                "name": "mason_poi",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:stonecutter"
+                ]
+            }
+        ],
+        "blocks/meeting_site_poi": [
+            null,
+            {
+                "name": "meeting_site_poi",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:bell"
+                ]
+            }
+        ],
+        "blocks/points_of_interest": [
+            null,
+            {
+                "name": "points_of_interest",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:blast_furnace",
+                    "minecraft:smoker",
+                    "minecraft:cartography_table",
+                    "minecraft:brewing_stand",
+                    "minecraft:composter",
+                    "minecraft:barrel",
+                    "minecraft:fletching_table",
+                    "minecraft:cauldron",
+                    "minecraft:lectern",
+                    "minecraft:stonecutter",
+                    "minecraft:loom",
+                    "minecraft:smithing_table",
+                    "minecraft:grindstone",
+                    "minecraft:red_bed",
+                    "minecraft:black_bed",
+                    "minecraft:blue_bed",
+                    "minecraft:brown_bed",
+                    "minecraft:cyan_bed",
+                    "minecraft:gray_bed",
+                    "minecraft:green_bed",
+                    "minecraft:light_blue_bed",
+                    "minecraft:light_gray_bed",
+                    "minecraft:lime_bed",
+                    "minecraft:magenta_bed",
+                    "minecraft:orange_bed",
+                    "minecraft:pink_bed",
+                    "minecraft:purple_bed",
+                    "minecraft:white_bed",
+                    "minecraft:yellow_bed",
+                    "minecraft:bell"
+                ]
+            }
+        ],
+        "blocks/shepherd_poi": [
+            null,
+            {
+                "name": "shepherd_poi",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:loom"
+                ]
+            }
+        ],
+        "blocks/toolsmith_poi": [
+            null,
+            {
+                "name": "toolsmith_poi",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:smithing_table"
+                ]
+            }
+        ],
+        "blocks/weaponsmith_poi": [
+            null,
+            {
+                "name": "weaponsmith_poi",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:grindstone"
+                ]
+            }
+        ]
+    },
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            1935,
+            1937
+        ],
+        "name": [
+            "19w09a",
+            "19w11a"
+        ],
+        "protocol": [
+            463,
+            464
+        ]
+    }
+}
