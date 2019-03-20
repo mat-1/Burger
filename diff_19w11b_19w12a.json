@@ -1,0 +1,1211 @@
+{
+    "achievements": {},
+    "biomes": {
+        "biome": {}
+    },
+    "blocks": {
+        "block": {
+            "cut_red_sandstone_slab": [
+                null,
+                {
+                    "class": "bqc",
+                    "display_name": "Cut Red Sandstone Slab",
+                    "field": "hT",
+                    "hardness": 2.0,
+                    "max_state_id": 7871,
+                    "min_state_id": 7866,
+                    "num_states": 6,
+                    "numeric_id": 461,
+                    "resistance": 6.0,
+                    "states": [
+                        {
+                            "declared_in": "buv",
+                            "enum_class": "bvk",
+                            "field_name": "a",
+                            "name": "type",
+                            "num_values": 3,
+                            "type": "enum",
+                            "values": [
+                                "TOP",
+                                "BOTTOM",
+                                "DOUBLE"
+                            ]
+                        },
+                        {
+                            "declared_in": "buv",
+                            "field_name": "b",
+                            "name": "waterlogged",
+                            "num_values": 2,
+                            "type": "bool"
+                        }
+                    ],
+                    "text_id": "cut_red_sandstone_slab"
+                }
+            ],
+            "cut_sandstone_slab": [
+                null,
+                {
+                    "class": "bqc",
+                    "display_name": "Cut Sandstone Slab",
+                    "field": "hL",
+                    "hardness": 2.0,
+                    "max_state_id": 7823,
+                    "min_state_id": 7818,
+                    "num_states": 6,
+                    "numeric_id": 453,
+                    "resistance": 6.0,
+                    "states": [
+                        {
+                            "declared_in": "buv",
+                            "enum_class": "bvk",
+                            "field_name": "a",
+                            "name": "type",
+                            "num_values": 3,
+                            "type": "enum",
+                            "values": [
+                                "TOP",
+                                "BOTTOM",
+                                "DOUBLE"
+                            ]
+                        },
+                        {
+                            "declared_in": "buv",
+                            "field_name": "b",
+                            "name": "waterlogged",
+                            "num_values": 2,
+                            "type": "bool"
+                        }
+                    ],
+                    "text_id": "cut_sandstone_slab"
+                }
+            ]
+        }
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {
+            "donkey": [
+                {
+                    "class": "aql",
+                    "display_name": "Donkey",
+                    "field": "m",
+                    "height": 1.6,
+                    "id": 12,
+                    "metadata": [
+                        {
+                            "class": "aig",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "ahu",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bA",
+                                    "index": 14,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "aqk",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bM",
+                                    "index": 15,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bN",
+                                    "index": 16,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        },
+                        {
+                            "class": "aqj",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bK",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "donkey",
+                    "width": 1.39648
+                },
+                {
+                    "class": "aqt",
+                    "display_name": "Donkey",
+                    "field": "m",
+                    "height": 1.5,
+                    "id": 12,
+                    "metadata": [
+                        {
+                            "class": "aii",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "ahw",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bA",
+                                    "index": 14,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "aqs",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bM",
+                                    "index": 15,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bN",
+                                    "index": 16,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        },
+                        {
+                            "class": "aqr",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bK",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "donkey",
+                    "width": 1.39648
+                }
+            ],
+            "evoker": [
+                {
+                    "class": "asu",
+                    "display_name": "Evoker",
+                    "field": "w",
+                    "height": 1.95,
+                    "id": 22,
+                    "metadata": [
+                        {
+                            "class": "atb",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "class": "asj",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 14,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "atn",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bA",
+                                    "index": 15,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "evoker",
+                    "width": 0.6
+                },
+                {
+                    "class": "atc",
+                    "display_name": "Evoker",
+                    "field": "w",
+                    "height": 1.95,
+                    "id": 22,
+                    "metadata": [
+                        {
+                            "class": "atj",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "class": "atv",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "d",
+                                    "index": 14,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "evoker",
+                    "width": 0.6
+                }
+            ],
+            "fox": [
+                {
+                    "class": "apq",
+                    "display_name": "Fox",
+                    "field": "B",
+                    "height": 0.7,
+                    "id": 27,
+                    "metadata": [
+                        {
+                            "class": "aig",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "ahu",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bA",
+                                    "index": 14,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "apq",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bA",
+                                    "index": 15,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bB",
+                                    "index": 16,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bC",
+                                    "index": 17,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bE",
+                                    "index": 18,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "fox",
+                    "width": 0.5
+                },
+                {
+                    "class": "apy",
+                    "display_name": "Fox",
+                    "field": "B",
+                    "height": 0.7,
+                    "id": 27,
+                    "metadata": [
+                        {
+                            "class": "aii",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "ahw",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bA",
+                                    "index": 14,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "apy",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bA",
+                                    "index": 15,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bB",
+                                    "index": 16,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bC",
+                                    "index": 17,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bE",
+                                    "index": 18,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "fox",
+                    "width": 0.6
+                }
+            ],
+            "giant": [
+                {
+                    "class": "asw",
+                    "display_name": "Giant",
+                    "field": "D",
+                    "height": 11.7,
+                    "id": 29,
+                    "metadata": [
+                        {
+                            "class": "atb",
+                            "entity": "~abstract_monster"
+                        }
+                    ],
+                    "name": "giant",
+                    "width": 3.6
+                },
+                {
+                    "class": "ate",
+                    "display_name": "Giant",
+                    "field": "D",
+                    "height": 12.0,
+                    "id": 29,
+                    "metadata": [
+                        {
+                            "class": "atj",
+                            "entity": "~abstract_monster"
+                        }
+                    ],
+                    "name": "giant",
+                    "width": 3.6
+                }
+            ],
+            "illusioner": [
+                {
+                    "class": "asz",
+                    "display_name": "Illusioner",
+                    "field": "H",
+                    "height": 1.95,
+                    "id": 33,
+                    "metadata": [
+                        {
+                            "class": "atb",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "class": "asj",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 14,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "atn",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bA",
+                                    "index": 15,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "illusioner",
+                    "width": 0.6
+                },
+                {
+                    "class": "ath",
+                    "display_name": "Illusioner",
+                    "field": "H",
+                    "height": 1.95,
+                    "id": 33,
+                    "metadata": [
+                        {
+                            "class": "atj",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "class": "atv",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "d",
+                                    "index": 14,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "illusioner",
+                    "width": 0.6
+                }
+            ],
+            "pillager": [
+                {
+                    "class": "atf",
+                    "display_name": "Pillager",
+                    "field": "aJ",
+                    "height": 1.95,
+                    "id": 87,
+                    "metadata": [
+                        {
+                            "class": "atb",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "class": "asj",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 14,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "class": "atf",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "c",
+                                    "index": 15,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "pillager",
+                    "width": 0.6
+                },
+                {
+                    "class": "atn",
+                    "display_name": "Pillager",
+                    "field": "aJ",
+                    "height": 1.95,
+                    "id": 87,
+                    "metadata": [
+                        {
+                            "class": "atj",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "class": "atn",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 14,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "pillager",
+                    "width": 0.6
+                }
+            ],
+            "polar_bear": [
+                {
+                    "class": "apx",
+                    "display_name": "Polar Bear",
+                    "field": "af",
+                    "height": 1.4,
+                    "id": 57,
+                    "metadata": [
+                        {
+                            "class": "aig",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "ahu",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bA",
+                                    "index": 14,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "apx",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bA",
+                                    "index": 15,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "polar_bear",
+                    "width": 1.3
+                },
+                {
+                    "class": "aqf",
+                    "display_name": "Polar Bear",
+                    "field": "af",
+                    "height": 1.4,
+                    "id": 57,
+                    "metadata": [
+                        {
+                            "class": "aii",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "class": "ahw",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bA",
+                                    "index": 14,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "class": "aqf",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bA",
+                                    "index": 15,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "polar_bear",
+                    "width": 1.4
+                }
+            ],
+            "skeleton": [
+                {
+                    "class": "atl",
+                    "display_name": "Skeleton",
+                    "field": "an",
+                    "height": 1.99,
+                    "id": 65,
+                    "metadata": [
+                        {
+                            "class": "atb",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "class": "ask",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 14,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "skeleton",
+                    "width": 0.6
+                },
+                {
+                    "class": "att",
+                    "display_name": "Skeleton",
+                    "field": "an",
+                    "height": 1.99,
+                    "id": 65,
+                    "metadata": [
+                        {
+                            "class": "atj",
+                            "entity": "~abstract_monster"
+                        }
+                    ],
+                    "name": "skeleton",
+                    "width": 0.6
+                }
+            ],
+            "stray": [
+                {
+                    "class": "atp",
+                    "display_name": "Stray",
+                    "field": "aw",
+                    "height": 1.99,
+                    "id": 74,
+                    "metadata": [
+                        {
+                            "class": "atb",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "class": "ask",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 14,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "stray",
+                    "width": 0.6
+                },
+                {
+                    "class": "atx",
+                    "display_name": "Stray",
+                    "field": "aw",
+                    "height": 1.99,
+                    "id": 74,
+                    "metadata": [
+                        {
+                            "class": "atj",
+                            "entity": "~abstract_monster"
+                        }
+                    ],
+                    "name": "stray",
+                    "width": 0.6
+                }
+            ],
+            "vindicator": [
+                {
+                    "class": "atr",
+                    "display_name": "Vindicator",
+                    "field": "aI",
+                    "height": 1.95,
+                    "id": 86,
+                    "metadata": [
+                        {
+                            "class": "atb",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "class": "asj",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 14,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "vindicator",
+                    "width": 0.6
+                },
+                {
+                    "class": "atz",
+                    "display_name": "Vindicator",
+                    "field": "aI",
+                    "height": 1.95,
+                    "id": 86,
+                    "metadata": [
+                        {
+                            "class": "atj",
+                            "entity": "~abstract_monster"
+                        }
+                    ],
+                    "name": "vindicator",
+                    "width": 0.6
+                }
+            ],
+            "wither_skeleton": [
+                {
+                    "class": "att",
+                    "display_name": "Wither Skeleton",
+                    "field": "aN",
+                    "height": 2.4,
+                    "id": 91,
+                    "metadata": [
+                        {
+                            "class": "atb",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "class": "ask",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 14,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "wither_skeleton",
+                    "width": 0.7
+                },
+                {
+                    "class": "aub",
+                    "display_name": "Wither Skeleton",
+                    "field": "aN",
+                    "height": 2.4,
+                    "id": 91,
+                    "metadata": [
+                        {
+                            "class": "atj",
+                            "entity": "~abstract_monster"
+                        }
+                    ],
+                    "name": "wither_skeleton",
+                    "width": 0.7
+                }
+            ],
+            "zombie": [
+                {
+                    "class": "atu",
+                    "display_name": "Zombie",
+                    "field": "aQ",
+                    "height": 1.95,
+                    "id": 94,
+                    "metadata": [
+                        {
+                            "class": "atb",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "class": "atu",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bA",
+                                    "index": 14,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bB",
+                                    "index": 15,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bD",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "zombie",
+                    "width": 0.6
+                },
+                {
+                    "class": "auc",
+                    "display_name": "Zombie",
+                    "field": "aQ",
+                    "height": 1.95,
+                    "id": 94,
+                    "metadata": [
+                        {
+                            "class": "atj",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "class": "auc",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bA",
+                                    "index": 14,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bB",
+                                    "index": 15,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "zombie",
+                    "width": 0.6
+                }
+            ],
+            "zombie_villager": [
+                {
+                    "class": "atv",
+                    "display_name": "Zombie Villager",
+                    "field": "aS",
+                    "height": 1.95,
+                    "id": 96,
+                    "metadata": [
+                        {
+                            "class": "atu",
+                            "entity": "zombie"
+                        },
+                        {
+                            "class": "atv",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 18,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "field": "c",
+                                    "index": 19,
+                                    "serializer": 16,
+                                    "serializer_id": 16
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "zombie_villager",
+                    "width": 0.6
+                },
+                {
+                    "class": "aud",
+                    "display_name": "Zombie Villager",
+                    "field": "aS",
+                    "height": 1.95,
+                    "id": 96,
+                    "metadata": [
+                        {
+                            "class": "auc",
+                            "entity": "zombie"
+                        },
+                        {
+                            "class": "aud",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "field": "c",
+                                    "index": 18,
+                                    "serializer": 16,
+                                    "serializer_id": 16
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "zombie_villager",
+                    "width": 0.6
+                }
+            ]
+        }
+    },
+    "items": {
+        "item": {
+            "cut_red_sandstone_slab": [
+                null,
+                {
+                    "display_name": "Cut Red Sandstone Slab",
+                    "field": "bC",
+                    "max_stack_size": 64,
+                    "numeric_id": 132,
+                    "text_id": "cut_red_sandstone_slab"
+                }
+            ],
+            "cut_sandstone_slab": [
+                null,
+                {
+                    "display_name": "Cut Sandstone Slab",
+                    "field": "bu",
+                    "max_stack_size": 64,
+                    "numeric_id": 124,
+                    "text_id": "cut_sandstone_slab"
+                }
+            ]
+        }
+    },
+    "language": {
+        "block": {
+            "minecraft.cut_red_sandstone_slab": [
+                null,
+                "Cut Red Sandstone Slab"
+            ],
+            "minecraft.cut_sandstone_slab": [
+                null,
+                "Cut Sandstone Slab"
+            ]
+        },
+        "selectWorld": {
+            "newWorld.copyOf": [
+                "Copy of %s",
+                null
+            ]
+        }
+    },
+    "packets": {
+        "packet": {}
+    },
+    "recipes": {
+        "cut_red_sandstone_slab": [
+            null,
+            [
+                {
+                    "id": "minecraft:cut_red_sandstone_slab",
+                    "makes": {
+                        "count": 6,
+                        "name": "cut_red_sandstone_slab",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "cut_red_sandstone",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "cut_red_sandstone",
+                                "type": "item"
+                            },
+                            {
+                                "name": "cut_red_sandstone",
+                                "type": "item"
+                            },
+                            {
+                                "name": "cut_red_sandstone",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "cut_sandstone_slab": [
+            null,
+            [
+                {
+                    "id": "minecraft:cut_sandstone_slab",
+                    "makes": {
+                        "count": 6,
+                        "name": "cut_sandstone_slab",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "cut_sandstone",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "cut_sandstone",
+                                "type": "item"
+                            },
+                            {
+                                "name": "cut_sandstone",
+                                "type": "item"
+                            },
+                            {
+                                "name": "cut_sandstone",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "red_sandstone_slab": [
+            [
+                {
+                    "id": "minecraft:red_sandstone_slab",
+                    "makes": {
+                        "count": 6,
+                        "name": "red_sandstone_slab",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "cut_red_sandstone",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "cut_red_sandstone",
+                                "type": "item"
+                            },
+                            {
+                                "name": "cut_red_sandstone",
+                                "type": "item"
+                            },
+                            {
+                                "name": "cut_red_sandstone",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ],
+            []
+        ],
+        "sandstone_slab": [
+            [
+                {
+                    "id": "minecraft:sandstone_slab",
+                    "makes": {
+                        "count": 6,
+                        "name": "sandstone_slab",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "cut_sandstone",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "cut_sandstone",
+                                "type": "item"
+                            },
+                            {
+                                "name": "cut_sandstone",
+                                "type": "item"
+                            },
+                            {
+                                "name": "cut_sandstone",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ],
+            []
+        ]
+    },
+    "sounds": {},
+    "stats": {},
+    "tags": {},
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            1938,
+            1940
+        ],
+        "name": [
+            "19w11b",
+            "19w12a"
+        ],
+        "protocol": [
+            465,
+            466
+        ]
+    }
+}
