@@ -1,0 +1,541 @@
+{
+    "achievements": {},
+    "biomes": {
+        "biome": {}
+    },
+    "blocks": {
+        "block": {
+            "bell": [
+                {
+                    "block_entity": "bell",
+                    "class": "bny",
+                    "display_name": "Bell",
+                    "field": "lT",
+                    "hardness": 5.0,
+                    "max_state_id": 11213,
+                    "min_state_id": 11198,
+                    "num_states": 16,
+                    "numeric_id": 669,
+                    "resistance": 5.0,
+                    "states": [
+                        {
+                            "declared_in": "bxq",
+                            "field_name": "a",
+                            "name": "facing",
+                            "num_values": 4,
+                            "type": "direction",
+                            "values": [
+                                "NORTH",
+                                "EAST",
+                                "SOUTH",
+                                "WEST"
+                            ]
+                        },
+                        {
+                            "declared_in": "bxq",
+                            "enum_class": "bxp",
+                            "field_name": "b",
+                            "name": "attachment",
+                            "num_values": 4,
+                            "type": "enum",
+                            "values": [
+                                "FLOOR",
+                                "CEILING",
+                                "SINGLE_WALL",
+                                "DOUBLE_WALL"
+                            ]
+                        }
+                    ],
+                    "text_id": "bell"
+                },
+                {
+                    "block_entity": "bell",
+                    "class": "bof",
+                    "display_name": "Bell",
+                    "field": "lT",
+                    "hardness": 5.0,
+                    "max_state_id": 11229,
+                    "min_state_id": 11198,
+                    "num_states": 32,
+                    "numeric_id": 669,
+                    "resistance": 5.0,
+                    "states": [
+                        {
+                            "declared_in": "bxx",
+                            "field_name": "a",
+                            "name": "facing",
+                            "num_values": 4,
+                            "type": "direction",
+                            "values": [
+                                "NORTH",
+                                "EAST",
+                                "SOUTH",
+                                "WEST"
+                            ]
+                        },
+                        {
+                            "declared_in": "bxx",
+                            "enum_class": "bxw",
+                            "field_name": "c",
+                            "name": "attachment",
+                            "num_values": 4,
+                            "type": "enum",
+                            "values": [
+                                "FLOOR",
+                                "CEILING",
+                                "SINGLE_WALL",
+                                "DOUBLE_WALL"
+                            ]
+                        },
+                        {
+                            "declared_in": "bxx",
+                            "field_name": "b",
+                            "name": "powered",
+                            "num_values": 2,
+                            "type": "bool"
+                        }
+                    ],
+                    "text_id": "bell"
+                }
+            ]
+        }
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {}
+    },
+    "items": {
+        "item": {}
+    },
+    "language": {},
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_22": [
+                {
+                    "class": "mn.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 34,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "nbtcompound"
+                        },
+                        {
+                            "field": "e.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "byte[]"
+                        },
+                        {
+                            "field": "f.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.f.iterator()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((jd)var2.next())",
+                                    "var": "var3"
+                                },
+                                {
+                                    "field": "var3",
+                                    "operation": "write",
+                                    "type": "nbtcompound"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "mn.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 34,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "nbtcompound"
+                        },
+                        {
+                            "condition": "e != null",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "this.e.f",
+                                    "var": "var2"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "var2.length",
+                                    "var": "var3"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "0",
+                                    "var": "var4"
+                                },
+                                {
+                                    "condition": "var4 < var3",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "var2[var4]",
+                                            "var": "var5"
+                                        },
+                                        {
+                                            "field": "fn.s.a(var5)",
+                                            "operation": "write",
+                                            "type": "int"
+                                        },
+                                        {
+                                            "amount": "1",
+                                            "field": "var4",
+                                            "operation": "increment"
+                                        }
+                                    ],
+                                    "operation": "loop"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "f.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "byte[]"
+                        },
+                        {
+                            "field": "g.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.g.iterator()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((jd)var2.next())",
+                                    "var": "var3"
+                                },
+                                {
+                                    "field": "var3",
+                                    "operation": "write",
+                                    "type": "nbtcompound"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_26": [
+                {
+                    "class": "mr.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 38,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "this.c.a()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "b",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 0x8)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "d.b()",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f.a()",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "mr.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 38,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "this.d.a()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "c",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 0x8)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e.b()",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "g.a()",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "i",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "j",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_3B": [
+                {
+                    "class": "nj.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 59,
+                    "instructions": [
+                        {
+                            "field": "a.b()",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "c.a()",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "nj.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 59,
+                    "instructions": [
+                        {
+                            "field": "a.b()",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "c.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "d.a()",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "recipes": {},
+    "sounds": {},
+    "stats": {},
+    "tags": {
+        "entity_types/beehive_inhabitors": [
+            null,
+            {
+                "name": "beehive_inhabitors",
+                "replace": false,
+                "type": "entity_types",
+                "values": [
+                    "minecraft:bee"
+                ]
+            }
+        ]
+    },
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            2201,
+            2203
+        ],
+        "id": [
+            "19w35a",
+            "19w36a"
+        ],
+        "name": [
+            "19w35a",
+            "19w36a"
+        ],
+        "protocol": [
+            551,
+            552
+        ]
+    }
+}
