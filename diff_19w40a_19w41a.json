@@ -1,0 +1,1829 @@
+{
+    "achievements": {},
+    "biomes": {
+        "biome": {}
+    },
+    "blocks": {
+        "block": {
+            "bee_hive": [
+                {
+                    "block_entity": "beehive",
+                    "class": "boq",
+                    "display_name": "Bee hive",
+                    "field": "mb",
+                    "hardness": 0.6,
+                    "max_state_id": 11334,
+                    "min_state_id": 11311,
+                    "num_states": 24,
+                    "numeric_id": 677,
+                    "resistance": 0.6,
+                    "states": [
+                        {
+                            "declared_in": "byk",
+                            "field_name": "c",
+                            "max": 5,
+                            "min": 0,
+                            "name": "honey_level",
+                            "num_values": 6,
+                            "type": "int"
+                        },
+                        {
+                            "declared_in": "byk",
+                            "field_name": "b",
+                            "name": "facing",
+                            "num_values": 4,
+                            "type": "direction",
+                            "values": [
+                                "NORTH",
+                                "EAST",
+                                "SOUTH",
+                                "WEST"
+                            ]
+                        }
+                    ],
+                    "text_id": "bee_hive"
+                },
+                null
+            ],
+            "beehive": [
+                null,
+                {
+                    "block_entity": "beehive",
+                    "class": "bou",
+                    "display_name": "Beehive",
+                    "field": "mb",
+                    "hardness": 0.6,
+                    "max_state_id": 11334,
+                    "min_state_id": 11311,
+                    "num_states": 24,
+                    "numeric_id": 677,
+                    "resistance": 0.6,
+                    "states": [
+                        {
+                            "declared_in": "byq",
+                            "field_name": "c",
+                            "max": 5,
+                            "min": 0,
+                            "name": "honey_level",
+                            "num_values": 6,
+                            "type": "int"
+                        },
+                        {
+                            "declared_in": "byq",
+                            "field_name": "b",
+                            "name": "facing",
+                            "num_values": 4,
+                            "type": "direction",
+                            "values": [
+                                "NORTH",
+                                "EAST",
+                                "SOUTH",
+                                "WEST"
+                            ]
+                        }
+                    ],
+                    "text_id": "beehive"
+                }
+            ],
+            "honey_block": [
+                null,
+                {
+                    "class": "brn",
+                    "display_name": "Honey Block",
+                    "field": "mc",
+                    "max_state_id": 11335,
+                    "min_state_id": 11335,
+                    "num_states": 1,
+                    "numeric_id": 678,
+                    "states": [],
+                    "text_id": "honey_block"
+                }
+            ],
+            "honeycomb_block": [
+                null,
+                {
+                    "class": "boy",
+                    "display_name": "Honeycomb Block",
+                    "field": "md",
+                    "hardness": 0.6,
+                    "max_state_id": 11336,
+                    "min_state_id": 11336,
+                    "num_states": 1,
+                    "numeric_id": 679,
+                    "resistance": 0.6,
+                    "states": [],
+                    "text_id": "honeycomb_block"
+                }
+            ]
+        }
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {}
+    },
+    "items": {
+        "item": {
+            "bee_hive": [
+                {
+                    "display_name": "Bee hive",
+                    "field": "pW",
+                    "max_stack_size": 64,
+                    "numeric_id": 880,
+                    "text_id": "bee_hive"
+                },
+                null
+            ],
+            "beehive": [
+                null,
+                {
+                    "display_name": "Beehive",
+                    "field": "pW",
+                    "max_stack_size": 64,
+                    "numeric_id": 880,
+                    "text_id": "beehive"
+                }
+            ],
+            "honey_block": [
+                null,
+                {
+                    "display_name": "Honey Block",
+                    "field": "pY",
+                    "max_stack_size": 64,
+                    "numeric_id": 882,
+                    "text_id": "honey_block"
+                }
+            ],
+            "honeycomb_block": [
+                null,
+                {
+                    "display_name": "Honeycomb Block",
+                    "field": "pZ",
+                    "max_stack_size": 64,
+                    "numeric_id": 883,
+                    "text_id": "honeycomb_block"
+                }
+            ]
+        }
+    },
+    "language": {
+        "block": {
+            "minecraft.bee_hive": [
+                "Bee hive",
+                null
+            ],
+            "minecraft.beehive": [
+                null,
+                "Beehive"
+            ],
+            "minecraft.honey_block": [
+                null,
+                "Honey Block"
+            ],
+            "minecraft.honeycomb_block": [
+                null,
+                "Honeycomb Block"
+            ]
+        },
+        "commands": {
+            "spectate.not_spectator": [
+                null,
+                "%s is not in spectator mode"
+            ],
+            "spectate.self": [
+                null,
+                "Cannot spectate yourself"
+            ],
+            "spectate.success.started": [
+                null,
+                "Now spectating %s"
+            ],
+            "spectate.success.stopped": [
+                null,
+                "No longer spectating an entity"
+            ]
+        },
+        "options": {
+            "key.hold": [
+                null,
+                "Hold"
+            ],
+            "key.toggle": [
+                null,
+                "Toggle"
+            ]
+        },
+        "subtitles": {
+            "block.honey_block.slide": [
+                null,
+                "Sliding down a honey block"
+            ],
+            "entity.iron_golem.damage": [
+                null,
+                "Iron Golem breaks"
+            ],
+            "entity.iron_golem.repair": [
+                null,
+                "Iron Golem repaired"
+            ]
+        }
+    },
+    "packets": {
+        "packet": {}
+    },
+    "recipes": {
+        "bee_hive": [
+            [
+                {
+                    "id": "minecraft:bee_hive",
+                    "makes": {
+                        "count": 1,
+                        "name": "bee_hive",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "PPP",
+                            "HHH",
+                            "PPP"
+                        ],
+                        "subs": {
+                            "H": {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            "P": {
+                                "name": "oak_planks",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:bee_hive",
+                    "makes": {
+                        "count": 1,
+                        "name": "bee_hive",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "PPP",
+                            "HHH",
+                            "PPP"
+                        ],
+                        "subs": {
+                            "H": {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            "P": {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:bee_hive",
+                    "makes": {
+                        "count": 1,
+                        "name": "bee_hive",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "PPP",
+                            "HHH",
+                            "PPP"
+                        ],
+                        "subs": {
+                            "H": {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            "P": {
+                                "name": "birch_planks",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:bee_hive",
+                    "makes": {
+                        "count": 1,
+                        "name": "bee_hive",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "PPP",
+                            "HHH",
+                            "PPP"
+                        ],
+                        "subs": {
+                            "H": {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            "P": {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:bee_hive",
+                    "makes": {
+                        "count": 1,
+                        "name": "bee_hive",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "PPP",
+                            "HHH",
+                            "PPP"
+                        ],
+                        "subs": {
+                            "H": {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            "P": {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:bee_hive",
+                    "makes": {
+                        "count": 1,
+                        "name": "bee_hive",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "PPP",
+                            "HHH",
+                            "PPP"
+                        ],
+                        "subs": {
+                            "H": {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            "P": {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ],
+            null
+        ],
+        "beehive": [
+            null,
+            [
+                {
+                    "id": "minecraft:beehive",
+                    "makes": {
+                        "count": 1,
+                        "name": "beehive",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "PPP",
+                            "HHH",
+                            "PPP"
+                        ],
+                        "subs": {
+                            "H": {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            "P": {
+                                "name": "oak_planks",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "oak_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:beehive",
+                    "makes": {
+                        "count": 1,
+                        "name": "beehive",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "PPP",
+                            "HHH",
+                            "PPP"
+                        ],
+                        "subs": {
+                            "H": {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            "P": {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:beehive",
+                    "makes": {
+                        "count": 1,
+                        "name": "beehive",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "PPP",
+                            "HHH",
+                            "PPP"
+                        ],
+                        "subs": {
+                            "H": {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            "P": {
+                                "name": "birch_planks",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:beehive",
+                    "makes": {
+                        "count": 1,
+                        "name": "beehive",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "PPP",
+                            "HHH",
+                            "PPP"
+                        ],
+                        "subs": {
+                            "H": {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            "P": {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:beehive",
+                    "makes": {
+                        "count": 1,
+                        "name": "beehive",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "PPP",
+                            "HHH",
+                            "PPP"
+                        ],
+                        "subs": {
+                            "H": {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            "P": {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:beehive",
+                    "makes": {
+                        "count": 1,
+                        "name": "beehive",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "PPP",
+                            "HHH",
+                            "PPP"
+                        ],
+                        "subs": {
+                            "H": {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            "P": {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            },
+                            {
+                                "name": "dark_oak_planks",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "honey_block": [
+            null,
+            [
+                {
+                    "id": "minecraft:honey_block",
+                    "makes": {
+                        "count": 1,
+                        "name": "honey_block",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "SS",
+                            "SS"
+                        ],
+                        "subs": {
+                            "S": {
+                                "name": "honey_bottle",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "honey_bottle",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honey_bottle",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "honey_bottle",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honey_bottle",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "honeycomb_block": [
+            null,
+            [
+                {
+                    "id": "minecraft:honeycomb_block",
+                    "makes": {
+                        "count": 1,
+                        "name": "honeycomb_block",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "HH",
+                            "HH"
+                        ],
+                        "subs": {
+                            "H": {
+                                "name": "honeycomb",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            },
+                            {
+                                "name": "honeycomb",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "stripped_acacia_wood": [
+            null,
+            [
+                {
+                    "group": "bark",
+                    "id": "minecraft:stripped_acacia_wood",
+                    "makes": {
+                        "count": 3,
+                        "name": "stripped_acacia_wood",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "stripped_acacia_log",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "stripped_acacia_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_acacia_log",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_acacia_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_acacia_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "stripped_birch_wood": [
+            null,
+            [
+                {
+                    "group": "bark",
+                    "id": "minecraft:stripped_birch_wood",
+                    "makes": {
+                        "count": 3,
+                        "name": "stripped_birch_wood",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "stripped_birch_log",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "stripped_birch_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_birch_log",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_birch_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_birch_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "stripped_dark_oak_wood": [
+            null,
+            [
+                {
+                    "group": "bark",
+                    "id": "minecraft:stripped_dark_oak_wood",
+                    "makes": {
+                        "count": 3,
+                        "name": "stripped_dark_oak_wood",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "stripped_dark_oak_log",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "stripped_dark_oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_dark_oak_log",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_dark_oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_dark_oak_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "stripped_jungle_wood": [
+            null,
+            [
+                {
+                    "group": "bark",
+                    "id": "minecraft:stripped_jungle_wood",
+                    "makes": {
+                        "count": 3,
+                        "name": "stripped_jungle_wood",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "stripped_jungle_log",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "stripped_jungle_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_jungle_log",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_jungle_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_jungle_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "stripped_oak_wood": [
+            null,
+            [
+                {
+                    "group": "bark",
+                    "id": "minecraft:stripped_oak_wood",
+                    "makes": {
+                        "count": 3,
+                        "name": "stripped_oak_wood",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "stripped_oak_log",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "stripped_oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_oak_log",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_oak_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "stripped_spruce_wood": [
+            null,
+            [
+                {
+                    "group": "bark",
+                    "id": "minecraft:stripped_spruce_wood",
+                    "makes": {
+                        "count": 3,
+                        "name": "stripped_spruce_wood",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "stripped_spruce_log",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "stripped_spruce_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_spruce_log",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "stripped_spruce_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_spruce_log",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ]
+    },
+    "sounds": {
+        "block.honey_block.break": [
+            null,
+            {
+                "field": "eP",
+                "id": 301,
+                "name": "block.honey_block.break",
+                "sounds": [
+                    {
+                        "hash": "5b16028a58fbd888b1ccc5062e2592b2995a159a",
+                        "name": "block/honeyblock/break1"
+                    },
+                    {
+                        "hash": "a99000d5d82b75a4c18b44c8579ed1da123fa782",
+                        "name": "block/honeyblock/break2"
+                    },
+                    {
+                        "hash": "b2f3ee9fbe0bdef433cf03fe759f23e04fd46e29",
+                        "name": "block/honeyblock/break3"
+                    },
+                    {
+                        "hash": "f577d81300052c0ee8d5c090384a166a775bfc98",
+                        "name": "block/honeyblock/break4"
+                    },
+                    {
+                        "hash": "7e5e2978d628f7fc22ddb0fee1e108228c4aaf65",
+                        "name": "block/honeyblock/break5"
+                    }
+                ],
+                "subtitle": "Block broken",
+                "subtitle_key": "subtitles.block.generic.break"
+            }
+        ],
+        "block.honey_block.fall": [
+            null,
+            {
+                "field": "eQ",
+                "id": 302,
+                "name": "block.honey_block.fall",
+                "sounds": [
+                    {
+                        "hash": "ec34853a3a7def9e2ed0c530fd79035c1b41d16d",
+                        "name": "block/honeyblock/step1"
+                    },
+                    {
+                        "hash": "67dd095ff29dea6092530dbf8bcf9cc77efdb49a",
+                        "name": "block/honeyblock/step2"
+                    },
+                    {
+                        "hash": "d5d7e396f52574ac18b6cedbd713144c887a7931",
+                        "name": "block/honeyblock/step3"
+                    },
+                    {
+                        "hash": "1ec3dff91a5db985385bf08d47749872cecc08d9",
+                        "name": "block/honeyblock/step4"
+                    },
+                    {
+                        "hash": "5dac0e85e722c9238e95439970693f1838106acd",
+                        "name": "block/honeyblock/step5"
+                    }
+                ]
+            }
+        ],
+        "block.honey_block.hit": [
+            null,
+            {
+                "field": "eR",
+                "id": 303,
+                "name": "block.honey_block.hit",
+                "sounds": [
+                    {
+                        "hash": "ec34853a3a7def9e2ed0c530fd79035c1b41d16d",
+                        "name": "block/honeyblock/step1"
+                    },
+                    {
+                        "hash": "67dd095ff29dea6092530dbf8bcf9cc77efdb49a",
+                        "name": "block/honeyblock/step2"
+                    },
+                    {
+                        "hash": "d5d7e396f52574ac18b6cedbd713144c887a7931",
+                        "name": "block/honeyblock/step3"
+                    },
+                    {
+                        "hash": "1ec3dff91a5db985385bf08d47749872cecc08d9",
+                        "name": "block/honeyblock/step4"
+                    },
+                    {
+                        "hash": "5dac0e85e722c9238e95439970693f1838106acd",
+                        "name": "block/honeyblock/step5"
+                    }
+                ],
+                "subtitle": "Block breaking",
+                "subtitle_key": "subtitles.block.generic.hit"
+            }
+        ],
+        "block.honey_block.place": [
+            null,
+            {
+                "field": "eS",
+                "id": 304,
+                "name": "block.honey_block.place",
+                "sounds": [
+                    {
+                        "hash": "5b16028a58fbd888b1ccc5062e2592b2995a159a",
+                        "name": "block/honeyblock/break1"
+                    },
+                    {
+                        "hash": "a99000d5d82b75a4c18b44c8579ed1da123fa782",
+                        "name": "block/honeyblock/break2"
+                    },
+                    {
+                        "hash": "b2f3ee9fbe0bdef433cf03fe759f23e04fd46e29",
+                        "name": "block/honeyblock/break3"
+                    },
+                    {
+                        "hash": "f577d81300052c0ee8d5c090384a166a775bfc98",
+                        "name": "block/honeyblock/break4"
+                    },
+                    {
+                        "hash": "7e5e2978d628f7fc22ddb0fee1e108228c4aaf65",
+                        "name": "block/honeyblock/break5"
+                    }
+                ],
+                "subtitle": "Block placed",
+                "subtitle_key": "subtitles.block.generic.place"
+            }
+        ],
+        "block.honey_block.slide": [
+            null,
+            {
+                "field": "eT",
+                "id": 305,
+                "name": "block.honey_block.slide",
+                "sounds": [
+                    {
+                        "hash": "8245b9f22fa32f4e74e150fd225fff00362e74cc",
+                        "name": "block/honeyblock/slide1",
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "013b1518d41176f1884ef17944104a8473d408ce",
+                        "name": "block/honeyblock/slide2",
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "d4ad02bc3a9c3bd5eac9774d1130bac5cd73ba94",
+                        "name": "block/honeyblock/slide3",
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "102613b04262cd0f94702afd14063fa0187bc158",
+                        "name": "block/honeyblock/slide4",
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "8245b9f22fa32f4e74e150fd225fff00362e74cc",
+                        "name": "block/honeyblock/slide1",
+                        "pitch": 0.9,
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "013b1518d41176f1884ef17944104a8473d408ce",
+                        "name": "block/honeyblock/slide2",
+                        "pitch": 0.8,
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "d4ad02bc3a9c3bd5eac9774d1130bac5cd73ba94",
+                        "name": "block/honeyblock/slide3",
+                        "pitch": 0.8,
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "102613b04262cd0f94702afd14063fa0187bc158",
+                        "name": "block/honeyblock/slide4",
+                        "pitch": 0.8,
+                        "volume": 0.8
+                    }
+                ],
+                "subtitle": "Footsteps",
+                "subtitle_key": "subtitles.block.generic.footsteps"
+            }
+        ],
+        "block.honey_block.step": [
+            null,
+            {
+                "field": "eU",
+                "id": 306,
+                "name": "block.honey_block.step",
+                "sounds": [
+                    {
+                        "hash": "ec34853a3a7def9e2ed0c530fd79035c1b41d16d",
+                        "name": "block/honeyblock/step1"
+                    },
+                    {
+                        "hash": "67dd095ff29dea6092530dbf8bcf9cc77efdb49a",
+                        "name": "block/honeyblock/step2"
+                    },
+                    {
+                        "hash": "d5d7e396f52574ac18b6cedbd713144c887a7931",
+                        "name": "block/honeyblock/step3"
+                    },
+                    {
+                        "hash": "1ec3dff91a5db985385bf08d47749872cecc08d9",
+                        "name": "block/honeyblock/step4"
+                    },
+                    {
+                        "hash": "5dac0e85e722c9238e95439970693f1838106acd",
+                        "name": "block/honeyblock/step5"
+                    }
+                ],
+                "subtitle": "Footsteps",
+                "subtitle_key": "subtitles.block.generic.footsteps"
+            }
+        ],
+        "entity.iron_golem.damage": [
+            null,
+            {
+                "field": "fM",
+                "id": 350,
+                "name": "entity.iron_golem.damage",
+                "sounds": [
+                    {
+                        "hash": "5a3407cf5481a839159f7ebd1d32e245ae888cfc",
+                        "name": "mob/irongolem/damage1",
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "3fb232d67903ea25b9beeefaa11d21183f397aee",
+                        "name": "mob/irongolem/damage2",
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "5a3407cf5481a839159f7ebd1d32e245ae888cfc",
+                        "name": "mob/irongolem/damage1",
+                        "pitch": 0.8,
+                        "volume": 0.8
+                    },
+                    {
+                        "hash": "3fb232d67903ea25b9beeefaa11d21183f397aee",
+                        "name": "mob/irongolem/damage2",
+                        "pitch": 0.8,
+                        "volume": 0.8
+                    }
+                ],
+                "subtitle": "Iron Golem breaks",
+                "subtitle_key": "subtitles.entity.iron_golem.damage"
+            }
+        ],
+        "entity.iron_golem.repair": [
+            null,
+            {
+                "field": "fP",
+                "id": 353,
+                "name": "entity.iron_golem.repair",
+                "sounds": [
+                    {
+                        "hash": "74f0b9d3c982cd29f648c7c78b9ee3a02b010f8c",
+                        "name": "mob/irongolem/repair"
+                    }
+                ],
+                "subtitle": "Iron Golem repaired",
+                "subtitle_key": "subtitles.entity.iron_golem.repair"
+            }
+        ],
+        "entity.parrot.imitate.panda": [
+            {
+                "field": "hY",
+                "id": 466,
+                "name": "entity.parrot.imitate.panda"
+            },
+            null
+        ]
+    },
+    "stats": {},
+    "tags": {
+        "blocks/beehives": [
+            {
+                "name": "beehives",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:bee_nest",
+                    "minecraft:bee_hive"
+                ]
+            },
+            {
+                "name": "beehives",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:bee_nest",
+                    "minecraft:beehive"
+                ]
+            }
+        ],
+        "blocks/dirt_like": [
+            {
+                "name": "dirt_like",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:dirt",
+                    "minecraft:grass_block",
+                    "minecraft:podzol",
+                    "minecraft:coarse_dirt",
+                    "minecraft:mycelium"
+                ]
+            },
+            null
+        ]
+    },
+    "tileentity": {
+        "tileentities": {
+            "beehive": [
+                {
+                    "blocks": [
+                        "bee_nest",
+                        "bee_hive"
+                    ],
+                    "class": "bvt",
+                    "name": "beehive",
+                    "network_id": 14
+                },
+                {
+                    "blocks": [
+                        "bee_nest",
+                        "beehive"
+                    ],
+                    "class": "bvy",
+                    "name": "beehive",
+                    "network_id": 14
+                }
+            ]
+        }
+    },
+    "version": {
+        "data": [
+            2208,
+            2210
+        ],
+        "id": [
+            "19w40a",
+            "19w41a"
+        ],
+        "name": [
+            "19w40a",
+            "19w41a"
+        ],
+        "protocol": [
+            557,
+            558
+        ]
+    }
+}
