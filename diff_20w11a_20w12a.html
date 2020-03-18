@@ -1,0 +1,200 @@
+<!doctype html>
+              <html>
+                <head>
+                  <title>Burger Vitrine</title>
+                  <link rel="stylesheet" href="resources/style.css" />
+                  <script src="resources/jquery.js"></script>
+                  <script src="resources/vitrine.js"></script>
+                </head>
+                <body>
+                    <div id="vitrine">
+                        <a href="#tags"><h2 id="tags">Tags</h2></a><div class="split"><div class="left"><div class="no entry"></div>
+</div><div class="right"><div class="entry"><a href="#tags:soul_fire_base_blocks"><h3 id="tags:soul_fire_base_blocks">soul_fire_base_blocks</h3></a><div><dl><dt>Type</dt><dd>blocks</dd><dt>Name</dt><dd>soul_fire_base_blocks</dd><dt>Values</dt><dd><a href="#blocks:soul_sand">soul_sand</a><br/><a href="#blocks:soul_soil">soul_soil</a></dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#tags:piglin_repellents"><h3 id="tags:piglin_repellents">piglin_repellents</h3></a><div><dl><dt>Type</dt><dd>items</dd><dt>Name</dt><dd>piglin_repellents</dd><dt>Values</dt><dd><a href="#items:soul_fire_torch">soul_fire_torch</a><br/><a href="#items:soul_fire_lantern">soul_fire_lantern</a><br/><a href="#items:soul_fire_torch">soul_fire_torch</a></dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#tags:piglin_repellents"><h3 id="tags:piglin_repellents">piglin_repellents</h3></a><div><dl><dt>Type</dt><dd>items</dd><dt>Name</dt><dd>piglin_repellents</dd><dt>Values</dt><dd><a href="#items:soul_fire_torch">soul_fire_torch</a><br/><a href="#items:soul_fire_lantern">soul_fire_lantern</a></dd></dl></div></div>
+</div></div>
+<a href="#entities"><h2 id="entities">Entities</h2></a><span class="info">No entries</span>
+<a href="#packets"><h2 id="packets">Packets</h2></a><div class="split"><div class="left"><div class="entry"><a href="#packets:login_clientbound_02"><h3 id="packets:login_clientbound_02">LOGIN_CLIENTBOUND_02</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>2</dd></dl><pre><span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">.</span><span class="hl_na">getId</span><span class="hl_o">();</span>
+<span class="hl_n">writeString</span><span class="hl_o">((</span><span class="hl_n">var2</span> <span class="hl_o">==</span> <span class="hl_kc">null</span><span class="hl_o">)</span> <span class="hl_o">?</span> <span class="hl_s">&quot;&quot;</span> <span class="hl_o">:</span> <span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">toString</span><span class="hl_o">());</span>
+<span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">.</span><span class="hl_na">getName</span><span class="hl_o">());</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:login_clientbound_02"><h3 id="packets:login_clientbound_02">LOGIN_CLIENTBOUND_02</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>2</dd></dl><pre><span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_n">gi</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">(</span><span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">.</span><span class="hl_na">getId</span><span class="hl_o">());</span>
+<span class="hl_kt">int</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">length</span><span class="hl_o">;</span>
+<span class="hl_kt">int</span> <span class="hl_n">var4</span> <span class="hl_o">=</span> <span class="hl_mi">0</span><span class="hl_o">;</span>
+<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var4</span> <span class="hl_o">&lt;</span> <span class="hl_n">var3</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_kt">int</span> <span class="hl_n">var5</span> <span class="hl_o">=</span> <span class="hl_n">var2</span><span class="hl_o">[</span><span class="hl_n">var4</span><span class="hl_o">];</span>
+  <span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">var5</span><span class="hl_o">);</span>
+  <span class="hl_n">var4</span><span class="hl_o">++;</span>
+<span class="hl_o">}</span>
+<span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">.</span><span class="hl_na">getName</span><span class="hl_o">());</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_43"><h3 id="packets:play_clientbound_43">PLAY_CLIENTBOUND_43</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>67</dd></dl><pre><span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_43"><h3 id="packets:play_clientbound_43">PLAY_CLIENTBOUND_43</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>67</dd></dl><pre><span class="hl_n">writePosition</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_44"><h3 id="packets:play_clientbound_44">PLAY_CLIENTBOUND_44</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>68</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeMetadata</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_44"><h3 id="packets:play_clientbound_44">PLAY_CLIENTBOUND_44</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>68</dd></dl><pre><span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_45"><h3 id="packets:play_clientbound_45">PLAY_CLIENTBOUND_45</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>69</dd></dl><pre><span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_45"><h3 id="packets:play_clientbound_45">PLAY_CLIENTBOUND_45</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>69</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeMetadata</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_46"><h3 id="packets:play_clientbound_46">PLAY_CLIENTBOUND_46</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>70</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeShort</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_n">writeShort</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+<span class="hl_n">writeShort</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_46"><h3 id="packets:play_clientbound_46">PLAY_CLIENTBOUND_46</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>70</dd></dl><pre><span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_47"><h3 id="packets:play_clientbound_47">PLAY_CLIENTBOUND_47</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>71</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_n">writeItemStack</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_47"><h3 id="packets:play_clientbound_47">PLAY_CLIENTBOUND_47</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>71</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeShort</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_n">writeShort</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+<span class="hl_n">writeShort</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_48"><h3 id="packets:play_clientbound_48">PLAY_CLIENTBOUND_48</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>72</dd></dl><pre><span class="hl_n">writeFloat</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_48"><h3 id="packets:play_clientbound_48">PLAY_CLIENTBOUND_48</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>72</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_n">writeItemStack</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_49"><h3 id="packets:play_clientbound_49">PLAY_CLIENTBOUND_49</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>73</dd></dl><pre><span class="hl_n">writeFloat</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_n">writeFloat</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_49"><h3 id="packets:play_clientbound_49">PLAY_CLIENTBOUND_49</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>73</dd></dl><pre><span class="hl_n">writeFloat</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_4a"><h3 id="packets:play_clientbound_4a">PLAY_CLIENTBOUND_4A</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>74</dd></dl><pre><span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeChatComponent</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+  <span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_4a"><h3 id="packets:play_clientbound_4a">PLAY_CLIENTBOUND_4A</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>74</dd></dl><pre><span class="hl_n">writeFloat</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_n">writeFloat</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_4b"><h3 id="packets:play_clientbound_4b">PLAY_CLIENTBOUND_4B</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>75</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">length</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarIntArray</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_4b"><h3 id="packets:play_clientbound_4b">PLAY_CLIENTBOUND_4B</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>75</dd></dl><pre><span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeChatComponent</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+  <span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_4c"><h3 id="packets:play_clientbound_4c">PLAY_CLIENTBOUND_4C</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>76</dd></dl><pre><span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">i</span><span class="hl_o">);</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">i</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeChatComponent</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+  <span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">j</span><span class="hl_o">);</span>
+  <span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">);</span>
+  <span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">f</span><span class="hl_o">);</span>
+  <span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">g</span><span class="hl_o">);</span>
+  <span class="hl_n">writeChatComponent</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+  <span class="hl_n">writeChatComponent</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">i</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">h</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
+  <span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">h</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+  <span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+    <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">String</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
+    <span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">);</span>
+  <span class="hl_o">}</span>
+<span class="hl_o">}</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_4c"><h3 id="packets:play_clientbound_4c">PLAY_CLIENTBOUND_4C</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>76</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">length</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarIntArray</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_4d"><h3 id="packets:play_clientbound_4d">PLAY_CLIENTBOUND_4D</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>77</dd></dl><pre><span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+<span class="hl_n">writeString</span><span class="hl_o">((</span><span class="hl_n">b</span> <span class="hl_o">==</span> <span class="hl_kc">null</span><span class="hl_o">)</span> <span class="hl_o">?</span> <span class="hl_s">&quot;&quot;</span> <span class="hl_o">:</span> <span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">d</span> <span class="hl_o">!=</span> <span class="hl_n">ub$a</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_4d"><h3 id="packets:play_clientbound_4d">PLAY_CLIENTBOUND_4D</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>77</dd></dl><pre><span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">i</span><span class="hl_o">);</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">i</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeChatComponent</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+  <span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">j</span><span class="hl_o">);</span>
+  <span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">);</span>
+  <span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">f</span><span class="hl_o">);</span>
+  <span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">g</span><span class="hl_o">);</span>
+  <span class="hl_n">writeChatComponent</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+  <span class="hl_n">writeChatComponent</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">i</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">h</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
+  <span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">h</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+  <span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+    <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">String</span><span class="hl_o">)</span><span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
+    <span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">);</span>
+  <span class="hl_o">}</span>
+<span class="hl_o">}</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_4e"><h3 id="packets:play_clientbound_4e">PLAY_CLIENTBOUND_4E</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>78</dd></dl><pre><span class="hl_n">writePosition</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_4e"><h3 id="packets:play_clientbound_4e">PLAY_CLIENTBOUND_4E</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>78</dd></dl><pre><span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+<span class="hl_n">writeString</span><span class="hl_o">((</span><span class="hl_n">b</span> <span class="hl_o">==</span> <span class="hl_kc">null</span><span class="hl_o">)</span> <span class="hl_o">?</span> <span class="hl_s">&quot;&quot;</span> <span class="hl_o">:</span> <span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">d</span> <span class="hl_o">!=</span> <span class="hl_n">uc$a</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
+</pre></div></div>
+</div></div>
+<a href="#entity_metadata_serializers"><h2 id="entity_metadata_serializers">Entity Metadata Serializers</h2></a><span class="info">No entries</span>
+<a href="#versions"><h2 id="versions">Versions</h2></a><div class="split"><div class="left"><div class="entry"><a href="#versions:data"><h3 id="versions:data">data</h3></a><div>2513</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:data"><h3 id="versions:data">data</h3></a><div>2515</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:id"><h3 id="versions:id">id</h3></a><div>20w11a</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:id"><h3 id="versions:id">id</h3></a><div>20w12a</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:name"><h3 id="versions:name">name</h3></a><div>20w11a</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:name"><h3 id="versions:name">name</h3></a><div>20w12a</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>706</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>707</div></div>
+</div></div>
+<a href="#stats"><h2 id="stats">Stats</h2></a><span class="info">No entries</span>
+<a href="#achievements"><h2 id="achievements">Achievements</h2></a><span class="info">No entries</span>
+<a href="#language"><h2 id="language">Language</h2></a><div class="split"><div class="left"><div class="entry"><a href="#language:advancements"><h3 id="language:advancements">advancements</h3></a><div><dl class="wide"><dt>adventure.sleep_in_bed.description</dt><dd>Change your respawn point</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:advancements"><h3 id="language:advancements">advancements</h3></a><div><dl class="wide"><dt>adventure.sleep_in_bed.description</dt><dd>Sleep in a bed to change your respawn point</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:block"><h3 id="language:block">block</h3></a><div><dl class="wide"><dt>minecraft.bed.not_valid</dt><dd>Your home bed was missing or obstructed</dd><dt>minecraft.bed.set_spawn</dt><dd>Respawn point set</dd><dt>minecraft.polished_basalt</dt><dd>-</dd><dt>minecraft.respawn_anchor</dt><dd>-</dd><dt>minecraft.set_spawn</dt><dd>-</dd><dt>minecraft.spawn.not_valid</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:block"><h3 id="language:block">block</h3></a><div><dl class="wide"><dt>minecraft.bed.not_valid</dt><dd>-</dd><dt>minecraft.bed.set_spawn</dt><dd>-</dd><dt>minecraft.polished_basalt</dt><dd>Polished Basalt</dd><dt>minecraft.respawn_anchor</dt><dd>Respawn Anchor</dd><dt>minecraft.set_spawn</dt><dd>Respawn point set</dd><dt>minecraft.spawn.not_valid</dt><dd>Your have no home bed or respawn anchor, or it was obstructed</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:commands"><h3 id="language:commands">commands</h3></a><div><dl class="wide"><dt>spawnpoint.success.multiple</dt><dd>Set spawn point to %s, %s, %s for %s players</dd><dt>spawnpoint.success.single</dt><dd>Set spawn point to %s, %s, %s for %s</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:commands"><h3 id="language:commands">commands</h3></a><div><dl class="wide"><dt>spawnpoint.success.multiple</dt><dd>Set spawn point to %s, %s, %s in %s for %s players</dd><dt>spawnpoint.success.single</dt><dd>Set spawn point to %s, %s, %s in %s for %s</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:death"><h3 id="language:death">death</h3></a><div><dl class="wide"><dt>fell.accident.water</dt><dd>%1$s fell out of the water</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:death"><h3 id="language:death">death</h3></a><div><dl class="wide"><dt>fell.accident.water</dt><dd>-</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:subtitles"><h3 id="language:subtitles">subtitles</h3></a><div><dl class="wide"><dt>block.respawn_anchor.ambient</dt><dd>-</dd><dt>block.respawn_anchor.charge</dt><dd>-</dd><dt>block.respawn_anchor.deplete</dt><dd>-</dd><dt>block.respawn_anchor.set_spawn</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:subtitles"><h3 id="language:subtitles">subtitles</h3></a><div><dl class="wide"><dt>block.respawn_anchor.ambient</dt><dd>Portal whooshes</dd><dt>block.respawn_anchor.charge</dt><dd>Respawn anchor is charged</dd><dt>block.respawn_anchor.deplete</dt><dd>Respawn anchor depletes</dd><dt>block.respawn_anchor.set_spawn</dt><dd>Respawn anchor sets spawn</dd></dl></div></div>
+</div></div>
+<a href="#sounds"><h2 id="sounds">Sounds</h2></a><div class="split"><div class="left"><div class="no entry"></div>
+</div><div class="right"><div class="entry"><a href="#sounds:block.respawn_anchor.ambient"><h3 id="sounds:block.respawn_anchor.ambient">block.respawn_anchor.ambient</h3></a><div><dl><dt>Name</dt><dd>block.respawn_anchor.ambient</dd><dt>ID</dt><dd>655</dd><dt>Field</dt><dd>lF</dd><dt>Subtitle key</dt><dd>subtitles.block.respawn_anchor.ambient</dd><dt>Subtitle</dt><dd>Portal whooshes</dd><dt>Sounds (3)</dt><dd><a title="c24afd676ea823e441da80b2a0eb937fefccba82" href="https://resources.download.minecraft.net/c2/c24afd676ea823e441da80b2a0eb937fefccba82">block/respawn_anchor/ambient1</a><span><button data-link="https://resources.download.minecraft.net/c2/c24afd676ea823e441da80b2a0eb937fefccba82" onclick="playSound(this)">Play</button></span><br/><a title="88c545f683cdf403c61ac3d317375480e497262f" href="https://resources.download.minecraft.net/88/88c545f683cdf403c61ac3d317375480e497262f">block/respawn_anchor/ambient2</a><span><button data-link="https://resources.download.minecraft.net/88/88c545f683cdf403c61ac3d317375480e497262f" onclick="playSound(this)">Play</button></span><br/><a title="ac48cfdad236451851816dcc507d024197b49355" href="https://resources.download.minecraft.net/ac/ac48cfdad236451851816dcc507d024197b49355">block/respawn_anchor/ambient3</a><span><button data-link="https://resources.download.minecraft.net/ac/ac48cfdad236451851816dcc507d024197b49355" onclick="playSound(this)">Play</button></span></dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="no entry"></div>
+</div><div class="right"><div class="entry"><a href="#sounds:block.respawn_anchor.charge"><h3 id="sounds:block.respawn_anchor.charge">block.respawn_anchor.charge</h3></a><div><dl><dt>Name</dt><dd>block.respawn_anchor.charge</dd><dt>ID</dt><dd>656</dd><dt>Field</dt><dd>lG</dd><dt>Subtitle key</dt><dd>subtitles.block.respawn_anchor.charge</dd><dt>Subtitle</dt><dd>Respawn anchor is charged</dd><dt>Sounds (3)</dt><dd><a title="6c3f77e54f908e9be146a6e336d9c89a5a89a2e3" href="https://resources.download.minecraft.net/6c/6c3f77e54f908e9be146a6e336d9c89a5a89a2e3">block/respawn_anchor/charge1</a><span><button data-link="https://resources.download.minecraft.net/6c/6c3f77e54f908e9be146a6e336d9c89a5a89a2e3" onclick="playSound(this)">Play</button></span><br/><a title="b32c375b8d9bbabf1035034c976e0216ac4ec852" href="https://resources.download.minecraft.net/b3/b32c375b8d9bbabf1035034c976e0216ac4ec852">block/respawn_anchor/charge2</a><span><button data-link="https://resources.download.minecraft.net/b3/b32c375b8d9bbabf1035034c976e0216ac4ec852" onclick="playSound(this)">Play</button></span><br/><a title="dfe1839135affb6c70b235ef5023277b0f984aa5" href="https://resources.download.minecraft.net/df/dfe1839135affb6c70b235ef5023277b0f984aa5">block/respawn_anchor/charge3</a><span><button data-link="https://resources.download.minecraft.net/df/dfe1839135affb6c70b235ef5023277b0f984aa5" onclick="playSound(this)">Play</button></span></dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="no entry"></div>
+</div><div class="right"><div class="entry"><a href="#sounds:block.respawn_anchor.deplete"><h3 id="sounds:block.respawn_anchor.deplete">block.respawn_anchor.deplete</h3></a><div><dl><dt>Name</dt><dd>block.respawn_anchor.deplete</dd><dt>ID</dt><dd>657</dd><dt>Field</dt><dd>lH</dd><dt>Subtitle key</dt><dd>subtitles.block.respawn_anchor.deplete</dd><dt>Subtitle</dt><dd>Respawn anchor depletes</dd><dt>Sounds (2)</dt><dd><a title="b46e4ad96959b7e4994514fae4c91eba5f4ee916" href="https://resources.download.minecraft.net/b4/b46e4ad96959b7e4994514fae4c91eba5f4ee916">block/respawn_anchor/deplete1</a><span><button data-link="https://resources.download.minecraft.net/b4/b46e4ad96959b7e4994514fae4c91eba5f4ee916" onclick="playSound(this)">Play</button></span><br/><a title="6ba7a78d726c4c876232a1c60f06e9d077eb7b69" href="https://resources.download.minecraft.net/6b/6ba7a78d726c4c876232a1c60f06e9d077eb7b69">block/respawn_anchor/deplete2</a><span><button data-link="https://resources.download.minecraft.net/6b/6ba7a78d726c4c876232a1c60f06e9d077eb7b69" onclick="playSound(this)">Play</button></span></dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="no entry"></div>
+</div><div class="right"><div class="entry"><a href="#sounds:block.respawn_anchor.set_spawn"><h3 id="sounds:block.respawn_anchor.set_spawn">block.respawn_anchor.set_spawn</h3></a><div><dl><dt>Name</dt><dd>block.respawn_anchor.set_spawn</dd><dt>ID</dt><dd>658</dd><dt>Field</dt><dd>lI</dd><dt>Subtitle key</dt><dd>subtitles.block.respawn_anchor.set_spawn</dd><dt>Subtitle</dt><dd>Respawn anchor sets spawn</dd><dt>Sounds (3)</dt><dd><a title="e9aede29a91882cd267524c5c2ec118f1ae7e3a4" href="https://resources.download.minecraft.net/e9/e9aede29a91882cd267524c5c2ec118f1ae7e3a4">block/respawn_anchor/set_spawn1</a><span><button data-link="https://resources.download.minecraft.net/e9/e9aede29a91882cd267524c5c2ec118f1ae7e3a4" onclick="playSound(this)">Play</button></span><br/><a title="fb9d2a67b7df92dd4f31afeb7a58e68af98e9b45" href="https://resources.download.minecraft.net/fb/fb9d2a67b7df92dd4f31afeb7a58e68af98e9b45">block/respawn_anchor/set_spawn2</a><span><button data-link="https://resources.download.minecraft.net/fb/fb9d2a67b7df92dd4f31afeb7a58e68af98e9b45" onclick="playSound(this)">Play</button></span><br/><a title="d76bbd75ebbd6f9ad178eb0d0a56a7600eb69d33" href="https://resources.download.minecraft.net/d7/d76bbd75ebbd6f9ad178eb0d0a56a7600eb69d33">block/respawn_anchor/set_spawn3</a><span><button data-link="https://resources.download.minecraft.net/d7/d76bbd75ebbd6f9ad178eb0d0a56a7600eb69d33" onclick="playSound(this)">Play</button></span></dd></dl></div></div>
+</div></div>
+<a href="#biomes"><h2 id="biomes">Biomes</h2></a><span class="info">No entries</span>
+
+                    </div>
+                </body>
+              </html>
