@@ -1,0 +1,2389 @@
+{
+    "achievements": {},
+    "biomes": {
+        "biome": {}
+    },
+    "blocks": {
+        "block": {
+            "chain": [
+                null,
+                {
+                    "class": "but",
+                    "display_name": "Chain",
+                    "field": "dI",
+                    "hardness": 5.0,
+                    "max_state_id": 4729,
+                    "min_state_id": 4729,
+                    "num_states": 1,
+                    "numeric_id": 242,
+                    "resistance": 6.0,
+                    "states": [],
+                    "text_id": "chain"
+                }
+            ]
+        }
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {}
+    },
+    "items": {
+        "item": {
+            "chain": [
+                null,
+                {
+                    "display_name": "Chain",
+                    "field": "dO",
+                    "max_stack_size": 64,
+                    "numeric_id": 248,
+                    "text_id": "chain"
+                }
+            ],
+            "music_disc_pigstep": [
+                null,
+                {
+                    "class": "bjk",
+                    "display_name": "Music Disc",
+                    "field": "qD",
+                    "max_stack_size": 1,
+                    "numeric_id": 913,
+                    "text_id": "music_disc_pigstep"
+                }
+            ]
+        }
+    },
+    "language": {
+        "block": {
+            "minecraft.chain": [
+                null,
+                "Chain"
+            ]
+        },
+        "item": {
+            "minecraft.music_disc_pigstep": [
+                null,
+                "Music Disc"
+            ],
+            "minecraft.music_disc_pigstep.desc": [
+                null,
+                "Lena Raine - Pigstep"
+            ]
+        },
+        "jigsaw_block": {
+            "generate": [
+                null,
+                "Generate"
+            ],
+            "levels": [
+                null,
+                "Levels: "
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "PLAY_SERVERBOUND_0F": [
+                {
+                    "class": "rh.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 15,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "long"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rh.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 15,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_10": [
+                {
+                    "class": "ri.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 16,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "ri.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 16,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "long"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_11": [
+                {
+                    "class": "rj$a.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 17,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "(f) ? 1 : 0",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rj.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 17,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_12": [
+                {
+                    "class": "rj$b.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 18,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "(f) ? 1 : 0",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rk$a.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 18,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "(f) ? 1 : 0",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_13": [
+                {
+                    "class": "rj$c.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 19,
+                    "instructions": [
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "(f) ? 1 : 0",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rk$b.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 19,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "(f) ? 1 : 0",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_14": [
+                {
+                    "class": "rj.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 20,
+                    "instructions": [
+                        {
+                            "field": "(f) ? 1 : 0",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rk$c.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 20,
+                    "instructions": [
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "(f) ? 1 : 0",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_15": [
+                {
+                    "class": "rk.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 21,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rk.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 21,
+                    "instructions": [
+                        {
+                            "field": "(f) ? 1 : 0",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_16": [
+                {
+                    "class": "rl.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 22,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rl.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 22,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "double"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_17": [
+                {
+                    "class": "rm.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 23,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rm.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 23,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_18": [
+                {
+                    "class": "rn.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 24,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rn.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 24,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_19": [
+                {
+                    "class": "ro.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 25,
+                    "instructions": [
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "b()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 1))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "c()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 2))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "d()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 4))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "e()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 0x8))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "float"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "ro.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 25,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_1A": [
+                {
+                    "class": "rp.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 26,
+                    "instructions": [
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b.c()",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rp.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 26,
+                    "instructions": [
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "b()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 1))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "c()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 2))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "d()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 4))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "e()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 0x8))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "float"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_1B": [
+                {
+                    "class": "rq.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 27,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rq.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 27,
+                    "instructions": [
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b.c()",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_1C": [
+                {
+                    "class": "rr.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 28,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "c",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 1))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "d",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 2))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rr.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 28,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_1D": [
+                {
+                    "class": "rs.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 29,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "condition": "a == rs$a.a",
+                            "instructions": [
+                                {
+                                    "field": "b",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "condition": "a == rs$a.b",
+                                    "instructions": [
+                                        {
+                                            "field": "c",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "d",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "e",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "f",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "g",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "h",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "i",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "j",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rs.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 29,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "c",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 1))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "d",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "((byte)(var2 | 2))",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_1E": [
+                {
+                    "class": "rt.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 30,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rt.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 30,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "condition": "a == rt$a.a",
+                            "instructions": [
+                                {
+                                    "field": "b",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "condition": "a == rt$a.b",
+                                    "instructions": [
+                                        {
+                                            "field": "c",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "d",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "e",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "f",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "g",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "h",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "i",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "j",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_1F": [
+                {
+                    "class": "ru.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 31,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "ru.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 31,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_20": [
+                {
+                    "class": "rv.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 32,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "condition": "a == rv$a.a",
+                            "instructions": [
+                                {
+                                    "field": "b",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rv.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 32,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_21": [
+                {
+                    "class": "rw.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 33,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rw.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 33,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "condition": "a == rw$a.a",
+                            "instructions": [
+                                {
+                                    "field": "b",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_22": [
+                {
+                    "class": "rx.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 34,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rx.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 34,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_23": [
+                {
+                    "class": "ry.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 35,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "short"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "ry.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 35,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_24": [
+                {
+                    "class": "rz.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 36,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "c",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 1)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "d",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 2)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "e",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 4)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rz.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 36,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "short"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_25": [
+                {
+                    "class": "sa.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 37,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "sa.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 37,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "c",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 1)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "d",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 2)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "e",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 4)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_26": [
+                {
+                    "class": "sb.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 38,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "itemstack"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "sb.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 38,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_27": [
+                {
+                    "class": "sc.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 39,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "f.a()",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "sc.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 39,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "itemstack"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_28": [
+                {
+                    "class": "sd.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 40,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "e.u()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e.v()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e.w()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f.u()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f.v()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f.w()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "i",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "m",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "n",
+                            "operation": "write",
+                            "type": "varlong"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "j",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 1)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "k",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 2)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "l",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 4)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "sd.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 40,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "f.a()",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_29": [
+                {
+                    "class": "se.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 41,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2 < 4",
+                            "instructions": [
+                                {
+                                    "field": "b[var2]",
+                                    "operation": "write",
+                                    "type": "string"
+                                },
+                                {
+                                    "amount": "1",
+                                    "field": "var2",
+                                    "operation": "increment"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "se.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 41,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "e.u()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e.v()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e.w()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f.u()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f.v()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f.w()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "i",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "m",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "n",
+                            "operation": "write",
+                            "type": "varlong"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "j",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 1)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "k",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 2)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "l",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 4)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_2A": [
+                {
+                    "class": "sf.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 42,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "sf.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 42,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2 < 4",
+                            "instructions": [
+                                {
+                                    "field": "b[var2]",
+                                    "operation": "write",
+                                    "type": "string"
+                                },
+                                {
+                                    "amount": "1",
+                                    "field": "var2",
+                                    "operation": "increment"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_2B": [
+                {
+                    "class": "sg.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 43,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "uuid"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "sg.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 43,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_2C": [
+                {
+                    "class": "sh.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 44,
+                    "instructions": [
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.a.a()",
+                            "var": "var2"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "a.b()",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.a.e()",
+                            "var": "var3"
+                        },
+                        {
+                            "field": "(float)(var3.b - ((double)var2.u()))",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "(float)(var3.c - ((double)var2.v()))",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "(float)(var3.d - ((double)var2.w()))",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "a.d()",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "sh.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 44,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "uuid"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_2D": [
+                {
+                    "class": "si.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 45,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "si.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 45,
+                    "instructions": [
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.a.a()",
+                            "var": "var2"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "a.b()",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.a.e()",
+                            "var": "var3"
+                        },
+                        {
+                            "field": "(float)(var3.b - ((double)var2.u()))",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "(float)(var3.c - ((double)var2.v()))",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "(float)(var3.d - ((double)var2.w()))",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "a.d()",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_2E": [
+                null,
+                {
+                    "class": "sj.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 46,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "recipes": {
+        "chain": [
+            null,
+            [
+                {
+                    "id": "minecraft:chain",
+                    "makes": {
+                        "count": 1,
+                        "name": "chain",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "N",
+                            "I",
+                            "N"
+                        ],
+                        "subs": {
+                            "I": {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            },
+                            "N": {
+                                "name": "iron_nugget",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "iron_nugget",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "iron_ingot",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "iron_nugget",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ]
+    },
+    "sounds": {
+        "music_disc.pigstep": [
+            null,
+            {
+                "field": "hR",
+                "id": 459,
+                "name": "music_disc.pigstep",
+                "sounds": [
+                    {
+                        "hash": "9ffb1791e8aba8f266a673abec1846c3bf8fb8cc",
+                        "name": "records/pigstep",
+                        "stream": true
+                    }
+                ]
+            }
+        ]
+    },
+    "stats": {},
+    "tags": {
+        "items/creeper_drop_music_discs": [
+            null,
+            {
+                "name": "creeper_drop_music_discs",
+                "replace": false,
+                "type": "items",
+                "values": [
+                    "minecraft:music_disc_13",
+                    "minecraft:music_disc_cat",
+                    "minecraft:music_disc_blocks",
+                    "minecraft:music_disc_chirp",
+                    "minecraft:music_disc_far",
+                    "minecraft:music_disc_mall",
+                    "minecraft:music_disc_mellohi",
+                    "minecraft:music_disc_stal",
+                    "minecraft:music_disc_strad",
+                    "minecraft:music_disc_ward",
+                    "minecraft:music_disc_11",
+                    "minecraft:music_disc_wait"
+                ]
+            }
+        ],
+        "items/music_discs": [
+            {
+                "name": "music_discs",
+                "replace": false,
+                "type": "items",
+                "values": [
+                    "minecraft:music_disc_13",
+                    "minecraft:music_disc_cat",
+                    "minecraft:music_disc_blocks",
+                    "minecraft:music_disc_chirp",
+                    "minecraft:music_disc_far",
+                    "minecraft:music_disc_mall",
+                    "minecraft:music_disc_mellohi",
+                    "minecraft:music_disc_stal",
+                    "minecraft:music_disc_strad",
+                    "minecraft:music_disc_ward",
+                    "minecraft:music_disc_11",
+                    "minecraft:music_disc_wait"
+                ]
+            },
+            {
+                "name": "music_discs",
+                "replace": false,
+                "type": "items",
+                "values": [
+                    "minecraft:music_disc_13",
+                    "minecraft:music_disc_cat",
+                    "minecraft:music_disc_blocks",
+                    "minecraft:music_disc_chirp",
+                    "minecraft:music_disc_far",
+                    "minecraft:music_disc_mall",
+                    "minecraft:music_disc_mellohi",
+                    "minecraft:music_disc_stal",
+                    "minecraft:music_disc_strad",
+                    "minecraft:music_disc_ward",
+                    "minecraft:music_disc_11",
+                    "minecraft:music_disc_wait",
+                    "minecraft:music_disc_pigstep"
+                ]
+            }
+        ]
+    },
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            2525,
+            2526
+        ],
+        "id": [
+            "20w15a",
+            "20w16a"
+        ],
+        "name": [
+            "20w15a",
+            "20w16a"
+        ],
+        "protocol": [
+            711,
+            712
+        ]
+    }
+}
