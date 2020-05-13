@@ -1,0 +1,439 @@
+{
+    "achievements": {},
+    "biomes": {
+        "biome": {}
+    },
+    "blocks": {
+        "block": {}
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {}
+    },
+    "items": {
+        "item": {}
+    },
+    "language": {
+        "advancements": {
+            "adventure.bullseye.description": [
+                "Hit the bullseye of a Target block with an arrow",
+                "Hit the bullseye of a Target block from at least 30 meters away"
+            ],
+            "husbandry.break_diamond_hoe.description": [
+                "Completely use up a diamond hoe, and then reevaluate your life choices",
+                null
+            ],
+            "husbandry.break_diamond_hoe.title": [
+                "Serious Dedication",
+                null
+            ],
+            "husbandry.netherite_hoe.description": [
+                null,
+                "Use a Netherite ingot to upgrade a hoe, and then reevaluate your life choices"
+            ],
+            "husbandry.netherite_hoe.title": [
+                null,
+                "Serious Dedication"
+            ],
+            "nether.charge_respawn_anchor.description": [
+                null,
+                "Charge a Respawn Anchor to the maximum"
+            ],
+            "nether.charge_respawn_anchor.title": [
+                null,
+                "Not Quite \"Nine\" Lives"
+            ],
+            "nether.distract_piglin.description": [
+                null,
+                "Distract Piglins with gold"
+            ],
+            "nether.distract_piglin.title": [
+                null,
+                "Oh Shiny"
+            ],
+            "nether.explore_nether.description": [
+                null,
+                "Explore all Nether biomes"
+            ],
+            "nether.explore_nether.title": [
+                null,
+                "Hot Tourist Destinations"
+            ],
+            "nether.find_bastion.description": [
+                null,
+                "Enter a Bastion Remnant"
+            ],
+            "nether.find_bastion.title": [
+                null,
+                "Those Were the Days"
+            ],
+            "nether.loot_bastion.description": [
+                null,
+                "Loot a chest in a Bastion Remnant"
+            ],
+            "nether.loot_bastion.title": [
+                null,
+                "War Pigs"
+            ],
+            "nether.netherite_armor.description": [
+                null,
+                "Get a full suit of Netherite armor"
+            ],
+            "nether.netherite_armor.title": [
+                null,
+                "Cover Me in Debris"
+            ],
+            "nether.obtain_ancient_debris.description": [
+                null,
+                "Obtain Ancient Debris"
+            ],
+            "nether.obtain_ancient_debris.title": [
+                null,
+                "Hidden in the Depths"
+            ],
+            "nether.obtain_crying_obsidian.description": [
+                null,
+                "Obtain Crying Obsidian"
+            ],
+            "nether.obtain_crying_obsidian.title": [
+                null,
+                "Who Is Cutting Onions?"
+            ],
+            "nether.ride_strider.description": [
+                null,
+                "Ride a Strider with a Warped Fungus on a Stick"
+            ],
+            "nether.ride_strider.title": [
+                null,
+                "This Boat Has Legs"
+            ],
+            "nether.use_lodestone.description": [
+                null,
+                "Use a Compass on a Lodestone"
+            ],
+            "nether.use_lodestone.title": [
+                null,
+                "Country Lode, Take Me Home"
+            ],
+            "story.deflect_arrow.description": [
+                "Deflect an arrow or trident with a shield",
+                "Deflect a projectile with a shield"
+            ],
+            "story.form_obsidian.description": [
+                "Form and mine a block of obsidian",
+                "Obtain a block of obsidian"
+            ]
+        },
+        "debug": {
+            "gamemodes.error": [
+                null,
+                "Unable to open game mode switcher, no permission"
+            ],
+            "gamemodes.help": [
+                null,
+                "F3 + F4 = Open game mode switcher"
+            ],
+            "gamemodes.press_f4": [
+                null,
+                "F4"
+            ],
+            "gamemodes.select_next": [
+                null,
+                "Next"
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_26": [
+                {
+                    "class": "ov.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 38,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "this.d.a()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "c",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 0x8)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e.b()",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "g.a()",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "i",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "j",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "oy.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 38,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "this.d.a()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "c",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 0x8)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e.b()",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "i",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "j",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "k",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_3B": [
+                {
+                    "class": "pn.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 59,
+                    "instructions": [
+                        {
+                            "field": "a.b()",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "c.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "d.a()",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "pq.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 59,
+                    "instructions": [
+                        {
+                            "field": "a.b()",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "c.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "recipes": {},
+    "sounds": {},
+    "stats": {},
+    "tags": {
+        "items/piglin_loved": [
+            null,
+            {
+                "name": "piglin_loved",
+                "replace": false,
+                "type": "items",
+                "values": [
+                    "minecraft:gold_ingot",
+                    "minecraft:golden_apple",
+                    "minecraft:golden_horse_armor",
+                    "minecraft:golden_carrot",
+                    "minecraft:gold_block",
+                    "minecraft:gold_ore",
+                    "minecraft:enchanted_golden_apple",
+                    "minecraft:golden_horse_armor",
+                    "minecraft:light_weighted_pressure_plate",
+                    "minecraft:bell",
+                    "minecraft:glistering_melon_slice",
+                    "minecraft:clock",
+                    "minecraft:nether_gold_ore",
+                    "minecraft:gilded_blackstone",
+                    "minecraft:golden_helmet",
+                    "minecraft:golden_chestplate",
+                    "minecraft:golden_leggings",
+                    "minecraft:golden_boots",
+                    "minecraft:golden_sword",
+                    "minecraft:golden_pickaxe",
+                    "minecraft:golden_shovel",
+                    "minecraft:golden_axe",
+                    "minecraft:golden_hoe"
+                ]
+            }
+        ]
+    },
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            2534,
+            2536
+        ],
+        "id": [
+            "20w19a",
+            "20w20a"
+        ],
+        "name": [
+            "20w19a",
+            "20w20a"
+        ],
+        "protocol": [
+            715,
+            716
+        ]
+    }
+}

@@ -1,0 +1,84 @@
+<!doctype html>
+              <html>
+                <head>
+                  <title>Burger Vitrine</title>
+                  <link rel="stylesheet" href="resources/style.css" />
+                  <script src="resources/jquery.js"></script>
+                  <script src="resources/vitrine.js"></script>
+                </head>
+                <body>
+                    <div id="vitrine">
+                        <a href="#blocks"><h2 id="blocks">Blocks</h2></a><span class="info">No entries</span>
+<a href="#items"><h2 id="items">Items</h2></a><span class="info">No entries</span>
+<a href="#tags"><h2 id="tags">Tags</h2></a><div class="split"><div class="left"><div class="no entry"></div>
+</div><div class="right"><div class="entry"><a href="#tags:piglin_loved"><h3 id="tags:piglin_loved">piglin_loved</h3></a><div><dl><dt>Type</dt><dd>items</dd><dt>Name</dt><dd>piglin_loved</dd><dt>Values</dt><dd><a href="#items:gold_ingot">gold_ingot</a><br/><a href="#items:golden_apple">golden_apple</a><br/><a href="#items:golden_horse_armor">golden_horse_armor</a><br/><a href="#items:golden_carrot">golden_carrot</a><br/><a href="#items:gold_block">gold_block</a><br/><a href="#items:gold_ore">gold_ore</a><br/><a href="#items:enchanted_golden_apple">enchanted_golden_apple</a><br/><a href="#items:golden_horse_armor">golden_horse_armor</a><br/><a href="#items:light_weighted_pressure_plate">light_weighted_pressure_plate</a><br/><a href="#items:bell">bell</a><br/><a href="#items:glistering_melon_slice">glistering_melon_slice</a><br/><a href="#items:clock">clock</a><br/><a href="#items:nether_gold_ore">nether_gold_ore</a><br/><a href="#items:gilded_blackstone">gilded_blackstone</a><br/><a href="#items:golden_helmet">golden_helmet</a><br/><a href="#items:golden_chestplate">golden_chestplate</a><br/><a href="#items:golden_leggings">golden_leggings</a><br/><a href="#items:golden_boots">golden_boots</a><br/><a href="#items:golden_sword">golden_sword</a><br/><a href="#items:golden_pickaxe">golden_pickaxe</a><br/><a href="#items:golden_shovel">golden_shovel</a><br/><a href="#items:golden_axe">golden_axe</a><br/><a href="#items:golden_hoe">golden_hoe</a></dd></dl></div></div>
+</div></div>
+<a href="#recipes"><h2 id="recipes">Recipes</h2></a><span class="info">No entries</span>
+<a href="#entities"><h2 id="entities">Entities</h2></a><span class="info">No entries</span>
+<a href="#block_entities"><h2 id="block_entities">Block entities</h2></a><span class="info">No entries</span>
+<a href="#packets"><h2 id="packets">Packets</h2></a><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_26"><h3 id="packets:play_clientbound_26">PLAY_CLIENTBOUND_26</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>38</dd></dl><pre><span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_kt">int</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">d</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">();</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_kt">int</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_o">(</span><span class="hl_n">var2</span> <span class="hl_o">|</span> <span class="hl_mh">0x8</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">);</span>
+<span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">());</span>
+<span class="hl_n">writeLong</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">f</span><span class="hl_o">);</span>
+<span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">g</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">());</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">h</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">i</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">j</span><span class="hl_o">);</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_26"><h3 id="packets:play_clientbound_26">PLAY_CLIENTBOUND_26</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>38</dd></dl><pre><span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_kt">int</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">d</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">();</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_kt">int</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_o">(</span><span class="hl_n">var2</span> <span class="hl_o">|</span> <span class="hl_mh">0x8</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">);</span>
+<span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">());</span>
+<span class="hl_n">writeLong</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">f</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">g</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">h</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">i</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">j</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">k</span><span class="hl_o">);</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_3b"><h3 id="packets:play_clientbound_3b">PLAY_CLIENTBOUND_3B</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>59</dd></dl><pre><span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">());</span>
+<span class="hl_n">writeLong</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">());</span>
+<span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">());</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">);</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_3b"><h3 id="packets:play_clientbound_3b">PLAY_CLIENTBOUND_3B</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>59</dd></dl><pre><span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">());</span>
+<span class="hl_n">writeLong</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">());</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">f</span><span class="hl_o">);</span>
+</pre></div></div>
+</div></div>
+<a href="#entity_metadata_serializers"><h2 id="entity_metadata_serializers">Entity Metadata Serializers</h2></a><span class="info">No entries</span>
+<a href="#versions"><h2 id="versions">Versions</h2></a><div class="split"><div class="left"><div class="entry"><a href="#versions:data"><h3 id="versions:data">data</h3></a><div>2534</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:data"><h3 id="versions:data">data</h3></a><div>2536</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:id"><h3 id="versions:id">id</h3></a><div>20w19a</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:id"><h3 id="versions:id">id</h3></a><div>20w20a</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:name"><h3 id="versions:name">name</h3></a><div>20w19a</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:name"><h3 id="versions:name">name</h3></a><div>20w20a</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>715</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>716</div></div>
+</div></div>
+<a href="#stats"><h2 id="stats">Stats</h2></a><span class="info">No entries</span>
+<a href="#achievements"><h2 id="achievements">Achievements</h2></a><span class="info">No entries</span>
+<a href="#language"><h2 id="language">Language</h2></a><div class="split"><div class="left"><div class="entry"><a href="#language:advancements"><h3 id="language:advancements">advancements</h3></a><div><dl class="wide"><dt>adventure.bullseye.description</dt><dd>Hit the bullseye of a Target block with an arrow</dd><dt>husbandry.break_diamond_hoe.description</dt><dd>Completely use up a diamond hoe, and then reevaluate your life choices</dd><dt>husbandry.break_diamond_hoe.title</dt><dd>Serious Dedication</dd><dt>husbandry.netherite_hoe.description</dt><dd>-</dd><dt>husbandry.netherite_hoe.title</dt><dd>-</dd><dt>nether.charge_respawn_anchor.description</dt><dd>-</dd><dt>nether.charge_respawn_anchor.title</dt><dd>-</dd><dt>nether.distract_piglin.description</dt><dd>-</dd><dt>nether.distract_piglin.title</dt><dd>-</dd><dt>nether.explore_nether.description</dt><dd>-</dd><dt>nether.explore_nether.title</dt><dd>-</dd><dt>nether.find_bastion.description</dt><dd>-</dd><dt>nether.find_bastion.title</dt><dd>-</dd><dt>nether.loot_bastion.description</dt><dd>-</dd><dt>nether.loot_bastion.title</dt><dd>-</dd><dt>nether.netherite_armor.description</dt><dd>-</dd><dt>nether.netherite_armor.title</dt><dd>-</dd><dt>nether.obtain_ancient_debris.description</dt><dd>-</dd><dt>nether.obtain_ancient_debris.title</dt><dd>-</dd><dt>nether.obtain_crying_obsidian.description</dt><dd>-</dd><dt>nether.obtain_crying_obsidian.title</dt><dd>-</dd><dt>nether.ride_strider.description</dt><dd>-</dd><dt>nether.ride_strider.title</dt><dd>-</dd><dt>nether.use_lodestone.description</dt><dd>-</dd><dt>nether.use_lodestone.title</dt><dd>-</dd><dt>story.deflect_arrow.description</dt><dd>Deflect an arrow or trident with a shield</dd><dt>story.form_obsidian.description</dt><dd>Form and mine a block of obsidian</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:advancements"><h3 id="language:advancements">advancements</h3></a><div><dl class="wide"><dt>adventure.bullseye.description</dt><dd>Hit the bullseye of a Target block from at least 30 meters away</dd><dt>husbandry.break_diamond_hoe.description</dt><dd>-</dd><dt>husbandry.break_diamond_hoe.title</dt><dd>-</dd><dt>husbandry.netherite_hoe.description</dt><dd>Use a Netherite ingot to upgrade a hoe, and then reevaluate your life choices</dd><dt>husbandry.netherite_hoe.title</dt><dd>Serious Dedication</dd><dt>nether.charge_respawn_anchor.description</dt><dd>Charge a Respawn Anchor to the maximum</dd><dt>nether.charge_respawn_anchor.title</dt><dd>Not Quite &quot;Nine&quot; Lives</dd><dt>nether.distract_piglin.description</dt><dd>Distract Piglins with gold</dd><dt>nether.distract_piglin.title</dt><dd>Oh Shiny</dd><dt>nether.explore_nether.description</dt><dd>Explore all Nether biomes</dd><dt>nether.explore_nether.title</dt><dd>Hot Tourist Destinations</dd><dt>nether.find_bastion.description</dt><dd>Enter a Bastion Remnant</dd><dt>nether.find_bastion.title</dt><dd>Those Were the Days</dd><dt>nether.loot_bastion.description</dt><dd>Loot a chest in a Bastion Remnant</dd><dt>nether.loot_bastion.title</dt><dd>War Pigs</dd><dt>nether.netherite_armor.description</dt><dd>Get a full suit of Netherite armor</dd><dt>nether.netherite_armor.title</dt><dd>Cover Me in Debris</dd><dt>nether.obtain_ancient_debris.description</dt><dd>Obtain Ancient Debris</dd><dt>nether.obtain_ancient_debris.title</dt><dd>Hidden in the Depths</dd><dt>nether.obtain_crying_obsidian.description</dt><dd>Obtain Crying Obsidian</dd><dt>nether.obtain_crying_obsidian.title</dt><dd>Who Is Cutting Onions?</dd><dt>nether.ride_strider.description</dt><dd>Ride a Strider with a Warped Fungus on a Stick</dd><dt>nether.ride_strider.title</dt><dd>This Boat Has Legs</dd><dt>nether.use_lodestone.description</dt><dd>Use a Compass on a Lodestone</dd><dt>nether.use_lodestone.title</dt><dd>Country Lode, Take Me Home</dd><dt>story.deflect_arrow.description</dt><dd>Deflect a projectile with a shield</dd><dt>story.form_obsidian.description</dt><dd>Obtain a block of obsidian</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:debug"><h3 id="language:debug">debug</h3></a><div><dl class="wide"><dt>gamemodes.error</dt><dd>-</dd><dt>gamemodes.help</dt><dd>-</dd><dt>gamemodes.press_f4</dt><dd>-</dd><dt>gamemodes.select_next</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:debug"><h3 id="language:debug">debug</h3></a><div><dl class="wide"><dt>gamemodes.error</dt><dd>Unable to open game mode switcher, no permission</dd><dt>gamemodes.help</dt><dd>F3 + F4 = Open game mode switcher</dd><dt>gamemodes.press_f4</dt><dd>F4</dd><dt>gamemodes.select_next</dt><dd>Next</dd></dl></div></div>
+</div></div>
+<a href="#sounds"><h2 id="sounds">Sounds</h2></a><span class="info">No entries</span>
+<a href="#biomes"><h2 id="biomes">Biomes</h2></a><span class="info">No entries</span>
+
+                    </div>
+                </body>
+              </html>
