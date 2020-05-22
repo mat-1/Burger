@@ -88,7 +88,94 @@
         }
     },
     "entities": {
-        "dataserializers": {},
+        "dataserializers": {
+            "16": [
+                {
+                    "class": "qm$9",
+                    "field": "q",
+                    "id": 16,
+                    "instructions": [
+                        {
+                            "field": "fn.K.a(((avu)value).a())",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "fn.L.a(((avu)value).b())",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "((avu)value).c()",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "type": "avu"
+                },
+                null
+            ],
+            "18": [
+                {
+                    "class": "qm$11",
+                    "field": "s",
+                    "id": 18,
+                    "instructions": [
+                        {
+                            "field": "(ajh)value",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "type": "ajh"
+                },
+                null
+            ],
+            "Pose": [
+                null,
+                {
+                    "class": "rl$11",
+                    "field": "s",
+                    "id": 18,
+                    "instructions": [
+                        {
+                            "field": "(akh)value",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "name": "Pose",
+                    "type": "akh"
+                }
+            ],
+            "VillagerData": [
+                null,
+                {
+                    "class": "rl$9",
+                    "field": "q",
+                    "id": 16,
+                    "instructions": [
+                        {
+                            "field": "fn.K.a(((awv)value).a())",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "fn.L.a(((awv)value).b())",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "((awv)value).c()",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "name": "VillagerData",
+                    "type": "awv"
+                }
+            ]
+        },
         "entity": {
             "bee": [
                 null,
@@ -100,20 +187,8 @@
                     "id": 4,
                     "metadata": [
                         {
-                            "class": "ajy",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "ajm",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bA",
-                                    "index": 15,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "asa",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "asb",
@@ -137,6 +212,270 @@
                     ],
                     "name": "bee",
                     "width": 0.7
+                }
+            ],
+            "villager": [
+                {
+                    "class": "avt",
+                    "display_name": "Villager",
+                    "field": "aG",
+                    "height": 1.95,
+                    "id": 84,
+                    "metadata": [
+                        {
+                            "class": "aim",
+                            "entity": "~abstract_ageable"
+                        },
+                        {
+                            "class": "avp",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bA",
+                                    "index": 15,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        },
+                        {
+                            "class": "avt",
+                            "data": [
+                                {
+                                    "field": "bC",
+                                    "index": 16,
+                                    "serializer": 16,
+                                    "serializer_id": 16
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "villager",
+                    "width": 0.6
+                },
+                {
+                    "class": "awu",
+                    "display_name": "Villager",
+                    "field": "aH",
+                    "height": 1.95,
+                    "id": 85,
+                    "metadata": [
+                        {
+                            "class": "ajm",
+                            "entity": "~abstract_ageable"
+                        },
+                        {
+                            "class": "awq",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bB",
+                                    "index": 16,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        },
+                        {
+                            "class": "awu",
+                            "data": [
+                                {
+                                    "field": "bD",
+                                    "index": 17,
+                                    "serializer": "VillagerData",
+                                    "serializer_id": 16
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "villager",
+                    "width": 0.6
+                }
+            ],
+            "zombie_villager": [
+                {
+                    "class": "avn",
+                    "display_name": "Zombie Villager",
+                    "field": "aS",
+                    "height": 1.95,
+                    "id": 96,
+                    "metadata": [
+                        {
+                            "class": "avm",
+                            "entity": "zombie"
+                        },
+                        {
+                            "class": "avn",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "field": "c",
+                                    "index": 18,
+                                    "serializer": 16,
+                                    "serializer_id": 16
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "zombie_villager",
+                    "width": 0.6
+                },
+                {
+                    "class": "awo",
+                    "display_name": "Zombie Villager",
+                    "field": "aT",
+                    "height": 1.95,
+                    "id": 97,
+                    "metadata": [
+                        {
+                            "class": "awn",
+                            "entity": "zombie"
+                        },
+                        {
+                            "class": "awo",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 18,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "field": "c",
+                                    "index": 19,
+                                    "serializer": "VillagerData",
+                                    "serializer_id": 16
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "zombie_villager",
+                    "width": 0.6
+                }
+            ],
+            "~abstract_entity": [
+                {
+                    "class": "aio",
+                    "metadata": [
+                        {
+                            "class": "aio",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "W",
+                                    "index": 0,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "field": "ay",
+                                    "index": 1,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "az",
+                                    "index": 2,
+                                    "serializer": "OptChat",
+                                    "serializer_id": 5
+                                },
+                                {
+                                    "default": false,
+                                    "field": "aA",
+                                    "index": 3,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "aB",
+                                    "index": 4,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "aC",
+                                    "index": 5,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "field": "X",
+                                    "index": 6,
+                                    "serializer": 18,
+                                    "serializer_id": 18
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "~abstract_entity"
+                },
+                {
+                    "class": "ajo",
+                    "metadata": [
+                        {
+                            "class": "ajo",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "W",
+                                    "index": 0,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "field": "ay",
+                                    "index": 1,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "az",
+                                    "index": 2,
+                                    "serializer": "OptChat",
+                                    "serializer_id": 5
+                                },
+                                {
+                                    "default": false,
+                                    "field": "aA",
+                                    "index": 3,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "aB",
+                                    "index": 4,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "aC",
+                                    "index": 5,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "field": "X",
+                                    "index": 6,
+                                    "serializer": "Pose",
+                                    "serializer_id": 18
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "~abstract_entity"
                 }
             ],
             "~abstract_living": [
@@ -10761,6 +11100,172 @@
                 ],
                 "subtitle": "Bee stings",
                 "subtitle_key": "subtitles.entity.bee.sting"
+            }
+        ],
+        "entity.parrot.imitate.enderman": [
+            {
+                "field": "hE",
+                "id": 446,
+                "name": "entity.parrot.imitate.enderman",
+                "sounds": [
+                    {
+                        "name": "entity.enderman.ambient",
+                        "pitch": 1.7,
+                        "type": "event",
+                        "volume": 0.5
+                    }
+                ],
+                "subtitle": "Parrot vwoops",
+                "subtitle_key": "subtitles.entity.parrot.imitate.enderman"
+            },
+            {
+                "field": "hQ",
+                "id": 458,
+                "name": "entity.parrot.imitate.enderman"
+            }
+        ],
+        "entity.parrot.imitate.panda": [
+            {
+                "field": "hM",
+                "id": 454,
+                "name": "entity.parrot.imitate.panda",
+                "sounds": [
+                    {
+                        "name": "entity.panda.ambient",
+                        "pitch": 1.8,
+                        "type": "event",
+                        "volume": 0.4
+                    }
+                ],
+                "subtitle": "Parrot pants",
+                "subtitle_key": "subtitles.entity.parrot.imitate.panda"
+            },
+            {
+                "field": "hY",
+                "id": 466,
+                "name": "entity.parrot.imitate.panda"
+            }
+        ],
+        "entity.parrot.imitate.polar_bear": [
+            {
+                "field": "hP",
+                "id": 457,
+                "name": "entity.parrot.imitate.polar_bear",
+                "sounds": [
+                    {
+                        "name": "entity.polar_bear.ambient",
+                        "pitch": 1.8,
+                        "type": "event",
+                        "volume": 0.5
+                    }
+                ],
+                "subtitle": "Parrot groans",
+                "subtitle_key": "subtitles.entity.parrot.imitate.polar_bear"
+            },
+            {
+                "field": "ib",
+                "id": 469,
+                "name": "entity.parrot.imitate.polar_bear"
+            }
+        ],
+        "entity.parrot.imitate.wolf": [
+            {
+                "field": "ic",
+                "id": 470,
+                "name": "entity.parrot.imitate.wolf",
+                "sounds": [
+                    {
+                        "name": "entity.wolf.ambient",
+                        "pitch": 1.8,
+                        "type": "event",
+                        "volume": 0.6
+                    }
+                ],
+                "subtitle": "Parrot pants",
+                "subtitle_key": "subtitles.entity.parrot.imitate.wolf"
+            },
+            {
+                "field": "io",
+                "id": 482,
+                "name": "entity.parrot.imitate.wolf"
+            }
+        ],
+        "entity.parrot.imitate.zombie_pigman": [
+            {
+                "field": "ie",
+                "id": 472,
+                "name": "entity.parrot.imitate.zombie_pigman",
+                "sounds": [
+                    {
+                        "name": "entity.zombie_pigman.ambient",
+                        "pitch": 1.8,
+                        "type": "event",
+                        "volume": 0.4
+                    }
+                ],
+                "subtitle": "Parrot grunts",
+                "subtitle_key": "subtitles.entity.parrot.imitate.zombie_pigman"
+            },
+            {
+                "field": "iq",
+                "id": 484,
+                "name": "entity.parrot.imitate.zombie_pigman"
+            }
+        ],
+        "entity.vindicator.ambient": [
+            {
+                "field": "mO",
+                "id": 716,
+                "name": "entity.vindicator.ambient",
+                "sounds": [
+                    {
+                        "hash": "9de75e25e57b327074f50fefd60bff0589702f19",
+                        "name": "mob/vindication_illager/idle1"
+                    },
+                    {
+                        "hash": "7f2c9a3515287335cdd5429c0cfbf12f8827cbfb",
+                        "name": "mob/vindication_illager/idle2"
+                    },
+                    {
+                        "hash": "59b72a547ac80457463715a7cc24b03197653f60",
+                        "name": "mob/vindication_illager/idle3"
+                    },
+                    {
+                        "hash": "71f7bc8ea9940bdb8e2b1124b44b8a886426bd1f",
+                        "name": "mob/vindication_illager/idle4"
+                    }
+                ],
+                "subtitle": "Vindicator mutters",
+                "subtitle_key": "subtitles.entity.vindicator.ambient"
+            },
+            {
+                "field": "na",
+                "id": 728,
+                "name": "entity.vindicator.ambient",
+                "sounds": [
+                    {
+                        "hash": "9de75e25e57b327074f50fefd60bff0589702f19",
+                        "name": "mob/vindication_illager/idle1"
+                    },
+                    {
+                        "hash": "7f2c9a3515287335cdd5429c0cfbf12f8827cbfb",
+                        "name": "mob/vindication_illager/idle2"
+                    },
+                    {
+                        "hash": "59b72a547ac80457463715a7cc24b03197653f60",
+                        "name": "mob/vindication_illager/idle3"
+                    },
+                    {
+                        "hash": "71f7bc8ea9940bdb8e2b1124b44b8a886426bd1f",
+                        "name": "mob/vindication_illager/idle4"
+                    },
+                    {
+                        "hash": "29c3ea6ab1866dd60d5c13d5bdfdadc85a000b75",
+                        "name": "mob/vindication_illager/idle5"
+                    }
+                ],
+                "subtitle": "Vindicator mutters",
+                "subtitle_key": "subtitles.entity.vindicator.ambient"
             }
         ],
         "item.honey_bottle.drink": [

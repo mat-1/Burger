@@ -16829,6 +16829,7 @@
             "block.list": "azm",
             "block.register": "azl",
             "block.superclass": "azl",
+            "blockstate": "bhu",
             "blockstatecontainer": "bhv",
             "chatcomponent": "ib",
             "entity.list": "abw",
@@ -16845,6 +16846,7 @@
             "nethandler.server": "th",
             "packet.connectionstate": "hr",
             "packet.packetbuffer": "hs",
+            "particle": "fg",
             "position": "ef",
             "recipe.superclass": "ga",
             "sounds.event": "vm",
@@ -17207,7 +17209,7 @@
                     "class": "aiz",
                     "display_name": "Armor Stand",
                     "field": "c",
-                    "height": 1.98,
+                    "height": 1.975,
                     "id": 1,
                     "metadata": [
                         {
@@ -17270,6 +17272,7 @@
                     "class": "alm",
                     "display_name": "Arrow",
                     "field": "d",
+                    "height": 0.5,
                     "id": 2,
                     "metadata": [
                         {
@@ -17301,7 +17304,8 @@
                             ]
                         }
                     ],
-                    "name": "arrow"
+                    "name": "arrow",
+                    "width": 0.5
                 },
                 "bat": {
                     "class": "agm",
@@ -17359,7 +17363,7 @@
                     "class": "amj",
                     "display_name": "Boat",
                     "field": "g",
-                    "height": 0.56,
+                    "height": 0.5625,
                     "id": 5,
                     "metadata": [
                         {
@@ -17421,7 +17425,7 @@
                         }
                     ],
                     "name": "boat",
-                    "width": 1.38
+                    "width": 1.375
                 },
                 "cave_spider": {
                     "class": "ajs",
@@ -17442,6 +17446,7 @@
                     "class": "aml",
                     "display_name": "Minecart with Chest",
                     "field": "P",
+                    "height": 0.7,
                     "id": 40,
                     "metadata": [
                         {
@@ -17449,7 +17454,8 @@
                             "entity": "~abstract_minecart"
                         }
                     ],
-                    "name": "chest_minecart"
+                    "name": "chest_minecart",
+                    "width": 0.98
                 },
                 "chicken": {
                     "class": "agr",
@@ -17459,20 +17465,8 @@
                     "id": 7,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "abp",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bz",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "agq",
+                            "entity": "~abstract_animal"
                         }
                     ],
                     "name": "chicken",
@@ -17485,8 +17479,8 @@
                     "id": 8,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
+                            "class": "acj",
+                            "entity": "~abstract_creature"
                         },
                         {
                             "class": "ago",
@@ -17508,6 +17502,7 @@
                     "class": "amm",
                     "display_name": "Minecart with Command Block",
                     "field": "Q",
+                    "height": 0.7,
                     "id": 41,
                     "metadata": [
                         {
@@ -17536,7 +17531,8 @@
                             ]
                         }
                     ],
-                    "name": "commandblock_minecart"
+                    "name": "commandblock_minecart",
+                    "width": 0.98
                 },
                 "cow": {
                     "class": "agt",
@@ -17546,20 +17542,8 @@
                     "id": 9,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "abp",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bz",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "agq",
+                            "entity": "~abstract_animal"
                         }
                     ],
                     "name": "cow",
@@ -17614,8 +17598,8 @@
                     "id": 12,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
+                            "class": "acj",
+                            "entity": "~abstract_creature"
                         }
                     ],
                     "name": "dolphin",
@@ -17625,23 +17609,12 @@
                     "class": "ahp",
                     "display_name": "Donkey",
                     "field": "m",
+                    "height": 1.6,
                     "id": 11,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "abp",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bz",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "agq",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "aho",
@@ -17675,7 +17648,8 @@
                             ]
                         }
                     ],
-                    "name": "donkey"
+                    "name": "donkey",
+                    "width": 1.39648
                 },
                 "dragon_fireball": {
                     "class": "aln",
@@ -17694,6 +17668,7 @@
                     "class": "aju",
                     "display_name": "Drowned",
                     "field": "p",
+                    "height": 1.95,
                     "id": 14,
                     "metadata": [
                         {
@@ -17713,12 +17688,14 @@
                             ]
                         }
                     ],
-                    "name": "drowned"
+                    "name": "drowned",
+                    "width": 0.6
                 },
                 "egg": {
                     "class": "ama",
                     "display_name": "Thrown Egg",
                     "field": "ax",
+                    "height": 0.25,
                     "id": 74,
                     "metadata": [
                         {
@@ -17726,7 +17703,8 @@
                             "entity": "~abstract_entity"
                         }
                     ],
-                    "name": "egg"
+                    "name": "egg",
+                    "width": 0.25
                 },
                 "elder_guardian": {
                     "class": "ajv",
@@ -17797,13 +17775,13 @@
                         }
                     ],
                     "name": "ender_dragon",
-                    "texture": "wing",
                     "width": 16.0
                 },
                 "ender_pearl": {
                     "class": "amb",
                     "display_name": "Thrown Ender Pearl",
                     "field": "ay",
+                    "height": 0.25,
                     "id": 75,
                     "metadata": [
                         {
@@ -17811,7 +17789,8 @@
                             "entity": "~abstract_entity"
                         }
                     ],
-                    "name": "ender_pearl"
+                    "name": "ender_pearl",
+                    "width": 0.25
                 },
                 "enderman": {
                     "class": "ajw",
@@ -18033,6 +18012,7 @@
                     "class": "amn",
                     "display_name": "Minecart with Furnace",
                     "field": "R",
+                    "height": 0.7,
                     "id": 42,
                     "metadata": [
                         {
@@ -18052,7 +18032,8 @@
                             ]
                         }
                     ],
-                    "name": "furnace_minecart"
+                    "name": "furnace_minecart",
+                    "width": 0.98
                 },
                 "ghast": {
                     "class": "aka",
@@ -18132,6 +18113,7 @@
                     "class": "amo",
                     "display_name": "Minecart with Hopper",
                     "field": "S",
+                    "height": 0.7,
                     "id": 43,
                     "metadata": [
                         {
@@ -18139,29 +18121,19 @@
                             "entity": "~abstract_minecart"
                         }
                     ],
-                    "name": "hopper_minecart"
+                    "name": "hopper_minecart",
+                    "width": 0.98
                 },
                 "horse": {
                     "class": "ahq",
                     "display_name": "Horse",
                     "field": "E",
+                    "height": 1.6,
                     "id": 29,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "abp",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bz",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "agq",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "aho",
@@ -18201,12 +18173,14 @@
                             ]
                         }
                     ],
-                    "name": "horse"
+                    "name": "horse",
+                    "width": 1.39648
                 },
                 "husk": {
                     "class": "akd",
                     "display_name": "Husk",
                     "field": "F",
+                    "height": 1.95,
                     "id": 30,
                     "metadata": [
                         {
@@ -18214,7 +18188,8 @@
                             "entity": "zombie"
                         }
                     ],
-                    "name": "husk"
+                    "name": "husk",
+                    "width": 0.6
                 },
                 "illusion_illager": {
                     "class": "ake",
@@ -18286,6 +18261,7 @@
                     "class": "ajb",
                     "display_name": "Item Frame",
                     "field": "I",
+                    "height": 0.5,
                     "id": 33,
                     "metadata": [
                         {
@@ -18312,12 +18288,14 @@
                             ]
                         }
                     ],
-                    "name": "item_frame"
+                    "name": "item_frame",
+                    "width": 0.5
                 },
                 "leash_knot": {
                     "class": "ajc",
                     "display_name": "Leash Knot",
                     "field": "K",
+                    "height": 0.5,
                     "id": 35,
                     "metadata": [
                         {
@@ -18325,7 +18303,8 @@
                             "entity": "~abstract_entity"
                         }
                     ],
-                    "name": "leash_knot"
+                    "name": "leash_knot",
+                    "width": 0.5
                 },
                 "lightning_bolt": {
                     "class": "ajj",
@@ -18349,20 +18328,8 @@
                     "id": 36,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "abp",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bz",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "agq",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "aho",
@@ -18457,6 +18424,7 @@
                     "class": "amk",
                     "display_name": "Minecart",
                     "field": "O",
+                    "height": 0.7,
                     "id": 39,
                     "metadata": [
                         {
@@ -18464,7 +18432,8 @@
                             "entity": "~abstract_minecart"
                         }
                     ],
-                    "name": "minecart"
+                    "name": "minecart",
+                    "width": 0.98
                 },
                 "mooshroom": {
                     "class": "agw",
@@ -18485,23 +18454,12 @@
                     "class": "aht",
                     "display_name": "Mule",
                     "field": "V",
+                    "height": 1.6,
                     "id": 46,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "abp",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bz",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "agq",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "aho",
@@ -18535,7 +18493,8 @@
                             ]
                         }
                     ],
-                    "name": "mule"
+                    "name": "mule",
+                    "width": 1.39648
                 },
                 "ocelot": {
                     "class": "agx",
@@ -18568,6 +18527,7 @@
                     "class": "aje",
                     "display_name": "Painting",
                     "field": "Y",
+                    "height": 0.5,
                     "id": 49,
                     "metadata": [
                         {
@@ -18575,7 +18535,8 @@
                             "entity": "~abstract_entity"
                         }
                     ],
-                    "name": "painting"
+                    "name": "painting",
+                    "width": 0.5
                 },
                 "parrot": {
                     "class": "agy",
@@ -18639,20 +18600,8 @@
                     "id": 51,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "abp",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bz",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "agq",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "agz",
@@ -18746,20 +18695,8 @@
                     "id": 54,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "abp",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bz",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "agq",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "aha",
@@ -18781,6 +18718,7 @@
                     "class": "amd",
                     "display_name": "Potion",
                     "field": "aA",
+                    "height": 0.25,
                     "id": 77,
                     "metadata": [
                         {
@@ -18800,7 +18738,8 @@
                             ]
                         }
                     ],
-                    "name": "potion"
+                    "name": "potion",
+                    "width": 0.25
                 },
                 "puffer_fish": {
                     "class": "ahb",
@@ -18809,8 +18748,8 @@
                     "id": 52,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
+                            "class": "acj",
+                            "entity": "~abstract_creature"
                         },
                         {
                             "class": "ago",
@@ -18848,20 +18787,8 @@
                     "id": 56,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "abp",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bz",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "agq",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "ahc",
@@ -18886,8 +18813,8 @@
                     "id": 57,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
+                            "class": "acj",
+                            "entity": "~abstract_creature"
                         },
                         {
                             "class": "ago",
@@ -18913,20 +18840,8 @@
                     "id": 58,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "abp",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bz",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "agq",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "ahe",
@@ -18951,8 +18866,8 @@
                     "id": 59,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
+                            "class": "acj",
+                            "entity": "~abstract_creature"
                         },
                         {
                             "class": "akl",
@@ -18993,7 +18908,7 @@
                     "class": "alv",
                     "display_name": "Shulker Bullet",
                     "field": "aj",
-                    "height": 0.31,
+                    "height": 0.3125,
                     "id": 60,
                     "metadata": [
                         {
@@ -19002,7 +18917,7 @@
                         }
                     ],
                     "name": "shulker_bullet",
-                    "width": 0.31
+                    "width": 0.3125
                 },
                 "silverfish": {
                     "class": "akm",
@@ -19023,6 +18938,7 @@
                     "class": "akn",
                     "display_name": "Skeleton",
                     "field": "al",
+                    "height": 1.99,
                     "id": 62,
                     "metadata": [
                         {
@@ -19042,29 +18958,19 @@
                             ]
                         }
                     ],
-                    "name": "skeleton"
+                    "name": "skeleton",
+                    "width": 0.6
                 },
                 "skeleton_horse": {
                     "class": "ahu",
                     "display_name": "Skeleton Horse",
                     "field": "am",
+                    "height": 1.6,
                     "id": 63,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "abp",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bz",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "agq",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "aho",
@@ -19086,7 +18992,8 @@
                             ]
                         }
                     ],
-                    "name": "skeleton_horse"
+                    "name": "skeleton_horse",
+                    "width": 1.39648
                 },
                 "slime": {
                     "class": "ako",
@@ -19130,6 +19037,7 @@
                     "class": "alx",
                     "display_name": "Snowball",
                     "field": "aq",
+                    "height": 0.25,
                     "id": 67,
                     "metadata": [
                         {
@@ -19137,7 +19045,8 @@
                             "entity": "~abstract_entity"
                         }
                     ],
-                    "name": "snowball"
+                    "name": "snowball",
+                    "width": 0.25
                 },
                 "snowman": {
                     "class": "ahg",
@@ -19147,8 +19056,8 @@
                     "id": 66,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
+                            "class": "acj",
+                            "entity": "~abstract_creature"
                         },
                         {
                             "class": "ahg",
@@ -19170,6 +19079,7 @@
                     "class": "amp",
                     "display_name": "Minecart with Spawner",
                     "field": "T",
+                    "height": 0.7,
                     "id": 44,
                     "metadata": [
                         {
@@ -19177,12 +19087,14 @@
                             "entity": "~abstract_minecart"
                         }
                     ],
-                    "name": "spawner_minecart"
+                    "name": "spawner_minecart",
+                    "width": 0.98
                 },
                 "spectral_arrow": {
                     "class": "aly",
                     "display_name": "Spectral Arrow",
                     "field": "ar",
+                    "height": 0.5,
                     "id": 68,
                     "metadata": [
                         {
@@ -19202,7 +19114,8 @@
                             ]
                         }
                     ],
-                    "name": "spectral_arrow"
+                    "name": "spectral_arrow",
+                    "width": 0.5
                 },
                 "spider": {
                     "class": "akq",
@@ -19239,8 +19152,8 @@
                     "id": 70,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
+                            "class": "acj",
+                            "entity": "~abstract_creature"
                         }
                     ],
                     "name": "squid",
@@ -19250,6 +19163,7 @@
                     "class": "akr",
                     "display_name": "Stray",
                     "field": "au",
+                    "height": 1.99,
                     "id": 71,
                     "metadata": [
                         {
@@ -19269,7 +19183,8 @@
                             ]
                         }
                     ],
-                    "name": "stray"
+                    "name": "stray",
+                    "width": 0.6
                 },
                 "tnt": {
                     "class": "ajn",
@@ -19302,6 +19217,7 @@
                     "class": "amq",
                     "display_name": "Minecart with TNT",
                     "field": "U",
+                    "height": 0.7,
                     "id": 45,
                     "metadata": [
                         {
@@ -19309,12 +19225,14 @@
                             "entity": "~abstract_minecart"
                         }
                     ],
-                    "name": "tnt_minecart"
+                    "name": "tnt_minecart",
+                    "width": 0.98
                 },
                 "trident": {
                     "class": "ame",
                     "display_name": "Trident",
                     "field": "aR",
+                    "height": 0.5,
                     "id": 94,
                     "metadata": [
                         {
@@ -19346,7 +19264,8 @@
                             ]
                         }
                     ],
-                    "name": "trident"
+                    "name": "trident",
+                    "width": 0.5
                 },
                 "tropical_fish": {
                     "class": "ahi",
@@ -19355,8 +19274,8 @@
                     "id": 72,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
+                            "class": "acj",
+                            "entity": "~abstract_creature"
                         },
                         {
                             "class": "ago",
@@ -19394,20 +19313,8 @@
                     "id": 73,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "abp",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bz",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "agq",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "ahj",
@@ -19494,20 +19401,8 @@
                     "id": 79,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
                             "class": "abp",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bz",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "entity": "~abstract_ageable"
                         },
                         {
                             "class": "alb",
@@ -19532,8 +19427,8 @@
                     "id": 80,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
+                            "class": "acj",
+                            "entity": "~abstract_creature"
                         },
                         {
                             "class": "ahk",
@@ -19748,6 +19643,7 @@
                     "class": "amc",
                     "display_name": "Thrown Bottle o' Enchanting",
                     "field": "az",
+                    "height": 0.25,
                     "id": 76,
                     "metadata": [
                         {
@@ -19755,7 +19651,8 @@
                             "entity": "~abstract_entity"
                         }
                     ],
-                    "name": "xp_bottle"
+                    "name": "xp_bottle",
+                    "width": 0.25
                 },
                 "xp_orb": {
                     "class": "aby",
@@ -19824,23 +19721,12 @@
                     "class": "ahw",
                     "display_name": "Zombie Horse",
                     "field": "aL",
+                    "height": 1.6,
                     "id": 88,
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "abp",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bz",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "agq",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "aho",
@@ -19862,12 +19748,14 @@
                             ]
                         }
                     ],
-                    "name": "zombie_horse"
+                    "name": "zombie_horse",
+                    "width": 1.39648
                 },
                 "zombie_pigman": {
                     "class": "aki",
                     "display_name": "Zombie Pigman",
                     "field": "ac",
+                    "height": 1.95,
                     "id": 53,
                     "metadata": [
                         {
@@ -19875,12 +19763,14 @@
                             "entity": "zombie"
                         }
                     ],
-                    "name": "zombie_pigman"
+                    "name": "zombie_pigman",
+                    "width": 0.6
                 },
                 "zombie_villager": {
                     "class": "akx",
                     "display_name": "Zombie Villager",
                     "field": "aM",
+                    "height": 1.95,
                     "id": 89,
                     "metadata": [
                         {
@@ -19907,7 +19797,50 @@
                             ]
                         }
                     ],
-                    "name": "zombie_villager"
+                    "name": "zombie_villager",
+                    "width": 0.6
+                },
+                "~abstract_ageable": {
+                    "class": "abp",
+                    "metadata": [
+                        {
+                            "class": "acj",
+                            "entity": "~abstract_creature"
+                        },
+                        {
+                            "class": "abp",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bz",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "~abstract_ageable"
+                },
+                "~abstract_animal": {
+                    "class": "agq",
+                    "metadata": [
+                        {
+                            "class": "abp",
+                            "entity": "~abstract_ageable"
+                        }
+                    ],
+                    "name": "~abstract_animal"
+                },
+                "~abstract_creature": {
+                    "class": "acj",
+                    "metadata": [
+                        {
+                            "class": "acc",
+                            "entity": "~abstract_insentient"
+                        }
+                    ],
+                    "name": "~abstract_creature"
                 },
                 "~abstract_entity": {
                     "class": "abs",
@@ -20035,6 +19968,7 @@
                 },
                 "~abstract_minecart": {
                     "class": "amh",
+                    "height": 0.7,
                     "metadata": [
                         {
                             "class": "abs",
@@ -20087,14 +20021,15 @@
                             ]
                         }
                     ],
-                    "name": "~abstract_minecart"
+                    "name": "~abstract_minecart",
+                    "width": 0.98
                 },
                 "~abstract_monster": {
                     "class": "akg",
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
+                            "class": "acj",
+                            "entity": "~abstract_creature"
                         }
                     ],
                     "name": "~abstract_monster"
@@ -20103,20 +20038,8 @@
                     "class": "acm",
                     "metadata": [
                         {
-                            "class": "acc",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "abp",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bz",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "agq",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "acm",
@@ -20150,10 +20073,10 @@
                 "1": {
                     "class": "amj",
                     "entity_id": 5,
-                    "height": 0.56,
+                    "height": 0.5625,
                     "id": 1,
                     "name": "boat",
-                    "width": 1.38
+                    "width": 1.375
                 },
                 "2": {
                     "class": "ajm",
@@ -20186,20 +20109,26 @@
                 "60": {
                     "class": "alm",
                     "entity_id": 2,
+                    "height": 0.5,
                     "id": 60,
-                    "name": "arrow"
+                    "name": "arrow",
+                    "width": 0.5
                 },
                 "61": {
                     "class": "alx",
                     "entity_id": 67,
+                    "height": 0.25,
                     "id": 61,
-                    "name": "snowball"
+                    "name": "snowball",
+                    "width": 0.25
                 },
                 "62": {
                     "class": "ama",
                     "entity_id": 74,
+                    "height": 0.25,
                     "id": 62,
-                    "name": "egg"
+                    "name": "egg",
+                    "width": 0.25
                 },
                 "63": {
                     "class": "alr",
@@ -20216,8 +20145,10 @@
                 "65": {
                     "class": "amb",
                     "entity_id": 75,
+                    "height": 0.25,
                     "id": 65,
-                    "name": "ender_pearl"
+                    "name": "ender_pearl",
+                    "width": 0.25
                 },
                 "66": {
                     "class": "amf",
@@ -20228,10 +20159,10 @@
                 "67": {
                     "class": "alv",
                     "entity_id": 60,
-                    "height": 0.31,
+                    "height": 0.3125,
                     "id": 67,
                     "name": "shulker_bullet",
-                    "width": 0.31
+                    "width": 0.3125
                 },
                 "68": {
                     "class": "als",
@@ -20262,14 +20193,18 @@
                 "73": {
                     "class": "amd",
                     "entity_id": 77,
+                    "height": 0.25,
                     "id": 73,
-                    "name": "potion"
+                    "name": "potion",
+                    "width": 0.25
                 },
                 "75": {
                     "class": "amc",
                     "entity_id": 76,
+                    "height": 0.25,
                     "id": 75,
-                    "name": "xp_bottle"
+                    "name": "xp_bottle",
+                    "width": 0.25
                 },
                 "76": {
                     "class": "alq",
@@ -20286,7 +20221,7 @@
                 "78": {
                     "class": "aiz",
                     "entity_id": 1,
-                    "height": 1.98,
+                    "height": 1.975,
                     "id": 78,
                     "name": "armor_stand",
                     "width": 0.5
@@ -20308,8 +20243,10 @@
                 "91": {
                     "class": "aly",
                     "entity_id": 68,
+                    "height": 0.5,
                     "id": 91,
-                    "name": "spectral_arrow"
+                    "name": "spectral_arrow",
+                    "width": 0.5
                 },
                 "93": {
                     "class": "aln",
@@ -20320,8 +20257,10 @@
                 "94": {
                     "class": "ame",
                     "entity_id": 94,
+                    "height": 0.5,
                     "id": 94,
-                    "name": "trident"
+                    "name": "trident",
+                    "width": 0.5
                 }
             }
         },
@@ -80358,7 +80297,12 @@
                 "replace": false,
                 "type": "blocks",
                 "values": [
-                    "#minecraft:wooden_buttons",
+                    "minecraft:oak_button",
+                    "minecraft:spruce_button",
+                    "minecraft:birch_button",
+                    "minecraft:jungle_button",
+                    "minecraft:acacia_button",
+                    "minecraft:dark_oak_button",
                     "minecraft:stone_button"
                 ]
             },
@@ -80390,8 +80334,16 @@
                 "replace": false,
                 "type": "blocks",
                 "values": [
-                    "#minecraft:dead_coral_blocks",
-                    "#minecraft:live_coral_blocks"
+                    "minecraft:dead_tube_coral_block",
+                    "minecraft:dead_brain_coral_block",
+                    "minecraft:dead_bubble_coral_block",
+                    "minecraft:dead_fire_coral_block",
+                    "minecraft:dead_horn_coral_block",
+                    "minecraft:tube_coral_block",
+                    "minecraft:brain_coral_block",
+                    "minecraft:bubble_coral_block",
+                    "minecraft:fire_coral_block",
+                    "minecraft:horn_coral_block"
                 ]
             },
             "blocks/coral_fans": {
@@ -80445,7 +80397,12 @@
                 "replace": false,
                 "type": "blocks",
                 "values": [
-                    "#minecraft:wooden_doors",
+                    "minecraft:oak_door",
+                    "minecraft:spruce_door",
+                    "minecraft:birch_door",
+                    "minecraft:jungle_door",
+                    "minecraft:acacia_door",
+                    "minecraft:dark_oak_door",
                     "minecraft:iron_door"
                 ]
             },
@@ -80549,12 +80506,24 @@
                 "replace": false,
                 "type": "blocks",
                 "values": [
-                    "#minecraft:dark_oak_logs",
-                    "#minecraft:oak_logs",
-                    "#minecraft:acacia_logs",
-                    "#minecraft:birch_logs",
-                    "#minecraft:jungle_logs",
-                    "#minecraft:spruce_logs"
+                    "minecraft:dark_oak_log",
+                    "minecraft:dark_oak_bark",
+                    "minecraft:stripped_dark_oak_log",
+                    "minecraft:oak_log",
+                    "minecraft:oak_bark",
+                    "minecraft:stripped_oak_log",
+                    "minecraft:acacia_log",
+                    "minecraft:acacia_bark",
+                    "minecraft:stripped_acacia_log",
+                    "minecraft:birch_log",
+                    "minecraft:birch_bark",
+                    "minecraft:stripped_birch_log",
+                    "minecraft:jungle_log",
+                    "minecraft:jungle_bark",
+                    "minecraft:stripped_jungle_log",
+                    "minecraft:spruce_log",
+                    "minecraft:spruce_bark",
+                    "minecraft:stripped_spruce_log"
                 ]
             },
             "blocks/oak_logs": {
@@ -80852,7 +80821,12 @@
                 "replace": false,
                 "type": "items",
                 "values": [
-                    "#minecraft:wooden_buttons",
+                    "minecraft:oak_button",
+                    "minecraft:spruce_button",
+                    "minecraft:birch_button",
+                    "minecraft:jungle_button",
+                    "minecraft:acacia_button",
+                    "minecraft:dark_oak_button",
                     "minecraft:stone_button"
                 ]
             },
@@ -80884,8 +80858,16 @@
                 "replace": false,
                 "type": "items",
                 "values": [
-                    "#minecraft:dead_coral_blocks",
-                    "#minecraft:live_coral_blocks"
+                    "minecraft:dead_tube_coral_block",
+                    "minecraft:dead_brain_coral_block",
+                    "minecraft:dead_bubble_coral_block",
+                    "minecraft:dead_fire_coral_block",
+                    "minecraft:dead_horn_coral_block",
+                    "minecraft:tube_coral_block",
+                    "minecraft:brain_coral_block",
+                    "minecraft:bubble_coral_block",
+                    "minecraft:fire_coral_block",
+                    "minecraft:horn_coral_block"
                 ]
             },
             "items/coral_fans": {
@@ -80939,7 +80921,12 @@
                 "replace": false,
                 "type": "items",
                 "values": [
-                    "#minecraft:wooden_doors",
+                    "minecraft:oak_door",
+                    "minecraft:spruce_door",
+                    "minecraft:birch_door",
+                    "minecraft:jungle_door",
+                    "minecraft:acacia_door",
+                    "minecraft:dark_oak_door",
                     "minecraft:iron_door"
                 ]
             },
@@ -80970,12 +80957,24 @@
                 "replace": false,
                 "type": "items",
                 "values": [
-                    "#minecraft:dark_oak_logs",
-                    "#minecraft:oak_logs",
-                    "#minecraft:acacia_logs",
-                    "#minecraft:birch_logs",
-                    "#minecraft:jungle_logs",
-                    "#minecraft:spruce_logs"
+                    "minecraft:dark_oak_log",
+                    "minecraft:dark_oak_bark",
+                    "minecraft:stripped_dark_oak_log",
+                    "minecraft:oak_log",
+                    "minecraft:oak_bark",
+                    "minecraft:stripped_oak_log",
+                    "minecraft:acacia_log",
+                    "minecraft:acacia_bark",
+                    "minecraft:stripped_acacia_log",
+                    "minecraft:birch_log",
+                    "minecraft:birch_bark",
+                    "minecraft:stripped_birch_log",
+                    "minecraft:jungle_log",
+                    "minecraft:jungle_bark",
+                    "minecraft:stripped_jungle_log",
+                    "minecraft:spruce_log",
+                    "minecraft:spruce_bark",
+                    "minecraft:stripped_spruce_log"
                 ]
             },
             "items/oak_logs": {
@@ -81513,6 +81512,7 @@
         "version": {
             "data": 1483,
             "entity_format": "1.13",
+            "id": "18w16a",
             "is_flattened": true,
             "name": "18w16a",
             "protocol": 372

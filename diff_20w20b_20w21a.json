@@ -232,159 +232,8 @@
         }
     },
     "entities": {
-        "dataserializers": {
-            "13": [
-                null,
-                {
-                    "class": "ts$18",
-                    "field": "h",
-                    "id": 13,
-                    "instructions": [
-                        {
-                            "condition": "((Optional)value).isPresent()",
-                            "instructions": [
-                                {
-                                    "field": "buq.i(((cej)((Optional)value).get()))",
-                                    "operation": "write",
-                                    "type": "varint"
-                                }
-                            ],
-                            "operation": "if"
-                        },
-                        {
-                            "instructions": [
-                                {
-                                    "field": "0",
-                                    "operation": "write",
-                                    "type": "varint"
-                                }
-                            ],
-                            "operation": "else"
-                        }
-                    ],
-                    "type": "java/util/Optional<Lcej;>"
-                }
-            ],
-            "OptBlockState": [
-                {
-                    "class": "tt$18",
-                    "field": "h",
-                    "id": 13,
-                    "instructions": [
-                        {
-                            "condition": "((Optional)value).isPresent()",
-                            "instructions": [
-                                {
-                                    "field": "bur.i(((cel)((Optional)value).get()))",
-                                    "operation": "write",
-                                    "type": "varint"
-                                }
-                            ],
-                            "operation": "if"
-                        },
-                        {
-                            "instructions": [
-                                {
-                                    "field": "0",
-                                    "operation": "write",
-                                    "type": "varint"
-                                }
-                            ],
-                            "operation": "else"
-                        }
-                    ],
-                    "name": "OptBlockState",
-                    "type": "java/util/Optional<Lcel;>"
-                },
-                null
-            ]
-        },
-        "entity": {
-            "enderman": [
-                {
-                    "class": "bax",
-                    "display_name": "Enderman",
-                    "field": "u",
-                    "height": 2.9,
-                    "id": 20,
-                    "metadata": [
-                        {
-                            "class": "bbh",
-                            "entity": "~abstract_monster"
-                        },
-                        {
-                            "class": "bax",
-                            "data": [
-                                {
-                                    "default": "Empty",
-                                    "field": "d",
-                                    "index": 15,
-                                    "serializer": "OptBlockState",
-                                    "serializer_id": 13
-                                },
-                                {
-                                    "default": false,
-                                    "field": "bv",
-                                    "index": 16,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                },
-                                {
-                                    "default": false,
-                                    "field": "bw",
-                                    "index": 17,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
-                        }
-                    ],
-                    "name": "enderman",
-                    "width": 0.6
-                },
-                {
-                    "class": "bax",
-                    "display_name": "Enderman",
-                    "field": "u",
-                    "height": 2.9,
-                    "id": 20,
-                    "metadata": [
-                        {
-                            "class": "bbh",
-                            "entity": "~abstract_monster"
-                        },
-                        {
-                            "class": "bax",
-                            "data": [
-                                {
-                                    "default": "Empty",
-                                    "field": "d",
-                                    "index": 15,
-                                    "serializer": 13,
-                                    "serializer_id": 13
-                                },
-                                {
-                                    "default": false,
-                                    "field": "bu",
-                                    "index": 16,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                },
-                                {
-                                    "default": false,
-                                    "field": "bv",
-                                    "index": 17,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
-                        }
-                    ],
-                    "name": "enderman",
-                    "width": 0.6
-                }
-            ]
-        }
+        "dataserializers": {},
+        "entity": {}
     },
     "items": {
         "item": {}
@@ -747,6 +596,81 @@
                     "from_client": false,
                     "from_server": true,
                     "id": 38,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "this.d.a()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "c",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 0x8)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "gl$a.a.encode(e)",
+                            "operation": "write",
+                            "type": "nbtcompound"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "i",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "j",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "k",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "l",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
                     "state": "PLAY"
                 }
             ],

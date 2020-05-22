@@ -15130,6 +15130,7 @@
             "block.list": "asi",
             "block.register": "ash",
             "block.superclass": "ash",
+            "blockstate": "bal",
             "blockstatecontainer": "bam",
             "chatcomponent": "go",
             "entity.list": "yr",
@@ -15146,6 +15147,7 @@
             "nethandler.server": "qy",
             "packet.connectionstate": "ge",
             "packet.packetbuffer": "gf",
+            "particle": "eu",
             "position": "ds",
             "sounds.event": "td",
             "sounds.list": "te",
@@ -15470,7 +15472,7 @@
                 "armor_stand": {
                     "class": "afi",
                     "display_name": "Armor Stand",
-                    "height": 1.98,
+                    "height": 1.975,
                     "id": 30,
                     "metadata": [
                         {
@@ -15533,6 +15535,7 @@
                 "arrow": {
                     "class": "aij",
                     "display_name": "Arrow",
+                    "height": 0.5,
                     "id": 10,
                     "metadata": [
                         {
@@ -15565,7 +15568,8 @@
                         }
                     ],
                     "name": "arrow",
-                    "old_name": "Arrow"
+                    "old_name": "Arrow",
+                    "width": 0.5
                 },
                 "bat": {
                     "class": "adc",
@@ -15622,7 +15626,7 @@
                 "boat": {
                     "class": "aim",
                     "display_name": "Boat",
-                    "height": 0.56,
+                    "height": 0.5625,
                     "id": 41,
                     "metadata": [
                         {
@@ -15674,7 +15678,7 @@
                     ],
                     "name": "boat",
                     "old_name": "Boat",
-                    "width": 1.38
+                    "width": 1.375
                 },
                 "cave_spider": {
                     "class": "aga",
@@ -15694,6 +15698,7 @@
                 "chest_minecart": {
                     "class": "aio",
                     "display_name": "Minecart with Chest",
+                    "height": 0.7,
                     "id": 43,
                     "metadata": [
                         {
@@ -15702,7 +15707,8 @@
                         }
                     ],
                     "name": "chest_minecart",
-                    "old_name": "MinecartChest"
+                    "old_name": "MinecartChest",
+                    "width": 0.98
                 },
                 "chicken": {
                     "class": "adf",
@@ -15711,20 +15717,8 @@
                     "id": 93,
                     "metadata": [
                         {
-                            "class": "yz",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "ym",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bx",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 6
-                                }
-                            ]
+                            "class": "ade",
+                            "entity": "~abstract_animal"
                         }
                     ],
                     "name": "chicken",
@@ -15733,6 +15727,7 @@
                 },
                 "commandblock_minecart": {
                     "class": "aip",
+                    "height": 0.7,
                     "id": 40,
                     "metadata": [
                         {
@@ -15762,7 +15757,8 @@
                         }
                     ],
                     "name": "commandblock_minecart",
-                    "old_name": "MinecartCommandBlock"
+                    "old_name": "MinecartCommandBlock",
+                    "width": 0.98
                 },
                 "cow": {
                     "class": "adg",
@@ -15771,20 +15767,8 @@
                     "id": 92,
                     "metadata": [
                         {
-                            "class": "yz",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "ym",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bx",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 6
-                                }
-                            ]
+                            "class": "ade",
+                            "entity": "~abstract_animal"
                         }
                     ],
                     "name": "cow",
@@ -15835,23 +15819,12 @@
                 "donkey": {
                     "class": "ady",
                     "display_name": "Donkey",
+                    "height": 1.6,
                     "id": 31,
                     "metadata": [
                         {
-                            "class": "yz",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "ym",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bx",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 6
-                                }
-                            ]
+                            "class": "ade",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "adx",
@@ -15886,7 +15859,8 @@
                         }
                     ],
                     "name": "donkey",
-                    "old_name": "Donkey"
+                    "old_name": "Donkey",
+                    "width": 1.39648
                 },
                 "dragon_fireball": {
                     "class": "ahr",
@@ -15903,6 +15877,7 @@
                 },
                 "egg": {
                     "class": "aif",
+                    "height": 0.25,
                     "id": 7,
                     "metadata": [
                         {
@@ -15911,7 +15886,8 @@
                         }
                     ],
                     "name": "egg",
-                    "old_name": "ThrownEgg"
+                    "old_name": "ThrownEgg",
+                    "width": 0.25
                 },
                 "elder_guardian": {
                     "class": "agc",
@@ -15981,11 +15957,11 @@
                     ],
                     "name": "ender_dragon",
                     "old_name": "EnderDragon",
-                    "texture": "wing",
                     "width": 16.0
                 },
                 "ender_pearl": {
                     "class": "aig",
+                    "height": 0.25,
                     "id": 14,
                     "metadata": [
                         {
@@ -15994,7 +15970,8 @@
                         }
                     ],
                     "name": "ender_pearl",
-                    "old_name": "ThrownEnderpearl"
+                    "old_name": "ThrownEnderpearl",
+                    "width": 0.25
                 },
                 "enderman": {
                     "class": "agd",
@@ -16185,6 +16162,7 @@
                 },
                 "furnace_minecart": {
                     "class": "air",
+                    "height": 0.7,
                     "id": 44,
                     "metadata": [
                         {
@@ -16205,7 +16183,8 @@
                         }
                     ],
                     "name": "furnace_minecart",
-                    "old_name": "MinecartFurnace"
+                    "old_name": "MinecartFurnace",
+                    "width": 0.98
                 },
                 "ghast": {
                     "class": "agh",
@@ -16284,6 +16263,7 @@
                 "hopper_minecart": {
                     "class": "ais",
                     "display_name": "Minecart with Hopper",
+                    "height": 0.7,
                     "id": 46,
                     "metadata": [
                         {
@@ -16292,28 +16272,18 @@
                         }
                     ],
                     "name": "hopper_minecart",
-                    "old_name": "MinecartHopper"
+                    "old_name": "MinecartHopper",
+                    "width": 0.98
                 },
                 "horse": {
                     "class": "adz",
                     "display_name": "Horse",
+                    "height": 1.6,
                     "id": 100,
                     "metadata": [
                         {
-                            "class": "yz",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "ym",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bx",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 6
-                                }
-                            ]
+                            "class": "ade",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "adx",
@@ -16354,11 +16324,13 @@
                         }
                     ],
                     "name": "horse",
-                    "old_name": "Horse"
+                    "old_name": "Horse",
+                    "width": 1.39648
                 },
                 "husk": {
                     "class": "agk",
                     "display_name": "Husk",
+                    "height": 1.95,
                     "id": 23,
                     "metadata": [
                         {
@@ -16367,7 +16339,8 @@
                         }
                     ],
                     "name": "husk",
-                    "old_name": "Husk"
+                    "old_name": "Husk",
+                    "width": 0.6
                 },
                 "illusion_illager": {
                     "class": "agl",
@@ -16435,6 +16408,7 @@
                 },
                 "item_frame": {
                     "class": "afk",
+                    "height": 0.5,
                     "id": 18,
                     "metadata": [
                         {
@@ -16462,10 +16436,12 @@
                         }
                     ],
                     "name": "item_frame",
-                    "old_name": "ItemFrame"
+                    "old_name": "ItemFrame",
+                    "width": 0.5
                 },
                 "leash_knot": {
                     "class": "afl",
+                    "height": 0.5,
                     "id": 8,
                     "metadata": [
                         {
@@ -16474,7 +16450,8 @@
                         }
                     ],
                     "name": "leash_knot",
-                    "old_name": "LeashKnot"
+                    "old_name": "LeashKnot",
+                    "width": 0.5
                 },
                 "llama": {
                     "class": "aeb",
@@ -16483,20 +16460,8 @@
                     "id": 103,
                     "metadata": [
                         {
-                            "class": "yz",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "ym",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bx",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 6
-                                }
-                            ]
+                            "class": "ade",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "adx",
@@ -16587,6 +16552,7 @@
                 },
                 "minecart": {
                     "class": "ait",
+                    "height": 0.7,
                     "id": 42,
                     "metadata": [
                         {
@@ -16595,7 +16561,8 @@
                         }
                     ],
                     "name": "minecart",
-                    "old_name": "MinecartRideable"
+                    "old_name": "MinecartRideable",
+                    "width": 0.98
                 },
                 "mooshroom": {
                     "class": "adj",
@@ -16615,23 +16582,12 @@
                 "mule": {
                     "class": "aec",
                     "display_name": "Mule",
+                    "height": 1.6,
                     "id": 32,
                     "metadata": [
                         {
-                            "class": "yz",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "ym",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bx",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 6
-                                }
-                            ]
+                            "class": "ade",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "adx",
@@ -16666,7 +16622,8 @@
                         }
                     ],
                     "name": "mule",
-                    "old_name": "Mule"
+                    "old_name": "Mule",
+                    "width": 1.39648
                 },
                 "ocelot": {
                     "class": "adk",
@@ -16698,6 +16655,7 @@
                 "painting": {
                     "class": "afm",
                     "display_name": "Painting",
+                    "height": 0.5,
                     "id": 9,
                     "metadata": [
                         {
@@ -16706,7 +16664,8 @@
                         }
                     ],
                     "name": "painting",
-                    "old_name": "Painting"
+                    "old_name": "Painting",
+                    "width": 0.5
                 },
                 "parrot": {
                     "class": "adl",
@@ -16742,20 +16701,8 @@
                     "id": 90,
                     "metadata": [
                         {
-                            "class": "yz",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "ym",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bx",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 6
-                                }
-                            ]
+                            "class": "ade",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "adm",
@@ -16788,20 +16735,8 @@
                     "id": 102,
                     "metadata": [
                         {
-                            "class": "yz",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "ym",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bx",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 6
-                                }
-                            ]
+                            "class": "ade",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "adn",
@@ -16823,6 +16758,7 @@
                 "potion": {
                     "class": "aii",
                     "display_name": "Potion",
+                    "height": 0.25,
                     "id": 16,
                     "metadata": [
                         {
@@ -16843,7 +16779,8 @@
                         }
                     ],
                     "name": "potion",
-                    "old_name": "ThrownPotion"
+                    "old_name": "ThrownPotion",
+                    "width": 0.25
                 },
                 "rabbit": {
                     "class": "ado",
@@ -16852,20 +16789,8 @@
                     "id": 101,
                     "metadata": [
                         {
-                            "class": "yz",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "ym",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bx",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 6
-                                }
-                            ]
+                            "class": "ade",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "ado",
@@ -16891,20 +16816,8 @@
                     "id": 91,
                     "metadata": [
                         {
-                            "class": "yz",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "ym",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bx",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 6
-                                }
-                            ]
+                            "class": "ade",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "adp",
@@ -16929,8 +16842,8 @@
                     "id": 69,
                     "metadata": [
                         {
-                            "class": "yz",
-                            "entity": "~abstract_insentient"
+                            "class": "zg",
+                            "entity": "~abstract_creature"
                         },
                         {
                             "class": "agr",
@@ -16969,7 +16882,7 @@
                 },
                 "shulker_bullet": {
                     "class": "aia",
-                    "height": 0.31,
+                    "height": 0.3125,
                     "id": 25,
                     "metadata": [
                         {
@@ -16979,7 +16892,7 @@
                     ],
                     "name": "shulker_bullet",
                     "old_name": "ShulkerBullet",
-                    "width": 0.31
+                    "width": 0.3125
                 },
                 "silverfish": {
                     "class": "ags",
@@ -16999,6 +16912,7 @@
                 "skeleton": {
                     "class": "agt",
                     "display_name": "Skeleton",
+                    "height": 1.99,
                     "id": 51,
                     "metadata": [
                         {
@@ -17019,28 +16933,18 @@
                         }
                     ],
                     "name": "skeleton",
-                    "old_name": "Skeleton"
+                    "old_name": "Skeleton",
+                    "width": 0.6
                 },
                 "skeleton_horse": {
                     "class": "aed",
                     "display_name": "Skeleton Horse",
+                    "height": 1.6,
                     "id": 28,
                     "metadata": [
                         {
-                            "class": "yz",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "ym",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bx",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 6
-                                }
-                            ]
+                            "class": "ade",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "adx",
@@ -17063,7 +16967,8 @@
                         }
                     ],
                     "name": "skeleton_horse",
-                    "old_name": "SkeletonHorse"
+                    "old_name": "SkeletonHorse",
+                    "width": 1.39648
                 },
                 "slime": {
                     "class": "agu",
@@ -17093,7 +16998,7 @@
                 "small_fireball": {
                     "class": "aib",
                     "display_name": "Small Fireball",
-                    "height": 0.31,
+                    "height": 0.3125,
                     "id": 13,
                     "metadata": [
                         {
@@ -17103,11 +17008,12 @@
                     ],
                     "name": "small_fireball",
                     "old_name": "SmallFireball",
-                    "width": 0.31
+                    "width": 0.3125
                 },
                 "snowball": {
                     "class": "aic",
                     "display_name": "Snowball",
+                    "height": 0.25,
                     "id": 11,
                     "metadata": [
                         {
@@ -17116,7 +17022,8 @@
                         }
                     ],
                     "name": "snowball",
-                    "old_name": "Snowball"
+                    "old_name": "Snowball",
+                    "width": 0.25
                 },
                 "snowman": {
                     "class": "adr",
@@ -17125,8 +17032,8 @@
                     "id": 97,
                     "metadata": [
                         {
-                            "class": "yz",
-                            "entity": "~abstract_insentient"
+                            "class": "zg",
+                            "entity": "~abstract_creature"
                         },
                         {
                             "class": "adr",
@@ -17147,6 +17054,7 @@
                 },
                 "spawner_minecart": {
                     "class": "aiu",
+                    "height": 0.7,
                     "id": 47,
                     "metadata": [
                         {
@@ -17155,10 +17063,12 @@
                         }
                     ],
                     "name": "spawner_minecart",
-                    "old_name": "MinecartSpawner"
+                    "old_name": "MinecartSpawner",
+                    "width": 0.98
                 },
                 "spectral_arrow": {
                     "class": "aid",
+                    "height": 0.5,
                     "id": 24,
                     "metadata": [
                         {
@@ -17179,7 +17089,8 @@
                         }
                     ],
                     "name": "spectral_arrow",
-                    "old_name": "SpectralArrow"
+                    "old_name": "SpectralArrow",
+                    "width": 0.5
                 },
                 "spider": {
                     "class": "agw",
@@ -17226,6 +17137,7 @@
                 "stray": {
                     "class": "agx",
                     "display_name": "Stray",
+                    "height": 1.99,
                     "id": 6,
                     "metadata": [
                         {
@@ -17246,7 +17158,8 @@
                         }
                     ],
                     "name": "stray",
-                    "old_name": "Stray"
+                    "old_name": "Stray",
+                    "width": 0.6
                 },
                 "tnt": {
                     "class": "afv",
@@ -17277,6 +17190,7 @@
                 },
                 "tnt_minecart": {
                     "class": "aiv",
+                    "height": 0.7,
                     "id": 45,
                     "metadata": [
                         {
@@ -17285,7 +17199,8 @@
                         }
                     ],
                     "name": "tnt_minecart",
-                    "old_name": "MinecartTNT"
+                    "old_name": "MinecartTNT",
+                    "width": 0.98
                 },
                 "vex": {
                     "class": "agy",
@@ -17320,20 +17235,8 @@
                     "id": 120,
                     "metadata": [
                         {
-                            "class": "yz",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
                             "class": "ym",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bx",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 6
-                                }
-                            ]
+                            "entity": "~abstract_ageable"
                         },
                         {
                             "class": "ahh",
@@ -17358,8 +17261,8 @@
                     "id": 99,
                     "metadata": [
                         {
-                            "class": "yz",
-                            "entity": "~abstract_insentient"
+                            "class": "zg",
+                            "entity": "~abstract_creature"
                         },
                         {
                             "class": "adt",
@@ -17509,7 +17412,7 @@
                 },
                 "wither_skull": {
                     "class": "aik",
-                    "height": 0.31,
+                    "height": 0.3125,
                     "id": 19,
                     "metadata": [
                         {
@@ -17531,7 +17434,7 @@
                     ],
                     "name": "wither_skull",
                     "old_name": "WitherSkull",
-                    "width": 0.31
+                    "width": 0.3125
                 },
                 "wolf": {
                     "class": "adv",
@@ -17574,6 +17477,7 @@
                 },
                 "xp_bottle": {
                     "class": "aih",
+                    "height": 0.25,
                     "id": 17,
                     "metadata": [
                         {
@@ -17582,7 +17486,8 @@
                         }
                     ],
                     "name": "xp_bottle",
-                    "old_name": "ThrownExpBottle"
+                    "old_name": "ThrownExpBottle",
+                    "width": 0.25
                 },
                 "xp_orb": {
                     "class": "yv",
@@ -17643,23 +17548,12 @@
                 "zombie_horse": {
                     "class": "aef",
                     "display_name": "Zombie Horse",
+                    "height": 1.6,
                     "id": 29,
                     "metadata": [
                         {
-                            "class": "yz",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "ym",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bx",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 6
-                                }
-                            ]
+                            "class": "ade",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "adx",
@@ -17682,11 +17576,13 @@
                         }
                     ],
                     "name": "zombie_horse",
-                    "old_name": "ZombieHorse"
+                    "old_name": "ZombieHorse",
+                    "width": 1.39648
                 },
                 "zombie_pigman": {
                     "class": "ago",
                     "display_name": "Zombie Pigman",
+                    "height": 1.95,
                     "id": 57,
                     "metadata": [
                         {
@@ -17695,11 +17591,13 @@
                         }
                     ],
                     "name": "zombie_pigman",
-                    "old_name": "PigZombie"
+                    "old_name": "PigZombie",
+                    "width": 0.6
                 },
                 "zombie_villager": {
                     "class": "ahd",
                     "display_name": "Zombie Villager",
+                    "height": 1.95,
                     "id": 27,
                     "metadata": [
                         {
@@ -17727,7 +17625,50 @@
                         }
                     ],
                     "name": "zombie_villager",
-                    "old_name": "ZombieVillager"
+                    "old_name": "ZombieVillager",
+                    "width": 0.6
+                },
+                "~abstract_ageable": {
+                    "class": "ym",
+                    "metadata": [
+                        {
+                            "class": "zg",
+                            "entity": "~abstract_creature"
+                        },
+                        {
+                            "class": "ym",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bx",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 6
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "~abstract_ageable"
+                },
+                "~abstract_animal": {
+                    "class": "ade",
+                    "metadata": [
+                        {
+                            "class": "ym",
+                            "entity": "~abstract_ageable"
+                        }
+                    ],
+                    "name": "~abstract_animal"
+                },
+                "~abstract_creature": {
+                    "class": "zg",
+                    "metadata": [
+                        {
+                            "class": "yz",
+                            "entity": "~abstract_insentient"
+                        }
+                    ],
+                    "name": "~abstract_creature"
                 },
                 "~abstract_entity": {
                     "class": "yp",
@@ -17856,6 +17797,7 @@
                 },
                 "~abstract_minecart": {
                     "class": "ain",
+                    "height": 0.7,
                     "metadata": [
                         {
                             "class": "yp",
@@ -17908,14 +17850,15 @@
                             ]
                         }
                     ],
-                    "name": "~abstract_minecart"
+                    "name": "~abstract_minecart",
+                    "width": 0.98
                 },
                 "~abstract_monster": {
                     "class": "agn",
                     "metadata": [
                         {
-                            "class": "yz",
-                            "entity": "~abstract_insentient"
+                            "class": "zg",
+                            "entity": "~abstract_creature"
                         }
                     ],
                     "name": "~abstract_monster"
@@ -17924,20 +17867,8 @@
                     "class": "zk",
                     "metadata": [
                         {
-                            "class": "yz",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "ym",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bx",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 6
-                                }
-                            ]
+                            "class": "ade",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "zk",
@@ -17971,10 +17902,10 @@
                 "1": {
                     "class": "aim",
                     "entity_id": 41,
-                    "height": 0.56,
+                    "height": 0.5625,
                     "id": 1,
                     "name": "boat",
-                    "width": 1.38
+                    "width": 1.375
                 },
                 "2": {
                     "class": "afu",
@@ -18005,20 +17936,26 @@
                 "60": {
                     "class": "aij",
                     "entity_id": 10,
+                    "height": 0.5,
                     "id": 60,
-                    "name": "arrow"
+                    "name": "arrow",
+                    "width": 0.5
                 },
                 "61": {
                     "class": "aic",
                     "entity_id": 11,
+                    "height": 0.25,
                     "id": 61,
-                    "name": "snowball"
+                    "name": "snowball",
+                    "width": 0.25
                 },
                 "62": {
                     "class": "aif",
                     "entity_id": 7,
+                    "height": 0.25,
                     "id": 62,
-                    "name": "egg"
+                    "name": "egg",
+                    "width": 0.25
                 },
                 "63": {
                     "class": "ahw",
@@ -18029,32 +17966,34 @@
                 "64": {
                     "class": "aib",
                     "entity_id": 13,
-                    "height": 0.31,
+                    "height": 0.3125,
                     "id": 64,
                     "name": "small_fireball",
-                    "width": 0.31
+                    "width": 0.3125
                 },
                 "65": {
                     "class": "aig",
                     "entity_id": 14,
+                    "height": 0.25,
                     "id": 65,
-                    "name": "ender_pearl"
+                    "name": "ender_pearl",
+                    "width": 0.25
                 },
                 "66": {
                     "class": "aik",
                     "entity_id": 19,
-                    "height": 0.31,
+                    "height": 0.3125,
                     "id": 66,
                     "name": "wither_skull",
-                    "width": 0.31
+                    "width": 0.3125
                 },
                 "67": {
                     "class": "aia",
                     "entity_id": 25,
-                    "height": 0.31,
+                    "height": 0.3125,
                     "id": 67,
                     "name": "shulker_bullet",
-                    "width": 0.31
+                    "width": 0.3125
                 },
                 "68": {
                     "class": "ahx",
@@ -18083,14 +18022,18 @@
                 "73": {
                     "class": "aii",
                     "entity_id": 16,
+                    "height": 0.25,
                     "id": 73,
-                    "name": "potion"
+                    "name": "potion",
+                    "width": 0.25
                 },
                 "75": {
                     "class": "aih",
                     "entity_id": 17,
+                    "height": 0.25,
                     "id": 75,
-                    "name": "xp_bottle"
+                    "name": "xp_bottle",
+                    "width": 0.25
                 },
                 "76": {
                     "class": "ahv",
@@ -18107,7 +18050,7 @@
                 "78": {
                     "class": "afi",
                     "entity_id": 30,
-                    "height": 1.98,
+                    "height": 1.975,
                     "id": 78,
                     "name": "armor_stand",
                     "width": 0.5
@@ -18127,8 +18070,10 @@
                 "91": {
                     "class": "aid",
                     "entity_id": 24,
+                    "height": 0.5,
                     "id": 91,
-                    "name": "spectral_arrow"
+                    "name": "spectral_arrow",
+                    "width": 0.5
                 },
                 "93": {
                     "class": "ahr",
@@ -77279,6 +77224,7 @@
         "version": {
             "data": 1452,
             "entity_format": "1.11",
+            "id": "17w47b",
             "is_flattened": true,
             "name": "17w47b",
             "protocol": 347

@@ -20770,6 +20770,7 @@
             "block.list": "bfh",
             "block.register": "bfh",
             "block.superclass": "bfg",
+            "blockstate": "bnz",
             "blockstatecontainer": "boa$a",
             "chatcomponent": "iz",
             "entity.list": "agg",
@@ -20786,6 +20787,7 @@
             "nethandler.server": "uw",
             "packet.connectionstate": "io",
             "packet.packetbuffer": "ip",
+            "particle": "fs",
             "position": "es",
             "recipe.superclass": "gu",
             "sounds.event": "xc",
@@ -21148,7 +21150,7 @@
                     "class": "anp",
                     "display_name": "Armor Stand",
                     "field": "b",
-                    "height": 1.98,
+                    "height": 1.975,
                     "id": 1,
                     "metadata": [
                         {
@@ -21211,6 +21213,7 @@
                     "class": "aqg",
                     "display_name": "Arrow",
                     "field": "c",
+                    "height": 0.5,
                     "id": 2,
                     "metadata": [
                         {
@@ -21256,7 +21259,8 @@
                             ]
                         }
                     ],
-                    "name": "arrow"
+                    "name": "arrow",
+                    "width": 0.5
                 },
                 "bat": {
                     "class": "akz",
@@ -21314,7 +21318,7 @@
                     "class": "ard",
                     "display_name": "Boat",
                     "field": "f",
-                    "height": 0.56,
+                    "height": 0.5625,
                     "id": 5,
                     "metadata": [
                         {
@@ -21376,7 +21380,7 @@
                         }
                     ],
                     "name": "boat",
-                    "width": 1.38
+                    "width": 1.375
                 },
                 "cat": {
                     "class": "alf",
@@ -21444,6 +21448,7 @@
                     "class": "arf",
                     "display_name": "Minecart with Chest",
                     "field": "P",
+                    "height": 0.7,
                     "id": 41,
                     "metadata": [
                         {
@@ -21451,7 +21456,8 @@
                             "entity": "~abstract_minecart"
                         }
                     ],
-                    "name": "chest_minecart"
+                    "name": "chest_minecart",
+                    "width": 0.98
                 },
                 "chicken": {
                     "class": "alg",
@@ -21461,20 +21467,8 @@
                     "id": 8,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "afz",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bC",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "ale",
+                            "entity": "~abstract_animal"
                         }
                     ],
                     "name": "chicken",
@@ -21488,8 +21482,8 @@
                     "id": 9,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
+                            "class": "ags",
+                            "entity": "~abstract_creature"
                         },
                         {
                             "class": "alb",
@@ -21511,6 +21505,7 @@
                     "class": "arg",
                     "display_name": "Minecart with Command Block",
                     "field": "Q",
+                    "height": 0.7,
                     "id": 42,
                     "metadata": [
                         {
@@ -21539,7 +21534,8 @@
                             ]
                         }
                     ],
-                    "name": "command_block_minecart"
+                    "name": "command_block_minecart",
+                    "width": 0.98
                 },
                 "cow": {
                     "class": "ali",
@@ -21549,20 +21545,8 @@
                     "id": 10,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "afz",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bC",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "ale",
+                            "entity": "~abstract_animal"
                         }
                     ],
                     "name": "cow",
@@ -21617,8 +21601,8 @@
                     "id": 13,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
+                            "class": "ags",
+                            "entity": "~abstract_creature"
                         },
                         {
                             "class": "alj",
@@ -21654,23 +21638,12 @@
                     "class": "amf",
                     "display_name": "Donkey",
                     "field": "m",
+                    "height": 1.6,
                     "id": 12,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "afz",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bC",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "ale",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "ame",
@@ -21704,7 +21677,8 @@
                             ]
                         }
                     ],
-                    "name": "donkey"
+                    "name": "donkey",
+                    "width": 1.39648
                 },
                 "dragon_fireball": {
                     "class": "aqh",
@@ -21723,6 +21697,7 @@
                     "class": "aol",
                     "display_name": "Drowned",
                     "field": "p",
+                    "height": 1.95,
                     "id": 15,
                     "metadata": [
                         {
@@ -21730,12 +21705,14 @@
                             "entity": "zombie"
                         }
                     ],
-                    "name": "drowned"
+                    "name": "drowned",
+                    "width": 0.6
                 },
                 "egg": {
                     "class": "aqu",
                     "display_name": "Thrown Egg",
                     "field": "ay",
+                    "height": 0.25,
                     "id": 76,
                     "metadata": [
                         {
@@ -21743,7 +21720,8 @@
                             "entity": "~abstract_entity"
                         }
                     ],
-                    "name": "egg"
+                    "name": "egg",
+                    "width": 0.25
                 },
                 "elder_guardian": {
                     "class": "aom",
@@ -21814,13 +21792,13 @@
                         }
                     ],
                     "name": "ender_dragon",
-                    "texture": "wing",
                     "width": 16.0
                 },
                 "ender_pearl": {
                     "class": "aqv",
                     "display_name": "Thrown Ender Pearl",
                     "field": "az",
+                    "height": 0.25,
                     "id": 77,
                     "metadata": [
                         {
@@ -21828,7 +21806,8 @@
                             "entity": "~abstract_entity"
                         }
                     ],
-                    "name": "ender_pearl"
+                    "name": "ender_pearl",
+                    "width": 0.25
                 },
                 "enderman": {
                     "class": "aon",
@@ -21937,6 +21916,7 @@
                     "class": "aqw",
                     "display_name": "Thrown Bottle o' Enchanting",
                     "field": "aA",
+                    "height": 0.25,
                     "id": 78,
                     "metadata": [
                         {
@@ -21944,7 +21924,8 @@
                             "entity": "~abstract_entity"
                         }
                     ],
-                    "name": "experience_bottle"
+                    "name": "experience_bottle",
+                    "width": 0.25
                 },
                 "experience_orb": {
                     "class": "agi",
@@ -22085,6 +22066,7 @@
                     "class": "arh",
                     "display_name": "Minecart with Furnace",
                     "field": "R",
+                    "height": 0.7,
                     "id": 43,
                     "metadata": [
                         {
@@ -22104,7 +22086,8 @@
                             ]
                         }
                     ],
-                    "name": "furnace_minecart"
+                    "name": "furnace_minecart",
+                    "width": 0.98
                 },
                 "ghast": {
                     "class": "aor",
@@ -22184,6 +22167,7 @@
                     "class": "ari",
                     "display_name": "Minecart with Hopper",
                     "field": "S",
+                    "height": 0.7,
                     "id": 44,
                     "metadata": [
                         {
@@ -22191,29 +22175,19 @@
                             "entity": "~abstract_minecart"
                         }
                     ],
-                    "name": "hopper_minecart"
+                    "name": "hopper_minecart",
+                    "width": 0.98
                 },
                 "horse": {
                     "class": "amg",
                     "display_name": "Horse",
                     "field": "E",
+                    "height": 1.6,
                     "id": 30,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "afz",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bC",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "ale",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "ame",
@@ -22253,12 +22227,14 @@
                             ]
                         }
                     ],
-                    "name": "horse"
+                    "name": "horse",
+                    "width": 1.39648
                 },
                 "husk": {
                     "class": "aou",
                     "display_name": "Husk",
                     "field": "F",
+                    "height": 1.95,
                     "id": 31,
                     "metadata": [
                         {
@@ -22266,7 +22242,8 @@
                             "entity": "zombie"
                         }
                     ],
-                    "name": "husk"
+                    "name": "husk",
+                    "width": 0.6
                 },
                 "illager_beast": {
                     "class": "aov",
@@ -22330,8 +22307,8 @@
                     "id": 82,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
+                            "class": "ags",
+                            "entity": "~abstract_creature"
                         },
                         {
                             "class": "all",
@@ -22380,6 +22357,7 @@
                     "class": "anr",
                     "display_name": "Item Frame",
                     "field": "I",
+                    "height": 0.5,
                     "id": 34,
                     "metadata": [
                         {
@@ -22406,12 +22384,14 @@
                             ]
                         }
                     ],
-                    "name": "item_frame"
+                    "name": "item_frame",
+                    "width": 0.5
                 },
                 "leash_knot": {
                     "class": "ans",
                     "display_name": "Leash Knot",
                     "field": "K",
+                    "height": 0.5,
                     "id": 36,
                     "metadata": [
                         {
@@ -22419,7 +22399,8 @@
                             "entity": "~abstract_entity"
                         }
                     ],
-                    "name": "leash_knot"
+                    "name": "leash_knot",
+                    "width": 0.5
                 },
                 "lightning_bolt": {
                     "class": "anz",
@@ -22443,20 +22424,8 @@
                     "id": 37,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "afz",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bC",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "ale",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "ame",
@@ -22551,6 +22520,7 @@
                     "class": "are",
                     "display_name": "Minecart",
                     "field": "O",
+                    "height": 0.7,
                     "id": 40,
                     "metadata": [
                         {
@@ -22558,7 +22528,8 @@
                             "entity": "~abstract_minecart"
                         }
                     ],
-                    "name": "minecart"
+                    "name": "minecart",
+                    "width": 0.98
                 },
                 "mooshroom": {
                     "class": "alm",
@@ -22579,23 +22550,12 @@
                     "class": "amj",
                     "display_name": "Mule",
                     "field": "V",
+                    "height": 1.6,
                     "id": 47,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "afz",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bC",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "ale",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "ame",
@@ -22629,7 +22589,8 @@
                             ]
                         }
                     ],
-                    "name": "mule"
+                    "name": "mule",
+                    "width": 1.39648
                 },
                 "ocelot": {
                     "class": "aln",
@@ -22639,20 +22600,8 @@
                     "id": 49,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "afz",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bC",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "ale",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "aln",
@@ -22674,6 +22623,7 @@
                     "class": "anu",
                     "display_name": "Painting",
                     "field": "Y",
+                    "height": 0.5,
                     "id": 50,
                     "metadata": [
                         {
@@ -22681,7 +22631,8 @@
                             "entity": "~abstract_entity"
                         }
                     ],
-                    "name": "painting"
+                    "name": "painting",
+                    "width": 0.5
                 },
                 "panda": {
                     "class": "alo",
@@ -22691,20 +22642,8 @@
                     "id": 51,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "afz",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bC",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "ale",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "alo",
@@ -22819,20 +22758,8 @@
                     "id": 53,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "afz",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bC",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "ale",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "alq",
@@ -22894,7 +22821,6 @@
                         }
                     ],
                     "name": "pillager",
-                    "texture": "Inventory",
                     "width": 0.6
                 },
                 "player": {
@@ -22966,20 +22892,8 @@
                     "id": 56,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "afz",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bC",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "ale",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "alr",
@@ -23001,6 +22915,7 @@
                     "class": "aqx",
                     "display_name": "Potion",
                     "field": "aB",
+                    "height": 0.25,
                     "id": 79,
                     "metadata": [
                         {
@@ -23020,7 +22935,8 @@
                             ]
                         }
                     ],
-                    "name": "potion"
+                    "name": "potion",
+                    "width": 0.25
                 },
                 "pufferfish": {
                     "class": "als",
@@ -23030,8 +22946,8 @@
                     "id": 54,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
+                            "class": "ags",
+                            "entity": "~abstract_creature"
                         },
                         {
                             "class": "alb",
@@ -23069,20 +22985,8 @@
                     "id": 58,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "afz",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bC",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "ale",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "alt",
@@ -23108,8 +23012,8 @@
                     "id": 59,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
+                            "class": "ags",
+                            "entity": "~abstract_creature"
                         },
                         {
                             "class": "alb",
@@ -23135,20 +23039,8 @@
                     "id": 60,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "afz",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bC",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "ale",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "alv",
@@ -23173,8 +23065,8 @@
                     "id": 61,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
+                            "class": "ags",
+                            "entity": "~abstract_creature"
                         },
                         {
                             "class": "apf",
@@ -23215,7 +23107,7 @@
                     "class": "aqp",
                     "display_name": "Shulker Bullet",
                     "field": "ak",
-                    "height": 0.31,
+                    "height": 0.3125,
                     "id": 62,
                     "metadata": [
                         {
@@ -23224,7 +23116,7 @@
                         }
                     ],
                     "name": "shulker_bullet",
-                    "width": 0.31
+                    "width": 0.3125
                 },
                 "silverfish": {
                     "class": "apg",
@@ -23245,6 +23137,7 @@
                     "class": "aph",
                     "display_name": "Skeleton",
                     "field": "am",
+                    "height": 1.99,
                     "id": 64,
                     "metadata": [
                         {
@@ -23264,29 +23157,19 @@
                             ]
                         }
                     ],
-                    "name": "skeleton"
+                    "name": "skeleton",
+                    "width": 0.6
                 },
                 "skeleton_horse": {
                     "class": "amk",
                     "display_name": "Skeleton Horse",
                     "field": "an",
+                    "height": 1.6,
                     "id": 65,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "afz",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bC",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "ale",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "ame",
@@ -23308,7 +23191,8 @@
                             ]
                         }
                     ],
-                    "name": "skeleton_horse"
+                    "name": "skeleton_horse",
+                    "width": 1.39648
                 },
                 "slime": {
                     "class": "api",
@@ -23356,8 +23240,8 @@
                     "id": 68,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
+                            "class": "ags",
+                            "entity": "~abstract_creature"
                         },
                         {
                             "class": "alx",
@@ -23379,6 +23263,7 @@
                     "class": "aqr",
                     "display_name": "Snowball",
                     "field": "ar",
+                    "height": 0.25,
                     "id": 69,
                     "metadata": [
                         {
@@ -23386,12 +23271,14 @@
                             "entity": "~abstract_entity"
                         }
                     ],
-                    "name": "snowball"
+                    "name": "snowball",
+                    "width": 0.25
                 },
                 "spawner_minecart": {
                     "class": "arj",
                     "display_name": "Minecart with Spawner",
                     "field": "T",
+                    "height": 0.7,
                     "id": 45,
                     "metadata": [
                         {
@@ -23399,12 +23286,14 @@
                             "entity": "~abstract_minecart"
                         }
                     ],
-                    "name": "spawner_minecart"
+                    "name": "spawner_minecart",
+                    "width": 0.98
                 },
                 "spectral_arrow": {
                     "class": "aqs",
                     "display_name": "Spectral Arrow",
                     "field": "as",
+                    "height": 0.5,
                     "id": 70,
                     "metadata": [
                         {
@@ -23438,7 +23327,8 @@
                             ]
                         }
                     ],
-                    "name": "spectral_arrow"
+                    "name": "spectral_arrow",
+                    "width": 0.5
                 },
                 "spider": {
                     "class": "apk",
@@ -23475,8 +23365,8 @@
                     "id": 72,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
+                            "class": "ags",
+                            "entity": "~abstract_creature"
                         }
                     ],
                     "name": "squid",
@@ -23486,6 +23376,7 @@
                     "class": "apl",
                     "display_name": "Stray",
                     "field": "av",
+                    "height": 1.99,
                     "id": 73,
                     "metadata": [
                         {
@@ -23505,7 +23396,8 @@
                             ]
                         }
                     ],
-                    "name": "stray"
+                    "name": "stray",
+                    "width": 0.6
                 },
                 "tnt": {
                     "class": "aod",
@@ -23538,6 +23430,7 @@
                     "class": "ark",
                     "display_name": "Minecart with TNT",
                     "field": "U",
+                    "height": 0.7,
                     "id": 46,
                     "metadata": [
                         {
@@ -23545,12 +23438,14 @@
                             "entity": "~abstract_minecart"
                         }
                     ],
-                    "name": "tnt_minecart"
+                    "name": "tnt_minecart",
+                    "width": 0.98
                 },
                 "trident": {
                     "class": "aqy",
                     "display_name": "Trident",
                     "field": "aU",
+                    "height": 0.5,
                     "id": 98,
                     "metadata": [
                         {
@@ -23596,7 +23491,8 @@
                             ]
                         }
                     ],
-                    "name": "trident"
+                    "name": "trident",
+                    "width": 0.5
                 },
                 "tropical_fish": {
                     "class": "alz",
@@ -23606,8 +23502,8 @@
                     "id": 74,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
+                            "class": "ags",
+                            "entity": "~abstract_creature"
                         },
                         {
                             "class": "alb",
@@ -23645,20 +23541,8 @@
                     "id": 75,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "afz",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bC",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "ale",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "ama",
@@ -23745,20 +23629,8 @@
                     "id": 81,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
                             "class": "afz",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bC",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "entity": "~abstract_ageable"
                         },
                         {
                             "class": "apv",
@@ -24020,23 +23892,12 @@
                     "class": "amm",
                     "display_name": "Zombie Horse",
                     "field": "aN",
+                    "height": 1.6,
                     "id": 91,
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "afz",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bC",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "ale",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "ame",
@@ -24058,12 +23919,14 @@
                             ]
                         }
                     ],
-                    "name": "zombie_horse"
+                    "name": "zombie_horse",
+                    "width": 1.39648
                 },
                 "zombie_pigman": {
                     "class": "apb",
                     "display_name": "Zombie Pigman",
                     "field": "ad",
+                    "height": 1.95,
                     "id": 55,
                     "metadata": [
                         {
@@ -24071,12 +23934,14 @@
                             "entity": "zombie"
                         }
                     ],
-                    "name": "zombie_pigman"
+                    "name": "zombie_pigman",
+                    "width": 0.6
                 },
                 "zombie_villager": {
                     "class": "apr",
                     "display_name": "Zombie Villager",
                     "field": "aO",
+                    "height": 1.95,
                     "id": 92,
                     "metadata": [
                         {
@@ -24103,7 +23968,50 @@
                             ]
                         }
                     ],
-                    "name": "zombie_villager"
+                    "name": "zombie_villager",
+                    "width": 0.6
+                },
+                "~abstract_ageable": {
+                    "class": "afz",
+                    "metadata": [
+                        {
+                            "class": "ags",
+                            "entity": "~abstract_creature"
+                        },
+                        {
+                            "class": "afz",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bC",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "~abstract_ageable"
+                },
+                "~abstract_animal": {
+                    "class": "ale",
+                    "metadata": [
+                        {
+                            "class": "afz",
+                            "entity": "~abstract_ageable"
+                        }
+                    ],
+                    "name": "~abstract_animal"
+                },
+                "~abstract_creature": {
+                    "class": "ags",
+                    "metadata": [
+                        {
+                            "class": "agm",
+                            "entity": "~abstract_insentient"
+                        }
+                    ],
+                    "name": "~abstract_creature"
                 },
                 "~abstract_entity": {
                     "class": "agc",
@@ -24231,6 +24139,7 @@
                 },
                 "~abstract_minecart": {
                     "class": "arb",
+                    "height": 0.7,
                     "metadata": [
                         {
                             "class": "agc",
@@ -24283,14 +24192,15 @@
                             ]
                         }
                     ],
-                    "name": "~abstract_minecart"
+                    "name": "~abstract_minecart",
+                    "width": 0.98
                 },
                 "~abstract_monster": {
                     "class": "aoy",
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
+                            "class": "ags",
+                            "entity": "~abstract_creature"
                         }
                     ],
                     "name": "~abstract_monster"
@@ -24299,20 +24209,8 @@
                     "class": "agx",
                     "metadata": [
                         {
-                            "class": "agm",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
-                            "class": "afz",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bC",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "class": "ale",
+                            "entity": "~abstract_animal"
                         },
                         {
                             "class": "agx",
@@ -24346,10 +24244,10 @@
                 "1": {
                     "class": "ard",
                     "entity_id": 5,
-                    "height": 0.56,
+                    "height": 0.5625,
                     "id": 1,
                     "name": "boat",
-                    "width": 1.38
+                    "width": 1.375
                 },
                 "2": {
                     "class": "aoc",
@@ -24382,20 +24280,26 @@
                 "60": {
                     "class": "aqg",
                     "entity_id": 2,
+                    "height": 0.5,
                     "id": 60,
-                    "name": "arrow"
+                    "name": "arrow",
+                    "width": 0.5
                 },
                 "61": {
                     "class": "aqr",
                     "entity_id": 69,
+                    "height": 0.25,
                     "id": 61,
-                    "name": "snowball"
+                    "name": "snowball",
+                    "width": 0.25
                 },
                 "62": {
                     "class": "aqu",
                     "entity_id": 76,
+                    "height": 0.25,
                     "id": 62,
-                    "name": "egg"
+                    "name": "egg",
+                    "width": 0.25
                 },
                 "63": {
                     "class": "aql",
@@ -24412,8 +24316,10 @@
                 "65": {
                     "class": "aqv",
                     "entity_id": 77,
+                    "height": 0.25,
                     "id": 65,
-                    "name": "ender_pearl"
+                    "name": "ender_pearl",
+                    "width": 0.25
                 },
                 "66": {
                     "class": "aqz",
@@ -24424,10 +24330,10 @@
                 "67": {
                     "class": "aqp",
                     "entity_id": 62,
-                    "height": 0.31,
+                    "height": 0.3125,
                     "id": 67,
                     "name": "shulker_bullet",
-                    "width": 0.31
+                    "width": 0.3125
                 },
                 "68": {
                     "class": "aqm",
@@ -24458,14 +24364,18 @@
                 "73": {
                     "class": "aqx",
                     "entity_id": 79,
+                    "height": 0.25,
                     "id": 73,
-                    "name": "potion"
+                    "name": "potion",
+                    "width": 0.25
                 },
                 "75": {
                     "class": "aqw",
                     "entity_id": 78,
+                    "height": 0.25,
                     "id": 75,
-                    "name": "experience_bottle"
+                    "name": "experience_bottle",
+                    "width": 0.25
                 },
                 "76": {
                     "class": "aqk",
@@ -24482,7 +24392,7 @@
                 "78": {
                     "class": "anp",
                     "entity_id": 1,
-                    "height": 1.98,
+                    "height": 1.975,
                     "id": 78,
                     "name": "armor_stand",
                     "width": 0.5
@@ -24504,8 +24414,10 @@
                 "91": {
                     "class": "aqs",
                     "entity_id": 70,
+                    "height": 0.5,
                     "id": 91,
-                    "name": "spectral_arrow"
+                    "name": "spectral_arrow",
+                    "width": 0.5
                 },
                 "93": {
                     "class": "aqh",
@@ -24516,8 +24428,10 @@
                 "94": {
                     "class": "aqy",
                     "entity_id": 98,
+                    "height": 0.5,
                     "id": 94,
-                    "name": "trident"
+                    "name": "trident",
+                    "width": 0.5
                 }
             }
         },
@@ -81250,15 +81164,18 @@
                 "sounds": [
                     {
                         "hash": "9579b9b2dc9d2be2fe1d6a81c2e99b6a45650bf3",
-                        "name": "ambient/underwater/enter1"
+                        "name": "ambient/underwater/enter1",
+                        "volume": 0.8
                     },
                     {
                         "hash": "9bbc6019f9fafa16239f603ea788fce721b7f601",
-                        "name": "ambient/underwater/enter2"
+                        "name": "ambient/underwater/enter2",
+                        "volume": 0.8
                     },
                     {
                         "hash": "8c7fa514148b39ddb4929f3caf1d4b6ab4330e5c",
-                        "name": "ambient/underwater/enter3"
+                        "name": "ambient/underwater/enter3",
+                        "volume": 0.8
                     }
                 ]
             },
@@ -81269,15 +81186,18 @@
                 "sounds": [
                     {
                         "hash": "751fec52a10bb2a5309a765fc622727422556a64",
-                        "name": "ambient/underwater/exit1"
+                        "name": "ambient/underwater/exit1",
+                        "volume": 0.5
                     },
                     {
                         "hash": "d3f646d9e0d0a198644229f76da0141893159b0b",
-                        "name": "ambient/underwater/exit2"
+                        "name": "ambient/underwater/exit2",
+                        "volume": 0.5
                     },
                     {
                         "hash": "2c6a5e15b4a84fc5a631ddc2eedf9868dd520f39",
-                        "name": "ambient/underwater/exit3"
+                        "name": "ambient/underwater/exit3",
+                        "volume": 0.5
                     }
                 ]
             },
@@ -81289,7 +81209,7 @@
                     {
                         "hash": "e34da9807a08eb38b8ab60936f2ce965be04a106",
                         "name": "ambient/underwater/underwater_ambience",
-                        "preload": true,
+                        "stream": true,
                         "volume": 0.65
                     }
                 ]
@@ -82022,7 +81942,8 @@
                 "sounds": [
                     {
                         "hash": "87ee57c83676952bea27198e7393449d4fa36129",
-                        "name": "block/bubble_column/upwards_inside"
+                        "name": "block/bubble_column/upwards_inside",
+                        "volume": 0.7
                     }
                 ],
                 "subtitle": "Bubbles woosh",
@@ -82069,7 +81990,8 @@
                 "sounds": [
                     {
                         "hash": "3ec63275fffdf755e78cc01fa22d050830034fb8",
-                        "name": "block/bubble_column/whirlpool_inside"
+                        "name": "block/bubble_column/whirlpool_inside",
+                        "volume": 0.7
                     }
                 ],
                 "subtitle": "Bubbles zoom",
@@ -82178,7 +82100,7 @@
                 "name": "block.comparator.click",
                 "sounds": [
                     {
-                        "hash": "2fe092579d9637e2d160319820ee08e60a237bb7",
+                        "hash": "ec4f4d122ab7c5d44e48419de0e3de1b0922514d",
                         "name": "random/click"
                     }
                 ],
@@ -82445,7 +82367,7 @@
                 "name": "block.dispenser.dispense",
                 "sounds": [
                     {
-                        "hash": "2fe092579d9637e2d160319820ee08e60a237bb7",
+                        "hash": "ec4f4d122ab7c5d44e48419de0e3de1b0922514d",
                         "name": "random/click"
                     }
                 ],
@@ -82458,7 +82380,7 @@
                 "name": "block.dispenser.fail",
                 "sounds": [
                     {
-                        "hash": "2fe092579d9637e2d160319820ee08e60a237bb7",
+                        "hash": "ec4f4d122ab7c5d44e48419de0e3de1b0922514d",
                         "name": "random/click"
                     }
                 ],
@@ -83360,7 +83282,7 @@
                 "name": "block.lever.click",
                 "sounds": [
                     {
-                        "hash": "2fe092579d9637e2d160319820ee08e60a237bb7",
+                        "hash": "ec4f4d122ab7c5d44e48419de0e3de1b0922514d",
                         "name": "random/click"
                     }
                 ],
@@ -83545,7 +83467,7 @@
                 "name": "block.metal_pressure_plate.click_off",
                 "sounds": [
                     {
-                        "hash": "2fe092579d9637e2d160319820ee08e60a237bb7",
+                        "hash": "ec4f4d122ab7c5d44e48419de0e3de1b0922514d",
                         "name": "random/click"
                     }
                 ],
@@ -83558,7 +83480,7 @@
                 "name": "block.metal_pressure_plate.click_on",
                 "sounds": [
                     {
-                        "hash": "2fe092579d9637e2d160319820ee08e60a237bb7",
+                        "hash": "ec4f4d122ab7c5d44e48419de0e3de1b0922514d",
                         "name": "random/click"
                     }
                 ],
@@ -84541,7 +84463,7 @@
                 "name": "block.stone_button.click_off",
                 "sounds": [
                     {
-                        "hash": "2fe092579d9637e2d160319820ee08e60a237bb7",
+                        "hash": "ec4f4d122ab7c5d44e48419de0e3de1b0922514d",
                         "name": "random/click"
                     }
                 ],
@@ -84554,7 +84476,7 @@
                 "name": "block.stone_button.click_on",
                 "sounds": [
                     {
-                        "hash": "2fe092579d9637e2d160319820ee08e60a237bb7",
+                        "hash": "ec4f4d122ab7c5d44e48419de0e3de1b0922514d",
                         "name": "random/click"
                     }
                 ],
@@ -84567,7 +84489,7 @@
                 "name": "block.stone_pressure_plate.click_off",
                 "sounds": [
                     {
-                        "hash": "2fe092579d9637e2d160319820ee08e60a237bb7",
+                        "hash": "ec4f4d122ab7c5d44e48419de0e3de1b0922514d",
                         "name": "random/click"
                     }
                 ],
@@ -84580,7 +84502,7 @@
                 "name": "block.stone_pressure_plate.click_on",
                 "sounds": [
                     {
-                        "hash": "2fe092579d9637e2d160319820ee08e60a237bb7",
+                        "hash": "ec4f4d122ab7c5d44e48419de0e3de1b0922514d",
                         "name": "random/click"
                     }
                 ],
@@ -84593,7 +84515,7 @@
                 "name": "block.tripwire.attach",
                 "sounds": [
                     {
-                        "hash": "2fe092579d9637e2d160319820ee08e60a237bb7",
+                        "hash": "ec4f4d122ab7c5d44e48419de0e3de1b0922514d",
                         "name": "random/click"
                     }
                 ],
@@ -84606,7 +84528,7 @@
                 "name": "block.tripwire.click_off",
                 "sounds": [
                     {
-                        "hash": "2fe092579d9637e2d160319820ee08e60a237bb7",
+                        "hash": "ec4f4d122ab7c5d44e48419de0e3de1b0922514d",
                         "name": "random/click"
                     }
                 ],
@@ -84619,7 +84541,7 @@
                 "name": "block.tripwire.click_on",
                 "sounds": [
                     {
-                        "hash": "2fe092579d9637e2d160319820ee08e60a237bb7",
+                        "hash": "ec4f4d122ab7c5d44e48419de0e3de1b0922514d",
                         "name": "random/click"
                     }
                 ],
@@ -84850,27 +84772,27 @@
                 "name": "block.wood.fall",
                 "sounds": [
                     {
-                        "hash": "afb01196e2179e3b15b48f3373cea4c155d56b84",
+                        "hash": "0a417ba6a01b0552e7d15f5ef175ee9037405e58",
                         "name": "step/wood1"
                     },
                     {
-                        "hash": "1e82a43c30cf8fcbe05d0bc2760ecba5d2320314",
+                        "hash": "de199b6c6f0f5ce2f653273d43f57979ee31c395",
                         "name": "step/wood2"
                     },
                     {
-                        "hash": "27722125968ac60c0f191a961b17e406f1351c6e",
+                        "hash": "20c0daaed4cc2a8b4dee028c8c85185e1322b003",
                         "name": "step/wood3"
                     },
                     {
-                        "hash": "29586f60bfe6f521dbc748919d4f0dc5b28beefd",
+                        "hash": "8989609f97122d2624e7db821e45e8da2352b025",
                         "name": "step/wood4"
                     },
                     {
-                        "hash": "85ff970401cb1ef2e812f943077ab96549315d0a",
+                        "hash": "3c7e76b2eabe4f1199b94d308f1c763ccceac76c",
                         "name": "step/wood5"
                     },
                     {
-                        "hash": "944bc8b8e1e135340dc4afc6d3416a01222674a1",
+                        "hash": "7f9bcd1e3a182da70b32881a7fe92dc17d531824",
                         "name": "step/wood6"
                     }
                 ]
@@ -84881,27 +84803,27 @@
                 "name": "block.wood.hit",
                 "sounds": [
                     {
-                        "hash": "afb01196e2179e3b15b48f3373cea4c155d56b84",
+                        "hash": "0a417ba6a01b0552e7d15f5ef175ee9037405e58",
                         "name": "step/wood1"
                     },
                     {
-                        "hash": "1e82a43c30cf8fcbe05d0bc2760ecba5d2320314",
+                        "hash": "de199b6c6f0f5ce2f653273d43f57979ee31c395",
                         "name": "step/wood2"
                     },
                     {
-                        "hash": "27722125968ac60c0f191a961b17e406f1351c6e",
+                        "hash": "20c0daaed4cc2a8b4dee028c8c85185e1322b003",
                         "name": "step/wood3"
                     },
                     {
-                        "hash": "29586f60bfe6f521dbc748919d4f0dc5b28beefd",
+                        "hash": "8989609f97122d2624e7db821e45e8da2352b025",
                         "name": "step/wood4"
                     },
                     {
-                        "hash": "85ff970401cb1ef2e812f943077ab96549315d0a",
+                        "hash": "3c7e76b2eabe4f1199b94d308f1c763ccceac76c",
                         "name": "step/wood5"
                     },
                     {
-                        "hash": "944bc8b8e1e135340dc4afc6d3416a01222674a1",
+                        "hash": "7f9bcd1e3a182da70b32881a7fe92dc17d531824",
                         "name": "step/wood6"
                     }
                 ],
@@ -84939,27 +84861,27 @@
                 "name": "block.wood.step",
                 "sounds": [
                     {
-                        "hash": "afb01196e2179e3b15b48f3373cea4c155d56b84",
+                        "hash": "0a417ba6a01b0552e7d15f5ef175ee9037405e58",
                         "name": "step/wood1"
                     },
                     {
-                        "hash": "1e82a43c30cf8fcbe05d0bc2760ecba5d2320314",
+                        "hash": "de199b6c6f0f5ce2f653273d43f57979ee31c395",
                         "name": "step/wood2"
                     },
                     {
-                        "hash": "27722125968ac60c0f191a961b17e406f1351c6e",
+                        "hash": "20c0daaed4cc2a8b4dee028c8c85185e1322b003",
                         "name": "step/wood3"
                     },
                     {
-                        "hash": "29586f60bfe6f521dbc748919d4f0dc5b28beefd",
+                        "hash": "8989609f97122d2624e7db821e45e8da2352b025",
                         "name": "step/wood4"
                     },
                     {
-                        "hash": "85ff970401cb1ef2e812f943077ab96549315d0a",
+                        "hash": "3c7e76b2eabe4f1199b94d308f1c763ccceac76c",
                         "name": "step/wood5"
                     },
                     {
-                        "hash": "944bc8b8e1e135340dc4afc6d3416a01222674a1",
+                        "hash": "7f9bcd1e3a182da70b32881a7fe92dc17d531824",
                         "name": "step/wood6"
                     }
                 ],
@@ -85036,7 +84958,7 @@
                 "name": "block.wooden_pressure_plate.click_off",
                 "sounds": [
                     {
-                        "hash": "2fe092579d9637e2d160319820ee08e60a237bb7",
+                        "hash": "ec4f4d122ab7c5d44e48419de0e3de1b0922514d",
                         "name": "random/click"
                     }
                 ],
@@ -85049,7 +84971,7 @@
                 "name": "block.wooden_pressure_plate.click_on",
                 "sounds": [
                     {
-                        "hash": "2fe092579d9637e2d160319820ee08e60a237bb7",
+                        "hash": "ec4f4d122ab7c5d44e48419de0e3de1b0922514d",
                         "name": "random/click"
                     }
                 ],
@@ -85665,24 +85587,24 @@
                 "name": "entity.cat.ambient",
                 "sounds": [
                     {
-                        "hash": "5fdf1bd80b204245af760042d2e546d87666e288",
+                        "hash": "378d2a7a8979bb1291cbf0b1b9dc5f1de978883b",
                         "name": "mob/cat/meow1",
-                        "volume": 0.4
+                        "volume": 0.6
                     },
                     {
-                        "hash": "9853be18df1a5b2642e33ba05e71bfd5099f9f04",
+                        "hash": "3dcd387ec1f8412627fc89a73f8ec77e2f2fee45",
                         "name": "mob/cat/meow2",
-                        "volume": 0.3
+                        "volume": 0.5
                     },
                     {
-                        "hash": "381f9e97a8a986ecab3e86431d6be6df5ff79c31",
+                        "hash": "2917ad37e46f96f1f92b69896da4329e26cdb080",
                         "name": "mob/cat/meow3",
-                        "volume": 0.4
+                        "volume": 0.6
                     },
                     {
-                        "hash": "4bf7c7a08c1217de7b1f0faf82429665fbf18458",
+                        "hash": "9c553cc46028812df64083bed7c3b02280c9a470",
                         "name": "mob/cat/meow4",
-                        "volume": 0.3
+                        "volume": 0.5
                     }
                 ],
                 "subtitle": "Cat meows",
@@ -85716,22 +85638,22 @@
                 "name": "entity.cat.death",
                 "sounds": [
                     {
-                        "hash": "28409652d939d2489d8b5317d51abb873821f0f4",
+                        "hash": "f4cbd2c2eedb8fd4889e9671a4fc0ddb53171119",
                         "name": "mob/cat/hitt1",
                         "pitch": 0.9,
-                        "volume": 0.5
+                        "volume": 0.75
                     },
                     {
-                        "hash": "ce499da6ec5dd226d50843890ca09f16018aff9a",
+                        "hash": "79c2b09e259028ad2470b8f6260974efb91d9663",
                         "name": "mob/cat/hitt2",
                         "pitch": 0.9,
-                        "volume": 0.5
+                        "volume": 0.75
                     },
                     {
-                        "hash": "3d98b4b7c37a09101da00d8a3078e0acba6558f4",
+                        "hash": "3a2fe159c4910b7a61334ef56b8df33c40764b59",
                         "name": "mob/cat/hitt3",
                         "pitch": 0.9,
-                        "volume": 0.5
+                        "volume": 0.75
                     }
                 ],
                 "subtitle": "Cat dies",
@@ -85760,17 +85682,17 @@
                 "name": "entity.cat.hiss",
                 "sounds": [
                     {
-                        "hash": "9d2202fce7908dcc5b5c8758c5cd517d863d4dd3",
+                        "hash": "9566ad3ab31e618474a3dc6843a9050aac094309",
                         "name": "mob/cat/hiss1",
                         "volume": 0.4
                     },
                     {
-                        "hash": "063bf0fce35c547eb59f086dbb56c5fe329cbcf4",
+                        "hash": "6dfd0785da0beb8f6eb1efa4bcb7fdc6ba85c492",
                         "name": "mob/cat/hiss2",
                         "volume": 0.4
                     },
                     {
-                        "hash": "c7e424eb00712614a183adf5d17b949175ff00df",
+                        "hash": "ba18595e10fc3dd7e546bc658f490f73dc564457",
                         "name": "mob/cat/hiss3",
                         "volume": 0.4
                     }
@@ -85782,19 +85704,19 @@
                 "name": "entity.cat.hurt",
                 "sounds": [
                     {
-                        "hash": "28409652d939d2489d8b5317d51abb873821f0f4",
+                        "hash": "f4cbd2c2eedb8fd4889e9671a4fc0ddb53171119",
                         "name": "mob/cat/hitt1",
-                        "volume": 0.45
+                        "volume": 0.65
                     },
                     {
-                        "hash": "ce499da6ec5dd226d50843890ca09f16018aff9a",
+                        "hash": "79c2b09e259028ad2470b8f6260974efb91d9663",
                         "name": "mob/cat/hitt2",
-                        "volume": 0.45
+                        "volume": 0.65
                     },
                     {
-                        "hash": "3d98b4b7c37a09101da00d8a3078e0acba6558f4",
+                        "hash": "3a2fe159c4910b7a61334ef56b8df33c40764b59",
                         "name": "mob/cat/hitt3",
-                        "volume": 0.45
+                        "volume": 0.65
                     }
                 ],
                 "subtitle": "Cat hurts",
@@ -85806,19 +85728,19 @@
                 "name": "entity.cat.purr",
                 "sounds": [
                     {
-                        "hash": "315512d6027033c2a279841badb40a26d74efc81",
+                        "hash": "0acdc21b0f56dbe214ae2574d1f02a0ea2e99877",
                         "name": "mob/cat/purr1",
-                        "volume": 0.4
+                        "volume": 0.7
                     },
                     {
-                        "hash": "847ec719ee91e28d7bf58ab39a5d8d6bd5728314",
+                        "hash": "e7dbf103c4d53bc6a565e12cc23e7d07774c1c5a",
                         "name": "mob/cat/purr2",
-                        "volume": 0.4
+                        "volume": 0.7
                     },
                     {
-                        "hash": "eed7a9305f5879448bb94355f25279b4aac403b6",
+                        "hash": "02219a4525e2276a2cf78e5ec6b7e141db1e0d4e",
                         "name": "mob/cat/purr3",
-                        "volume": 0.4
+                        "volume": 0.7
                     }
                 ],
                 "subtitle": "Cat meows",
@@ -85830,14 +85752,14 @@
                 "name": "entity.cat.purreow",
                 "sounds": [
                     {
-                        "hash": "d00791807e913e57d58fd891cb4dd10186cfdf38",
+                        "hash": "a431511c850809ac8aad700e36dbd398f03efe3f",
                         "name": "mob/cat/purreow1",
-                        "volume": 0.4
+                        "volume": 0.5
                     },
                     {
-                        "hash": "08573a1f11058b09c5855122dff47ceb209f771e",
+                        "hash": "25587265091588684eb99d4f99fbdfadf6adac1f",
                         "name": "mob/cat/purreow2",
-                        "volume": 0.4
+                        "volume": 0.5
                     }
                 ],
                 "subtitle": "Cat meows",
@@ -87881,7 +87803,7 @@
                         "name": "liquid/splash"
                     },
                     {
-                        "hash": "857abbbfb58186c2f1b5510a4072630950e518f6",
+                        "hash": "92429140e98c02a1b0e61d87aed53b898cde0de2",
                         "name": "liquid/splash2"
                     }
                 ],
@@ -88250,15 +88172,15 @@
                 "name": "entity.horse.breathe",
                 "sounds": [
                     {
-                        "hash": "a02c38569979cd6f4305f9e43a7a9fe26477d161",
+                        "hash": "27cbb3efd3d176efce101fac44703d83c39b7307",
                         "name": "mob/horse/breathe1"
                     },
                     {
-                        "hash": "7bbbd6126bd37b4f2ec059d2784f95310bd55b75",
+                        "hash": "a862b187d1cebd8026b7964d6b82bcd2a638d3bb",
                         "name": "mob/horse/breathe2"
                     },
                     {
-                        "hash": "b6f6330f1a5c1a3a975e852c02b0543135295d86",
+                        "hash": "2fe6f0ebcb245ad00273ece8e4d61d2eddd3d580",
                         "name": "mob/horse/breathe3"
                     }
                 ],
@@ -88538,7 +88460,7 @@
                         "name": "liquid/splash"
                     },
                     {
-                        "hash": "857abbbfb58186c2f1b5510a4072630950e518f6",
+                        "hash": "92429140e98c02a1b0e61d87aed53b898cde0de2",
                         "name": "liquid/splash2"
                     }
                 ],
@@ -88674,219 +88596,37 @@
             "entity.illager_beast.ambient": {
                 "field": "eC",
                 "id": 288,
-                "name": "entity.illager_beast.ambient",
-                "sounds": [
-                    {
-                        "hash": "c2acadd57454bf51b69e1e69dda15d8fb937f74a",
-                        "name": "mob/illager_beast/idle1",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "a2685d012ae660b8b1e9318f6e2c53fa6338cd86",
-                        "name": "mob/illager_beast/idle2",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "afe8ab73499b67bd26e1c2c7920538ddcd6b8da2",
-                        "name": "mob/illager_beast/idle3",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "e6028fca9b0bc18b978d8120aca30871a268cad0",
-                        "name": "mob/illager_beast/idle4",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "469677842478f4a68747d7a0716cf63b67b4657b",
-                        "name": "mob/illager_beast/idle5",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "085fd0c4233a9a4a1db3a17bef69fc8a3146edbd",
-                        "name": "mob/illager_beast/idle6",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "59b19db75e4d9c5bc98d36bf2ad95fea9695c9be",
-                        "name": "mob/illager_beast/idle7",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "c221ef92467a8ba6f69119e4b5685d2decd932b0",
-                        "name": "mob/illager_beast/idle8",
-                        "volume": 1
-                    }
-                ],
-                "subtitle": "Illager Beast grunts",
-                "subtitle_key": "subtitles.entity.illager_beast.ambient"
+                "name": "entity.illager_beast.ambient"
             },
             "entity.illager_beast.attack": {
                 "field": "eD",
                 "id": 289,
-                "name": "entity.illager_beast.attack",
-                "sounds": [
-                    {
-                        "hash": "5d4fe362c17d084874084c64e9023c346da1c3f7",
-                        "name": "mob/illager_beast/bite1",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "de9731fda83623d10c76d760a52b8159eae65dd0",
-                        "name": "mob/illager_beast/bite2",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "7df3f4cabae8ab988f5df49ad2836c9ba6ab79c2",
-                        "name": "mob/illager_beast/bite3",
-                        "volume": 1
-                    }
-                ],
-                "subtitle": "Illager Beast bites",
-                "subtitle_key": "subtitles.entity.illager_beast.attack"
+                "name": "entity.illager_beast.attack"
             },
             "entity.illager_beast.death": {
                 "field": "eE",
                 "id": 290,
-                "name": "entity.illager_beast.death",
-                "sounds": [
-                    {
-                        "hash": "78183ddf604932321529eead4266f5d1607e1e03",
-                        "name": "mob/illager_beast/death1",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "608bf241c72812309ce6a97d406dbaa82308b1b3",
-                        "name": "mob/illager_beast/death2",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "d84952f93aa55b9e79a69e3377a3322a6f3a7e04",
-                        "name": "mob/illager_beast/death3",
-                        "volume": 1
-                    }
-                ],
-                "subtitle": "Illager Beast dies",
-                "subtitle_key": "subtitles.entity.illager_beast.death"
+                "name": "entity.illager_beast.death"
             },
             "entity.illager_beast.hurt": {
                 "field": "eF",
                 "id": 291,
-                "name": "entity.illager_beast.hurt",
-                "sounds": [
-                    {
-                        "hash": "ddaff0d9e4eaa034621dc7a4a5cfa8709c86024d",
-                        "name": "mob/illager_beast/hurt1",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "ef0c9a1020cc9381f0b5c251d0e04770c004b669",
-                        "name": "mob/illager_beast/hurt2",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "7588e63d69dcc676ab7ba1aa67a59d6eed819e21",
-                        "name": "mob/illager_beast/hurt3",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "f3ae323b5f4dd07d2c9f03f0ff82989a8ec584c4",
-                        "name": "mob/illager_beast/hurt4",
-                        "volume": 1
-                    }
-                ],
-                "subtitle": "Illager Beast hurts",
-                "subtitle_key": "subtitles.entity.illager_beast.hurt"
+                "name": "entity.illager_beast.hurt"
             },
             "entity.illager_beast.roar": {
                 "field": "eI",
                 "id": 294,
-                "name": "entity.illager_beast.roar",
-                "sounds": [
-                    {
-                        "attenuation_distance": 35,
-                        "hash": "b4dc3a8ee8960ae4fc142592ede8a7611affebe4",
-                        "name": "mob/illager_beast/roar1",
-                        "volume": 1
-                    },
-                    {
-                        "attenuation_distance": 35,
-                        "hash": "93e77a3654e3169c4687449b8ad92bfcd53d62dc",
-                        "name": "mob/illager_beast/roar2",
-                        "volume": 1
-                    },
-                    {
-                        "attenuation_distance": 35,
-                        "hash": "ee7bdedbe587cfc9452a9ec9232bdbbbb37d6d84",
-                        "name": "mob/illager_beast/roar3",
-                        "volume": 1
-                    },
-                    {
-                        "attenuation_distance": 35,
-                        "hash": "2dfd4e077bac712adcbcbe32e7e148563cebb3d8",
-                        "name": "mob/illager_beast/roar4",
-                        "volume": 1
-                    }
-                ],
-                "subtitle": "Illager Beast roars",
-                "subtitle_key": "subtitles.entity.illager_beast.roar"
+                "name": "entity.illager_beast.roar"
             },
             "entity.illager_beast.step": {
                 "field": "eG",
                 "id": 292,
-                "name": "entity.illager_beast.step",
-                "sounds": [
-                    {
-                        "hash": "3b27142409aa1b667a967117b49b960b3fe797fb",
-                        "name": "mob/illager_beast/step1",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "a52569d5616b47e9c299e8e3b9f25fd346cf9d83",
-                        "name": "mob/illager_beast/step2",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "d2128874ccc2863022cb864f4cce7b90df592c9a",
-                        "name": "mob/illager_beast/step3",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "0e137e530e9228da1af0d0e6377a7c46a115e246",
-                        "name": "mob/illager_beast/step4",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "1b429890e72f1e901bcb989de0d2f1845016936f",
-                        "name": "mob/illager_beast/step5",
-                        "volume": 1
-                    }
-                ],
-                "subtitle": "Illager Beast steps",
-                "subtitle_key": "subtitles.entity.illager_beast.step"
+                "name": "entity.illager_beast.step"
             },
             "entity.illager_beast.stunned": {
                 "field": "eH",
                 "id": 293,
-                "name": "entity.illager_beast.stunned",
-                "sounds": [
-                    {
-                        "hash": "2d942be973c78bbd0405d5883ead8777faf5a93e",
-                        "name": "mob/illager_beast/stun1",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "ce846b4b7b8f6eeca8567e64151b85221ce2bd53",
-                        "name": "mob/illager_beast/stun2",
-                        "volume": 1
-                    },
-                    {
-                        "hash": "a075985423d3bbc7e11554217250f8a2d0c42529",
-                        "name": "mob/illager_beast/stun3",
-                        "volume": 1
-                    }
-                ],
-                "subtitle": "Illager Beast stunned",
-                "subtitle_key": "subtitles.entity.illager_beast.stunned"
+                "name": "entity.illager_beast.stunned"
             },
             "entity.illusioner.ambient": {
                 "field": "eJ",
@@ -89862,17 +89602,17 @@
                 "name": "entity.ocelot.hurt",
                 "sounds": [
                     {
-                        "hash": "28409652d939d2489d8b5317d51abb873821f0f4",
+                        "hash": "f4cbd2c2eedb8fd4889e9671a4fc0ddb53171119",
                         "name": "mob/cat/hitt1",
                         "volume": 0.45
                     },
                     {
-                        "hash": "ce499da6ec5dd226d50843890ca09f16018aff9a",
+                        "hash": "79c2b09e259028ad2470b8f6260974efb91d9663",
                         "name": "mob/cat/hitt2",
                         "volume": 0.45
                     },
                     {
-                        "hash": "3d98b4b7c37a09101da00d8a3078e0acba6558f4",
+                        "hash": "3a2fe159c4910b7a61334ef56b8df33c40764b59",
                         "name": "mob/cat/hitt3",
                         "volume": 0.45
                     }
@@ -91620,7 +91360,7 @@
                         "name": "liquid/splash"
                     },
                     {
-                        "hash": "857abbbfb58186c2f1b5510a4072630950e518f6",
+                        "hash": "92429140e98c02a1b0e61d87aed53b898cde0de2",
                         "name": "liquid/splash2"
                     }
                 ],
@@ -96629,7 +96369,7 @@
                 "sounds": [
                     {
                         "hash": "2fe092579d9637e2d160319820ee08e60a237bb7",
-                        "name": "random/click"
+                        "name": "random/click_stereo"
                     }
                 ]
             },
@@ -97015,8 +96755,13 @@
                     "minecraft:bamboo",
                     "minecraft:bamboo_sapling",
                     "minecraft:gravel",
-                    "#minecraft:sand",
-                    "#minecraft:dirt_like"
+                    "minecraft:sand",
+                    "minecraft:red_sand",
+                    "minecraft:dirt",
+                    "minecraft:grass_block",
+                    "minecraft:podzol",
+                    "minecraft:coarse_dirt",
+                    "minecraft:mycelium"
                 ]
             },
             "blocks/banners": {
@@ -97097,7 +96842,12 @@
                 "replace": false,
                 "type": "blocks",
                 "values": [
-                    "#minecraft:wooden_buttons",
+                    "minecraft:oak_button",
+                    "minecraft:spruce_button",
+                    "minecraft:birch_button",
+                    "minecraft:jungle_button",
+                    "minecraft:acacia_button",
+                    "minecraft:dark_oak_button",
                     "minecraft:stone_button"
                 ]
             },
@@ -97153,7 +96903,11 @@
                 "replace": false,
                 "type": "blocks",
                 "values": [
-                    "#minecraft:coral_plants",
+                    "minecraft:tube_coral",
+                    "minecraft:brain_coral",
+                    "minecraft:bubble_coral",
+                    "minecraft:fire_coral",
+                    "minecraft:horn_coral",
                     "minecraft:tube_coral_fan",
                     "minecraft:brain_coral_fan",
                     "minecraft:bubble_coral_fan",
@@ -97189,7 +96943,12 @@
                 "replace": false,
                 "type": "blocks",
                 "values": [
-                    "#minecraft:wooden_doors",
+                    "minecraft:oak_door",
+                    "minecraft:spruce_door",
+                    "minecraft:birch_door",
+                    "minecraft:jungle_door",
+                    "minecraft:acacia_door",
+                    "minecraft:dark_oak_door",
                     "minecraft:iron_door"
                 ]
             },
@@ -97198,7 +96957,19 @@
                 "replace": false,
                 "type": "blocks",
                 "values": [
-                    "#minecraft:small_flowers",
+                    "minecraft:dandelion",
+                    "minecraft:poppy",
+                    "minecraft:blue_orchid",
+                    "minecraft:allium",
+                    "minecraft:azure_bluet",
+                    "minecraft:red_tulip",
+                    "minecraft:orange_tulip",
+                    "minecraft:white_tulip",
+                    "minecraft:pink_tulip",
+                    "minecraft:oxeye_daisy",
+                    "minecraft:cornflower",
+                    "minecraft:lily_of_the_valley",
+                    "minecraft:wither_rose",
                     "minecraft:grass_block",
                     "minecraft:dirt",
                     "minecraft:coarse_dirt",
@@ -97329,12 +97100,30 @@
                 "replace": false,
                 "type": "blocks",
                 "values": [
-                    "#minecraft:dark_oak_logs",
-                    "#minecraft:oak_logs",
-                    "#minecraft:acacia_logs",
-                    "#minecraft:birch_logs",
-                    "#minecraft:jungle_logs",
-                    "#minecraft:spruce_logs"
+                    "minecraft:dark_oak_log",
+                    "minecraft:dark_oak_wood",
+                    "minecraft:stripped_dark_oak_log",
+                    "minecraft:stripped_dark_oak_wood",
+                    "minecraft:oak_log",
+                    "minecraft:oak_wood",
+                    "minecraft:stripped_oak_log",
+                    "minecraft:stripped_oak_wood",
+                    "minecraft:acacia_log",
+                    "minecraft:acacia_wood",
+                    "minecraft:stripped_acacia_log",
+                    "minecraft:stripped_acacia_wood",
+                    "minecraft:birch_log",
+                    "minecraft:birch_wood",
+                    "minecraft:stripped_birch_log",
+                    "minecraft:stripped_birch_wood",
+                    "minecraft:jungle_log",
+                    "minecraft:jungle_wood",
+                    "minecraft:stripped_jungle_log",
+                    "minecraft:stripped_jungle_wood",
+                    "minecraft:spruce_log",
+                    "minecraft:spruce_wood",
+                    "minecraft:stripped_spruce_log",
+                    "minecraft:stripped_spruce_wood"
                 ]
             },
             "blocks/oak_logs": {
@@ -97399,8 +97188,18 @@
                 "replace": false,
                 "type": "blocks",
                 "values": [
-                    "#minecraft:standing_signs",
-                    "#minecraft:wall_signs"
+                    "minecraft:oak_sign",
+                    "minecraft:spruce_sign",
+                    "minecraft:birch_sign",
+                    "minecraft:acacia_sign",
+                    "minecraft:jungle_sign",
+                    "minecraft:dark_oak_sign",
+                    "minecraft:oak_wall_sign",
+                    "minecraft:spruce_wall_sign",
+                    "minecraft:birch_wall_sign",
+                    "minecraft:acacia_wall_sign",
+                    "minecraft:jungle_wall_sign",
+                    "minecraft:dark_oak_wall_sign"
                 ]
             },
             "blocks/slabs": {
@@ -97541,7 +97340,12 @@
                 "replace": false,
                 "type": "blocks",
                 "values": [
-                    "#minecraft:wooden_trapdoors",
+                    "minecraft:acacia_trapdoor",
+                    "minecraft:birch_trapdoor",
+                    "minecraft:dark_oak_trapdoor",
+                    "minecraft:jungle_trapdoor",
+                    "minecraft:oak_trapdoor",
+                    "minecraft:spruce_trapdoor",
                     "minecraft:iron_trapdoor"
                 ]
             },
@@ -97551,8 +97355,21 @@
                 "type": "blocks",
                 "values": [
                     "minecraft:seagrass",
-                    "#minecraft:corals",
-                    "#minecraft:wall_corals"
+                    "minecraft:tube_coral",
+                    "minecraft:brain_coral",
+                    "minecraft:bubble_coral",
+                    "minecraft:fire_coral",
+                    "minecraft:horn_coral",
+                    "minecraft:tube_coral_fan",
+                    "minecraft:brain_coral_fan",
+                    "minecraft:bubble_coral_fan",
+                    "minecraft:fire_coral_fan",
+                    "minecraft:horn_coral_fan",
+                    "minecraft:tube_coral_wall_fan",
+                    "minecraft:brain_coral_wall_fan",
+                    "minecraft:bubble_coral_wall_fan",
+                    "minecraft:fire_coral_wall_fan",
+                    "minecraft:horn_coral_wall_fan"
                 ]
             },
             "blocks/valid_spawn": {
@@ -97835,7 +97652,12 @@
                 "replace": false,
                 "type": "items",
                 "values": [
-                    "#minecraft:wooden_buttons",
+                    "minecraft:oak_button",
+                    "minecraft:spruce_button",
+                    "minecraft:birch_button",
+                    "minecraft:jungle_button",
+                    "minecraft:acacia_button",
+                    "minecraft:dark_oak_button",
                     "minecraft:stone_button"
                 ]
             },
@@ -97878,7 +97700,12 @@
                 "replace": false,
                 "type": "items",
                 "values": [
-                    "#minecraft:wooden_doors",
+                    "minecraft:oak_door",
+                    "minecraft:spruce_door",
+                    "minecraft:birch_door",
+                    "minecraft:jungle_door",
+                    "minecraft:acacia_door",
+                    "minecraft:dark_oak_door",
                     "minecraft:iron_door"
                 ]
             },
@@ -97938,12 +97765,30 @@
                 "replace": false,
                 "type": "items",
                 "values": [
-                    "#minecraft:dark_oak_logs",
-                    "#minecraft:oak_logs",
-                    "#minecraft:acacia_logs",
-                    "#minecraft:birch_logs",
-                    "#minecraft:jungle_logs",
-                    "#minecraft:spruce_logs"
+                    "minecraft:dark_oak_log",
+                    "minecraft:dark_oak_wood",
+                    "minecraft:stripped_dark_oak_log",
+                    "minecraft:stripped_dark_oak_wood",
+                    "minecraft:oak_log",
+                    "minecraft:oak_wood",
+                    "minecraft:stripped_oak_log",
+                    "minecraft:stripped_oak_wood",
+                    "minecraft:acacia_log",
+                    "minecraft:acacia_wood",
+                    "minecraft:stripped_acacia_log",
+                    "minecraft:stripped_acacia_wood",
+                    "minecraft:birch_log",
+                    "minecraft:birch_wood",
+                    "minecraft:stripped_birch_log",
+                    "minecraft:stripped_birch_wood",
+                    "minecraft:jungle_log",
+                    "minecraft:jungle_wood",
+                    "minecraft:stripped_jungle_log",
+                    "minecraft:stripped_jungle_wood",
+                    "minecraft:spruce_log",
+                    "minecraft:spruce_wood",
+                    "minecraft:stripped_spruce_log",
+                    "minecraft:stripped_spruce_wood"
                 ]
             },
             "items/music_discs": {
@@ -98160,7 +98005,12 @@
                 "replace": false,
                 "type": "items",
                 "values": [
-                    "#minecraft:wooden_trapdoors",
+                    "minecraft:acacia_trapdoor",
+                    "minecraft:birch_trapdoor",
+                    "minecraft:dark_oak_trapdoor",
+                    "minecraft:jungle_trapdoor",
+                    "minecraft:oak_trapdoor",
+                    "minecraft:spruce_trapdoor",
                     "minecraft:iron_trapdoor"
                 ]
             },
@@ -98665,6 +98515,7 @@
         "version": {
             "data": 1910,
             "entity_format": "1.13",
+            "id": "18w46a",
             "is_flattened": true,
             "name": "18w46a",
             "protocol": 445

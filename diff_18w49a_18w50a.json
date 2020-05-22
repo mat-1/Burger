@@ -94,7 +94,7 @@
     },
     "entities": {
         "dataserializers": {
-            "16": [
+            "VillagerData": [
                 null,
                 {
                     "class": "pt$9",
@@ -117,6 +117,7 @@
                             "type": "varint"
                         }
                     ],
+                    "name": "VillagerData",
                     "type": "aqs"
                 }
             ]
@@ -127,6 +128,7 @@
                     "class": "arf",
                     "display_name": "Thrown Egg",
                     "field": "ay",
+                    "height": 0.25,
                     "id": 76,
                     "metadata": [
                         {
@@ -134,12 +136,14 @@
                             "entity": "~abstract_entity"
                         }
                     ],
-                    "name": "egg"
+                    "name": "egg",
+                    "width": 0.25
                 },
                 {
                     "class": "ary",
                     "display_name": "Thrown Egg",
                     "field": "ay",
+                    "height": 0.25,
                     "id": 76,
                     "metadata": [
                         {
@@ -159,7 +163,8 @@
                             ]
                         }
                     ],
-                    "name": "egg"
+                    "name": "egg",
+                    "width": 0.25
                 }
             ],
             "ender_pearl": [
@@ -167,6 +172,7 @@
                     "class": "arg",
                     "display_name": "Thrown Ender Pearl",
                     "field": "az",
+                    "height": 0.25,
                     "id": 77,
                     "metadata": [
                         {
@@ -174,12 +180,14 @@
                             "entity": "~abstract_entity"
                         }
                     ],
-                    "name": "ender_pearl"
+                    "name": "ender_pearl",
+                    "width": 0.25
                 },
                 {
                     "class": "arz",
                     "display_name": "Thrown Ender Pearl",
                     "field": "az",
+                    "height": 0.25,
                     "id": 77,
                     "metadata": [
                         {
@@ -199,7 +207,8 @@
                             ]
                         }
                     ],
-                    "name": "ender_pearl"
+                    "name": "ender_pearl",
+                    "width": 0.25
                 }
             ],
             "experience_bottle": [
@@ -207,6 +216,7 @@
                     "class": "arh",
                     "display_name": "Thrown Bottle o' Enchanting",
                     "field": "aA",
+                    "height": 0.25,
                     "id": 78,
                     "metadata": [
                         {
@@ -214,12 +224,14 @@
                             "entity": "~abstract_entity"
                         }
                     ],
-                    "name": "experience_bottle"
+                    "name": "experience_bottle",
+                    "width": 0.25
                 },
                 {
                     "class": "asa",
                     "display_name": "Thrown Bottle o' Enchanting",
                     "field": "aA",
+                    "height": 0.25,
                     "id": 78,
                     "metadata": [
                         {
@@ -239,7 +251,8 @@
                             ]
                         }
                     ],
-                    "name": "experience_bottle"
+                    "name": "experience_bottle",
+                    "width": 0.25
                 }
             ],
             "eye_of_ender": [
@@ -399,6 +412,7 @@
                     "class": "arc",
                     "display_name": "Snowball",
                     "field": "ar",
+                    "height": 0.25,
                     "id": 69,
                     "metadata": [
                         {
@@ -406,12 +420,14 @@
                             "entity": "~abstract_entity"
                         }
                     ],
-                    "name": "snowball"
+                    "name": "snowball",
+                    "width": 0.25
                 },
                 {
                     "class": "aru",
                     "display_name": "Snowball",
                     "field": "ar",
+                    "height": 0.25,
                     "id": 69,
                     "metadata": [
                         {
@@ -431,7 +447,8 @@
                             ]
                         }
                     ],
-                    "name": "snowball"
+                    "name": "snowball",
+                    "width": 0.25
                 }
             ],
             "villager": [
@@ -442,20 +459,8 @@
                     "id": 81,
                     "metadata": [
                         {
-                            "class": "agu",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
                             "class": "agh",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bF",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "entity": "~abstract_ageable"
                         },
                         {
                             "class": "aqg",
@@ -479,20 +484,8 @@
                     "id": 81,
                     "metadata": [
                         {
-                            "class": "ahf",
-                            "entity": "~abstract_insentient"
-                        },
-                        {
                             "class": "ags",
-                            "data": [
-                                {
-                                    "default": false,
-                                    "field": "bD",
-                                    "index": 12,
-                                    "serializer": "Boolean",
-                                    "serializer_id": 7
-                                }
-                            ]
+                            "entity": "~abstract_ageable"
                         },
                         {
                             "class": "aqr",
@@ -500,7 +493,7 @@
                                 {
                                     "field": "bD",
                                     "index": 13,
-                                    "serializer": 16,
+                                    "serializer": "VillagerData",
                                     "serializer_id": 16
                                 }
                             ]
@@ -514,6 +507,7 @@
                     "class": "aqc",
                     "display_name": "Zombie Villager",
                     "field": "aO",
+                    "height": 1.95,
                     "id": 92,
                     "metadata": [
                         {
@@ -540,12 +534,14 @@
                             ]
                         }
                     ],
-                    "name": "zombie_villager"
+                    "name": "zombie_villager",
+                    "width": 0.6
                 },
                 {
                     "class": "aqn",
                     "display_name": "Zombie Villager",
                     "field": "aO",
+                    "height": 1.95,
                     "id": 92,
                     "metadata": [
                         {
@@ -565,13 +561,14 @@
                                 {
                                     "field": "b",
                                     "index": 17,
-                                    "serializer": 16,
+                                    "serializer": "VillagerData",
                                     "serializer_id": 16
                                 }
                             ]
                         }
                     ],
-                    "name": "zombie_villager"
+                    "name": "zombie_villager",
+                    "width": 0.6
                 }
             ]
         },
@@ -8529,7 +8526,7 @@
                         ],
                         "subs": {
                             "#": {
-                                "name": "#minecraft:dark_oak_logs",
+                                "name": "dark_oak_log",
                                 "type": "item"
                             },
                             "X": {
@@ -8542,14 +8539,14 @@
                         [
                             null,
                             {
-                                "name": "#minecraft:dark_oak_logs",
+                                "name": "dark_oak_log",
                                 "type": "item"
                             },
                             null
                         ],
                         [
                             {
-                                "name": "#minecraft:dark_oak_logs",
+                                "name": "dark_oak_log",
                                 "type": "item"
                             },
                             {
@@ -8557,14 +8554,14 @@
                                 "type": "item"
                             },
                             {
-                                "name": "#minecraft:dark_oak_logs",
+                                "name": "dark_oak_log",
                                 "type": "item"
                             }
                         ],
                         [
                             null,
                             {
-                                "name": "#minecraft:dark_oak_logs",
+                                "name": "dark_oak_log",
                                 "type": "item"
                             },
                             null
@@ -8587,7 +8584,7 @@
                         ],
                         "subs": {
                             "#": {
-                                "name": "#minecraft:oak_logs",
+                                "name": "dark_oak_wood",
                                 "type": "item"
                             },
                             "X": {
@@ -8600,14 +8597,14 @@
                         [
                             null,
                             {
-                                "name": "#minecraft:oak_logs",
+                                "name": "dark_oak_wood",
                                 "type": "item"
                             },
                             null
                         ],
                         [
                             {
-                                "name": "#minecraft:oak_logs",
+                                "name": "dark_oak_wood",
                                 "type": "item"
                             },
                             {
@@ -8615,14 +8612,14 @@
                                 "type": "item"
                             },
                             {
-                                "name": "#minecraft:oak_logs",
+                                "name": "dark_oak_wood",
                                 "type": "item"
                             }
                         ],
                         [
                             null,
                             {
-                                "name": "#minecraft:oak_logs",
+                                "name": "dark_oak_wood",
                                 "type": "item"
                             },
                             null
@@ -8645,7 +8642,7 @@
                         ],
                         "subs": {
                             "#": {
-                                "name": "#minecraft:acacia_logs",
+                                "name": "stripped_dark_oak_log",
                                 "type": "item"
                             },
                             "X": {
@@ -8658,14 +8655,14 @@
                         [
                             null,
                             {
-                                "name": "#minecraft:acacia_logs",
+                                "name": "stripped_dark_oak_log",
                                 "type": "item"
                             },
                             null
                         ],
                         [
                             {
-                                "name": "#minecraft:acacia_logs",
+                                "name": "stripped_dark_oak_log",
                                 "type": "item"
                             },
                             {
@@ -8673,14 +8670,14 @@
                                 "type": "item"
                             },
                             {
-                                "name": "#minecraft:acacia_logs",
+                                "name": "stripped_dark_oak_log",
                                 "type": "item"
                             }
                         ],
                         [
                             null,
                             {
-                                "name": "#minecraft:acacia_logs",
+                                "name": "stripped_dark_oak_log",
                                 "type": "item"
                             },
                             null
@@ -8703,7 +8700,7 @@
                         ],
                         "subs": {
                             "#": {
-                                "name": "#minecraft:birch_logs",
+                                "name": "stripped_dark_oak_wood",
                                 "type": "item"
                             },
                             "X": {
@@ -8716,14 +8713,14 @@
                         [
                             null,
                             {
-                                "name": "#minecraft:birch_logs",
+                                "name": "stripped_dark_oak_wood",
                                 "type": "item"
                             },
                             null
                         ],
                         [
                             {
-                                "name": "#minecraft:birch_logs",
+                                "name": "stripped_dark_oak_wood",
                                 "type": "item"
                             },
                             {
@@ -8731,14 +8728,14 @@
                                 "type": "item"
                             },
                             {
-                                "name": "#minecraft:birch_logs",
+                                "name": "stripped_dark_oak_wood",
                                 "type": "item"
                             }
                         ],
                         [
                             null,
                             {
-                                "name": "#minecraft:birch_logs",
+                                "name": "stripped_dark_oak_wood",
                                 "type": "item"
                             },
                             null
@@ -8761,7 +8758,7 @@
                         ],
                         "subs": {
                             "#": {
-                                "name": "#minecraft:jungle_logs",
+                                "name": "oak_log",
                                 "type": "item"
                             },
                             "X": {
@@ -8774,14 +8771,14 @@
                         [
                             null,
                             {
-                                "name": "#minecraft:jungle_logs",
+                                "name": "oak_log",
                                 "type": "item"
                             },
                             null
                         ],
                         [
                             {
-                                "name": "#minecraft:jungle_logs",
+                                "name": "oak_log",
                                 "type": "item"
                             },
                             {
@@ -8789,14 +8786,14 @@
                                 "type": "item"
                             },
                             {
-                                "name": "#minecraft:jungle_logs",
+                                "name": "oak_log",
                                 "type": "item"
                             }
                         ],
                         [
                             null,
                             {
-                                "name": "#minecraft:jungle_logs",
+                                "name": "oak_log",
                                 "type": "item"
                             },
                             null
@@ -8819,7 +8816,7 @@
                         ],
                         "subs": {
                             "#": {
-                                "name": "#minecraft:spruce_logs",
+                                "name": "oak_wood",
                                 "type": "item"
                             },
                             "X": {
@@ -8832,14 +8829,14 @@
                         [
                             null,
                             {
-                                "name": "#minecraft:spruce_logs",
+                                "name": "oak_wood",
                                 "type": "item"
                             },
                             null
                         ],
                         [
                             {
-                                "name": "#minecraft:spruce_logs",
+                                "name": "oak_wood",
                                 "type": "item"
                             },
                             {
@@ -8847,14 +8844,1058 @@
                                 "type": "item"
                             },
                             {
-                                "name": "#minecraft:spruce_logs",
+                                "name": "oak_wood",
                                 "type": "item"
                             }
                         ],
                         [
                             null,
                             {
-                                "name": "#minecraft:spruce_logs",
+                                "name": "oak_wood",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smoker",
+                    "makes": {
+                        "count": 1,
+                        "name": "smoker",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " # ",
+                            "#X#",
+                            " # "
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "stripped_oak_log",
+                                "type": "item"
+                            },
+                            "X": {
+                                "name": "furnace",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stripped_oak_log",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stripped_oak_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "furnace",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_oak_log",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "stripped_oak_log",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smoker",
+                    "makes": {
+                        "count": 1,
+                        "name": "smoker",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " # ",
+                            "#X#",
+                            " # "
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "stripped_oak_wood",
+                                "type": "item"
+                            },
+                            "X": {
+                                "name": "furnace",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stripped_oak_wood",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stripped_oak_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "furnace",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_oak_wood",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "stripped_oak_wood",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smoker",
+                    "makes": {
+                        "count": 1,
+                        "name": "smoker",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " # ",
+                            "#X#",
+                            " # "
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "acacia_log",
+                                "type": "item"
+                            },
+                            "X": {
+                                "name": "furnace",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "acacia_log",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "acacia_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "furnace",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_log",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "acacia_log",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smoker",
+                    "makes": {
+                        "count": 1,
+                        "name": "smoker",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " # ",
+                            "#X#",
+                            " # "
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "acacia_wood",
+                                "type": "item"
+                            },
+                            "X": {
+                                "name": "furnace",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "acacia_wood",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "acacia_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "furnace",
+                                "type": "item"
+                            },
+                            {
+                                "name": "acacia_wood",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "acacia_wood",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smoker",
+                    "makes": {
+                        "count": 1,
+                        "name": "smoker",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " # ",
+                            "#X#",
+                            " # "
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "stripped_acacia_log",
+                                "type": "item"
+                            },
+                            "X": {
+                                "name": "furnace",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stripped_acacia_log",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stripped_acacia_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "furnace",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_acacia_log",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "stripped_acacia_log",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smoker",
+                    "makes": {
+                        "count": 1,
+                        "name": "smoker",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " # ",
+                            "#X#",
+                            " # "
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "stripped_acacia_wood",
+                                "type": "item"
+                            },
+                            "X": {
+                                "name": "furnace",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stripped_acacia_wood",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stripped_acacia_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "furnace",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_acacia_wood",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "stripped_acacia_wood",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smoker",
+                    "makes": {
+                        "count": 1,
+                        "name": "smoker",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " # ",
+                            "#X#",
+                            " # "
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "birch_log",
+                                "type": "item"
+                            },
+                            "X": {
+                                "name": "furnace",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "birch_log",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "birch_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "furnace",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_log",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "birch_log",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smoker",
+                    "makes": {
+                        "count": 1,
+                        "name": "smoker",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " # ",
+                            "#X#",
+                            " # "
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "birch_wood",
+                                "type": "item"
+                            },
+                            "X": {
+                                "name": "furnace",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "birch_wood",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "birch_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "furnace",
+                                "type": "item"
+                            },
+                            {
+                                "name": "birch_wood",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "birch_wood",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smoker",
+                    "makes": {
+                        "count": 1,
+                        "name": "smoker",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " # ",
+                            "#X#",
+                            " # "
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "stripped_birch_log",
+                                "type": "item"
+                            },
+                            "X": {
+                                "name": "furnace",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stripped_birch_log",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stripped_birch_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "furnace",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_birch_log",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "stripped_birch_log",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smoker",
+                    "makes": {
+                        "count": 1,
+                        "name": "smoker",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " # ",
+                            "#X#",
+                            " # "
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "stripped_birch_wood",
+                                "type": "item"
+                            },
+                            "X": {
+                                "name": "furnace",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stripped_birch_wood",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stripped_birch_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "furnace",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_birch_wood",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "stripped_birch_wood",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smoker",
+                    "makes": {
+                        "count": 1,
+                        "name": "smoker",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " # ",
+                            "#X#",
+                            " # "
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "jungle_log",
+                                "type": "item"
+                            },
+                            "X": {
+                                "name": "furnace",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "jungle_log",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "jungle_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "furnace",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_log",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "jungle_log",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smoker",
+                    "makes": {
+                        "count": 1,
+                        "name": "smoker",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " # ",
+                            "#X#",
+                            " # "
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "jungle_wood",
+                                "type": "item"
+                            },
+                            "X": {
+                                "name": "furnace",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "jungle_wood",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "jungle_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "furnace",
+                                "type": "item"
+                            },
+                            {
+                                "name": "jungle_wood",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "jungle_wood",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smoker",
+                    "makes": {
+                        "count": 1,
+                        "name": "smoker",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " # ",
+                            "#X#",
+                            " # "
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "stripped_jungle_log",
+                                "type": "item"
+                            },
+                            "X": {
+                                "name": "furnace",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stripped_jungle_log",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stripped_jungle_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "furnace",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_jungle_log",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "stripped_jungle_log",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smoker",
+                    "makes": {
+                        "count": 1,
+                        "name": "smoker",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " # ",
+                            "#X#",
+                            " # "
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "stripped_jungle_wood",
+                                "type": "item"
+                            },
+                            "X": {
+                                "name": "furnace",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stripped_jungle_wood",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stripped_jungle_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "furnace",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_jungle_wood",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "stripped_jungle_wood",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smoker",
+                    "makes": {
+                        "count": 1,
+                        "name": "smoker",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " # ",
+                            "#X#",
+                            " # "
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "spruce_log",
+                                "type": "item"
+                            },
+                            "X": {
+                                "name": "furnace",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "spruce_log",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "spruce_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "furnace",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_log",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "spruce_log",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smoker",
+                    "makes": {
+                        "count": 1,
+                        "name": "smoker",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " # ",
+                            "#X#",
+                            " # "
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "spruce_wood",
+                                "type": "item"
+                            },
+                            "X": {
+                                "name": "furnace",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "spruce_wood",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "spruce_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "furnace",
+                                "type": "item"
+                            },
+                            {
+                                "name": "spruce_wood",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "spruce_wood",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smoker",
+                    "makes": {
+                        "count": 1,
+                        "name": "smoker",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " # ",
+                            "#X#",
+                            " # "
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "stripped_spruce_log",
+                                "type": "item"
+                            },
+                            "X": {
+                                "name": "furnace",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stripped_spruce_log",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stripped_spruce_log",
+                                "type": "item"
+                            },
+                            {
+                                "name": "furnace",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_spruce_log",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "stripped_spruce_log",
+                                "type": "item"
+                            },
+                            null
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:smoker",
+                    "makes": {
+                        "count": 1,
+                        "name": "smoker",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            " # ",
+                            "#X#",
+                            " # "
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "stripped_spruce_wood",
+                                "type": "item"
+                            },
+                            "X": {
+                                "name": "furnace",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            null,
+                            {
+                                "name": "stripped_spruce_wood",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "stripped_spruce_wood",
+                                "type": "item"
+                            },
+                            {
+                                "name": "furnace",
+                                "type": "item"
+                            },
+                            {
+                                "name": "stripped_spruce_wood",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            null,
+                            {
+                                "name": "stripped_spruce_wood",
                                 "type": "item"
                             },
                             null
@@ -8950,10 +9991,7 @@
             {
                 "field": "is",
                 "id": 486,
-                "name": "event.raid.horn_distant",
-                "sounds": [],
-                "subtitle": "Ominous horn echos far away",
-                "subtitle_key": "subtitles.event.raid.horn_distant"
+                "name": "event.raid.horn_distant"
             },
             null
         ],
@@ -8961,10 +9999,7 @@
             {
                 "field": "ir",
                 "id": 485,
-                "name": "event.raid.horn_local",
-                "sounds": [],
-                "subtitle": "Ominous horn blares",
-                "subtitle_key": "subtitles.event.raid.horn_local"
+                "name": "event.raid.horn_local"
             },
             null
         ]
@@ -9035,6 +10070,10 @@
         "data": [
             1916,
             1919
+        ],
+        "id": [
+            "18w49a",
+            "18w50a"
         ],
         "name": [
             "18w49a",

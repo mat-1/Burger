@@ -22,9 +22,7 @@
 </div><div class="right"><div class="entry"><a href="#tags:prevent_mob_spawning_inside"><h3 id="tags:prevent_mob_spawning_inside">prevent_mob_spawning_inside</h3></a><div><dl><dt>Type</dt><dd>blocks</dd><dt>Name</dt><dd>prevent_mob_spawning_inside</dd><dt>Values</dt><dd><a href="#blocks:rail">rail</a><br/><a href="#blocks:powered_rail">powered_rail</a><br/><a href="#blocks:detector_rail">detector_rail</a><br/><a href="#blocks:activator_rail">activator_rail</a><br/><a href="#blocks:sweet_berry_bush">sweet_berry_bush</a></dd></dl></div></div>
 </div></div>
 <a href="#recipes"><h2 id="recipes">Recipes</h2></a><span class="info">No entries</span>
-<a href="#entities"><h2 id="entities">Entities</h2></a><div class="split"><div class="left"><div class="entry"><a href="#entities:enderman"><h3 id="entities:enderman">enderman</h3></a><div><dl><dt>ID</dt><dd>20</dd><dt>Name</dt><dd>enderman</dd><dt>Display name</dt><dd>Enderman</dd><dt>Height</dt><dd>2.9</dd><dt>Width</dt><dd>0.6</dd><dt>Metadata</dt><dd>Inherits from <a href="#entities:~abstract_monster">~abstract_monster</a></dd><dd>Own metadata:<ol><li value="15"><a href="#entity_metadata_serializers:optblockstate">OptBlockState</a>: Empty</li><li value="16"><a href="#entity_metadata_serializers:boolean">Boolean</a>: False</li><li value="17"><a href="#entity_metadata_serializers:boolean">Boolean</a>: False</li></ol></dd></dl></div></div>
-</div><div class="right"><div class="entry"><a href="#entities:enderman"><h3 id="entities:enderman">enderman</h3></a><div><dl><dt>ID</dt><dd>20</dd><dt>Name</dt><dd>enderman</dd><dt>Display name</dt><dd>Enderman</dd><dt>Height</dt><dd>2.9</dd><dt>Width</dt><dd>0.6</dd><dt>Metadata</dt><dd>Inherits from <a href="#entities:~abstract_monster">~abstract_monster</a></dd><dd>Own metadata:<ol><li value="15"><a href="#entity_metadata_serializers:13">13</a>: Empty</li><li value="16"><a href="#entity_metadata_serializers:boolean">Boolean</a>: False</li><li value="17"><a href="#entity_metadata_serializers:boolean">Boolean</a>: False</li></ol></dd></dl></div></div>
-</div></div>
+<a href="#entities"><h2 id="entities">Entities</h2></a><span class="info">No entries</span>
 <a href="#block_entities"><h2 id="block_entities">Block entities</h2></a><span class="info">No entries</span>
 <a href="#packets"><h2 id="packets">Packets</h2></a><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_0f"><h3 id="packets:play_clientbound_0f">PLAY_CLIENTBOUND_0F</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>15</dd></dl><pre><span class="hl_n">writeChatComponent</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
 <span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">());</span>
@@ -48,7 +46,22 @@
 <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">j</span><span class="hl_o">);</span>
 <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">k</span><span class="hl_o">);</span>
 </pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_26"><h3 id="packets:play_clientbound_26">PLAY_CLIENTBOUND_26</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>38</dd></dl>(no instruction data - did the packet fail to parse?)</div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_26"><h3 id="packets:play_clientbound_26">PLAY_CLIENTBOUND_26</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>38</dd></dl><pre><span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_kt">int</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">d</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">();</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_kt">int</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_o">(</span><span class="hl_n">var2</span> <span class="hl_o">|</span> <span class="hl_mh">0x8</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">);</span>
+<span class="hl_n">writeNBTCompound</span><span class="hl_o">(</span><span class="hl_n">gl$a</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">.</span><span class="hl_na">encode</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">));</span>
+<span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">f</span><span class="hl_o">);</span>
+<span class="hl_n">writeLong</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">g</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">h</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">i</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">j</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">k</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">l</span><span class="hl_o">);</span>
+</pre></div></div>
 </div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_3b"><h3 id="packets:play_clientbound_3b">PLAY_CLIENTBOUND_3B</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>59</dd></dl><pre><span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">());</span>
 <span class="hl_n">writeLong</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
 <span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">());</span>
@@ -64,21 +77,7 @@
 <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">f</span><span class="hl_o">);</span>
 </pre></div></div>
 </div></div>
-<a href="#entity_metadata_serializers"><h2 id="entity_metadata_serializers">Entity Metadata Serializers</h2></a><div class="split"><div class="left"><div class="no entry"></div>
-</div><div class="right"><div class="entry"><a href="#entity_metadata_serializers:13"><h3 id="entity_metadata_serializers:13">13</h3></a><div><dl><dt>ID</dt><dd>13</dd></dl><pre><span class="hl_k">if</span><span class="hl_o">(((</span><span class="hl_n">Optional</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">).</span><span class="hl_na">isPresent</span><span class="hl_o">())</span> <span class="hl_o">{</span>
-  <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">buq</span><span class="hl_o">.</span><span class="hl_na">i</span><span class="hl_o">(((</span><span class="hl_n">cej</span><span class="hl_o">)((</span><span class="hl_n">Optional</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">).</span><span class="hl_na">get</span><span class="hl_o">())));</span>
-<span class="hl_o">}</span> <span class="hl_k">else</span> <span class="hl_o">{</span>
-  <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_mi">0</span><span class="hl_o">);</span>
-<span class="hl_o">}</span>
-</pre></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#entity_metadata_serializers:optblockstate"><h3 id="entity_metadata_serializers:optblockstate">OptBlockState</h3></a><div><dl><dt>ID</dt><dd>13</dd></dl><pre><span class="hl_k">if</span><span class="hl_o">(((</span><span class="hl_n">Optional</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">).</span><span class="hl_na">isPresent</span><span class="hl_o">())</span> <span class="hl_o">{</span>
-  <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">bur</span><span class="hl_o">.</span><span class="hl_na">i</span><span class="hl_o">(((</span><span class="hl_n">cel</span><span class="hl_o">)((</span><span class="hl_n">Optional</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">).</span><span class="hl_na">get</span><span class="hl_o">())));</span>
-<span class="hl_o">}</span> <span class="hl_k">else</span> <span class="hl_o">{</span>
-  <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_mi">0</span><span class="hl_o">);</span>
-<span class="hl_o">}</span>
-</pre></div></div>
-</div><div class="right"><div class="no entry"></div>
-</div></div>
+<a href="#entity_metadata_serializers"><h2 id="entity_metadata_serializers">Entity Metadata Serializers</h2></a><span class="info">No entries</span>
 <a href="#versions"><h2 id="versions">Versions</h2></a><div class="split"><div class="left"><div class="entry"><a href="#versions:data"><h3 id="versions:data">data</h3></a><div>2537</div></div>
 </div><div class="right"><div class="entry"><a href="#versions:data"><h3 id="versions:data">data</h3></a><div>2554</div></div>
 </div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:id"><h3 id="versions:id">id</h3></a><div>20w20b</div></div>
