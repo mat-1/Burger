@@ -1,0 +1,593 @@
+{
+    "achievements": {},
+    "biomes": {
+        "biome": {}
+    },
+    "blocks": {
+        "block": {
+            "crimson_nylium": [
+                {
+                    "class": "byr",
+                    "display_name": "Crimson Nylium",
+                    "field": "mu",
+                    "hardness": 1.0,
+                    "max_state_id": 14987,
+                    "min_state_id": 14987,
+                    "num_states": 1,
+                    "numeric_id": 696,
+                    "resistance": 1.0,
+                    "states": [],
+                    "text_id": "crimson_nylium"
+                },
+                {
+                    "class": "bzb",
+                    "display_name": "Crimson Nylium",
+                    "field": "mu",
+                    "hardness": 0.4,
+                    "max_state_id": 14987,
+                    "min_state_id": 14987,
+                    "num_states": 1,
+                    "numeric_id": 696,
+                    "resistance": 0.4,
+                    "states": [],
+                    "text_id": "crimson_nylium"
+                }
+            ],
+            "warped_nylium": [
+                {
+                    "class": "byr",
+                    "display_name": "Warped Nylium",
+                    "field": "ml",
+                    "hardness": 1.0,
+                    "max_state_id": 14970,
+                    "min_state_id": 14970,
+                    "num_states": 1,
+                    "numeric_id": 687,
+                    "resistance": 1.0,
+                    "states": [],
+                    "text_id": "warped_nylium"
+                },
+                {
+                    "class": "bzb",
+                    "display_name": "Warped Nylium",
+                    "field": "ml",
+                    "hardness": 0.4,
+                    "max_state_id": 14970,
+                    "min_state_id": 14970,
+                    "num_states": 1,
+                    "numeric_id": 687,
+                    "resistance": 0.4,
+                    "states": [],
+                    "text_id": "warped_nylium"
+                }
+            ]
+        }
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {
+            "piglin": [
+                {
+                    "class": "bci",
+                    "display_name": "Piglin",
+                    "field": "ah",
+                    "height": 1.95,
+                    "id": 59,
+                    "metadata": [
+                        {
+                            "class": "bbh",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "class": "bci",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "d",
+                                    "index": 15,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bu",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bv",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "piglin",
+                    "width": 0.6
+                },
+                {
+                    "class": "bcq",
+                    "display_name": "Piglin",
+                    "field": "ah",
+                    "height": 1.95,
+                    "id": 59,
+                    "metadata": [
+                        {
+                            "class": "bbp",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "class": "bcq",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "d",
+                                    "index": 15,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bu",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bv",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bw",
+                                    "index": 18,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "piglin",
+                    "width": 0.6
+                }
+            ]
+        }
+    },
+    "items": {
+        "item": {}
+    },
+    "language": {
+        "commands": {
+            "reload.failure": [
+                null,
+                "Reload failed, keeping old data"
+            ]
+        },
+        "datapackFailure": [
+            null,
+            {
+                "safeMode": "Safe mode",
+                "title": "Errors in currently selected datapacks prevented world from loading.\nYou can either try to load only with vanilla datapack (\"safe mode\") or go back to title screen and fix it manually."
+            }
+        ],
+        "death": {
+            "attack.witherSkull": [
+                null,
+                "%1$s was shot by a %2$s's skull"
+            ]
+        },
+        "jigsaw_block": {
+            "keep_jigsaws": [
+                null,
+                "Keep Jigsaws: "
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_26": [
+                {
+                    "class": "ox.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 38,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "this.d.a()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "c",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 0x8)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "gl$a.a.encode(e)",
+                            "operation": "write",
+                            "type": "nbtcompound"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "i",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "j",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "k",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "l",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "oy.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 38,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "this.d.a()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "c",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 0x8)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.e.iterator()",
+                            "var": "var3"
+                        },
+                        {
+                            "condition": "var3.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((uc)var3.next())",
+                                    "var": "var4"
+                                },
+                                {
+                                    "field": "var4.a()",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "gl$a.a.encode(f)",
+                            "operation": "write",
+                            "type": "nbtcompound"
+                        },
+                        {
+                            "field": "g.a()",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "h.a()",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "i",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "j",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "k",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "l",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "m",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "n",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_3B": [
+                {
+                    "class": "pp.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 59,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "c.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "pq.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 59,
+                    "instructions": [
+                        {
+                            "field": "a.a()",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "b.a()",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "d.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_0F": [
+                {
+                    "class": "rp.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 15,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rq.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 15,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "recipes": {},
+    "sounds": {},
+    "stats": {},
+    "tags": {
+        "blocks/fence_gates": [
+            null,
+            {
+                "name": "fence_gates",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:acacia_fence_gate",
+                    "minecraft:birch_fence_gate",
+                    "minecraft:dark_oak_fence_gate",
+                    "minecraft:jungle_fence_gate",
+                    "minecraft:oak_fence_gate",
+                    "minecraft:spruce_fence_gate",
+                    "minecraft:crimson_fence_gate",
+                    "minecraft:warped_fence_gate"
+                ]
+            }
+        ],
+        "blocks/unstable_bottom_center": [
+            null,
+            {
+                "name": "unstable_bottom_center",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:acacia_fence_gate",
+                    "minecraft:birch_fence_gate",
+                    "minecraft:dark_oak_fence_gate",
+                    "minecraft:jungle_fence_gate",
+                    "minecraft:oak_fence_gate",
+                    "minecraft:spruce_fence_gate",
+                    "minecraft:crimson_fence_gate",
+                    "minecraft:warped_fence_gate"
+                ]
+            }
+        ]
+    },
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            2554,
+            2555
+        ],
+        "id": [
+            "20w21a",
+            "20w22a"
+        ],
+        "name": [
+            "20w21a",
+            "20w22a"
+        ],
+        "protocol": [
+            718,
+            719
+        ]
+    }
+}
