@@ -1,0 +1,542 @@
+{
+    "achievements": {},
+    "biomes": {
+        "biome": {}
+    },
+    "blocks": {
+        "block": {}
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {}
+    },
+    "items": {
+        "item": {}
+    },
+    "language": {
+        "chat": {
+            "copy.click": [
+                "Click to copy to Clipboard",
+                "Click to Copy to Clipboard"
+            ]
+        },
+        "createWorld": {
+            "preparing": [
+                null,
+                "Preparing for world creation..."
+            ]
+        },
+        "dataPack": {
+            "validation.back": [
+                "Go back",
+                "Go Back"
+            ],
+            "validation.reset": [
+                "Reset to default",
+                "Reset to Default"
+            ]
+        },
+        "datapackFailure": {
+            "safeMode": [
+                "Safe mode",
+                "Safe Mode"
+            ]
+        },
+        "debug": {
+            "creative_spectator.help": [
+                "F3 + N = Cycle creative <-> spectator",
+                "F3 + N = Cycle previous gamemode <-> spectator"
+            ]
+        },
+        "editGamerule": {
+            "title": [
+                "Edit game rules",
+                "Edit Game Rules"
+            ]
+        },
+        "generator": {
+            "single_biome_floating_islands": [
+                "Floating islands",
+                "Floating Islands"
+            ]
+        },
+        "key": {
+            "swapHands": [
+                "Swap Item In Hands",
+                null
+            ],
+            "swapOffhand": [
+                null,
+                "Swap Item With Offhand"
+            ]
+        },
+        "options": {
+            "graphics.fabulous.tooltip": [
+                "\"Fabulous\" graphics enables screen shaders to draw translucent objects per-pixel.\nThis may severely impact performance for portable devices and 4k displays.",
+                "\"Fabulous\" graphics uses screen shaders for drawing weather, clouds and particles behind translucent blocks and water.\nThis may severely impact performance for portable devices and 4K displays."
+            ],
+            "graphics.fancy.tooltip": [
+                "\"Fancy\" graphics balances performance and quality for the majority of machines.",
+                "\"Fancy\" graphics balances performance and quality for the majority of machines.\nWeather, clouds and particles may not appear behind translucent blocks or water."
+            ]
+        },
+        "selectWorld": {
+            "backupJoinConfirmButton": [
+                "Create backup and load",
+                "Create Backup and Load"
+            ],
+            "data_read": [
+                null,
+                "Reading world data..."
+            ],
+            "import_worldgen_settings": [
+                "Import settings",
+                "Import Settings"
+            ]
+        },
+        "sign": {
+            "edit": [
+                "Edit sign message",
+                "Edit Sign Message"
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_24": [
+                {
+                    "class": "ow.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 36,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.g.iterator()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((byte[])var2.next())",
+                                    "var": "var3"
+                                },
+                                {
+                                    "field": "var3.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "var3",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.h.iterator()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((byte[])var2.next())",
+                                    "var": "var3"
+                                },
+                                {
+                                    "field": "var3.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "var3",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "ow.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 36,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "i",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.g.iterator()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((byte[])var2.next())",
+                                    "var": "var3"
+                                },
+                                {
+                                    "field": "var3.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "var3",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.h.iterator()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((byte[])var2.next())",
+                                    "var": "var3"
+                                },
+                                {
+                                    "field": "var3.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "var3",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_0E": [
+                {
+                    "class": "ro.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 14,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "condition": "b == ro$a.c",
+                            "instructions": [
+                                {
+                                    "field": "(float)c.b",
+                                    "operation": "write",
+                                    "type": "float"
+                                },
+                                {
+                                    "field": "(float)c.c",
+                                    "operation": "write",
+                                    "type": "float"
+                                },
+                                {
+                                    "field": "(float)c.d",
+                                    "operation": "write",
+                                    "type": "float"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "b != ro$a.a",
+                            "instructions": [
+                                {
+                                    "field": "d",
+                                    "operation": "write",
+                                    "type": "enum"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "ro.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 14,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "condition": "b == ro$a.c",
+                            "instructions": [
+                                {
+                                    "field": "(float)c.b",
+                                    "operation": "write",
+                                    "type": "float"
+                                },
+                                {
+                                    "field": "(float)c.c",
+                                    "operation": "write",
+                                    "type": "float"
+                                },
+                                {
+                                    "field": "(float)c.d",
+                                    "operation": "write",
+                                    "type": "float"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "b != ro$a.a",
+                            "instructions": [
+                                {
+                                    "field": "d",
+                                    "operation": "write",
+                                    "type": "enum"
+                                },
+                                {
+                                    "field": "e",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "recipes": {},
+    "sounds": {},
+    "stats": {},
+    "tags": {
+        "blocks/infiniburn_end": [
+            null,
+            {
+                "name": "infiniburn_end",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:netherrack",
+                    "minecraft:magma_block",
+                    "minecraft:bedrock"
+                ]
+            }
+        ],
+        "blocks/infiniburn_nether": [
+            null,
+            {
+                "name": "infiniburn_nether",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:netherrack",
+                    "minecraft:magma_block"
+                ]
+            }
+        ],
+        "blocks/infiniburn_overworld": [
+            null,
+            {
+                "name": "infiniburn_overworld",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:netherrack",
+                    "minecraft:magma_block"
+                ]
+            }
+        ],
+        "items/piglin_loved": [
+            {
+                "name": "piglin_loved",
+                "replace": false,
+                "type": "items",
+                "values": [
+                    "minecraft:gold_ore",
+                    "minecraft:nether_gold_ore",
+                    "minecraft:gold_block",
+                    "minecraft:gilded_blackstone",
+                    "minecraft:light_weighted_pressure_plate",
+                    "minecraft:gold_nugget",
+                    "minecraft:gold_ingot",
+                    "minecraft:bell",
+                    "minecraft:clock",
+                    "minecraft:golden_carrot",
+                    "minecraft:glistering_melon_slice",
+                    "minecraft:golden_apple",
+                    "minecraft:enchanted_golden_apple",
+                    "minecraft:golden_helmet",
+                    "minecraft:golden_chestplate",
+                    "minecraft:golden_leggings",
+                    "minecraft:golden_boots",
+                    "minecraft:golden_horse_armor",
+                    "minecraft:golden_sword",
+                    "minecraft:golden_pickaxe",
+                    "minecraft:golden_shovel",
+                    "minecraft:golden_axe",
+                    "minecraft:golden_hoe"
+                ]
+            },
+            {
+                "name": "piglin_loved",
+                "replace": false,
+                "type": "items",
+                "values": [
+                    "minecraft:gold_ore",
+                    "minecraft:nether_gold_ore",
+                    "minecraft:gold_block",
+                    "minecraft:gilded_blackstone",
+                    "minecraft:light_weighted_pressure_plate",
+                    "minecraft:gold_ingot",
+                    "minecraft:bell",
+                    "minecraft:clock",
+                    "minecraft:golden_carrot",
+                    "minecraft:glistering_melon_slice",
+                    "minecraft:golden_apple",
+                    "minecraft:enchanted_golden_apple",
+                    "minecraft:golden_helmet",
+                    "minecraft:golden_chestplate",
+                    "minecraft:golden_leggings",
+                    "minecraft:golden_boots",
+                    "minecraft:golden_horse_armor",
+                    "minecraft:golden_sword",
+                    "minecraft:golden_pickaxe",
+                    "minecraft:golden_shovel",
+                    "minecraft:golden_axe",
+                    "minecraft:golden_hoe"
+                ]
+            }
+        ]
+    },
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            2557,
+            2559
+        ],
+        "id": [
+            "1.16-pre2",
+            "1.16-pre3"
+        ],
+        "name": [
+            "1.16 Pre-release 2",
+            "1.16 Pre-release 3"
+        ],
+        "protocol": [
+            722,
+            725
+        ]
+    }
+}
