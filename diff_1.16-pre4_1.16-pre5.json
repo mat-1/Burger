@@ -1,0 +1,215 @@
+{
+    "achievements": {},
+    "biomes": {
+        "biome": {}
+    },
+    "blocks": {
+        "block": {}
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {}
+    },
+    "items": {
+        "item": {}
+    },
+    "language": {
+        "gamerule": {
+            "doMobLoot.description": [
+                "Controls resource drops, including experience orbs",
+                "Controls resource drops from mobs, including experience orbs"
+            ],
+            "doTileDrops.description": [
+                "Controls resource drops, including experience orbs",
+                "Controls resource drops from blocks, including experience orbs"
+            ]
+        },
+        "options": {
+            "graphics.fabulous.tooltip": [
+                "\"Fabulous\" graphics uses screen shaders for drawing weather, clouds and particles behind translucent blocks and water.\nThis may severely impact performance for portable devices and 4K displays.",
+                "%s graphics uses screen shaders for drawing weather, clouds and particles behind translucent blocks and water.\nThis may severely impact performance for portable devices and 4K displays."
+            ],
+            "graphics.fancy.tooltip": [
+                "\"Fancy\" graphics balances performance and quality for the majority of machines.\nWeather, clouds and particles may not appear behind translucent blocks or water.",
+                "Fancy graphics balances performance and quality for the majority of machines.\nWeather, clouds and particles may not appear behind translucent blocks or water."
+            ],
+            "graphics.fast.tooltip": [
+                "\"Fast\" graphics reduces the amount of visible rain and snow.\nTransparency effects are disabled for various blocks such as tree-leaves.",
+                "Fast graphics reduces the amount of visible rain and snow.\nTransparency effects are disabled for various blocks such as tree-leaves."
+            ],
+            "graphics.warning.accept": [
+                null,
+                "Continue without support"
+            ],
+            "graphics.warning.cancel": [
+                null,
+                "Take me back"
+            ],
+            "graphics.warning.message": [
+                null,
+                "Your graphics device is detected as unsupported for the %s graphics option.\n\nYou may ignore this and continue, however support will not be provided for your device if you choose to use %s graphics."
+            ],
+            "graphics.warning.renderer": [
+                null,
+                "Renderer detected: [%s]"
+            ],
+            "graphics.warning.title": [
+                null,
+                "Graphics Device Unsupported"
+            ],
+            "graphics.warning.vendor": [
+                null,
+                "Vendor detected: [%s]"
+            ],
+            "graphics.warning.version": [
+                null,
+                "OpenGL Version detected: [%s]"
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "PLAY_SERVERBOUND_0E": [
+                {
+                    "class": "ro.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 14,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "condition": "b == ro$a.c",
+                            "instructions": [
+                                {
+                                    "field": "(float)c.b",
+                                    "operation": "write",
+                                    "type": "float"
+                                },
+                                {
+                                    "field": "(float)c.c",
+                                    "operation": "write",
+                                    "type": "float"
+                                },
+                                {
+                                    "field": "(float)c.d",
+                                    "operation": "write",
+                                    "type": "float"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "b != ro$a.a",
+                            "instructions": [
+                                {
+                                    "field": "d",
+                                    "operation": "write",
+                                    "type": "enum"
+                                },
+                                {
+                                    "field": "e",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rn.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 14,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "condition": "b == rn$a.c",
+                            "instructions": [
+                                {
+                                    "field": "(float)c.b",
+                                    "operation": "write",
+                                    "type": "float"
+                                },
+                                {
+                                    "field": "(float)c.c",
+                                    "operation": "write",
+                                    "type": "float"
+                                },
+                                {
+                                    "field": "(float)c.d",
+                                    "operation": "write",
+                                    "type": "float"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "condition": "b != rn$a.a",
+                            "instructions": [
+                                {
+                                    "field": "d",
+                                    "operation": "write",
+                                    "type": "enum"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "recipes": {},
+    "sounds": {},
+    "stats": {},
+    "tags": {},
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            2560,
+            2561
+        ],
+        "id": [
+            "1.16-pre4",
+            "1.16-pre5"
+        ],
+        "name": [
+            "1.16 Pre-release 4",
+            "1.16 Pre-release 5"
+        ],
+        "protocol": [
+            727,
+            729
+        ]
+    }
+}

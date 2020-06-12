@@ -1,0 +1,72 @@
+<!doctype html>
+              <html>
+                <head>
+                  <title>Burger Vitrine</title>
+                  <link rel="stylesheet" href="resources/style.css" />
+                  <script src="resources/jquery.js"></script>
+                  <script src="resources/vitrine.js"></script>
+                </head>
+                <body>
+                    <div id="vitrine">
+                        <a href="#blocks"><h2 id="blocks">Blocks</h2></a><span class="info">No entries</span>
+<a href="#items"><h2 id="items">Items</h2></a><span class="info">No entries</span>
+<a href="#tags"><h2 id="tags">Tags</h2></a><span class="info">No entries</span>
+<a href="#recipes"><h2 id="recipes">Recipes</h2></a><span class="info">No entries</span>
+<a href="#entities"><h2 id="entities">Entities</h2></a><span class="info">No entries</span>
+<a href="#block_entities"><h2 id="block_entities">Block entities</h2></a><span class="info">No entries</span>
+<a href="#packets"><h2 id="packets">Packets</h2></a><div class="split"><div class="left"><div class="entry"><a href="#packets:play_serverbound_0e"><h3 id="packets:play_serverbound_0e">PLAY_SERVERBOUND_0E</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>14</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">b</span> <span class="hl_o">==</span> <span class="hl_n">ro$a</span><span class="hl_o">.</span><span class="hl_na">c</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeFloat</span><span class="hl_o">((</span><span class="hl_kt">float</span><span class="hl_o">)</span><span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">);</span>
+  <span class="hl_n">writeFloat</span><span class="hl_o">((</span><span class="hl_kt">float</span><span class="hl_o">)</span><span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">c</span><span class="hl_o">);</span>
+  <span class="hl_n">writeFloat</span><span class="hl_o">((</span><span class="hl_kt">float</span><span class="hl_o">)</span><span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">d</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">b</span> <span class="hl_o">!=</span> <span class="hl_n">ro$a</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+  <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_serverbound_0e"><h3 id="packets:play_serverbound_0e">PLAY_SERVERBOUND_0E</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>14</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">b</span> <span class="hl_o">==</span> <span class="hl_n">rn$a</span><span class="hl_o">.</span><span class="hl_na">c</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeFloat</span><span class="hl_o">((</span><span class="hl_kt">float</span><span class="hl_o">)</span><span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">);</span>
+  <span class="hl_n">writeFloat</span><span class="hl_o">((</span><span class="hl_kt">float</span><span class="hl_o">)</span><span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">c</span><span class="hl_o">);</span>
+  <span class="hl_n">writeFloat</span><span class="hl_o">((</span><span class="hl_kt">float</span><span class="hl_o">)</span><span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">d</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">b</span> <span class="hl_o">!=</span> <span class="hl_n">rn$a</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">);</span>
+</pre></div></div>
+</div></div>
+<a href="#entity_metadata_serializers"><h2 id="entity_metadata_serializers">Entity Metadata Serializers</h2></a><span class="info">No entries</span>
+<a href="#versions"><h2 id="versions">Versions</h2></a><div class="split"><div class="left"><div class="entry"><a href="#versions:data"><h3 id="versions:data">data</h3></a><div>2560</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:data"><h3 id="versions:data">data</h3></a><div>2561</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:id"><h3 id="versions:id">id</h3></a><div>1.16-pre4</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:id"><h3 id="versions:id">id</h3></a><div>1.16-pre5</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:name"><h3 id="versions:name">name</h3></a><div>1.16 Pre-release 4</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:name"><h3 id="versions:name">name</h3></a><div>1.16 Pre-release 5</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>727</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>729</div></div>
+</div></div>
+<a href="#stats"><h2 id="stats">Stats</h2></a><span class="info">No entries</span>
+<a href="#achievements"><h2 id="achievements">Achievements</h2></a><span class="info">No entries</span>
+<a href="#language"><h2 id="language">Language</h2></a><div class="split"><div class="left"><div class="entry"><a href="#language:gamerule"><h3 id="language:gamerule">gamerule</h3></a><div><dl class="wide"><dt>doMobLoot.description</dt><dd>Controls resource drops, including experience orbs</dd><dt>doTileDrops.description</dt><dd>Controls resource drops, including experience orbs</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:gamerule"><h3 id="language:gamerule">gamerule</h3></a><div><dl class="wide"><dt>doMobLoot.description</dt><dd>Controls resource drops from mobs, including experience orbs</dd><dt>doTileDrops.description</dt><dd>Controls resource drops from blocks, including experience orbs</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:options"><h3 id="language:options">options</h3></a><div><dl class="wide"><dt>graphics.fabulous.tooltip</dt><dd>&quot;Fabulous&quot; graphics uses screen shaders for drawing weather, clouds and particles behind translucent blocks and water.
+This may severely impact performance for portable devices and 4K displays.</dd><dt>graphics.fancy.tooltip</dt><dd>&quot;Fancy&quot; graphics balances performance and quality for the majority of machines.
+Weather, clouds and particles may not appear behind translucent blocks or water.</dd><dt>graphics.fast.tooltip</dt><dd>&quot;Fast&quot; graphics reduces the amount of visible rain and snow.
+Transparency effects are disabled for various blocks such as tree-leaves.</dd><dt>graphics.warning.accept</dt><dd>-</dd><dt>graphics.warning.cancel</dt><dd>-</dd><dt>graphics.warning.message</dt><dd>-</dd><dt>graphics.warning.renderer</dt><dd>-</dd><dt>graphics.warning.title</dt><dd>-</dd><dt>graphics.warning.vendor</dt><dd>-</dd><dt>graphics.warning.version</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:options"><h3 id="language:options">options</h3></a><div><dl class="wide"><dt>graphics.fabulous.tooltip</dt><dd>%s graphics uses screen shaders for drawing weather, clouds and particles behind translucent blocks and water.
+This may severely impact performance for portable devices and 4K displays.</dd><dt>graphics.fancy.tooltip</dt><dd>Fancy graphics balances performance and quality for the majority of machines.
+Weather, clouds and particles may not appear behind translucent blocks or water.</dd><dt>graphics.fast.tooltip</dt><dd>Fast graphics reduces the amount of visible rain and snow.
+Transparency effects are disabled for various blocks such as tree-leaves.</dd><dt>graphics.warning.accept</dt><dd>Continue without support</dd><dt>graphics.warning.cancel</dt><dd>Take me back</dd><dt>graphics.warning.message</dt><dd>Your graphics device is detected as unsupported for the %s graphics option.
+
+You may ignore this and continue, however support will not be provided for your device if you choose to use %s graphics.</dd><dt>graphics.warning.renderer</dt><dd>Renderer detected: [%s]</dd><dt>graphics.warning.title</dt><dd>Graphics Device Unsupported</dd><dt>graphics.warning.vendor</dt><dd>Vendor detected: [%s]</dd><dt>graphics.warning.version</dt><dd>OpenGL Version detected: [%s]</dd></dl></div></div>
+</div></div>
+<a href="#sounds"><h2 id="sounds">Sounds</h2></a><span class="info">No entries</span>
+<a href="#biomes"><h2 id="biomes">Biomes</h2></a><span class="info">No entries</span>
+
+                    </div>
+                </body>
+              </html>
