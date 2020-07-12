@@ -1,0 +1,307 @@
+{
+    "achievements": {},
+    "blocks": {
+        "block": {}
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {},
+        "object": {}
+    },
+    "items": {
+        "item": {}
+    },
+    "language": {
+        "commands": {
+            "playsound.unknownSoundSource": [
+                null,
+                "SoundSource %s is unknown"
+            ],
+            "playsound.usage": [
+                "/playsound <sound> <player> [x] [y] [z] [volume] [pitch] [minimumVolume]",
+                "/playsound <sound> <source> <player> [x] [y] [z] [volume] [pitch] [minimumVolume]"
+            ]
+        },
+        "createWorld": {
+            "customize.flat.air": [
+                null,
+                "Air"
+            ]
+        },
+        "soundCategory": {
+            "voice": [
+                null,
+                "Voice/Speech"
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_04": [
+                {
+                    "class": "fn.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 4,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "c.b()",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "fn.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 4,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "uuid"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "position"
+                        },
+                        {
+                            "field": "d.b()",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_19": [
+                {
+                    "class": "gi.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 25,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "gi.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 25,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_47": [
+                {
+                    "class": "hz.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 71,
+                    "instructions": [
+                        {
+                            "field": "nf.a.a(a)",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "hz.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 71,
+                    "instructions": [
+                        {
+                            "field": "nf.a.a(a)",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "sounds": {},
+    "stats": {},
+    "tags": {},
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            155,
+            156
+        ],
+        "id": [
+            "15w51b",
+            "16w02a"
+        ],
+        "name": [
+            "15w51b",
+            "16w02a"
+        ],
+        "protocol": [
+            94,
+            95
+        ]
+    }
+}
