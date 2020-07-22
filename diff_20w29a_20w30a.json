@@ -1,5 +1,122 @@
 {
     "achievements": {},
+    "blocks": {
+        "block": {
+            "lantern": [
+                {
+                    "class": "bxp",
+                    "display_name": "Lantern",
+                    "field": "mc",
+                    "hardness": 3.5,
+                    "light": 15,
+                    "max_state_id": 14887,
+                    "min_state_id": 14886,
+                    "num_states": 2,
+                    "numeric_id": 678,
+                    "resistance": 3.5,
+                    "states": [
+                        {
+                            "declared_in": "ceq",
+                            "field_name": "a",
+                            "name": "hanging",
+                            "num_values": 2,
+                            "type": "bool"
+                        }
+                    ],
+                    "text_id": "lantern"
+                },
+                {
+                    "class": "bxo",
+                    "display_name": "Lantern",
+                    "field": "mc",
+                    "hardness": 3.5,
+                    "light": 15,
+                    "max_state_id": 14889,
+                    "min_state_id": 14886,
+                    "num_states": 4,
+                    "numeric_id": 678,
+                    "resistance": 3.5,
+                    "states": [
+                        {
+                            "declared_in": "cep",
+                            "field_name": "a",
+                            "name": "hanging",
+                            "num_values": 2,
+                            "type": "bool"
+                        },
+                        {
+                            "declared_in": "cep",
+                            "field_name": "b",
+                            "name": "waterlogged",
+                            "num_values": 2,
+                            "type": "bool"
+                        }
+                    ],
+                    "text_id": "lantern"
+                }
+            ],
+            "soul_lantern": [
+                {
+                    "class": "bxp",
+                    "display_name": "Soul Lantern",
+                    "field": "md",
+                    "hardness": 3.5,
+                    "light": 10,
+                    "max_state_id": 14889,
+                    "min_state_id": 14888,
+                    "num_states": 2,
+                    "numeric_id": 679,
+                    "resistance": 3.5,
+                    "states": [
+                        {
+                            "declared_in": "ceq",
+                            "field_name": "a",
+                            "name": "hanging",
+                            "num_values": 2,
+                            "type": "bool"
+                        }
+                    ],
+                    "text_id": "soul_lantern"
+                },
+                {
+                    "class": "bxo",
+                    "display_name": "Soul Lantern",
+                    "field": "md",
+                    "hardness": 3.5,
+                    "light": 10,
+                    "max_state_id": 14893,
+                    "min_state_id": 14890,
+                    "num_states": 4,
+                    "numeric_id": 679,
+                    "resistance": 3.5,
+                    "states": [
+                        {
+                            "declared_in": "cep",
+                            "field_name": "a",
+                            "name": "hanging",
+                            "num_values": 2,
+                            "type": "bool"
+                        },
+                        {
+                            "declared_in": "cep",
+                            "field_name": "b",
+                            "name": "waterlogged",
+                            "num_values": 2,
+                            "type": "bool"
+                        }
+                    ],
+                    "text_id": "soul_lantern"
+                }
+            ]
+        }
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {}
+    },
+    "items": {
+        "item": {}
+    },
     "language": {
         "advancements": {
             "nether.create_beacon.description": [
@@ -262,6 +379,681 @@
             ]
         }
     },
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_10": [
+                {
+                    "class": "pf.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 16,
+                    "instructions": [
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "com.google.common.collect.Maps.newHashMap()",
+                            "var": "var2"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "new ArrayDeque()",
+                            "var": "var3"
+                        },
+                        {
+                            "condition": "var3.isEmpty() == 0",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((com.mojang.brigadier.tree.CommandNode)var3.pollFirst())",
+                                    "var": "var4"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "var2.size()",
+                                    "var": "var5"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "((com.mojang.brigadier.tree.CommandNode[])new com.mojang.brigadier.tree.CommandNode[var2.size()])",
+                            "var": "var4"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "var2.entrySet().iterator()",
+                            "var": "var5"
+                        },
+                        {
+                            "condition": "var5.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((Map$Entry)var5.next())",
+                                    "var": "var6"
+                                },
+                                {
+                                    "index": "((Integer)var6.getValue()).intValue()",
+                                    "operation": "arraystore",
+                                    "type": "Object",
+                                    "value": "((com.mojang.brigadier.tree.CommandNode)var6.getKey())",
+                                    "var": "var4"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "var4.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "var4",
+                            "var": "var5"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "var5.length",
+                            "var": "var6"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var7"
+                        },
+                        {
+                            "condition": "var7 < var6",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "var5[var7]",
+                                    "var": "var8"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "0",
+                                    "var": "var4"
+                                },
+                                {
+                                    "condition": "var8.getRedirect() != null",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "int",
+                                            "value": "((byte)(var4 | 0x8))",
+                                            "var": "var4"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "condition": "var8.getCommand() != null",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "int",
+                                            "value": "((byte)(var4 | 4))",
+                                            "var": "var4"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "condition": "var8 instanceof com.mojang.brigadier.tree.RootCommandNode",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "int",
+                                            "value": "((byte)(var4 | 0))",
+                                            "var": "var4"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "instructions": [
+                                        {
+                                            "condition": "var8 instanceof com.mojang.brigadier.tree.ArgumentCommandNode",
+                                            "instructions": [
+                                                {
+                                                    "operation": "store",
+                                                    "type": "int",
+                                                    "value": "((byte)(var4 | 2))",
+                                                    "var": "var4"
+                                                },
+                                                {
+                                                    "condition": "((com.mojang.brigadier.tree.ArgumentCommandNode)var8).getCustomSuggestions() != null",
+                                                    "instructions": [
+                                                        {
+                                                            "operation": "store",
+                                                            "type": "int",
+                                                            "value": "((byte)(var4 | 0x10))",
+                                                            "var": "var4"
+                                                        }
+                                                    ],
+                                                    "operation": "if"
+                                                },
+                                                {
+                                                    "instructions": [
+                                                        {
+                                                            "condition": "var8 instanceof com.mojang.brigadier.tree.LiteralCommandNode",
+                                                            "instructions": [
+                                                                {
+                                                                    "operation": "store",
+                                                                    "type": "int",
+                                                                    "value": "((byte)(var4 | 1))",
+                                                                    "var": "var4"
+                                                                }
+                                                            ],
+                                                            "operation": "if"
+                                                        }
+                                                    ],
+                                                    "operation": "else"
+                                                }
+                                            ],
+                                            "operation": "if"
+                                        }
+                                    ],
+                                    "operation": "else"
+                                },
+                                {
+                                    "field": "var4",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "var8.getChildren().size()",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "var8.getChildren().iterator()",
+                                    "var": "var5"
+                                },
+                                {
+                                    "condition": "var5.hasNext()",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "((com.mojang.brigadier.tree.CommandNode)var5.next())",
+                                            "var": "var6"
+                                        },
+                                        {
+                                            "field": "((Integer)var2.get(var6)).intValue()",
+                                            "operation": "write",
+                                            "type": "varint"
+                                        }
+                                    ],
+                                    "operation": "loop"
+                                },
+                                {
+                                    "condition": "var8.getRedirect() != null",
+                                    "instructions": [
+                                        {
+                                            "field": "((Integer)var2.get(var8.getRedirect())).intValue()",
+                                            "operation": "write",
+                                            "type": "varint"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "condition": "var8 instanceof com.mojang.brigadier.tree.ArgumentCommandNode",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "((com.mojang.brigadier.tree.ArgumentCommandNode)var8)",
+                                            "var": "var5"
+                                        },
+                                        {
+                                            "field": "var5.getName()",
+                                            "operation": "write",
+                                            "type": "string"
+                                        },
+                                        {
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "fk.a(var5.getType())",
+                                            "var": "var2"
+                                        },
+                                        {
+                                            "condition": "var2 == null",
+                                            "instructions": [
+                                                {
+                                                    "field": "new vl(\"\")",
+                                                    "operation": "write",
+                                                    "type": "identifier"
+                                                }
+                                            ],
+                                            "operation": "if"
+                                        },
+                                        {
+                                            "field": "var2.c",
+                                            "operation": "write",
+                                            "type": "identifier"
+                                        },
+                                        {
+                                            "args": "var5.getType(), packetbuffer",
+                                            "field": "var2.b",
+                                            "method": "a(Lcom/mojang/brigadier/arguments/ArgumentType;Lni;)V",
+                                            "name": "a",
+                                            "operation": "interfacecall",
+                                            "target": "fj",
+                                            "type": "interface"
+                                        },
+                                        {
+                                            "condition": "var5.getCustomSuggestions() != null",
+                                            "instructions": [
+                                                {
+                                                    "field": "fm.a(var5.getCustomSuggestions())",
+                                                    "operation": "write",
+                                                    "type": "identifier"
+                                                }
+                                            ],
+                                            "operation": "if"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "instructions": [
+                                        {
+                                            "condition": "var8 instanceof com.mojang.brigadier.tree.LiteralCommandNode",
+                                            "instructions": [
+                                                {
+                                                    "field": "((com.mojang.brigadier.tree.LiteralCommandNode)var8).getLiteral()",
+                                                    "operation": "write",
+                                                    "type": "string"
+                                                }
+                                            ],
+                                            "operation": "if"
+                                        }
+                                    ],
+                                    "operation": "else"
+                                },
+                                {
+                                    "amount": "1",
+                                    "field": "var7",
+                                    "operation": "increment"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "((Integer)var2.get(a)).intValue()",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "pc.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 16,
+                    "instructions": [
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "pc.a(this.a)",
+                            "var": "var2"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "pc.a(var2)",
+                            "var": "var3"
+                        },
+                        {
+                            "field": "var3.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "var3",
+                            "var": "var4"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "var4.length",
+                            "var": "var5"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var6"
+                        },
+                        {
+                            "condition": "var6 < var5",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "var4[var6]",
+                                    "var": "var7"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "0",
+                                    "var": "var3"
+                                },
+                                {
+                                    "condition": "var7.getRedirect() != null",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "int",
+                                            "value": "((byte)(var3 | 0x8))",
+                                            "var": "var3"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "condition": "var7.getCommand() != null",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "int",
+                                            "value": "((byte)(var3 | 4))",
+                                            "var": "var3"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "condition": "var7 instanceof com.mojang.brigadier.tree.RootCommandNode",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "int",
+                                            "value": "((byte)(var3 | 0))",
+                                            "var": "var3"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "instructions": [
+                                        {
+                                            "condition": "var7 instanceof com.mojang.brigadier.tree.ArgumentCommandNode",
+                                            "instructions": [
+                                                {
+                                                    "operation": "store",
+                                                    "type": "int",
+                                                    "value": "((byte)(var3 | 2))",
+                                                    "var": "var3"
+                                                },
+                                                {
+                                                    "condition": "((com.mojang.brigadier.tree.ArgumentCommandNode)var7).getCustomSuggestions() != null",
+                                                    "instructions": [
+                                                        {
+                                                            "operation": "store",
+                                                            "type": "int",
+                                                            "value": "((byte)(var3 | 0x10))",
+                                                            "var": "var3"
+                                                        }
+                                                    ],
+                                                    "operation": "if"
+                                                },
+                                                {
+                                                    "instructions": [
+                                                        {
+                                                            "condition": "var7 instanceof com.mojang.brigadier.tree.LiteralCommandNode",
+                                                            "instructions": [
+                                                                {
+                                                                    "operation": "store",
+                                                                    "type": "int",
+                                                                    "value": "((byte)(var3 | 1))",
+                                                                    "var": "var3"
+                                                                }
+                                                            ],
+                                                            "operation": "if"
+                                                        }
+                                                    ],
+                                                    "operation": "else"
+                                                }
+                                            ],
+                                            "operation": "if"
+                                        }
+                                    ],
+                                    "operation": "else"
+                                },
+                                {
+                                    "field": "var3",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "var7.getChildren().size()",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "var7.getChildren().iterator()",
+                                    "var": "var4"
+                                },
+                                {
+                                    "condition": "var4.hasNext()",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "((com.mojang.brigadier.tree.CommandNode)var4.next())",
+                                            "var": "var5"
+                                        },
+                                        {
+                                            "field": "((Integer)var2.get(var5)).intValue()",
+                                            "operation": "write",
+                                            "type": "varint"
+                                        }
+                                    ],
+                                    "operation": "loop"
+                                },
+                                {
+                                    "condition": "var7.getRedirect() != null",
+                                    "instructions": [
+                                        {
+                                            "field": "((Integer)var2.get(var7.getRedirect())).intValue()",
+                                            "operation": "write",
+                                            "type": "varint"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "condition": "var7 instanceof com.mojang.brigadier.tree.ArgumentCommandNode",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "((com.mojang.brigadier.tree.ArgumentCommandNode)var7)",
+                                            "var": "var4"
+                                        },
+                                        {
+                                            "field": "var4.getName()",
+                                            "operation": "write",
+                                            "type": "string"
+                                        },
+                                        {
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "fk.b(var4.getType())",
+                                            "var": "var2"
+                                        },
+                                        {
+                                            "condition": "var2 == null",
+                                            "instructions": [
+                                                {
+                                                    "field": "new vi(\"\")",
+                                                    "operation": "write",
+                                                    "type": "identifier"
+                                                }
+                                            ],
+                                            "operation": "if"
+                                        },
+                                        {
+                                            "field": "var2.c",
+                                            "operation": "write",
+                                            "type": "identifier"
+                                        },
+                                        {
+                                            "args": "var4.getType(), packetbuffer",
+                                            "field": "var2.b",
+                                            "method": "a(Lcom/mojang/brigadier/arguments/ArgumentType;Lne;)V",
+                                            "name": "a",
+                                            "operation": "interfacecall",
+                                            "target": "fj",
+                                            "type": "interface"
+                                        },
+                                        {
+                                            "condition": "var4.getCustomSuggestions() != null",
+                                            "instructions": [
+                                                {
+                                                    "field": "fm.a(var4.getCustomSuggestions())",
+                                                    "operation": "write",
+                                                    "type": "identifier"
+                                                }
+                                            ],
+                                            "operation": "if"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "instructions": [
+                                        {
+                                            "condition": "var7 instanceof com.mojang.brigadier.tree.LiteralCommandNode",
+                                            "instructions": [
+                                                {
+                                                    "field": "((com.mojang.brigadier.tree.LiteralCommandNode)var7).getLiteral()",
+                                                    "operation": "write",
+                                                    "type": "string"
+                                                }
+                                            ],
+                                            "operation": "if"
+                                        }
+                                    ],
+                                    "operation": "else"
+                                },
+                                {
+                                    "amount": "1",
+                                    "field": "var6",
+                                    "operation": "increment"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "var2.get(a).intValue()",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "recipes": {},
+    "sounds": {
+        "item.armor.equip_turtle": [
+            {
+                "field": "R",
+                "id": 43,
+                "name": "item.armor.equip_turtle",
+                "sounds": [
+                    {
+                        "hash": "18e070182052d63ec9b28ccec571a64db9137341",
+                        "name": "mob/turtle/armor"
+                    },
+                    {
+                        "hash": "18e070182052d63ec9b28ccec571a64db9137341",
+                        "name": "mob/turtle/armor",
+                        "pitch": 0.85
+                    },
+                    {
+                        "hash": "18e070182052d63ec9b28ccec571a64db9137341",
+                        "name": "mob/turtle/armor",
+                        "pitch": 1.1
+                    }
+                ],
+                "subtitle": "Turtle shell thunks",
+                "subtitle_key": "subtitles.item.armor.equip_turtle"
+            },
+            {
+                "field": "R",
+                "id": 43,
+                "name": "item.armor.equip_turtle",
+                "sounds": [
+                    {
+                        "hash": "18e070182052d63ec9b28ccec571a64db9137341",
+                        "name": "mob/turtle/armor"
+                    },
+                    {
+                        "hash": "18e070182052d63ec9b28ccec571a64db9137341",
+                        "name": "mob/turtle/armor",
+                        "pitch": 0.85
+                    },
+                    {
+                        "hash": "18e070182052d63ec9b28ccec571a64db9137341",
+                        "name": "mob/turtle/armor",
+                        "pitch": 1.1
+                    }
+                ],
+                "subtitle": "Turtle Shell thunks",
+                "subtitle_key": "subtitles.item.armor.equip_turtle"
+            }
+        ]
+    },
     "stats": {},
-    "tags": {}
+    "tags": {},
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            2571,
+            2572
+        ],
+        "id": [
+            "20w29a",
+            "20w30a"
+        ],
+        "name": [
+            "20w29a",
+            "20w30a"
+        ],
+        "protocol": [
+            741,
+            743
+        ]
+    }
 }
