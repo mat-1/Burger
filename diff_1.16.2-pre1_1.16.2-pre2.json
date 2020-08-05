@@ -1,0 +1,228 @@
+{
+    "achievements": {},
+    "blocks": {
+        "block": {}
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {}
+    },
+    "items": {
+        "item": {}
+    },
+    "language": {},
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_20": [
+                {
+                    "class": "ps.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 32,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "i",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "nbtcompound"
+                        },
+                        {
+                            "condition": "e != null",
+                            "instructions": [
+                                {
+                                    "field": "e.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "e",
+                                    "operation": "write",
+                                    "type": "varint[]"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "f.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "byte[]"
+                        },
+                        {
+                            "field": "g.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.g.iterator()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((mc)var2.next())",
+                                    "var": "var3"
+                                },
+                                {
+                                    "field": "var3",
+                                    "operation": "write",
+                                    "type": "nbtcompound"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "pt.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 32,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "nbtcompound"
+                        },
+                        {
+                            "condition": "e != null",
+                            "instructions": [
+                                {
+                                    "field": "e.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "e",
+                                    "operation": "write",
+                                    "type": "varint[]"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "f.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "byte[]"
+                        },
+                        {
+                            "field": "g.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.g.iterator()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((md)var2.next())",
+                                    "var": "var3"
+                                },
+                                {
+                                    "field": "var3",
+                                    "operation": "write",
+                                    "type": "nbtcompound"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "recipes": {},
+    "sounds": {},
+    "stats": {},
+    "tags": {},
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            2573,
+            2574
+        ],
+        "id": [
+            "1.16.2-pre1",
+            "1.16.2-pre2"
+        ],
+        "name": [
+            "1.16.2 Pre-release 1",
+            "1.16.2 Pre-release 2"
+        ],
+        "protocol": [
+            744,
+            746
+        ]
+    }
+}
