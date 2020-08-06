@@ -128,6 +128,106 @@
                     "from_client": false,
                     "from_server": true,
                     "id": 36,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "d.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.f.iterator()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((vj)var2.next())",
+                                    "var": "var3"
+                                },
+                                {
+                                    "field": "var3.a()",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "gn$b.a.encode(g)",
+                            "operation": "write",
+                            "type": "nbtcompound"
+                        },
+                        {
+                            "field": "cha.k.encode(this::q)",
+                            "operation": "write",
+                            "type": "nbtcompound"
+                        },
+                        {
+                            "field": "i.a()",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "j",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "k",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "l",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "m",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "n",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "o",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
                     "state": "PLAY"
                 }
             ],
@@ -188,6 +288,48 @@
                     "from_client": false,
                     "from_server": true,
                     "id": 57,
+                    "instructions": [
+                        {
+                            "field": "cha.k.encode(this::j)",
+                            "operation": "write",
+                            "type": "nbtcompound"
+                        },
+                        {
+                            "field": "b.a()",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "d.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
                     "state": "PLAY"
                 }
             ],
