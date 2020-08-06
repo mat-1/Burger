@@ -1,0 +1,312 @@
+{
+    "achievements": {},
+    "blocks": {
+        "block": {}
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {}
+    },
+    "items": {
+        "item": {}
+    },
+    "language": {},
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_24": [
+                {
+                    "class": "px.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 36,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "d.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.f.iterator()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((vj)var2.next())",
+                                    "var": "var3"
+                                },
+                                {
+                                    "field": "var3.a()",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "gn$b.a.encode(g)",
+                            "operation": "write",
+                            "type": "nbtcompound"
+                        },
+                        {
+                            "field": "h.a()",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "i.a()",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "j",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "k",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "l",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "m",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "n",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "o",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "px.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 36,
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_39": [
+                {
+                    "class": "qp.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 57,
+                    "instructions": [
+                        {
+                            "field": "a.a()",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "b.a()",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "d.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "qp.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 57,
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_3B": [
+                {
+                    "class": "qr.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 59,
+                    "instructions": [
+                        {
+                            "field": "a.s()",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "b.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2 < b.length",
+                            "instructions": [
+                                {
+                                    "field": "(long)((bul.i(c[var2]) << 0xc) | b[var2])",
+                                    "operation": "write",
+                                    "type": "varlong"
+                                },
+                                {
+                                    "amount": "1",
+                                    "field": "var2",
+                                    "operation": "increment"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "qr.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 59,
+                    "instructions": [
+                        {
+                            "field": "a.s()",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "b.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2 < b.length",
+                            "instructions": [
+                                {
+                                    "field": "(long)((bul.i(c[var2]) << 0xc) | b[var2])",
+                                    "operation": "write",
+                                    "type": "varlong"
+                                },
+                                {
+                                    "amount": "1",
+                                    "field": "var2",
+                                    "operation": "increment"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "recipes": {},
+    "sounds": {},
+    "stats": {},
+    "tags": {},
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            2574,
+            2575
+        ],
+        "id": [
+            "1.16.2-pre2",
+            "1.16.2-pre3"
+        ],
+        "name": [
+            "1.16.2 Pre-release 2",
+            "1.16.2 Pre-release 3"
+        ],
+        "protocol": [
+            746,
+            748
+        ]
+    }
+}
