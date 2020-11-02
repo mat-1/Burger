@@ -1,0 +1,258 @@
+{
+    "achievements": {},
+    "blocks": {
+        "block": {}
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {}
+    },
+    "items": {
+        "item": {}
+    },
+    "language": {
+        "disconnect": {
+            "loginFailedInfo.insufficientPrivileges": [
+                null,
+                "Multiplayer is disabled. Please check your Microsoft account settings."
+            ]
+        },
+        "gui": {
+            "socialInteractions.blocking_hint": [
+                null,
+                "Manage with Microsoft account"
+            ],
+            "socialInteractions.empty_blocked": [
+                null,
+                "No blocked players in chat"
+            ],
+            "socialInteractions.empty_hidden": [
+                null,
+                "No players hidden in chat"
+            ],
+            "socialInteractions.hidden_in_chat": [
+                null,
+                "Chat messages from %s will be hidden"
+            ],
+            "socialInteractions.hide": [
+                null,
+                "Hide in Chat"
+            ],
+            "socialInteractions.search_empty": [
+                null,
+                "Couldn't find any players with that name"
+            ],
+            "socialInteractions.search_hint": [
+                null,
+                "Search..."
+            ],
+            "socialInteractions.server_label.multiple": [
+                null,
+                "%s - %s players"
+            ],
+            "socialInteractions.server_label.single": [
+                null,
+                "%s - %s player"
+            ],
+            "socialInteractions.show": [
+                null,
+                "Show in Chat"
+            ],
+            "socialInteractions.shown_in_chat": [
+                null,
+                "Chat messages from %s will be shown"
+            ],
+            "socialInteractions.status_blocked": [
+                null,
+                "Blocked"
+            ],
+            "socialInteractions.status_blocked_offline": [
+                null,
+                "Blocked - Offline"
+            ],
+            "socialInteractions.status_hidden": [
+                null,
+                "Hidden"
+            ],
+            "socialInteractions.status_hidden_offline": [
+                null,
+                "Hidden - Offline"
+            ],
+            "socialInteractions.status_offline": [
+                null,
+                "Offline"
+            ],
+            "socialInteractions.tab_all": [
+                null,
+                "All"
+            ],
+            "socialInteractions.tab_blocked": [
+                null,
+                "Blocked"
+            ],
+            "socialInteractions.tab_hidden": [
+                null,
+                "Hidden"
+            ],
+            "socialInteractions.title": [
+                null,
+                "Social Interactions"
+            ],
+            "socialInteractions.tooltip.hide": [
+                null,
+                "Hide messages from %s in chat"
+            ],
+            "socialInteractions.tooltip.show": [
+                null,
+                "Show messages from %s in chat"
+            ]
+        },
+        "key": {
+            "socialInteractions": [
+                null,
+                "Social Interactions Screen"
+            ]
+        },
+        "multiplayer": {
+            "disconnect.incompatible": [
+                null,
+                "Incompatible client! Please use %s"
+            ],
+            "disconnect.outdated_client": [
+                "Outdated client! Please use %s",
+                "Incompatible client! Please use %s"
+            ],
+            "disconnect.outdated_server": [
+                "Outdated server! I'm still on %s",
+                "Incompatible client! Please use %s"
+            ],
+            "socialInteractions.not_available": [
+                null,
+                "Social Interactions are only available in Multiplayer worlds"
+            ],
+            "status.client_out_of_date": [
+                "Client out of date!",
+                null
+            ],
+            "status.incompatible": [
+                null,
+                "Incompatible version!"
+            ],
+            "status.server_out_of_date": [
+                "Server out of date!",
+                null
+            ]
+        },
+        "options": {
+            "accessibility.link": [
+                null,
+                "Accessibility Guide"
+            ],
+            "hideMatchedNames": [
+                null,
+                "Hide Matched Names"
+            ],
+            "hideMatchedNames.tooltip": [
+                null,
+                "3rd-party Servers may send chat messages in non-standard formats.\nWith this option on: hidden players will be matched based on chat sender names."
+            ]
+        },
+        "title": {
+            "multiplayer.disabled": [
+                "Multiplayer is disabled. Please check your launcher settings.",
+                "Multiplayer is disabled. Please check your Microsoft account settings."
+            ]
+        },
+        "tutorial": {
+            "socialInteractions.description": [
+                null,
+                "Press %s to open"
+            ],
+            "socialInteractions.title": [
+                null,
+                "Social Interactions"
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "PLAY_SERVERBOUND_0C": [
+                {
+                    "class": "sn.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 12,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "itemstack"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "sn.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 12,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "itemstack"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "recipes": {},
+    "sounds": {},
+    "stats": {},
+    "tags": {},
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            2580,
+            2584
+        ],
+        "id": [
+            "1.16.3",
+            "1.16.4"
+        ],
+        "name": [
+            "1.16.3",
+            "1.16.4"
+        ],
+        "protocol": [
+            753,
+            754
+        ]
+    }
+}
