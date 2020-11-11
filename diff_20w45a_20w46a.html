@@ -1,0 +1,113 @@
+<!doctype html>
+              <html>
+                <head>
+                  <title>Burger Vitrine</title>
+                  <link rel="stylesheet" href="resources/style.css" />
+                  <script src="resources/jquery.js"></script>
+                  <script src="resources/vitrine.js"></script>
+                </head>
+                <body>
+                    <div id="vitrine">
+                        <a href="#packets"><h2 id="packets">Packets</h2></a><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_25"><h3 id="packets:play_clientbound_25">PLAY_CLIENTBOUND_25</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>37</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_p">(</span><span class="hl_n">a</span><span class="hl_p">);</span>
+<span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">b</span><span class="hl_p">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_p">(</span><span class="hl_n">c</span><span class="hl_p">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_p">(</span><span class="hl_n">d</span><span class="hl_p">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_p">(</span><span class="hl_n">e</span><span class="hl_p">.</span><span class="hl_na">length</span><span class="hl_p">);</span>
+<span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_p">.</span><span class="hl_na">e</span><span class="hl_p">;</span>
+<span class="hl_kt">int</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_n">var2</span><span class="hl_p">.</span><span class="hl_na">length</span><span class="hl_p">;</span>
+<span class="hl_kt">int</span> <span class="hl_n">var4</span> <span class="hl_o">=</span> <span class="hl_mi">0</span><span class="hl_p">;</span>
+<span class="hl_k">while</span><span class="hl_p">(</span><span class="hl_n">var4</span> <span class="hl_o">&lt;</span> <span class="hl_n">var3</span><span class="hl_p">)</span> <span class="hl_p">{</span>
+  <span class="hl_n">Object</span> <span class="hl_n">var5</span> <span class="hl_o">=</span> <span class="hl_n">var2</span><span class="hl_o">[</span><span class="hl_n">var4</span><span class="hl_o">]</span><span class="hl_p">;</span>
+  <span class="hl_n">writeVarIntEnum</span><span class="hl_p">(</span><span class="hl_n">var5</span><span class="hl_p">.</span><span class="hl_na">b</span><span class="hl_p">());</span>
+  <span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">var5</span><span class="hl_p">.</span><span class="hl_na">c</span><span class="hl_p">());</span>
+  <span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">var5</span><span class="hl_p">.</span><span class="hl_na">d</span><span class="hl_p">());</span>
+  <span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">var5</span><span class="hl_p">.</span><span class="hl_na">e</span><span class="hl_p">()</span> <span class="hl_o">&amp;</span> <span class="hl_mh">0xf</span><span class="hl_p">);</span>
+  <span class="hl_k">if</span><span class="hl_p">(</span><span class="hl_n">var5</span><span class="hl_p">.</span><span class="hl_na">g</span><span class="hl_p">()</span> <span class="hl_o">!=</span> <span class="hl_kc">null</span><span class="hl_p">)</span> <span class="hl_p">{</span>
+    <span class="hl_n">writeBoolean</span><span class="hl_p">(</span><span class="hl_mi">1</span><span class="hl_p">);</span>
+    <span class="hl_n">writeChatComponent</span><span class="hl_p">(</span><span class="hl_n">var5</span><span class="hl_p">.</span><span class="hl_na">g</span><span class="hl_p">());</span>
+  <span class="hl_p">}</span> <span class="hl_k">else</span> <span class="hl_p">{</span>
+    <span class="hl_n">writeBoolean</span><span class="hl_p">(</span><span class="hl_mi">0</span><span class="hl_p">);</span>
+  <span class="hl_p">}</span>
+  <span class="hl_n">var4</span><span class="hl_o">++</span><span class="hl_p">;</span>
+<span class="hl_p">}</span>
+<span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">h</span><span class="hl_p">);</span>
+<span class="hl_k">if</span><span class="hl_p">(</span><span class="hl_n">h</span> <span class="hl_o">&gt;</span> <span class="hl_mi">0</span><span class="hl_p">)</span> <span class="hl_p">{</span>
+  <span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">i</span><span class="hl_p">);</span>
+  <span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">f</span><span class="hl_p">);</span>
+  <span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">g</span><span class="hl_p">);</span>
+  <span class="hl_n">writeVarInt</span><span class="hl_p">(</span><span class="hl_n">j</span><span class="hl_p">.</span><span class="hl_na">length</span><span class="hl_p">);</span>
+  <span class="hl_n">writeBytes</span><span class="hl_p">(</span><span class="hl_n">j</span><span class="hl_p">);</span>
+<span class="hl_p">}</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_25"><h3 id="packets:play_clientbound_25">PLAY_CLIENTBOUND_25</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>37</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_p">(</span><span class="hl_n">a</span><span class="hl_p">);</span>
+<span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">b</span><span class="hl_p">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_p">(</span><span class="hl_n">c</span><span class="hl_p">);</span>
+<span class="hl_k">if</span><span class="hl_p">(</span><span class="hl_n">d</span> <span class="hl_o">!=</span> <span class="hl_kc">null</span><span class="hl_p">)</span> <span class="hl_p">{</span>
+  <span class="hl_n">writeBoolean</span><span class="hl_p">(</span><span class="hl_mi">1</span><span class="hl_p">);</span>
+  <span class="hl_n">writeVarInt</span><span class="hl_p">(</span><span class="hl_n">d</span><span class="hl_p">.</span><span class="hl_na">length</span><span class="hl_p">);</span>
+  <span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_p">.</span><span class="hl_na">d</span><span class="hl_p">;</span>
+  <span class="hl_kt">int</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_n">var2</span><span class="hl_p">.</span><span class="hl_na">length</span><span class="hl_p">;</span>
+  <span class="hl_kt">int</span> <span class="hl_n">var4</span> <span class="hl_o">=</span> <span class="hl_mi">0</span><span class="hl_p">;</span>
+  <span class="hl_k">while</span><span class="hl_p">(</span><span class="hl_n">var4</span> <span class="hl_o">&lt;</span> <span class="hl_n">var3</span><span class="hl_p">)</span> <span class="hl_p">{</span>
+    <span class="hl_n">Object</span> <span class="hl_n">var5</span> <span class="hl_o">=</span> <span class="hl_n">var2</span><span class="hl_o">[</span><span class="hl_n">var4</span><span class="hl_o">]</span><span class="hl_p">;</span>
+    <span class="hl_n">writeVarIntEnum</span><span class="hl_p">(</span><span class="hl_n">var5</span><span class="hl_p">.</span><span class="hl_na">b</span><span class="hl_p">());</span>
+    <span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">var5</span><span class="hl_p">.</span><span class="hl_na">c</span><span class="hl_p">());</span>
+    <span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">var5</span><span class="hl_p">.</span><span class="hl_na">d</span><span class="hl_p">());</span>
+    <span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">var5</span><span class="hl_p">.</span><span class="hl_na">e</span><span class="hl_p">()</span> <span class="hl_o">&amp;</span> <span class="hl_mh">0xf</span><span class="hl_p">);</span>
+    <span class="hl_k">if</span><span class="hl_p">(</span><span class="hl_n">var5</span><span class="hl_p">.</span><span class="hl_na">g</span><span class="hl_p">()</span> <span class="hl_o">!=</span> <span class="hl_kc">null</span><span class="hl_p">)</span> <span class="hl_p">{</span>
+      <span class="hl_n">writeBoolean</span><span class="hl_p">(</span><span class="hl_mi">1</span><span class="hl_p">);</span>
+      <span class="hl_n">writeChatComponent</span><span class="hl_p">(</span><span class="hl_n">var5</span><span class="hl_p">.</span><span class="hl_na">g</span><span class="hl_p">());</span>
+    <span class="hl_p">}</span> <span class="hl_k">else</span> <span class="hl_p">{</span>
+      <span class="hl_n">writeBoolean</span><span class="hl_p">(</span><span class="hl_mi">0</span><span class="hl_p">);</span>
+    <span class="hl_p">}</span>
+    <span class="hl_n">var4</span><span class="hl_o">++</span><span class="hl_p">;</span>
+  <span class="hl_p">}</span>
+<span class="hl_p">}</span> <span class="hl_k">else</span> <span class="hl_p">{</span>
+  <span class="hl_n">writeBoolean</span><span class="hl_p">(</span><span class="hl_mi">0</span><span class="hl_p">);</span>
+<span class="hl_p">}</span>
+<span class="hl_k">if</span><span class="hl_p">(</span><span class="hl_n">e</span> <span class="hl_o">!=</span> <span class="hl_kc">null</span><span class="hl_p">)</span> <span class="hl_p">{</span>
+  <span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">e</span><span class="hl_p">.</span><span class="hl_na">c</span><span class="hl_p">);</span>
+  <span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">e</span><span class="hl_p">.</span><span class="hl_na">d</span><span class="hl_p">);</span>
+  <span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">e</span><span class="hl_p">.</span><span class="hl_na">a</span><span class="hl_p">);</span>
+  <span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">e</span><span class="hl_p">.</span><span class="hl_na">b</span><span class="hl_p">);</span>
+  <span class="hl_n">writeVarInt</span><span class="hl_p">(</span><span class="hl_n">e</span><span class="hl_p">.</span><span class="hl_na">e</span><span class="hl_p">.</span><span class="hl_na">length</span><span class="hl_p">);</span>
+  <span class="hl_n">writeBytes</span><span class="hl_p">(</span><span class="hl_n">e</span><span class="hl_p">.</span><span class="hl_na">e</span><span class="hl_p">);</span>
+<span class="hl_p">}</span> <span class="hl_k">else</span> <span class="hl_p">{</span>
+  <span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_mi">0</span><span class="hl_p">);</span>
+<span class="hl_p">}</span>
+</pre></div></div>
+</div></div>
+<a href="#versions"><h2 id="versions">Versions</h2></a><div class="split"><div class="left"><div class="entry"><a href="#versions:data"><h3 id="versions:data">data</h3></a><div>2681</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:data"><h3 id="versions:data">data</h3></a><div>2682</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:id"><h3 id="versions:id">id</h3></a><div>20w45a</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:id"><h3 id="versions:id">id</h3></a><div>20w46a</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:name"><h3 id="versions:name">name</h3></a><div>20w45a</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:name"><h3 id="versions:name">name</h3></a><div>20w46a</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>1073741829</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>1073741830</div></div>
+</div></div>
+<a href="#language"><h2 id="language">Language</h2></a><div class="split"><div class="left"><div class="entry"><a href="#language:advmode"><h3 id="language:advmode">advMode</h3></a><div><dl class="wide"><dt>mode</dt><dd>-</dd><dt>trackOutput</dt><dd>-</dd><dt>triggering</dt><dd>-</dd><dt>type</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:advmode"><h3 id="language:advmode">advMode</h3></a><div><dl class="wide"><dt>mode</dt><dd>Mode</dd><dt>trackOutput</dt><dd>Track output</dd><dt>triggering</dt><dd>Triggering</dd><dt>type</dt><dd>Type</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:block"><h3 id="language:block">block</h3></a><div><dl class="wide"><dt>minecraft.banner.base.black</dt><dd>-</dd><dt>minecraft.banner.base.blue</dt><dd>-</dd><dt>minecraft.banner.base.brown</dt><dd>-</dd><dt>minecraft.banner.base.cyan</dt><dd>-</dd><dt>minecraft.banner.base.gray</dt><dd>-</dd><dt>minecraft.banner.base.green</dt><dd>-</dd><dt>minecraft.banner.base.light_blue</dt><dd>-</dd><dt>minecraft.banner.base.light_gray</dt><dd>-</dd><dt>minecraft.banner.base.lime</dt><dd>-</dd><dt>minecraft.banner.base.magenta</dt><dd>-</dd><dt>minecraft.banner.base.orange</dt><dd>-</dd><dt>minecraft.banner.base.pink</dt><dd>-</dd><dt>minecraft.banner.base.purple</dt><dd>-</dd><dt>minecraft.banner.base.red</dt><dd>-</dd><dt>minecraft.banner.base.white</dt><dd>-</dd><dt>minecraft.banner.base.yellow</dt><dd>-</dd><dt>minecraft.lapis_block</dt><dd>Lapis Lazuli Block</dd><dt>minecraft.powder_snow</dt><dd>-</dd><dt>minecraft.powder_snow_cauldron</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:block"><h3 id="language:block">block</h3></a><div><dl class="wide"><dt>minecraft.banner.base.black</dt><dd>Fully Black Field</dd><dt>minecraft.banner.base.blue</dt><dd>Fully Blue Field</dd><dt>minecraft.banner.base.brown</dt><dd>Fully Brown Field</dd><dt>minecraft.banner.base.cyan</dt><dd>Fully Cyan Field</dd><dt>minecraft.banner.base.gray</dt><dd>Fully Gray Field</dd><dt>minecraft.banner.base.green</dt><dd>Fully Green Field</dd><dt>minecraft.banner.base.light_blue</dt><dd>Fully Light Blue Field</dd><dt>minecraft.banner.base.light_gray</dt><dd>Fully Light Gray Field</dd><dt>minecraft.banner.base.lime</dt><dd>Fully Lime Field</dd><dt>minecraft.banner.base.magenta</dt><dd>Fully Magenta Field</dd><dt>minecraft.banner.base.orange</dt><dd>Fully Orange Field</dd><dt>minecraft.banner.base.pink</dt><dd>Fully Pink Field</dd><dt>minecraft.banner.base.purple</dt><dd>Fully Purple Field</dd><dt>minecraft.banner.base.red</dt><dd>Fully Red Field</dd><dt>minecraft.banner.base.white</dt><dd>Fully White Field</dd><dt>minecraft.banner.base.yellow</dt><dd>Fully Yellow Field</dd><dt>minecraft.lapis_block</dt><dd>Block of Lapis Lazuli</dd><dt>minecraft.powder_snow</dt><dd>Powder Snow</dd><dt>minecraft.powder_snow_cauldron</dt><dd>Powder Snow Cauldron</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:commands"><h3 id="language:commands">commands</h3></a><div><dl class="wide"><dt>item.block.set.success</dt><dd>-</dd><dt>item.entity.set.success.multiple</dt><dd>-</dd><dt>item.entity.set.success.single</dt><dd>-</dd><dt>item.source.no_such_slot</dt><dd>-</dd><dt>item.source.not_a_container</dt><dd>-</dd><dt>item.target.no_changed.known_item</dt><dd>-</dd><dt>item.target.no_changes</dt><dd>-</dd><dt>item.target.no_such_slot</dt><dd>-</dd><dt>item.target.not_a_container</dt><dd>-</dd><dt>replaceitem.block.failed</dt><dd>The target block is not a container</dd><dt>replaceitem.block.success</dt><dd>Replaced a slot at %s, %s, %s with %s</dd><dt>replaceitem.entity.failed</dt><dd>Could not put %s in slot %s</dd><dt>replaceitem.entity.success.multiple</dt><dd>Replaced a slot on %s entities with %s</dd><dt>replaceitem.entity.success.single</dt><dd>Replaced a slot on %s with %s</dd><dt>replaceitem.slot.inapplicable</dt><dd>The target does not have slot %s</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:commands"><h3 id="language:commands">commands</h3></a><div><dl class="wide"><dt>item.block.set.success</dt><dd>Replaced a slot at %s, %s, %s with %s</dd><dt>item.entity.set.success.multiple</dt><dd>Replaced a slot on %s entities with %s</dd><dt>item.entity.set.success.single</dt><dd>Replaced a slot on %s with %s</dd><dt>item.source.no_such_slot</dt><dd>The source does not have slot %s</dd><dt>item.source.not_a_container</dt><dd>Source position %s, %s, %s is not a container</dd><dt>item.target.no_changed.known_item</dt><dd>No targets accepted item %s into slot %s</dd><dt>item.target.no_changes</dt><dd>No targets accepted item into slot %s</dd><dt>item.target.no_such_slot</dt><dd>The target does not have slot %s</dd><dt>item.target.not_a_container</dt><dd>Target position %s, %s, %s is not a container</dd><dt>replaceitem.block.failed</dt><dd>-</dd><dt>replaceitem.block.success</dt><dd>-</dd><dt>replaceitem.entity.failed</dt><dd>-</dd><dt>replaceitem.entity.success.multiple</dt><dd>-</dd><dt>replaceitem.entity.success.single</dt><dd>-</dd><dt>replaceitem.slot.inapplicable</dt><dd>-</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:death"><h3 id="language:death">death</h3></a><div><dl class="wide"><dt>attack.freeze</dt><dd>-</dd><dt>attack.freeze.player</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:death"><h3 id="language:death">death</h3></a><div><dl class="wide"><dt>attack.freeze</dt><dd>%1$s froze to death</dd><dt>attack.freeze.player</dt><dd>%1$s was frozen to death by %2$s</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:item"><h3 id="language:item">item</h3></a><div><dl class="wide"><dt>minecraft.powder_snow_bucket</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:item"><h3 id="language:item">item</h3></a><div><dl class="wide"><dt>minecraft.powder_snow_bucket</dt><dd>Powder Snow Bucket</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="no entry"></div>
+</div><div class="right"><div class="entry"><a href="#language:item_modifier"><h3 id="language:item_modifier">item_modifier</h3></a><div><dl class="wide"><dt>unknown</dt><dd>Unknown item modifier: %s</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="no entry"></div>
+</div><div class="right"><div class="entry"><a href="#language:mirror"><h3 id="language:mirror">mirror</h3></a><div><dl class="wide"><dt>front_back</dt><dd>↑ ↓</dd><dt>left_right</dt><dd>← →</dd><dt>none</dt><dd>|</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:options"><h3 id="language:options">options</h3></a><div><dl class="wide"><dt>fovEffectScale.off</dt><dd>Off</dd><dt>screenEffectScale.off</dt><dd>Off</dd><dt>vbo</dt><dd>Use VBOs</dd><dt>vsync</dt><dd>Use VSync</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:options"><h3 id="language:options">options</h3></a><div><dl class="wide"><dt>fovEffectScale.off</dt><dd>-</dd><dt>screenEffectScale.off</dt><dd>-</dd><dt>vbo</dt><dd>-</dd><dt>vsync</dt><dd>VSync</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:selectworld"><h3 id="language:selectworld">selectWorld</h3></a><div><dl class="wide"><dt>mapType</dt><dd>World Type:</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:selectworld"><h3 id="language:selectworld">selectWorld</h3></a><div><dl class="wide"><dt>mapType</dt><dd>World Type</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:subtitles"><h3 id="language:subtitles">subtitles</h3></a><div><dl class="wide"><dt>entity.player.freeze_hurt</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:subtitles"><h3 id="language:subtitles">subtitles</h3></a><div><dl class="wide"><dt>entity.player.freeze_hurt</dt><dd>Player freezes</dd></dl></div></div>
+</div></div>
+
+                    </div>
+                </body>
+              </html>

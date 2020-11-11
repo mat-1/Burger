@@ -1,0 +1,576 @@
+{
+    "language": {
+        "advMode": {
+            "mode": [
+                null,
+                "Mode"
+            ],
+            "trackOutput": [
+                null,
+                "Track output"
+            ],
+            "triggering": [
+                null,
+                "Triggering"
+            ],
+            "type": [
+                null,
+                "Type"
+            ]
+        },
+        "block": {
+            "minecraft.banner.base.black": [
+                null,
+                "Fully Black Field"
+            ],
+            "minecraft.banner.base.blue": [
+                null,
+                "Fully Blue Field"
+            ],
+            "minecraft.banner.base.brown": [
+                null,
+                "Fully Brown Field"
+            ],
+            "minecraft.banner.base.cyan": [
+                null,
+                "Fully Cyan Field"
+            ],
+            "minecraft.banner.base.gray": [
+                null,
+                "Fully Gray Field"
+            ],
+            "minecraft.banner.base.green": [
+                null,
+                "Fully Green Field"
+            ],
+            "minecraft.banner.base.light_blue": [
+                null,
+                "Fully Light Blue Field"
+            ],
+            "minecraft.banner.base.light_gray": [
+                null,
+                "Fully Light Gray Field"
+            ],
+            "minecraft.banner.base.lime": [
+                null,
+                "Fully Lime Field"
+            ],
+            "minecraft.banner.base.magenta": [
+                null,
+                "Fully Magenta Field"
+            ],
+            "minecraft.banner.base.orange": [
+                null,
+                "Fully Orange Field"
+            ],
+            "minecraft.banner.base.pink": [
+                null,
+                "Fully Pink Field"
+            ],
+            "minecraft.banner.base.purple": [
+                null,
+                "Fully Purple Field"
+            ],
+            "minecraft.banner.base.red": [
+                null,
+                "Fully Red Field"
+            ],
+            "minecraft.banner.base.white": [
+                null,
+                "Fully White Field"
+            ],
+            "minecraft.banner.base.yellow": [
+                null,
+                "Fully Yellow Field"
+            ],
+            "minecraft.lapis_block": [
+                "Lapis Lazuli Block",
+                "Block of Lapis Lazuli"
+            ],
+            "minecraft.powder_snow": [
+                null,
+                "Powder Snow"
+            ],
+            "minecraft.powder_snow_cauldron": [
+                null,
+                "Powder Snow Cauldron"
+            ]
+        },
+        "commands": {
+            "item.block.set.success": [
+                null,
+                "Replaced a slot at %s, %s, %s with %s"
+            ],
+            "item.entity.set.success.multiple": [
+                null,
+                "Replaced a slot on %s entities with %s"
+            ],
+            "item.entity.set.success.single": [
+                null,
+                "Replaced a slot on %s with %s"
+            ],
+            "item.source.no_such_slot": [
+                null,
+                "The source does not have slot %s"
+            ],
+            "item.source.not_a_container": [
+                null,
+                "Source position %s, %s, %s is not a container"
+            ],
+            "item.target.no_changed.known_item": [
+                null,
+                "No targets accepted item %s into slot %s"
+            ],
+            "item.target.no_changes": [
+                null,
+                "No targets accepted item into slot %s"
+            ],
+            "item.target.no_such_slot": [
+                null,
+                "The target does not have slot %s"
+            ],
+            "item.target.not_a_container": [
+                null,
+                "Target position %s, %s, %s is not a container"
+            ],
+            "replaceitem.block.failed": [
+                "The target block is not a container",
+                null
+            ],
+            "replaceitem.block.success": [
+                "Replaced a slot at %s, %s, %s with %s",
+                null
+            ],
+            "replaceitem.entity.failed": [
+                "Could not put %s in slot %s",
+                null
+            ],
+            "replaceitem.entity.success.multiple": [
+                "Replaced a slot on %s entities with %s",
+                null
+            ],
+            "replaceitem.entity.success.single": [
+                "Replaced a slot on %s with %s",
+                null
+            ],
+            "replaceitem.slot.inapplicable": [
+                "The target does not have slot %s",
+                null
+            ]
+        },
+        "death": {
+            "attack.freeze": [
+                null,
+                "%1$s froze to death"
+            ],
+            "attack.freeze.player": [
+                null,
+                "%1$s was frozen to death by %2$s"
+            ]
+        },
+        "item": {
+            "minecraft.powder_snow_bucket": [
+                null,
+                "Powder Snow Bucket"
+            ]
+        },
+        "item_modifier": [
+            null,
+            {
+                "unknown": "Unknown item modifier: %s"
+            }
+        ],
+        "mirror": [
+            null,
+            {
+                "front_back": "\u2191 \u2193",
+                "left_right": "\u2190 \u2192",
+                "none": "|"
+            }
+        ],
+        "options": {
+            "fovEffectScale.off": [
+                "Off",
+                null
+            ],
+            "screenEffectScale.off": [
+                "Off",
+                null
+            ],
+            "vbo": [
+                "Use VBOs",
+                null
+            ],
+            "vsync": [
+                "Use VSync",
+                "VSync"
+            ]
+        },
+        "selectWorld": {
+            "mapType": [
+                "World Type:",
+                "World Type"
+            ]
+        },
+        "subtitles": {
+            "entity.player.freeze_hurt": [
+                null,
+                "Player freezes"
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_25": [
+                {
+                    "class": "qh.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 37,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "e.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.e",
+                            "var": "var2"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "var2.length",
+                            "var": "var3"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var4"
+                        },
+                        {
+                            "condition": "var4 < var3",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "var2[var4]",
+                                    "var": "var5"
+                                },
+                                {
+                                    "field": "var5.b()",
+                                    "operation": "write",
+                                    "type": "enum"
+                                },
+                                {
+                                    "field": "var5.c()",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "var5.d()",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "var5.e() & 0xf",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "condition": "var5.g() != null",
+                                    "instructions": [
+                                        {
+                                            "field": "1",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "var5.g()",
+                                            "operation": "write",
+                                            "type": "chatcomponent"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "instructions": [
+                                        {
+                                            "field": "0",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        }
+                                    ],
+                                    "operation": "else"
+                                },
+                                {
+                                    "amount": "1",
+                                    "field": "var4",
+                                    "operation": "increment"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "condition": "h > 0",
+                            "instructions": [
+                                {
+                                    "field": "i",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "f",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "g",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "j.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "j",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "qh.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 37,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "d != null",
+                            "instructions": [
+                                {
+                                    "field": "1",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                },
+                                {
+                                    "field": "d.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "this.d",
+                                    "var": "var2"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "var2.length",
+                                    "var": "var3"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "0",
+                                    "var": "var4"
+                                },
+                                {
+                                    "condition": "var4 < var3",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "var2[var4]",
+                                            "var": "var5"
+                                        },
+                                        {
+                                            "field": "var5.b()",
+                                            "operation": "write",
+                                            "type": "enum"
+                                        },
+                                        {
+                                            "field": "var5.c()",
+                                            "operation": "write",
+                                            "type": "byte"
+                                        },
+                                        {
+                                            "field": "var5.d()",
+                                            "operation": "write",
+                                            "type": "byte"
+                                        },
+                                        {
+                                            "field": "var5.e() & 0xf",
+                                            "operation": "write",
+                                            "type": "byte"
+                                        },
+                                        {
+                                            "condition": "var5.g() != null",
+                                            "instructions": [
+                                                {
+                                                    "field": "1",
+                                                    "operation": "write",
+                                                    "type": "boolean"
+                                                },
+                                                {
+                                                    "field": "var5.g()",
+                                                    "operation": "write",
+                                                    "type": "chatcomponent"
+                                                }
+                                            ],
+                                            "operation": "if"
+                                        },
+                                        {
+                                            "instructions": [
+                                                {
+                                                    "field": "0",
+                                                    "operation": "write",
+                                                    "type": "boolean"
+                                                }
+                                            ],
+                                            "operation": "else"
+                                        },
+                                        {
+                                            "amount": "1",
+                                            "field": "var4",
+                                            "operation": "increment"
+                                        }
+                                    ],
+                                    "operation": "loop"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "field": "0",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "else"
+                        },
+                        {
+                            "condition": "e != null",
+                            "instructions": [
+                                {
+                                    "field": "e.c",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "e.d",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "e.a",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "e.b",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "e.e.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "e.e",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "field": "0",
+                                    "operation": "write",
+                                    "type": "byte"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "version": {
+        "data": [
+            2681,
+            2682
+        ],
+        "id": [
+            "20w45a",
+            "20w46a"
+        ],
+        "name": [
+            "20w45a",
+            "20w46a"
+        ],
+        "protocol": [
+            1073741829,
+            1073741830
+        ]
+    }
+}
