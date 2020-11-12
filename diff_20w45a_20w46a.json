@@ -1,4 +1,238 @@
 {
+    "achievements": {},
+    "blocks": {
+        "block": {
+            "lapis_block": [
+                {
+                    "class": "bvl",
+                    "display_name": "Lapis Lazuli Block",
+                    "field": "ar",
+                    "hardness": 3.0,
+                    "max_state_id": 233,
+                    "min_state_id": 233,
+                    "num_states": 1,
+                    "numeric_id": 69,
+                    "resistance": 3.0,
+                    "states": [],
+                    "text_id": "lapis_block"
+                },
+                {
+                    "class": "bvr",
+                    "display_name": "Block of Lapis Lazuli",
+                    "field": "ar",
+                    "hardness": 3.0,
+                    "max_state_id": 233,
+                    "min_state_id": 233,
+                    "num_states": 1,
+                    "numeric_id": 69,
+                    "resistance": 3.0,
+                    "states": [],
+                    "text_id": "lapis_block"
+                }
+            ],
+            "powder_snow": [
+                null,
+                {
+                    "class": "cak",
+                    "display_name": "Powder Snow",
+                    "field": "oD",
+                    "hardness": 0.1,
+                    "max_state_id": 17569,
+                    "min_state_id": 17569,
+                    "num_states": 1,
+                    "numeric_id": 809,
+                    "resistance": 0.1,
+                    "states": [],
+                    "text_id": "powder_snow"
+                }
+            ],
+            "powder_snow_cauldron": [
+                null,
+                {
+                    "class": "bzj",
+                    "display_name": "Powder Snow Cauldron",
+                    "field": "ee",
+                    "max_state_id": 5186,
+                    "min_state_id": 5184,
+                    "num_states": 3,
+                    "numeric_id": 264,
+                    "states": [
+                        {
+                            "declared_in": "cgr",
+                            "field_name": "b",
+                            "max": 3,
+                            "min": 1,
+                            "name": "level",
+                            "num_values": 3,
+                            "type": "int"
+                        }
+                    ],
+                    "text_id": "powder_snow_cauldron"
+                }
+            ]
+        }
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {
+            "~abstract_entity": [
+                {
+                    "class": "aqk",
+                    "metadata": [
+                        {
+                            "class": "aqk",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "R",
+                                    "index": 0,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "field": "al",
+                                    "index": 1,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "am",
+                                    "index": 2,
+                                    "serializer": "OptChat",
+                                    "serializer_id": 5
+                                },
+                                {
+                                    "default": false,
+                                    "field": "an",
+                                    "index": 3,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "ao",
+                                    "index": 4,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "ap",
+                                    "index": 5,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "field": "S",
+                                    "index": 6,
+                                    "serializer": "Pose",
+                                    "serializer_id": 18
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "~abstract_entity"
+                },
+                {
+                    "class": "aqk",
+                    "metadata": [
+                        {
+                            "class": "aqk",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "R",
+                                    "index": 0,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "field": "am",
+                                    "index": 1,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "an",
+                                    "index": 2,
+                                    "serializer": "OptChat",
+                                    "serializer_id": 5
+                                },
+                                {
+                                    "default": false,
+                                    "field": "ao",
+                                    "index": 3,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "ap",
+                                    "index": 4,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "aq",
+                                    "index": 5,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "field": "S",
+                                    "index": 6,
+                                    "serializer": "Pose",
+                                    "serializer_id": 18
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "ar",
+                                    "index": 7,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "~abstract_entity"
+                }
+            ]
+        }
+    },
+    "items": {
+        "item": {
+            "lapis_block": [
+                {
+                    "display_name": "Lapis Lazuli Block",
+                    "field": "aF",
+                    "max_stack_size": 64,
+                    "numeric_id": 83,
+                    "text_id": "lapis_block"
+                },
+                {
+                    "display_name": "Block of Lapis Lazuli",
+                    "field": "aF",
+                    "max_stack_size": 64,
+                    "numeric_id": 83,
+                    "text_id": "lapis_block"
+                }
+            ],
+            "powder_snow_bucket": [
+                null,
+                {
+                    "class": "bnw",
+                    "display_name": "Powder Snow Bucket",
+                    "field": "sW",
+                    "max_stack_size": 1,
+                    "numeric_id": 1036,
+                    "text_id": "powder_snow_bucket"
+                }
+            ]
+        }
+    },
     "language": {
         "advMode": {
             "mode": [
@@ -554,6 +788,587 @@
                 }
             ]
         }
+    },
+    "recipes": {
+        "copper_block": [
+            [
+                {
+                    "id": "minecraft:copper_block",
+                    "makes": {
+                        "count": 1,
+                        "name": "copper_block",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###",
+                            "###",
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ],
+            [
+                {
+                    "id": "minecraft:copper_block",
+                    "makes": {
+                        "count": 1,
+                        "name": "copper_block",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "copper_ingot": [
+            [
+                {
+                    "group": "copper_ingot",
+                    "id": "minecraft:copper_ingot_from_copper_block",
+                    "ingredients": [
+                        {
+                            "name": "copper_block",
+                            "type": "item"
+                        }
+                    ],
+                    "makes": {
+                        "count": 9,
+                        "name": "copper_ingot",
+                        "type": "item"
+                    },
+                    "type": "shapeless"
+                }
+            ],
+            [
+                {
+                    "group": "copper_ingot",
+                    "id": "minecraft:copper_ingot_from_copper_block",
+                    "ingredients": [
+                        {
+                            "name": "copper_block",
+                            "type": "item"
+                        }
+                    ],
+                    "makes": {
+                        "count": 4,
+                        "name": "copper_ingot",
+                        "type": "item"
+                    },
+                    "type": "shapeless"
+                }
+            ]
+        ]
+    },
+    "sounds": {
+        "block.powder_snow.break": [
+            null,
+            {
+                "field": "mB",
+                "id": 703,
+                "name": "block.powder_snow.break",
+                "sounds": [
+                    {
+                        "hash": "1e5627cdb081851d666923bb8aa92a29ca56dc36",
+                        "name": "block/powder_snow/break1"
+                    },
+                    {
+                        "hash": "9929be86fe1606d155e965d70c387f2b2cb8a326",
+                        "name": "block/powder_snow/break2"
+                    },
+                    {
+                        "hash": "b7e64d990e44daa87fc57808627c3f116ad12868",
+                        "name": "block/powder_snow/break3"
+                    },
+                    {
+                        "hash": "638b448f4f4298cdb65fe8d4b99fd90daaa672b1",
+                        "name": "block/powder_snow/break4"
+                    },
+                    {
+                        "hash": "0027d19bb0cd9c914d3ac148aeee6316d9786341",
+                        "name": "block/powder_snow/break5"
+                    },
+                    {
+                        "hash": "2ed2ba2403409c9eedda1b3bcbf49595e40f237a",
+                        "name": "block/powder_snow/break6"
+                    },
+                    {
+                        "hash": "50775dd4c91553d43b7c9c1d409002f3ee582354",
+                        "name": "block/powder_snow/break7"
+                    }
+                ],
+                "subtitle": "Block broken",
+                "subtitle_key": "subtitles.block.generic.break"
+            }
+        ],
+        "block.powder_snow.fall": [
+            null,
+            {
+                "field": "mC",
+                "id": 704,
+                "name": "block.powder_snow.fall",
+                "sounds": [
+                    {
+                        "hash": "d86bd0068709f9bacdb694a1ea3f1b321dbd4e44",
+                        "name": "block/powder_snow/step1"
+                    },
+                    {
+                        "hash": "fd5a0ea09e1643206c9a33592440e0f87a556455",
+                        "name": "block/powder_snow/step2"
+                    },
+                    {
+                        "hash": "34bd6800e8fc87778b8aed0e3616566ad51d7ff5",
+                        "name": "block/powder_snow/step3"
+                    },
+                    {
+                        "hash": "d06ea8fa95da528b0113f6ad0ff50bc0a5d49cd9",
+                        "name": "block/powder_snow/step4"
+                    },
+                    {
+                        "hash": "f857fcb908528ca66c51b4b8608d7c76b178cb92",
+                        "name": "block/powder_snow/step5"
+                    },
+                    {
+                        "hash": "5628a7a3a5ce397716dc8f4bab5d2a998af0eff0",
+                        "name": "block/powder_snow/step6"
+                    },
+                    {
+                        "hash": "015f37d3f2adec2f62dfea46fa1cb9dc1262900d",
+                        "name": "block/powder_snow/step7"
+                    },
+                    {
+                        "hash": "4556ec1597a31dd58289580a933cbaa9375ad272",
+                        "name": "block/powder_snow/step8"
+                    },
+                    {
+                        "hash": "99edd889de4dabb9f4b7b92f548dfceb2c7d16c6",
+                        "name": "block/powder_snow/step9"
+                    },
+                    {
+                        "hash": "192e2f57b6d878465f7baa500493fb11a5ccb220",
+                        "name": "block/powder_snow/step10"
+                    }
+                ]
+            }
+        ],
+        "block.powder_snow.hit": [
+            null,
+            {
+                "field": "mD",
+                "id": 705,
+                "name": "block.powder_snow.hit",
+                "sounds": [
+                    {
+                        "hash": "d86bd0068709f9bacdb694a1ea3f1b321dbd4e44",
+                        "name": "block/powder_snow/step1",
+                        "pitch": 1.3,
+                        "volume": 0.83
+                    },
+                    {
+                        "hash": "fd5a0ea09e1643206c9a33592440e0f87a556455",
+                        "name": "block/powder_snow/step2",
+                        "pitch": 1.3,
+                        "volume": 0.83
+                    },
+                    {
+                        "hash": "34bd6800e8fc87778b8aed0e3616566ad51d7ff5",
+                        "name": "block/powder_snow/step3",
+                        "pitch": 1.3,
+                        "volume": 0.83
+                    },
+                    {
+                        "hash": "d06ea8fa95da528b0113f6ad0ff50bc0a5d49cd9",
+                        "name": "block/powder_snow/step4",
+                        "pitch": 1.3,
+                        "volume": 0.83
+                    },
+                    {
+                        "hash": "f857fcb908528ca66c51b4b8608d7c76b178cb92",
+                        "name": "block/powder_snow/step5",
+                        "pitch": 1.3,
+                        "volume": 0.83
+                    },
+                    {
+                        "hash": "5628a7a3a5ce397716dc8f4bab5d2a998af0eff0",
+                        "name": "block/powder_snow/step6",
+                        "pitch": 1.3,
+                        "volume": 0.83
+                    },
+                    {
+                        "hash": "015f37d3f2adec2f62dfea46fa1cb9dc1262900d",
+                        "name": "block/powder_snow/step7",
+                        "pitch": 1.3,
+                        "volume": 0.83
+                    },
+                    {
+                        "hash": "4556ec1597a31dd58289580a933cbaa9375ad272",
+                        "name": "block/powder_snow/step8",
+                        "pitch": 1.3,
+                        "volume": 0.83
+                    },
+                    {
+                        "hash": "99edd889de4dabb9f4b7b92f548dfceb2c7d16c6",
+                        "name": "block/powder_snow/step9",
+                        "pitch": 1.3,
+                        "volume": 0.83
+                    },
+                    {
+                        "hash": "192e2f57b6d878465f7baa500493fb11a5ccb220",
+                        "name": "block/powder_snow/step10",
+                        "pitch": 1.3,
+                        "volume": 0.83
+                    }
+                ],
+                "subtitle": "Block breaking",
+                "subtitle_key": "subtitles.block.generic.hit"
+            }
+        ],
+        "block.powder_snow.place": [
+            null,
+            {
+                "field": "mE",
+                "id": 706,
+                "name": "block.powder_snow.place",
+                "sounds": [
+                    {
+                        "hash": "1e5627cdb081851d666923bb8aa92a29ca56dc36",
+                        "name": "block/powder_snow/break1"
+                    },
+                    {
+                        "hash": "9929be86fe1606d155e965d70c387f2b2cb8a326",
+                        "name": "block/powder_snow/break2"
+                    },
+                    {
+                        "hash": "b7e64d990e44daa87fc57808627c3f116ad12868",
+                        "name": "block/powder_snow/break3"
+                    },
+                    {
+                        "hash": "638b448f4f4298cdb65fe8d4b99fd90daaa672b1",
+                        "name": "block/powder_snow/break4"
+                    },
+                    {
+                        "hash": "0027d19bb0cd9c914d3ac148aeee6316d9786341",
+                        "name": "block/powder_snow/break5"
+                    },
+                    {
+                        "hash": "2ed2ba2403409c9eedda1b3bcbf49595e40f237a",
+                        "name": "block/powder_snow/break6"
+                    },
+                    {
+                        "hash": "50775dd4c91553d43b7c9c1d409002f3ee582354",
+                        "name": "block/powder_snow/break7"
+                    }
+                ],
+                "subtitle": "Block placed",
+                "subtitle_key": "subtitles.block.generic.place"
+            }
+        ],
+        "block.powder_snow.step": [
+            null,
+            {
+                "field": "mF",
+                "id": 707,
+                "name": "block.powder_snow.step",
+                "sounds": [
+                    {
+                        "hash": "d86bd0068709f9bacdb694a1ea3f1b321dbd4e44",
+                        "name": "block/powder_snow/step1"
+                    },
+                    {
+                        "hash": "fd5a0ea09e1643206c9a33592440e0f87a556455",
+                        "name": "block/powder_snow/step2"
+                    },
+                    {
+                        "hash": "34bd6800e8fc87778b8aed0e3616566ad51d7ff5",
+                        "name": "block/powder_snow/step3"
+                    },
+                    {
+                        "hash": "d06ea8fa95da528b0113f6ad0ff50bc0a5d49cd9",
+                        "name": "block/powder_snow/step4"
+                    },
+                    {
+                        "hash": "f857fcb908528ca66c51b4b8608d7c76b178cb92",
+                        "name": "block/powder_snow/step5"
+                    },
+                    {
+                        "hash": "5628a7a3a5ce397716dc8f4bab5d2a998af0eff0",
+                        "name": "block/powder_snow/step6"
+                    },
+                    {
+                        "hash": "015f37d3f2adec2f62dfea46fa1cb9dc1262900d",
+                        "name": "block/powder_snow/step7"
+                    },
+                    {
+                        "hash": "4556ec1597a31dd58289580a933cbaa9375ad272",
+                        "name": "block/powder_snow/step8"
+                    },
+                    {
+                        "hash": "99edd889de4dabb9f4b7b92f548dfceb2c7d16c6",
+                        "name": "block/powder_snow/step9"
+                    },
+                    {
+                        "hash": "192e2f57b6d878465f7baa500493fb11a5ccb220",
+                        "name": "block/powder_snow/step10"
+                    }
+                ],
+                "subtitle": "Footsteps",
+                "subtitle_key": "subtitles.block.generic.footsteps"
+            }
+        ],
+        "entity.player.hurt_freeze": [
+            null,
+            {
+                "field": "mk",
+                "id": 686,
+                "name": "entity.player.hurt_freeze",
+                "sounds": [
+                    {
+                        "hash": "e7b80d7e20d07be914d7361b5ff71a3c3193ef4c",
+                        "name": "entity/player/hurt/freeze_hurt1"
+                    },
+                    {
+                        "hash": "67cee209f2c06f4bc08d7e165fa7371557d4e261",
+                        "name": "entity/player/hurt/freeze_hurt2"
+                    },
+                    {
+                        "hash": "c2d7c39f05beb02e6e6ea7bc703925fa3b965b76",
+                        "name": "entity/player/hurt/freeze_hurt3"
+                    },
+                    {
+                        "hash": "50b8c5f86880ac8ae12edf9e5ca21c857c187589",
+                        "name": "entity/player/hurt/freeze_hurt4"
+                    },
+                    {
+                        "hash": "3240aaa8b43d759b40c41b7f6c0d7dcc5ef7a77f",
+                        "name": "entity/player/hurt/freeze_hurt5"
+                    }
+                ],
+                "subtitle": "Player freezes",
+                "subtitle_key": "subtitles.entity.player.freeze_hurt"
+            }
+        ],
+        "item.bucket.empty_powder_snow": [
+            null,
+            {
+                "field": "bx",
+                "id": 127,
+                "name": "item.bucket.empty_powder_snow",
+                "sounds": [
+                    {
+                        "hash": "0cb553eb257614ee1a58e57f8d1c292e9cd393c2",
+                        "name": "item/bucket/empty_powder_snow1",
+                        "pitch": 1
+                    },
+                    {
+                        "hash": "54ab71a9e53979af80cbfbfdb3d542ae14b66d0a",
+                        "name": "item/bucket/empty_powder_snow2",
+                        "pitch": 1
+                    },
+                    {
+                        "hash": "0cb553eb257614ee1a58e57f8d1c292e9cd393c2",
+                        "name": "item/bucket/empty_powder_snow1",
+                        "pitch": 0.95
+                    },
+                    {
+                        "hash": "54ab71a9e53979af80cbfbfdb3d542ae14b66d0a",
+                        "name": "item/bucket/empty_powder_snow2",
+                        "pitch": 0.95
+                    },
+                    {
+                        "hash": "0cb553eb257614ee1a58e57f8d1c292e9cd393c2",
+                        "name": "item/bucket/empty_powder_snow1",
+                        "pitch": 1.1
+                    },
+                    {
+                        "hash": "54ab71a9e53979af80cbfbfdb3d542ae14b66d0a",
+                        "name": "item/bucket/empty_powder_snow2",
+                        "pitch": 1.1
+                    }
+                ],
+                "subtitle": "Bucket empties",
+                "subtitle_key": "subtitles.item.bucket.empty"
+            }
+        ],
+        "item.bucket.fill_powder_snow": [
+            null,
+            {
+                "field": "bB",
+                "id": 131,
+                "name": "item.bucket.fill_powder_snow",
+                "sounds": [
+                    {
+                        "hash": "bfdeec56755e5c566fa045a678d3fd1c062065f3",
+                        "name": "item/bucket/fill_powder_snow1",
+                        "pitch": 1.0
+                    },
+                    {
+                        "hash": "fba31761b635d23b80a9c48c1bfc5556f7441679",
+                        "name": "item/bucket/fill_powder_snow2",
+                        "pitch": 1.0
+                    },
+                    {
+                        "hash": "bfdeec56755e5c566fa045a678d3fd1c062065f3",
+                        "name": "item/bucket/fill_powder_snow1",
+                        "pitch": 0.9
+                    },
+                    {
+                        "hash": "fba31761b635d23b80a9c48c1bfc5556f7441679",
+                        "name": "item/bucket/fill_powder_snow2",
+                        "pitch": 0.9
+                    },
+                    {
+                        "hash": "bfdeec56755e5c566fa045a678d3fd1c062065f3",
+                        "name": "item/bucket/fill_powder_snow1",
+                        "pitch": 1.1
+                    },
+                    {
+                        "hash": "fba31761b635d23b80a9c48c1bfc5556f7441679",
+                        "name": "item/bucket/fill_powder_snow2",
+                        "pitch": 1.1
+                    }
+                ],
+                "subtitle": "Bucket fills",
+                "subtitle_key": "subtitles.item.bucket.fill"
+            }
+        ]
+    },
+    "stats": {},
+    "tags": {
+        "blocks/cauldrons": [
+            {
+                "name": "cauldrons",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:cauldron",
+                    "minecraft:water_cauldron",
+                    "minecraft:lava_cauldron"
+                ]
+            },
+            {
+                "name": "cauldrons",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:cauldron",
+                    "minecraft:water_cauldron",
+                    "minecraft:lava_cauldron",
+                    "minecraft:powder_snow_cauldron"
+                ]
+            }
+        ],
+        "blocks/snow_step_sound_blocks": [
+            null,
+            {
+                "name": "snow_step_sound_blocks",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:snow",
+                    "minecraft:powder_snow"
+                ]
+            }
+        ],
+        "entity_types/powder_snow_walkable_mobs": [
+            null,
+            {
+                "name": "powder_snow_walkable_mobs",
+                "replace": false,
+                "type": "entity_types",
+                "values": [
+                    "minecraft:rabbit",
+                    "minecraft:endermite",
+                    "minecraft:silverfish"
+                ]
+            }
+        ]
+    },
+    "tileentity": {
+        "tileentities": {}
     },
     "version": {
         "data": [
