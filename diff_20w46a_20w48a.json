@@ -1,0 +1,1304 @@
+{
+    "achievements": {},
+    "blocks": {
+        "block": {
+            "dripstone_block": [
+                null,
+                {
+                    "class": "bvr",
+                    "display_name": "Dripstone Block",
+                    "field": "pj",
+                    "hardness": 1.5,
+                    "max_state_id": 18219,
+                    "min_state_id": 18219,
+                    "num_states": 1,
+                    "numeric_id": 841,
+                    "resistance": 1.0,
+                    "states": [],
+                    "text_id": "dripstone_block"
+                }
+            ],
+            "pointed_dripstone": [
+                null,
+                {
+                    "class": "cak",
+                    "display_name": "Pointed Dripstone",
+                    "field": "pi",
+                    "hardness": 1.5,
+                    "max_state_id": 18218,
+                    "min_state_id": 18199,
+                    "num_states": 20,
+                    "numeric_id": 840,
+                    "resistance": 3.0,
+                    "states": [
+                        {
+                            "declared_in": "cgt",
+                            "field_name": "a",
+                            "name": "vertical_direction",
+                            "num_values": 2,
+                            "type": "direction",
+                            "values": [
+                                "UP",
+                                "DOWN"
+                            ]
+                        },
+                        {
+                            "declared_in": "cgt",
+                            "enum_class": "cha",
+                            "field_name": "b",
+                            "name": "thickness",
+                            "num_values": 5,
+                            "type": "enum",
+                            "values": [
+                                "TIP_MERGE",
+                                "TIP",
+                                "FRUSTUM",
+                                "MIDDLE",
+                                "BASE"
+                            ]
+                        },
+                        {
+                            "declared_in": "cgt",
+                            "field_name": "c",
+                            "name": "waterlogged",
+                            "num_values": 2,
+                            "type": "bool"
+                        }
+                    ],
+                    "text_id": "pointed_dripstone"
+                }
+            ]
+        }
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {}
+    },
+    "items": {
+        "item": {
+            "dripstone_block": [
+                null,
+                {
+                    "display_name": "Dripstone Block",
+                    "field": "sY",
+                    "max_stack_size": 64,
+                    "numeric_id": 1038,
+                    "text_id": "dripstone_block"
+                }
+            ],
+            "pointed_dripstone": [
+                null,
+                {
+                    "display_name": "Pointed Dripstone",
+                    "field": "sX",
+                    "max_stack_size": 64,
+                    "numeric_id": 1037,
+                    "text_id": "pointed_dripstone"
+                }
+            ]
+        }
+    },
+    "language": {
+        "block": {
+            "minecraft.dripstone_block": [
+                null,
+                "Dripstone Block"
+            ],
+            "minecraft.pointed_dripstone": [
+                null,
+                "Pointed Dripstone"
+            ]
+        },
+        "gamerule": {
+            "freezeDamage": [
+                null,
+                "Deal freeze damage"
+            ]
+        },
+        "item": {
+            "minecraft.bundle.fullness": [
+                null,
+                "Fullness: %s / %s"
+            ]
+        },
+        "subtitles": {
+            "block.pointed_dripstone.drip_lava": [
+                null,
+                "Lava drips"
+            ],
+            "block.pointed_dripstone.drip_lava_into_cauldron": [
+                null,
+                "Lava drips into cauldron"
+            ],
+            "block.pointed_dripstone.drip_water": [
+                null,
+                "Water drips"
+            ],
+            "block.pointed_dripstone.drip_water_into_cauldron": [
+                null,
+                "Water drips into cauldron"
+            ],
+            "block.pointed_dripstone.land": [
+                null,
+                "Pointed Dripstone crashes down"
+            ]
+        }
+    },
+    "packets": {
+        "packet": {}
+    },
+    "recipes": {
+        "cut_copper_slab": [
+            [
+                {
+                    "id": "minecraft:cut_copper_slab",
+                    "makes": {
+                        "count": 4,
+                        "name": "cut_copper_slab",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "cut_copper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "cut_copper",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ],
+            [
+                {
+                    "id": "minecraft:cut_copper_slab",
+                    "makes": {
+                        "count": 6,
+                        "name": "cut_copper_slab",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "cut_copper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "cut_copper",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "lightly_weathered_cut_copper_slab": [
+            [
+                {
+                    "id": "minecraft:lightly_weathered_cut_copper_slab",
+                    "makes": {
+                        "count": 4,
+                        "name": "lightly_weathered_cut_copper_slab",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "lightly_weathered_cut_copper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "lightly_weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "lightly_weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "lightly_weathered_cut_copper",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ],
+            [
+                {
+                    "id": "minecraft:lightly_weathered_cut_copper_slab",
+                    "makes": {
+                        "count": 6,
+                        "name": "lightly_weathered_cut_copper_slab",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "lightly_weathered_cut_copper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "lightly_weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "lightly_weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "lightly_weathered_cut_copper",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "semi_weathered_cut_copper_slab": [
+            [
+                {
+                    "id": "minecraft:semi_weathered_cut_copper_slab",
+                    "makes": {
+                        "count": 4,
+                        "name": "semi_weathered_cut_copper_slab",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "semi_weathered_cut_copper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "semi_weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "semi_weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "semi_weathered_cut_copper",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ],
+            [
+                {
+                    "id": "minecraft:semi_weathered_cut_copper_slab",
+                    "makes": {
+                        "count": 6,
+                        "name": "semi_weathered_cut_copper_slab",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "semi_weathered_cut_copper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "semi_weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "semi_weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "semi_weathered_cut_copper",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "waxed_cut_copper_slab": [
+            [
+                {
+                    "id": "minecraft:waxed_cut_copper_slab_from_waxed_block",
+                    "makes": {
+                        "count": 4,
+                        "name": "waxed_cut_copper_slab",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "waxed_cut_copper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "waxed_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "waxed_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "waxed_cut_copper",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ],
+            [
+                {
+                    "id": "minecraft:waxed_cut_copper_slab",
+                    "makes": {
+                        "count": 6,
+                        "name": "waxed_cut_copper_slab",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "waxed_cut_copper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "waxed_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "waxed_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "waxed_cut_copper",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "waxed_lightly_weathered_cut_copper_slab": [
+            [
+                {
+                    "id": "minecraft:waxed_lightly_weathered_cut_copper_slab_from_waxed_block",
+                    "makes": {
+                        "count": 4,
+                        "name": "waxed_lightly_weathered_cut_copper_slab",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "waxed_lightly_weathered_cut_copper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "waxed_lightly_weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "waxed_lightly_weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "waxed_lightly_weathered_cut_copper",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ],
+            [
+                {
+                    "id": "minecraft:waxed_lightly_weathered_cut_copper_slab",
+                    "makes": {
+                        "count": 6,
+                        "name": "waxed_lightly_weathered_cut_copper_slab",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "waxed_lightly_weathered_cut_copper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "waxed_lightly_weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "waxed_lightly_weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "waxed_lightly_weathered_cut_copper",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "waxed_semi_weathered_cut_copper_slab": [
+            [
+                {
+                    "id": "minecraft:waxed_semi_weathered_cut_copper_slab_from_waxed_block",
+                    "makes": {
+                        "count": 4,
+                        "name": "waxed_semi_weathered_cut_copper_slab",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "waxed_semi_weathered_cut_copper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "waxed_semi_weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "waxed_semi_weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "waxed_semi_weathered_cut_copper",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ],
+            [
+                {
+                    "id": "minecraft:waxed_semi_weathered_cut_copper_slab",
+                    "makes": {
+                        "count": 6,
+                        "name": "waxed_semi_weathered_cut_copper_slab",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "waxed_semi_weathered_cut_copper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "waxed_semi_weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "waxed_semi_weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "waxed_semi_weathered_cut_copper",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "weathered_cut_copper_slab": [
+            [
+                {
+                    "id": "minecraft:weathered_cut_copper_slab",
+                    "makes": {
+                        "count": 4,
+                        "name": "weathered_cut_copper_slab",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "weathered_cut_copper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "weathered_cut_copper",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ],
+            [
+                {
+                    "id": "minecraft:weathered_cut_copper_slab",
+                    "makes": {
+                        "count": 6,
+                        "name": "weathered_cut_copper_slab",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "weathered_cut_copper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "weathered_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "weathered_cut_copper",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ]
+    },
+    "sounds": {
+        "block.dripstone_block.break": [
+            null,
+            {
+                "field": "dy",
+                "id": 232,
+                "name": "block.dripstone_block.break",
+                "sounds": [
+                    {
+                        "hash": "a2c219ad41db471213dd0d2306445d28bfa0151d",
+                        "name": "block/dripstone/break1"
+                    },
+                    {
+                        "hash": "7d4b4cf1f409ea746eec8d2066d262545469960d",
+                        "name": "block/dripstone/break2"
+                    },
+                    {
+                        "hash": "6c40ef98636487a1b7efb487e1615ebaf91928cd",
+                        "name": "block/dripstone/break3"
+                    },
+                    {
+                        "hash": "0e58e087ad105373cf75ca8043c567e88aeb048e",
+                        "name": "block/dripstone/break4"
+                    },
+                    {
+                        "hash": "0e497ca437eeac5cee56a91c43da2631092e7477",
+                        "name": "block/dripstone/break5"
+                    }
+                ],
+                "subtitle": "Block broken",
+                "subtitle_key": "subtitles.block.generic.break"
+            }
+        ],
+        "block.dripstone_block.fall": [
+            null,
+            {
+                "field": "dC",
+                "id": 236,
+                "name": "block.dripstone_block.fall",
+                "sounds": [
+                    {
+                        "hash": "2c114bff9b73abccb54f0aec7e09ad1ff4cb4dc6",
+                        "name": "block/dripstone/step1"
+                    },
+                    {
+                        "hash": "3a9a56e15aeb25ad049f0d64a343fabcc3ce4de0",
+                        "name": "block/dripstone/step2"
+                    },
+                    {
+                        "hash": "c13629f57d801f0938ceae15ec152ff79cc3a6a4",
+                        "name": "block/dripstone/step3"
+                    },
+                    {
+                        "hash": "67a35cb0a87ef67f252330d7b5b84df4e433fb59",
+                        "name": "block/dripstone/step4"
+                    },
+                    {
+                        "hash": "d71243817c63f4c27af938ec8750cf84f0531b06",
+                        "name": "block/dripstone/step5"
+                    },
+                    {
+                        "hash": "f7cd826d43ac13e7e84befb58a9ca42acef68402",
+                        "name": "block/dripstone/step6"
+                    }
+                ]
+            }
+        ],
+        "block.dripstone_block.hit": [
+            null,
+            {
+                "field": "dB",
+                "id": 235,
+                "name": "block.dripstone_block.hit",
+                "sounds": [
+                    {
+                        "hash": "2c114bff9b73abccb54f0aec7e09ad1ff4cb4dc6",
+                        "name": "block/dripstone/step1"
+                    },
+                    {
+                        "hash": "3a9a56e15aeb25ad049f0d64a343fabcc3ce4de0",
+                        "name": "block/dripstone/step2"
+                    },
+                    {
+                        "hash": "c13629f57d801f0938ceae15ec152ff79cc3a6a4",
+                        "name": "block/dripstone/step3"
+                    },
+                    {
+                        "hash": "67a35cb0a87ef67f252330d7b5b84df4e433fb59",
+                        "name": "block/dripstone/step4"
+                    },
+                    {
+                        "hash": "d71243817c63f4c27af938ec8750cf84f0531b06",
+                        "name": "block/dripstone/step5"
+                    },
+                    {
+                        "hash": "f7cd826d43ac13e7e84befb58a9ca42acef68402",
+                        "name": "block/dripstone/step6"
+                    }
+                ],
+                "subtitle": "Block breaking",
+                "subtitle_key": "subtitles.block.generic.hit"
+            }
+        ],
+        "block.dripstone_block.place": [
+            null,
+            {
+                "field": "dA",
+                "id": 234,
+                "name": "block.dripstone_block.place",
+                "sounds": [
+                    {
+                        "hash": "a2c219ad41db471213dd0d2306445d28bfa0151d",
+                        "name": "block/dripstone/break1"
+                    },
+                    {
+                        "hash": "7d4b4cf1f409ea746eec8d2066d262545469960d",
+                        "name": "block/dripstone/break2"
+                    },
+                    {
+                        "hash": "6c40ef98636487a1b7efb487e1615ebaf91928cd",
+                        "name": "block/dripstone/break3"
+                    },
+                    {
+                        "hash": "0e58e087ad105373cf75ca8043c567e88aeb048e",
+                        "name": "block/dripstone/break4"
+                    },
+                    {
+                        "hash": "0e497ca437eeac5cee56a91c43da2631092e7477",
+                        "name": "block/dripstone/break5"
+                    }
+                ],
+                "subtitle": "Block placed",
+                "subtitle_key": "subtitles.block.generic.place"
+            }
+        ],
+        "block.dripstone_block.step": [
+            null,
+            {
+                "field": "dz",
+                "id": 233,
+                "name": "block.dripstone_block.step",
+                "sounds": [
+                    {
+                        "hash": "2c114bff9b73abccb54f0aec7e09ad1ff4cb4dc6",
+                        "name": "block/dripstone/step1"
+                    },
+                    {
+                        "hash": "3a9a56e15aeb25ad049f0d64a343fabcc3ce4de0",
+                        "name": "block/dripstone/step2"
+                    },
+                    {
+                        "hash": "c13629f57d801f0938ceae15ec152ff79cc3a6a4",
+                        "name": "block/dripstone/step3"
+                    },
+                    {
+                        "hash": "67a35cb0a87ef67f252330d7b5b84df4e433fb59",
+                        "name": "block/dripstone/step4"
+                    },
+                    {
+                        "hash": "d71243817c63f4c27af938ec8750cf84f0531b06",
+                        "name": "block/dripstone/step5"
+                    },
+                    {
+                        "hash": "f7cd826d43ac13e7e84befb58a9ca42acef68402",
+                        "name": "block/dripstone/step6"
+                    }
+                ],
+                "subtitle": "Footsteps",
+                "subtitle_key": "subtitles.block.generic.footsteps"
+            }
+        ],
+        "block.pointed_dripstone.break": [
+            null,
+            {
+                "field": "dD",
+                "id": 237,
+                "name": "block.pointed_dripstone.break",
+                "sounds": [
+                    {
+                        "hash": "a2c219ad41db471213dd0d2306445d28bfa0151d",
+                        "name": "block/dripstone/break1"
+                    },
+                    {
+                        "hash": "7d4b4cf1f409ea746eec8d2066d262545469960d",
+                        "name": "block/dripstone/break2"
+                    },
+                    {
+                        "hash": "6c40ef98636487a1b7efb487e1615ebaf91928cd",
+                        "name": "block/dripstone/break3"
+                    },
+                    {
+                        "hash": "0e58e087ad105373cf75ca8043c567e88aeb048e",
+                        "name": "block/dripstone/break4"
+                    },
+                    {
+                        "hash": "0e497ca437eeac5cee56a91c43da2631092e7477",
+                        "name": "block/dripstone/break5"
+                    }
+                ],
+                "subtitle": "Block broken",
+                "subtitle_key": "subtitles.block.generic.break"
+            }
+        ],
+        "block.pointed_dripstone.drip_lava": [
+            null,
+            {
+                "field": "dJ",
+                "id": 243,
+                "name": "block.pointed_dripstone.drip_lava",
+                "sounds": [
+                    {
+                        "hash": "3b6a7430672f147418d8aca9e8675d8e0e177b17",
+                        "name": "block/pointed_dripstone/drip_lava1"
+                    },
+                    {
+                        "hash": "bb1a4063cc55c6ddfab3fe6a68e60571bd144bc3",
+                        "name": "block/pointed_dripstone/drip_lava2"
+                    },
+                    {
+                        "hash": "bb1811bfcbbd11d511e0441e0e0452890a70d649",
+                        "name": "block/pointed_dripstone/drip_lava3"
+                    },
+                    {
+                        "hash": "050ee8116a49e7788e4191a22417b59b4eba8456",
+                        "name": "block/pointed_dripstone/drip_lava4"
+                    },
+                    {
+                        "hash": "ec4fae0ac795d755a69ce34557a558389f3ea7f7",
+                        "name": "block/pointed_dripstone/drip_lava5"
+                    },
+                    {
+                        "hash": "438be9806f4c2659055da51cdc593ab859a44492",
+                        "name": "block/pointed_dripstone/drip_lava6"
+                    }
+                ]
+            }
+        ],
+        "block.pointed_dripstone.drip_lava_into_cauldron": [
+            null,
+            {
+                "field": "dL",
+                "id": 245,
+                "name": "block.pointed_dripstone.drip_lava_into_cauldron",
+                "sounds": [
+                    {
+                        "hash": "fec5940d535308fc8bf09a2e87bd604084e5c498",
+                        "name": "block/pointed_dripstone/drip_lava_cauldron1"
+                    },
+                    {
+                        "hash": "d3f4bded5a3b767734d44ccb005a65fecbe1c2b7",
+                        "name": "block/pointed_dripstone/drip_lava_cauldron2"
+                    },
+                    {
+                        "hash": "49a757b3ffaf7217809c553ef71b3f5386ff4289",
+                        "name": "block/pointed_dripstone/drip_lava_cauldron3"
+                    },
+                    {
+                        "hash": "e45eb4b5de8e5e7421e7dc5b5678ff45287c2caa",
+                        "name": "block/pointed_dripstone/drip_lava_cauldron4"
+                    }
+                ]
+            }
+        ],
+        "block.pointed_dripstone.drip_water": [
+            null,
+            {
+                "field": "dK",
+                "id": 244,
+                "name": "block.pointed_dripstone.drip_water",
+                "sounds": [
+                    {
+                        "hash": "7308c68b2de502839f76488962bfd9c2d23603eb",
+                        "name": "block/pointed_dripstone/drip_water1"
+                    },
+                    {
+                        "hash": "f8f9052b3d06d7d1cc7a3820599fb3f0c9c0cadd",
+                        "name": "block/pointed_dripstone/drip_water2"
+                    },
+                    {
+                        "hash": "dfef8a5952395442311141496b6e780b1e12f4e2",
+                        "name": "block/pointed_dripstone/drip_water3"
+                    },
+                    {
+                        "hash": "9f3f75fcb30a6a033d672b9740ebe060c22965f1",
+                        "name": "block/pointed_dripstone/drip_water4"
+                    },
+                    {
+                        "hash": "9b92e54ca223e7026cfed9bcfa1c29b85555feb0",
+                        "name": "block/pointed_dripstone/drip_water5"
+                    },
+                    {
+                        "hash": "bbcda1114481f7f88f17af5ad65125972d2c44e6",
+                        "name": "block/pointed_dripstone/drip_water6"
+                    },
+                    {
+                        "hash": "f2c768a8566275d0e81d9e81955264110fc5e51c",
+                        "name": "block/pointed_dripstone/drip_water7"
+                    },
+                    {
+                        "hash": "5113d371aa9886c4e2804be55e30fc2ec16d3dcc",
+                        "name": "block/pointed_dripstone/drip_water8"
+                    },
+                    {
+                        "hash": "7d8ef0a1daf90b519666eab346e841794f167afe",
+                        "name": "block/pointed_dripstone/drip_water9"
+                    },
+                    {
+                        "hash": "4e408f2dff4386951d1240c316a975c84918e92d",
+                        "name": "block/pointed_dripstone/drip_water10"
+                    },
+                    {
+                        "hash": "ff76b763b28de8bdd0cba777213a05d0e365faba",
+                        "name": "block/pointed_dripstone/drip_water11"
+                    },
+                    {
+                        "hash": "c670a64d158a640ab1906772ff653ce55807ba10",
+                        "name": "block/pointed_dripstone/drip_water12"
+                    },
+                    {
+                        "hash": "2599920592fc8357252ac10b1cc8ff29346b0ede",
+                        "name": "block/pointed_dripstone/drip_water13"
+                    },
+                    {
+                        "hash": "2e630d9df93d600d90dca070c96e3aa89237afa9",
+                        "name": "block/pointed_dripstone/drip_water14"
+                    },
+                    {
+                        "hash": "8045b5c48dc9a1e23a420f0f3c7062d7946f2866",
+                        "name": "block/pointed_dripstone/drip_water15"
+                    }
+                ]
+            }
+        ],
+        "block.pointed_dripstone.drip_water_into_cauldron": [
+            null,
+            {
+                "field": "dM",
+                "id": 246,
+                "name": "block.pointed_dripstone.drip_water_into_cauldron",
+                "sounds": [
+                    {
+                        "hash": "5f103967783fc87911fb2b4786d3b52510b0831c",
+                        "name": "block/pointed_dripstone/drip_water_cauldron1"
+                    },
+                    {
+                        "hash": "b0ee6371a3841e25d8141be3df08b95e55126f32",
+                        "name": "block/pointed_dripstone/drip_water_cauldron2"
+                    },
+                    {
+                        "hash": "c6d9302b7b3da70c0e7d7378a4ceb01ccbd2685c",
+                        "name": "block/pointed_dripstone/drip_water_cauldron3"
+                    },
+                    {
+                        "hash": "2e711c75eb8ab3440d0523364bd12947f858723a",
+                        "name": "block/pointed_dripstone/drip_water_cauldron4"
+                    },
+                    {
+                        "hash": "bf3ecbfc97a17c2f5e0e5f476053570afb0b1ed3",
+                        "name": "block/pointed_dripstone/drip_water_cauldron5"
+                    },
+                    {
+                        "hash": "09da9ef8864bb14ea888807a356710723b6bd7c7",
+                        "name": "block/pointed_dripstone/drip_water_cauldron6"
+                    },
+                    {
+                        "hash": "bfb09a99afd7e018e9285e36ad5d7504c684c2e8",
+                        "name": "block/pointed_dripstone/drip_water_cauldron7"
+                    },
+                    {
+                        "hash": "bdda3824c586d34156daccf5c4a76c0cb54221a6",
+                        "name": "block/pointed_dripstone/drip_water_cauldron8"
+                    }
+                ]
+            }
+        ],
+        "block.pointed_dripstone.fall": [
+            null,
+            {
+                "field": "dH",
+                "id": 241,
+                "name": "block.pointed_dripstone.fall",
+                "sounds": [
+                    {
+                        "hash": "2c114bff9b73abccb54f0aec7e09ad1ff4cb4dc6",
+                        "name": "block/dripstone/step1"
+                    },
+                    {
+                        "hash": "3a9a56e15aeb25ad049f0d64a343fabcc3ce4de0",
+                        "name": "block/dripstone/step2"
+                    },
+                    {
+                        "hash": "c13629f57d801f0938ceae15ec152ff79cc3a6a4",
+                        "name": "block/dripstone/step3"
+                    },
+                    {
+                        "hash": "67a35cb0a87ef67f252330d7b5b84df4e433fb59",
+                        "name": "block/dripstone/step4"
+                    },
+                    {
+                        "hash": "d71243817c63f4c27af938ec8750cf84f0531b06",
+                        "name": "block/dripstone/step5"
+                    },
+                    {
+                        "hash": "f7cd826d43ac13e7e84befb58a9ca42acef68402",
+                        "name": "block/dripstone/step6"
+                    }
+                ]
+            }
+        ],
+        "block.pointed_dripstone.hit": [
+            null,
+            {
+                "field": "dG",
+                "id": 240,
+                "name": "block.pointed_dripstone.hit",
+                "sounds": [
+                    {
+                        "hash": "2c114bff9b73abccb54f0aec7e09ad1ff4cb4dc6",
+                        "name": "block/dripstone/step1"
+                    },
+                    {
+                        "hash": "3a9a56e15aeb25ad049f0d64a343fabcc3ce4de0",
+                        "name": "block/dripstone/step2"
+                    },
+                    {
+                        "hash": "c13629f57d801f0938ceae15ec152ff79cc3a6a4",
+                        "name": "block/dripstone/step3"
+                    },
+                    {
+                        "hash": "67a35cb0a87ef67f252330d7b5b84df4e433fb59",
+                        "name": "block/dripstone/step4"
+                    },
+                    {
+                        "hash": "d71243817c63f4c27af938ec8750cf84f0531b06",
+                        "name": "block/dripstone/step5"
+                    },
+                    {
+                        "hash": "f7cd826d43ac13e7e84befb58a9ca42acef68402",
+                        "name": "block/dripstone/step6"
+                    }
+                ],
+                "subtitle": "Block breaking",
+                "subtitle_key": "subtitles.block.generic.hit"
+            }
+        ],
+        "block.pointed_dripstone.land": [
+            null,
+            {
+                "field": "dI",
+                "id": 242,
+                "name": "block.pointed_dripstone.land",
+                "sounds": [
+                    {
+                        "hash": "f347a46782e26249236fe5b0fe217d83c5e599ce",
+                        "name": "block/pointed_dripstone/land1"
+                    },
+                    {
+                        "hash": "cb64d40a6162f3115f40267f7d0fc3b1b50fea23",
+                        "name": "block/pointed_dripstone/land2"
+                    },
+                    {
+                        "hash": "aad67db8a70fbb9a44c9536a578f2ec408ebdde2",
+                        "name": "block/pointed_dripstone/land3"
+                    },
+                    {
+                        "hash": "5924db8c7a85e9eb03cc3bb2b2c297ef5930e521",
+                        "name": "block/pointed_dripstone/land4"
+                    },
+                    {
+                        "hash": "99c880b4441eec0e6ed25d022025b1bb7b9fd224",
+                        "name": "block/pointed_dripstone/land5"
+                    }
+                ]
+            }
+        ],
+        "block.pointed_dripstone.place": [
+            null,
+            {
+                "field": "dF",
+                "id": 239,
+                "name": "block.pointed_dripstone.place",
+                "sounds": [
+                    {
+                        "hash": "a2c219ad41db471213dd0d2306445d28bfa0151d",
+                        "name": "block/dripstone/break1"
+                    },
+                    {
+                        "hash": "7d4b4cf1f409ea746eec8d2066d262545469960d",
+                        "name": "block/dripstone/break2"
+                    },
+                    {
+                        "hash": "6c40ef98636487a1b7efb487e1615ebaf91928cd",
+                        "name": "block/dripstone/break3"
+                    },
+                    {
+                        "hash": "0e58e087ad105373cf75ca8043c567e88aeb048e",
+                        "name": "block/dripstone/break4"
+                    },
+                    {
+                        "hash": "0e497ca437eeac5cee56a91c43da2631092e7477",
+                        "name": "block/dripstone/break5"
+                    }
+                ],
+                "subtitle": "Block placed",
+                "subtitle_key": "subtitles.block.generic.place"
+            }
+        ],
+        "block.pointed_dripstone.step": [
+            null,
+            {
+                "field": "dE",
+                "id": 238,
+                "name": "block.pointed_dripstone.step",
+                "sounds": [
+                    {
+                        "hash": "2c114bff9b73abccb54f0aec7e09ad1ff4cb4dc6",
+                        "name": "block/dripstone/step1"
+                    },
+                    {
+                        "hash": "3a9a56e15aeb25ad049f0d64a343fabcc3ce4de0",
+                        "name": "block/dripstone/step2"
+                    },
+                    {
+                        "hash": "c13629f57d801f0938ceae15ec152ff79cc3a6a4",
+                        "name": "block/dripstone/step3"
+                    },
+                    {
+                        "hash": "67a35cb0a87ef67f252330d7b5b84df4e433fb59",
+                        "name": "block/dripstone/step4"
+                    },
+                    {
+                        "hash": "d71243817c63f4c27af938ec8750cf84f0531b06",
+                        "name": "block/dripstone/step5"
+                    },
+                    {
+                        "hash": "f7cd826d43ac13e7e84befb58a9ca42acef68402",
+                        "name": "block/dripstone/step6"
+                    }
+                ],
+                "subtitle": "Footsteps",
+                "subtitle_key": "subtitles.block.generic.footsteps"
+            }
+        ]
+    },
+    "stats": {},
+    "tags": {
+        "blocks/inside_step_sound_blocks": [
+            null,
+            {
+                "name": "inside_step_sound_blocks",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:snow",
+                    "minecraft:powder_snow"
+                ]
+            }
+        ],
+        "blocks/snow_step_sound_blocks": [
+            {
+                "name": "snow_step_sound_blocks",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:snow",
+                    "minecraft:powder_snow"
+                ]
+            },
+            null
+        ],
+        "items/freeze_immune_wearables": [
+            null,
+            {
+                "name": "freeze_immune_wearables",
+                "replace": false,
+                "type": "items",
+                "values": [
+                    "minecraft:leather_boots",
+                    "minecraft:leather_leggings",
+                    "minecraft:leather_chestplate",
+                    "minecraft:leather_helmet"
+                ]
+            }
+        ]
+    },
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            2682,
+            2683
+        ],
+        "id": [
+            "20w46a",
+            "20w48a"
+        ],
+        "name": [
+            "20w46a",
+            "20w48a"
+        ],
+        "protocol": [
+            1073741830,
+            1073741831
+        ]
+    }
+}
