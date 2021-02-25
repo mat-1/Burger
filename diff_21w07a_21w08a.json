@@ -2890,6 +2890,11 @@
                             "type": "varint"
                         },
                         {
+                            "field": "b.getList().size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
                             "operation": "store",
                             "type": "Iterator",
                             "value": "this.b.getList().iterator()",
@@ -2899,13 +2904,31 @@
                             "condition": "it.hasNext()",
                             "instructions": [
                                 {
-                                    "args": "buf, it.next()",
-                                    "field": "pw",
-                                    "method": "a",
-                                    "name": "a",
-                                    "operation": "interfacecall",
-                                    "target": "pw",
-                                    "type": "dynamic"
+                                    "operation": "store",
+                                    "type": "com.mojang.brigadier.suggestion.Suggestion",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.getText()",
+                                    "operation": "write",
+                                    "type": "string"
+                                },
+                                {
+                                    "field": "(itv.getTooltip() != null) ? 1 : 0",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                },
+                                {
+                                    "condition": "itv.getTooltip() != null",
+                                    "instructions": [
+                                        {
+                                            "field": "ok.a(itv.getTooltip())",
+                                            "operation": "write",
+                                            "type": "chatcomponent"
+                                        }
+                                    ],
+                                    "operation": "if"
                                 }
                             ],
                             "operation": "loop"
@@ -2958,6 +2981,236 @@
                             "type": "Object",
                             "value": "px.a(var2)",
                             "var": "var3"
+                        },
+                        {
+                            "field": "var3.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "var3.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "com.mojang.brigadier.tree.CommandNode",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "0",
+                                    "var": "var3"
+                                },
+                                {
+                                    "condition": "itv.getRedirect() != null",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "int",
+                                            "value": "((byte)(var3 | 0x8))",
+                                            "var": "var3"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "condition": "itv.getCommand() != null",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "int",
+                                            "value": "((byte)(var3 | 4))",
+                                            "var": "var3"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "condition": "itv instanceof com.mojang.brigadier.tree.RootCommandNode",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "int",
+                                            "value": "((byte)(var3 | 0))",
+                                            "var": "var3"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "instructions": [
+                                        {
+                                            "condition": "itv instanceof com.mojang.brigadier.tree.ArgumentCommandNode",
+                                            "instructions": [
+                                                {
+                                                    "operation": "store",
+                                                    "type": "int",
+                                                    "value": "((byte)(var3 | 2))",
+                                                    "var": "var3"
+                                                },
+                                                {
+                                                    "condition": "((com.mojang.brigadier.tree.ArgumentCommandNode)itv).getCustomSuggestions() != null",
+                                                    "instructions": [
+                                                        {
+                                                            "operation": "store",
+                                                            "type": "int",
+                                                            "value": "((byte)(var3 | 0x10))",
+                                                            "var": "var3"
+                                                        }
+                                                    ],
+                                                    "operation": "if"
+                                                },
+                                                {
+                                                    "instructions": [
+                                                        {
+                                                            "condition": "itv instanceof com.mojang.brigadier.tree.LiteralCommandNode",
+                                                            "instructions": [
+                                                                {
+                                                                    "operation": "store",
+                                                                    "type": "int",
+                                                                    "value": "((byte)(var3 | 1))",
+                                                                    "var": "var3"
+                                                                }
+                                                            ],
+                                                            "operation": "if"
+                                                        }
+                                                    ],
+                                                    "operation": "else"
+                                                }
+                                            ],
+                                            "operation": "if"
+                                        }
+                                    ],
+                                    "operation": "else"
+                                },
+                                {
+                                    "field": "var3",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "itv.getChildren().size()",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "itv.getChildren().iterator()",
+                                    "var": "var4"
+                                },
+                                {
+                                    "condition": "var4.hasNext()",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "((com.mojang.brigadier.tree.CommandNode)var4.next())",
+                                            "var": "var5"
+                                        },
+                                        {
+                                            "field": "((Integer)var2.get(var5)).intValue()",
+                                            "operation": "write",
+                                            "type": "varint"
+                                        }
+                                    ],
+                                    "operation": "loop"
+                                },
+                                {
+                                    "condition": "itv.getRedirect() != null",
+                                    "instructions": [
+                                        {
+                                            "field": "((Integer)var2.get(itv.getRedirect())).intValue()",
+                                            "operation": "write",
+                                            "type": "varint"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "condition": "itv instanceof com.mojang.brigadier.tree.ArgumentCommandNode",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "((com.mojang.brigadier.tree.ArgumentCommandNode)itv)",
+                                            "var": "var4"
+                                        },
+                                        {
+                                            "field": "var4.getName()",
+                                            "operation": "write",
+                                            "type": "string"
+                                        },
+                                        {
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "fk.b(var4.getType())",
+                                            "var": "var2"
+                                        },
+                                        {
+                                            "condition": "var2 == null",
+                                            "instructions": [
+                                                {
+                                                    "field": "new wn(\"\")",
+                                                    "operation": "write",
+                                                    "type": "identifier"
+                                                }
+                                            ],
+                                            "operation": "if"
+                                        },
+                                        {
+                                            "field": "var2.c",
+                                            "operation": "write",
+                                            "type": "identifier"
+                                        },
+                                        {
+                                            "args": "var4.getType(), packetbuffer",
+                                            "field": "var2.b",
+                                            "method": "a(Lcom/mojang/brigadier/arguments/ArgumentType;Lnx;)V",
+                                            "name": "a",
+                                            "operation": "interfacecall",
+                                            "target": "fj",
+                                            "type": "interface"
+                                        },
+                                        {
+                                            "condition": "var4.getCustomSuggestions() != null",
+                                            "instructions": [
+                                                {
+                                                    "field": "fm.a(var4.getCustomSuggestions())",
+                                                    "operation": "write",
+                                                    "type": "identifier"
+                                                }
+                                            ],
+                                            "operation": "if"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "instructions": [
+                                        {
+                                            "condition": "itv instanceof com.mojang.brigadier.tree.LiteralCommandNode",
+                                            "instructions": [
+                                                {
+                                                    "field": "((com.mojang.brigadier.tree.LiteralCommandNode)itv).getLiteral()",
+                                                    "operation": "write",
+                                                    "type": "string"
+                                                }
+                                            ],
+                                            "operation": "if"
+                                        }
+                                    ],
+                                    "operation": "else"
+                                }
+                            ],
+                            "operation": "loop"
                         },
                         {
                             "field": "var2.get(a).intValue()",
@@ -3653,6 +3906,62 @@
                             "type": "int",
                             "value": "agu.c(this.c)",
                             "var": "var4"
+                        },
+                        {
+                            "field": "e.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.e.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "fx",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(itv.u() - var2)",
+                                    "var": "var5"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(itv.v() - var3)",
+                                    "var": "var6"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(itv.w() - var4)",
+                                    "var": "var7"
+                                },
+                                {
+                                    "field": "var5",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "var6",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "var7",
+                                    "operation": "write",
+                                    "type": "byte"
+                                }
+                            ],
+                            "operation": "loop"
                         },
                         {
                             "field": "f",
@@ -4760,6 +5069,11 @@
                             "type": "byte"
                         },
                         {
+                            "field": "f.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
                             "operation": "store",
                             "type": "Iterator",
                             "value": "this.f.iterator()",
@@ -4769,13 +5083,15 @@
                             "condition": "it.hasNext()",
                             "instructions": [
                                 {
-                                    "args": "buf, it.next()",
-                                    "field": "qs",
-                                    "method": "a",
-                                    "name": "a",
-                                    "operation": "interfacecall",
-                                    "target": "qs",
-                                    "type": "dynamic"
+                                    "operation": "store",
+                                    "type": "wm",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.a()",
+                                    "operation": "write",
+                                    "type": "identifier"
                                 }
                             ],
                             "operation": "loop"
@@ -4786,7 +5102,7 @@
                             "type": "nbtcompound"
                         },
                         {
-                            "field": "cln.r.encode(this::q)",
+                            "field": "cln.r.encode(qs::q)",
                             "operation": "write",
                             "type": "nbtcompound"
                         },
@@ -4901,6 +5217,11 @@
                                     "type": "boolean"
                                 },
                                 {
+                                    "field": "d.size()",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
                                     "operation": "store",
                                     "type": "Iterator",
                                     "value": "this.d.iterator()",
@@ -4910,13 +5231,56 @@
                                     "condition": "it.hasNext()",
                                     "instructions": [
                                         {
-                                            "args": "buf, it.next()",
-                                            "field": "qt",
-                                            "method": "a",
-                                            "name": "a",
-                                            "operation": "interfacecall",
-                                            "target": "qt",
-                                            "type": "dynamic"
+                                            "operation": "store",
+                                            "type": "del",
+                                            "value": "it.next()",
+                                            "var": "itv"
+                                        },
+                                        {
+                                            "field": "itv.b()",
+                                            "operation": "write",
+                                            "type": "enum"
+                                        },
+                                        {
+                                            "field": "itv.c()",
+                                            "operation": "write",
+                                            "type": "byte"
+                                        },
+                                        {
+                                            "field": "itv.d()",
+                                            "operation": "write",
+                                            "type": "byte"
+                                        },
+                                        {
+                                            "field": "itv.e() & 0xf",
+                                            "operation": "write",
+                                            "type": "byte"
+                                        },
+                                        {
+                                            "condition": "itv.g() != null",
+                                            "instructions": [
+                                                {
+                                                    "field": "1",
+                                                    "operation": "write",
+                                                    "type": "boolean"
+                                                },
+                                                {
+                                                    "field": "itv.g()",
+                                                    "operation": "write",
+                                                    "type": "chatcomponent"
+                                                }
+                                            ],
+                                            "operation": "if"
+                                        },
+                                        {
+                                            "instructions": [
+                                                {
+                                                    "field": "0",
+                                                    "operation": "write",
+                                                    "type": "boolean"
+                                                }
+                                            ],
+                                            "operation": "else"
                                         }
                                     ],
                                     "operation": "loop"
@@ -6319,34 +6683,6 @@
                     "from_client": false,
                     "from_server": true,
                     "id": 54,
-                    "instructions": [
-                        {
-                            "field": "a",
-                            "operation": "write",
-                            "type": "enum"
-                        },
-                        {
-                            "operation": "store",
-                            "type": "Iterator",
-                            "value": "this.b.iterator()",
-                            "var": "it"
-                        },
-                        {
-                            "condition": "it.hasNext()",
-                            "instructions": [
-                                {
-                                    "args": "buf, it.next()",
-                                    "field": "a",
-                                    "method": "a",
-                                    "name": "a",
-                                    "operation": "interfacecall",
-                                    "target": "this.a",
-                                    "type": "dynamic"
-                                }
-                            ],
-                            "operation": "loop"
-                        }
-                    ],
                     "state": "PLAY"
                 }
             ],
@@ -6741,7 +7077,7 @@
                     "id": 61,
                     "instructions": [
                         {
-                            "field": "cln.r.encode(this::j)",
+                            "field": "cln.r.encode(rm::j)",
                             "operation": "write",
                             "type": "nbtcompound"
                         },
@@ -9390,6 +9726,11 @@
                             "type": "varint"
                         },
                         {
+                            "field": "b.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
                             "operation": "store",
                             "type": "Iterator",
                             "value": "this.b.iterator()",
@@ -9399,13 +9740,58 @@
                             "condition": "it.hasNext()",
                             "instructions": [
                                 {
-                                    "args": "buf, it.next()",
-                                    "field": "sy",
-                                    "method": "a",
-                                    "name": "a",
-                                    "operation": "interfacecall",
-                                    "target": "sy",
-                                    "type": "dynamic"
+                                    "operation": "store",
+                                    "type": "sy$a",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "gn.al.b(itv.a())",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                },
+                                {
+                                    "field": "itv.b()",
+                                    "operation": "write",
+                                    "type": "double"
+                                },
+                                {
+                                    "field": "itv.c().size()",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "Iterator",
+                                    "value": "itv.c().iterator()",
+                                    "var": "it"
+                                },
+                                {
+                                    "condition": "it.hasNext()",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "asz",
+                                            "value": "it.next()",
+                                            "var": "itv"
+                                        },
+                                        {
+                                            "field": "itv.a()",
+                                            "operation": "write",
+                                            "type": "uuid"
+                                        },
+                                        {
+                                            "field": "itv.d()",
+                                            "operation": "write",
+                                            "type": "double"
+                                        },
+                                        {
+                                            "field": "itv.c().a()",
+                                            "operation": "write",
+                                            "type": "byte"
+                                        }
+                                    ],
+                                    "operation": "loop"
                                 }
                             ],
                             "operation": "loop"
@@ -9462,6 +9848,11 @@
                     "id": 101,
                     "instructions": [
                         {
+                            "field": "a.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
                             "operation": "store",
                             "type": "Iterator",
                             "value": "this.a.iterator()",
@@ -9471,13 +9862,29 @@
                             "condition": "it.hasNext()",
                             "instructions": [
                                 {
-                                    "args": "buf, it.next()",
-                                    "field": "ta",
-                                    "method": "a",
+                                    "operation": "store",
+                                    "type": "brg",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "gn.ak.b(itv.ai_())",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                },
+                                {
+                                    "field": "itv.f()",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                },
+                                {
+                                    "args": "packetbuffer, itv",
+                                    "field": "itv.ai_()",
+                                    "method": "a(Lnx;Lbrg;)V",
                                     "name": "a",
                                     "operation": "interfacecall",
-                                    "target": "ta",
-                                    "type": "dynamic"
+                                    "target": "bri",
+                                    "type": "interface"
                                 }
                             ],
                             "operation": "loop"
