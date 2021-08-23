@@ -4,11 +4,481 @@
         "block": {}
     },
     "entities": {
+        "dataserializers": {},
         "entity": {}
     },
+    "items": {
+        "item": {}
+    },
     "language": {},
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_14": [
+                {
+                    "class": "qi.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 20,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "b.size()",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.b.iterator()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((bqp)var2.next())",
+                                    "var": "var3"
+                                },
+                                {
+                                    "field": "var3",
+                                    "operation": "write",
+                                    "type": "itemstack"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "qi.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 20,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.c.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "bqq",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv",
+                                    "operation": "write",
+                                    "type": "itemstack"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "itemstack"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_16": [
+                {
+                    "class": "qk.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 22,
+                    "instructions": [
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "itemstack"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "qk.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 22,
+                    "instructions": [
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "itemstack"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_08": [
+                {
+                    "class": "tw.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 8,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "f.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.f.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Map.Entry<int, bqp>",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.getKey()",
+                                    "operation": "write",
+                                    "type": "short"
+                                },
+                                {
+                                    "field": "itv.getValue()",
+                                    "operation": "write",
+                                    "type": "itemstack"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "itemstack"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "tw.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 8,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "g.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.g.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Map.Entry<int, bqq>",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.getKey()",
+                                    "operation": "write",
+                                    "type": "short"
+                                },
+                                {
+                                    "field": "itv.getValue()",
+                                    "operation": "write",
+                                    "type": "itemstack"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "itemstack"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_SERVERBOUND_0B": [
+                {
+                    "class": "tz.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 11,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "itemstack"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "tz.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 11,
+                    "instructions": [
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "e.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.e.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "java.lang.String",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv",
+                                    "operation": "write",
+                                    "type": "string"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "f.isPresent()",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "f.isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "f.get()",
+                                    "operation": "write",
+                                    "type": "string"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "recipes": {},
     "sounds": {},
     "stats": {},
+    "tags": {
+        "blocks/lava_pool_stone_replaceables": [
+            {
+                "name": "lava_pool_stone_replaceables",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:bedrock",
+                    "minecraft:spawner",
+                    "minecraft:chest",
+                    "minecraft:end_portal_frame",
+                    "minecraft:jungle_leaves",
+                    "minecraft:oak_leaves",
+                    "minecraft:spruce_leaves",
+                    "minecraft:dark_oak_leaves",
+                    "minecraft:acacia_leaves",
+                    "minecraft:birch_leaves",
+                    "minecraft:azalea_leaves",
+                    "minecraft:flowering_azalea_leaves"
+                ]
+            },
+            {
+                "name": "lava_pool_stone_replaceables",
+                "replace": false,
+                "type": "blocks",
+                "values": [
+                    "minecraft:bedrock",
+                    "minecraft:spawner",
+                    "minecraft:chest",
+                    "minecraft:end_portal_frame",
+                    "minecraft:jungle_leaves",
+                    "minecraft:oak_leaves",
+                    "minecraft:spruce_leaves",
+                    "minecraft:dark_oak_leaves",
+                    "minecraft:acacia_leaves",
+                    "minecraft:birch_leaves",
+                    "minecraft:azalea_leaves",
+                    "minecraft:flowering_azalea_leaves",
+                    "minecraft:dark_oak_log",
+                    "minecraft:dark_oak_wood",
+                    "minecraft:stripped_dark_oak_log",
+                    "minecraft:stripped_dark_oak_wood",
+                    "minecraft:oak_log",
+                    "minecraft:oak_wood",
+                    "minecraft:stripped_oak_log",
+                    "minecraft:stripped_oak_wood",
+                    "minecraft:acacia_log",
+                    "minecraft:acacia_wood",
+                    "minecraft:stripped_acacia_log",
+                    "minecraft:stripped_acacia_wood",
+                    "minecraft:birch_log",
+                    "minecraft:birch_wood",
+                    "minecraft:stripped_birch_log",
+                    "minecraft:stripped_birch_wood",
+                    "minecraft:jungle_log",
+                    "minecraft:jungle_wood",
+                    "minecraft:stripped_jungle_log",
+                    "minecraft:stripped_jungle_wood",
+                    "minecraft:spruce_log",
+                    "minecraft:spruce_wood",
+                    "minecraft:stripped_spruce_log",
+                    "minecraft:stripped_spruce_wood",
+                    "minecraft:crimson_stem",
+                    "minecraft:stripped_crimson_stem",
+                    "minecraft:crimson_hyphae",
+                    "minecraft:stripped_crimson_hyphae",
+                    "minecraft:warped_stem",
+                    "minecraft:stripped_warped_stem",
+                    "minecraft:warped_hyphae",
+                    "minecraft:stripped_warped_hyphae"
+                ]
+            }
+        ]
+    },
+    "tileentity": {
+        "tileentities": {}
+    },
     "version": {
         "data": [
             2724,

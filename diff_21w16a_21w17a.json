@@ -364,6 +364,9 @@
         "dataserializers": {},
         "entity": {}
     },
+    "items": {
+        "item": {}
+    },
     "language": {
         "commands": {
             "worldborder.set.failed.big": [
@@ -452,6 +455,192 @@
                 }
             ]
         }
+    },
+    "recipes": {
+        "copper_block": [
+            [
+                {
+                    "id": "minecraft:copper_block",
+                    "makes": {
+                        "count": 1,
+                        "name": "copper_block",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ],
+            [
+                {
+                    "id": "minecraft:copper_block",
+                    "makes": {
+                        "count": 1,
+                        "name": "copper_block",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###",
+                            "###",
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            },
+                            {
+                                "name": "copper_ingot",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ],
+        "copper_ingot": [
+            [
+                {
+                    "group": "copper_ingot",
+                    "id": "minecraft:copper_ingot_from_copper_block",
+                    "ingredients": [
+                        {
+                            "name": "copper_block",
+                            "type": "item"
+                        }
+                    ],
+                    "makes": {
+                        "count": 4,
+                        "name": "copper_ingot",
+                        "type": "item"
+                    },
+                    "type": "shapeless"
+                },
+                {
+                    "group": "copper_ingot",
+                    "id": "minecraft:copper_ingot_from_waxed_copper_block",
+                    "ingredients": [
+                        {
+                            "name": "waxed_copper_block",
+                            "type": "item"
+                        }
+                    ],
+                    "makes": {
+                        "count": 4,
+                        "name": "copper_ingot",
+                        "type": "item"
+                    },
+                    "type": "shapeless"
+                }
+            ],
+            [
+                {
+                    "id": "minecraft:copper_ingot",
+                    "ingredients": [
+                        {
+                            "name": "copper_block",
+                            "type": "item"
+                        }
+                    ],
+                    "makes": {
+                        "count": 9,
+                        "name": "copper_ingot",
+                        "type": "item"
+                    },
+                    "type": "shapeless"
+                },
+                {
+                    "group": "copper_ingot",
+                    "id": "minecraft:copper_ingot_from_waxed_copper_block",
+                    "ingredients": [
+                        {
+                            "name": "waxed_copper_block",
+                            "type": "item"
+                        }
+                    ],
+                    "makes": {
+                        "count": 9,
+                        "name": "copper_ingot",
+                        "type": "item"
+                    },
+                    "type": "shapeless"
+                }
+            ]
+        ]
     },
     "sounds": {},
     "stats": {},

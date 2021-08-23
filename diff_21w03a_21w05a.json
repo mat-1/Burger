@@ -1401,6 +1401,7 @@
                             "entity": "~abstract_monster"
                         },
                         {
+                            "bitfields": [],
                             "class": "bfn",
                             "data": [
                                 {
@@ -4592,16 +4593,11 @@
                 "name": "block.cave_vines.pick_berries",
                 "sounds": [
                     {
-                        "hash": "46f39e069bda986e13f1e249abb7fbe40ab6d670",
-                        "name": "item/sweet_berries/pick_from_bush1"
-                    },
-                    {
-                        "hash": "6b43c008ee6f0bfdb830a10a960e366e8d6fc17c",
-                        "name": "item/sweet_berries/pick_from_bush2"
+                        "name": "block.sweet_berry_bush.pick_berries",
+                        "type": "event"
                     }
                 ],
-                "subtitle": "Berries pop",
-                "subtitle_key": "subtitles.item.berries.pick"
+                "subtitle_key": "subtitles.block.sweet_berry_bush.pick_berries"
             }
         ],
         "block.cave_vines.place": [
@@ -4866,8 +4862,8 @@
                         "name": "block/hanging_roots/break3"
                     },
                     {
-                        "hash": "4001e55011a426ff83ed42606db0982ab936117f",
-                        "name": "block/hanging_roots/break3"
+                        "hash": "bee70153ba925c98b396f529806cd666ab029f4d",
+                        "name": "block/hanging_roots/break4"
                     }
                 ],
                 "subtitle": "Block broken",
@@ -5450,27 +5446,27 @@
                 "name": "block.rooted_dirt.fall",
                 "sounds": [
                     {
-                        "hash": "bd72310884cd5bba209086ddd3d200f540bd8f1a",
+                        "hash": "0c548af9a197ecb01293fea959b3aeba5facf56c",
                         "name": "block/rooted_dirt/step1"
                     },
                     {
-                        "hash": "b6690f0628e6c8e18caa78c0ad987b974c1887d1",
+                        "hash": "f0b347346feff35af1cd8467d1ab363279d5e88f",
                         "name": "block/rooted_dirt/step2"
                     },
                     {
-                        "hash": "50dedc85c114eb57419fdc0997b22e60bbd441ce",
+                        "hash": "fbc17029947cfa5f965c23744dc06283f3b1f85b",
                         "name": "block/rooted_dirt/step3"
                     },
                     {
-                        "hash": "37915e7efb4cd46ffcf7e99686687e3dcb5bcb54",
+                        "hash": "e63fe3eca9d254207b115c9e17c776bcb066528c",
                         "name": "block/rooted_dirt/step4"
                     },
                     {
-                        "hash": "b05e5547174a7c8497f584b6773894745c4fdea7",
+                        "hash": "d4773ef3bc33bfd677c63fc79fb8759c12a42fbb",
                         "name": "block/rooted_dirt/step5"
                     },
                     {
-                        "hash": "5e9e3db0c68e7732909fc9aaab018fa5ea13e9de",
+                        "hash": "d8ee98f2b9bd43648f81fc0d3a276f11f7d4e998",
                         "name": "block/rooted_dirt/step6"
                     }
                 ]
@@ -5484,28 +5480,34 @@
                 "name": "block.rooted_dirt.hit",
                 "sounds": [
                     {
-                        "hash": "bd72310884cd5bba209086ddd3d200f540bd8f1a",
-                        "name": "block/rooted_dirt/step1"
+                        "hash": "0c548af9a197ecb01293fea959b3aeba5facf56c",
+                        "name": "block/rooted_dirt/step1",
+                        "volume": 0.8
                     },
                     {
-                        "hash": "b6690f0628e6c8e18caa78c0ad987b974c1887d1",
-                        "name": "block/rooted_dirt/step2"
+                        "hash": "f0b347346feff35af1cd8467d1ab363279d5e88f",
+                        "name": "block/rooted_dirt/step2",
+                        "volume": 0.8
                     },
                     {
-                        "hash": "50dedc85c114eb57419fdc0997b22e60bbd441ce",
-                        "name": "block/rooted_dirt/step3"
+                        "hash": "fbc17029947cfa5f965c23744dc06283f3b1f85b",
+                        "name": "block/rooted_dirt/step3",
+                        "volume": 0.8
                     },
                     {
-                        "hash": "37915e7efb4cd46ffcf7e99686687e3dcb5bcb54",
-                        "name": "block/rooted_dirt/step4"
+                        "hash": "e63fe3eca9d254207b115c9e17c776bcb066528c",
+                        "name": "block/rooted_dirt/step4",
+                        "volume": 0.8
                     },
                     {
-                        "hash": "b05e5547174a7c8497f584b6773894745c4fdea7",
-                        "name": "block/rooted_dirt/step5"
+                        "hash": "d4773ef3bc33bfd677c63fc79fb8759c12a42fbb",
+                        "name": "block/rooted_dirt/step5",
+                        "volume": 0.8
                     },
                     {
-                        "hash": "5e9e3db0c68e7732909fc9aaab018fa5ea13e9de",
-                        "name": "block/rooted_dirt/step6"
+                        "hash": "d8ee98f2b9bd43648f81fc0d3a276f11f7d4e998",
+                        "name": "block/rooted_dirt/step6",
+                        "volume": 0.8
                     }
                 ],
                 "subtitle": "Block breaking",
@@ -5548,27 +5550,27 @@
                 "name": "block.rooted_dirt.step",
                 "sounds": [
                     {
-                        "hash": "bd72310884cd5bba209086ddd3d200f540bd8f1a",
+                        "hash": "0c548af9a197ecb01293fea959b3aeba5facf56c",
                         "name": "block/rooted_dirt/step1"
                     },
                     {
-                        "hash": "b6690f0628e6c8e18caa78c0ad987b974c1887d1",
+                        "hash": "f0b347346feff35af1cd8467d1ab363279d5e88f",
                         "name": "block/rooted_dirt/step2"
                     },
                     {
-                        "hash": "50dedc85c114eb57419fdc0997b22e60bbd441ce",
+                        "hash": "fbc17029947cfa5f965c23744dc06283f3b1f85b",
                         "name": "block/rooted_dirt/step3"
                     },
                     {
-                        "hash": "37915e7efb4cd46ffcf7e99686687e3dcb5bcb54",
+                        "hash": "e63fe3eca9d254207b115c9e17c776bcb066528c",
                         "name": "block/rooted_dirt/step4"
                     },
                     {
-                        "hash": "b05e5547174a7c8497f584b6773894745c4fdea7",
+                        "hash": "d4773ef3bc33bfd677c63fc79fb8759c12a42fbb",
                         "name": "block/rooted_dirt/step5"
                     },
                     {
-                        "hash": "5e9e3db0c68e7732909fc9aaab018fa5ea13e9de",
+                        "hash": "d8ee98f2b9bd43648f81fc0d3a276f11f7d4e998",
                         "name": "block/rooted_dirt/step6"
                     }
                 ],

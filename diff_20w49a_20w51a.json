@@ -20,6 +20,7 @@
                             "entity": "~abstract_animal"
                         },
                         {
+                            "bitfields": [],
                             "class": "bcg",
                             "data": [
                                 {
@@ -163,13 +164,314 @@
                     "id": 92,
                     "instructions": [
                         {
-                            "args": "packetbuffer",
-                            "field": "a",
-                            "method": "a(Lnt;)V",
-                            "name": "a",
-                            "operation": "interfacecall",
-                            "target": "afb",
-                            "type": "interface"
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.a.a().a()",
+                            "var": "var3"
+                        },
+                        {
+                            "field": "var3.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "var3.entrySet().iterator()",
+                            "var": "var4"
+                        },
+                        {
+                            "condition": "var4.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((Map$Entry)var4.next())",
+                                    "var": "var5"
+                                },
+                                {
+                                    "field": "(vy)var5.getKey()",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                },
+                                {
+                                    "field": "((aez)var5.getValue()).b().size()",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((aez)var5.getValue()).b().iterator()",
+                                    "var": "var6"
+                                },
+                                {
+                                    "condition": "var6.hasNext()",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "var6.next()",
+                                            "var": "var7"
+                                        },
+                                        {
+                                            "field": "gn.W.a(var7)",
+                                            "operation": "write",
+                                            "type": "varint"
+                                        }
+                                    ],
+                                    "operation": "loop"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.a.b().a()",
+                            "var": "var3"
+                        },
+                        {
+                            "field": "var3.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "var3.entrySet().iterator()",
+                            "var": "var4"
+                        },
+                        {
+                            "condition": "var4.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((Map$Entry)var4.next())",
+                                    "var": "var5"
+                                },
+                                {
+                                    "field": "(vy)var5.getKey()",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                },
+                                {
+                                    "field": "((aez)var5.getValue()).b().size()",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((aez)var5.getValue()).b().iterator()",
+                                    "var": "var6"
+                                },
+                                {
+                                    "condition": "var6.hasNext()",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "var6.next()",
+                                            "var": "var7"
+                                        },
+                                        {
+                                            "field": "gn.Z.a(var7)",
+                                            "operation": "write",
+                                            "type": "varint"
+                                        }
+                                    ],
+                                    "operation": "loop"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.a.c().a()",
+                            "var": "var3"
+                        },
+                        {
+                            "field": "var3.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "var3.entrySet().iterator()",
+                            "var": "var4"
+                        },
+                        {
+                            "condition": "var4.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((Map$Entry)var4.next())",
+                                    "var": "var5"
+                                },
+                                {
+                                    "field": "(vy)var5.getKey()",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                },
+                                {
+                                    "field": "((aez)var5.getValue()).b().size()",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((aez)var5.getValue()).b().iterator()",
+                                    "var": "var6"
+                                },
+                                {
+                                    "condition": "var6.hasNext()",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "var6.next()",
+                                            "var": "var7"
+                                        },
+                                        {
+                                            "field": "gn.U.a(var7)",
+                                            "operation": "write",
+                                            "type": "varint"
+                                        }
+                                    ],
+                                    "operation": "loop"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.a.d().a()",
+                            "var": "var3"
+                        },
+                        {
+                            "field": "var3.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "var3.entrySet().iterator()",
+                            "var": "var4"
+                        },
+                        {
+                            "condition": "var4.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((Map$Entry)var4.next())",
+                                    "var": "var5"
+                                },
+                                {
+                                    "field": "(vy)var5.getKey()",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                },
+                                {
+                                    "field": "((aez)var5.getValue()).b().size()",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((aez)var5.getValue()).b().iterator()",
+                                    "var": "var6"
+                                },
+                                {
+                                    "condition": "var6.hasNext()",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "var6.next()",
+                                            "var": "var7"
+                                        },
+                                        {
+                                            "field": "gn.Y.a(var7)",
+                                            "operation": "write",
+                                            "type": "varint"
+                                        }
+                                    ],
+                                    "operation": "loop"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.a.e().a()",
+                            "var": "var3"
+                        },
+                        {
+                            "field": "var3.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "var3.entrySet().iterator()",
+                            "var": "var4"
+                        },
+                        {
+                            "condition": "var4.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((Map$Entry)var4.next())",
+                                    "var": "var5"
+                                },
+                                {
+                                    "field": "(vy)var5.getKey()",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                },
+                                {
+                                    "field": "((aez)var5.getValue()).b().size()",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((aez)var5.getValue()).b().iterator()",
+                                    "var": "var6"
+                                },
+                                {
+                                    "condition": "var6.hasNext()",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "var6.next()",
+                                            "var": "var7"
+                                        },
+                                        {
+                                            "field": "gn.S.a(var7)",
+                                            "operation": "write",
+                                            "type": "varint"
+                                        }
+                                    ],
+                                    "operation": "loop"
+                                }
+                            ],
+                            "operation": "loop"
                         }
                     ],
                     "state": "PLAY"

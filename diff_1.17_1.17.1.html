@@ -1,0 +1,118 @@
+<!doctype html>
+              <html>
+                <head>
+                  <title>Burger Vitrine</title>
+                  <link rel="stylesheet" href="resources/style.css" />
+                  <script src="resources/jquery.js"></script>
+                  <script src="resources/vitrine.js"></script>
+                </head>
+                <body>
+                    <div id="vitrine">
+                        <a href="#blocks"><h2 id="blocks">Blocks</h2></a><span class="info">No entries</span>
+<a href="#items"><h2 id="items">Items</h2></a><span class="info">No entries</span>
+<a href="#tags"><h2 id="tags">Tags</h2></a><div class="split"><div class="left"><div class="entry"><a href="#tags:lava_pool_stone_replaceables"><h3 id="tags:lava_pool_stone_replaceables">lava_pool_stone_replaceables</h3></a><div><dl><dt>Type</dt><dd>blocks</dd><dt>Name</dt><dd>lava_pool_stone_replaceables</dd><dt>Values</dt><dd><a href="#blocks:bedrock">bedrock</a><br/><a href="#blocks:spawner">spawner</a><br/><a href="#blocks:chest">chest</a><br/><a href="#blocks:end_portal_frame">end_portal_frame</a><br/><a href="#blocks:jungle_leaves">jungle_leaves</a><br/><a href="#blocks:oak_leaves">oak_leaves</a><br/><a href="#blocks:spruce_leaves">spruce_leaves</a><br/><a href="#blocks:dark_oak_leaves">dark_oak_leaves</a><br/><a href="#blocks:acacia_leaves">acacia_leaves</a><br/><a href="#blocks:birch_leaves">birch_leaves</a><br/><a href="#blocks:azalea_leaves">azalea_leaves</a><br/><a href="#blocks:flowering_azalea_leaves">flowering_azalea_leaves</a></dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#tags:lava_pool_stone_replaceables"><h3 id="tags:lava_pool_stone_replaceables">lava_pool_stone_replaceables</h3></a><div><dl><dt>Type</dt><dd>blocks</dd><dt>Name</dt><dd>lava_pool_stone_replaceables</dd><dt>Values</dt><dd><a href="#blocks:bedrock">bedrock</a><br/><a href="#blocks:spawner">spawner</a><br/><a href="#blocks:chest">chest</a><br/><a href="#blocks:end_portal_frame">end_portal_frame</a><br/><a href="#blocks:jungle_leaves">jungle_leaves</a><br/><a href="#blocks:oak_leaves">oak_leaves</a><br/><a href="#blocks:spruce_leaves">spruce_leaves</a><br/><a href="#blocks:dark_oak_leaves">dark_oak_leaves</a><br/><a href="#blocks:acacia_leaves">acacia_leaves</a><br/><a href="#blocks:birch_leaves">birch_leaves</a><br/><a href="#blocks:azalea_leaves">azalea_leaves</a><br/><a href="#blocks:flowering_azalea_leaves">flowering_azalea_leaves</a><br/><a href="#blocks:dark_oak_log">dark_oak_log</a><br/><a href="#blocks:dark_oak_wood">dark_oak_wood</a><br/><a href="#blocks:stripped_dark_oak_log">stripped_dark_oak_log</a><br/><a href="#blocks:stripped_dark_oak_wood">stripped_dark_oak_wood</a><br/><a href="#blocks:oak_log">oak_log</a><br/><a href="#blocks:oak_wood">oak_wood</a><br/><a href="#blocks:stripped_oak_log">stripped_oak_log</a><br/><a href="#blocks:stripped_oak_wood">stripped_oak_wood</a><br/><a href="#blocks:acacia_log">acacia_log</a><br/><a href="#blocks:acacia_wood">acacia_wood</a><br/><a href="#blocks:stripped_acacia_log">stripped_acacia_log</a><br/><a href="#blocks:stripped_acacia_wood">stripped_acacia_wood</a><br/><a href="#blocks:birch_log">birch_log</a><br/><a href="#blocks:birch_wood">birch_wood</a><br/><a href="#blocks:stripped_birch_log">stripped_birch_log</a><br/><a href="#blocks:stripped_birch_wood">stripped_birch_wood</a><br/><a href="#blocks:jungle_log">jungle_log</a><br/><a href="#blocks:jungle_wood">jungle_wood</a><br/><a href="#blocks:stripped_jungle_log">stripped_jungle_log</a><br/><a href="#blocks:stripped_jungle_wood">stripped_jungle_wood</a><br/><a href="#blocks:spruce_log">spruce_log</a><br/><a href="#blocks:spruce_wood">spruce_wood</a><br/><a href="#blocks:stripped_spruce_log">stripped_spruce_log</a><br/><a href="#blocks:stripped_spruce_wood">stripped_spruce_wood</a><br/><a href="#blocks:crimson_stem">crimson_stem</a><br/><a href="#blocks:stripped_crimson_stem">stripped_crimson_stem</a><br/><a href="#blocks:crimson_hyphae">crimson_hyphae</a><br/><a href="#blocks:stripped_crimson_hyphae">stripped_crimson_hyphae</a><br/><a href="#blocks:warped_stem">warped_stem</a><br/><a href="#blocks:stripped_warped_stem">stripped_warped_stem</a><br/><a href="#blocks:warped_hyphae">warped_hyphae</a><br/><a href="#blocks:stripped_warped_hyphae">stripped_warped_hyphae</a></dd></dl></div></div>
+</div></div>
+<a href="#recipes"><h2 id="recipes">Recipes</h2></a><span class="info">No entries</span>
+<a href="#entities"><h2 id="entities">Entities</h2></a><span class="info">No entries</span>
+<a href="#block_entities"><h2 id="block_entities">Block entities</h2></a><span class="info">No entries</span>
+<a href="#packets"><h2 id="packets">Packets</h2></a><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_14"><h3 id="packets:play_clientbound_14">PLAY_CLIENTBOUND_14</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>20</dd></dl><pre><span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">a</span><span class="hl_p">);</span>
+<span class="hl_n">writeShort</span><span class="hl_p">(</span><span class="hl_n">b</span><span class="hl_p">.</span><span class="hl_na">size</span><span class="hl_p">());</span>
+<span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_p">.</span><span class="hl_na">b</span><span class="hl_p">.</span><span class="hl_na">iterator</span><span class="hl_p">();</span>
+<span class="hl_k">while</span><span class="hl_p">(</span><span class="hl_n">var2</span><span class="hl_p">.</span><span class="hl_na">hasNext</span><span class="hl_p">())</span> <span class="hl_p">{</span>
+  <span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_p">((</span><span class="hl_n">bqp</span><span class="hl_p">)</span><span class="hl_n">var2</span><span class="hl_p">.</span><span class="hl_na">next</span><span class="hl_p">());</span>
+  <span class="hl_n">writeItemStack</span><span class="hl_p">(</span><span class="hl_n">var3</span><span class="hl_p">);</span>
+<span class="hl_p">}</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_14"><h3 id="packets:play_clientbound_14">PLAY_CLIENTBOUND_14</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>20</dd></dl><pre><span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">a</span><span class="hl_p">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_p">(</span><span class="hl_n">b</span><span class="hl_p">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_p">(</span><span class="hl_n">c</span><span class="hl_p">.</span><span class="hl_na">size</span><span class="hl_p">());</span>
+<span class="hl_n">Iterator</span> <span class="hl_n">it</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_p">.</span><span class="hl_na">c</span><span class="hl_p">.</span><span class="hl_na">iterator</span><span class="hl_p">();</span>
+<span class="hl_k">while</span><span class="hl_p">(</span><span class="hl_n">it</span><span class="hl_p">.</span><span class="hl_na">hasNext</span><span class="hl_p">())</span> <span class="hl_p">{</span>
+  <span class="hl_n">bqq</span> <span class="hl_n">itv</span> <span class="hl_o">=</span> <span class="hl_n">it</span><span class="hl_p">.</span><span class="hl_na">next</span><span class="hl_p">();</span>
+  <span class="hl_n">writeItemStack</span><span class="hl_p">(</span><span class="hl_n">itv</span><span class="hl_p">);</span>
+<span class="hl_p">}</span>
+<span class="hl_n">writeItemStack</span><span class="hl_p">(</span><span class="hl_n">d</span><span class="hl_p">);</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_16"><h3 id="packets:play_clientbound_16">PLAY_CLIENTBOUND_16</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>22</dd></dl><pre><span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">c</span><span class="hl_p">);</span>
+<span class="hl_n">writeShort</span><span class="hl_p">(</span><span class="hl_n">d</span><span class="hl_p">);</span>
+<span class="hl_n">writeItemStack</span><span class="hl_p">(</span><span class="hl_n">e</span><span class="hl_p">);</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_16"><h3 id="packets:play_clientbound_16">PLAY_CLIENTBOUND_16</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>22</dd></dl><pre><span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">c</span><span class="hl_p">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_p">(</span><span class="hl_n">d</span><span class="hl_p">);</span>
+<span class="hl_n">writeShort</span><span class="hl_p">(</span><span class="hl_n">e</span><span class="hl_p">);</span>
+<span class="hl_n">writeItemStack</span><span class="hl_p">(</span><span class="hl_n">f</span><span class="hl_p">);</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_3a"><h3 id="packets:play_clientbound_3a">PLAY_CLIENTBOUND_3A</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>58</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_p">(</span><span class="hl_n">a</span><span class="hl_p">);</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_3a"><h3 id="packets:play_clientbound_3a">PLAY_CLIENTBOUND_3A</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>58</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_p">(</span><span class="hl_n">a</span><span class="hl_p">.</span><span class="hl_na">size</span><span class="hl_p">());</span>
+<span class="hl_n">Iterator</span> <span class="hl_n">it</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_p">.</span><span class="hl_na">a</span><span class="hl_p">.</span><span class="hl_na">iterator</span><span class="hl_p">();</span>
+<span class="hl_k">while</span><span class="hl_p">(</span><span class="hl_n">it</span><span class="hl_p">.</span><span class="hl_na">hasNext</span><span class="hl_p">())</span> <span class="hl_p">{</span>
+  <span class="hl_kt">int</span> <span class="hl_n">itv</span> <span class="hl_o">=</span> <span class="hl_n">it</span><span class="hl_p">.</span><span class="hl_na">next</span><span class="hl_p">();</span>
+  <span class="hl_n">writeVarInt</span><span class="hl_p">(</span><span class="hl_n">itv</span><span class="hl_p">);</span>
+<span class="hl_p">}</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_serverbound_08"><h3 id="packets:play_serverbound_08">PLAY_SERVERBOUND_08</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>8</dd></dl><pre><span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">a</span><span class="hl_p">);</span>
+<span class="hl_n">writeShort</span><span class="hl_p">(</span><span class="hl_n">b</span><span class="hl_p">);</span>
+<span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">c</span><span class="hl_p">);</span>
+<span class="hl_n">writeVarIntEnum</span><span class="hl_p">(</span><span class="hl_n">d</span><span class="hl_p">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_p">(</span><span class="hl_n">f</span><span class="hl_p">.</span><span class="hl_na">size</span><span class="hl_p">());</span>
+<span class="hl_n">Iterator</span> <span class="hl_n">it</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_p">.</span><span class="hl_na">f</span><span class="hl_p">.</span><span class="hl_na">iterator</span><span class="hl_p">();</span>
+<span class="hl_k">while</span><span class="hl_p">(</span><span class="hl_n">it</span><span class="hl_p">.</span><span class="hl_na">hasNext</span><span class="hl_p">())</span> <span class="hl_p">{</span>
+  <span class="hl_n">Map</span><span class="hl_p">.</span><span class="hl_na">Entry</span><span class="hl_o">&lt;</span><span class="hl_kt">int</span><span class="hl_p">,</span> <span class="hl_n">bqp</span><span class="hl_o">&gt;</span> <span class="hl_n">itv</span> <span class="hl_o">=</span> <span class="hl_n">it</span><span class="hl_p">.</span><span class="hl_na">next</span><span class="hl_p">();</span>
+  <span class="hl_n">writeShort</span><span class="hl_p">(</span><span class="hl_n">itv</span><span class="hl_p">.</span><span class="hl_na">getKey</span><span class="hl_p">());</span>
+  <span class="hl_n">writeItemStack</span><span class="hl_p">(</span><span class="hl_n">itv</span><span class="hl_p">.</span><span class="hl_na">getValue</span><span class="hl_p">());</span>
+<span class="hl_p">}</span>
+<span class="hl_n">writeItemStack</span><span class="hl_p">(</span><span class="hl_n">e</span><span class="hl_p">);</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_serverbound_08"><h3 id="packets:play_serverbound_08">PLAY_SERVERBOUND_08</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>8</dd></dl><pre><span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">b</span><span class="hl_p">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_p">(</span><span class="hl_n">c</span><span class="hl_p">);</span>
+<span class="hl_n">writeShort</span><span class="hl_p">(</span><span class="hl_n">d</span><span class="hl_p">);</span>
+<span class="hl_n">writeByte</span><span class="hl_p">(</span><span class="hl_n">e</span><span class="hl_p">);</span>
+<span class="hl_n">writeVarIntEnum</span><span class="hl_p">(</span><span class="hl_n">f</span><span class="hl_p">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_p">(</span><span class="hl_n">h</span><span class="hl_p">.</span><span class="hl_na">size</span><span class="hl_p">());</span>
+<span class="hl_n">Iterator</span> <span class="hl_n">it</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_p">.</span><span class="hl_na">h</span><span class="hl_p">.</span><span class="hl_na">iterator</span><span class="hl_p">();</span>
+<span class="hl_k">while</span><span class="hl_p">(</span><span class="hl_n">it</span><span class="hl_p">.</span><span class="hl_na">hasNext</span><span class="hl_p">())</span> <span class="hl_p">{</span>
+  <span class="hl_n">Map</span><span class="hl_p">.</span><span class="hl_na">Entry</span><span class="hl_o">&lt;</span><span class="hl_kt">int</span><span class="hl_p">,</span> <span class="hl_n">bqq</span><span class="hl_o">&gt;</span> <span class="hl_n">itv</span> <span class="hl_o">=</span> <span class="hl_n">it</span><span class="hl_p">.</span><span class="hl_na">next</span><span class="hl_p">();</span>
+  <span class="hl_n">writeShort</span><span class="hl_p">(</span><span class="hl_n">itv</span><span class="hl_p">.</span><span class="hl_na">getKey</span><span class="hl_p">());</span>
+  <span class="hl_n">writeItemStack</span><span class="hl_p">(</span><span class="hl_n">itv</span><span class="hl_p">.</span><span class="hl_na">getValue</span><span class="hl_p">());</span>
+<span class="hl_p">}</span>
+<span class="hl_n">writeItemStack</span><span class="hl_p">(</span><span class="hl_n">g</span><span class="hl_p">);</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_serverbound_0b"><h3 id="packets:play_serverbound_0b">PLAY_SERVERBOUND_0B</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>11</dd></dl><pre><span class="hl_n">writeItemStack</span><span class="hl_p">(</span><span class="hl_n">a</span><span class="hl_p">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_p">(</span><span class="hl_n">b</span><span class="hl_p">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_p">(</span><span class="hl_n">c</span><span class="hl_p">);</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_serverbound_0b"><h3 id="packets:play_serverbound_0b">PLAY_SERVERBOUND_0B</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>11</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_p">(</span><span class="hl_n">e</span><span class="hl_p">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_p">(</span><span class="hl_n">f</span><span class="hl_p">.</span><span class="hl_na">size</span><span class="hl_p">());</span>
+<span class="hl_n">Iterator</span> <span class="hl_n">it</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_p">.</span><span class="hl_na">f</span><span class="hl_p">.</span><span class="hl_na">iterator</span><span class="hl_p">();</span>
+<span class="hl_k">while</span><span class="hl_p">(</span><span class="hl_n">it</span><span class="hl_p">.</span><span class="hl_na">hasNext</span><span class="hl_p">())</span> <span class="hl_p">{</span>
+  <span class="hl_n">java</span><span class="hl_p">.</span><span class="hl_na">lang</span><span class="hl_p">.</span><span class="hl_na">String</span> <span class="hl_n">itv</span> <span class="hl_o">=</span> <span class="hl_n">it</span><span class="hl_p">.</span><span class="hl_na">next</span><span class="hl_p">();</span>
+  <span class="hl_n">writeString</span><span class="hl_p">(</span><span class="hl_n">itv</span><span class="hl_p">);</span>
+<span class="hl_p">}</span>
+<span class="hl_n">writeBoolean</span><span class="hl_p">(</span><span class="hl_n">g</span><span class="hl_p">.</span><span class="hl_na">isPresent</span><span class="hl_p">());</span>
+<span class="hl_k">if</span><span class="hl_p">(</span><span class="hl_n">g</span><span class="hl_p">.</span><span class="hl_na">isPresent</span><span class="hl_p">())</span> <span class="hl_p">{</span>
+  <span class="hl_n">writeString</span><span class="hl_p">(</span><span class="hl_n">g</span><span class="hl_p">.</span><span class="hl_na">get</span><span class="hl_p">());</span>
+<span class="hl_p">}</span>
+</pre></div></div>
+</div></div>
+<a href="#entity_metadata_serializers"><h2 id="entity_metadata_serializers">Entity Metadata Serializers</h2></a><span class="info">No entries</span>
+<a href="#versions"><h2 id="versions">Versions</h2></a><div class="split"><div class="left"><div class="entry"><a href="#versions:data"><h3 id="versions:data">data</h3></a><div>2724</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:data"><h3 id="versions:data">data</h3></a><div>2730</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:id"><h3 id="versions:id">id</h3></a><div>1.17</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:id"><h3 id="versions:id">id</h3></a><div>1.17.1</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:name"><h3 id="versions:name">name</h3></a><div>1.17</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:name"><h3 id="versions:name">name</h3></a><div>1.17.1</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>755</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>756</div></div>
+</div></div>
+<a href="#stats"><h2 id="stats">Stats</h2></a><span class="info">No entries</span>
+<a href="#achievements"><h2 id="achievements">Achievements</h2></a><span class="info">No entries</span>
+<a href="#language"><h2 id="language">Language</h2></a><div class="split"><div class="left"><div class="entry"><a href="#language:death"><h3 id="language:death">death</h3></a><div><dl class="wide"><dt>attack.dryout</dt><dd>-</dd><dt>attack.dryout.player</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:death"><h3 id="language:death">death</h3></a><div><dl class="wide"><dt>attack.dryout</dt><dd>%1$s died from dehydration</dd><dt>attack.dryout.player</dt><dd>%1$s died from dehydration whilst trying to escape %2$s</dd></dl></div></div>
+</div></div>
+<a href="#sounds"><h2 id="sounds">Sounds</h2></a><span class="info">No entries</span>
+
+                    </div>
+                </body>
+              </html>

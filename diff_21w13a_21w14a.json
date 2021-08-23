@@ -133,6 +133,83 @@
         "dataserializers": {},
         "entity": {}
     },
+    "items": {
+        "item": {
+            "raw_copper": [
+                null,
+                {
+                    "class": "bpn",
+                    "display_name": "Raw Copper",
+                    "field": "lk",
+                    "max_stack_size": 64,
+                    "numeric_id": 634,
+                    "text_id": "raw_copper"
+                }
+            ],
+            "raw_gold": [
+                null,
+                {
+                    "class": "bpn",
+                    "display_name": "Raw Gold",
+                    "field": "lm",
+                    "max_stack_size": 64,
+                    "numeric_id": 636,
+                    "text_id": "raw_gold"
+                }
+            ],
+            "raw_iron": [
+                null,
+                {
+                    "class": "bpn",
+                    "display_name": "Raw Iron",
+                    "field": "li",
+                    "max_stack_size": 64,
+                    "numeric_id": 632,
+                    "text_id": "raw_iron"
+                }
+            ],
+            "waxed_oxidized_copper": [
+                null,
+                {
+                    "display_name": "Waxed Oxidized Copper",
+                    "field": "tP",
+                    "max_stack_size": 64,
+                    "numeric_id": 1081,
+                    "text_id": "waxed_oxidized_copper"
+                }
+            ],
+            "waxed_oxidized_cut_copper": [
+                null,
+                {
+                    "display_name": "Waxed Oxidized Cut Copper",
+                    "field": "tT",
+                    "max_stack_size": 64,
+                    "numeric_id": 1085,
+                    "text_id": "waxed_oxidized_cut_copper"
+                }
+            ],
+            "waxed_oxidized_cut_copper_slab": [
+                null,
+                {
+                    "display_name": "Waxed Oxidized Cut Copper Slab",
+                    "field": "ub",
+                    "max_stack_size": 64,
+                    "numeric_id": 1093,
+                    "text_id": "waxed_oxidized_cut_copper_slab"
+                }
+            ],
+            "waxed_oxidized_cut_copper_stairs": [
+                null,
+                {
+                    "display_name": "Waxed Oxidized Cut Copper Stairs",
+                    "field": "tX",
+                    "max_stack_size": 64,
+                    "numeric_id": 1089,
+                    "text_id": "waxed_oxidized_cut_copper_stairs"
+                }
+            ]
+        }
+    },
     "language": {
         "block": {
             "minecraft.waxed_oxidized_copper": [
@@ -169,6 +246,240 @@
     },
     "packets": {
         "packet": {}
+    },
+    "recipes": {
+        "waxed_oxidized_copper": [
+            null,
+            [
+                {
+                    "id": "minecraft:waxed_oxidized_copper_from_honeycomb",
+                    "ingredients": [
+                        {
+                            "name": "oxidized_copper",
+                            "type": "item"
+                        },
+                        {
+                            "name": "honeycomb",
+                            "type": "item"
+                        }
+                    ],
+                    "makes": {
+                        "count": 1,
+                        "name": "waxed_oxidized_copper",
+                        "type": "item"
+                    },
+                    "type": "shapeless"
+                }
+            ]
+        ],
+        "waxed_oxidized_cut_copper": [
+            null,
+            [
+                {
+                    "id": "minecraft:waxed_oxidized_cut_copper",
+                    "makes": {
+                        "count": 4,
+                        "name": "waxed_oxidized_cut_copper",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "##",
+                            "##"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "waxed_oxidized_copper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "waxed_oxidized_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "waxed_oxidized_copper",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "waxed_oxidized_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "waxed_oxidized_copper",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:waxed_oxidized_cut_copper_from_honeycomb",
+                    "ingredients": [
+                        {
+                            "name": "oxidized_cut_copper",
+                            "type": "item"
+                        },
+                        {
+                            "name": "honeycomb",
+                            "type": "item"
+                        }
+                    ],
+                    "makes": {
+                        "count": 1,
+                        "name": "waxed_oxidized_cut_copper",
+                        "type": "item"
+                    },
+                    "type": "shapeless"
+                }
+            ]
+        ],
+        "waxed_oxidized_cut_copper_slab": [
+            null,
+            [
+                {
+                    "id": "minecraft:waxed_oxidized_cut_copper_slab",
+                    "makes": {
+                        "count": 6,
+                        "name": "waxed_oxidized_cut_copper_slab",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "waxed_oxidized_cut_copper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "waxed_oxidized_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "waxed_oxidized_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "waxed_oxidized_cut_copper",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:waxed_oxidized_cut_copper_slab_from_honeycomb",
+                    "ingredients": [
+                        {
+                            "name": "oxidized_cut_copper_slab",
+                            "type": "item"
+                        },
+                        {
+                            "name": "honeycomb",
+                            "type": "item"
+                        }
+                    ],
+                    "makes": {
+                        "count": 1,
+                        "name": "waxed_oxidized_cut_copper_slab",
+                        "type": "item"
+                    },
+                    "type": "shapeless"
+                }
+            ]
+        ],
+        "waxed_oxidized_cut_copper_stairs": [
+            null,
+            [
+                {
+                    "id": "minecraft:waxed_oxidized_cut_copper_stairs",
+                    "makes": {
+                        "count": 4,
+                        "name": "waxed_oxidized_cut_copper_stairs",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "#  ",
+                            "## ",
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "waxed_oxidized_cut_copper",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "waxed_oxidized_cut_copper",
+                                "type": "item"
+                            },
+                            null,
+                            null
+                        ],
+                        [
+                            {
+                                "name": "waxed_oxidized_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "waxed_oxidized_cut_copper",
+                                "type": "item"
+                            },
+                            null
+                        ],
+                        [
+                            {
+                                "name": "waxed_oxidized_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "waxed_oxidized_cut_copper",
+                                "type": "item"
+                            },
+                            {
+                                "name": "waxed_oxidized_cut_copper",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                },
+                {
+                    "id": "minecraft:waxed_oxidized_cut_copper_stairs_from_honeycomb",
+                    "ingredients": [
+                        {
+                            "name": "oxidized_cut_copper_stairs",
+                            "type": "item"
+                        },
+                        {
+                            "name": "honeycomb",
+                            "type": "item"
+                        }
+                    ],
+                    "makes": {
+                        "count": 1,
+                        "name": "waxed_oxidized_cut_copper_stairs",
+                        "type": "item"
+                    },
+                    "type": "shapeless"
+                }
+            ]
+        ]
     },
     "sounds": {},
     "stats": {},

@@ -4,7 +4,11 @@
         "block": {}
     },
     "entities": {
+        "dataserializers": {},
         "entity": {}
+    },
+    "items": {
+        "item": {}
     },
     "language": {
         "death": {
@@ -18,8 +22,72 @@
             ]
         }
     },
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_3A": [
+                {
+                    "class": "rs.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 58,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rs.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 58,
+                    "instructions": [
+                        {
+                            "field": "a.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.a.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv",
+                                    "operation": "write",
+                                    "type": "varint"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "recipes": {},
     "sounds": {},
     "stats": {},
+    "tags": {},
+    "tileentity": {
+        "tileentities": {}
+    },
     "version": {
         "data": [
             2727,

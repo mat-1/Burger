@@ -394,6 +394,31 @@
             ]
         }
     },
+    "items": {
+        "item": {
+            "goat_spawn_egg": [
+                null,
+                {
+                    "class": "bqs",
+                    "display_name": "Goat Spawn Egg",
+                    "field": "pd",
+                    "max_stack_size": 64,
+                    "numeric_id": 835,
+                    "text_id": "goat_spawn_egg"
+                }
+            ],
+            "light": [
+                null,
+                {
+                    "display_name": "Light",
+                    "field": "fw",
+                    "max_stack_size": 64,
+                    "numeric_id": 334,
+                    "text_id": "light"
+                }
+            ]
+        }
+    },
     "language": {
         "advancements": {
             "story.shiny_gear.title": [
@@ -439,6 +464,7 @@
     "packets": {
         "packet": {}
     },
+    "recipes": {},
     "sounds": {
         "entity.goat.ambient": [
             null,
@@ -450,42 +476,42 @@
                     {
                         "hash": "b285a04a3989ab482d341a4caaa83b535df2a317",
                         "name": "mob/goat/idle1",
-                        "volume": 0.85
+                        "volume": 0.82
                     },
                     {
                         "hash": "916a6ee50492987b33c58909bd0f86c275d49cfd",
                         "name": "mob/goat/idle2",
-                        "volume": 0.85
+                        "volume": 0.82
                     },
                     {
                         "hash": "0a99153b99f389ff138711ea0c4c166a8e96db88",
                         "name": "mob/goat/idle3",
-                        "volume": 0.85
+                        "volume": 0.84
                     },
                     {
                         "hash": "5f35f2d69a4ac53c203103ce1d6e7792521fde03",
                         "name": "mob/goat/idle4",
-                        "volume": 0.85
+                        "volume": 0.84
                     },
                     {
                         "hash": "0a4f809f76e084a1119d306aefa4c6b7f8ab3bfa",
                         "name": "mob/goat/idle5",
-                        "volume": 0.85
+                        "volume": 0.84
                     },
                     {
                         "hash": "f1da5b3e56b590255d076e0e51eb08f587b7e8cd",
                         "name": "mob/goat/idle6",
-                        "volume": 0.85
+                        "volume": 0.84
                     },
                     {
                         "hash": "8bbd0445ea883d487838a4ba5efeda4d5612d593",
                         "name": "mob/goat/idle7",
-                        "volume": 0.85
+                        "volume": 0.83
                     },
                     {
                         "hash": "2db61f629e4433bcc711d2f1946e1c519b6626bb",
                         "name": "mob/goat/idle8",
-                        "volume": 0.85
+                        "volume": 0.84
                     }
                 ],
                 "subtitle_key": "subtitles.entity.goat.ambient"
@@ -566,16 +592,16 @@
                 "name": "entity.goat.milk",
                 "sounds": [
                     {
-                        "hash": "462cbc14581ba05f4a5f1e5aa23cb48eb823bf2d",
-                        "name": "entity/cow/milk1"
+                        "hash": "f5daded7e927f4f0b2ae843140abbf85553be259",
+                        "name": "mob/mooshroom/milk1"
                     },
                     {
-                        "hash": "47d640178306584d10213dbf05290150ff60a46b",
-                        "name": "entity/cow/milk2"
+                        "hash": "fcaad5c2e8299050a38d26b4d1fc6fb7d16d843f",
+                        "name": "mob/mooshroom/milk2"
                     },
                     {
-                        "hash": "e7133a7d4822e40f0abd716faa3a8f340362b8d7",
-                        "name": "entity/cow/milk3"
+                        "hash": "ea4171ae5761ec875a877f95aa1968e6c47f42fa",
+                        "name": "mob/mooshroom/milk3"
                     }
                 ],
                 "subtitle_key": "subtitles.entity.goat.milk"
@@ -599,7 +625,8 @@
                         "volume": 0.8
                     },
                     {
-                        "name": "mob/gpat/pre_ram3",
+                        "hash": "d4f4e49b8135bcd9e016f694d7e11661edc239e3",
+                        "name": "mob/goat/pre_ram3",
                         "volume": 0.8
                     },
                     {
@@ -607,7 +634,8 @@
                         "name": "mob/goat/pre_ram4",
                         "volume": 0.8
                     }
-                ]
+                ],
+                "subtitle_key": "subtitles.entity.goat.prepare_ram"
             }
         ],
         "entity.goat.screaming.ambient": [
@@ -620,42 +648,42 @@
                     {
                         "hash": "b285a04a3989ab482d341a4caaa83b535df2a317",
                         "name": "mob/goat/idle1",
-                        "volume": 0.85
+                        "volume": 0.82
                     },
                     {
                         "hash": "916a6ee50492987b33c58909bd0f86c275d49cfd",
                         "name": "mob/goat/idle2",
-                        "volume": 0.85
+                        "volume": 0.82
                     },
                     {
                         "hash": "0a99153b99f389ff138711ea0c4c166a8e96db88",
                         "name": "mob/goat/idle3",
-                        "volume": 0.85
+                        "volume": 0.84
                     },
                     {
                         "hash": "5f35f2d69a4ac53c203103ce1d6e7792521fde03",
                         "name": "mob/goat/idle4",
-                        "volume": 0.85
+                        "volume": 0.84
                     },
                     {
                         "hash": "0a4f809f76e084a1119d306aefa4c6b7f8ab3bfa",
                         "name": "mob/goat/idle5",
-                        "volume": 0.85
+                        "volume": 0.84
                     },
                     {
                         "hash": "f1da5b3e56b590255d076e0e51eb08f587b7e8cd",
                         "name": "mob/goat/idle6",
-                        "volume": 0.85
+                        "volume": 0.84
                     },
                     {
                         "hash": "8bbd0445ea883d487838a4ba5efeda4d5612d593",
                         "name": "mob/goat/idle7",
-                        "volume": 0.85
+                        "volume": 0.83
                     },
                     {
                         "hash": "2db61f629e4433bcc711d2f1946e1c519b6626bb",
                         "name": "mob/goat/idle8",
-                        "volume": 0.85
+                        "volume": 0.84
                     },
                     {
                         "hash": "4a9076788d0ba64842998377ff5f86583c491b02",
@@ -691,9 +719,19 @@
                         "hash": "f29b1768f0f22338e0d26b5b08df674106c1f80c",
                         "name": "mob/goat/scream7",
                         "volume": 0.9
+                    },
+                    {
+                        "hash": "2c96e0bf52d5516d8a2f37e7864e78567be9d603",
+                        "name": "mob/goat/scream8",
+                        "volume": 0.9
+                    },
+                    {
+                        "hash": "dbfbaa340a65cb737fedc1ad92ff7829402180bf",
+                        "name": "mob/goat/scream9",
+                        "volume": 0.9
                     }
                 ],
-                "subtitle_key": "subtitles.entity.goat.ambient"
+                "subtitle_key": "subtitles.entity.goat.screaming.ambient"
             }
         ],
         "entity.goat.screaming.death": [
@@ -704,28 +742,18 @@
                 "name": "entity.goat.screaming.death",
                 "sounds": [
                     {
-                        "hash": "fca37ba6e37f6d91440d4a5d523bb5bd89273853",
-                        "name": "mob/goat/death1",
+                        "hash": "cc4e64704a88ae4712727641b637f9b9e06ccb4e",
+                        "name": "mob/goat/screaming_death1",
                         "volume": 0.65
                     },
                     {
-                        "hash": "7f78ac6c5ea9f9416e6cbbd737fe712105bb6a72",
-                        "name": "mob/goat/death2",
+                        "hash": "a6aa2ed9fcc8a2adbaa5017165ad5842166a425e",
+                        "name": "mob/goat/screaming_death2",
                         "volume": 0.65
                     },
                     {
-                        "hash": "d25ffe625146c99cdf5b3cf33bd7f410436cd9c8",
-                        "name": "mob/goat/death3",
-                        "volume": 0.65
-                    },
-                    {
-                        "hash": "3cc522ebe4e5c1b70a4481c4992d395e8b483f9e",
-                        "name": "mob/goat/death4",
-                        "volume": 0.65
-                    },
-                    {
-                        "hash": "ad92224110bbda3cf08f9512f61831f112255517",
-                        "name": "mob/goat/death5",
+                        "hash": "9644482546af4c4db515cbd4aa84f7cfe3f47ee7",
+                        "name": "mob/goat/screaming_death3",
                         "volume": 0.65
                     }
                 ],
@@ -740,23 +768,18 @@
                 "name": "entity.goat.screaming.hurt",
                 "sounds": [
                     {
-                        "hash": "85c5e5e76fcb8183caddbbdb821db19e32d98dc3",
-                        "name": "mob/goat/hurt1",
+                        "hash": "8e3863780fa9f93c57cb9e5cff49e9bb131c3db6",
+                        "name": "mob/goat/screaming_hurt1",
                         "volume": 0.65
                     },
                     {
-                        "hash": "80c3c2e13ffa8d958c1ddcf145473a0e3377c89f",
-                        "name": "mob/goat/hurt2",
+                        "hash": "66cf90407f224d31f97d4653801600b248d5f9ea",
+                        "name": "mob/goat/screaming_hurt2",
                         "volume": 0.65
                     },
                     {
-                        "hash": "e0e5f0790f92243a2af12e7698169bcf6bbbdb09",
-                        "name": "mob/goat/hurt3",
-                        "volume": 0.65
-                    },
-                    {
-                        "hash": "6f0a2854131dfb6abc37f7ba90d523ab457b28cc",
-                        "name": "mob/goat/hurt4",
+                        "hash": "32d3a54692e377bb8d93bb99652bf98c6cc2a92d",
+                        "name": "mob/goat/screaming_hurt3",
                         "volume": 0.65
                     }
                 ],
@@ -771,16 +794,24 @@
                 "name": "entity.goat.screaming.milk",
                 "sounds": [
                     {
-                        "hash": "462cbc14581ba05f4a5f1e5aa23cb48eb823bf2d",
-                        "name": "entity/cow/milk1"
+                        "hash": "a284c13a5838a192794ed6ff6057b8ea5c0d194d",
+                        "name": "mob/goat/screaming_milk1"
                     },
                     {
-                        "hash": "47d640178306584d10213dbf05290150ff60a46b",
-                        "name": "entity/cow/milk2"
+                        "hash": "b708034df8191167193a196ea4013a59b479825a",
+                        "name": "mob/goat/screaming_milk2"
                     },
                     {
-                        "hash": "e7133a7d4822e40f0abd716faa3a8f340362b8d7",
-                        "name": "entity/cow/milk3"
+                        "hash": "08b857951ccd88ebf0d67794786210bc0810f790",
+                        "name": "mob/goat/screaming_milk3"
+                    },
+                    {
+                        "hash": "feead7dc67afd76dd37a422211c720d11b87519b",
+                        "name": "mob/goat/screaming_milk4"
+                    },
+                    {
+                        "hash": "ddcbad0eef2d0a7f1d851420523c39a087112511",
+                        "name": "mob/goat/screaming_milk5"
                     }
                 ],
                 "subtitle_key": "subtitles.entity.goat.milk"
