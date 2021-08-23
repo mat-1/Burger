@@ -1,0 +1,224 @@
+{
+    "achievements": {},
+    "blocks": {
+        "block": {}
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {}
+    },
+    "items": {
+        "item": {}
+    },
+    "language": {
+        "commands": {
+            "jfr.dump.failed": [
+                null,
+                "Failed to dump JFR recording: %s"
+            ],
+            "jfr.dumped": [
+                null,
+                "JFR profiling dumped to: %s"
+            ],
+            "jfr.notRunning": [
+                null,
+                "JFR profiling hasn't started"
+            ],
+            "jfr.start.failed": [
+                null,
+                "Failed to start JFR profiling"
+            ],
+            "jfr.started": [
+                null,
+                "JFR profiling started"
+            ],
+            "jfr.stopped": [
+                null,
+                "JFR profiling stopped and dumped to %s"
+            ]
+        },
+        "death": {
+            "attack.dryout": [
+                "%1$s died from dehydration",
+                null
+            ],
+            "attack.dryout.player": [
+                "%1$s died from dehydration whilst trying to escape %2$s",
+                null
+            ]
+        },
+        "generator": {
+            "amplified.info": [
+                "Notice: Just for fun! Requires a beefy computer.",
+                null
+            ]
+        },
+        "selectWorld": {
+            "incompatible_series": [
+                null,
+                "Created by an incompatible version"
+            ],
+            "pre_worldheight": [
+                "Loading of worlds with extended height is disabled.",
+                "Incompatible world height"
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_3A": [
+                {
+                    "class": "rs.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 58,
+                    "instructions": [
+                        {
+                            "field": "a.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.a.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv",
+                                    "operation": "write",
+                                    "type": "varint"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "rt.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 58,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "recipes": {
+        "bundle": [
+            null,
+            [
+                {
+                    "id": "minecraft:bundle",
+                    "makes": {
+                        "count": 1,
+                        "name": "bundle",
+                        "type": "item"
+                    },
+                    "raw": {
+                        "rows": [
+                            "-#-",
+                            "# #",
+                            "###"
+                        ],
+                        "subs": {
+                            "#": {
+                                "name": "rabbit_hide",
+                                "type": "item"
+                            },
+                            "-": {
+                                "name": "string",
+                                "type": "item"
+                            }
+                        }
+                    },
+                    "shape": [
+                        [
+                            {
+                                "name": "string",
+                                "type": "item"
+                            },
+                            {
+                                "name": "rabbit_hide",
+                                "type": "item"
+                            },
+                            {
+                                "name": "string",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "rabbit_hide",
+                                "type": "item"
+                            },
+                            null,
+                            {
+                                "name": "rabbit_hide",
+                                "type": "item"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "rabbit_hide",
+                                "type": "item"
+                            },
+                            {
+                                "name": "rabbit_hide",
+                                "type": "item"
+                            },
+                            {
+                                "name": "rabbit_hide",
+                                "type": "item"
+                            }
+                        ]
+                    ],
+                    "type": "shape"
+                }
+            ]
+        ]
+    },
+    "sounds": {},
+    "stats": {},
+    "tags": {},
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            2730,
+            2825
+        ],
+        "id": [
+            "1.17.1",
+            "1.18_experimental-snapshot-1"
+        ],
+        "name": [
+            "1.17.1",
+            "1.18 Experimental Snapshot 1"
+        ],
+        "protocol": [
+            756,
+            1073741865
+        ]
+    }
+}
