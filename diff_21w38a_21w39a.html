@@ -1,0 +1,126 @@
+<!doctype html>
+              <html>
+                <head>
+                  <title>Burger Vitrine</title>
+                  <link rel="stylesheet" href="resources/style.css" />
+                  <script src="resources/jquery.js"></script>
+                  <script src="resources/vitrine.js"></script>
+                </head>
+                <body>
+                    <div id="vitrine">
+                        <a href="#blocks"><h2 id="blocks">Blocks</h2></a><span class="info">No entries</span>
+<a href="#items"><h2 id="items">Items</h2></a><span class="info">No entries</span>
+<a href="#tags"><h2 id="tags">Tags</h2></a><span class="info">No entries</span>
+<a href="#recipes"><h2 id="recipes">Recipes</h2></a><span class="info">No entries</span>
+<a href="#entities"><h2 id="entities">Entities</h2></a><span class="info">No entries</span>
+<a href="#block_entities"><h2 id="block_entities">Block entities</h2></a><span class="info">No entries</span>
+<a href="#packets"><h2 id="packets">Packets</h2></a><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_62"><h3 id="packets:play_clientbound_62">PLAY_CLIENTBOUND_62</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>98</dd></dl><pre><span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
+<span class="hl_n">Iterator</span> <span class="hl_n">it</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">it</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+  <span class="hl_n">Map</span><span class="hl_o">.</span><span class="hl_na">Entry</span><span class="hl_o">&lt;</span><span class="hl_n">wz</span><span class="hl_o">,</span> <span class="hl_n">af$a</span><span class="hl_o">&gt;</span> <span class="hl_n">itv</span> <span class="hl_o">=</span> <span class="hl_n">it</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">();</span>
+  <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getKey</span><span class="hl_o">());</span>
+  <span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">a</span> <span class="hl_o">==</span> <span class="hl_kc">null</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+    <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_mi">0</span><span class="hl_o">);</span>
+  <span class="hl_o">}</span> <span class="hl_k">else</span> <span class="hl_o">{</span>
+    <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_mi">1</span><span class="hl_o">);</span>
+    <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">a</span><span class="hl_o">);</span>
+  <span class="hl_o">}</span>
+  <span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">c</span> <span class="hl_o">==</span> <span class="hl_kc">null</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+    <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_mi">0</span><span class="hl_o">);</span>
+  <span class="hl_o">}</span> <span class="hl_k">else</span> <span class="hl_o">{</span>
+    <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_mi">1</span><span class="hl_o">);</span>
+    <span class="hl_n">writeChatComponent</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">c</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">);</span>
+    <span class="hl_n">writeChatComponent</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">c</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">);</span>
+    <span class="hl_n">writeItemStack</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">c</span><span class="hl_o">.</span><span class="hl_na">c</span><span class="hl_o">);</span>
+    <span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">c</span><span class="hl_o">.</span><span class="hl_na">e</span><span class="hl_o">);</span>
+    <span class="hl_kt">int</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_mi">0</span><span class="hl_o">;</span>
+    <span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">c</span><span class="hl_o">.</span><span class="hl_na">d</span> <span class="hl_o">!=</span> <span class="hl_kc">null</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+      <span class="hl_kt">int</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_o">(</span><span class="hl_n">var2</span> <span class="hl_o">|</span> <span class="hl_mi">1</span><span class="hl_o">);</span>
+    <span class="hl_o">}</span>
+    <span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">c</span><span class="hl_o">.</span><span class="hl_na">f</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+      <span class="hl_kt">int</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_o">(</span><span class="hl_n">var2</span> <span class="hl_o">|</span> <span class="hl_mi">2</span><span class="hl_o">);</span>
+    <span class="hl_o">}</span>
+    <span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">c</span><span class="hl_o">.</span><span class="hl_na">h</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+      <span class="hl_kt">int</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_o">(</span><span class="hl_n">var2</span> <span class="hl_o">|</span> <span class="hl_mi">4</span><span class="hl_o">);</span>
+    <span class="hl_o">}</span>
+    <span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">var2</span><span class="hl_o">);</span>
+    <span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">c</span><span class="hl_o">.</span><span class="hl_na">d</span> <span class="hl_o">!=</span> <span class="hl_kc">null</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+      <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">c</span><span class="hl_o">.</span><span class="hl_na">d</span><span class="hl_o">);</span>
+    <span class="hl_o">}</span>
+    <span class="hl_n">writeFloat</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">c</span><span class="hl_o">.</span><span class="hl_na">i</span><span class="hl_o">);</span>
+    <span class="hl_n">writeFloat</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">c</span><span class="hl_o">.</span><span class="hl_na">j</span><span class="hl_o">);</span>
+  <span class="hl_o">}</span>
+  <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">e</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
+  <span class="hl_n">Iterator</span> <span class="hl_n">it</span> <span class="hl_o">=</span> <span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">e</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+  <span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">it</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+    <span class="hl_n">Map</span><span class="hl_o">.</span><span class="hl_na">Entry</span><span class="hl_o">&lt;</span><span class="hl_n">java</span><span class="hl_o">.</span><span class="hl_na">lang</span><span class="hl_o">.</span><span class="hl_na">String</span><span class="hl_o">,</span> <span class="hl_n">ak</span><span class="hl_o">&gt;</span> <span class="hl_n">itv</span> <span class="hl_o">=</span> <span class="hl_n">it</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">();</span>
+    <span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getKey</span><span class="hl_o">());</span>
+  <span class="hl_o">}</span>
+  <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">f</span><span class="hl_o">.</span><span class="hl_na">length</span><span class="hl_o">);</span>
+  <span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">f</span><span class="hl_o">;</span>
+  <span class="hl_kt">int</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">length</span><span class="hl_o">;</span>
+  <span class="hl_kt">int</span> <span class="hl_n">var4</span> <span class="hl_o">=</span> <span class="hl_mi">0</span><span class="hl_o">;</span>
+  <span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var4</span> <span class="hl_o">&lt;</span> <span class="hl_n">var3</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+    <span class="hl_n">Object</span> <span class="hl_n">var5</span> <span class="hl_o">=</span> <span class="hl_n">var2</span><span class="hl_o">[</span><span class="hl_n">var4</span><span class="hl_o">];</span>
+    <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">var5</span><span class="hl_o">.</span><span class="hl_na">length</span><span class="hl_o">);</span>
+    <span class="hl_n">Object</span> <span class="hl_n">var6</span> <span class="hl_o">=</span> <span class="hl_n">var5</span><span class="hl_o">;</span>
+    <span class="hl_kt">int</span> <span class="hl_n">var7</span> <span class="hl_o">=</span> <span class="hl_n">var6</span><span class="hl_o">.</span><span class="hl_na">length</span><span class="hl_o">;</span>
+    <span class="hl_kt">int</span> <span class="hl_n">var8</span> <span class="hl_o">=</span> <span class="hl_mi">0</span><span class="hl_o">;</span>
+    <span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var8</span> <span class="hl_o">&lt;</span> <span class="hl_n">var7</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+      <span class="hl_n">Object</span> <span class="hl_n">var9</span> <span class="hl_o">=</span> <span class="hl_n">var6</span><span class="hl_o">[</span><span class="hl_n">var8</span><span class="hl_o">];</span>
+      <span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">var9</span><span class="hl_o">);</span>
+      <span class="hl_n">var8</span><span class="hl_o">++;</span>
+    <span class="hl_o">}</span>
+    <span class="hl_n">var4</span><span class="hl_o">++;</span>
+  <span class="hl_o">}</span>
+<span class="hl_o">}</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
+<span class="hl_n">Iterator</span> <span class="hl_n">it</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">c</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">it</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+  <span class="hl_n">wz</span> <span class="hl_n">itv</span> <span class="hl_o">=</span> <span class="hl_n">it</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">();</span>
+  <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">);</span>
+<span class="hl_o">}</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
+<span class="hl_n">Iterator</span> <span class="hl_n">it</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">d</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">it</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+  <span class="hl_n">Map</span><span class="hl_o">.</span><span class="hl_na">Entry</span><span class="hl_o">&lt;</span><span class="hl_n">wz</span><span class="hl_o">,</span> <span class="hl_n">ah</span><span class="hl_o">&gt;</span> <span class="hl_n">itv</span> <span class="hl_o">=</span> <span class="hl_n">it</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">();</span>
+  <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getKey</span><span class="hl_o">());</span>
+  <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">a</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
+  <span class="hl_n">Iterator</span> <span class="hl_n">it</span> <span class="hl_o">=</span> <span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">a</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+  <span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">it</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+    <span class="hl_n">Map</span><span class="hl_o">.</span><span class="hl_na">Entry</span><span class="hl_o">&lt;</span><span class="hl_n">java</span><span class="hl_o">.</span><span class="hl_na">lang</span><span class="hl_o">.</span><span class="hl_na">String</span><span class="hl_o">,</span> <span class="hl_n">al</span><span class="hl_o">&gt;</span> <span class="hl_n">itv</span> <span class="hl_o">=</span> <span class="hl_n">it</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">();</span>
+    <span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getKey</span><span class="hl_o">());</span>
+    <span class="hl_n">writeBoolean</span><span class="hl_o">((</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">b</span> <span class="hl_o">!=</span> <span class="hl_kc">null</span><span class="hl_o">)</span> <span class="hl_o">?</span> <span class="hl_mi">1</span> <span class="hl_o">:</span> <span class="hl_mi">0</span><span class="hl_o">);</span>
+    <span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">b</span> <span class="hl_o">!=</span> <span class="hl_kc">null</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+      <span class="hl_n">writeLong</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">().</span><span class="hl_na">b</span><span class="hl_o">.</span><span class="hl_na">getTime</span><span class="hl_o">());</span>
+    <span class="hl_o">}</span>
+  <span class="hl_o">}</span>
+<span class="hl_o">}</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_62"><h3 id="packets:play_clientbound_62">PLAY_CLIENTBOUND_62</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>98</dd></dl>(no instruction data - did the packet fail to parse?)</div></div>
+</div></div>
+<a href="#entity_metadata_serializers"><h2 id="entity_metadata_serializers">Entity Metadata Serializers</h2></a><span class="info">No entries</span>
+<a href="#versions"><h2 id="versions">Versions</h2></a><div class="split"><div class="left"><div class="entry"><a href="#versions:data"><h3 id="versions:data">data</h3></a><div>2835</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:data"><h3 id="versions:data">data</h3></a><div>2836</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:id"><h3 id="versions:id">id</h3></a><div>21w38a</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:id"><h3 id="versions:id">id</h3></a><div>21w39a</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:name"><h3 id="versions:name">name</h3></a><div>21w38a</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:name"><h3 id="versions:name">name</h3></a><div>21w39a</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>1073741866</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>1073741867</div></div>
+</div></div>
+<a href="#stats"><h2 id="stats">Stats</h2></a><span class="info">No entries</span>
+<a href="#achievements"><h2 id="achievements">Achievements</h2></a><span class="info">No entries</span>
+<a href="#language"><h2 id="language">Language</h2></a><div class="split"><div class="left"><div class="entry"><a href="#language:advancements"><h3 id="language:advancements">advancements</h3></a><div><dl class="wide"><dt>adventure.fall_from_world_height.description</dt><dd>-</dd><dt>adventure.fall_from_world_height.title</dt><dd>-</dd><dt>adventure.trade_at_world_height.description</dt><dd>-</dd><dt>adventure.trade_at_world_height.title</dt><dd>-</dd><dt>husbandry.play_jukebox_in_meadows.description</dt><dd>-</dd><dt>husbandry.play_jukebox_in_meadows.title</dt><dd>-</dd><dt>nether.ride_strider_in_overworld_lava.description</dt><dd>-</dd><dt>nether.ride_strider_in_overworld_lava.title</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:advancements"><h3 id="language:advancements">advancements</h3></a><div><dl class="wide"><dt>adventure.fall_from_world_height.description</dt><dd>Free fall from the top of the world (build limit) to the bottom of the world and survive</dd><dt>adventure.fall_from_world_height.title</dt><dd>Caves &amp; Cliffs</dd><dt>adventure.trade_at_world_height.description</dt><dd>Trade with a villager at the build height limit</dd><dt>adventure.trade_at_world_height.title</dt><dd>Star Trader</dd><dt>husbandry.play_jukebox_in_meadows.description</dt><dd>Make the Meadows come alive with the sound of music from a jukebox</dd><dt>husbandry.play_jukebox_in_meadows.title</dt><dd>Sound of Music</dd><dt>nether.ride_strider_in_overworld_lava.description</dt><dd>Take a Strider for a loooong ride on a lava lake in the Overworld</dd><dt>nether.ride_strider_in_overworld_lava.title</dt><dd>Feels like home</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:options"><h3 id="language:options">options</h3></a><div><dl class="wide"><dt>gamma.default</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:options"><h3 id="language:options">options</h3></a><div><dl class="wide"><dt>gamma.default</dt><dd>Default</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:selectworld"><h3 id="language:selectworld">selectWorld</h3></a><div><dl class="wide"><dt>pre_worldheight</dt><dd>Incompatible world height</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:selectworld"><h3 id="language:selectworld">selectWorld</h3></a><div><dl class="wide"><dt>pre_worldheight</dt><dd>-</dd></dl></div></div>
+</div></div>
+<a href="#sounds"><h2 id="sounds">Sounds</h2></a><span class="info">No entries</span>
+
+                    </div>
+                </body>
+              </html>
