@@ -1,0 +1,224 @@
+{
+    "achievements": {},
+    "blocks": {
+        "block": {}
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {}
+    },
+    "items": {
+        "item": {}
+    },
+    "language": {
+        "commands": {
+            "locate.failed": [
+                "Could not find that structure nearby",
+                "Could not find a structure of type \"%s\" nearby"
+            ],
+            "locate.invalid": [
+                null,
+                "There is no structure with type \"%s\""
+            ],
+            "placefeature.failed": [
+                null,
+                "Failed to place feature"
+            ],
+            "placefeature.invalid": [
+                null,
+                "There is no feature with type \"%s\""
+            ],
+            "placefeature.success": [
+                null,
+                "Placed \"%s\" at %s, %s, %s"
+            ],
+            "spreadplayers.failed.invalid.height": [
+                null,
+                "Invalid maxHeight %s; expected higher than world minimum %s"
+            ]
+        },
+        "compliance": [
+            null,
+            {
+                "playtime.greaterThan24Hours": "You've been playing for greater than 24 hours",
+                "playtime.hours": "You've been playing for %s hour(s)",
+                "playtime.message": "Excessive gaming may interfere with normal daily life"
+            }
+        ],
+        "title": {
+            "32bit.deprecation": [
+                null,
+                "32-bit system detected: this may prevent you from playing in the future as a 64-bit system will be required!"
+            ],
+            "32bit.deprecation.realms": [
+                null,
+                "Minecraft will soon require a 64-bit system, which will prevent you from playing or using Realms on this device. You will need to manually cancel any Realms subscription."
+            ],
+            "32bit.deprecation.realms.check": [
+                null,
+                "Do not show this screen again"
+            ],
+            "32bit.deprecation.realms.header": [
+                null,
+                "32-bit system detected"
+            ],
+            "oldgl.deprecation.line1": [
+                "Old graphics card detected; this may prevent you from",
+                null
+            ],
+            "oldgl.deprecation.line2": [
+                "playing in the future as OpenGL 3.2 will be required!",
+                null
+            ],
+            "oldgl.eol.line1": [
+                "Old graphics card detected; this WILL prevent you from",
+                null
+            ],
+            "oldgl.eol.line2": [
+                "playing future updates as OpenGL 2.0 will be required!",
+                null
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_3B": [
+                {
+                    "class": "tc.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 59,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "awl.a(b)",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "tn.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 59,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "axc.a(b)",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_65": [
+                {
+                    "class": "us.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 101,
+                    "instructions": [
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "vd.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 101,
+                    "instructions": [
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "sounds": {},
+    "stats": {},
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            2865,
+            2975
+        ],
+        "id": [
+            "1.18.1",
+            "1.18.2"
+        ],
+        "name": [
+            "1.18.1",
+            "1.18.2"
+        ],
+        "protocol": [
+            757,
+            758
+        ]
+    }
+}
