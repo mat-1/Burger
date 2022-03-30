@@ -284,7 +284,6 @@ class IdentifyTopping(Topping):
         "identify.particletypes",
         "identify.position",
         "identify.recipe.superclass",
-        "identify.resourcelocation",
         "identify.sounds.event",
         "identify.sounds.list",
         "identify.tileentity.superclass"
