@@ -1197,73 +1197,7 @@
         }
     },
     "entities": {
-        "dataserializers": {
-            "Particle": [
-                {
-                    "class": "yd$2",
-                    "field": "j",
-                    "id": 15,
-                    "instructions": [
-                        {
-                            "field": "hb.Z.a(((ia)value).b())",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "args": "packetbuffer",
-                            "field": "(ia)value",
-                            "method": "a(Lpy;)V",
-                            "name": "a",
-                            "operation": "interfacecall",
-                            "target": "ia",
-                            "type": "interface"
-                        }
-                    ],
-                    "name": "Particle",
-                    "type": "ia"
-                },
-                {
-                    "class": "yk$2",
-                    "field": "j",
-                    "id": 15,
-                    "name": "Particle",
-                    "type": "ic"
-                }
-            ],
-            "VillagerData": [
-                {
-                    "class": "yd$9",
-                    "field": "q",
-                    "id": 16,
-                    "instructions": [
-                        {
-                            "field": "hb.am.a(((bnx)value).a())",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "hb.an.a(((bnx)value).b())",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "((bnx)value).c()",
-                            "operation": "write",
-                            "type": "varint"
-                        }
-                    ],
-                    "name": "VillagerData",
-                    "type": "bnx"
-                },
-                {
-                    "class": "yk$9",
-                    "field": "q",
-                    "id": 16,
-                    "name": "VillagerData",
-                    "type": "bpb"
-                }
-            ]
-        },
+        "dataserializers": {},
         "entity": {
             "frog": [
                 null,
@@ -2063,269 +1997,6 @@
     },
     "packets": {
         "packet": {
-            "PLAY_CLIENTBOUND_00": [
-                {
-                    "class": "rg.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 0,
-                    "instructions": [
-                        {
-                            "field": "c",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "d",
-                            "operation": "write",
-                            "type": "uuid"
-                        },
-                        {
-                            "field": "hb.W.a(m)",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "e",
-                            "operation": "write",
-                            "type": "double"
-                        },
-                        {
-                            "field": "f",
-                            "operation": "write",
-                            "type": "double"
-                        },
-                        {
-                            "field": "g",
-                            "operation": "write",
-                            "type": "double"
-                        },
-                        {
-                            "field": "k",
-                            "operation": "write",
-                            "type": "byte"
-                        },
-                        {
-                            "field": "l",
-                            "operation": "write",
-                            "type": "byte"
-                        },
-                        {
-                            "field": "n",
-                            "operation": "write",
-                            "type": "int"
-                        },
-                        {
-                            "field": "h",
-                            "operation": "write",
-                            "type": "short"
-                        },
-                        {
-                            "field": "i",
-                            "operation": "write",
-                            "type": "short"
-                        },
-                        {
-                            "field": "j",
-                            "operation": "write",
-                            "type": "short"
-                        }
-                    ],
-                    "state": "PLAY"
-                },
-                {
-                    "class": "rn.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 0,
-                    "state": "PLAY"
-                }
-            ],
-            "PLAY_CLIENTBOUND_02": [
-                {
-                    "class": "ri.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 2,
-                    "instructions": [
-                        {
-                            "field": "a",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "b",
-                            "operation": "write",
-                            "type": "uuid"
-                        },
-                        {
-                            "field": "c",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "d",
-                            "operation": "write",
-                            "type": "double"
-                        },
-                        {
-                            "field": "e",
-                            "operation": "write",
-                            "type": "double"
-                        },
-                        {
-                            "field": "f",
-                            "operation": "write",
-                            "type": "double"
-                        },
-                        {
-                            "field": "j",
-                            "operation": "write",
-                            "type": "byte"
-                        },
-                        {
-                            "field": "k",
-                            "operation": "write",
-                            "type": "byte"
-                        },
-                        {
-                            "field": "l",
-                            "operation": "write",
-                            "type": "byte"
-                        },
-                        {
-                            "field": "g",
-                            "operation": "write",
-                            "type": "short"
-                        },
-                        {
-                            "field": "h",
-                            "operation": "write",
-                            "type": "short"
-                        },
-                        {
-                            "field": "i",
-                            "operation": "write",
-                            "type": "short"
-                        }
-                    ],
-                    "state": "PLAY"
-                },
-                {
-                    "class": "rp.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 2,
-                    "state": "PLAY"
-                }
-            ],
-            "PLAY_CLIENTBOUND_03": [
-                {
-                    "class": "rj.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 3,
-                    "instructions": [
-                        {
-                            "field": "a",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "b",
-                            "operation": "write",
-                            "type": "uuid"
-                        },
-                        {
-                            "field": "e",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "c",
-                            "operation": "write",
-                            "type": "position"
-                        },
-                        {
-                            "field": "d.d()",
-                            "operation": "write",
-                            "type": "byte"
-                        }
-                    ],
-                    "state": "PLAY"
-                },
-                {
-                    "class": "rq.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 3,
-                    "state": "PLAY"
-                }
-            ],
-            "PLAY_CLIENTBOUND_07": [
-                {
-                    "class": "rn.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 7,
-                    "instructions": [
-                        {
-                            "field": "a.size()",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "operation": "store",
-                            "type": "Iterator",
-                            "value": "this.a.iterator()",
-                            "var": "it"
-                        },
-                        {
-                            "condition": "it.hasNext()",
-                            "instructions": [
-                                {
-                                    "operation": "store",
-                                    "type": "Map.Entry<ahr, int>",
-                                    "value": "it.next()",
-                                    "var": "itv"
-                                },
-                                {
-                                    "field": "hb.al.a(itv.getKey().a())",
-                                    "operation": "write",
-                                    "type": "varint"
-                                },
-                                {
-                                    "field": "itv.getValue()",
-                                    "operation": "write",
-                                    "type": "varint"
-                                },
-                                {
-                                    "field": "a(itv.getKey())",
-                                    "operation": "write",
-                                    "type": "varint"
-                                }
-                            ],
-                            "operation": "loop"
-                        }
-                    ],
-                    "state": "PLAY"
-                },
-                {
-                    "class": "ru.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 7,
-                    "state": "PLAY"
-                }
-            ],
             "PLAY_CLIENTBOUND_08": [
                 {
                     "class": "ro.class",
@@ -2370,111 +2041,6 @@
                             "type": "varint"
                         }
                     ],
-                    "state": "PLAY"
-                }
-            ],
-            "PLAY_CLIENTBOUND_0A": [
-                {
-                    "class": "rq.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 10,
-                    "instructions": [
-                        {
-                            "field": "a",
-                            "operation": "write",
-                            "type": "position"
-                        },
-                        {
-                            "field": "hb.aa.a(b)",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "c",
-                            "operation": "write",
-                            "type": "nbtcompound"
-                        }
-                    ],
-                    "state": "PLAY"
-                },
-                {
-                    "class": "rx.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 10,
-                    "state": "PLAY"
-                }
-            ],
-            "PLAY_CLIENTBOUND_0B": [
-                {
-                    "class": "rr.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 11,
-                    "instructions": [
-                        {
-                            "field": "a",
-                            "operation": "write",
-                            "type": "position"
-                        },
-                        {
-                            "field": "b",
-                            "operation": "write",
-                            "type": "byte"
-                        },
-                        {
-                            "field": "c",
-                            "operation": "write",
-                            "type": "byte"
-                        },
-                        {
-                            "field": "hb.U.a(d)",
-                            "operation": "write",
-                            "type": "varint"
-                        }
-                    ],
-                    "state": "PLAY"
-                },
-                {
-                    "class": "ry.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 11,
-                    "state": "PLAY"
-                }
-            ],
-            "PLAY_CLIENTBOUND_0C": [
-                {
-                    "class": "rs.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 12,
-                    "instructions": [
-                        {
-                            "field": "a",
-                            "operation": "write",
-                            "type": "position"
-                        },
-                        {
-                            "field": "cdq.i(b)",
-                            "operation": "write",
-                            "type": "varint"
-                        }
-                    ],
-                    "state": "PLAY"
-                },
-                {
-                    "class": "rz.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 12,
                     "state": "PLAY"
                 }
             ],
@@ -2816,235 +2382,6 @@
                     "state": "PLAY"
                 }
             ],
-            "PLAY_CLIENTBOUND_17": [
-                {
-                    "class": "sd.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 23,
-                    "instructions": [
-                        {
-                            "field": "bus.a(a)",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "b",
-                            "operation": "write",
-                            "type": "varint"
-                        }
-                    ],
-                    "state": "PLAY"
-                },
-                {
-                    "class": "sk.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 23,
-                    "state": "PLAY"
-                }
-            ],
-            "PLAY_CLIENTBOUND_22": [
-                {
-                    "class": "sp.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 34,
-                    "instructions": [
-                        {
-                            "field": "a",
-                            "operation": "write",
-                            "type": "int"
-                        },
-                        {
-                            "field": "b",
-                            "operation": "write",
-                            "type": "int"
-                        },
-                        {
-                            "field": "c.b",
-                            "operation": "write",
-                            "type": "nbtcompound"
-                        },
-                        {
-                            "field": "c.c.length",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "c.c",
-                            "operation": "write",
-                            "type": "byte[]"
-                        },
-                        {
-                            "field": "c.d.size()",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "operation": "store",
-                            "type": "Iterator",
-                            "value": "this.c.d.iterator()",
-                            "var": "it"
-                        },
-                        {
-                            "condition": "it.hasNext()",
-                            "instructions": [
-                                {
-                                    "operation": "store",
-                                    "type": "so$a",
-                                    "value": "it.next()",
-                                    "var": "itv"
-                                },
-                                {
-                                    "field": "itv.a",
-                                    "operation": "write",
-                                    "type": "byte"
-                                },
-                                {
-                                    "field": "itv.b",
-                                    "operation": "write",
-                                    "type": "short"
-                                },
-                                {
-                                    "field": "hb.aa.a(itv.c)",
-                                    "operation": "write",
-                                    "type": "varint"
-                                },
-                                {
-                                    "field": "itv.d",
-                                    "operation": "write",
-                                    "type": "nbtcompound"
-                                }
-                            ],
-                            "operation": "loop"
-                        },
-                        {
-                            "field": "d.g",
-                            "operation": "write",
-                            "type": "boolean"
-                        },
-                        {
-                            "field": "d.a.toLongArray().length",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "d.a.toLongArray()",
-                            "operation": "write",
-                            "type": "long[]"
-                        },
-                        {
-                            "field": "d.b.toLongArray().length",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "d.b.toLongArray()",
-                            "operation": "write",
-                            "type": "long[]"
-                        },
-                        {
-                            "field": "d.c.toLongArray().length",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "d.c.toLongArray()",
-                            "operation": "write",
-                            "type": "long[]"
-                        },
-                        {
-                            "field": "d.d.toLongArray().length",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "d.d.toLongArray()",
-                            "operation": "write",
-                            "type": "long[]"
-                        },
-                        {
-                            "field": "d.e.size()",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "operation": "store",
-                            "type": "Iterator",
-                            "value": "this.d.e.iterator()",
-                            "var": "it"
-                        },
-                        {
-                            "condition": "it.hasNext()",
-                            "instructions": [
-                                {
-                                    "operation": "store",
-                                    "type": "byte",
-                                    "value": "it.next()",
-                                    "var": "itv"
-                                },
-                                {
-                                    "field": "itv.length",
-                                    "operation": "write",
-                                    "type": "varint"
-                                },
-                                {
-                                    "field": "itv",
-                                    "operation": "write",
-                                    "type": "byte[]"
-                                }
-                            ],
-                            "operation": "loop"
-                        },
-                        {
-                            "field": "d.f.size()",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "operation": "store",
-                            "type": "Iterator",
-                            "value": "this.d.f.iterator()",
-                            "var": "it"
-                        },
-                        {
-                            "condition": "it.hasNext()",
-                            "instructions": [
-                                {
-                                    "operation": "store",
-                                    "type": "byte",
-                                    "value": "it.next()",
-                                    "var": "itv"
-                                },
-                                {
-                                    "field": "itv.length",
-                                    "operation": "write",
-                                    "type": "varint"
-                                },
-                                {
-                                    "field": "itv",
-                                    "operation": "write",
-                                    "type": "byte[]"
-                                }
-                            ],
-                            "operation": "loop"
-                        }
-                    ],
-                    "state": "PLAY"
-                },
-                {
-                    "class": "sw.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 34,
-                    "state": "PLAY"
-                }
-            ],
             "PLAY_CLIENTBOUND_24": [
                 {
                     "class": "sr.class",
@@ -3121,96 +2458,31 @@
                     "from_client": false,
                     "from_server": true,
                     "id": 36,
-                    "state": "PLAY"
-                }
-            ],
-            "PLAY_CLIENTBOUND_2E": [
-                {
-                    "class": "ta.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 46,
                     "instructions": [
+                        {
+                            "field": "hd.aa.getId(j.b())",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "i",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
                         {
                             "field": "a",
                             "operation": "write",
-                            "type": "varint"
+                            "type": "double"
                         },
                         {
                             "field": "b",
                             "operation": "write",
-                            "type": "varint"
+                            "type": "double"
                         },
                         {
                             "field": "c",
                             "operation": "write",
-                            "type": "chatcomponent"
-                        }
-                    ],
-                    "state": "PLAY"
-                },
-                {
-                    "class": "th.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 46,
-                    "state": "PLAY"
-                }
-            ],
-            "PLAY_CLIENTBOUND_3B": [
-                {
-                    "class": "tn.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 59,
-                    "instructions": [
-                        {
-                            "field": "a",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "axc.a(b)",
-                            "operation": "write",
-                            "type": "varint"
-                        }
-                    ],
-                    "state": "PLAY"
-                },
-                {
-                    "class": "tu.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 59,
-                    "state": "PLAY"
-                }
-            ],
-            "PLAY_CLIENTBOUND_5C": [
-                {
-                    "class": "uu.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 92,
-                    "instructions": [
-                        {
-                            "field": "hb.R.a(a)",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "b",
-                            "operation": "write",
-                            "type": "enum"
-                        },
-                        {
-                            "field": "c",
-                            "operation": "write",
-                            "type": "varint"
+                            "type": "double"
                         },
                         {
                             "field": "d",
@@ -3221,51 +2493,11 @@
                             "field": "e",
                             "operation": "write",
                             "type": "float"
-                        }
-                    ],
-                    "state": "PLAY"
-                },
-                {
-                    "class": "vb.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 92,
-                    "state": "PLAY"
-                }
-            ],
-            "PLAY_CLIENTBOUND_5D": [
-                {
-                    "class": "uv.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 93,
-                    "instructions": [
-                        {
-                            "field": "hb.R.a(b)",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "c",
-                            "operation": "write",
-                            "type": "enum"
-                        },
-                        {
-                            "field": "d",
-                            "operation": "write",
-                            "type": "int"
-                        },
-                        {
-                            "field": "e",
-                            "operation": "write",
-                            "type": "int"
                         },
                         {
                             "field": "f",
                             "operation": "write",
-                            "type": "int"
+                            "type": "float"
                         },
                         {
                             "field": "g",
@@ -3275,62 +2507,18 @@
                         {
                             "field": "h",
                             "operation": "write",
-                            "type": "float"
+                            "type": "int"
+                        },
+                        {
+                            "args": "packetbuffer",
+                            "field": "j",
+                            "method": "a(Lqf;)V",
+                            "name": "a",
+                            "operation": "interfacecall",
+                            "target": "ic",
+                            "type": "interface"
                         }
                     ],
-                    "state": "PLAY"
-                },
-                {
-                    "class": "vc.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 93,
-                    "state": "PLAY"
-                }
-            ],
-            "PLAY_CLIENTBOUND_65": [
-                {
-                    "class": "vd.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 101,
-                    "instructions": [
-                        {
-                            "field": "d",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "e",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "f",
-                            "operation": "write",
-                            "type": "byte"
-                        },
-                        {
-                            "field": "g",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "h",
-                            "operation": "write",
-                            "type": "byte"
-                        }
-                    ],
-                    "state": "PLAY"
-                },
-                {
-                    "class": "vk.class",
-                    "direction": "CLIENTBOUND",
-                    "from_client": false,
-                    "from_server": true,
-                    "id": 101,
                     "state": "PLAY"
                 }
             ],
@@ -3388,36 +2576,6 @@
                             "type": "varint"
                         }
                     ],
-                    "state": "PLAY"
-                }
-            ],
-            "PLAY_SERVERBOUND_24": [
-                {
-                    "class": "wr.class",
-                    "direction": "SERVERBOUND",
-                    "from_client": true,
-                    "from_server": false,
-                    "id": 36,
-                    "instructions": [
-                        {
-                            "field": "a",
-                            "operation": "write",
-                            "type": "varint"
-                        },
-                        {
-                            "field": "b",
-                            "operation": "write",
-                            "type": "varint"
-                        }
-                    ],
-                    "state": "PLAY"
-                },
-                {
-                    "class": "wy.class",
-                    "direction": "SERVERBOUND",
-                    "from_client": true,
-                    "from_server": false,
-                    "id": 36,
                     "state": "PLAY"
                 }
             ],
@@ -4011,37 +3169,37 @@
                         "hash": "c606cd58f2be3e6b7ef0f3e6aac8f791b10a0e9a",
                         "name": "block/mangrove_roots/break1",
                         "pitch": 1.2,
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "ea01016f9450bb6ed016942134ee07e28efcbed5",
                         "name": "block/mangrove_roots/break2",
                         "pitch": 1.2,
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "f44762fab6e47b0f4292a50a30d86d3b754a56c9",
                         "name": "block/mangrove_roots/break3",
                         "pitch": 1.2,
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "ed4c5881fc14815f2b422469663e866e280047f2",
                         "name": "block/mangrove_roots/break4",
                         "pitch": 1.2,
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "6f7648d8ac3ac000a849df5bffe0bee2a601e113",
                         "name": "block/mangrove_roots/break5",
                         "pitch": 1.2,
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "f51f515aa19bfdece4112f0d8e9433c1ce39b432",
                         "name": "block/mangrove_roots/break6",
                         "pitch": 1.2,
-                        "volume": 0.5
+                        "volume": 0.25
                     }
                 ],
                 "subtitle": "Block broken",
@@ -4057,27 +3215,33 @@
                 "sounds": [
                     {
                         "hash": "0c95192c14510a54a169bdf4a6d5189f2ddfae7d",
-                        "name": "block/mangrove_roots/step1"
+                        "name": "block/mangrove_roots/step1",
+                        "volume": 0.25
                     },
                     {
                         "hash": "b732a50f493bf6e554ebbcb10914843715832ced",
-                        "name": "block/mangrove_roots/step2"
+                        "name": "block/mangrove_roots/step2",
+                        "volume": 0.25
                     },
                     {
                         "hash": "70acefd326d60ab8d6172c74a0832a709b3324ca",
-                        "name": "block/mangrove_roots/step3"
+                        "name": "block/mangrove_roots/step3",
+                        "volume": 0.25
                     },
                     {
                         "hash": "220ea567d9aa04ba2eacb9615986d4266b62695c",
-                        "name": "block/mangrove_roots/step4"
+                        "name": "block/mangrove_roots/step4",
+                        "volume": 0.25
                     },
                     {
                         "hash": "35baf113eadbcc0ff1c8cf0f9c64e955b267c64b",
-                        "name": "block/mangrove_roots/step5"
+                        "name": "block/mangrove_roots/step5",
+                        "volume": 0.25
                     },
                     {
                         "hash": "b184830efbd396276be60d5ffea9a5b07957c881",
-                        "name": "block/mangrove_roots/step6"
+                        "name": "block/mangrove_roots/step6",
+                        "volume": 0.25
                     }
                 ]
             }
@@ -4092,32 +3256,32 @@
                     {
                         "hash": "0c95192c14510a54a169bdf4a6d5189f2ddfae7d",
                         "name": "block/mangrove_roots/step1",
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "b732a50f493bf6e554ebbcb10914843715832ced",
                         "name": "block/mangrove_roots/step2",
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "70acefd326d60ab8d6172c74a0832a709b3324ca",
                         "name": "block/mangrove_roots/step3",
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "220ea567d9aa04ba2eacb9615986d4266b62695c",
                         "name": "block/mangrove_roots/step4",
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "35baf113eadbcc0ff1c8cf0f9c64e955b267c64b",
                         "name": "block/mangrove_roots/step5",
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "b184830efbd396276be60d5ffea9a5b07957c881",
                         "name": "block/mangrove_roots/step6",
-                        "volume": 0.5
+                        "volume": 0.25
                     }
                 ],
                 "subtitle": "Block breaking",
@@ -4135,37 +3299,37 @@
                         "hash": "c606cd58f2be3e6b7ef0f3e6aac8f791b10a0e9a",
                         "name": "block/mangrove_roots/break1",
                         "pitch": 1.2,
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "ea01016f9450bb6ed016942134ee07e28efcbed5",
                         "name": "block/mangrove_roots/break2",
                         "pitch": 1.2,
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "f44762fab6e47b0f4292a50a30d86d3b754a56c9",
                         "name": "block/mangrove_roots/break3",
                         "pitch": 1.2,
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "ed4c5881fc14815f2b422469663e866e280047f2",
                         "name": "block/mangrove_roots/break4",
                         "pitch": 1.2,
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "6f7648d8ac3ac000a849df5bffe0bee2a601e113",
                         "name": "block/mangrove_roots/break5",
                         "pitch": 1.2,
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "f51f515aa19bfdece4112f0d8e9433c1ce39b432",
                         "name": "block/mangrove_roots/break6",
                         "pitch": 1.2,
-                        "volume": 0.5
+                        "volume": 0.25
                     }
                 ],
                 "subtitle": "Block placed",
@@ -4181,27 +3345,33 @@
                 "sounds": [
                     {
                         "hash": "0c95192c14510a54a169bdf4a6d5189f2ddfae7d",
-                        "name": "block/mangrove_roots/step1"
+                        "name": "block/mangrove_roots/step1",
+                        "volume": 0.25
                     },
                     {
                         "hash": "b732a50f493bf6e554ebbcb10914843715832ced",
-                        "name": "block/mangrove_roots/step2"
+                        "name": "block/mangrove_roots/step2",
+                        "volume": 0.25
                     },
                     {
                         "hash": "70acefd326d60ab8d6172c74a0832a709b3324ca",
-                        "name": "block/mangrove_roots/step3"
+                        "name": "block/mangrove_roots/step3",
+                        "volume": 0.25
                     },
                     {
                         "hash": "220ea567d9aa04ba2eacb9615986d4266b62695c",
-                        "name": "block/mangrove_roots/step4"
+                        "name": "block/mangrove_roots/step4",
+                        "volume": 0.25
                     },
                     {
                         "hash": "35baf113eadbcc0ff1c8cf0f9c64e955b267c64b",
-                        "name": "block/mangrove_roots/step5"
+                        "name": "block/mangrove_roots/step5",
+                        "volume": 0.25
                     },
                     {
                         "hash": "b184830efbd396276be60d5ffea9a5b07957c881",
-                        "name": "block/mangrove_roots/step6"
+                        "name": "block/mangrove_roots/step6",
+                        "volume": 0.25
                     }
                 ],
                 "subtitle": "Footsteps",
@@ -4217,27 +3387,33 @@
                 "sounds": [
                     {
                         "hash": "9c7b77108d8c1ea3fcf201e4d06f6e717409842c",
-                        "name": "block/mud/break1"
+                        "name": "block/mud/break1",
+                        "volume": 0.5
                     },
                     {
                         "hash": "6752e578433d584b1b92630b539a9bf4f93121bb",
-                        "name": "block/mud/break2"
+                        "name": "block/mud/break2",
+                        "volume": 0.5
                     },
                     {
                         "hash": "4a551fdc68b6cb6b486655c2f6e78c8decc6ad6f",
-                        "name": "block/mud/break3"
+                        "name": "block/mud/break3",
+                        "volume": 0.5
                     },
                     {
                         "hash": "bdfcec5d56d112855c31754d116cff9122d47d1c",
-                        "name": "block/mud/break4"
+                        "name": "block/mud/break4",
+                        "volume": 0.5
                     },
                     {
                         "hash": "ff6de5c4cb5515d65b594172556823fe5a23a7eb",
-                        "name": "block/mud/break5"
+                        "name": "block/mud/break5",
+                        "volume": 0.5
                     },
                     {
                         "hash": "60f36d4415db43cb5a352e7c53e45bc5302efe05",
-                        "name": "block/mud/break6"
+                        "name": "block/mud/break6",
+                        "volume": 0.5
                     }
                 ],
                 "subtitle": "Block broken",
@@ -4253,27 +3429,33 @@
                 "sounds": [
                     {
                         "hash": "cfc4bbcfc51bcf55414d537325fb27f7357ee6f6",
-                        "name": "block/mud/step1"
+                        "name": "block/mud/step1",
+                        "volume": 0.5
                     },
                     {
                         "hash": "aaec051cc4ddb40c565b9a733365b137faa22d20",
-                        "name": "block/mud/step2"
+                        "name": "block/mud/step2",
+                        "volume": 0.5
                     },
                     {
                         "hash": "4b9732e037f8e2e230fb1c29511a30aa41f86cd7",
-                        "name": "block/mud/step3"
+                        "name": "block/mud/step3",
+                        "volume": 0.5
                     },
                     {
                         "hash": "cd908b08236268799b14f34b9cab1a604528861d",
-                        "name": "block/mud/step4"
+                        "name": "block/mud/step4",
+                        "volume": 0.5
                     },
                     {
                         "hash": "83bf881a30e378efa548382a91d8c83484774fe9",
-                        "name": "block/mud/step5"
+                        "name": "block/mud/step5",
+                        "volume": 0.5
                     },
                     {
                         "hash": "b29410168529ff13fc772aac7fb1071dd2270d4e",
-                        "name": "block/mud/step6"
+                        "name": "block/mud/step6",
+                        "volume": 0.5
                     }
                 ]
             }
@@ -4287,27 +3469,33 @@
                 "sounds": [
                     {
                         "hash": "cfc4bbcfc51bcf55414d537325fb27f7357ee6f6",
-                        "name": "block/mud/step1"
+                        "name": "block/mud/step1",
+                        "volume": 0.5
                     },
                     {
                         "hash": "aaec051cc4ddb40c565b9a733365b137faa22d20",
-                        "name": "block/mud/step2"
+                        "name": "block/mud/step2",
+                        "volume": 0.5
                     },
                     {
                         "hash": "4b9732e037f8e2e230fb1c29511a30aa41f86cd7",
-                        "name": "block/mud/step3"
+                        "name": "block/mud/step3",
+                        "volume": 0.5
                     },
                     {
                         "hash": "cd908b08236268799b14f34b9cab1a604528861d",
-                        "name": "block/mud/step4"
+                        "name": "block/mud/step4",
+                        "volume": 0.5
                     },
                     {
                         "hash": "83bf881a30e378efa548382a91d8c83484774fe9",
-                        "name": "block/mud/step5"
+                        "name": "block/mud/step5",
+                        "volume": 0.5
                     },
                     {
                         "hash": "b29410168529ff13fc772aac7fb1071dd2270d4e",
-                        "name": "block/mud/step6"
+                        "name": "block/mud/step6",
+                        "volume": 0.5
                     }
                 ],
                 "subtitle": "Block breaking",
@@ -4323,27 +3511,33 @@
                 "sounds": [
                     {
                         "hash": "9c7b77108d8c1ea3fcf201e4d06f6e717409842c",
-                        "name": "block/mud/break1"
+                        "name": "block/mud/break1",
+                        "volume": 0.5
                     },
                     {
                         "hash": "6752e578433d584b1b92630b539a9bf4f93121bb",
-                        "name": "block/mud/break2"
+                        "name": "block/mud/break2",
+                        "volume": 0.5
                     },
                     {
                         "hash": "4a551fdc68b6cb6b486655c2f6e78c8decc6ad6f",
-                        "name": "block/mud/break3"
+                        "name": "block/mud/break3",
+                        "volume": 0.5
                     },
                     {
                         "hash": "bdfcec5d56d112855c31754d116cff9122d47d1c",
-                        "name": "block/mud/break4"
+                        "name": "block/mud/break4",
+                        "volume": 0.5
                     },
                     {
                         "hash": "ff6de5c4cb5515d65b594172556823fe5a23a7eb",
-                        "name": "block/mud/break5"
+                        "name": "block/mud/break5",
+                        "volume": 0.5
                     },
                     {
                         "hash": "60f36d4415db43cb5a352e7c53e45bc5302efe05",
-                        "name": "block/mud/break6"
+                        "name": "block/mud/break6",
+                        "volume": 0.5
                     }
                 ],
                 "subtitle": "Block placed",
@@ -4359,27 +3553,33 @@
                 "sounds": [
                     {
                         "hash": "cfc4bbcfc51bcf55414d537325fb27f7357ee6f6",
-                        "name": "block/mud/step1"
+                        "name": "block/mud/step1",
+                        "volume": 0.5
                     },
                     {
                         "hash": "aaec051cc4ddb40c565b9a733365b137faa22d20",
-                        "name": "block/mud/step2"
+                        "name": "block/mud/step2",
+                        "volume": 0.5
                     },
                     {
                         "hash": "4b9732e037f8e2e230fb1c29511a30aa41f86cd7",
-                        "name": "block/mud/step3"
+                        "name": "block/mud/step3",
+                        "volume": 0.5
                     },
                     {
                         "hash": "cd908b08236268799b14f34b9cab1a604528861d",
-                        "name": "block/mud/step4"
+                        "name": "block/mud/step4",
+                        "volume": 0.5
                     },
                     {
                         "hash": "83bf881a30e378efa548382a91d8c83484774fe9",
-                        "name": "block/mud/step5"
+                        "name": "block/mud/step5",
+                        "volume": 0.5
                     },
                     {
                         "hash": "b29410168529ff13fc772aac7fb1071dd2270d4e",
-                        "name": "block/mud/step6"
+                        "name": "block/mud/step6",
+                        "volume": 0.5
                     }
                 ],
                 "subtitle": "Footsteps",
@@ -4395,27 +3595,33 @@
                 "sounds": [
                     {
                         "hash": "150bbeab1230bd5da5b2b44d16e1d51fea09ef7c",
-                        "name": "block/mud_bricks/break1"
+                        "name": "block/mud_bricks/break1",
+                        "volume": 0.5
                     },
                     {
                         "hash": "b9f7fff838deb759bbeb0b6d987f7d1f44c81ca2",
-                        "name": "block/mud_bricks/break2"
+                        "name": "block/mud_bricks/break2",
+                        "volume": 0.5
                     },
                     {
                         "hash": "243baca34df37ca21fa8be071eb68a9d48778c84",
-                        "name": "block/mud_bricks/break3"
+                        "name": "block/mud_bricks/break3",
+                        "volume": 0.5
                     },
                     {
                         "hash": "068cfc91284bf1472ee5c784b54211249e703c88",
-                        "name": "block/mud_bricks/break4"
+                        "name": "block/mud_bricks/break4",
+                        "volume": 0.5
                     },
                     {
                         "hash": "a6201cbfc6ff96a3ae813be89d6d22a320f2fef8",
-                        "name": "block/mud_bricks/break5"
+                        "name": "block/mud_bricks/break5",
+                        "volume": 0.5
                     },
                     {
                         "hash": "c022cd7194254a5721ce2205225a43913b4834c5",
-                        "name": "block/mud_bricks/break6"
+                        "name": "block/mud_bricks/break6",
+                        "volume": 0.5
                     }
                 ],
                 "subtitle": "Block broken",
@@ -4431,27 +3637,33 @@
                 "sounds": [
                     {
                         "hash": "e1f65185cbbb0b3b2e91ebd2c925398024baf205",
-                        "name": "block/mud_bricks/step1"
+                        "name": "block/mud_bricks/step1",
+                        "volume": 0.5
                     },
                     {
                         "hash": "67b6d386063e3c02d469d193a329bf516695913e",
-                        "name": "block/mud_bricks/step2"
+                        "name": "block/mud_bricks/step2",
+                        "volume": 0.5
                     },
                     {
                         "hash": "164497bde8cc5beb7896a319452276a84bda90da",
-                        "name": "block/mud_bricks/step3"
+                        "name": "block/mud_bricks/step3",
+                        "volume": 0.5
                     },
                     {
                         "hash": "d424b8a2cf588bf32ba35c604ff7fb29a057be78",
-                        "name": "block/mud_bricks/step4"
+                        "name": "block/mud_bricks/step4",
+                        "volume": 0.5
                     },
                     {
                         "hash": "851d73c6681a6efdc715b80ebd6e1c6e8394b164",
-                        "name": "block/mud_bricks/step5"
+                        "name": "block/mud_bricks/step5",
+                        "volume": 0.5
                     },
                     {
                         "hash": "4e3474c7b3857ede4c051bfccc2ea1d602bef229",
-                        "name": "block/mud_bricks/step6"
+                        "name": "block/mud_bricks/step6",
+                        "volume": 0.5
                     }
                 ]
             }
@@ -4465,27 +3677,33 @@
                 "sounds": [
                     {
                         "hash": "e1f65185cbbb0b3b2e91ebd2c925398024baf205",
-                        "name": "block/mud_bricks/step1"
+                        "name": "block/mud_bricks/step1",
+                        "volume": 0.5
                     },
                     {
                         "hash": "67b6d386063e3c02d469d193a329bf516695913e",
-                        "name": "block/mud_bricks/step2"
+                        "name": "block/mud_bricks/step2",
+                        "volume": 0.5
                     },
                     {
                         "hash": "164497bde8cc5beb7896a319452276a84bda90da",
-                        "name": "block/mud_bricks/step3"
+                        "name": "block/mud_bricks/step3",
+                        "volume": 0.5
                     },
                     {
                         "hash": "d424b8a2cf588bf32ba35c604ff7fb29a057be78",
-                        "name": "block/mud_bricks/step4"
+                        "name": "block/mud_bricks/step4",
+                        "volume": 0.5
                     },
                     {
                         "hash": "851d73c6681a6efdc715b80ebd6e1c6e8394b164",
-                        "name": "block/mud_bricks/step5"
+                        "name": "block/mud_bricks/step5",
+                        "volume": 0.5
                     },
                     {
                         "hash": "4e3474c7b3857ede4c051bfccc2ea1d602bef229",
-                        "name": "block/mud_bricks/step6"
+                        "name": "block/mud_bricks/step6",
+                        "volume": 0.5
                     }
                 ],
                 "subtitle": "Block breaking",
@@ -4501,27 +3719,33 @@
                 "sounds": [
                     {
                         "hash": "150bbeab1230bd5da5b2b44d16e1d51fea09ef7c",
-                        "name": "block/mud_bricks/break1"
+                        "name": "block/mud_bricks/break1",
+                        "volume": 0.5
                     },
                     {
                         "hash": "b9f7fff838deb759bbeb0b6d987f7d1f44c81ca2",
-                        "name": "block/mud_bricks/break2"
+                        "name": "block/mud_bricks/break2",
+                        "volume": 0.5
                     },
                     {
                         "hash": "243baca34df37ca21fa8be071eb68a9d48778c84",
-                        "name": "block/mud_bricks/break3"
+                        "name": "block/mud_bricks/break3",
+                        "volume": 0.5
                     },
                     {
                         "hash": "068cfc91284bf1472ee5c784b54211249e703c88",
-                        "name": "block/mud_bricks/break4"
+                        "name": "block/mud_bricks/break4",
+                        "volume": 0.5
                     },
                     {
                         "hash": "a6201cbfc6ff96a3ae813be89d6d22a320f2fef8",
-                        "name": "block/mud_bricks/break5"
+                        "name": "block/mud_bricks/break5",
+                        "volume": 0.5
                     },
                     {
                         "hash": "c022cd7194254a5721ce2205225a43913b4834c5",
-                        "name": "block/mud_bricks/break6"
+                        "name": "block/mud_bricks/break6",
+                        "volume": 0.5
                     }
                 ],
                 "subtitle": "Block placed",
@@ -4537,27 +3761,33 @@
                 "sounds": [
                     {
                         "hash": "e1f65185cbbb0b3b2e91ebd2c925398024baf205",
-                        "name": "block/mud_bricks/step1"
+                        "name": "block/mud_bricks/step1",
+                        "volume": 0.5
                     },
                     {
                         "hash": "67b6d386063e3c02d469d193a329bf516695913e",
-                        "name": "block/mud_bricks/step2"
+                        "name": "block/mud_bricks/step2",
+                        "volume": 0.5
                     },
                     {
                         "hash": "164497bde8cc5beb7896a319452276a84bda90da",
-                        "name": "block/mud_bricks/step3"
+                        "name": "block/mud_bricks/step3",
+                        "volume": 0.5
                     },
                     {
                         "hash": "d424b8a2cf588bf32ba35c604ff7fb29a057be78",
-                        "name": "block/mud_bricks/step4"
+                        "name": "block/mud_bricks/step4",
+                        "volume": 0.5
                     },
                     {
                         "hash": "851d73c6681a6efdc715b80ebd6e1c6e8394b164",
-                        "name": "block/mud_bricks/step5"
+                        "name": "block/mud_bricks/step5",
+                        "volume": 0.5
                     },
                     {
                         "hash": "4e3474c7b3857ede4c051bfccc2ea1d602bef229",
-                        "name": "block/mud_bricks/step6"
+                        "name": "block/mud_bricks/step6",
+                        "volume": 0.5
                     }
                 ],
                 "subtitle": "Footsteps",
@@ -4574,32 +3804,32 @@
                     {
                         "hash": "d903ed4ceaa5235f91cded08bce886f045432475",
                         "name": "block/muddy_mangrove_roots/break1",
-                        "volume": 0.6
+                        "volume": 0.25
                     },
                     {
                         "hash": "20f3a2ff177f0dc4e94c19cd732433f5a3ea86ff",
                         "name": "block/muddy_mangrove_roots/break2",
-                        "volume": 0.6
+                        "volume": 0.25
                     },
                     {
                         "hash": "f7794a70685da8361d0d7f6554eadcdd1a60509f",
                         "name": "block/muddy_mangrove_roots/break3",
-                        "volume": 0.6
+                        "volume": 0.25
                     },
                     {
                         "hash": "e80a3c2fe6fc715214b07afd772ae191d35a3966",
                         "name": "block/muddy_mangrove_roots/break4",
-                        "volume": 0.6
+                        "volume": 0.25
                     },
                     {
                         "hash": "f188e0622294b53e38b820f06e50c503bb803d9b",
                         "name": "block/muddy_mangrove_roots/break5",
-                        "volume": 0.6
+                        "volume": 0.25
                     },
                     {
                         "hash": "f28a965169661634a6fcb833929a2098cd7dd381",
                         "name": "block/muddy_mangrove_roots/break6",
-                        "volume": 0.6
+                        "volume": 0.25
                     }
                 ],
                 "subtitle": "Block broken",
@@ -4615,27 +3845,33 @@
                 "sounds": [
                     {
                         "hash": "c7808eccafbe9e17183350fa96d130aef73025de",
-                        "name": "block/muddy_mangrove_roots/step1"
+                        "name": "block/muddy_mangrove_roots/step1",
+                        "volume": 0.25
                     },
                     {
                         "hash": "05637f0776bdc29d678b0da8f2d735eba4906111",
-                        "name": "block/muddy_mangrove_roots/step2"
+                        "name": "block/muddy_mangrove_roots/step2",
+                        "volume": 0.25
                     },
                     {
                         "hash": "a42d47d511248af68e64c0eba5cd7530e98a9f66",
-                        "name": "block/muddy_mangrove_roots/step3"
+                        "name": "block/muddy_mangrove_roots/step3",
+                        "volume": 0.25
                     },
                     {
                         "hash": "627200f7673f255c82d33ac284b6721cfb1fb339",
-                        "name": "block/muddy_mangrove_roots/step4"
+                        "name": "block/muddy_mangrove_roots/step4",
+                        "volume": 0.25
                     },
                     {
                         "hash": "a9b521652653721c30164ce4a81f898db964d2b0",
-                        "name": "block/muddy_mangrove_roots/step5"
+                        "name": "block/muddy_mangrove_roots/step5",
+                        "volume": 0.25
                     },
                     {
                         "hash": "a6b3ffdbe3b47469307ea610b8cc4a1f77daafbf",
-                        "name": "block/muddy_mangrove_roots/step6"
+                        "name": "block/muddy_mangrove_roots/step6",
+                        "volume": 0.25
                     }
                 ]
             }
@@ -4650,32 +3886,32 @@
                     {
                         "hash": "c7808eccafbe9e17183350fa96d130aef73025de",
                         "name": "block/muddy_mangrove_roots/step1",
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "05637f0776bdc29d678b0da8f2d735eba4906111",
                         "name": "block/muddy_mangrove_roots/step2",
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "a42d47d511248af68e64c0eba5cd7530e98a9f66",
                         "name": "block/muddy_mangrove_roots/step3",
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "627200f7673f255c82d33ac284b6721cfb1fb339",
                         "name": "block/muddy_mangrove_roots/step4",
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "a9b521652653721c30164ce4a81f898db964d2b0",
                         "name": "block/muddy_mangrove_roots/step5",
-                        "volume": 0.5
+                        "volume": 0.25
                     },
                     {
                         "hash": "a6b3ffdbe3b47469307ea610b8cc4a1f77daafbf",
                         "name": "block/muddy_mangrove_roots/step6",
-                        "volume": 0.5
+                        "volume": 0.25
                     }
                 ],
                 "subtitle": "Block breaking",
@@ -4692,32 +3928,32 @@
                     {
                         "hash": "d903ed4ceaa5235f91cded08bce886f045432475",
                         "name": "block/muddy_mangrove_roots/break1",
-                        "volume": 0.6
+                        "volume": 0.25
                     },
                     {
                         "hash": "20f3a2ff177f0dc4e94c19cd732433f5a3ea86ff",
                         "name": "block/muddy_mangrove_roots/break2",
-                        "volume": 0.6
+                        "volume": 0.25
                     },
                     {
                         "hash": "f7794a70685da8361d0d7f6554eadcdd1a60509f",
                         "name": "block/muddy_mangrove_roots/break3",
-                        "volume": 0.6
+                        "volume": 0.25
                     },
                     {
                         "hash": "e80a3c2fe6fc715214b07afd772ae191d35a3966",
                         "name": "block/muddy_mangrove_roots/break4",
-                        "volume": 0.6
+                        "volume": 0.25
                     },
                     {
                         "hash": "f188e0622294b53e38b820f06e50c503bb803d9b",
                         "name": "block/muddy_mangrove_roots/break5",
-                        "volume": 0.6
+                        "volume": 0.25
                     },
                     {
                         "hash": "f28a965169661634a6fcb833929a2098cd7dd381",
                         "name": "block/muddy_mangrove_roots/break6",
-                        "volume": 0.6
+                        "volume": 0.25
                     }
                 ],
                 "subtitle": "Block placed",
@@ -4734,32 +3970,32 @@
                     {
                         "hash": "c7808eccafbe9e17183350fa96d130aef73025de",
                         "name": "block/muddy_mangrove_roots/step1",
-                        "volume": 0.6
+                        "volume": 0.25
                     },
                     {
                         "hash": "05637f0776bdc29d678b0da8f2d735eba4906111",
                         "name": "block/muddy_mangrove_roots/step2",
-                        "volume": 0.6
+                        "volume": 0.25
                     },
                     {
                         "hash": "a42d47d511248af68e64c0eba5cd7530e98a9f66",
                         "name": "block/muddy_mangrove_roots/step3",
-                        "volume": 0.6
+                        "volume": 0.25
                     },
                     {
                         "hash": "627200f7673f255c82d33ac284b6721cfb1fb339",
                         "name": "block/muddy_mangrove_roots/step4",
-                        "volume": 0.6
+                        "volume": 0.25
                     },
                     {
                         "hash": "a9b521652653721c30164ce4a81f898db964d2b0",
                         "name": "block/muddy_mangrove_roots/step5",
-                        "volume": 0.6
+                        "volume": 0.25
                     },
                     {
                         "hash": "a6b3ffdbe3b47469307ea610b8cc4a1f77daafbf",
                         "name": "block/muddy_mangrove_roots/step6",
-                        "volume": 0.6
+                        "volume": 0.25
                     }
                 ],
                 "subtitle": "Footsteps",
@@ -4775,27 +4011,33 @@
                 "sounds": [
                     {
                         "hash": "c3c0d483299a17a68deccdf3dcb040081ec103e2",
-                        "name": "block/packed_mud/break1"
+                        "name": "block/packed_mud/break1",
+                        "volume": 0.3
                     },
                     {
                         "hash": "852ea442cf1168dd3a1479dbc07e99d9d2ee3520",
-                        "name": "block/packed_mud/break2"
+                        "name": "block/packed_mud/break2",
+                        "volume": 0.3
                     },
                     {
                         "hash": "6a3f493f1335af635f8241bf8831299476b86509",
-                        "name": "block/packed_mud/break3"
+                        "name": "block/packed_mud/break3",
+                        "volume": 0.3
                     },
                     {
                         "hash": "4a72600e93b9379d5b75b5278cceedefb68845cd",
-                        "name": "block/packed_mud/break4"
+                        "name": "block/packed_mud/break4",
+                        "volume": 0.3
                     },
                     {
                         "hash": "4cbab94ac2da642d15acfa6ffff8621ac7d81cfd",
-                        "name": "block/packed_mud/break5"
+                        "name": "block/packed_mud/break5",
+                        "volume": 0.3
                     },
                     {
                         "hash": "374bf2477feac69222187fed90d0d314801cb0fa",
-                        "name": "block/packed_mud/break6"
+                        "name": "block/packed_mud/break6",
+                        "volume": 0.3
                     }
                 ],
                 "subtitle": "Block broken",
@@ -4811,27 +4053,33 @@
                 "sounds": [
                     {
                         "hash": "f63f46b220c991a40f63fe772a859b1089a3a721",
-                        "name": "block/packed_mud/step1"
+                        "name": "block/packed_mud/step1",
+                        "volume": 0.3
                     },
                     {
                         "hash": "172ea574d280fd698eb484b281ff442503ea0dcf",
-                        "name": "block/packed_mud/step2"
+                        "name": "block/packed_mud/step2",
+                        "volume": 0.3
                     },
                     {
                         "hash": "319365a293900394b4f0320147765e1013d59a8b",
-                        "name": "block/packed_mud/step3"
+                        "name": "block/packed_mud/step3",
+                        "volume": 0.3
                     },
                     {
                         "hash": "c777e4e19b586899ac6fad21282becb91d07623c",
-                        "name": "block/packed_mud/step4"
+                        "name": "block/packed_mud/step4",
+                        "volume": 0.3
                     },
                     {
                         "hash": "fafd20e6ee99efbce09f861f1e1578573dd8869d",
-                        "name": "block/packed_mud/step5"
+                        "name": "block/packed_mud/step5",
+                        "volume": 0.3
                     },
                     {
                         "hash": "05568b990472f6921f03f9142b0042fbc343d406",
-                        "name": "block/packed_mud/step6"
+                        "name": "block/packed_mud/step6",
+                        "volume": 0.3
                     }
                 ]
             }
@@ -4845,27 +4093,33 @@
                 "sounds": [
                     {
                         "hash": "f63f46b220c991a40f63fe772a859b1089a3a721",
-                        "name": "block/packed_mud/step1"
+                        "name": "block/packed_mud/step1",
+                        "volume": 0.3
                     },
                     {
                         "hash": "172ea574d280fd698eb484b281ff442503ea0dcf",
-                        "name": "block/packed_mud/step2"
+                        "name": "block/packed_mud/step2",
+                        "volume": 0.3
                     },
                     {
                         "hash": "319365a293900394b4f0320147765e1013d59a8b",
-                        "name": "block/packed_mud/step3"
+                        "name": "block/packed_mud/step3",
+                        "volume": 0.3
                     },
                     {
                         "hash": "c777e4e19b586899ac6fad21282becb91d07623c",
-                        "name": "block/packed_mud/step4"
+                        "name": "block/packed_mud/step4",
+                        "volume": 0.3
                     },
                     {
                         "hash": "fafd20e6ee99efbce09f861f1e1578573dd8869d",
-                        "name": "block/packed_mud/step5"
+                        "name": "block/packed_mud/step5",
+                        "volume": 0.3
                     },
                     {
                         "hash": "05568b990472f6921f03f9142b0042fbc343d406",
-                        "name": "block/packed_mud/step6"
+                        "name": "block/packed_mud/step6",
+                        "volume": 0.3
                     }
                 ],
                 "subtitle": "Block breaking",
@@ -4881,27 +4135,33 @@
                 "sounds": [
                     {
                         "hash": "c3c0d483299a17a68deccdf3dcb040081ec103e2",
-                        "name": "block/packed_mud/break1"
+                        "name": "block/packed_mud/break1",
+                        "volume": 0.3
                     },
                     {
                         "hash": "852ea442cf1168dd3a1479dbc07e99d9d2ee3520",
-                        "name": "block/packed_mud/break2"
+                        "name": "block/packed_mud/break2",
+                        "volume": 0.3
                     },
                     {
                         "hash": "6a3f493f1335af635f8241bf8831299476b86509",
-                        "name": "block/packed_mud/break3"
+                        "name": "block/packed_mud/break3",
+                        "volume": 0.3
                     },
                     {
                         "hash": "4a72600e93b9379d5b75b5278cceedefb68845cd",
-                        "name": "block/packed_mud/break4"
+                        "name": "block/packed_mud/break4",
+                        "volume": 0.3
                     },
                     {
                         "hash": "4cbab94ac2da642d15acfa6ffff8621ac7d81cfd",
-                        "name": "block/packed_mud/break5"
+                        "name": "block/packed_mud/break5",
+                        "volume": 0.3
                     },
                     {
                         "hash": "374bf2477feac69222187fed90d0d314801cb0fa",
-                        "name": "block/packed_mud/break6"
+                        "name": "block/packed_mud/break6",
+                        "volume": 0.3
                     }
                 ],
                 "subtitle": "Block placed",
@@ -4919,37 +4179,37 @@
                         "hash": "f63f46b220c991a40f63fe772a859b1089a3a721",
                         "name": "block/packed_mud/step1",
                         "pitch": 0.95,
-                        "volume": 1.1
+                        "volume": 0.3
                     },
                     {
                         "hash": "172ea574d280fd698eb484b281ff442503ea0dcf",
                         "name": "block/packed_mud/step2",
                         "pitch": 0.95,
-                        "volume": 1.1
+                        "volume": 0.3
                     },
                     {
                         "hash": "319365a293900394b4f0320147765e1013d59a8b",
                         "name": "block/packed_mud/step3",
                         "pitch": 0.95,
-                        "volume": 1.1
+                        "volume": 0.3
                     },
                     {
                         "hash": "c777e4e19b586899ac6fad21282becb91d07623c",
                         "name": "block/packed_mud/step4",
                         "pitch": 0.95,
-                        "volume": 1.1
+                        "volume": 0.3
                     },
                     {
                         "hash": "fafd20e6ee99efbce09f861f1e1578573dd8869d",
                         "name": "block/packed_mud/step5",
                         "pitch": 0.95,
-                        "volume": 1.1
+                        "volume": 0.3
                     },
                     {
                         "hash": "05568b990472f6921f03f9142b0042fbc343d406",
                         "name": "block/packed_mud/step6",
                         "pitch": 0.95,
-                        "volume": 1.1
+                        "volume": 0.3
                     }
                 ],
                 "subtitle": "Footsteps",
@@ -5556,33 +4816,27 @@
                 "sounds": [
                     {
                         "hash": "85215b5e07584fa35121ffe4fd2fc876b4e42803",
-                        "name": "block/sculk/step1",
-                        "volume": 1
+                        "name": "block/sculk/step1"
                     },
                     {
                         "hash": "93d7176f92d6525bb62bd75280047cf0eba04e24",
-                        "name": "block/sculk/step2",
-                        "volume": 1
+                        "name": "block/sculk/step2"
                     },
                     {
                         "hash": "26c121371d00227c0ac280e5099957ec579e1d28",
-                        "name": "block/sculk/step3",
-                        "volume": 1
+                        "name": "block/sculk/step3"
                     },
                     {
                         "hash": "7d3ffb5b997bccfe7d0a54c530ad56657085b066",
-                        "name": "block/sculk/step4",
-                        "volume": 1
+                        "name": "block/sculk/step4"
                     },
                     {
                         "hash": "bfdacd3aba6b53aa62a5cb7491ce2f2ff8211ad7",
-                        "name": "block/sculk/step5",
-                        "volume": 1
+                        "name": "block/sculk/step5"
                     },
                     {
                         "hash": "3aaf8dbe6d42d12e0219866bb47633b867b56b13",
-                        "name": "block/sculk/step6",
-                        "volume": 1
+                        "name": "block/sculk/step6"
                     }
                 ]
             }
@@ -5596,33 +4850,27 @@
                 "sounds": [
                     {
                         "hash": "85215b5e07584fa35121ffe4fd2fc876b4e42803",
-                        "name": "block/sculk/step1",
-                        "volume": 1
+                        "name": "block/sculk/step1"
                     },
                     {
                         "hash": "93d7176f92d6525bb62bd75280047cf0eba04e24",
-                        "name": "block/sculk/step2",
-                        "volume": 1
+                        "name": "block/sculk/step2"
                     },
                     {
                         "hash": "26c121371d00227c0ac280e5099957ec579e1d28",
-                        "name": "block/sculk/step3",
-                        "volume": 1
+                        "name": "block/sculk/step3"
                     },
                     {
                         "hash": "7d3ffb5b997bccfe7d0a54c530ad56657085b066",
-                        "name": "block/sculk/step4",
-                        "volume": 1
+                        "name": "block/sculk/step4"
                     },
                     {
                         "hash": "bfdacd3aba6b53aa62a5cb7491ce2f2ff8211ad7",
-                        "name": "block/sculk/step5",
-                        "volume": 1
+                        "name": "block/sculk/step5"
                     },
                     {
                         "hash": "3aaf8dbe6d42d12e0219866bb47633b867b56b13",
-                        "name": "block/sculk/step6",
-                        "volume": 1
+                        "name": "block/sculk/step6"
                     }
                 ],
                 "subtitle": "Block breaking",
