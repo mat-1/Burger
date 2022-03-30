@@ -52,7 +52,8 @@ MATCHES = (
     ),
     (['has invalidly named property'], 'blockstatecontainer'),
     ((['HORIZONTAL'], True), 'enumfacing.plane'),
-    ((['bubble'], True), 'particletypes')
+    ((['bubble'], True), 'particletypes'),
+    (['No value with id '], 'idmap')
 )
 
 # Enforce a lower priority on some matches, since some classes may match both
@@ -271,6 +272,7 @@ class IdentifyTopping(Topping):
         "identify.entity.trackerentry",
         "identify.enumfacing.plane",
         "identify.identifier",
+        "identify.idmap",
         "identify.item.list",
         "identify.item.register",
         "identify.itemstack",

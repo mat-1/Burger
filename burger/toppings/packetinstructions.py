@@ -53,6 +53,7 @@ class PacketInstructionsTopping(Topping):
         "identify.nbtcompound",
         "identify.itemstack",
         "identify.identifier",
+        "identify.idmap",
         "identify.chatcomponent",
         "identify.metadata",
     ]
@@ -689,6 +690,8 @@ class PacketInstructionsTopping(Topping):
             # the endloop past everything.
             operations.append(Operation(instruction.pos + 1 - SUB_INS_EPSILON, "endif"))
             return operations
+        elif desc.args[0].name == classes.get("idmap"):
+            return [Operation(instruction.pos, "write", type="varint", field="%s.getId(%s)" % (args[0], args[1]))]
         else:
             raise Exception("Unexpected descriptor " + desc.descriptor)
 
