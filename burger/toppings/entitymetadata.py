@@ -349,6 +349,22 @@ class EntityMetadataTopping(Topping):
     @staticmethod
     def identify_serializers(classloader, dataserializer_class, dataserializers_class, classes, data_version, verbose):
         serializers = {}
+        dataserializer_cf = classloader[dataserializer_class]
+        static_funcs_to_classes = {}
+        for func in dataserializer_cf.methods.find(f=lambda f: f.access_flags.acc_static):
+            # This applies to 22w14a, where there are some special register functions
+            # that take lambdas (or a class for an enum, or a registry)
+            for ins in func.code.disassemble():
+                if ins.mnemonic == "new":
+                    static_funcs_to_classes[func.name.value + func.descriptor.value] = ins.operands[0].name.value
+                    break
+                if ins.mnemonic == "invokestatic":
+                    new_func = ins.operands[0].name_and_type.name.value + ins.operands[0].name_and_type.descriptor.value
+                    # Assume that this function comes after the one it calls in the class file
+                    # (this is obviously an assumption that could be easily violated, but it holds in 22w14a)
+                    static_funcs_to_classes[func.name.value + func.descriptor.value] = static_funcs_to_classes[new_func]
+                    break
+
         dataserializers_cf = classloader[dataserializers_class]
 
         class Callback(WalkerCallback):
@@ -359,7 +375,10 @@ class EntityMetadataTopping(Topping):
                 return {"class": const.name.value}
 
             def on_invoke(self, ins, const, obj, args):
-                pass
+                if const.class_.name.value != dataserializer_class:
+                    # E.g. related to the registry
+                    return
+                return {"class": static_funcs_to_classes[const.name_and_type.name.value + const.name_and_type.descriptor.value]}
 
             def on_put_field(self, ins, const, obj, value):
                 if const.name_and_type.descriptor.value != "L" + dataserializer_class + ";":
@@ -410,6 +429,9 @@ class EntityMetadataTopping(Topping):
                     serializers[str(id)] = serializer # This hopefully will not clash but still shouldn't happen in the first place
 
                 self.id += 1
+
+            def on_invokedynamic(self, ins, const, args):
+                return InvokeDynamicInfo.create(ins, dataserializers_cf)
 
         walk_method(dataserializers_cf, dataserializers_cf.methods.find_one(name="<clinit>"), Callback(), verbose)
 
