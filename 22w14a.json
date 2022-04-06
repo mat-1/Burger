@@ -28017,6 +28017,356 @@
             "tileentity.superclass": "cqa"
         },
         "entities": {
+            "dataserializers": {
+                "19": {
+                    "class": "yn$1",
+                    "field": "u",
+                    "id": 19,
+                    "instructions": [],
+                    "type": "bkg"
+                },
+                "20": {
+                    "class": "yn$1",
+                    "field": "v",
+                    "id": 20,
+                    "instructions": [],
+                    "type": "bkn"
+                },
+                "21": {
+                    "class": "yn$2",
+                    "field": "p",
+                    "id": 21,
+                    "instructions": [
+                        {
+                            "condition": "((Optional)value).isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "1",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "field": "0",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "type": "java/util/Optional<Lgu;>"
+                },
+                "BlockPos": {
+                    "class": "yn$1",
+                    "field": "l",
+                    "id": 9,
+                    "instructions": [],
+                    "name": "BlockPos",
+                    "type": "gm"
+                },
+                "Boolean": {
+                    "class": "yn$1",
+                    "field": "i",
+                    "id": 7,
+                    "instructions": [],
+                    "name": "Boolean",
+                    "type": "java/lang/Boolean"
+                },
+                "Byte": {
+                    "class": "yn$1",
+                    "field": "a",
+                    "id": 0,
+                    "instructions": [],
+                    "name": "Byte",
+                    "type": "java/lang/Byte"
+                },
+                "Chat": {
+                    "class": "yn$1",
+                    "field": "e",
+                    "id": 4,
+                    "instructions": [],
+                    "name": "Chat",
+                    "type": "qx"
+                },
+                "Facing": {
+                    "class": "yn$1",
+                    "field": "n",
+                    "id": 11,
+                    "instructions": [],
+                    "name": "Facing",
+                    "type": "gr"
+                },
+                "Float": {
+                    "class": "yn$1",
+                    "field": "c",
+                    "id": 2,
+                    "instructions": [],
+                    "name": "Float",
+                    "type": "java/lang/Float"
+                },
+                "NBT": {
+                    "class": "yo$5",
+                    "field": "q",
+                    "id": 14,
+                    "instructions": [
+                        {
+                            "field": "(ox)value",
+                            "operation": "write",
+                            "type": "nbtcompound"
+                        }
+                    ],
+                    "name": "NBT",
+                    "type": "ox"
+                },
+                "OptBlockPos": {
+                    "class": "yn$2",
+                    "field": "m",
+                    "id": 10,
+                    "instructions": [
+                        {
+                            "condition": "((Optional)value).isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "1",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "field": "0",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "name": "OptBlockPos",
+                    "type": "java/util/Optional<Lgm;>"
+                },
+                "OptBlockState": {
+                    "class": "yo$2",
+                    "field": "h",
+                    "id": 13,
+                    "instructions": [
+                        {
+                            "condition": "((Optional)value).isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "cgm.i(((csg)((Optional)value).get()))",
+                                    "operation": "write",
+                                    "type": "varint"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "field": "0",
+                                    "operation": "write",
+                                    "type": "varint"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "name": "OptBlockState",
+                    "type": "java/util/Optional<Lcsg;>"
+                },
+                "OptChat": {
+                    "class": "yn$2",
+                    "field": "f",
+                    "id": 5,
+                    "instructions": [
+                        {
+                            "condition": "((Optional)value).isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "1",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "field": "0",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "name": "OptChat",
+                    "type": "java/util/Optional<Lqx;>"
+                },
+                "OptUUID": {
+                    "class": "yn$2",
+                    "field": "o",
+                    "id": 12,
+                    "instructions": [
+                        {
+                            "condition": "((Optional)value).isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "1",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "field": "0",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "name": "OptUUID",
+                    "type": "java/util/Optional<Ljava/util/UUID;>"
+                },
+                "OptVarInt": {
+                    "class": "yo$7",
+                    "field": "s",
+                    "id": 17,
+                    "instructions": [
+                        {
+                            "field": "((OptionalInt)value).orElse(-1) + 1",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "name": "OptVarInt",
+                    "type": "java/util/OptionalInt"
+                },
+                "Particle": {
+                    "class": "yo$3",
+                    "field": "j",
+                    "id": 15,
+                    "instructions": [
+                        {
+                            "field": "hf.aa.getId(((ie)value).b())",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "args": "packetbuffer",
+                            "field": "(ie)value",
+                            "method": "a(Lql;)V",
+                            "name": "a",
+                            "operation": "interfacecall",
+                            "target": "ie",
+                            "type": "interface"
+                        }
+                    ],
+                    "name": "Particle",
+                    "type": "ie"
+                },
+                "Pose": {
+                    "class": "yn$1",
+                    "field": "t",
+                    "id": 18,
+                    "instructions": [],
+                    "name": "Pose",
+                    "type": "azt"
+                },
+                "Rotations": {
+                    "class": "yo$4",
+                    "field": "k",
+                    "id": 8,
+                    "instructions": [
+                        {
+                            "field": "((hi)value).b()",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "((hi)value).c()",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "((hi)value).d()",
+                            "operation": "write",
+                            "type": "float"
+                        }
+                    ],
+                    "name": "Rotations",
+                    "type": "hi"
+                },
+                "Slot": {
+                    "class": "yo$1",
+                    "field": "g",
+                    "id": 6,
+                    "instructions": [
+                        {
+                            "field": "(bxs)value",
+                            "operation": "write",
+                            "type": "itemstack"
+                        }
+                    ],
+                    "name": "Slot",
+                    "type": "bxs"
+                },
+                "String": {
+                    "class": "yn$1",
+                    "field": "d",
+                    "id": 3,
+                    "instructions": [],
+                    "name": "String",
+                    "type": "java/lang/String"
+                },
+                "VarInt": {
+                    "class": "yn$1",
+                    "field": "b",
+                    "id": 1,
+                    "instructions": [],
+                    "name": "VarInt",
+                    "type": "java/lang/Integer"
+                },
+                "VillagerData": {
+                    "class": "yo$6",
+                    "field": "r",
+                    "id": 16,
+                    "instructions": [
+                        {
+                            "field": "hf.ao.getId(((bqr)value).a())",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "hf.ap.getId(((bqr)value).b())",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "((bqr)value).c()",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "name": "VillagerData",
+                    "type": "bqr"
+                }
+            },
             "entity": {
                 "allay": {
                     "class": "blg",
@@ -28024,6 +28374,12 @@
                     "field": "b",
                     "height": 0.6,
                     "id": 0,
+                    "metadata": [
+                        {
+                            "class": "azq",
+                            "entity": "~abstract_creature"
+                        }
+                    ],
                     "name": "allay",
                     "width": 0.35
                 },
@@ -28033,6 +28389,45 @@
                     "field": "c",
                     "height": 0.5,
                     "id": 1,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "ayr",
+                            "data": [
+                                {
+                                    "default": 0.5,
+                                    "field": "d",
+                                    "index": 8,
+                                    "serializer": "Float",
+                                    "serializer_id": 2
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "e",
+                                    "index": 9,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": false,
+                                    "field": "f",
+                                    "index": 10,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "field": "ao",
+                                    "index": 11,
+                                    "serializer": "Particle",
+                                    "serializer_id": 15
+                                }
+                            ]
+                        }
+                    ],
                     "name": "area_effect_cloud",
                     "width": 6.0
                 },
@@ -28042,6 +28437,78 @@
                     "field": "d",
                     "height": 1.975,
                     "id": 2,
+                    "metadata": [
+                        {
+                            "class": "azh",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 1,
+                                    "method": "n"
+                                },
+                                {
+                                    "mask": 4,
+                                    "method": "q"
+                                },
+                                {
+                                    "mask": 8,
+                                    "method": "r"
+                                },
+                                {
+                                    "mask": 16,
+                                    "method": "t"
+                                }
+                            ],
+                            "class": "bnj",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bG",
+                                    "index": 15,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "field": "bH",
+                                    "index": 16,
+                                    "serializer": "Rotations",
+                                    "serializer_id": 8
+                                },
+                                {
+                                    "field": "bI",
+                                    "index": 17,
+                                    "serializer": "Rotations",
+                                    "serializer_id": 8
+                                },
+                                {
+                                    "field": "bJ",
+                                    "index": 18,
+                                    "serializer": "Rotations",
+                                    "serializer_id": 8
+                                },
+                                {
+                                    "field": "bK",
+                                    "index": 19,
+                                    "serializer": "Rotations",
+                                    "serializer_id": 8
+                                },
+                                {
+                                    "field": "bL",
+                                    "index": 20,
+                                    "serializer": "Rotations",
+                                    "serializer_id": 8
+                                },
+                                {
+                                    "field": "bM",
+                                    "index": 21,
+                                    "serializer": "Rotations",
+                                    "serializer_id": 8
+                                }
+                            ]
+                        }
+                    ],
                     "name": "armor_stand",
                     "width": 0.5
                 },
@@ -28051,6 +28518,58 @@
                     "field": "e",
                     "height": 0.5,
                     "id": 3,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 1,
+                                    "method": "q"
+                                },
+                                {
+                                    "mask": 4,
+                                    "method": "r"
+                                },
+                                {
+                                    "mask": 2,
+                                    "method": "u"
+                                }
+                            ],
+                            "class": "brh",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "ao",
+                                    "index": 8,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "ap",
+                                    "index": 9,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "brj",
+                            "data": [
+                                {
+                                    "default": -1,
+                                    "field": "ap",
+                                    "index": 10,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "arrow",
                     "width": 0.5
                 },
@@ -28060,6 +28579,39 @@
                     "field": "f",
                     "height": 0.42,
                     "id": 4,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "blj",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "ce",
+                                    "index": 17,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": false,
+                                    "field": "cf",
+                                    "index": 18,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "cg",
+                                    "index": 19,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "axolotl",
                     "width": 0.75
                 },
@@ -28069,6 +28621,30 @@
                     "field": "g",
                     "height": 0.9,
                     "id": 5,
+                    "metadata": [
+                        {
+                            "class": "azj",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 1,
+                                    "method": "q"
+                                }
+                            ],
+                            "class": "bjx",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "d",
+                                    "index": 16,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "bat",
                     "width": 0.5
                 },
@@ -28078,6 +28654,45 @@
                     "field": "h",
                     "height": 0.6,
                     "id": 6,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 8,
+                                    "method": "fO"
+                                },
+                                {
+                                    "mask": 4,
+                                    "method": "fP"
+                                },
+                                {
+                                    "mask": 2,
+                                    "method": "gb"
+                                }
+                            ],
+                            "class": "bkd",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "cg",
+                                    "index": 17,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "ch",
+                                    "index": 18,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "bee",
                     "width": 0.7
                 },
@@ -28087,6 +28702,30 @@
                     "field": "i",
                     "height": 1.8,
                     "id": 7,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 1,
+                                    "method": "q"
+                                }
+                            ],
+                            "class": "bnx",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "d",
+                                    "index": 16,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "blaze",
                     "width": 0.6
                 },
@@ -28096,6 +28735,66 @@
                     "field": "j",
                     "height": 0.5625,
                     "id": 8,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bsu",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "f",
+                                    "index": 8,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 1,
+                                    "field": "ao",
+                                    "index": 9,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0.0,
+                                    "field": "ap",
+                                    "index": 10,
+                                    "serializer": "Float",
+                                    "serializer_id": 2
+                                },
+                                {
+                                    "field": "aq",
+                                    "index": 11,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": false,
+                                    "field": "ar",
+                                    "index": 12,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "as",
+                                    "index": 13,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "at",
+                                    "index": 14,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "boat",
                     "width": 1.375
                 },
@@ -28105,6 +28804,44 @@
                     "field": "l",
                     "height": 0.7,
                     "id": 10,
+                    "metadata": [
+                        {
+                            "class": "bab",
+                            "entity": "~abstract_tameable"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bkf",
+                            "data": [
+                                {
+                                    "field": "cd",
+                                    "index": 19,
+                                    "serializer": 19,
+                                    "serializer_id": 19
+                                },
+                                {
+                                    "default": false,
+                                    "field": "ce",
+                                    "index": 20,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "cf",
+                                    "index": 21,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "field": "cg",
+                                    "index": 22,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "cat",
                     "width": 0.6
                 },
@@ -28114,6 +28851,12 @@
                     "field": "m",
                     "height": 0.5,
                     "id": 11,
+                    "metadata": [
+                        {
+                            "class": "boy",
+                            "entity": "spider"
+                        }
+                    ],
                     "name": "cave_spider",
                     "width": 0.7
                 },
@@ -28123,6 +28866,12 @@
                     "field": "k",
                     "height": 0.5625,
                     "id": 9,
+                    "metadata": [
+                        {
+                            "class": "bsu",
+                            "entity": "boat"
+                        }
+                    ],
                     "name": "chest_boat",
                     "width": 1.375
                 },
@@ -28132,6 +28881,12 @@
                     "field": "ad",
                     "height": 0.7,
                     "id": 54,
+                    "metadata": [
+                        {
+                            "class": "bss",
+                            "entity": "~abstract_minecart"
+                        }
+                    ],
                     "name": "chest_minecart",
                     "width": 0.98
                 },
@@ -28141,6 +28896,12 @@
                     "field": "n",
                     "height": 0.7,
                     "id": 12,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        }
+                    ],
                     "name": "chicken",
                     "width": 0.4
                 },
@@ -28150,6 +28911,25 @@
                     "field": "o",
                     "height": 0.3,
                     "id": 13,
+                    "metadata": [
+                        {
+                            "class": "azq",
+                            "entity": "~abstract_creature"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bjz",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "cod",
                     "width": 0.5
                 },
@@ -28159,6 +28939,31 @@
                     "field": "ae",
                     "height": 0.7,
                     "id": 55,
+                    "metadata": [
+                        {
+                            "class": "bss",
+                            "entity": "~abstract_minecart"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bta",
+                            "data": [
+                                {
+                                    "default": "",
+                                    "field": "c",
+                                    "index": 14,
+                                    "serializer": "String",
+                                    "serializer_id": 3
+                                },
+                                {
+                                    "field": "d",
+                                    "index": 15,
+                                    "serializer": "Chat",
+                                    "serializer_id": 4
+                                }
+                            ]
+                        }
+                    ],
                     "name": "command_block_minecart",
                     "width": 0.98
                 },
@@ -28168,6 +28973,12 @@
                     "field": "p",
                     "height": 1.4,
                     "id": 14,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        }
+                    ],
                     "name": "cow",
                     "width": 0.9
                 },
@@ -28177,6 +28988,39 @@
                     "field": "q",
                     "height": 1.7,
                     "id": 15,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bnz",
+                            "data": [
+                                {
+                                    "default": -1,
+                                    "field": "b",
+                                    "index": 16,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": false,
+                                    "field": "c",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "d",
+                                    "index": 18,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "creeper",
                     "width": 0.6
                 },
@@ -28186,6 +29030,39 @@
                     "field": "r",
                     "height": 0.6,
                     "id": 16,
+                    "metadata": [
+                        {
+                            "class": "azq",
+                            "entity": "~abstract_creature"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bkk",
+                            "data": [
+                                {
+                                    "default": "(0, 0, 0)",
+                                    "field": "d",
+                                    "index": 16,
+                                    "serializer": "BlockPos",
+                                    "serializer_id": 9
+                                },
+                                {
+                                    "default": false,
+                                    "field": "e",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": 2400,
+                                    "field": "bW",
+                                    "index": 18,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "dolphin",
                     "width": 0.9
                 },
@@ -28195,6 +29072,66 @@
                     "field": "s",
                     "height": 1.5,
                     "id": 17,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 2,
+                                    "method": "fN"
+                                },
+                                {
+                                    "mask": 16,
+                                    "method": "fQ"
+                                },
+                                {
+                                    "mask": 32,
+                                    "method": "fR"
+                                },
+                                {
+                                    "mask": 8,
+                                    "method": "fS"
+                                },
+                                {
+                                    "mask": 4,
+                                    "method": "d"
+                                }
+                            ],
+                            "class": "bly",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "co",
+                                    "index": 17,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "cp",
+                                    "index": 18,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "blx",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "cm",
+                                    "index": 19,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "donkey",
                     "width": 1.39648
                 },
@@ -28204,6 +29141,12 @@
                     "field": "t",
                     "height": 1.0,
                     "id": 18,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "dragon_fireball",
                     "width": 1.0
                 },
@@ -28213,6 +29156,12 @@
                     "field": "u",
                     "height": 1.95,
                     "id": 19,
+                    "metadata": [
+                        {
+                            "class": "bpg",
+                            "entity": "zombie"
+                        }
+                    ],
                     "name": "drowned",
                     "width": 0.6
                 },
@@ -28222,6 +29171,25 @@
                     "field": "aQ",
                     "height": 0.25,
                     "id": 93,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "brz",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "b",
+                                    "index": 8,
+                                    "serializer": "Slot",
+                                    "serializer_id": 6
+                                }
+                            ]
+                        }
+                    ],
                     "name": "egg",
                     "width": 0.25
                 },
@@ -28231,6 +29199,12 @@
                     "field": "v",
                     "height": 1.9975,
                     "id": 20,
+                    "metadata": [
+                        {
+                            "class": "boj",
+                            "entity": "guardian"
+                        }
+                    ],
                     "name": "elder_guardian",
                     "width": 1.9975
                 },
@@ -28240,6 +29214,32 @@
                     "field": "w",
                     "height": 2.0,
                     "id": 21,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bmm",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "c",
+                                    "index": 8,
+                                    "serializer": "OptBlockPos",
+                                    "serializer_id": 10
+                                },
+                                {
+                                    "default": true,
+                                    "field": "d",
+                                    "index": 9,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "end_crystal",
                     "width": 2.0
                 },
@@ -28249,6 +29249,24 @@
                     "field": "x",
                     "height": 8.0,
                     "id": 22,
+                    "metadata": [
+                        {
+                            "class": "azj",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bmn",
+                            "data": [
+                                {
+                                    "field": "b",
+                                    "index": 16,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "ender_dragon",
                     "width": 16.0
                 },
@@ -28258,6 +29276,25 @@
                     "field": "aR",
                     "height": 0.25,
                     "id": 94,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "brz",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "b",
+                                    "index": 8,
+                                    "serializer": "Slot",
+                                    "serializer_id": 6
+                                }
+                            ]
+                        }
+                    ],
                     "name": "ender_pearl",
                     "width": 0.25
                 },
@@ -28267,6 +29304,39 @@
                     "field": "y",
                     "height": 2.9,
                     "id": 23,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bod",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "bX",
+                                    "index": 16,
+                                    "serializer": "OptBlockState",
+                                    "serializer_id": 13
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bY",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bZ",
+                                    "index": 18,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "enderman",
                     "width": 0.6
                 },
@@ -28276,6 +29346,12 @@
                     "field": "z",
                     "height": 0.3,
                     "id": 24,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        }
+                    ],
                     "name": "endermite",
                     "width": 0.4
                 },
@@ -28285,6 +29361,38 @@
                     "field": "A",
                     "height": 1.95,
                     "id": 25,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bsj",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "c",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "box",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "e",
+                                    "index": 17,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "evoker",
                     "width": 0.6
                 },
@@ -28294,6 +29402,12 @@
                     "field": "B",
                     "height": 0.8,
                     "id": 26,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "evoker_fangs",
                     "width": 0.5
                 },
@@ -28303,6 +29417,25 @@
                     "field": "aS",
                     "height": 0.25,
                     "id": 95,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "brz",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "b",
+                                    "index": 8,
+                                    "serializer": "Slot",
+                                    "serializer_id": 6
+                                }
+                            ]
+                        }
+                    ],
                     "name": "experience_bottle",
                     "width": 0.25
                 },
@@ -28312,6 +29445,12 @@
                     "field": "C",
                     "height": 0.5,
                     "id": 27,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "experience_orb",
                     "width": 0.5
                 },
@@ -28321,6 +29460,25 @@
                     "field": "D",
                     "height": 0.25,
                     "id": 28,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "brm",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "b",
+                                    "index": 8,
+                                    "serializer": "Slot",
+                                    "serializer_id": 6
+                                }
+                            ]
+                        }
+                    ],
                     "name": "eye_of_ender",
                     "width": 0.25
                 },
@@ -28330,6 +29488,25 @@
                     "field": "E",
                     "height": 0.98,
                     "id": 29,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bnr",
+                            "data": [
+                                {
+                                    "default": "(0, 0, 0)",
+                                    "field": "e",
+                                    "index": 8,
+                                    "serializer": "BlockPos",
+                                    "serializer_id": 9
+                                }
+                            ]
+                        }
+                    ],
                     "name": "falling_block",
                     "width": 0.98
                 },
@@ -28339,6 +29516,25 @@
                     "field": "V",
                     "height": 1.0,
                     "id": 46,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "brn",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "e",
+                                    "index": 8,
+                                    "serializer": "Slot",
+                                    "serializer_id": 6
+                                }
+                            ]
+                        }
+                    ],
                     "name": "fireball",
                     "width": 1.0
                 },
@@ -28348,6 +29544,39 @@
                     "field": "F",
                     "height": 0.25,
                     "id": 30,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bro",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "b",
+                                    "index": 8,
+                                    "serializer": "Slot",
+                                    "serializer_id": 6
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "c",
+                                    "index": 9,
+                                    "serializer": "OptVarInt",
+                                    "serializer_id": 17
+                                },
+                                {
+                                    "default": false,
+                                    "field": "d",
+                                    "index": 10,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "firework_rocket",
                     "width": 0.25
                 },
@@ -28357,6 +29586,32 @@
                     "field": "bo",
                     "height": 0.25,
                     "id": 117,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "brp",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "ao",
+                                    "index": 8,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": false,
+                                    "field": "ap",
+                                    "index": 9,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "fishing_bobber",
                     "width": 0.25
                 },
@@ -28366,6 +29621,71 @@
                     "field": "G",
                     "height": 0.7,
                     "id": 31,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 1,
+                                    "method": "fD"
+                                },
+                                {
+                                    "mask": 64,
+                                    "method": "fE"
+                                },
+                                {
+                                    "mask": 32,
+                                    "method": "ff"
+                                },
+                                {
+                                    "mask": 16,
+                                    "method": "fF"
+                                },
+                                {
+                                    "mask": 4,
+                                    "method": "bN"
+                                },
+                                {
+                                    "mask": 8,
+                                    "method": "fN"
+                                }
+                            ],
+                            "class": "bkm",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "ca",
+                                    "index": 17,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "cb",
+                                    "index": 18,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "cg",
+                                    "index": 19,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "ch",
+                                    "index": 20,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        }
+                    ],
                     "name": "fox",
                     "width": 0.6
                 },
@@ -28375,6 +29695,31 @@
                     "field": "H",
                     "height": 0.5,
                     "id": 32,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "blo",
+                            "data": [
+                                {
+                                    "field": "ch",
+                                    "index": 17,
+                                    "serializer": 20,
+                                    "serializer_id": 20
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "ci",
+                                    "index": 18,
+                                    "serializer": "OptVarInt",
+                                    "serializer_id": 17
+                                }
+                            ]
+                        }
+                    ],
                     "name": "frog",
                     "width": 0.5
                 },
@@ -28384,6 +29729,25 @@
                     "field": "af",
                     "height": 0.7,
                     "id": 56,
+                    "metadata": [
+                        {
+                            "class": "bss",
+                            "entity": "~abstract_minecart"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "btb",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "e",
+                                    "index": 14,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "furnace_minecart",
                     "width": 0.98
                 },
@@ -28393,6 +29757,25 @@
                     "field": "I",
                     "height": 4.0,
                     "id": 33,
+                    "metadata": [
+                        {
+                            "class": "azj",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "boh",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "ghast",
                     "width": 4.0
                 },
@@ -28402,6 +29785,12 @@
                     "field": "J",
                     "height": 12.0,
                     "id": 34,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        }
+                    ],
                     "name": "giant",
                     "width": 3.6
                 },
@@ -28411,6 +29800,12 @@
                     "field": "K",
                     "height": 0.5,
                     "id": 35,
+                    "metadata": [
+                        {
+                            "class": "bnm",
+                            "entity": "item_frame"
+                        }
+                    ],
                     "name": "glow_item_frame",
                     "width": 0.5
                 },
@@ -28420,6 +29815,25 @@
                     "field": "L",
                     "height": 0.8,
                     "id": 36,
+                    "metadata": [
+                        {
+                            "class": "blb",
+                            "entity": "squid"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "aza",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "ca",
+                                    "index": 16,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "glow_squid",
                     "width": 0.8
                 },
@@ -28429,6 +29843,25 @@
                     "field": "M",
                     "height": 1.3,
                     "id": 37,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "blu",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "ce",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "goat",
                     "width": 0.9
                 },
@@ -28438,6 +29871,32 @@
                     "field": "N",
                     "height": 0.85,
                     "id": 38,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "boj",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "e",
+                                    "index": 17,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "guardian",
                     "width": 0.85
                 },
@@ -28447,6 +29906,25 @@
                     "field": "O",
                     "height": 1.4,
                     "id": 39,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bpj",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bZ",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "hoglin",
                     "width": 1.39648
                 },
@@ -28456,6 +29934,12 @@
                     "field": "ag",
                     "height": 0.7,
                     "id": 57,
+                    "metadata": [
+                        {
+                            "class": "bss",
+                            "entity": "~abstract_minecart"
+                        }
+                    ],
                     "name": "hopper_minecart",
                     "width": 0.98
                 },
@@ -28465,6 +29949,66 @@
                     "field": "P",
                     "height": 1.6,
                     "id": 40,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 2,
+                                    "method": "fN"
+                                },
+                                {
+                                    "mask": 16,
+                                    "method": "fQ"
+                                },
+                                {
+                                    "mask": 32,
+                                    "method": "fR"
+                                },
+                                {
+                                    "mask": 8,
+                                    "method": "fS"
+                                },
+                                {
+                                    "mask": 4,
+                                    "method": "d"
+                                }
+                            ],
+                            "class": "bly",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "co",
+                                    "index": 17,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "cp",
+                                    "index": 18,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bma",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "cm",
+                                    "index": 19,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "horse",
                     "width": 1.39648
                 },
@@ -28474,6 +30018,12 @@
                     "field": "Q",
                     "height": 1.95,
                     "id": 41,
+                    "metadata": [
+                        {
+                            "class": "bpg",
+                            "entity": "zombie"
+                        }
+                    ],
                     "name": "husk",
                     "width": 0.6
                 },
@@ -28483,6 +30033,38 @@
                     "field": "R",
                     "height": 1.95,
                     "id": 42,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bsj",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "c",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "box",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "e",
+                                    "index": 17,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "illusioner",
                     "width": 0.6
                 },
@@ -28492,6 +30074,30 @@
                     "field": "S",
                     "height": 2.7,
                     "id": 43,
+                    "metadata": [
+                        {
+                            "class": "azq",
+                            "entity": "~abstract_creature"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 1,
+                                    "method": "fE"
+                                }
+                            ],
+                            "class": "bko",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "c",
+                                    "index": 16,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "iron_golem",
                     "width": 1.4
                 },
@@ -28501,6 +30107,25 @@
                     "field": "T",
                     "height": 0.25,
                     "id": 44,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bns",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "c",
+                                    "index": 8,
+                                    "serializer": "Slot",
+                                    "serializer_id": 6
+                                }
+                            ]
+                        }
+                    ],
                     "name": "item",
                     "width": 0.25
                 },
@@ -28510,6 +30135,32 @@
                     "field": "U",
                     "height": 0.5,
                     "id": 45,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bnm",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "ao",
+                                    "index": 8,
+                                    "serializer": "Slot",
+                                    "serializer_id": 6
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "ap",
+                                    "index": 9,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "item_frame",
                     "width": 0.5
                 },
@@ -28519,6 +30170,12 @@
                     "field": "W",
                     "height": 0.5,
                     "id": 47,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "leash_knot",
                     "width": 0.375
                 },
@@ -28528,6 +30185,12 @@
                     "field": "X",
                     "height": 0.0,
                     "id": 48,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "lightning_bolt",
                     "width": 0.0
                 },
@@ -28537,6 +30200,93 @@
                     "field": "Y",
                     "height": 1.87,
                     "id": 49,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 2,
+                                    "method": "fN"
+                                },
+                                {
+                                    "mask": 16,
+                                    "method": "fQ"
+                                },
+                                {
+                                    "mask": 32,
+                                    "method": "fR"
+                                },
+                                {
+                                    "mask": 8,
+                                    "method": "fS"
+                                },
+                                {
+                                    "mask": 4,
+                                    "method": "d"
+                                }
+                            ],
+                            "class": "bly",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "co",
+                                    "index": 17,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "cp",
+                                    "index": 18,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "blx",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "cm",
+                                    "index": 19,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bmb",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "cp",
+                                    "index": 20,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": -1,
+                                    "field": "cq",
+                                    "index": 21,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "cr",
+                                    "index": 22,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "llama",
                     "width": 0.9
                 },
@@ -28546,6 +30296,12 @@
                     "field": "Z",
                     "height": 0.25,
                     "id": 50,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "llama_spit",
                     "width": 0.25
                 },
@@ -28555,6 +30311,12 @@
                     "field": "aa",
                     "height": 2.04,
                     "id": 51,
+                    "metadata": [
+                        {
+                            "class": "bow",
+                            "entity": "slime"
+                        }
+                    ],
                     "name": "magma_cube",
                     "width": 2.04
                 },
@@ -28564,6 +30326,12 @@
                     "field": "ab",
                     "height": 0.0,
                     "id": 52,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "marker",
                     "width": 0.0
                 },
@@ -28573,6 +30341,12 @@
                     "field": "ac",
                     "height": 0.7,
                     "id": 53,
+                    "metadata": [
+                        {
+                            "class": "bss",
+                            "entity": "~abstract_minecart"
+                        }
+                    ],
                     "name": "minecart",
                     "width": 0.98
                 },
@@ -28582,6 +30356,24 @@
                     "field": "ak",
                     "height": 1.4,
                     "id": 61,
+                    "metadata": [
+                        {
+                            "class": "bkj",
+                            "entity": "cow"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bkp",
+                            "data": [
+                                {
+                                    "field": "bW",
+                                    "index": 17,
+                                    "serializer": "String",
+                                    "serializer_id": 3
+                                }
+                            ]
+                        }
+                    ],
                     "name": "mooshroom",
                     "width": 0.9
                 },
@@ -28591,6 +30383,66 @@
                     "field": "aj",
                     "height": 1.6,
                     "id": 60,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 2,
+                                    "method": "fN"
+                                },
+                                {
+                                    "mask": 16,
+                                    "method": "fQ"
+                                },
+                                {
+                                    "mask": 32,
+                                    "method": "fR"
+                                },
+                                {
+                                    "mask": 8,
+                                    "method": "fS"
+                                },
+                                {
+                                    "mask": 4,
+                                    "method": "d"
+                                }
+                            ],
+                            "class": "bly",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "co",
+                                    "index": 17,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "cp",
+                                    "index": 18,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "blx",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "cm",
+                                    "index": 19,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "mule",
                     "width": 1.39648
                 },
@@ -28600,6 +30452,25 @@
                     "field": "al",
                     "height": 0.7,
                     "id": 62,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bkq",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "cb",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "ocelot",
                     "width": 0.6
                 },
@@ -28609,6 +30480,12 @@
                     "field": "am",
                     "height": 0.5,
                     "id": 63,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "painting",
                     "width": 0.5
                 },
@@ -28618,6 +30495,77 @@
                     "field": "an",
                     "height": 1.25,
                     "id": 64,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 2,
+                                    "method": "t"
+                                },
+                                {
+                                    "mask": 8,
+                                    "method": "fD"
+                                },
+                                {
+                                    "mask": 16,
+                                    "method": "fE"
+                                },
+                                {
+                                    "mask": 4,
+                                    "method": "fO"
+                                }
+                            ],
+                            "class": "bkr",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bZ",
+                                    "index": 17,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "ca",
+                                    "index": 18,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "cb",
+                                    "index": 19,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "cc",
+                                    "index": 20,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "cd",
+                                    "index": 21,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "ce",
+                                    "index": 22,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "panda",
                     "width": 1.3
                 },
@@ -28627,6 +30575,25 @@
                     "field": "ao",
                     "height": 0.9,
                     "id": 65,
+                    "metadata": [
+                        {
+                            "class": "bab",
+                            "entity": "~abstract_tameable"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bks",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "cd",
+                                    "index": 19,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "parrot",
                     "width": 0.5
                 },
@@ -28636,6 +30603,25 @@
                     "field": "ap",
                     "height": 0.5,
                     "id": 66,
+                    "metadata": [
+                        {
+                            "class": "azj",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bop",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "d",
+                                    "index": 16,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "phantom",
                     "width": 0.9
                 },
@@ -28645,6 +30631,32 @@
                     "field": "aq",
                     "height": 0.9,
                     "id": 67,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bkt",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bW",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bX",
+                                    "index": 18,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "pig",
                     "width": 0.9
                 },
@@ -28654,6 +30666,52 @@
                     "field": "ar",
                     "height": 1.95,
                     "id": 68,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bpo",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bpp",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bX",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bY",
+                                    "index": 18,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bZ",
+                                    "index": 19,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "piglin",
                     "width": 0.6
                 },
@@ -28663,6 +30721,25 @@
                     "field": "as",
                     "height": 1.95,
                     "id": 69,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bpo",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "piglin_brute",
                     "width": 0.6
                 },
@@ -28672,6 +30749,38 @@
                     "field": "at",
                     "height": 1.95,
                     "id": 70,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bsj",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "c",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "boq",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "pillager",
                     "width": 0.6
                 },
@@ -28681,6 +30790,67 @@
                     "field": "bn",
                     "height": 1.8,
                     "id": 116,
+                    "metadata": [
+                        {
+                            "class": "azh",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "brd",
+                            "data": [
+                                {
+                                    "default": 0.0,
+                                    "field": "e",
+                                    "index": 15,
+                                    "serializer": "Float",
+                                    "serializer_id": 2
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "f",
+                                    "index": 16,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bP",
+                                    "index": 17,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": 1,
+                                    "field": "bQ",
+                                    "index": 18,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bR",
+                                    "index": 19,
+                                    "serializer": 21,
+                                    "serializer_id": 21
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bS",
+                                    "index": 20,
+                                    "serializer": "NBT",
+                                    "serializer_id": 14
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bT",
+                                    "index": 21,
+                                    "serializer": "NBT",
+                                    "serializer_id": 14
+                                }
+                            ]
+                        }
+                    ],
                     "name": "player",
                     "serializable": "false",
                     "width": 0.6
@@ -28691,6 +30861,25 @@
                     "field": "au",
                     "height": 1.4,
                     "id": 71,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bku",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bW",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "polar_bear",
                     "width": 1.4
                 },
@@ -28700,6 +30889,25 @@
                     "field": "aT",
                     "height": 0.25,
                     "id": 96,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "brz",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "b",
+                                    "index": 8,
+                                    "serializer": "Slot",
+                                    "serializer_id": 6
+                                }
+                            ]
+                        }
+                    ],
                     "name": "potion",
                     "width": 0.25
                 },
@@ -28709,6 +30917,38 @@
                     "field": "aw",
                     "height": 0.7,
                     "id": 73,
+                    "metadata": [
+                        {
+                            "class": "azq",
+                            "entity": "~abstract_creature"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bjz",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bkv",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "e",
+                                    "index": 17,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "pufferfish",
                     "width": 0.7
                 },
@@ -28718,6 +30958,25 @@
                     "field": "ax",
                     "height": 0.5,
                     "id": 74,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bkw",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "cl",
+                                    "index": 17,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "rabbit",
                     "width": 0.4
                 },
@@ -28727,6 +30986,25 @@
                     "field": "ay",
                     "height": 2.2,
                     "id": 75,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bsj",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "c",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "ravager",
                     "width": 1.95
                 },
@@ -28736,6 +31014,25 @@
                     "field": "az",
                     "height": 0.4,
                     "id": 76,
+                    "metadata": [
+                        {
+                            "class": "azq",
+                            "entity": "~abstract_creature"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bjz",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "salmon",
                     "width": 0.7
                 },
@@ -28745,6 +31042,30 @@
                     "field": "aA",
                     "height": 1.3,
                     "id": 77,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 16,
+                                    "method": "fD"
+                                }
+                            ],
+                            "class": "bky",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bX",
+                                    "index": 17,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "sheep",
                     "width": 0.9
                 },
@@ -28754,6 +31075,38 @@
                     "field": "aB",
                     "height": 1.0,
                     "id": 78,
+                    "metadata": [
+                        {
+                            "class": "azq",
+                            "entity": "~abstract_creature"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bot",
+                            "data": [
+                                {
+                                    "field": "b",
+                                    "index": 16,
+                                    "serializer": "Facing",
+                                    "serializer_id": 11
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "c",
+                                    "index": 17,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": 16,
+                                    "field": "d",
+                                    "index": 18,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "shulker",
                     "width": 1.0
                 },
@@ -28763,6 +31116,12 @@
                     "field": "aC",
                     "height": 0.3125,
                     "id": 79,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        }
+                    ],
                     "name": "shulker_bullet",
                     "width": 0.3125
                 },
@@ -28772,6 +31131,12 @@
                     "field": "aD",
                     "height": 0.3,
                     "id": 80,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        }
+                    ],
                     "name": "silverfish",
                     "width": 0.4
                 },
@@ -28781,6 +31146,25 @@
                     "field": "aE",
                     "height": 1.99,
                     "id": 81,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bov",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "c",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "skeleton",
                     "width": 0.6
                 },
@@ -28790,6 +31174,53 @@
                     "field": "aF",
                     "height": 1.6,
                     "id": 82,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 2,
+                                    "method": "fN"
+                                },
+                                {
+                                    "mask": 16,
+                                    "method": "fQ"
+                                },
+                                {
+                                    "mask": 32,
+                                    "method": "fR"
+                                },
+                                {
+                                    "mask": 8,
+                                    "method": "fS"
+                                },
+                                {
+                                    "mask": 4,
+                                    "method": "d"
+                                }
+                            ],
+                            "class": "bly",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "co",
+                                    "index": 17,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "cp",
+                                    "index": 18,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        }
+                    ],
                     "name": "skeleton_horse",
                     "width": 1.39648
                 },
@@ -28799,6 +31230,25 @@
                     "field": "aG",
                     "height": 2.04,
                     "id": 83,
+                    "metadata": [
+                        {
+                            "class": "azj",
+                            "entity": "~abstract_insentient"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bow",
+                            "data": [
+                                {
+                                    "default": 1,
+                                    "field": "bW",
+                                    "index": 16,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "slime",
                     "width": 2.04
                 },
@@ -28808,6 +31258,25 @@
                     "field": "aH",
                     "height": 0.3125,
                     "id": 84,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "brn",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "e",
+                                    "index": 8,
+                                    "serializer": "Slot",
+                                    "serializer_id": 6
+                                }
+                            ]
+                        }
+                    ],
                     "name": "small_fireball",
                     "width": 0.3125
                 },
@@ -28817,6 +31286,30 @@
                     "field": "aI",
                     "height": 1.9,
                     "id": 85,
+                    "metadata": [
+                        {
+                            "class": "azq",
+                            "entity": "~abstract_creature"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 16,
+                                    "method": "q"
+                                }
+                            ],
+                            "class": "bla",
+                            "data": [
+                                {
+                                    "default": 16,
+                                    "field": "b",
+                                    "index": 16,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "snow_golem",
                     "width": 0.7
                 },
@@ -28826,6 +31319,25 @@
                     "field": "aJ",
                     "height": 0.25,
                     "id": 86,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "brz",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "b",
+                                    "index": 8,
+                                    "serializer": "Slot",
+                                    "serializer_id": 6
+                                }
+                            ]
+                        }
+                    ],
                     "name": "snowball",
                     "width": 0.25
                 },
@@ -28835,6 +31347,12 @@
                     "field": "ah",
                     "height": 0.7,
                     "id": 58,
+                    "metadata": [
+                        {
+                            "class": "bss",
+                            "entity": "~abstract_minecart"
+                        }
+                    ],
                     "name": "spawner_minecart",
                     "width": 0.98
                 },
@@ -28844,6 +31362,45 @@
                     "field": "aK",
                     "height": 0.5,
                     "id": 87,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 1,
+                                    "method": "q"
+                                },
+                                {
+                                    "mask": 4,
+                                    "method": "r"
+                                },
+                                {
+                                    "mask": 2,
+                                    "method": "u"
+                                }
+                            ],
+                            "class": "brh",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "ao",
+                                    "index": 8,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "ap",
+                                    "index": 9,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "spectral_arrow",
                     "width": 0.5
                 },
@@ -28853,6 +31410,30 @@
                     "field": "aL",
                     "height": 0.9,
                     "id": 88,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 1,
+                                    "method": "t"
+                                }
+                            ],
+                            "class": "boy",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 16,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "spider",
                     "width": 1.4
                 },
@@ -28862,6 +31443,12 @@
                     "field": "aM",
                     "height": 0.8,
                     "id": 89,
+                    "metadata": [
+                        {
+                            "class": "azq",
+                            "entity": "~abstract_creature"
+                        }
+                    ],
                     "name": "squid",
                     "width": 0.8
                 },
@@ -28871,6 +31458,12 @@
                     "field": "aN",
                     "height": 1.99,
                     "id": 90,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        }
+                    ],
                     "name": "stray",
                     "width": 0.6
                 },
@@ -28880,6 +31473,39 @@
                     "field": "aO",
                     "height": 1.7,
                     "id": 91,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bpa",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "cc",
+                                    "index": 17,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": false,
+                                    "field": "cd",
+                                    "index": 18,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "ce",
+                                    "index": 19,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "strider",
                     "width": 0.9
                 },
@@ -28889,6 +31515,25 @@
                     "field": "aP",
                     "height": 0.4,
                     "id": 92,
+                    "metadata": [
+                        {
+                            "class": "azq",
+                            "entity": "~abstract_creature"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bjz",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "tadpole",
                     "width": 0.5
                 },
@@ -28898,6 +31543,25 @@
                     "field": "av",
                     "height": 0.98,
                     "id": 72,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bnt",
+                            "data": [
+                                {
+                                    "default": 80,
+                                    "field": "b",
+                                    "index": 8,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "tnt",
                     "width": 0.98
                 },
@@ -28907,6 +31571,12 @@
                     "field": "ai",
                     "height": 0.7,
                     "id": 59,
+                    "metadata": [
+                        {
+                            "class": "bss",
+                            "entity": "~abstract_minecart"
+                        }
+                    ],
                     "name": "tnt_minecart",
                     "width": 0.98
                 },
@@ -28916,6 +31586,12 @@
                     "field": "aV",
                     "height": 1.87,
                     "id": 98,
+                    "metadata": [
+                        {
+                            "class": "bmb",
+                            "entity": "llama"
+                        }
+                    ],
                     "name": "trader_llama",
                     "width": 0.9
                 },
@@ -28925,6 +31601,65 @@
                     "field": "aU",
                     "height": 0.5,
                     "id": 97,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 1,
+                                    "method": "q"
+                                },
+                                {
+                                    "mask": 4,
+                                    "method": "r"
+                                },
+                                {
+                                    "mask": 2,
+                                    "method": "u"
+                                }
+                            ],
+                            "class": "brh",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "ao",
+                                    "index": 8,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "ap",
+                                    "index": 9,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bsf",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "ao",
+                                    "index": 10,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": false,
+                                    "field": "ap",
+                                    "index": 11,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "trident",
                     "width": 0.5
                 },
@@ -28934,6 +31669,38 @@
                     "field": "aW",
                     "height": 0.4,
                     "id": 99,
+                    "metadata": [
+                        {
+                            "class": "azq",
+                            "entity": "~abstract_creature"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bjz",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "blc",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bW",
+                                    "index": 17,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "tropical_fish",
                     "width": 0.5
                 },
@@ -28943,6 +31710,60 @@
                     "field": "aX",
                     "height": 0.4,
                     "id": 100,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bld",
+                            "data": [
+                                {
+                                    "default": "(0, 0, 0)",
+                                    "field": "bZ",
+                                    "index": 17,
+                                    "serializer": "BlockPos",
+                                    "serializer_id": 9
+                                },
+                                {
+                                    "default": false,
+                                    "field": "ca",
+                                    "index": 18,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "cb",
+                                    "index": 19,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": "(0, 0, 0)",
+                                    "field": "cc",
+                                    "index": 20,
+                                    "serializer": "BlockPos",
+                                    "serializer_id": 9
+                                },
+                                {
+                                    "default": false,
+                                    "field": "cd",
+                                    "index": 21,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "ce",
+                                    "index": 22,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "turtle",
                     "width": 1.2
                 },
@@ -28952,6 +31773,25 @@
                     "field": "aY",
                     "height": 0.8,
                     "id": 101,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bpb",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "d",
+                                    "index": 16,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "vex",
                     "width": 0.4
                 },
@@ -28961,6 +31801,37 @@
                     "field": "aZ",
                     "height": 1.95,
                     "id": 102,
+                    "metadata": [
+                        {
+                            "class": "ayp",
+                            "entity": "~abstract_ageable"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bql",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bY",
+                                    "index": 17,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bqq",
+                            "data": [
+                                {
+                                    "field": "cd",
+                                    "index": 18,
+                                    "serializer": "VillagerData",
+                                    "serializer_id": 16
+                                }
+                            ]
+                        }
+                    ],
                     "name": "villager",
                     "width": 0.6
                 },
@@ -28970,6 +31841,25 @@
                     "field": "ba",
                     "height": 1.95,
                     "id": 103,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bsj",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "c",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "vindicator",
                     "width": 0.6
                 },
@@ -28979,6 +31869,25 @@
                     "field": "bb",
                     "height": 1.95,
                     "id": 104,
+                    "metadata": [
+                        {
+                            "class": "ayp",
+                            "entity": "~abstract_ageable"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bql",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bY",
+                                    "index": 17,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "wandering_trader",
                     "width": 0.6
                 },
@@ -28988,6 +31897,25 @@
                     "field": "bc",
                     "height": 2.9,
                     "id": 105,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bqh",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "cf",
+                                    "index": 16,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "warden",
                     "width": 0.9
                 },
@@ -28997,6 +31925,38 @@
                     "field": "bd",
                     "height": 1.95,
                     "id": 106,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bsj",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "c",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bpd",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bW",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "witch",
                     "width": 0.6
                 },
@@ -29006,6 +31966,46 @@
                     "field": "be",
                     "height": 3.5,
                     "id": 107,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bnh",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 16,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "c",
+                                    "index": 17,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "d",
+                                    "index": 18,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bW",
+                                    "index": 19,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "wither",
                     "width": 0.9
                 },
@@ -29015,6 +32015,12 @@
                     "field": "bf",
                     "height": 2.4,
                     "id": 108,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        }
+                    ],
                     "name": "wither_skeleton",
                     "width": 0.7
                 },
@@ -29024,6 +32030,25 @@
                     "field": "bg",
                     "height": 0.3125,
                     "id": 109,
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bsg",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "e",
+                                    "index": 8,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "wither_skull",
                     "width": 0.3125
                 },
@@ -29033,6 +32058,38 @@
                     "field": "bh",
                     "height": 0.85,
                     "id": 110,
+                    "metadata": [
+                        {
+                            "class": "bab",
+                            "entity": "~abstract_tameable"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "blf",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "ca",
+                                    "index": 19,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "field": "cb",
+                                    "index": 20,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "cc",
+                                    "index": 21,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "wolf",
                     "width": 0.6
                 },
@@ -29042,6 +32099,25 @@
                     "field": "bi",
                     "height": 1.4,
                     "id": 111,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bpf",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "d",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "zoglin",
                     "width": 1.39648
                 },
@@ -29051,6 +32127,39 @@
                     "field": "bj",
                     "height": 1.95,
                     "id": 112,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bpg",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "d",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bZ",
+                                    "index": 17,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": false,
+                                    "field": "ca",
+                                    "index": 18,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "zombie",
                     "width": 0.6
                 },
@@ -29060,6 +32169,53 @@
                     "field": "bk",
                     "height": 1.6,
                     "id": 113,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 2,
+                                    "method": "fN"
+                                },
+                                {
+                                    "mask": 16,
+                                    "method": "fQ"
+                                },
+                                {
+                                    "mask": 32,
+                                    "method": "fR"
+                                },
+                                {
+                                    "mask": 8,
+                                    "method": "fS"
+                                },
+                                {
+                                    "mask": 4,
+                                    "method": "d"
+                                }
+                            ],
+                            "class": "bly",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "co",
+                                    "index": 17,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "cp",
+                                    "index": 18,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        }
+                    ],
                     "name": "zombie_horse",
                     "width": 1.39648
                 },
@@ -29069,6 +32225,31 @@
                     "field": "bl",
                     "height": 1.95,
                     "id": 114,
+                    "metadata": [
+                        {
+                            "class": "bpg",
+                            "entity": "zombie"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bph",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "c",
+                                    "index": 19,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "field": "d",
+                                    "index": 20,
+                                    "serializer": "VillagerData",
+                                    "serializer_id": 16
+                                }
+                            ]
+                        }
+                    ],
                     "name": "zombie_villager",
                     "width": 0.6
                 },
@@ -29078,43 +32259,374 @@
                     "field": "bm",
                     "height": 1.95,
                     "id": 115,
+                    "metadata": [
+                        {
+                            "class": "bpg",
+                            "entity": "zombie"
+                        }
+                    ],
                     "name": "zombified_piglin",
                     "width": 0.6
                 },
                 "~abstract_ageable": {
                     "class": "ayp",
+                    "metadata": [
+                        {
+                            "class": "azq",
+                            "entity": "~abstract_creature"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "ayp",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bW",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "~abstract_ageable"
                 },
                 "~abstract_animal": {
                     "class": "bkc",
+                    "metadata": [
+                        {
+                            "class": "ayp",
+                            "entity": "~abstract_ageable"
+                        }
+                    ],
                     "name": "~abstract_animal"
                 },
                 "~abstract_creature": {
                     "class": "azq",
+                    "metadata": [
+                        {
+                            "class": "azj",
+                            "entity": "~abstract_insentient"
+                        }
+                    ],
                     "name": "~abstract_creature"
                 },
                 "~abstract_entity": {
                     "class": "ays",
+                    "metadata": [
+                        {
+                            "bitfields": [
+                                {
+                                    "class": "ays",
+                                    "mask": 1,
+                                    "method": "bE"
+                                },
+                                {
+                                    "class": "ays",
+                                    "mask": 2,
+                                    "method": "bI"
+                                },
+                                {
+                                    "class": "ays",
+                                    "mask": 8,
+                                    "method": "bO"
+                                },
+                                {
+                                    "class": "ays",
+                                    "mask": 16,
+                                    "method": "bP"
+                                },
+                                {
+                                    "class": "ays",
+                                    "mask": 64,
+                                    "method": "bT"
+                                },
+                                {
+                                    "class": "ays",
+                                    "mask": 32,
+                                    "method": "bU"
+                                },
+                                {
+                                    "class": "azh",
+                                    "mask": 128,
+                                    "method": "eY"
+                                }
+                            ],
+                            "class": "ays",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "Z",
+                                    "index": 0,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "field": "aL",
+                                    "index": 1,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "aM",
+                                    "index": 2,
+                                    "serializer": "OptChat",
+                                    "serializer_id": 5
+                                },
+                                {
+                                    "default": false,
+                                    "field": "aN",
+                                    "index": 3,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "aO",
+                                    "index": 4,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "aP",
+                                    "index": 5,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "field": "ad",
+                                    "index": 6,
+                                    "serializer": "Pose",
+                                    "serializer_id": 18
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "aQ",
+                                    "index": 7,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "~abstract_entity"
                 },
                 "~abstract_insentient": {
                     "class": "azj",
+                    "metadata": [
+                        {
+                            "class": "azh",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 1,
+                                    "method": "fw"
+                                },
+                                {
+                                    "mask": 2,
+                                    "method": "fx"
+                                },
+                                {
+                                    "mask": 4,
+                                    "method": "fy"
+                                }
+                            ],
+                            "class": "azj",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 15,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
                     "name": "~abstract_insentient"
                 },
                 "~abstract_living": {
                     "class": "azh",
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 4,
+                                    "method": "eK"
+                                },
+                                {
+                                    "mask": 1,
+                                    "method": "eP"
+                                }
+                            ],
+                            "class": "azh",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "aB",
+                                    "index": 8,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": 1.0,
+                                    "field": "bK",
+                                    "index": 9,
+                                    "serializer": "Float",
+                                    "serializer_id": 2
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bL",
+                                    "index": 10,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bM",
+                                    "index": 11,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bN",
+                                    "index": 12,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bO",
+                                    "index": 13,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bP",
+                                    "index": 14,
+                                    "serializer": "OptBlockPos",
+                                    "serializer_id": 10
+                                }
+                            ]
+                        }
+                    ],
                     "name": "~abstract_living"
                 },
                 "~abstract_minecart": {
                     "class": "bss",
+                    "metadata": [
+                        {
+                            "class": "ays",
+                            "entity": "~abstract_entity"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bss",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "c",
+                                    "index": 8,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 1,
+                                    "field": "d",
+                                    "index": 9,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0.0,
+                                    "field": "e",
+                                    "index": 10,
+                                    "serializer": "Float",
+                                    "serializer_id": 2
+                                },
+                                {
+                                    "field": "f",
+                                    "index": 11,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 6,
+                                    "field": "ao",
+                                    "index": 12,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": false,
+                                    "field": "ap",
+                                    "index": 13,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "~abstract_minecart"
                 },
                 "~abstract_monster": {
                     "class": "bon",
+                    "metadata": [
+                        {
+                            "class": "azq",
+                            "entity": "~abstract_creature"
+                        }
+                    ],
                     "name": "~abstract_monster"
                 },
                 "~abstract_tameable": {
                     "class": "bab",
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 4,
+                                    "method": "q"
+                                },
+                                {
+                                    "mask": 1,
+                                    "method": "fD"
+                                }
+                            ],
+                            "class": "bab",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bW",
+                                    "index": 17,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bX",
+                                    "index": 18,
+                                    "serializer": "OptUUID",
+                                    "serializer_id": 12
+                                }
+                            ]
+                        }
+                    ],
                     "name": "~abstract_tameable"
                 }
             },

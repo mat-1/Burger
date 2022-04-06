@@ -2038,6 +2038,480 @@
         }
     },
     "entities": {
+        "dataserializers": {
+            "19": [
+                {
+                    "class": "yg$13",
+                    "field": "t",
+                    "id": 19,
+                    "instructions": [
+                        {
+                            "field": "((Optional)value).isPresent()",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "((Optional)value).isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "hc.W.a(((Optional)value).get())",
+                                    "operation": "write",
+                                    "type": "varint"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "type": "java/util/Optional<Laxt<*>;>"
+                },
+                {
+                    "class": "yn$1",
+                    "field": "u",
+                    "id": 19,
+                    "instructions": [],
+                    "type": "bkg"
+                }
+            ],
+            "20": [
+                null,
+                {
+                    "class": "yn$1",
+                    "field": "v",
+                    "id": 20,
+                    "instructions": [],
+                    "type": "bkn"
+                }
+            ],
+            "21": [
+                null,
+                {
+                    "class": "yn$2",
+                    "field": "p",
+                    "id": 21,
+                    "instructions": [
+                        {
+                            "condition": "((Optional)value).isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "1",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "field": "0",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "type": "java/util/Optional<Lgu;>"
+                }
+            ],
+            "BlockPos": [
+                {
+                    "class": "yg$4",
+                    "field": "l",
+                    "id": 9,
+                    "instructions": [
+                        {
+                            "field": "(gk)value",
+                            "operation": "write",
+                            "type": "position"
+                        }
+                    ],
+                    "name": "BlockPos",
+                    "type": "gk"
+                },
+                {
+                    "class": "yn$1",
+                    "field": "l",
+                    "id": 9,
+                    "instructions": [],
+                    "name": "BlockPos",
+                    "type": "gm"
+                }
+            ],
+            "Boolean": [
+                {
+                    "class": "yg$20",
+                    "field": "i",
+                    "id": 7,
+                    "instructions": [
+                        {
+                            "field": "((Boolean)value).booleanValue()",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "name": "Boolean",
+                    "type": "java/lang/Boolean"
+                },
+                {
+                    "class": "yn$1",
+                    "field": "i",
+                    "id": 7,
+                    "instructions": [],
+                    "name": "Boolean",
+                    "type": "java/lang/Boolean"
+                }
+            ],
+            "Byte": [
+                {
+                    "class": "yg$1",
+                    "field": "a",
+                    "id": 0,
+                    "instructions": [
+                        {
+                            "field": "((Byte)value).byteValue()",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "name": "Byte",
+                    "type": "java/lang/Byte"
+                },
+                {
+                    "class": "yn$1",
+                    "field": "a",
+                    "id": 0,
+                    "instructions": [],
+                    "name": "Byte",
+                    "type": "java/lang/Byte"
+                }
+            ],
+            "Chat": [
+                {
+                    "class": "yg$16",
+                    "field": "e",
+                    "id": 4,
+                    "instructions": [
+                        {
+                            "field": "(qm)value",
+                            "operation": "write",
+                            "type": "chatcomponent"
+                        }
+                    ],
+                    "name": "Chat",
+                    "type": "qm"
+                },
+                {
+                    "class": "yn$1",
+                    "field": "e",
+                    "id": 4,
+                    "instructions": [],
+                    "name": "Chat",
+                    "type": "qx"
+                }
+            ],
+            "Facing": [
+                {
+                    "class": "yg$6",
+                    "field": "n",
+                    "id": 11,
+                    "instructions": [
+                        {
+                            "field": "(gp)value",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "name": "Facing",
+                    "type": "gp"
+                },
+                {
+                    "class": "yn$1",
+                    "field": "n",
+                    "id": 11,
+                    "instructions": [],
+                    "name": "Facing",
+                    "type": "gr"
+                }
+            ],
+            "Float": [
+                {
+                    "class": "yg$14",
+                    "field": "c",
+                    "id": 2,
+                    "instructions": [
+                        {
+                            "field": "((Float)value).floatValue()",
+                            "operation": "write",
+                            "type": "float"
+                        }
+                    ],
+                    "name": "Float",
+                    "type": "java/lang/Float"
+                },
+                {
+                    "class": "yn$1",
+                    "field": "c",
+                    "id": 2,
+                    "instructions": [],
+                    "name": "Float",
+                    "type": "java/lang/Float"
+                }
+            ],
+            "OptBlockPos": [
+                {
+                    "class": "yg$5",
+                    "field": "m",
+                    "id": 10,
+                    "instructions": [
+                        {
+                            "field": "((Optional)value).isPresent()",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "((Optional)value).isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "(gk)((Optional)value).get()",
+                                    "operation": "write",
+                                    "type": "position"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "name": "OptBlockPos",
+                    "type": "java/util/Optional<Lgk;>"
+                },
+                {
+                    "class": "yn$2",
+                    "field": "m",
+                    "id": 10,
+                    "instructions": [
+                        {
+                            "condition": "((Optional)value).isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "1",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "field": "0",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "name": "OptBlockPos",
+                    "type": "java/util/Optional<Lgm;>"
+                }
+            ],
+            "OptChat": [
+                {
+                    "class": "yg$17",
+                    "field": "f",
+                    "id": 5,
+                    "instructions": [
+                        {
+                            "condition": "((Optional)value).isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "1",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                },
+                                {
+                                    "field": "(qm)((Optional)value).get()",
+                                    "operation": "write",
+                                    "type": "chatcomponent"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "field": "0",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "name": "OptChat",
+                    "type": "java/util/Optional<Lqm;>"
+                },
+                {
+                    "class": "yn$2",
+                    "field": "f",
+                    "id": 5,
+                    "instructions": [
+                        {
+                            "condition": "((Optional)value).isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "1",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "field": "0",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "name": "OptChat",
+                    "type": "java/util/Optional<Lqx;>"
+                }
+            ],
+            "OptUUID": [
+                {
+                    "class": "yg$7",
+                    "field": "o",
+                    "id": 12,
+                    "instructions": [
+                        {
+                            "field": "((Optional)value).isPresent()",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "((Optional)value).isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "(UUID)((Optional)value).get()",
+                                    "operation": "write",
+                                    "type": "uuid"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "name": "OptUUID",
+                    "type": "java/util/Optional<Ljava/util/UUID;>"
+                },
+                {
+                    "class": "yn$2",
+                    "field": "o",
+                    "id": 12,
+                    "instructions": [
+                        {
+                            "condition": "((Optional)value).isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "1",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "field": "0",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "name": "OptUUID",
+                    "type": "java/util/Optional<Ljava/util/UUID;>"
+                }
+            ],
+            "Pose": [
+                {
+                    "class": "yg$11",
+                    "field": "s",
+                    "id": 18,
+                    "instructions": [
+                        {
+                            "field": "(ayp)value",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "name": "Pose",
+                    "type": "ayp"
+                },
+                {
+                    "class": "yn$1",
+                    "field": "t",
+                    "id": 18,
+                    "instructions": [],
+                    "name": "Pose",
+                    "type": "azt"
+                }
+            ],
+            "String": [
+                {
+                    "class": "yg$15",
+                    "field": "d",
+                    "id": 3,
+                    "instructions": [
+                        {
+                            "field": "(String)value",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "name": "String",
+                    "type": "java/lang/String"
+                },
+                {
+                    "class": "yn$1",
+                    "field": "d",
+                    "id": 3,
+                    "instructions": [],
+                    "name": "String",
+                    "type": "java/lang/String"
+                }
+            ],
+            "VarInt": [
+                {
+                    "class": "yg$12",
+                    "field": "b",
+                    "id": 1,
+                    "instructions": [
+                        {
+                            "field": "((Integer)value).intValue()",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "name": "VarInt",
+                    "type": "java/lang/Integer"
+                },
+                {
+                    "class": "yn$1",
+                    "field": "b",
+                    "id": 1,
+                    "instructions": [],
+                    "name": "VarInt",
+                    "type": "java/lang/Integer"
+                }
+            ]
+        },
         "entity": {
             "allay": [
                 null,
@@ -2047,8 +2521,111 @@
                     "field": "b",
                     "height": 0.6,
                     "id": 0,
+                    "metadata": [
+                        {
+                            "class": "azq",
+                            "entity": "~abstract_creature"
+                        }
+                    ],
                     "name": "allay",
                     "width": 0.35
+                }
+            ],
+            "cat": [
+                {
+                    "class": "bik",
+                    "display_name": "Cat",
+                    "field": "j",
+                    "height": 0.7,
+                    "id": 8,
+                    "metadata": [
+                        {
+                            "class": "ayx",
+                            "entity": "~abstract_tameable"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bik",
+                            "data": [
+                                {
+                                    "default": 1,
+                                    "field": "co",
+                                    "index": 20,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": false,
+                                    "field": "cp",
+                                    "index": 21,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "cq",
+                                    "index": 22,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "field": "cr",
+                                    "index": 23,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "cat",
+                    "width": 0.6
+                },
+                {
+                    "class": "bkf",
+                    "display_name": "Cat",
+                    "field": "l",
+                    "height": 0.7,
+                    "id": 10,
+                    "metadata": [
+                        {
+                            "class": "bab",
+                            "entity": "~abstract_tameable"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bkf",
+                            "data": [
+                                {
+                                    "field": "cd",
+                                    "index": 19,
+                                    "serializer": 19,
+                                    "serializer_id": 19
+                                },
+                                {
+                                    "default": false,
+                                    "field": "ce",
+                                    "index": 20,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "cf",
+                                    "index": 21,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "field": "cg",
+                                    "index": 22,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "cat",
+                    "width": 0.6
                 }
             ],
             "chest_boat": [
@@ -2059,8 +2636,93 @@
                     "field": "k",
                     "height": 0.5625,
                     "id": 9,
+                    "metadata": [
+                        {
+                            "class": "bsu",
+                            "entity": "boat"
+                        }
+                    ],
                     "name": "chest_boat",
                     "width": 1.375
+                }
+            ],
+            "enderman": [
+                {
+                    "class": "blx",
+                    "display_name": "Enderman",
+                    "field": "w",
+                    "height": 2.9,
+                    "id": 21,
+                    "metadata": [
+                        {
+                            "class": "bmh",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "blx",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "bW",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bX",
+                                    "index": 18,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "enderman",
+                    "width": 0.6
+                },
+                {
+                    "class": "bod",
+                    "display_name": "Enderman",
+                    "field": "y",
+                    "height": 2.9,
+                    "id": 23,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bod",
+                            "data": [
+                                {
+                                    "default": "Empty",
+                                    "field": "bX",
+                                    "index": 16,
+                                    "serializer": "OptBlockState",
+                                    "serializer_id": 13
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bY",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "default": false,
+                                    "field": "bZ",
+                                    "index": 18,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "enderman",
+                    "width": 0.6
                 }
             ],
             "frog": [
@@ -2071,8 +2733,241 @@
                     "field": "H",
                     "height": 0.5,
                     "id": 32,
+                    "metadata": [
+                        {
+                            "class": "bkc",
+                            "entity": "~abstract_animal"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "blo",
+                            "data": [
+                                {
+                                    "field": "ch",
+                                    "index": 17,
+                                    "serializer": 20,
+                                    "serializer_id": 20
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "ci",
+                                    "index": 18,
+                                    "serializer": "OptVarInt",
+                                    "serializer_id": 17
+                                }
+                            ]
+                        }
+                    ],
                     "name": "frog",
                     "width": 0.5
+                }
+            ],
+            "player": [
+                {
+                    "class": "bon",
+                    "display_name": "Player",
+                    "field": "bi",
+                    "height": 1.8,
+                    "id": 111,
+                    "metadata": [
+                        {
+                            "class": "ayd",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bon",
+                            "data": [
+                                {
+                                    "default": 0.0,
+                                    "field": "d",
+                                    "index": 15,
+                                    "serializer": "Float",
+                                    "serializer_id": 2
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "e",
+                                    "index": 16,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bP",
+                                    "index": 17,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": 1,
+                                    "field": "bQ",
+                                    "index": 18,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "f",
+                                    "index": 19,
+                                    "serializer": "OptBlockState",
+                                    "serializer_id": 13
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bR",
+                                    "index": 20,
+                                    "serializer": "NBT",
+                                    "serializer_id": 14
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bS",
+                                    "index": 21,
+                                    "serializer": "NBT",
+                                    "serializer_id": 14
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "player",
+                    "serializable": "false",
+                    "width": 0.6
+                },
+                {
+                    "class": "brd",
+                    "display_name": "Player",
+                    "field": "bn",
+                    "height": 1.8,
+                    "id": 116,
+                    "metadata": [
+                        {
+                            "class": "azh",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "brd",
+                            "data": [
+                                {
+                                    "default": 0.0,
+                                    "field": "e",
+                                    "index": 15,
+                                    "serializer": "Float",
+                                    "serializer_id": 2
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "f",
+                                    "index": 16,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bP",
+                                    "index": 17,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": 1,
+                                    "field": "bQ",
+                                    "index": 18,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bR",
+                                    "index": 19,
+                                    "serializer": 21,
+                                    "serializer_id": 21
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bS",
+                                    "index": 20,
+                                    "serializer": "NBT",
+                                    "serializer_id": 14
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bT",
+                                    "index": 21,
+                                    "serializer": "NBT",
+                                    "serializer_id": 14
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "player",
+                    "serializable": "false",
+                    "width": 0.6
+                }
+            ],
+            "skeleton": [
+                {
+                    "class": "bmp",
+                    "display_name": "Skeleton",
+                    "field": "aB",
+                    "height": 1.99,
+                    "id": 78,
+                    "metadata": [
+                        {
+                            "class": "bmh",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bmp",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "c",
+                                    "index": 17,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                },
+                                {
+                                    "field": "d",
+                                    "index": 18,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "skeleton",
+                    "width": 0.6
+                },
+                {
+                    "class": "bov",
+                    "display_name": "Skeleton",
+                    "field": "aE",
+                    "height": 1.99,
+                    "id": 81,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bov",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "c",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "skeleton",
+                    "width": 0.6
                 }
             ],
             "tadpole": [
@@ -2083,8 +2978,181 @@
                     "field": "aP",
                     "height": 0.4,
                     "id": 92,
+                    "metadata": [
+                        {
+                            "class": "azq",
+                            "entity": "~abstract_creature"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bjz",
+                            "data": [
+                                {
+                                    "default": false,
+                                    "field": "b",
+                                    "index": 16,
+                                    "serializer": "Boolean",
+                                    "serializer_id": 7
+                                }
+                            ]
+                        }
+                    ],
                     "name": "tadpole",
                     "width": 0.5
+                }
+            ],
+            "villager": [
+                {
+                    "class": "boa",
+                    "display_name": "Villager",
+                    "field": "aV",
+                    "height": 1.95,
+                    "id": 98,
+                    "metadata": [
+                        {
+                            "class": "axm",
+                            "entity": "~abstract_ageable"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bnv",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bX",
+                                    "index": 18,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bY",
+                                    "index": 19,
+                                    "serializer": 19,
+                                    "serializer_id": 19
+                                }
+                            ]
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "boa",
+                            "data": [
+                                {
+                                    "field": "cc",
+                                    "index": 20,
+                                    "serializer": "VillagerData",
+                                    "serializer_id": 16
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "villager",
+                    "width": 0.6
+                },
+                {
+                    "class": "bqq",
+                    "display_name": "Villager",
+                    "field": "aZ",
+                    "height": 1.95,
+                    "id": 102,
+                    "metadata": [
+                        {
+                            "class": "ayp",
+                            "entity": "~abstract_ageable"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bql",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bY",
+                                    "index": 17,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bqq",
+                            "data": [
+                                {
+                                    "field": "cd",
+                                    "index": 18,
+                                    "serializer": "VillagerData",
+                                    "serializer_id": 16
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "villager",
+                    "width": 0.6
+                }
+            ],
+            "wandering_trader": [
+                {
+                    "class": "bog",
+                    "display_name": "Wandering Trader",
+                    "field": "aX",
+                    "height": 1.95,
+                    "id": 100,
+                    "metadata": [
+                        {
+                            "class": "axm",
+                            "entity": "~abstract_ageable"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bnv",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bX",
+                                    "index": 18,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bY",
+                                    "index": 19,
+                                    "serializer": 19,
+                                    "serializer_id": 19
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "wandering_trader",
+                    "width": 0.6
+                },
+                {
+                    "class": "bqw",
+                    "display_name": "Wandering Trader",
+                    "field": "bb",
+                    "height": 1.95,
+                    "id": 104,
+                    "metadata": [
+                        {
+                            "class": "ayp",
+                            "entity": "~abstract_ageable"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bql",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "bY",
+                                    "index": 17,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "wandering_trader",
+                    "width": 0.6
                 }
             ],
             "warden": [
@@ -2095,8 +3163,108 @@
                     "field": "bc",
                     "height": 2.9,
                     "id": 105,
+                    "metadata": [
+                        {
+                            "class": "bon",
+                            "entity": "~abstract_monster"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "bqh",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "cf",
+                                    "index": 16,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                }
+                            ]
+                        }
+                    ],
                     "name": "warden",
                     "width": 0.9
+                }
+            ],
+            "~abstract_insentient": [
+                {
+                    "class": "ayf",
+                    "metadata": [
+                        {
+                            "class": "ayd",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 1,
+                                    "method": "fF"
+                                },
+                                {
+                                    "mask": 2,
+                                    "method": "fG"
+                                },
+                                {
+                                    "mask": 4,
+                                    "method": "fH"
+                                }
+                            ],
+                            "class": "ayf",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 15,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "cf",
+                                    "index": 16,
+                                    "serializer": "OptBlockState",
+                                    "serializer_id": 13
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "~abstract_insentient"
+                },
+                {
+                    "class": "azj",
+                    "metadata": [
+                        {
+                            "class": "azh",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "bitfields": [
+                                {
+                                    "mask": 1,
+                                    "method": "fw"
+                                },
+                                {
+                                    "mask": 2,
+                                    "method": "fx"
+                                },
+                                {
+                                    "mask": 4,
+                                    "method": "fy"
+                                }
+                            ],
+                            "class": "azj",
+                            "data": [
+                                {
+                                    "default": 0,
+                                    "field": "b",
+                                    "index": 15,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "~abstract_insentient"
                 }
             ]
         }
