@@ -174,7 +174,7 @@ class EntityMetadataTopping(Topping):
                         assert const.name_and_type.descriptor == register_method.descriptor
 
                         # args[0] is the metadata entry, and args[1] is the default value
-                        if args[0] is not None and args[1] is not None:
+                        if isinstance(args[0], dict) and args[1] is not None:
                             args[0]["default"] = args[1]
 
                         return
