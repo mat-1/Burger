@@ -1,7 +1,7 @@
 import six
 
 from .topping import Topping
-from burger.util import WalkerCallback, walk_method, string_from_invokedymanic
+from burger.util import WalkerCallback, walk_method, string_from_invokedymanic, InvokeDynamicInfo
 
 from jawa.constants import *
 from jawa.util.descriptor import method_descriptor
@@ -14,6 +14,7 @@ class EntityMetadataTopping(Topping):
     DEPENDS = [
         "entities.entity",
         "identify.metadata",
+        "version.data",
         # For serializers
         "packets.instructions",
         "identify.packet.packetbuffer",
@@ -68,7 +69,7 @@ class EntityMetadataTopping(Topping):
                     register_data_method_name = const.name_and_type.name.value
                     # Keep looping, to find the last call
 
-        dataserializers = EntityMetadataTopping.identify_serializers(classloader, dataserializer_class, dataserializers_class, aggregate["classes"], verbose)
+        dataserializers = EntityMetadataTopping.identify_serializers(classloader, dataserializer_class, dataserializers_class, aggregate["classes"], aggregate["version"]["data"], verbose)
         aggregate["entities"]["dataserializers"] = dataserializers
         dataserializers_by_field = {serializer["field"]: serializer for serializer in six.itervalues(dataserializers)}
 
@@ -346,38 +347,61 @@ class EntityMetadataTopping(Topping):
                 })
 
     @staticmethod
-    def identify_serializers(classloader, dataserializer_class, dataserializers_class, classes, verbose):
-        serializers_by_field = {}
+    def identify_serializers(classloader, dataserializer_class, dataserializers_class, classes, data_version, verbose):
         serializers = {}
-        id = 0
         dataserializers_cf = classloader[dataserializers_class]
-        for ins in dataserializers_cf.methods.find_one(name="<clinit>").code.disassemble():
-            #print(ins, serializers_by_field, serializers)
-            # Setting up the serializers
-            if ins.mnemonic == "new":
-                const = ins.operands[0]
-                last_cls = const.name.value
-            elif ins.mnemonic == "putstatic":
-                const = ins.operands[0]
+
+        class Callback(WalkerCallback):
+            id = 0
+            serializers_by_field = {}
+
+            def on_new(self, ins, const):
+                return {"class": const.name.value}
+
+            def on_invoke(self, ins, const, obj, args):
+                pass
+
+            def on_put_field(self, ins, const, obj, value):
                 if const.name_and_type.descriptor.value != "L" + dataserializer_class + ";":
                     # E.g. setting the registry.
-                    continue
+                    return
 
                 field = const.name_and_type.name.value
-                serializer = EntityMetadataTopping.identify_serializer(classloader, last_cls, classes, verbose)
+                value["field"] = field
 
-                serializer["class"] = last_cls
-                serializer["field"] = field
+                field_obj = dataserializers_cf.fields.find_one(name=field)
+                sig = field_obj.attributes.find_one(name="Signature").signature.value
+                # Input:
+                # Lyn<Ljava/util/Optional<Lqx;>;>;
+                # First, get the generic part only:
+                # Ljava/util/Optional<Lqx;>;
+                # Then, get rid of the 'L' and ';' by removing the first and last chars
+                # java/util/Optional<Lqx;>
+                # End result is still a bit awful, but it can be worked with...
+                inner_type = sig[sig.index("<") + 1 : sig.rindex(">")][1:-1]
+                value["type"] = inner_type
 
-                serializers_by_field[field] = serializer
-            # Actually registering them
-            elif ins.mnemonic == "getstatic":
+                # Try to do some recognition of what it is:
+                name = EntityMetadataTopping._serializer_name(classloader, inner_type, classes, verbose)
+                if name is not None:
+                    value["name"] = name
+
+                # Perform decompilation
+                EntityMetadataTopping._decompile_serializer(classloader, classloader[value["class"]], classes, verbose, value)
+
+                self.serializers_by_field[field] = value
+
+            def on_get_field(self, ins, const, obj):
+                if const.name_and_type.descriptor.value != "L" + dataserializer_class + ";":
+                    # TODO
+                    return
+                # Actually registering the serializer
                 const = ins.operands[0]
                 field = const.name_and_type.name.value
 
-                serializer = serializers_by_field[field]
-                serializer["id"] = id
-                name = serializer.get("name") or str(id)
+                serializer = self.serializers_by_field[field]
+                serializer["id"] = self.id
+                name = serializer.get("name") or str(self.id)
                 if name not in serializers:
                     serializers[name] = serializer
                 else:
@@ -385,31 +409,18 @@ class EntityMetadataTopping(Topping):
                         print("Duplicate serializer with identified name %s: original %s, new %s" % (name, serializers[name], serializer))
                     serializers[str(id)] = serializer # This hopefully will not clash but still shouldn't happen in the first place
 
-                id += 1
+                self.id += 1
+
+        walk_method(dataserializers_cf, dataserializers_cf.methods.find_one(name="<clinit>"), Callback(), verbose)
 
         return serializers
 
     @staticmethod
-    def identify_serializer(classloader, cls, classes, verbose):
-        # In here because otherwise the import messes with finding the topping in this file
-        from .packetinstructions import PacketInstructionsTopping as _PIT
-        from .packetinstructions import PACKETBUF_NAME
-
-        cf = classloader[cls]
-        sig = cf.attributes.find_one(name="Signature").signature.value
-        # Input:
-        # Ljava/lang/Object;Los<Ljava/util/Optional<Lel;>;>;
-        # First, get the generic part only:
-        # Ljava/util/Optional<Lel;>;
-        # Then, get rid of the 'L' and ';' by removing the first and last chars
-        # java/util/Optional<Lel;>
-        # End result is still a bit awful, but it can be worked with...
-        inner_type = sig[sig.index("<") + 1 : sig.rindex(">")][1:-1]
-        serializer = {
-            "type": inner_type
-        }
-
-        # Try to do some recognition of what it is:
+    def _serializer_name(classloader, inner_type, classes, verbose):
+        """
+        Attempt to identify the serializer based on the generic signature
+        of the type it serializes.
+        """
         name = None
         name_prefix = ""
         if "Optional<" in inner_type:
@@ -458,10 +469,20 @@ class EntityMetadataTopping(Topping):
                     traceback.print_exc()
 
         if name:
-            serializer["name"] = name_prefix + name
+            return name_prefix + name
+        else:
+            return None
+
+    @staticmethod
+    def _decompile_serializer(classloader, cf, classes, verbose, serializer):
+        # In here because otherwise the import messes with finding the topping in this file
+        from .packetinstructions import PacketInstructionsTopping as _PIT
+        from .packetinstructions import PACKETBUF_NAME
 
         # Decompile the serialization code.
-        # Note that we are using the bridge method that takes an object, and not the more find
+        # Note that we are using the bridge method that takes an object,
+        # and not the more specific method that for the given serializer which is
+        # called by that bridge (_PIT.operations will inline that call for us)
         try:
             write_args = "L" + classes["packet.packetbuffer"] + ";Ljava/lang/Object;"
             methods = list(cf.methods.find(returns="V", args=write_args))
@@ -475,4 +496,3 @@ class EntityMetadataTopping(Topping):
                 import traceback
                 traceback.print_exc()
 
-        return serializer
