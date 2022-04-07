@@ -166,7 +166,7 @@ class PacketInstructionsTopping(Topping):
         return _PIT.operations(classloader, cf, classes, verbose, method, ("this", PACKETBUF_NAME))
 
     @staticmethod
-    def operations(classloader, cf, classes, verbose, method, arg_names):
+    def operations(classloader, cf, classes, verbose, method, arg_names, special_fields={}):
         """Decompiles the specified method."""
         if method.access_flags.acc_static:
             assert len(arg_names) == len(method.args)
@@ -215,11 +215,21 @@ class PacketInstructionsTopping(Topping):
                 shortif_cond = None
                 shortif_pos = None
 
+            # Special field handling (used by entitymetadata).
+            # Unlike everything else, this does not use elif, since we want the
+            # default handler to be used if the field isn't special.
+            if mnemonic == "getfield":
+                if operands[0].classname == cf.this.name.value and operands[0].name in special_fields:
+                    stack.pop()
+                    stack.append(special_fields[operands[0].name])
+                    continue
+
             # Method calls
             if mnemonic in ("invokevirtual", "invokespecial", "invokestatic", "invokeinterface"):
                 operations.extend(_PIT._handle_invoke(
                     classloader, classes, instruction, verbose, operands[0].c,
-                    operands[0].name, method_descriptor(operands[0].descriptor), stack
+                    operands[0].name, method_descriptor(operands[0].descriptor), stack,
+                    special_fields if operands[0].c == cf.this.name.value else {}
                 ))
 
             elif mnemonic == "invokedynamic":
@@ -440,7 +450,7 @@ class PacketInstructionsTopping(Topping):
 
     @staticmethod
     def _handle_invoke(classloader, classes, instruction, verbose,
-                      cls, name, desc, stack):
+                      cls, name, desc, stack, special_fields):
         """
         Handles invocation of a method, returning the operations for it and also
         updating the stack.
@@ -509,6 +519,11 @@ class PacketInstructionsTopping(Topping):
             assert not is_static
             return _PIT._handle_foreach(classloader, classes, instruction, verbose,
                                         cls, name, desc, obj, arguments[0])
+        elif isinstance(obj, InvokeDynamicInfo):
+            # Used for special field handling by entitymetadata
+            return _PIT._lambda_operations(
+                classloader, classes, instruction, verbose, obj, arguments
+            )
         else:
             if desc.returns.name != "void":
                 # Assume that any function that returns something does not write
@@ -545,7 +560,8 @@ class PacketInstructionsTopping(Topping):
                         return _PIT._sub_operations(
                             classloader, classes, instruction, verbose,
                             cls, name, desc,
-                            [obj] + arguments if not is_static else arguments
+                            [obj] + arguments if not is_static else arguments,
+                            special_fields
                         )
                 else:
                     # Call to a method that does not take a packetbuffer.
@@ -784,14 +800,14 @@ class PacketInstructionsTopping(Topping):
 
     @staticmethod
     def _sub_operations(classloader, classes, instruction, verbose, invoked_class,
-                        name, desc, args):
+                        name, desc, args, special_fields={}):
         """
         Gets the instructions for a call to a different function.
         Usually that function is in a different class.
 
         Note that for instance methods, `this` is included in args.
         """
-        cache_key = "%s/%s/%s/%s" % (invoked_class, name, desc, _PIT.join(args, ","))
+        cache_key = "%s/%s/%s/%s/%s" % (invoked_class, name, desc, _PIT.join(args, ","), special_fields)
 
         if cache_key in _PIT.CACHE:
             cache = _PIT.CACHE[cache_key]
@@ -810,7 +826,7 @@ class PacketInstructionsTopping(Topping):
                                         args=_PIT.join(args[1:]))]
             else:
                 operations = _PIT.operations(classloader, cf, classes, verbose,
-                                             method, args)
+                                             method, args, special_fields)
 
         # Sort operations by position, and try to ensure all of them fit between
         # two normal instructions.  Note that since operations are renumbered

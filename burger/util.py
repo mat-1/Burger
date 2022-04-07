@@ -233,6 +233,9 @@ class LambdaInvokeDynamicInfo(InvokeDynamicInfo):
         # TODO: be closer to Java syntax (using the stored args)
         return "%s::%s" % (self.method_class, self.method_name)
 
+    def __repr__(self):
+        return "<%s::%s%s as %s::%s%s>" % (self.method_class, self.method_name, self.method_desc.descriptor, self.implemented_iface, self.dynamic_name, self.instantiated_desc.descriptor)
+
     def create_method(self):
         """
         Creates a Method that corresponds to the generated function call.

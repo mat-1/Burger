@@ -351,34 +351,51 @@ class EntityMetadataTopping(Topping):
         serializers = {}
         dataserializer_cf = classloader[dataserializer_class]
         static_funcs_to_classes = {}
-        for func in dataserializer_cf.methods.find(f=lambda f: f.access_flags.acc_static):
+        for func in dataserializer_cf.methods.find(f=lambda f: f.access_flags.acc_static and len(f.args) == 2):
             # This applies to 22w14a, where there are some special register functions
-            # that take lambdas (or a class for an enum, or a registry)
+            # that take lambdas (as well as ones that take a class for an enum, or a registry)
+            # We are only interested in the lambda ones here.  The arguments are the functions
+            # to call for writing and for reading.
             for ins in func.code.disassemble():
                 if ins.mnemonic == "new":
                     static_funcs_to_classes[func.name.value + func.descriptor.value] = ins.operands[0].name.value
                     break
-                if ins.mnemonic == "invokestatic":
-                    new_func = ins.operands[0].name_and_type.name.value + ins.operands[0].name_and_type.descriptor.value
-                    # Assume that this function comes after the one it calls in the class file
-                    # (this is obviously an assumption that could be easily violated, but it holds in 22w14a)
-                    static_funcs_to_classes[func.name.value + func.descriptor.value] = static_funcs_to_classes[new_func]
-                    break
 
         dataserializers_cf = classloader[dataserializers_class]
 
-        class Callback(WalkerCallback):
-            id = 0
-            serializers_by_field = {}
-
+        class SubCallback(WalkerCallback):
+            # Used when recursing into dataserializer_cf - we only want to handle
+            # invoke and invokedynamic there.
             def on_new(self, ins, const):
-                return {"class": const.name.value}
-
+                raise Exception("Illegal new")
             def on_invoke(self, ins, const, obj, args):
                 if const.class_.name.value != dataserializer_class:
                     # E.g. related to the registry
                     return
-                return {"class": static_funcs_to_classes[const.name_and_type.name.value + const.name_and_type.descriptor.value]}
+                name = const.name_and_type.name.value
+                desc = const.name_and_type.descriptor.value
+                if len(args) == 2:
+                    special_fields = {"a": args[0], "b": args[1]}
+                    return {"class": static_funcs_to_classes[name + desc], "special_fields": special_fields}
+                else:
+                    # Assume that this calls the 2-args method
+                    return walk_method(dataserializer_cf, dataserializer_cf.methods.find_one(name=name, f=lambda f: f.descriptor.value == desc), SubCallback(), verbose, input_args=args)
+            def on_get_field(self, ins, const, obj):
+                raise Exception("Illegal getfield")
+            def on_put_field(self, ins, const, obj, value):
+                raise Exception("Illegal putfield")
+
+            def on_invokedynamic(self, ins, const, args):
+                info = InvokeDynamicInfo.create(ins, dataserializer_cf)
+                info.stored_args = args
+                return info
+
+        class Callback(SubCallback):
+            id = 0
+            serializers_by_field = {}
+
+            def on_new(self, ins, const):
+                return {"class": const.name.value, "special_fields": {}}
 
             def on_put_field(self, ins, const, obj, value):
                 if const.name_and_type.descriptor.value != "L" + dataserializer_class + ";":
@@ -406,14 +423,14 @@ class EntityMetadataTopping(Topping):
                     value["name"] = name
 
                 # Perform decompilation
-                EntityMetadataTopping._decompile_serializer(classloader, classloader[value["class"]], classes, verbose, value)
+                EntityMetadataTopping._decompile_serializer(classloader, classloader[value["class"]], classes, verbose, value, value["special_fields"])
+                del value["special_fields"]
 
                 self.serializers_by_field[field] = value
 
             def on_get_field(self, ins, const, obj):
                 if const.name_and_type.descriptor.value != "L" + dataserializer_class + ";":
-                    # TODO
-                    return
+                    return "%s.%s" % (const.class_.name.value, const.name_and_type.name.value)
                 # Actually registering the serializer
                 const = ins.operands[0]
                 field = const.name_and_type.name.value
@@ -431,7 +448,11 @@ class EntityMetadataTopping(Topping):
                 self.id += 1
 
             def on_invokedynamic(self, ins, const, args):
-                return InvokeDynamicInfo.create(ins, dataserializers_cf)
+                # Note that this uses dataserializers_cf (plural),
+                # while SubCallback uses dataserializer_cf (singular)
+                info = InvokeDynamicInfo.create(ins, dataserializers_cf)
+                info.stored_args = args
+                return info
 
         walk_method(dataserializers_cf, dataserializers_cf.methods.find_one(name="<clinit>"), Callback(), verbose)
 
@@ -496,7 +517,7 @@ class EntityMetadataTopping(Topping):
             return None
 
     @staticmethod
-    def _decompile_serializer(classloader, cf, classes, verbose, serializer):
+    def _decompile_serializer(classloader, cf, classes, verbose, serializer, special_fields):
         # In here because otherwise the import messes with finding the topping in this file
         from .packetinstructions import PacketInstructionsTopping as _PIT
         from .packetinstructions import PACKETBUF_NAME
@@ -510,7 +531,7 @@ class EntityMetadataTopping(Topping):
             methods = list(cf.methods.find(returns="V", args=write_args))
             assert len(methods) == 1
             operations = _PIT.operations(classloader, cf, classes, verbose,
-                    methods[0], arg_names=("this", PACKETBUF_NAME, "value"))
+                    methods[0], ("this", PACKETBUF_NAME, "value"), special_fields)
             serializer.update(_PIT.format(operations))
         except:
             if verbose:
