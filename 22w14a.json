@@ -28022,14 +28022,26 @@
                     "class": "yn$1",
                     "field": "u",
                     "id": 19,
-                    "instructions": [],
+                    "instructions": [
+                        {
+                            "field": "hf.bJ.getId(value)",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
                     "type": "bkg"
                 },
                 "20": {
                     "class": "yn$1",
                     "field": "v",
                     "id": 20,
-                    "instructions": [],
+                    "instructions": [
+                        {
+                            "field": "hf.bL.getId(value)",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
                     "type": "bkn"
                 },
                 "21": {
@@ -28044,6 +28056,11 @@
                                     "field": "1",
                                     "operation": "write",
                                     "type": "boolean"
+                                },
+                                {
+                                    "field": "gu.a.encode(((Optional)value).get())",
+                                    "operation": "write",
+                                    "type": "nbtcompound"
                                 }
                             ],
                             "operation": "if"
@@ -28065,7 +28082,13 @@
                     "class": "yn$1",
                     "field": "l",
                     "id": 9,
-                    "instructions": [],
+                    "instructions": [
+                        {
+                            "field": "value",
+                            "operation": "write",
+                            "type": "position"
+                        }
+                    ],
                     "name": "BlockPos",
                     "type": "gm"
                 },
@@ -28073,7 +28096,13 @@
                     "class": "yn$1",
                     "field": "i",
                     "id": 7,
-                    "instructions": [],
+                    "instructions": [
+                        {
+                            "field": "value",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
                     "name": "Boolean",
                     "type": "java/lang/Boolean"
                 },
@@ -28081,7 +28110,13 @@
                     "class": "yn$1",
                     "field": "a",
                     "id": 0,
-                    "instructions": [],
+                    "instructions": [
+                        {
+                            "field": "value.byteValue()",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
                     "name": "Byte",
                     "type": "java/lang/Byte"
                 },
@@ -28089,7 +28124,13 @@
                     "class": "yn$1",
                     "field": "e",
                     "id": 4,
-                    "instructions": [],
+                    "instructions": [
+                        {
+                            "field": "value",
+                            "operation": "write",
+                            "type": "chatcomponent"
+                        }
+                    ],
                     "name": "Chat",
                     "type": "qx"
                 },
@@ -28097,7 +28138,13 @@
                     "class": "yn$1",
                     "field": "n",
                     "id": 11,
-                    "instructions": [],
+                    "instructions": [
+                        {
+                            "field": "value",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
                     "name": "Facing",
                     "type": "gr"
                 },
@@ -28105,7 +28152,13 @@
                     "class": "yn$1",
                     "field": "c",
                     "id": 2,
-                    "instructions": [],
+                    "instructions": [
+                        {
+                            "field": "value",
+                            "operation": "write",
+                            "type": "float"
+                        }
+                    ],
                     "name": "Float",
                     "type": "java/lang/Float"
                 },
@@ -28135,6 +28188,11 @@
                                     "field": "1",
                                     "operation": "write",
                                     "type": "boolean"
+                                },
+                                {
+                                    "field": "((Optional)value).get()",
+                                    "operation": "write",
+                                    "type": "position"
                                 }
                             ],
                             "operation": "if"
@@ -28195,6 +28253,11 @@
                                     "field": "1",
                                     "operation": "write",
                                     "type": "boolean"
+                                },
+                                {
+                                    "field": "((Optional)value).get()",
+                                    "operation": "write",
+                                    "type": "chatcomponent"
                                 }
                             ],
                             "operation": "if"
@@ -28225,6 +28288,11 @@
                                     "field": "1",
                                     "operation": "write",
                                     "type": "boolean"
+                                },
+                                {
+                                    "field": "((Optional)value).get()",
+                                    "operation": "write",
+                                    "type": "uuid"
                                 }
                             ],
                             "operation": "if"
@@ -28284,7 +28352,13 @@
                     "class": "yn$1",
                     "field": "t",
                     "id": 18,
-                    "instructions": [],
+                    "instructions": [
+                        {
+                            "field": "value",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
                     "name": "Pose",
                     "type": "azt"
                 },
@@ -28330,7 +28404,13 @@
                     "class": "yn$1",
                     "field": "d",
                     "id": 3,
-                    "instructions": [],
+                    "instructions": [
+                        {
+                            "field": "value",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
                     "name": "String",
                     "type": "java/lang/String"
                 },
@@ -28338,7 +28418,13 @@
                     "class": "yn$1",
                     "field": "b",
                     "id": 1,
-                    "instructions": [],
+                    "instructions": [
+                        {
+                            "field": "value",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
                     "name": "VarInt",
                     "type": "java/lang/Integer"
                 },

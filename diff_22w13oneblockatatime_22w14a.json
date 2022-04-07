@@ -2068,7 +2068,13 @@
                     "class": "yn$1",
                     "field": "u",
                     "id": 19,
-                    "instructions": [],
+                    "instructions": [
+                        {
+                            "field": "hf.bJ.getId(value)",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
                     "type": "bkg"
                 }
             ],
@@ -2078,7 +2084,13 @@
                     "class": "yn$1",
                     "field": "v",
                     "id": 20,
-                    "instructions": [],
+                    "instructions": [
+                        {
+                            "field": "hf.bL.getId(value)",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
                     "type": "bkn"
                 }
             ],
@@ -2096,6 +2108,11 @@
                                     "field": "1",
                                     "operation": "write",
                                     "type": "boolean"
+                                },
+                                {
+                                    "field": "gu.a.encode(((Optional)value).get())",
+                                    "operation": "write",
+                                    "type": "nbtcompound"
                                 }
                             ],
                             "operation": "if"
@@ -2112,150 +2129,6 @@
                         }
                     ],
                     "type": "java/util/Optional<Lgu;>"
-                }
-            ],
-            "BlockPos": [
-                {
-                    "class": "yg$4",
-                    "field": "l",
-                    "id": 9,
-                    "instructions": [
-                        {
-                            "field": "(gk)value",
-                            "operation": "write",
-                            "type": "position"
-                        }
-                    ],
-                    "name": "BlockPos",
-                    "type": "gk"
-                },
-                {
-                    "class": "yn$1",
-                    "field": "l",
-                    "id": 9,
-                    "instructions": [],
-                    "name": "BlockPos",
-                    "type": "gm"
-                }
-            ],
-            "Boolean": [
-                {
-                    "class": "yg$20",
-                    "field": "i",
-                    "id": 7,
-                    "instructions": [
-                        {
-                            "field": "((Boolean)value).booleanValue()",
-                            "operation": "write",
-                            "type": "boolean"
-                        }
-                    ],
-                    "name": "Boolean",
-                    "type": "java/lang/Boolean"
-                },
-                {
-                    "class": "yn$1",
-                    "field": "i",
-                    "id": 7,
-                    "instructions": [],
-                    "name": "Boolean",
-                    "type": "java/lang/Boolean"
-                }
-            ],
-            "Byte": [
-                {
-                    "class": "yg$1",
-                    "field": "a",
-                    "id": 0,
-                    "instructions": [
-                        {
-                            "field": "((Byte)value).byteValue()",
-                            "operation": "write",
-                            "type": "byte"
-                        }
-                    ],
-                    "name": "Byte",
-                    "type": "java/lang/Byte"
-                },
-                {
-                    "class": "yn$1",
-                    "field": "a",
-                    "id": 0,
-                    "instructions": [],
-                    "name": "Byte",
-                    "type": "java/lang/Byte"
-                }
-            ],
-            "Chat": [
-                {
-                    "class": "yg$16",
-                    "field": "e",
-                    "id": 4,
-                    "instructions": [
-                        {
-                            "field": "(qm)value",
-                            "operation": "write",
-                            "type": "chatcomponent"
-                        }
-                    ],
-                    "name": "Chat",
-                    "type": "qm"
-                },
-                {
-                    "class": "yn$1",
-                    "field": "e",
-                    "id": 4,
-                    "instructions": [],
-                    "name": "Chat",
-                    "type": "qx"
-                }
-            ],
-            "Facing": [
-                {
-                    "class": "yg$6",
-                    "field": "n",
-                    "id": 11,
-                    "instructions": [
-                        {
-                            "field": "(gp)value",
-                            "operation": "write",
-                            "type": "enum"
-                        }
-                    ],
-                    "name": "Facing",
-                    "type": "gp"
-                },
-                {
-                    "class": "yn$1",
-                    "field": "n",
-                    "id": 11,
-                    "instructions": [],
-                    "name": "Facing",
-                    "type": "gr"
-                }
-            ],
-            "Float": [
-                {
-                    "class": "yg$14",
-                    "field": "c",
-                    "id": 2,
-                    "instructions": [
-                        {
-                            "field": "((Float)value).floatValue()",
-                            "operation": "write",
-                            "type": "float"
-                        }
-                    ],
-                    "name": "Float",
-                    "type": "java/lang/Float"
-                },
-                {
-                    "class": "yn$1",
-                    "field": "c",
-                    "id": 2,
-                    "instructions": [],
-                    "name": "Float",
-                    "type": "java/lang/Float"
                 }
             ],
             "OptBlockPos": [
@@ -2296,6 +2169,11 @@
                                     "field": "1",
                                     "operation": "write",
                                     "type": "boolean"
+                                },
+                                {
+                                    "field": "((Optional)value).get()",
+                                    "operation": "write",
+                                    "type": "position"
                                 }
                             ],
                             "operation": "if"
@@ -2313,73 +2191,6 @@
                     ],
                     "name": "OptBlockPos",
                     "type": "java/util/Optional<Lgm;>"
-                }
-            ],
-            "OptChat": [
-                {
-                    "class": "yg$17",
-                    "field": "f",
-                    "id": 5,
-                    "instructions": [
-                        {
-                            "condition": "((Optional)value).isPresent()",
-                            "instructions": [
-                                {
-                                    "field": "1",
-                                    "operation": "write",
-                                    "type": "boolean"
-                                },
-                                {
-                                    "field": "(qm)((Optional)value).get()",
-                                    "operation": "write",
-                                    "type": "chatcomponent"
-                                }
-                            ],
-                            "operation": "if"
-                        },
-                        {
-                            "instructions": [
-                                {
-                                    "field": "0",
-                                    "operation": "write",
-                                    "type": "boolean"
-                                }
-                            ],
-                            "operation": "else"
-                        }
-                    ],
-                    "name": "OptChat",
-                    "type": "java/util/Optional<Lqm;>"
-                },
-                {
-                    "class": "yn$2",
-                    "field": "f",
-                    "id": 5,
-                    "instructions": [
-                        {
-                            "condition": "((Optional)value).isPresent()",
-                            "instructions": [
-                                {
-                                    "field": "1",
-                                    "operation": "write",
-                                    "type": "boolean"
-                                }
-                            ],
-                            "operation": "if"
-                        },
-                        {
-                            "instructions": [
-                                {
-                                    "field": "0",
-                                    "operation": "write",
-                                    "type": "boolean"
-                                }
-                            ],
-                            "operation": "else"
-                        }
-                    ],
-                    "name": "OptChat",
-                    "type": "java/util/Optional<Lqx;>"
                 }
             ],
             "OptUUID": [
@@ -2420,6 +2231,11 @@
                                     "field": "1",
                                     "operation": "write",
                                     "type": "boolean"
+                                },
+                                {
+                                    "field": "((Optional)value).get()",
+                                    "operation": "write",
+                                    "type": "uuid"
                                 }
                             ],
                             "operation": "if"
@@ -2437,78 +2253,6 @@
                     ],
                     "name": "OptUUID",
                     "type": "java/util/Optional<Ljava/util/UUID;>"
-                }
-            ],
-            "Pose": [
-                {
-                    "class": "yg$11",
-                    "field": "s",
-                    "id": 18,
-                    "instructions": [
-                        {
-                            "field": "(ayp)value",
-                            "operation": "write",
-                            "type": "enum"
-                        }
-                    ],
-                    "name": "Pose",
-                    "type": "ayp"
-                },
-                {
-                    "class": "yn$1",
-                    "field": "t",
-                    "id": 18,
-                    "instructions": [],
-                    "name": "Pose",
-                    "type": "azt"
-                }
-            ],
-            "String": [
-                {
-                    "class": "yg$15",
-                    "field": "d",
-                    "id": 3,
-                    "instructions": [
-                        {
-                            "field": "(String)value",
-                            "operation": "write",
-                            "type": "string"
-                        }
-                    ],
-                    "name": "String",
-                    "type": "java/lang/String"
-                },
-                {
-                    "class": "yn$1",
-                    "field": "d",
-                    "id": 3,
-                    "instructions": [],
-                    "name": "String",
-                    "type": "java/lang/String"
-                }
-            ],
-            "VarInt": [
-                {
-                    "class": "yg$12",
-                    "field": "b",
-                    "id": 1,
-                    "instructions": [
-                        {
-                            "field": "((Integer)value).intValue()",
-                            "operation": "write",
-                            "type": "varint"
-                        }
-                    ],
-                    "name": "VarInt",
-                    "type": "java/lang/Integer"
-                },
-                {
-                    "class": "yn$1",
-                    "field": "b",
-                    "id": 1,
-                    "instructions": [],
-                    "name": "VarInt",
-                    "type": "java/lang/Integer"
                 }
             ]
         },

@@ -3291,32 +3291,34 @@
 <div class="entry"><a href="#packets:status_serverbound_01"><h3 id="packets:status_serverbound_01">STATUS_SERVERBOUND_01</h3></a><div><dl><dt>Direction</dt><dd>Client to server</dd><dt>ID</dt><dd>1</dd></dl><pre><span class="hl_n">writeLong</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
 </pre></div></div>
 
-<a href="#entity_metadata_serializers"><h2 id="entity_metadata_serializers">Entity Metadata Serializers</h2></a><div class="entry"><a href="#entity_metadata_serializers:19"><h3 id="entity_metadata_serializers:19">19</h3></a><div><dl><dt>ID</dt><dd>19</dd></dl><pre><span class="hl_c1">// empty</span>
+<a href="#entity_metadata_serializers"><h2 id="entity_metadata_serializers">Entity Metadata Serializers</h2></a><div class="entry"><a href="#entity_metadata_serializers:19"><h3 id="entity_metadata_serializers:19">19</h3></a><div><dl><dt>ID</dt><dd>19</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">hf</span><span class="hl_o">.</span><span class="hl_na">bJ</span><span class="hl_o">.</span><span class="hl_na">getId</span><span class="hl_o">(</span><span class="hl_n">value</span><span class="hl_o">));</span>
 </pre></div></div>
-<div class="entry"><a href="#entity_metadata_serializers:20"><h3 id="entity_metadata_serializers:20">20</h3></a><div><dl><dt>ID</dt><dd>20</dd></dl><pre><span class="hl_c1">// empty</span>
+<div class="entry"><a href="#entity_metadata_serializers:20"><h3 id="entity_metadata_serializers:20">20</h3></a><div><dl><dt>ID</dt><dd>20</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">hf</span><span class="hl_o">.</span><span class="hl_na">bL</span><span class="hl_o">.</span><span class="hl_na">getId</span><span class="hl_o">(</span><span class="hl_n">value</span><span class="hl_o">));</span>
 </pre></div></div>
 <div class="entry"><a href="#entity_metadata_serializers:21"><h3 id="entity_metadata_serializers:21">21</h3></a><div><dl><dt>ID</dt><dd>21</dd></dl><pre><span class="hl_k">if</span><span class="hl_o">(((</span><span class="hl_n">Optional</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">).</span><span class="hl_na">isPresent</span><span class="hl_o">())</span> <span class="hl_o">{</span>
   <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_mi">1</span><span class="hl_o">);</span>
+  <span class="hl_n">writeNBTCompound</span><span class="hl_o">(</span><span class="hl_n">gu</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">.</span><span class="hl_na">encode</span><span class="hl_o">(((</span><span class="hl_n">Optional</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">).</span><span class="hl_na">get</span><span class="hl_o">()));</span>
 <span class="hl_o">}</span> <span class="hl_k">else</span> <span class="hl_o">{</span>
   <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_mi">0</span><span class="hl_o">);</span>
 <span class="hl_o">}</span>
 </pre></div></div>
-<div class="entry"><a href="#entity_metadata_serializers:blockpos"><h3 id="entity_metadata_serializers:blockpos">BlockPos</h3></a><div><dl><dt>ID</dt><dd>9</dd></dl><pre><span class="hl_c1">// empty</span>
+<div class="entry"><a href="#entity_metadata_serializers:blockpos"><h3 id="entity_metadata_serializers:blockpos">BlockPos</h3></a><div><dl><dt>ID</dt><dd>9</dd></dl><pre><span class="hl_n">writePosition</span><span class="hl_o">(</span><span class="hl_n">value</span><span class="hl_o">);</span>
 </pre></div></div>
-<div class="entry"><a href="#entity_metadata_serializers:boolean"><h3 id="entity_metadata_serializers:boolean">Boolean</h3></a><div><dl><dt>ID</dt><dd>7</dd></dl><pre><span class="hl_c1">// empty</span>
+<div class="entry"><a href="#entity_metadata_serializers:boolean"><h3 id="entity_metadata_serializers:boolean">Boolean</h3></a><div><dl><dt>ID</dt><dd>7</dd></dl><pre><span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">value</span><span class="hl_o">);</span>
 </pre></div></div>
-<div class="entry"><a href="#entity_metadata_serializers:byte"><h3 id="entity_metadata_serializers:byte">Byte</h3></a><div><dl><dt>ID</dt><dd>0</dd></dl><pre><span class="hl_c1">// empty</span>
+<div class="entry"><a href="#entity_metadata_serializers:byte"><h3 id="entity_metadata_serializers:byte">Byte</h3></a><div><dl><dt>ID</dt><dd>0</dd></dl><pre><span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">value</span><span class="hl_o">.</span><span class="hl_na">byteValue</span><span class="hl_o">());</span>
 </pre></div></div>
-<div class="entry"><a href="#entity_metadata_serializers:chat"><h3 id="entity_metadata_serializers:chat">Chat</h3></a><div><dl><dt>ID</dt><dd>4</dd></dl><pre><span class="hl_c1">// empty</span>
+<div class="entry"><a href="#entity_metadata_serializers:chat"><h3 id="entity_metadata_serializers:chat">Chat</h3></a><div><dl><dt>ID</dt><dd>4</dd></dl><pre><span class="hl_n">writeChatComponent</span><span class="hl_o">(</span><span class="hl_n">value</span><span class="hl_o">);</span>
 </pre></div></div>
-<div class="entry"><a href="#entity_metadata_serializers:facing"><h3 id="entity_metadata_serializers:facing">Facing</h3></a><div><dl><dt>ID</dt><dd>11</dd></dl><pre><span class="hl_c1">// empty</span>
+<div class="entry"><a href="#entity_metadata_serializers:facing"><h3 id="entity_metadata_serializers:facing">Facing</h3></a><div><dl><dt>ID</dt><dd>11</dd></dl><pre><span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">value</span><span class="hl_o">);</span>
 </pre></div></div>
-<div class="entry"><a href="#entity_metadata_serializers:float"><h3 id="entity_metadata_serializers:float">Float</h3></a><div><dl><dt>ID</dt><dd>2</dd></dl><pre><span class="hl_c1">// empty</span>
+<div class="entry"><a href="#entity_metadata_serializers:float"><h3 id="entity_metadata_serializers:float">Float</h3></a><div><dl><dt>ID</dt><dd>2</dd></dl><pre><span class="hl_n">writeFloat</span><span class="hl_o">(</span><span class="hl_n">value</span><span class="hl_o">);</span>
 </pre></div></div>
 <div class="entry"><a href="#entity_metadata_serializers:nbt"><h3 id="entity_metadata_serializers:nbt">NBT</h3></a><div><dl><dt>ID</dt><dd>14</dd></dl><pre><span class="hl_n">writeNBTCompound</span><span class="hl_o">((</span><span class="hl_n">ox</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">);</span>
 </pre></div></div>
 <div class="entry"><a href="#entity_metadata_serializers:optblockpos"><h3 id="entity_metadata_serializers:optblockpos">OptBlockPos</h3></a><div><dl><dt>ID</dt><dd>10</dd></dl><pre><span class="hl_k">if</span><span class="hl_o">(((</span><span class="hl_n">Optional</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">).</span><span class="hl_na">isPresent</span><span class="hl_o">())</span> <span class="hl_o">{</span>
   <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_mi">1</span><span class="hl_o">);</span>
+  <span class="hl_n">writePosition</span><span class="hl_o">(((</span><span class="hl_n">Optional</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">).</span><span class="hl_na">get</span><span class="hl_o">());</span>
 <span class="hl_o">}</span> <span class="hl_k">else</span> <span class="hl_o">{</span>
   <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_mi">0</span><span class="hl_o">);</span>
 <span class="hl_o">}</span>
@@ -3329,12 +3331,14 @@
 </pre></div></div>
 <div class="entry"><a href="#entity_metadata_serializers:optchat"><h3 id="entity_metadata_serializers:optchat">OptChat</h3></a><div><dl><dt>ID</dt><dd>5</dd></dl><pre><span class="hl_k">if</span><span class="hl_o">(((</span><span class="hl_n">Optional</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">).</span><span class="hl_na">isPresent</span><span class="hl_o">())</span> <span class="hl_o">{</span>
   <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_mi">1</span><span class="hl_o">);</span>
+  <span class="hl_n">writeChatComponent</span><span class="hl_o">(((</span><span class="hl_n">Optional</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">).</span><span class="hl_na">get</span><span class="hl_o">());</span>
 <span class="hl_o">}</span> <span class="hl_k">else</span> <span class="hl_o">{</span>
   <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_mi">0</span><span class="hl_o">);</span>
 <span class="hl_o">}</span>
 </pre></div></div>
 <div class="entry"><a href="#entity_metadata_serializers:optuuid"><h3 id="entity_metadata_serializers:optuuid">OptUUID</h3></a><div><dl><dt>ID</dt><dd>12</dd></dl><pre><span class="hl_k">if</span><span class="hl_o">(((</span><span class="hl_n">Optional</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">).</span><span class="hl_na">isPresent</span><span class="hl_o">())</span> <span class="hl_o">{</span>
   <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_mi">1</span><span class="hl_o">);</span>
+  <span class="hl_n">writeUUID</span><span class="hl_o">(((</span><span class="hl_n">Optional</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">).</span><span class="hl_na">get</span><span class="hl_o">());</span>
 <span class="hl_o">}</span> <span class="hl_k">else</span> <span class="hl_o">{</span>
   <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_mi">0</span><span class="hl_o">);</span>
 <span class="hl_o">}</span>
@@ -3344,7 +3348,7 @@
 <div class="entry"><a href="#entity_metadata_serializers:particle"><h3 id="entity_metadata_serializers:particle">Particle</h3></a><div><dl><dt>ID</dt><dd>15</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">hf</span><span class="hl_o">.</span><span class="hl_na">aa</span><span class="hl_o">.</span><span class="hl_na">getId</span><span class="hl_o">(((</span><span class="hl_n">ie</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">).</span><span class="hl_na">b</span><span class="hl_o">()));</span>
 <span class="hl_o">(</span><span class="hl_n">ie</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">(</span><span class="hl_n">packetbuffer</span><span class="hl_o">);</span> <span class="hl_c1">// interface call to ie.a(Lql;)V: behavior may vary</span>
 </pre></div></div>
-<div class="entry"><a href="#entity_metadata_serializers:pose"><h3 id="entity_metadata_serializers:pose">Pose</h3></a><div><dl><dt>ID</dt><dd>18</dd></dl><pre><span class="hl_c1">// empty</span>
+<div class="entry"><a href="#entity_metadata_serializers:pose"><h3 id="entity_metadata_serializers:pose">Pose</h3></a><div><dl><dt>ID</dt><dd>18</dd></dl><pre><span class="hl_n">writeVarIntEnum</span><span class="hl_o">(</span><span class="hl_n">value</span><span class="hl_o">);</span>
 </pre></div></div>
 <div class="entry"><a href="#entity_metadata_serializers:rotations"><h3 id="entity_metadata_serializers:rotations">Rotations</h3></a><div><dl><dt>ID</dt><dd>8</dd></dl><pre><span class="hl_n">writeFloat</span><span class="hl_o">(((</span><span class="hl_n">hi</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">).</span><span class="hl_na">b</span><span class="hl_o">());</span>
 <span class="hl_n">writeFloat</span><span class="hl_o">(((</span><span class="hl_n">hi</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">).</span><span class="hl_na">c</span><span class="hl_o">());</span>
@@ -3352,9 +3356,9 @@
 </pre></div></div>
 <div class="entry"><a href="#entity_metadata_serializers:slot"><h3 id="entity_metadata_serializers:slot">Slot</h3></a><div><dl><dt>ID</dt><dd>6</dd></dl><pre><span class="hl_n">writeItemStack</span><span class="hl_o">((</span><span class="hl_n">bxs</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">);</span>
 </pre></div></div>
-<div class="entry"><a href="#entity_metadata_serializers:string"><h3 id="entity_metadata_serializers:string">String</h3></a><div><dl><dt>ID</dt><dd>3</dd></dl><pre><span class="hl_c1">// empty</span>
+<div class="entry"><a href="#entity_metadata_serializers:string"><h3 id="entity_metadata_serializers:string">String</h3></a><div><dl><dt>ID</dt><dd>3</dd></dl><pre><span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">value</span><span class="hl_o">);</span>
 </pre></div></div>
-<div class="entry"><a href="#entity_metadata_serializers:varint"><h3 id="entity_metadata_serializers:varint">VarInt</h3></a><div><dl><dt>ID</dt><dd>1</dd></dl><pre><span class="hl_c1">// empty</span>
+<div class="entry"><a href="#entity_metadata_serializers:varint"><h3 id="entity_metadata_serializers:varint">VarInt</h3></a><div><dl><dt>ID</dt><dd>1</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">value</span><span class="hl_o">);</span>
 </pre></div></div>
 <div class="entry"><a href="#entity_metadata_serializers:villagerdata"><h3 id="entity_metadata_serializers:villagerdata">VillagerData</h3></a><div><dl><dt>ID</dt><dd>16</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">hf</span><span class="hl_o">.</span><span class="hl_na">ao</span><span class="hl_o">.</span><span class="hl_na">getId</span><span class="hl_o">(((</span><span class="hl_n">bqr</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">).</span><span class="hl_na">a</span><span class="hl_o">()));</span>
 <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">hf</span><span class="hl_o">.</span><span class="hl_na">ap</span><span class="hl_o">.</span><span class="hl_na">getId</span><span class="hl_o">(((</span><span class="hl_n">bqr</span><span class="hl_o">)</span><span class="hl_n">value</span><span class="hl_o">).</span><span class="hl_na">b</span><span class="hl_o">()));</span>
