@@ -424,7 +424,7 @@ def try_eval_lambda(ins, args, cf):
 
 def string_from_invokedymanic(ins, cf):
     """
-    Gets the recipe string for a string concatenation implemented via invokedynamc.
+    Gets the recipe string for a string concatenation implemented via invokedynamic.
     """
     info = InvokeDynamicInfo.create(ins, cf)
     assert isinstance(info, StringConcatInvokeDynamicInfo)

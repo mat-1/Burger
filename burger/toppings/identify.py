@@ -23,6 +23,7 @@ THE SOFTWARE.
 """
 
 from .topping import Topping
+from burger.util import string_from_invokedymanic
 
 from jawa.constants import String
 
@@ -116,28 +117,25 @@ def identify(classloader, path, verbose):
                 possible_match = (match_name, class_file.this.name.value)
                 # Continue searching through the other constants in the class
 
-        if 'BaseComponent' in value:
+        if 'as a Component' in value:
+            # This class is the JSON serializer/deserializer for the chat component.
+            # (This string constant exists starting in 13w36a (1.7.2))
+
             class_file = classloader[path]
-            # We want the interface for chat components, but it has no
-            # string constants, so we need to use the abstract class and then
-            # get its first implemented interface.
-
-            # As of 20w17a, there is another interface in the middle that we don't
-            # want, but the interface we do want extends Brigadier's Message interface.
-            # So, loop up until a good-looking interface is present.
-            # In other versions, the interface extends Iterable.  In some versions, it extends both.
-            while len(class_file.interfaces) in (1, 2):
-                parent = class_file.interfaces[0].name.value
-                if "com/mojang/brigadier" in parent or "java/lang/Iterable" == parent:
-                    break
-                class_file = classloader[parent]
+            # First, look for the method referencing that constant...
+            for method in class_file.methods:
+                for ins in method.code.disassemble():
+                    if ins.mnemonic in ("ldc", "ldc_w"):
+                        if isinstance(ins.operands[0], String) and 'as a Component' in ins.operands[0].string.value:
+                            # This method is the serializing one.
+                            # The chatcomponent type is its first parameter.
+                            return 'chatcomponent', method.args[0][2]
+                    elif ins.mnemonic == "invokedynamic":
+                        if 'as a Component' in string_from_invokedymanic(ins, class_file):
+                            return 'chatcomponent', method.args[0][2]
             else:
-                # There wasn't the same number of interfaces, can't do anything really
                 if verbose:
-                    print(class_file, "(parent of " + path + ", BaseComponent) has an unexpected number of interfaces:", class_file.interfaces)
-                # Just hope for the best with the current class file
-
-            return 'chatcomponent', class_file.this.name.value
+                    print("Found chat component serializer as %s, but didn't find the method serializes it" % path)
 
         if value == 'ambient.cave':
             # This is found in both the sounds list class and sounds event class.
