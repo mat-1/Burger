@@ -647,10 +647,18 @@ class PacketInstructionsTopping(Topping):
             # but it's close enough for our purposes
             field = "%s.encode(%s)" % (codec, value)
             return [Operation(instruction.pos, "write", type="nbtcompound", field=field)]
-        elif desc.args[0].name == "java/util/Collection" and \
-                desc.args[1].name == "java/util/function/BiConsumer":
+        elif desc.args[0].name == "java/util/Collection":
             # Loop that calls the consumer with the packetbuffer
             # and value for each value in collection
+
+            # We used to explicitly check that args[1] was a java/util/function/BiConsumer
+            # but in 22w18a Mojang added their own subclass of that interface
+            # (nested in packetbuffer, and with a defaulted method called asOptional)
+            # which breaks that explicit check.  We could add an additional check
+            # to see if it is that custom interface, but that probably is not needed
+            # (it'll blow up if the wrong type is used with or without the check,
+            # just in a different way)
+
             # TODO: Disambiguate names it and itv if there are multiple loops
             operations = []
             field = args[0]
@@ -680,10 +688,11 @@ class PacketInstructionsTopping(Topping):
             # the endloop past everything.
             operations.append(Operation(instruction.pos + 1 - SUB_INS_EPSILON, "endloop"))
             return operations
-        elif desc.args[0].name == "java/util/Optional" and \
-                desc.args[1].name == "java/util/function/BiConsumer":
+        elif desc.args[0].name == "java/util/Optional":
             # Write a boolean indicating whether the optional is present.
             # Call the consumer with the packetbuffer and value if the optional is present.
+
+            # Prior to 22w18a we checked if args[1] was a BiConsumer; see Collection above
             operations = []
             field = args[0]
             assert isinstance(field, StackOperand)
@@ -714,12 +723,11 @@ class PacketInstructionsTopping(Topping):
     @staticmethod
     def _handle_3_arg_buffer_call(classloader, classes, instruction, verbose,
                                   cls, name, desc, instance, args):
-        if desc.args[0].name == "java/util/Map" and \
-                desc.args[1].name == "java/util/function/BiConsumer" and \
-                desc.args[1].name == "java/util/function/BiConsumer":
+        if desc.args[0].name == "java/util/Map":
             # Loop that calls the consumers with the packetbuffer
             # and key, and then packetbuffer and value, for each
             # (key, value) pair in the map.
+            # Prior to 22w18a we checked if args[1] was a BiConsumer; see Collection above
             # TODO: Disambiguate names it and itv if there are multiple loops
             operations = []
             field = args[0]
