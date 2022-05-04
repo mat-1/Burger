@@ -715,6 +715,24 @@ class PacketInstructionsTopping(Topping):
             # the endloop past everything.
             operations.append(Operation(instruction.pos + 1 - SUB_INS_EPSILON, "endif"))
             return operations
+        elif desc.args[0].name == "java/lang/Object":
+            # 22w18a added a version of this that takes a regular object and does a
+            # null-test instead.  It's basically the same as the optional version.
+            operations = []
+            field = args[0]
+            assert isinstance(field, StackOperand)
+            operations.append(Operation(instruction.pos, "write", type="boolean",
+                                        field=field.value + " != null"))
+            operations.append(Operation(instruction.pos, "if",
+                                        condition=field.value + " != null"))
+            info = args[1]
+            assert isinstance(info, InvokeDynamicInfo)
+            operations += _PIT._lambda_operations(
+                classloader, classes, instruction, verbose,
+                info, [instance, field.value]
+            )
+            operations.append(Operation(instruction.pos + 1 - SUB_INS_EPSILON, "endif"))
+            return operations
         elif desc.args[0].name == classes.get("idmap"):
             return [Operation(instruction.pos, "write", type="varint", field="%s.getId(%s)" % (args[0], args[1]))]
         else:
