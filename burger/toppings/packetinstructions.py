@@ -223,6 +223,12 @@ class PacketInstructionsTopping(Topping):
                     stack.pop()
                     stack.append(special_fields[operands[0].name])
                     continue
+            # Also used by entitymetadata
+            if mnemonic == "aload":
+                if operands[0].value < len(arg_names):
+                    if isinstance(arg_names[operands[0].value], InvokeDynamicInfo):
+                        stack.append(arg_names[operands[0].value])
+                        continue
 
             # Method calls
             if mnemonic in ("invokevirtual", "invokespecial", "invokestatic", "invokeinterface"):
@@ -519,8 +525,17 @@ class PacketInstructionsTopping(Topping):
             assert not is_static
             return _PIT._handle_foreach(classloader, classes, instruction, verbose,
                                         cls, name, desc, obj, arguments[0])
-        elif isinstance(obj, InvokeDynamicInfo):
-            # Used for special field handling by entitymetadata
+        elif isinstance(obj, InvokeDynamicInfo) and name == obj.dynamic_name:
+            # Only check the dynamic name, as we won't have an exact match for
+            # the descriptor due to type erasure (I think?)
+            # We need to check the name because we want to treat calls to other
+            # methods on the object normally (in particular, in 22w18a the
+            # subinterface of BiConsumer has an asOptional function that
+            # creates a new BiConsumer using a lambda within the subinterface,
+            # and we want calls to the decorated version to go into that lambda
+            # first, instead of directly calling the original un-decorated function).
+
+            # This is used for special field handling by entitymetadata.
             return _PIT._lambda_operations(
                 classloader, classes, instruction, verbose, obj, arguments
             )

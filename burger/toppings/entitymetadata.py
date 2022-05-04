@@ -369,14 +369,36 @@ class EntityMetadataTopping(Topping):
             def on_new(self, ins, const):
                 raise Exception("Illegal new")
             def on_invoke(self, ins, const, obj, args):
+                # In 22w18a, the optional variant of the two-args method now calls
+                # the non-optional version, and both take a subinterface of BiConsumer
+                # (nested in packetbuffer).  That subinterface has a function called
+                # asOptional (which isn't obfuscated in 22w18a) that returns a new
+                # object that uses the original object as a parameter to writeOptional.
+                # We can inline asOptional, though.
+                name = const.name_and_type.name.value
+                desc = const.name_and_type.descriptor.value
+                if name == "asOptional":
+                    biconsumer_cf = classloader[const.class_.name.value]
+                    method = biconsumer_cf.methods.find_one(name=name, f=lambda f: f.descriptor.value == desc)
+                    for ins2 in method.code.disassemble():
+                        if ins2.mnemonic == "invokedynamic":
+                            fake_stack = [obj, *args]
+                            info = InvokeDynamicInfo.create(ins2, biconsumer_cf)
+                            info.apply_to_stack(fake_stack)
+                            return fake_stack.pop()
+                    else:
+                        raise Exception("Expected invokedynamic call in asOptional (called from " + repr(ins) + ")")
+
+                # It's not asOptional, so assume that any call not related to the
+                # data serializer is irrelevant.
                 if const.class_.name.value != dataserializer_class:
                     # E.g. related to the registry
                     return
-                name = const.name_and_type.name.value
-                desc = const.name_and_type.descriptor.value
-                if len(args) == 2:
+
+                key = name + desc
+                if len(args) == 2 and key in static_funcs_to_classes:
                     special_fields = {"a": args[0], "b": args[1]}
-                    return {"class": static_funcs_to_classes[name + desc], "special_fields": special_fields}
+                    return {"class": static_funcs_to_classes[key], "special_fields": special_fields}
                 else:
                     # Assume that this calls the 2-args method
                     return walk_method(dataserializer_cf, dataserializer_cf.methods.find_one(name=name, f=lambda f: f.descriptor.value == desc), SubCallback(), verbose, input_args=args)

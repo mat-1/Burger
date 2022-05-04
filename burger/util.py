@@ -25,6 +25,8 @@ FIELD_REFS = (REF_getField, REF_getStatic, REF_putField, REF_putStatic)
 class InvokeDynamicInfo(ABC):
     @staticmethod
     def create(ins, cf):
+        assert(ins.mnemonic == "invokedynamic")
+
         if isinstance(ins.operands[0], Operand):
             # Hack due to packetinstructions not expanding constants
             const = cf.constants[ins.operands[0].value]
@@ -136,11 +138,6 @@ class LambdaInvokeDynamicInfo(InvokeDynamicInfo):
         else:
             # https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-4.html#jvms-4.4.8-200-C.1
             assert self.method_name not in ("<init>", "<clinit>")
-
-        # Although invokeinterface won't cause problems here, other code likely
-        # will break with it, so bail out early for now (if it's eventually used,
-        # it can be fixed later)
-        assert self.ref_kind != REF_invokeInterface
 
         # As for stack changes, consider the following:
         """
@@ -288,6 +285,14 @@ class LambdaInvokeDynamicInfo(InvokeDynamicInfo):
         elif self.ref_kind == REF_invokeInterface:
             ref = self.generated_cf.constants.create_interface_method_ref(
                     self.method_class, self.method_name, self.method_desc.descriptor)
+            # See https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html#jvms-6.5.invokeinterface.notes
+            # Since the generated classfile only exists for use by burger,
+            # we don't _really_ need to handle this, other than providing
+            # some value, but it's not too hard.  However, we're not currently
+            # treating longs and doubles as 2 instead of 1 (which is incorrect,
+            # but again, doesn't really matter since this is redundant information
+            # that burger does not use).
+            count = len(method.args)
         else:
             ref = self.generated_cf.constants.create_method_ref(
                     self.method_class, self.method_name, self.method_desc.descriptor)
@@ -312,7 +317,7 @@ class LambdaInvokeDynamicInfo(InvokeDynamicInfo):
             instructions.append(("dup",))
             instructions.append(("invokespecial", ref))
         elif self.ref_kind == REF_invokeInterface:
-            instructions.append(("invokeinterface", ref))
+            instructions.append(("invokeinterface", ref, count, 0))
 
         method.code.assemble(assemble(instructions))
 
