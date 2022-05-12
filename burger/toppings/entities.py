@@ -140,7 +140,7 @@ class EntityTopping(Topping):
                     return new_entity
                 elif const.class_.name == builderclass:
                     if ins.mnemonic != "invokestatic":
-                        if len(args) == 2 and const.name_and_type.descriptor.value.startswith("(FF)"):
+                        if len(args) == 2 and isinstance(args[0], float) and isinstance(args[1], float) and const.name_and_type.descriptor.value.startswith("(FF)"):
                             # Entity size in 19w03a and newer
                             obj["width"] = args[0]
                             obj["height"] = args[1]
@@ -423,7 +423,7 @@ class EntityTopping(Topping):
                 elif ins == "invokevirtual":
                     const = ins.operands[0]
                     if const.name_and_type.name == set_size_name and const.name_and_type.descriptor == set_size_desc:
-                        if len(tmp) == 2:
+                        if len(tmp) == 2 and isinstance(tmp[0], float) and isinstance(tmp[1], float):
                             result = tmp
                         else:
                             # There was a call to the method, but we couldn't parse it fully
