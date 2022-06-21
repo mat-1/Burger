@@ -29,7 +29,7 @@ try:
 except ImportError:
     import simplejson as json
 
-VERSION_MANIFEST = "https://launchermeta.mojang.com/mc/game/version_manifest.json"
+VERSION_MANIFEST = "https://piston-meta.mojang.com/mc/game/version_manifest_v2.json"
 LEGACY_VERSION_META = "https://s3.amazonaws.com/Minecraft.Download/versions/%(version)s/%(version)s.json" # DEPRECATED
 
 _cached_version_manifest = None
