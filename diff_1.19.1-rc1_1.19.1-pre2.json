@@ -1,0 +1,104 @@
+{
+    "achievements": {},
+    "blocks": {
+        "block": {}
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {}
+    },
+    "items": {
+        "item": {}
+    },
+    "language": {
+        "chat": {
+            "tag.modified": [
+                null,
+                "This message has been modified by the server."
+            ],
+            "tag.modified.original": [
+                null,
+                "Original text: %s"
+            ],
+            "tag.not_secure": [
+                null,
+                "This message is not secure"
+            ]
+        },
+        "multiplayer": {
+            "disconnect.unsigned_chat": [
+                null,
+                "Received chat packet with missing or invalid signature."
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_5F": [
+                {
+                    "class": "wj.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 95,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "chatcomponent"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "wj.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 95,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "chatcomponent"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "sounds": {},
+    "stats": {},
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            3109,
+            3110
+        ],
+        "id": [
+            "1.19.1-rc1",
+            "1.19.1-pre2"
+        ],
+        "name": [
+            "1.19.1 Release Candidate 1",
+            "1.19.1 Pre-release 2"
+        ],
+        "protocol": [
+            1073741918,
+            1073741919
+        ]
+    }
+}
