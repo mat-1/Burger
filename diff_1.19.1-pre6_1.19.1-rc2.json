@@ -1,0 +1,173 @@
+{
+    "achievements": {},
+    "blocks": {
+        "block": {}
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {}
+    },
+    "items": {
+        "item": {}
+    },
+    "language": {
+        "gui": {
+            "chatReport.send.comments_too_long": [
+                null,
+                "Please shorten the comment"
+            ],
+            "chatReport.send.too_many_messages": [
+                null,
+                "Trying to include too many messages in the report"
+            ]
+        },
+        "multiplayer": {
+            "unsecureserver.toast": [
+                null,
+                "Messages sent on this server may be modified and might not reflect the original message"
+            ],
+            "unsecureserver.toast.title": [
+                null,
+                "Chat messages can't be verified"
+            ]
+        },
+        "options": {
+            "chatPreview.confirm": [
+                "On Send",
+                "When Sending"
+            ],
+            "chatPreview.live": [
+                "On Modified",
+                "While Typing"
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_42": [
+                {
+                    "class": "vs.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 66,
+                    "instructions": [
+                        {
+                            "field": "a.isPresent()",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "a.isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "a.get()",
+                                    "operation": "write",
+                                    "type": "chatcomponent"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "b.isPresent()",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "b.isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "b.get()",
+                                    "operation": "write",
+                                    "type": "string"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "vs.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 66,
+                    "instructions": [
+                        {
+                            "field": "a.isPresent()",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "a.isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "a.get()",
+                                    "operation": "write",
+                                    "type": "chatcomponent"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "b.isPresent()",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "b.isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "b.get()",
+                                    "operation": "write",
+                                    "type": "string"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "sounds": {},
+    "stats": {},
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            3114,
+            3115
+        ],
+        "id": [
+            "1.19.1-pre6",
+            "1.19.1-rc2"
+        ],
+        "name": [
+            "1.19.1 Pre-release 6",
+            "1.19.1 Release Candidate 2"
+        ],
+        "protocol": [
+            1073741923,
+            1073741924
+        ]
+    }
+}
