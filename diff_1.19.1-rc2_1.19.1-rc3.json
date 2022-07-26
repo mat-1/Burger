@@ -1,0 +1,421 @@
+{
+    "achievements": {},
+    "blocks": {
+        "block": {}
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {}
+    },
+    "items": {
+        "item": {}
+    },
+    "language": {
+        "chat": {
+            "filtered_full": [
+                null,
+                "The server has hidden your message for some players."
+            ],
+            "tag.filtered": [
+                null,
+                "This message has been filtered by the server."
+            ]
+        },
+        "chatPreview": {
+            "warning.toast": [
+                "This server uses Chat Preview and can see your messages as you type them, even before they're sent. You can turn this off in Chat Settings.",
+                "This server uses Chat Preview and can see your messages before they are sent to other players. You can turn this off in Chat Settings."
+            ]
+        },
+        "gui": {
+            "socialInteractions.tooltip.report.disabled": [
+                "Cannot create report: reporting service unavailable",
+                "The reporting service is unavailable"
+            ],
+            "socialInteractions.tooltip.report.no_messages": [
+                "Cannot create report: no recent messages from player %s",
+                "No reportable messages from player %s"
+            ],
+            "socialInteractions.tooltip.report.not_reportable": [
+                null,
+                "This player can't be reported, because their chat messages can't be verified on this server"
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_33": [
+                {
+                    "class": "vd.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 51,
+                    "instructions": [
+                        {
+                            "field": "a.c.a != null",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "a.c.a != null",
+                            "instructions": [
+                                {
+                                    "field": "a.c.a.b.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "a.c.a.b",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "a.c.b",
+                            "operation": "write",
+                            "type": "uuid"
+                        },
+                        {
+                            "field": "a.d.b.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "a.d.b",
+                            "operation": "write",
+                            "type": "byte[]"
+                        },
+                        {
+                            "field": "a.e.b.b()",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "((this.a.e.b.a()) ? this.a.e.b.c() : null)",
+                            "var": "var2"
+                        },
+                        {
+                            "field": "var2 != null",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "var2 != null",
+                            "instructions": [
+                                {
+                                    "field": "var2",
+                                    "operation": "write",
+                                    "type": "chatcomponent"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "a.e.c.toEpochMilli()",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "a.e.d",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "a.e.e.c.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.a.e.e.c.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "ru$a",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.a",
+                                    "operation": "write",
+                                    "type": "uuid"
+                                },
+                                {
+                                    "field": "itv.b.b.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "itv.b.b",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "a.f.isPresent()",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "a.f.isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "a.f.get()",
+                                    "operation": "write",
+                                    "type": "chatcomponent"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "b.a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b.b",
+                            "operation": "write",
+                            "type": "chatcomponent"
+                        },
+                        {
+                            "field": "b.c != null",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "b.c != null",
+                            "instructions": [
+                                {
+                                    "field": "b.c",
+                                    "operation": "write",
+                                    "type": "chatcomponent"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "vf.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 51,
+                    "instructions": [
+                        {
+                            "field": "a.c.a != null",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "a.c.a != null",
+                            "instructions": [
+                                {
+                                    "field": "a.c.a.b.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "a.c.a.b",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "a.c.b",
+                            "operation": "write",
+                            "type": "uuid"
+                        },
+                        {
+                            "field": "a.d.b.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "a.d.b",
+                            "operation": "write",
+                            "type": "byte[]"
+                        },
+                        {
+                            "field": "a.e.b.b()",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "((this.a.e.b.a()) ? this.a.e.b.c() : null)",
+                            "var": "var2"
+                        },
+                        {
+                            "field": "var2 != null",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "var2 != null",
+                            "instructions": [
+                                {
+                                    "field": "var2",
+                                    "operation": "write",
+                                    "type": "chatcomponent"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "a.e.c.toEpochMilli()",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "a.e.d",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "a.e.e.c.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.a.e.e.c.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "rw$a",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.a",
+                                    "operation": "write",
+                                    "type": "uuid"
+                                },
+                                {
+                                    "field": "itv.b.b.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "itv.b.b",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "a.f.isPresent()",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "a.f.isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "a.f.get()",
+                                    "operation": "write",
+                                    "type": "chatcomponent"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "a.g.e",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "condition": "a.g.e == rt$a.c",
+                            "instructions": [
+                                {
+                                    "field": "a.g.d.toLongArray().length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "a.g.d.toLongArray()",
+                                    "operation": "write",
+                                    "type": "long[]"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "b.a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b.b",
+                            "operation": "write",
+                            "type": "chatcomponent"
+                        },
+                        {
+                            "field": "b.c != null",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "b.c != null",
+                            "instructions": [
+                                {
+                                    "field": "b.c",
+                                    "operation": "write",
+                                    "type": "chatcomponent"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "sounds": {},
+    "stats": {},
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            3115,
+            3116
+        ],
+        "id": [
+            "1.19.1-rc2",
+            "1.19.1-rc3"
+        ],
+        "name": [
+            "1.19.1 Release Candidate 2",
+            "1.19.1 Release Candidate 3"
+        ],
+        "protocol": [
+            1073741924,
+            1073741925
+        ]
+    }
+}
