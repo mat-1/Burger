@@ -1,0 +1,329 @@
+{
+    "achievements": {},
+    "biomes": {
+        "biome": {}
+    },
+    "blocks": {
+        "block": {}
+    },
+    "entities": {
+        "entity": {}
+    },
+    "language": {
+        "addServer": {
+            "resourcePack": [
+                null,
+                "Server Resource Packs"
+            ],
+            "resourcePack.disabled": [
+                null,
+                "Disabled"
+            ],
+            "resourcePack.enabled": [
+                null,
+                "Enabled"
+            ],
+            "resourcePack.prompt": [
+                null,
+                "Prompt"
+            ]
+        },
+        "commands": {
+            "ban.failed": [
+                null,
+                "Could not ban player %s"
+            ],
+            "deop.failed": [
+                null,
+                "Could not de-op %s"
+            ],
+            "op.failed": [
+                null,
+                "Could not op %s"
+            ],
+            "unban.failed": [
+                null,
+                "Could not unban player %s"
+            ],
+            "whitelist.add.failed": [
+                null,
+                "Could not add %s to the whitelist"
+            ],
+            "whitelist.remove.failed": [
+                null,
+                "Could not remove %s from the whitelist"
+            ]
+        },
+        "mco": {
+            "configure.world.buttons.deop": [
+                null,
+                "Deop"
+            ],
+            "configure.world.buttons.op": [
+                null,
+                "Op"
+            ],
+            "configure.world.invites.normal.tooltip": [
+                null,
+                "Normal user"
+            ],
+            "configure.world.invites.ops.tooltip": [
+                null,
+                "Operator"
+            ],
+            "configure.world.invites.remove.tooltip": [
+                null,
+                "Remove"
+            ],
+            "selectServer.closeserver": [
+                null,
+                "Close Server"
+            ],
+            "selectServer.openserver": [
+                null,
+                "Open Server"
+            ]
+        },
+        "options": {
+            "serverTextures": [
+                "Server Textures",
+                null
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "LOGIN_CLIENTBOUND_02": [
+                {
+                    "class": "jp.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 2,
+                    "instructions": [
+                        {
+                            "field": "a.getId()",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "a.getName()",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "LOGIN"
+                },
+                {
+                    "class": "jq.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 2,
+                    "instructions": [
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.a.getId()",
+                            "var": "var2"
+                        },
+                        {
+                            "field": "(var2 == null) ? \"\" : var2.toString()",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "a.getName()",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "LOGIN"
+                }
+            ],
+            "PLAY_CLIENTBOUND_0C": [
+                {
+                    "class": "fy.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 12,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b.getId()",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "b.getName()",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "i",
+                            "operation": "write",
+                            "type": "metadata"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "fz.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 12,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.b.getId()",
+                            "var": "var2"
+                        },
+                        {
+                            "field": "(var2 == null) ? \"\" : var2.toString()",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "b.getName()",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "b.getProperties().size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Object",
+                            "value": "this.b.getProperties().values().iterator()",
+                            "var": "var3"
+                        },
+                        {
+                            "condition": "var3.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "((com.mojang.authlib.properties.Property)var3.next())",
+                                    "var": "var4"
+                                },
+                                {
+                                    "field": "var4.getName()",
+                                    "operation": "write",
+                                    "type": "string"
+                                },
+                                {
+                                    "field": "var4.getValue()",
+                                    "operation": "write",
+                                    "type": "string"
+                                },
+                                {
+                                    "field": "var4.getSignature()",
+                                    "operation": "write",
+                                    "type": "string"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "i",
+                            "operation": "write",
+                            "type": "metadata"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "sounds": {},
+    "stats": {},
+    "tags": {},
+    "version": {
+        "id": [
+            "1.7.5",
+            "1.7.6-pre1"
+        ],
+        "name": [
+            "1.7.5",
+            "1.7.6-pre1"
+        ],
+        "protocol": [
+            4,
+            5
+        ]
+    }
+}

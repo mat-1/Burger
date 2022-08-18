@@ -1,0 +1,376 @@
+{
+    "achievements": {},
+    "biomes": {
+        "biome": {}
+    },
+    "blocks": {
+        "block": {}
+    },
+    "entities": {
+        "entity": {}
+    },
+    "language": {
+        "mco": {
+            "buy.realms.buy": [
+                null,
+                "I want one!"
+            ],
+            "buy.realms.title": [
+                null,
+                "Buy a Realm"
+            ],
+            "configure.world.restore.download.question.line1": [
+                null,
+                "You will be redirected to your default browser to download your world map."
+            ],
+            "configure.world.restore.download.question.line2": [
+                null,
+                "Do you want to continue?"
+            ],
+            "configure.world.restore.question.line1": [
+                "Your realm will be restored to a previous version",
+                "Your realm will be restored to date"
+            ],
+            "invites.nopending": [
+                null,
+                "No pending invitations!"
+            ],
+            "more.info.question.line1": [
+                null,
+                "You will be redirected to your default browser to see the page."
+            ],
+            "more.info.question.line2": [
+                null,
+                "Do you want to continue?"
+            ],
+            "selectServer.buy": [
+                null,
+                "Buy Realm"
+            ]
+        },
+        "soundCategory": {
+            "ambient": [
+                null,
+                "Ambient/Environment"
+            ],
+            "animals": [
+                "Friendly Animals",
+                null
+            ],
+            "block": [
+                null,
+                "Blocks"
+            ],
+            "blocks": [
+                "Blocks & Environment",
+                null
+            ],
+            "hostile": [
+                null,
+                "Hostile Creatures"
+            ],
+            "mobs": [
+                "Enemy Monsters",
+                null
+            ],
+            "neutral": [
+                null,
+                "Friendly Creatures"
+            ],
+            "player": [
+                null,
+                "Players"
+            ],
+            "players": [
+                "Players",
+                null
+            ],
+            "record": [
+                null,
+                "Jukebox/Noteblocks"
+            ],
+            "records": [
+                "Jukebox & Note Blocks",
+                null
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_01": [
+                {
+                    "class": "gs.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 1,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "this.c.a()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "b",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 0x8)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "gt.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 1,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "this.c.a()",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "b",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "(var2 | 0x8)",
+                                    "var": "var2"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "var2",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "g.a()",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_07": [
+                {
+                    "class": "he.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 7,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "c.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "hf.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 7,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "c.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "d.a()",
+                            "operation": "write",
+                            "type": "string"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_29": [
+                {
+                    "class": "gr.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 41,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "g.b()",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "gs.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 41,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "byte"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "sounds": {},
+    "stats": {},
+    "tags": {},
+    "version": {
+        "id": [
+            "13w41b",
+            "13w42a"
+        ],
+        "name": [
+            "13w41b",
+            "13w42a"
+        ],
+        "protocol": [
+            0,
+            1
+        ]
+    }
+}

@@ -1,0 +1,155 @@
+{
+    "achievements": {},
+    "biomes": {
+        "biome": {}
+    },
+    "blocks": {
+        "block": {}
+    },
+    "entities": {
+        "entity": {}
+    },
+    "language": {
+        "menu": {
+            "playdemo": [
+                "Play Demo World",
+                null
+            ]
+        },
+        "tile": {
+            "stainedGlass.name": [
+                null,
+                "Stained Glass"
+            ],
+            "thinStainedGlass.name": [
+                null,
+                "Stained Glass Pane"
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_22": [
+                {
+                    "class": "ga.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 34,
+                    "instructions": [
+                        {
+                            "field": "b.a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b.b",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "(short)d",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "condition": "c != null",
+                            "instructions": [
+                                {
+                                    "field": "c.length",
+                                    "operation": "write",
+                                    "type": "int"
+                                },
+                                {
+                                    "field": "c",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "field": "0",
+                                    "operation": "write",
+                                    "type": "int"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "gb.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 34,
+                    "instructions": [
+                        {
+                            "field": "b.a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b.b",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "(short)d",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "condition": "c != null",
+                            "instructions": [
+                                {
+                                    "field": "c.length",
+                                    "operation": "write",
+                                    "type": "int"
+                                },
+                                {
+                                    "field": "c",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "field": "0",
+                                    "operation": "write",
+                                    "type": "int"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "sounds": {},
+    "stats": {},
+    "tags": {},
+    "version": {
+        "id": [
+            "1.7.1",
+            "1.7.2"
+        ],
+        "name": [
+            "1.7.1",
+            "1.7.2"
+        ],
+        "protocol": [
+            3,
+            4
+        ]
+    }
+}

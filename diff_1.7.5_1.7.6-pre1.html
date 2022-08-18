@@ -1,0 +1,76 @@
+<!doctype html>
+              <html>
+                <head>
+                  <title>Burger Vitrine</title>
+                  <link rel="stylesheet" href="resources/style.css" />
+                  <script src="resources/jquery.js"></script>
+                  <script src="resources/vitrine.js"></script>
+                </head>
+                <body>
+                    <div id="vitrine">
+                        <a href="#blocks"><h2 id="blocks">Blocks</h2></a><span class="info">No entries</span>
+<a href="#tags"><h2 id="tags">Tags</h2></a><span class="info">No entries</span>
+<a href="#entities"><h2 id="entities">Entities</h2></a><span class="info">No entries</span>
+<a href="#packets"><h2 id="packets">Packets</h2></a><div class="split"><div class="left"><div class="entry"><a href="#packets:login_clientbound_02"><h3 id="packets:login_clientbound_02">LOGIN_CLIENTBOUND_02</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>2</dd></dl><pre><span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">.</span><span class="hl_na">getId</span><span class="hl_o">());</span>
+<span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">.</span><span class="hl_na">getName</span><span class="hl_o">());</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:login_clientbound_02"><h3 id="packets:login_clientbound_02">LOGIN_CLIENTBOUND_02</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>2</dd></dl><pre><span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">.</span><span class="hl_na">getId</span><span class="hl_o">();</span>
+<span class="hl_n">writeString</span><span class="hl_o">((</span><span class="hl_n">var2</span> <span class="hl_o">==</span> <span class="hl_kc">null</span><span class="hl_o">)</span> <span class="hl_o">?</span> <span class="hl_s">&quot;&quot;</span> <span class="hl_o">:</span> <span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">toString</span><span class="hl_o">());</span>
+<span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">.</span><span class="hl_na">getName</span><span class="hl_o">());</span>
+</pre></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_0c"><h3 id="packets:play_clientbound_0c">PLAY_CLIENTBOUND_0C</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>12</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">getId</span><span class="hl_o">());</span>
+<span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">getName</span><span class="hl_o">());</span>
+<span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+<span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+<span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">);</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">f</span><span class="hl_o">);</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">g</span><span class="hl_o">);</span>
+<span class="hl_n">writeShort</span><span class="hl_o">(</span><span class="hl_n">h</span><span class="hl_o">);</span>
+<span class="hl_n">writeMetadata</span><span class="hl_o">(</span><span class="hl_n">i</span><span class="hl_o">);</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_0c"><h3 id="packets:play_clientbound_0c">PLAY_CLIENTBOUND_0C</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>12</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">Object</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">.</span><span class="hl_na">getId</span><span class="hl_o">();</span>
+<span class="hl_n">writeString</span><span class="hl_o">((</span><span class="hl_n">var2</span> <span class="hl_o">==</span> <span class="hl_kc">null</span><span class="hl_o">)</span> <span class="hl_o">?</span> <span class="hl_s">&quot;&quot;</span> <span class="hl_o">:</span> <span class="hl_n">var2</span><span class="hl_o">.</span><span class="hl_na">toString</span><span class="hl_o">());</span>
+<span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">getName</span><span class="hl_o">());</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">.</span><span class="hl_na">getProperties</span><span class="hl_o">().</span><span class="hl_na">size</span><span class="hl_o">());</span>
+<span class="hl_n">Object</span> <span class="hl_n">var3</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">.</span><span class="hl_na">getProperties</span><span class="hl_o">().</span><span class="hl_na">values</span><span class="hl_o">().</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var3</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+  <span class="hl_n">Object</span> <span class="hl_n">var4</span> <span class="hl_o">=</span> <span class="hl_o">((</span><span class="hl_n">com</span><span class="hl_o">.</span><span class="hl_na">mojang</span><span class="hl_o">.</span><span class="hl_na">authlib</span><span class="hl_o">.</span><span class="hl_na">properties</span><span class="hl_o">.</span><span class="hl_na">Property</span><span class="hl_o">)</span><span class="hl_n">var3</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">());</span>
+  <span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">var4</span><span class="hl_o">.</span><span class="hl_na">getName</span><span class="hl_o">());</span>
+  <span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">var4</span><span class="hl_o">.</span><span class="hl_na">getValue</span><span class="hl_o">());</span>
+  <span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">var4</span><span class="hl_o">.</span><span class="hl_na">getSignature</span><span class="hl_o">());</span>
+<span class="hl_o">}</span>
+<span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
+<span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+<span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">);</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">f</span><span class="hl_o">);</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">g</span><span class="hl_o">);</span>
+<span class="hl_n">writeShort</span><span class="hl_o">(</span><span class="hl_n">h</span><span class="hl_o">);</span>
+<span class="hl_n">writeMetadata</span><span class="hl_o">(</span><span class="hl_n">i</span><span class="hl_o">);</span>
+</pre></div></div>
+</div></div>
+<a href="#versions"><h2 id="versions">Versions</h2></a><div class="split"><div class="left"><div class="entry"><a href="#versions:id"><h3 id="versions:id">id</h3></a><div>1.7.5</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:id"><h3 id="versions:id">id</h3></a><div>1.7.6-pre1</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:name"><h3 id="versions:name">name</h3></a><div>1.7.5</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:name"><h3 id="versions:name">name</h3></a><div>1.7.6-pre1</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>4</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>5</div></div>
+</div></div>
+<a href="#stats"><h2 id="stats">Stats</h2></a><span class="info">No entries</span>
+<a href="#achievements"><h2 id="achievements">Achievements</h2></a><span class="info">No entries</span>
+<a href="#language"><h2 id="language">Language</h2></a><div class="split"><div class="left"><div class="entry"><a href="#language:addserver"><h3 id="language:addserver">addServer</h3></a><div><dl class="wide"><dt>resourcePack</dt><dd>-</dd><dt>resourcePack.disabled</dt><dd>-</dd><dt>resourcePack.enabled</dt><dd>-</dd><dt>resourcePack.prompt</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:addserver"><h3 id="language:addserver">addServer</h3></a><div><dl class="wide"><dt>resourcePack</dt><dd>Server Resource Packs</dd><dt>resourcePack.disabled</dt><dd>Disabled</dd><dt>resourcePack.enabled</dt><dd>Enabled</dd><dt>resourcePack.prompt</dt><dd>Prompt</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:commands"><h3 id="language:commands">commands</h3></a><div><dl class="wide"><dt>ban.failed</dt><dd>-</dd><dt>deop.failed</dt><dd>-</dd><dt>op.failed</dt><dd>-</dd><dt>unban.failed</dt><dd>-</dd><dt>whitelist.add.failed</dt><dd>-</dd><dt>whitelist.remove.failed</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:commands"><h3 id="language:commands">commands</h3></a><div><dl class="wide"><dt>ban.failed</dt><dd>Could not ban player %s</dd><dt>deop.failed</dt><dd>Could not de-op %s</dd><dt>op.failed</dt><dd>Could not op %s</dd><dt>unban.failed</dt><dd>Could not unban player %s</dd><dt>whitelist.add.failed</dt><dd>Could not add %s to the whitelist</dd><dt>whitelist.remove.failed</dt><dd>Could not remove %s from the whitelist</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:mco"><h3 id="language:mco">mco</h3></a><div><dl class="wide"><dt>configure.world.buttons.deop</dt><dd>-</dd><dt>configure.world.buttons.op</dt><dd>-</dd><dt>configure.world.invites.normal.tooltip</dt><dd>-</dd><dt>configure.world.invites.ops.tooltip</dt><dd>-</dd><dt>configure.world.invites.remove.tooltip</dt><dd>-</dd><dt>selectServer.closeserver</dt><dd>-</dd><dt>selectServer.openserver</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:mco"><h3 id="language:mco">mco</h3></a><div><dl class="wide"><dt>configure.world.buttons.deop</dt><dd>Deop</dd><dt>configure.world.buttons.op</dt><dd>Op</dd><dt>configure.world.invites.normal.tooltip</dt><dd>Normal user</dd><dt>configure.world.invites.ops.tooltip</dt><dd>Operator</dd><dt>configure.world.invites.remove.tooltip</dt><dd>Remove</dd><dt>selectServer.closeserver</dt><dd>Close Server</dd><dt>selectServer.openserver</dt><dd>Open Server</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:options"><h3 id="language:options">options</h3></a><div><dl class="wide"><dt>serverTextures</dt><dd>Server Textures</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:options"><h3 id="language:options">options</h3></a><div><dl class="wide"><dt>serverTextures</dt><dd>-</dd></dl></div></div>
+</div></div>
+<a href="#sounds"><h2 id="sounds">Sounds</h2></a><span class="info">No entries</span>
+<a href="#biomes"><h2 id="biomes">Biomes</h2></a><span class="info">No entries</span>
+
+                    </div>
+                </body>
+              </html>
