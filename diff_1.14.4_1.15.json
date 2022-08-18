@@ -42,6 +42,10 @@
                             ]
                         }
                     ],
+                    "super": [
+                        "bot",
+                        "bpe"
+                    ],
                     "text_id": "bee_nest"
                 }
             ],
@@ -81,6 +85,10 @@
                                 "WEST"
                             ]
                         }
+                    ],
+                    "super": [
+                        "bot",
+                        "bpe"
                     ],
                     "text_id": "beehive"
                 }
@@ -125,6 +133,10 @@
                                 "DOUBLE_WALL"
                             ]
                         }
+                    ],
+                    "super": [
+                        "bml",
+                        "bmv"
                     ],
                     "text_id": "bell"
                 },
@@ -175,6 +187,10 @@
                             "type": "bool"
                         }
                     ],
+                    "super": [
+                        "bot",
+                        "bpe"
+                    ],
                     "text_id": "bell"
                 }
             ],
@@ -211,6 +227,7 @@
                             "type": "bool"
                         }
                     ],
+                    "super": [],
                     "text_id": "end_stone_brick_slab"
                 },
                 {
@@ -245,6 +262,7 @@
                             "type": "bool"
                         }
                     ],
+                    "super": [],
                     "text_id": "end_stone_brick_slab"
                 }
             ],
@@ -308,6 +326,7 @@
                             "type": "bool"
                         }
                     ],
+                    "super": [],
                     "text_id": "end_stone_brick_stairs"
                 },
                 {
@@ -369,6 +388,7 @@
                             "type": "bool"
                         }
                     ],
+                    "super": [],
                     "text_id": "end_stone_brick_stairs"
                 }
             ],
@@ -427,6 +447,7 @@
                             "type": "bool"
                         }
                     ],
+                    "super": [],
                     "text_id": "end_stone_brick_wall"
                 },
                 {
@@ -483,6 +504,7 @@
                             "type": "bool"
                         }
                     ],
+                    "super": [],
                     "text_id": "end_stone_brick_wall"
                 }
             ],
@@ -498,6 +520,7 @@
                     "numeric_id": 488,
                     "resistance": 0.8,
                     "states": [],
+                    "super": [],
                     "text_id": "end_stone_bricks"
                 },
                 {
@@ -511,6 +534,7 @@
                     "numeric_id": 488,
                     "resistance": 9.0,
                     "states": [],
+                    "super": [],
                     "text_id": "end_stone_bricks"
                 }
             ],
@@ -525,6 +549,10 @@
                     "num_states": 1,
                     "numeric_id": 678,
                     "states": [],
+                    "super": [
+                        "brs",
+                        "bpe"
+                    ],
                     "text_id": "honey_block"
                 }
             ],
@@ -541,6 +569,7 @@
                     "numeric_id": 679,
                     "resistance": 0.6,
                     "states": [],
+                    "super": [],
                     "text_id": "honeycomb_block"
                 }
             ]
@@ -563,6 +592,20 @@
                             "entity": "~abstract_animal"
                         },
                         {
+                            "bitfields": [
+                                {
+                                    "mask": 8,
+                                    "method": "eD"
+                                },
+                                {
+                                    "mask": 4,
+                                    "method": "eE"
+                                },
+                                {
+                                    "mask": 2,
+                                    "method": "eQ"
+                                }
+                            ],
                             "class": "ata",
                             "data": [
                                 {
@@ -599,6 +642,7 @@
                             "entity": "~abstract_monster"
                         },
                         {
+                            "bitfields": [],
                             "class": "aui",
                             "data": [
                                 {
@@ -633,6 +677,7 @@
                             "entity": "~abstract_monster"
                         },
                         {
+                            "bitfields": [],
                             "class": "awj",
                             "data": [
                                 {
@@ -676,6 +721,20 @@
                             "entity": "~abstract_entity"
                         },
                         {
+                            "bitfields": [
+                                {
+                                    "mask": 1,
+                                    "method": "q"
+                                },
+                                {
+                                    "mask": 4,
+                                    "method": "r"
+                                },
+                                {
+                                    "mask": 2,
+                                    "method": "v"
+                                }
+                            ],
                             "class": "awk",
                             "data": [
                                 {
@@ -702,6 +761,7 @@
                             ]
                         },
                         {
+                            "bitfields": [],
                             "class": "axh",
                             "data": [
                                 {
@@ -729,6 +789,20 @@
                             "entity": "~abstract_entity"
                         },
                         {
+                            "bitfields": [
+                                {
+                                    "mask": 1,
+                                    "method": "q"
+                                },
+                                {
+                                    "mask": 4,
+                                    "method": "r"
+                                },
+                                {
+                                    "mask": 2,
+                                    "method": "v"
+                                }
+                            ],
                             "class": "ayk",
                             "data": [
                                 {
@@ -755,6 +829,7 @@
                             ]
                         },
                         {
+                            "bitfields": [],
                             "class": "azh",
                             "data": [
                                 {
@@ -791,6 +866,12 @@
                             "entity": "~abstract_tameable"
                         },
                         {
+                            "bitfields": [
+                                {
+                                    "mask": 2,
+                                    "method": "eg"
+                                }
+                            ],
                             "class": "arz",
                             "data": [
                                 {
@@ -830,6 +911,12 @@
                             "entity": "~abstract_tameable"
                         },
                         {
+                            "bitfields": [
+                                {
+                                    "mask": 2,
+                                    "method": "eB"
+                                }
+                            ],
                             "class": "atz",
                             "data": [
                                 {
@@ -861,6 +948,16 @@
                             "entity": "~abstract_entity"
                         },
                         {
+                            "bitfields": [
+                                {
+                                    "mask": 4,
+                                    "method": "de"
+                                },
+                                {
+                                    "mask": 1,
+                                    "method": "dj"
+                                }
+                            ],
                             "class": "aix",
                             "data": [
                                 {
@@ -918,6 +1015,16 @@
                             "entity": "~abstract_entity"
                         },
                         {
+                            "bitfields": [
+                                {
+                                    "mask": 4,
+                                    "method": "dw"
+                                },
+                                {
+                                    "mask": 1,
+                                    "method": "dB"
+                                }
+                            ],
                             "class": "akw",
                             "data": [
                                 {
@@ -2379,7 +2486,7 @@
                         {
                             "operation": "store",
                             "type": "Object",
-                            "value": "com.google.common.collect.Maps.newHashMap()",
+                            "value": "com/google/common/collect/Maps.newHashMap()",
                             "var": "var2"
                         },
                         {
@@ -2798,7 +2905,7 @@
                         {
                             "operation": "store",
                             "type": "Object",
-                            "value": "com.google.common.collect.Maps.newHashMap()",
+                            "value": "com/google/common/collect/Maps.newHashMap()",
                             "var": "var2"
                         },
                         {
