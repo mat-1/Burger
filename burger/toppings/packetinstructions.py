@@ -476,12 +476,21 @@ class PacketInstructionsTopping(Topping):
 
         if name in _PIT.TYPES:
             # Builtin netty buffer methods
-            assert num_arguments == 1
             assert not is_static
             # These methods always return the same buffer.
             stack.append(obj)
-            return [Operation(instruction.pos, "write", type=_PIT.TYPES[name],
-                              field=arguments[0])]
+
+            if name == "writeBytes" and num_arguments == 3:
+                # We allow writeBytes to have a length of 3, because there is a
+                # variant that takes the array, but also srcIndex and length.
+                # It is used in 13w41a, but is not used in modern versions.
+                return [Operation(instruction.pos, "write", type=_PIT.TYPES[name],
+                                  field="arrayRange(%s, %s, %s)" % (arguments[0],
+                                        arguments[1], arguments[2]))]
+            else:
+                assert num_arguments == 1
+                return [Operation(instruction.pos, "write", type=_PIT.TYPES[name],
+                                  field=arguments[0])]
         elif len(name) == 1 and isinstance(obj, StackOperand) and obj.value == PACKETBUF_NAME:
             # Checking len(name) == 1 is used to see if it's a Minecraft method
             # (due to obfuscation).  Netty methods have real (and thus longer) names.
