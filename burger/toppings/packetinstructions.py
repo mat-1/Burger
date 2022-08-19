@@ -552,7 +552,9 @@ class PacketInstructionsTopping(Topping):
                 return []
             else:
                 for arg in desc.args:
-                    if arg.name == classes["packet.packetbuffer"]:
+                    # In modern versions, Mojang always uses their packetbuffer class, but in 13w41a
+                    # they do have some functions that take ByteBuf, so we need to handle that too.
+                    if arg.name == classes["packet.packetbuffer"] or arg.name == "io/netty/buffer/ByteBuf":
                         if cls == classes["metadata"]:
                             # Special case - metadata is a complex type but
                             # well documented; we don't want to include its
