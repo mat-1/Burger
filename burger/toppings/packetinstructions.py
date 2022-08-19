@@ -856,9 +856,24 @@ class PacketInstructionsTopping(Topping):
             cache = _PIT.CACHE[cache_key]
             operations = [op.clone() for op in cache]
         else:
+            # invokestatic instructions (and presumably invokevirtual etc) can be linked to the
+            # current class, even if the invoked function is for a parent class. This is relevant
+            # in 13w41a.
             cf = classloader[invoked_class]
-            method = cf.methods.find_one(name=name, args=desc.args_descriptor)
-            assert method != None
+            method = None
+
+            while True:
+                method = cf.methods.find_one(name=name, args=desc.args_descriptor)
+                if method != None:
+                    break
+                if cf.super_.name.value == "java/util/Object":
+                    break
+                cf = classloader[cf.super_.name.value]
+
+            if method == None:
+                if verbose:
+                    print("Failed to find method corresponding to %s(%s) in %s or its parent classes" % (name, desc.args_descriptor, invoked_class))
+                assert method != None
 
             if method.access_flags.acc_abstract:
                 assert not method.access_flags.acc_static
