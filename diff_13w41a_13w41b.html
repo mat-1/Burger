@@ -347,7 +347,14 @@
 </div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_21"><h3 id="packets:play_clientbound_21">PLAY_CLIENTBOUND_21</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>33</dd></dl><pre><span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
 <span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
 </pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_21"><h3 id="packets:play_clientbound_21">PLAY_CLIENTBOUND_21</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>33</dd></dl>(no instruction data - did the packet fail to parse?)</div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_21"><h3 id="packets:play_clientbound_21">PLAY_CLIENTBOUND_21</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>33</dd></dl><pre><span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">g</span><span class="hl_o">);</span>
+<span class="hl_n">writeShort</span><span class="hl_o">((</span><span class="hl_kt">short</span><span class="hl_o">)(</span><span class="hl_n">c</span> <span class="hl_o">&amp;</span> <span class="hl_mi">65535</span><span class="hl_o">));</span>
+<span class="hl_n">writeShort</span><span class="hl_o">((</span><span class="hl_kt">short</span><span class="hl_o">)(</span><span class="hl_n">d</span> <span class="hl_o">&amp;</span> <span class="hl_mi">65535</span><span class="hl_o">));</span>
+<span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">h</span><span class="hl_o">);</span>
+<span class="hl_n">writeBytes</span><span class="hl_o">(</span><span class="hl_n">arrayRange</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">,</span> <span class="hl_mi">0</span><span class="hl_o">,</span> <span class="hl_n">h</span><span class="hl_o">));</span>
+</pre></div></div>
 </div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_22"><h3 id="packets:play_clientbound_22">PLAY_CLIENTBOUND_22</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>34</dd></dl><pre><span class="hl_n">writeFloat</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
 <span class="hl_n">writeShort</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
 <span class="hl_n">writeShort</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
@@ -386,7 +393,14 @@
 <span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">ahm</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">));</span>
 <span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">);</span>
 </pre></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_24"><h3 id="packets:play_clientbound_24">PLAY_CLIENTBOUND_24</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>36</dd></dl>(no instruction data - did the packet fail to parse?)</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_24"><h3 id="packets:play_clientbound_24">PLAY_CLIENTBOUND_24</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>36</dd></dl><pre><span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">);</span>
+<span class="hl_n">writeShort</span><span class="hl_o">((</span><span class="hl_kt">short</span><span class="hl_o">)(</span><span class="hl_n">c</span> <span class="hl_o">&amp;</span> <span class="hl_mi">65535</span><span class="hl_o">));</span>
+<span class="hl_n">writeShort</span><span class="hl_o">((</span><span class="hl_kt">short</span><span class="hl_o">)(</span><span class="hl_n">d</span> <span class="hl_o">&amp;</span> <span class="hl_mi">65535</span><span class="hl_o">));</span>
+<span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">h</span><span class="hl_o">);</span>
+<span class="hl_n">writeBytes</span><span class="hl_o">(</span><span class="hl_n">arrayRange</span><span class="hl_o">(</span><span class="hl_n">f</span><span class="hl_o">,</span> <span class="hl_mi">0</span><span class="hl_o">,</span> <span class="hl_n">h</span><span class="hl_o">));</span>
+</pre></div></div>
 </div><div class="right"><div class="entry"><a href="#packets:play_clientbound_24"><h3 id="packets:play_clientbound_24">PLAY_CLIENTBOUND_24</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>36</dd></dl><pre><span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
 <span class="hl_n">writeShort</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
 <span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
@@ -416,7 +430,19 @@
 <span class="hl_n">writeShort</span><span class="hl_o">(</span><span class="hl_n">ahp</span><span class="hl_o">.</span><span class="hl_na">b</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">));</span>
 <span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
 </pre></div></div>
-</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_26"><h3 id="packets:play_clientbound_26">PLAY_CLIENTBOUND_26</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>38</dd></dl>(no instruction data - did the packet fail to parse?)</div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_26"><h3 id="packets:play_clientbound_26">PLAY_CLIENTBOUND_26</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>38</dd></dl><pre><span class="hl_n">writeShort</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">.</span><span class="hl_na">length</span><span class="hl_o">);</span>
+<span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">g</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">h</span><span class="hl_o">);</span>
+<span class="hl_n">writeBytes</span><span class="hl_o">(</span><span class="hl_n">arrayRange</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">,</span> <span class="hl_mi">0</span><span class="hl_o">,</span> <span class="hl_n">g</span><span class="hl_o">));</span>
+<span class="hl_kt">int</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_mi">0</span><span class="hl_o">;</span>
+<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span> <span class="hl_o">&lt;</span> <span class="hl_n">a</span><span class="hl_o">.</span><span class="hl_na">length</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">[</span><span class="hl_n">var2</span><span class="hl_o">]);</span>
+  <span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">[</span><span class="hl_n">var2</span><span class="hl_o">]);</span>
+  <span class="hl_n">writeShort</span><span class="hl_o">((</span><span class="hl_kt">short</span><span class="hl_o">)(</span><span class="hl_n">c</span><span class="hl_o">[</span><span class="hl_n">var2</span><span class="hl_o">]</span> <span class="hl_o">&amp;</span> <span class="hl_mi">65535</span><span class="hl_o">));</span>
+  <span class="hl_n">writeShort</span><span class="hl_o">((</span><span class="hl_kt">short</span><span class="hl_o">)(</span><span class="hl_n">d</span><span class="hl_o">[</span><span class="hl_n">var2</span><span class="hl_o">]</span> <span class="hl_o">&amp;</span> <span class="hl_mi">65535</span><span class="hl_o">));</span>
+  <span class="hl_n">var2</span><span class="hl_o">++;</span>
+<span class="hl_o">}</span>
+</pre></div></div>
 </div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_27"><h3 id="packets:play_clientbound_27">PLAY_CLIENTBOUND_27</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>39</dd></dl><pre><span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
 <span class="hl_n">writeShort</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
 <span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>
@@ -459,7 +485,19 @@
 <span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
 <span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">f</span><span class="hl_o">);</span>
 </pre></div></div>
-</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_29"><h3 id="packets:play_clientbound_29">PLAY_CLIENTBOUND_29</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>41</dd></dl>(no instruction data - did the packet fail to parse?)</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_29"><h3 id="packets:play_clientbound_29">PLAY_CLIENTBOUND_29</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>41</dd></dl><pre><span class="hl_n">writeShort</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">length</span><span class="hl_o">);</span>
+<span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">g</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">h</span><span class="hl_o">);</span>
+<span class="hl_n">writeBytes</span><span class="hl_o">(</span><span class="hl_n">arrayRange</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">,</span> <span class="hl_mi">0</span><span class="hl_o">,</span> <span class="hl_n">g</span><span class="hl_o">));</span>
+<span class="hl_kt">int</span> <span class="hl_n">var2</span> <span class="hl_o">=</span> <span class="hl_mi">0</span><span class="hl_o">;</span>
+<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">var2</span> <span class="hl_o">&lt;</span> <span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">length</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">[</span><span class="hl_n">var2</span><span class="hl_o">]);</span>
+  <span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">[</span><span class="hl_n">var2</span><span class="hl_o">]);</span>
+  <span class="hl_n">writeShort</span><span class="hl_o">((</span><span class="hl_kt">short</span><span class="hl_o">)(</span><span class="hl_n">a</span><span class="hl_o">[</span><span class="hl_n">var2</span><span class="hl_o">]</span> <span class="hl_o">&amp;</span> <span class="hl_mi">65535</span><span class="hl_o">));</span>
+  <span class="hl_n">writeShort</span><span class="hl_o">((</span><span class="hl_kt">short</span><span class="hl_o">)(</span><span class="hl_n">b</span><span class="hl_o">[</span><span class="hl_n">var2</span><span class="hl_o">]</span> <span class="hl_o">&amp;</span> <span class="hl_mi">65535</span><span class="hl_o">));</span>
+  <span class="hl_n">var2</span><span class="hl_o">++;</span>
+<span class="hl_o">}</span>
+</pre></div></div>
 </div><div class="right"><div class="entry"><a href="#packets:play_clientbound_29"><h3 id="packets:play_clientbound_29">PLAY_CLIENTBOUND_29</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>41</dd></dl><pre><span class="hl_n">writeString</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
 <span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
 <span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">);</span>

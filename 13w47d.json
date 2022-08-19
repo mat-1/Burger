@@ -3425,6 +3425,26 @@
                             "field": "a",
                             "operation": "write",
                             "type": "string"
+                        },
+                        {
+                            "field": "b.getEncoded().length",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "b.getEncoded()",
+                            "operation": "write",
+                            "type": "byte[]"
+                        },
+                        {
+                            "field": "c.length",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "byte[]"
                         }
                     ],
                     "state": "LOGIN"
@@ -3470,7 +3490,28 @@
                     "from_client": true,
                     "from_server": false,
                     "id": 1,
-                    "instructions": [],
+                    "instructions": [
+                        {
+                            "field": "a.length",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte[]"
+                        },
+                        {
+                            "field": "b.length",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "byte[]"
+                        }
+                    ],
                     "state": "LOGIN"
                 },
                 "PLAY_CLIENTBOUND_00": {
@@ -4561,6 +4602,43 @@
                     "from_client": false,
                     "from_server": true,
                     "id": 33,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "(short)(c & 65535)",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "(short)(d & 65535)",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "arrayRange(e, 0, h)",
+                            "operation": "write",
+                            "type": "byte[]"
+                        }
+                    ],
                     "state": "PLAY"
                 },
                 "PLAY_CLIENTBOUND_22": {
@@ -4730,6 +4808,65 @@
                     "from_client": false,
                     "from_server": true,
                     "id": 38,
+                    "instructions": [
+                        {
+                            "field": "a.length",
+                            "operation": "write",
+                            "type": "short"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "arrayRange(e, 0, g)",
+                            "operation": "write",
+                            "type": "byte[]"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2 < a.length",
+                            "instructions": [
+                                {
+                                    "field": "a[var2]",
+                                    "operation": "write",
+                                    "type": "int"
+                                },
+                                {
+                                    "field": "b[var2]",
+                                    "operation": "write",
+                                    "type": "int"
+                                },
+                                {
+                                    "field": "(short)(c[var2] & 65535)",
+                                    "operation": "write",
+                                    "type": "short"
+                                },
+                                {
+                                    "field": "(short)(d[var2] & 65535)",
+                                    "operation": "write",
+                                    "type": "short"
+                                },
+                                {
+                                    "amount": "1",
+                                    "field": "var2",
+                                    "operation": "increment"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
                     "state": "PLAY"
                 },
                 "PLAY_CLIENTBOUND_27": {
