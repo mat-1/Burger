@@ -159,7 +159,12 @@ def identify(classloader, path, verbose):
                     # not in the list, only in registry
                     return 'block.register', class_file.this.name.value
             else:
-                return 'block.list', class_file.this.name.value
+                for c2 in class_file.constants.find(type_=String):
+                    if c2 == 'Tesselating block in world':
+                        # Rendering code, which we don't care about
+                        return
+                else:
+                    return 'block.list', class_file.this.name.value
 
         if value == 'diamond_pickaxe':
             # Similarly, diamond_pickaxe is only an item.  This exists in 3 classes, though:
