@@ -199,13 +199,14 @@ def identify(classloader, path, verbose):
         if value == 'minecraft':
             class_file = classloader[path]
 
-            # Look for two protected final strings
-            def is_protected_final(m):
-                return m.access_flags.acc_protected and m.access_flags.acc_final
+            # Look for two protected/private final strings
+            def is_protected_final_or_private_final(m):
+                # 22w42a/1.19.3+ makes it private instead of protected
+                return (m.access_flags.acc_protected or m.access_flags.acc_private) and m.access_flags.acc_final
 
             find_args = {
                 "type_": "Ljava/lang/String;",
-                "f": is_protected_final
+                "f": is_protected_final_or_private_final
             }
             fields = class_file.fields.find(**find_args)
 
