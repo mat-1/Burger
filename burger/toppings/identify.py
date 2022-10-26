@@ -52,7 +52,7 @@ MATCHES = (
         'anvilchunkloader'
     ),
     (['has invalidly named property'], 'blockstatecontainer'),
-    ((['HORIZONTAL'], True), 'enumfacing.plane'),
+    (['Someone\'s been tampering with the universe!'], 'enumfacing.plane'), # Prior to 1.13
     ((['bubble'], True), 'particletypes'),
     (['No value with id '], 'idmap')
 )
@@ -258,6 +258,22 @@ def identify(classloader, path, verbose):
                 return "particle", inner_type
             elif verbose:
                 print("Found ParticleArgument as %s, but it didn't implement the expected interface" % path)
+
+        if value == 'HORIZONTAL':
+            # In 22w43a, there is a second enum with HORIZONTAL and VERTICAL as members (used in UI
+            # code), not just enumfacing.plane. They can be differentiated by the constructors.
+            # This constructor was added in 1.13. Prior to 1.13, we can instead look for the string
+            # "Someone's been tampering with the universe!", which only exists in this enum.
+            class_file = classloader[path]
+
+            def is_enumfacing_plane_constructor(m):
+                # We're looking for EnumFacing$Plane(EnumFacing[], EnumFacing$Axis[]).
+                # Java synthetically adds parameters for enum name and ordinal, so that constructor
+                # has 4 parameters, with the last 2 being arrays.
+                return len(m.args) == 4 and m.args[2].dimensions == 1 and m.args[3].dimensions==1
+
+            if len(list(class_file.methods.find(name="<init>", f=is_enumfacing_plane_constructor))) != 0:
+                return "enumfacing.plane", class_file.this.name.value
 
     # May (will usually) be None
     return possible_match
