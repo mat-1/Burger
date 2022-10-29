@@ -183,6 +183,7 @@
                     "instructions": [
                         {
                             "field": "a",
+                            "length": "16",
                             "operation": "write",
                             "type": "string"
                         },
@@ -255,6 +256,7 @@
                     "instructions": [
                         {
                             "field": "a",
+                            "length": "16",
                             "operation": "write",
                             "type": "string"
                         },
@@ -285,6 +287,59 @@
                     "from_client": true,
                     "from_server": false,
                     "id": 1,
+                    "instructions": [
+                        {
+                            "field": "a.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "byte[]"
+                        },
+                        {
+                            "field": "b.isLeft()",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "b.isLeft()",
+                            "instructions": [
+                                {
+                                    "field": "b.left().length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "b.left()",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "instructions": [
+                                {
+                                    "field": "b.right().b",
+                                    "operation": "write",
+                                    "type": "long"
+                                },
+                                {
+                                    "field": "b.right().c.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "b.right().c",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "else"
+                        }
+                    ],
                     "state": "LOGIN"
                 },
                 {
