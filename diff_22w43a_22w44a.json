@@ -1,0 +1,472 @@
+{
+    "achievements": {},
+    "blocks": {
+        "block": {
+            "spawner": [
+                {
+                    "block_entity": "mob_spawner",
+                    "class": "ctb",
+                    "display_name": "Spawner",
+                    "field": "ch",
+                    "hardness": 5.0,
+                    "max_state_id": 2258,
+                    "min_state_id": 2258,
+                    "num_states": 1,
+                    "numeric_id": 163,
+                    "resistance": 5.0,
+                    "states": [],
+                    "super": [
+                        "cli",
+                        "clv"
+                    ],
+                    "text_id": "spawner"
+                },
+                {
+                    "block_entity": "mob_spawner",
+                    "class": "cti",
+                    "display_name": "Monster Spawner",
+                    "field": "ch",
+                    "hardness": 5.0,
+                    "max_state_id": 2258,
+                    "min_state_id": 2258,
+                    "num_states": 1,
+                    "numeric_id": 163,
+                    "resistance": 5.0,
+                    "states": [],
+                    "super": [
+                        "clp",
+                        "cmc"
+                    ],
+                    "text_id": "spawner"
+                }
+            ]
+        }
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {
+            "spawner_minecart": [
+                {
+                    "class": "bxt",
+                    "display_name": "Minecart with Spawner",
+                    "field": "ai",
+                    "height": 0.7,
+                    "id": 59,
+                    "metadata": [
+                        {
+                            "class": "bxi",
+                            "entity": "~abstract_minecart"
+                        }
+                    ],
+                    "name": "spawner_minecart",
+                    "width": 0.98
+                },
+                {
+                    "class": "bxz",
+                    "display_name": "Minecart with Monster Spawner",
+                    "field": "ai",
+                    "height": 0.7,
+                    "id": 59,
+                    "metadata": [
+                        {
+                            "class": "bxo",
+                            "entity": "~abstract_minecart"
+                        }
+                    ],
+                    "name": "spawner_minecart",
+                    "width": 0.98
+                }
+            ]
+        }
+    },
+    "items": {
+        "item": {
+            "ender_dragon_spawn_egg": [
+                null,
+                {
+                    "class": "cee",
+                    "display_name": "Ender Dragon Spawn Egg",
+                    "field": "rs",
+                    "max_stack_size": 64,
+                    "numeric_id": 954,
+                    "text_id": "ender_dragon_spawn_egg"
+                }
+            ],
+            "iron_golem_spawn_egg": [
+                null,
+                {
+                    "class": "cee",
+                    "display_name": "Iron Golem Spawn Egg",
+                    "field": "rF",
+                    "max_stack_size": 64,
+                    "numeric_id": 967,
+                    "text_id": "iron_golem_spawn_egg"
+                }
+            ],
+            "snow_golem_spawn_egg": [
+                null,
+                {
+                    "class": "cee",
+                    "display_name": "Snow Golem Spawn Egg",
+                    "field": "sd",
+                    "max_stack_size": 64,
+                    "numeric_id": 991,
+                    "text_id": "snow_golem_spawn_egg"
+                }
+            ],
+            "spawner": [
+                {
+                    "class": "cat",
+                    "display_name": "Spawner",
+                    "field": "ea",
+                    "max_stack_size": 64,
+                    "numeric_id": 260,
+                    "text_id": "spawner"
+                },
+                {
+                    "display_name": "Monster Spawner",
+                    "field": "ea",
+                    "max_stack_size": 64,
+                    "numeric_id": 260,
+                    "text_id": "spawner"
+                }
+            ],
+            "wither_spawn_egg": [
+                null,
+                {
+                    "class": "cee",
+                    "display_name": "Wither Spawn Egg",
+                    "field": "ss",
+                    "max_stack_size": 64,
+                    "numeric_id": 1006,
+                    "text_id": "wither_spawn_egg"
+                }
+            ]
+        }
+    },
+    "language": {
+        "block": {
+            "minecraft.spawner": [
+                "Spawner",
+                "Monster Spawner"
+            ],
+            "minecraft.spawner.desc1": [
+                null,
+                "Interact with Spawn Egg:"
+            ],
+            "minecraft.spawner.desc2": [
+                null,
+                "Sets Mob Type"
+            ]
+        },
+        "entity": {
+            "minecraft.spawner_minecart": [
+                "Minecart with Spawner",
+                "Minecart with Monster Spawner"
+            ]
+        },
+        "gamerule": {
+            "blockExplosionDropDecay": [
+                null,
+                "Drops from explosions caused by blocks decay"
+            ],
+            "blockExplosionDropDecay.description": [
+                null,
+                "Some of the drops from blocks destroyed by explosions caused by block interactions are lost in the explosion."
+            ],
+            "globalSoundEvents": [
+                null,
+                "Global sound events"
+            ],
+            "globalSoundEvents.description": [
+                null,
+                "When certain game events happen, like a boss spawning, the sound is heard everywhere."
+            ],
+            "lavaSourceConversion": [
+                null,
+                "Lave converts to source"
+            ],
+            "lavaSourceConversion.description": [
+                null,
+                "When flowing lava is surrounded on two sides by lava sources it converts into a source."
+            ],
+            "mobExplosionDropDecay": [
+                null,
+                "Drops from explosions caused by mobs decay"
+            ],
+            "mobExplosionDropDecay.description": [
+                null,
+                "Some of the drops from blocks destroyed by explosions caused by mobs are lost in the explosion."
+            ],
+            "snowAccumulationHeight": [
+                null,
+                "Snow accumulation height"
+            ],
+            "snowAccumulationHeight.description": [
+                null,
+                "When it snows, layers of snow form on the ground up to at most this number of layers."
+            ],
+            "tntExplosionDropDecay": [
+                null,
+                "Drops from explosions caused by TNT decay"
+            ],
+            "tntExplosionDropDecay.description": [
+                null,
+                "Some of the drops from blocks destroyed by explosions caused by TNT are lost in the explosion."
+            ],
+            "waterSourceConversion": [
+                null,
+                "Water converts to source"
+            ],
+            "waterSourceConversion.description": [
+                null,
+                "When flowing water is surrounded on two sides by water sources it converts into a source."
+            ]
+        },
+        "item": {
+            "minecraft.ender_dragon_spawn_egg": [
+                null,
+                "Ender Dragon Spawn Egg"
+            ],
+            "minecraft.iron_golem_spawn_egg": [
+                null,
+                "Iron Golem Spawn Egg"
+            ],
+            "minecraft.snow_golem_spawn_egg": [
+                null,
+                "Snow Golem Spawn Egg"
+            ],
+            "minecraft.wither_spawn_egg": [
+                null,
+                "Wither Spawn Egg"
+            ]
+        },
+        "mco": {
+            "selectServer.configure": [
+                "Configure realm",
+                "Configure"
+            ],
+            "selectServer.configureRealm": [
+                null,
+                "Configure realm"
+            ]
+        },
+        "selectWorld": {
+            "backupEraseCache": [
+                "Erase cached data",
+                "Erase Cached Data"
+            ]
+        },
+        "structure_block": {
+            "mode_info.data": [
+                "Data mode - Game Logic Marker",
+                "Data Mode - Game Logic Marker"
+            ],
+            "mode_info.load": [
+                "Load mode - Load from File",
+                "Load Mode - Load from File"
+            ]
+        }
+    },
+    "packets": {
+        "packet": {}
+    },
+    "recipes": {},
+    "sounds": {},
+    "stats": {},
+    "tags": {
+        "blocks/inside_step_sound_blocks": [
+            {
+                "name": "inside_step_sound_blocks",
+                "type": "blocks",
+                "values": [
+                    "minecraft:snow",
+                    "minecraft:powder_snow",
+                    "minecraft:sculk_vein"
+                ]
+            },
+            {
+                "name": "inside_step_sound_blocks",
+                "type": "blocks",
+                "values": [
+                    "minecraft:snow",
+                    "minecraft:powder_snow",
+                    "minecraft:sculk_vein",
+                    "minecraft:lily_pad",
+                    "minecraft:nether_sprouts",
+                    "minecraft:warped_roots",
+                    "minecraft:crimson_roots",
+                    "minecraft:glow_lichen",
+                    "minecraft:small_amethyst_bud",
+                    "minecraft:moss_carpet",
+                    "minecraft:white_carpet",
+                    "minecraft:orange_carpet",
+                    "minecraft:magenta_carpet",
+                    "minecraft:light_blue_carpet",
+                    "minecraft:yellow_carpet",
+                    "minecraft:lime_carpet",
+                    "minecraft:pink_carpet",
+                    "minecraft:gray_carpet",
+                    "minecraft:light_gray_carpet",
+                    "minecraft:cyan_carpet",
+                    "minecraft:purple_carpet",
+                    "minecraft:blue_carpet",
+                    "minecraft:brown_carpet",
+                    "minecraft:green_carpet",
+                    "minecraft:red_carpet",
+                    "minecraft:black_carpet"
+                ]
+            }
+        ],
+        "blocks/non_flammable_wood": [
+            {
+                "name": "non_flammable_wood",
+                "type": "blocks",
+                "values": [
+                    "minecraft:warped_stem",
+                    "minecraft:stripped_warped_stem",
+                    "minecraft:warped_hyphae",
+                    "minecraft:stripped_warped_hyphae",
+                    "minecraft:crimson_stem",
+                    "minecraft:stripped_crimson_stem",
+                    "minecraft:crimson_hyphae",
+                    "minecraft:stripped_crimson_hyphae",
+                    "minecraft:crimson_planks",
+                    "minecraft:warped_planks",
+                    "minecraft:crimson_slab",
+                    "minecraft:warped_slab",
+                    "minecraft:crimson_pressure_plate",
+                    "minecraft:warped_pressure_plate",
+                    "minecraft:crimson_fence",
+                    "minecraft:warped_fence",
+                    "minecraft:crimson_trapdoor",
+                    "minecraft:warped_trapdoor",
+                    "minecraft:crimson_fence_gate",
+                    "minecraft:warped_fence_gate",
+                    "minecraft:crimson_stairs",
+                    "minecraft:warped_stairs",
+                    "minecraft:crimson_button",
+                    "minecraft:warped_button",
+                    "minecraft:crimson_door",
+                    "minecraft:warped_door",
+                    "minecraft:crimson_sign",
+                    "minecraft:warped_sign",
+                    "minecraft:crimson_wall_sign",
+                    "minecraft:warped_wall_sign"
+                ]
+            },
+            null
+        ],
+        "items/fence_gates": [
+            null,
+            {
+                "name": "fence_gates",
+                "type": "items",
+                "values": [
+                    "minecraft:acacia_fence_gate",
+                    "minecraft:birch_fence_gate",
+                    "minecraft:dark_oak_fence_gate",
+                    "minecraft:jungle_fence_gate",
+                    "minecraft:oak_fence_gate",
+                    "minecraft:spruce_fence_gate",
+                    "minecraft:crimson_fence_gate",
+                    "minecraft:warped_fence_gate",
+                    "minecraft:mangrove_fence_gate"
+                ]
+            }
+        ],
+        "items/non_flammable_wood": [
+            {
+                "name": "non_flammable_wood",
+                "type": "items",
+                "values": [
+                    "minecraft:warped_stem",
+                    "minecraft:stripped_warped_stem",
+                    "minecraft:warped_hyphae",
+                    "minecraft:stripped_warped_hyphae",
+                    "minecraft:crimson_stem",
+                    "minecraft:stripped_crimson_stem",
+                    "minecraft:crimson_hyphae",
+                    "minecraft:stripped_crimson_hyphae",
+                    "minecraft:crimson_planks",
+                    "minecraft:warped_planks",
+                    "minecraft:crimson_slab",
+                    "minecraft:warped_slab",
+                    "minecraft:crimson_pressure_plate",
+                    "minecraft:warped_pressure_plate",
+                    "minecraft:crimson_fence",
+                    "minecraft:warped_fence",
+                    "minecraft:crimson_trapdoor",
+                    "minecraft:warped_trapdoor",
+                    "minecraft:crimson_fence_gate",
+                    "minecraft:warped_fence_gate",
+                    "minecraft:crimson_stairs",
+                    "minecraft:warped_stairs",
+                    "minecraft:crimson_button",
+                    "minecraft:warped_button",
+                    "minecraft:crimson_door",
+                    "minecraft:warped_door",
+                    "minecraft:crimson_sign",
+                    "minecraft:warped_sign",
+                    "minecraft:warped_hanging_sign",
+                    "minecraft:crimson_hanging_sign"
+                ]
+            },
+            {
+                "name": "non_flammable_wood",
+                "type": "items",
+                "values": [
+                    "minecraft:warped_stem",
+                    "minecraft:stripped_warped_stem",
+                    "minecraft:warped_hyphae",
+                    "minecraft:stripped_warped_hyphae",
+                    "minecraft:crimson_stem",
+                    "minecraft:stripped_crimson_stem",
+                    "minecraft:crimson_hyphae",
+                    "minecraft:stripped_crimson_hyphae",
+                    "minecraft:crimson_planks",
+                    "minecraft:warped_planks",
+                    "minecraft:crimson_slab",
+                    "minecraft:warped_slab",
+                    "minecraft:crimson_pressure_plate",
+                    "minecraft:warped_pressure_plate",
+                    "minecraft:crimson_fence",
+                    "minecraft:warped_fence",
+                    "minecraft:crimson_trapdoor",
+                    "minecraft:warped_trapdoor",
+                    "minecraft:crimson_fence_gate",
+                    "minecraft:warped_fence_gate",
+                    "minecraft:crimson_stairs",
+                    "minecraft:warped_stairs",
+                    "minecraft:crimson_button",
+                    "minecraft:warped_button",
+                    "minecraft:crimson_door",
+                    "minecraft:warped_door",
+                    "minecraft:crimson_sign",
+                    "minecraft:warped_sign"
+                ]
+            }
+        ]
+    },
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            3206,
+            3207
+        ],
+        "id": [
+            "22w43a",
+            "22w44a"
+        ],
+        "name": [
+            "22w43a",
+            "22w44a"
+        ],
+        "protocol": [
+            1073741929,
+            1073741930
+        ]
+    }
+}
