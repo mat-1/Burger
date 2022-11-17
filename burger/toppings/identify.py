@@ -52,7 +52,6 @@ MATCHES = (
         'anvilchunkloader'
     ),
     (['has invalidly named property'], 'blockstatecontainer'),
-    (['Someone\'s been tampering with the universe!'], 'enumfacing.plane'), # Prior to 1.13
     ((['bubble'], True), 'particletypes'),
     (['No value with id '], 'idmap')
 )
@@ -262,8 +261,12 @@ def identify(classloader, path, verbose):
         if value == 'HORIZONTAL':
             # In 22w43a, there is a second enum with HORIZONTAL and VERTICAL as members (used in UI
             # code), not just enumfacing.plane. They can be differentiated by the constructors.
-            # This constructor was added in 1.13. Prior to 1.13, we can instead look for the string
-            # "Someone's been tampering with the universe!", which only exists in this enum.
+            # This constructor was added in 1.13.
+            # Prior to 1.13, the string "Someone's been tampering with the universe!" indicates
+            # enumfacing.plane. After, it instead indicates the x/y/z axis. So, if we don't find
+            # a matching constructor, check for that string constant instead. That string constant
+            # was removed entirely in 1.18 (it existed in 1.17). I'm not sure of which specific
+            # snapshots this was changed in.
             class_file = classloader[path]
 
             def is_enumfacing_plane_constructor(m):
@@ -274,6 +277,9 @@ def identify(classloader, path, verbose):
 
             if len(list(class_file.methods.find(name="<init>", f=is_enumfacing_plane_constructor))) != 0:
                 return "enumfacing.plane", class_file.this.name.value
+            for c2 in class_file.constants.find(type_=String):
+                if c2 == "Someone's been tampering with the universe!":
+                    return "enumfacing.plane", class_file.this.name.value
 
     # May (will usually) be None
     return possible_match
