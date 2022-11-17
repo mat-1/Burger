@@ -615,11 +615,17 @@ class BlockStateTopping(Topping):
             args = prop["field"]["args"]
             assert len(args) == 3
             assert isinstance(args[1], int)
-            assert isinstance(args[2], int)
 
-            ret["num_values"] = args[2] - args[1] + 1
             ret["min"] = args[1]
-            ret["max"] = args[2]
+            if isinstance(args[2], int):
+                ret["max"] = args[2]
+            else:
+                # For whatever reason, the number of rotation angles for signs and banners is not a
+                # compile-time constant, but instead the result of a static function (which returns
+                # a compile-time constant). Let's just hardcode that constant instead.
+                assert ret["name"] == "rotation"
+                ret["max"] = 15
+            ret["num_values"] = ret["max"] - ret["min"] + 1
             return ret
 
         def handle_enum_property(prop):
