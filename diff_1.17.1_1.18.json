@@ -9,8 +9,8 @@
                     "display_name": "Enchanting Table",
                     "field": "ei",
                     "hardness": 5.0,
-                    "max_state_id": 5206,
-                    "min_state_id": 5206,
+                    "max_state_id": 5333,
+                    "min_state_id": 5333,
                     "num_states": 1,
                     "numeric_id": 268,
                     "resistance": 1200.0,
@@ -28,8 +28,8 @@
                     "field": "ei",
                     "hardness": 5.0,
                     "light": 7,
-                    "max_state_id": 5206,
-                    "min_state_id": 5206,
+                    "max_state_id": 5333,
+                    "min_state_id": 5333,
                     "num_states": 1,
                     "numeric_id": 268,
                     "resistance": 1200.0,
@@ -2262,6 +2262,401 @@
                     "from_client": false,
                     "from_server": true,
                     "id": 99,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "b.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.b.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Map.Entry<yh, af$a>",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.getKey()",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                },
+                                {
+                                    "condition": "itv.getValue().f == null",
+                                    "instructions": [
+                                        {
+                                            "field": "f",
+                                            "obj": "itv.getValue()",
+                                            "operation": "putfield",
+                                            "value": "itv.getValue().g.createRequirements(itv.getValue().e.keySet())"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "condition": "itv.getValue().a == null",
+                                    "instructions": [
+                                        {
+                                            "field": "0",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "instructions": [
+                                        {
+                                            "field": "1",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "itv.getValue().a",
+                                            "operation": "write",
+                                            "type": "identifier"
+                                        }
+                                    ],
+                                    "operation": "else"
+                                },
+                                {
+                                    "condition": "itv.getValue().c == null",
+                                    "instructions": [
+                                        {
+                                            "field": "0",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "instructions": [
+                                        {
+                                            "field": "1",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "field": "itv.getValue().c.a",
+                                            "operation": "write",
+                                            "type": "chatcomponent"
+                                        },
+                                        {
+                                            "field": "itv.getValue().c.b",
+                                            "operation": "write",
+                                            "type": "chatcomponent"
+                                        },
+                                        {
+                                            "field": "itv.getValue().c.c",
+                                            "operation": "write",
+                                            "type": "itemstack"
+                                        },
+                                        {
+                                            "field": "itv.getValue().c.e",
+                                            "operation": "write",
+                                            "type": "enum"
+                                        },
+                                        {
+                                            "operation": "store",
+                                            "type": "int",
+                                            "value": "0",
+                                            "var": "var2"
+                                        },
+                                        {
+                                            "condition": "itv.getValue().c.d != null",
+                                            "instructions": [
+                                                {
+                                                    "operation": "store",
+                                                    "type": "int",
+                                                    "value": "(var2 | 1)",
+                                                    "var": "var2"
+                                                }
+                                            ],
+                                            "operation": "if"
+                                        },
+                                        {
+                                            "condition": "itv.getValue().c.f",
+                                            "instructions": [
+                                                {
+                                                    "operation": "store",
+                                                    "type": "int",
+                                                    "value": "(var2 | 2)",
+                                                    "var": "var2"
+                                                }
+                                            ],
+                                            "operation": "if"
+                                        },
+                                        {
+                                            "condition": "itv.getValue().c.h",
+                                            "instructions": [
+                                                {
+                                                    "operation": "store",
+                                                    "type": "int",
+                                                    "value": "(var2 | 4)",
+                                                    "var": "var2"
+                                                }
+                                            ],
+                                            "operation": "if"
+                                        },
+                                        {
+                                            "field": "var2",
+                                            "operation": "write",
+                                            "type": "int"
+                                        },
+                                        {
+                                            "condition": "itv.getValue().c.d != null",
+                                            "instructions": [
+                                                {
+                                                    "field": "itv.getValue().c.d",
+                                                    "operation": "write",
+                                                    "type": "identifier"
+                                                }
+                                            ],
+                                            "operation": "if"
+                                        },
+                                        {
+                                            "field": "itv.getValue().c.i",
+                                            "operation": "write",
+                                            "type": "float"
+                                        },
+                                        {
+                                            "field": "itv.getValue().c.j",
+                                            "operation": "write",
+                                            "type": "float"
+                                        }
+                                    ],
+                                    "operation": "else"
+                                },
+                                {
+                                    "field": "itv.getValue().e.size()",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "Iterator",
+                                    "value": "itv.getValue().e.iterator()",
+                                    "var": "it"
+                                },
+                                {
+                                    "condition": "it.hasNext()",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "Map.Entry<java.lang.String, ak>",
+                                            "value": "it.next()",
+                                            "var": "itv"
+                                        },
+                                        {
+                                            "field": "itv.getKey()",
+                                            "operation": "write",
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "operation": "loop"
+                                },
+                                {
+                                    "field": "itv.getValue().f.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "Object",
+                                    "value": "itv.getValue().f",
+                                    "var": "var2"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "var2.length",
+                                    "var": "var3"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "int",
+                                    "value": "0",
+                                    "var": "var4"
+                                },
+                                {
+                                    "condition": "var4 < var3",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "var2[var4]",
+                                            "var": "var5"
+                                        },
+                                        {
+                                            "field": "var5.length",
+                                            "operation": "write",
+                                            "type": "varint"
+                                        },
+                                        {
+                                            "operation": "store",
+                                            "type": "Object",
+                                            "value": "var5",
+                                            "var": "var6"
+                                        },
+                                        {
+                                            "operation": "store",
+                                            "type": "int",
+                                            "value": "var6.length",
+                                            "var": "var7"
+                                        },
+                                        {
+                                            "operation": "store",
+                                            "type": "int",
+                                            "value": "0",
+                                            "var": "var8"
+                                        },
+                                        {
+                                            "condition": "var8 < var7",
+                                            "instructions": [
+                                                {
+                                                    "operation": "store",
+                                                    "type": "Object",
+                                                    "value": "var6[var8]",
+                                                    "var": "var9"
+                                                },
+                                                {
+                                                    "field": "var9",
+                                                    "operation": "write",
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "amount": "1",
+                                                    "field": "var8",
+                                                    "operation": "increment"
+                                                }
+                                            ],
+                                            "operation": "loop"
+                                        },
+                                        {
+                                            "amount": "1",
+                                            "field": "var4",
+                                            "operation": "increment"
+                                        }
+                                    ],
+                                    "operation": "loop"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "c.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.c.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "yh",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "d.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.d.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "Map.Entry<yh, ah>",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.getKey()",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                },
+                                {
+                                    "field": "itv.getValue().a.size()",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "operation": "store",
+                                    "type": "Iterator",
+                                    "value": "itv.getValue().a.iterator()",
+                                    "var": "it"
+                                },
+                                {
+                                    "condition": "it.hasNext()",
+                                    "instructions": [
+                                        {
+                                            "operation": "store",
+                                            "type": "Map.Entry<java.lang.String, al>",
+                                            "value": "it.next()",
+                                            "var": "itv"
+                                        },
+                                        {
+                                            "field": "itv.getKey()",
+                                            "operation": "write",
+                                            "type": "string"
+                                        },
+                                        {
+                                            "field": "(itv.getValue().b != null) ? 1 : 0",
+                                            "operation": "write",
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "condition": "itv.getValue().b != null",
+                                            "instructions": [
+                                                {
+                                                    "field": "itv.getValue().b.getTime()",
+                                                    "operation": "write",
+                                                    "type": "long"
+                                                }
+                                            ],
+                                            "operation": "if"
+                                        }
+                                    ],
+                                    "operation": "loop"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
                     "state": "PLAY"
                 }
             ],
