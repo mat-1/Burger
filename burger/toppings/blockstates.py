@@ -433,7 +433,7 @@ class BlockStateTopping(Topping):
                     name = const.name_and_type.name.value
                     value = stack.pop()
 
-                    if isinstance(value, dict):
+                    if isinstance(value, dict) and "class" in value:
                         if "declared_in" not in value:
                             # If there's already a declared_in, this is a field
                             # loaded with getstatic, and we don't want to change
@@ -561,6 +561,9 @@ class BlockStateTopping(Topping):
                 elif ins == "if_icmpge":
                     # Code in stairs that loops over state combinations for hitboxes
                     break
+                elif ins == "iadd":
+                    # used for skulls - we don't care about the result in practice
+                    stack.append({"add": [stack.pop(), stack.pop()]})
                 elif verbose:
                     print("%s initializer contains unimplemented ins %s" % (cls, ins))
 
