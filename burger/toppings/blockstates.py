@@ -123,7 +123,8 @@ class BlockStateTopping(Topping):
                             if ins2 == "getstatic":
                                 const2 = ins2.operands[0]
                                 prop = {
-                                    "field_name": const2.name_and_type.name.value
+                                    "field_name": const2.name_and_type.name.value,
+                                    "field_class": const2.class_.name.value
                                 }
                                 desc2 = field_descriptor(const2.name_and_type.descriptor.value)
                                 _property_types.add(desc2.name)
@@ -146,7 +147,8 @@ class BlockStateTopping(Topping):
                     else:
                         # The normal path for everything else
                         prop = {
-                            "field_name": const.name_and_type.name.value
+                            "field_name": const.name_and_type.name.value,
+                            "field_class": const.class_.name.value
                         }
                         _property_types.add(desc.name)
                         stack.append(prop)
@@ -336,6 +338,56 @@ class BlockStateTopping(Topping):
 
         def find_field(cls, field_name):
             """
+            This function exists to deal with a javac quirk: static fields in superclasses
+            are treated as if they were static fields in the current class. This also
+            applies to invokestatic, but it's particularly weird for fields. For example:
+
+            ```java
+            interface Iface {
+                public static final Object FOO = "foo";  // Note: Object to prevent inlining
+            }
+            class Parent implements Iface {
+                public static final Object BAR = "bar";
+            }
+            class Child extends Parent implements Iface {
+                public static void test() {
+                    System.out.println(FOO);  // getstatic uses Child.FOO
+                    System.out.println(Iface.FOO);  // uses Iface.FOO
+                    System.out.println(Parent.FOO);  // uses Parent.FOO
+                    System.out.println(Child.FOO);  // uses Child.FOO
+                    System.out.println(BAR);  // uses Child.BAR
+                    System.out.println(Parent.BAR);  // uses Parent.BAR
+                    System.out.println(Child.BAR);  // uses Child.BAR
+                }
+            }
+            ```
+
+            As a practical example:
+
+            ```java
+            public class Block { /* ... */ }
+            public abstract class BlockHorizontal extends Block {
+                public static final Property FACING = Properties.FACING;
+                // ... also supports mirroring and rotating ...
+            }
+            public class BlockCocoaBeans {
+                public static final Property AGE = Properties.AGE_0_TO_2;
+                @Override
+                void registerProperties(BlockStateContainer container) {
+                    container.register(FACING, AGE);
+                    // looks the same bytecode-wise as:
+                    // container.register(BlockCocoaBeans.FACING, BlockCocoaBeans.AGE);
+                }
+            }
+            ```
+
+            99% of blocks register without using a specific class name, and thus use getstatic
+            on the current class. The exceptions are infested deepslate, which uses the same
+            AXIS field used by regular deepslate (and other pillar-like blocks) but does not
+            directly inherit the same class, and the chiseled bookshelf in 22w46a+ which uses
+            a list that contains direct references to the class containing all block state
+            properties without re-declaring them in its own class.
+
             cls: name of the class
             field_name: name of the field to find.  If None, returns all fields
             """
@@ -355,9 +407,15 @@ class BlockStateTopping(Topping):
 
             fields_by_class[cls] = {}
             super_name = cf.super_.name.value
-            if not super_name.startswith("java/lang"):
+            if not super_name.startswith("java/"):
                 # Add fields from superclass
                 fields_by_class[cls].update(find_field(super_name, None))
+            for iface in cf.interfaces:
+                # Relevant for cave vines (glowberries), which have separate blocks for cave_vines
+                # and cave_vines_plant, but the berries property is declared in a shared interface.
+                iface_name = iface.name.value
+                if not iface_name.startswith("java/") and not iface_name.startswith('com/google/'):
+                    fields_by_class[cls].update(find_field(iface_name, None))
 
             init = cf.methods.find_one(name="<clinit>")
             if not init:
@@ -673,8 +731,9 @@ class BlockStateTopping(Topping):
 
         def process_property(property):
             field_name = property["field_name"]
+            field_class = property["field_class"]
             try:
-                field = find_field(cls, field_name)
+                field = find_field(field_class, field_name)
                 if "array_index" in property:
                     field = field[property["array_index"]]
                 property["field"] = field
@@ -682,7 +741,7 @@ class BlockStateTopping(Topping):
                 property["data"] = property_handlers[field["type"]](property)
             except:
                 if verbose:
-                    print("Failed to handle property %s (declared %s.%s)" % (property, cls, field_name))
+                    print("Failed to handle property %s (accessed as %s.%s)" % (property, field_class, field_name))
                     traceback.print_exc()
                 property["data"] = None
 
@@ -698,7 +757,7 @@ class BlockStateTopping(Topping):
                     # Manual handling
                     pass
                 elif verbose:
-                    print("Skipping odd property %s (declared in %s)" % (property, cls))
+                    print("Skipping odd property %s (accessed from %s)" % (property, cls))
 
         # Part 4: attach that information to blocks.
         state_id = 0
