@@ -150,7 +150,12 @@ class BlockStateTopping(Topping):
                             "field_name": const.name_and_type.name.value,
                             "field_class": const.class_.name.value
                         }
-                        _property_types.add(desc.name)
+                        if desc.dimensions == 0:
+                            # Dimensions are nonzero for brewing stands and glow_lichen/sculk_vein
+                            # The latter two use EnumFacing, which is a problem since that's not a
+                            # property. We could add the one for brewing stands, but it's already
+                            # been added by other blocks.
+                            _property_types.add(desc.name)
                         stack.append(prop)
                 elif ins == "aaload":
                     index = stack.pop()
@@ -167,17 +172,26 @@ class BlockStateTopping(Topping):
                     stack.append(stack[-1])
                 elif ins == "invokespecial":
                     const = ins.operands[0]
-                    assert const.name_and_type.name == "<init>"
                     desc = method_descriptor(const.name_and_type.descriptor.value)
-                    assert len(desc.args) == 2
+                    if const.name_and_type.name == "<init>":
+                        # This constructor call is only used in 1.12 and earlier; it isn't used in 1.13.
+                        assert len(desc.args) == 2
 
-                    # Normally this constructor call would return nothing, but
-                    # in this case we'd rather remove the object it's called on
-                    # and keep the properties array (its parameter)
-                    arg = stack.pop()
-                    stack.pop() # Block
-                    stack.pop() # Invocation target
-                    stack.append(arg)
+                        # Normally this constructor call would return nothing, but
+                        # in this case we'd rather remove the object it's called on
+                        # and keep the properties array (its parameter)
+                        arg = stack.pop()
+                        stack.pop() # Block
+                        stack.pop() # Invocation target
+                        stack.append(arg)
+                    else:
+                        # glow_lichen, sculk_vein, and cave_vines all call the superclass's
+                        # block state registration method
+                        assert const.class_.name == cf.super_.name
+                        assert const.name_and_type.name.value == base_method.name.value
+                        assert const.name_and_type.descriptor.value == base_method.descriptor.value
+                        assert properties == None
+                        properties = process_class(cf.super_.name.value)
                 elif ins == "invokevirtual":
                     # Two possibilities (both only present pre-flattening):
                     # 1. It's isDouble() for a slab.  Two different sets of
