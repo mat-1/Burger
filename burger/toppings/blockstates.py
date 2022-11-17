@@ -110,12 +110,46 @@ class BlockStateTopping(Topping):
                     stack.append(val)
                 elif ins == "getstatic":
                     const = ins.operands[0]
-                    prop = {
-                        "field_name": const.name_and_type.name.value
-                    }
                     desc = field_descriptor(const.name_and_type.descriptor.value)
-                    _property_types.add(desc.name)
-                    stack.append(prop)
+                    if desc.name == "java/util/List":
+                        # Special-casing for chiseled bookshelves in 22w46a,
+                        # which use a list for slot_0_occupied through slot_5_occupied.
+                        # This code is very brittle and hacky.
+                        init = cf.methods.find_one(name="<clinit>")
+                        stack2 = []
+                        for ins2 in init.code.disassemble():
+                            # return appears too, but we break before it
+                            assert ins2 in ("getstatic", "invokestatic", "putstatic")
+                            if ins2 == "getstatic":
+                                const2 = ins2.operands[0]
+                                prop = {
+                                    "field_name": const2.name_and_type.name.value
+                                }
+                                desc2 = field_descriptor(const2.name_and_type.descriptor.value)
+                                _property_types.add(desc2.name)
+                                stack2.append(prop)
+                            elif ins2 == "invokestatic":
+                                assert ins2.operands[0].class_.name == "java/util/List"
+                                assert ins2.operands[0].name_and_type.name == "of"
+                                assert ins2.operands[0].name_and_type.descriptor == "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;"
+                                # Put the last 6 items onto the stack as an array
+                                # (this should be equivalent to stack2 = [stack2] in practice)
+                                stack2 = stack2[:-6] + [stack2[-6:]]
+                            elif ins2 == "putstatic":
+                                # We should be storing to the same field as the one we're searching for
+                                assert ins2.operands[0] == const
+                                # So, we can treat this as handling the original getfield.
+                                stack.append(stack2.pop())
+                                break
+                        else:
+                            raise Exception("Failed to hackily find list for getfield ins " + str(ins))
+                    else:
+                        # The normal path for everything else
+                        prop = {
+                            "field_name": const.name_and_type.name.value
+                        }
+                        _property_types.add(desc.name)
+                        stack.append(prop)
                 elif ins == "aaload":
                     index = stack.pop()
                     array = stack.pop()
@@ -200,6 +234,39 @@ class BlockStateTopping(Topping):
                 elif ins == "aload":
                     assert ins.operands[0].value == 0 # Should be aload_0 (this)
                     stack.append(object())
+                elif ins == "invokestatic":
+                    # Added in 22w46a: the chiseled bookshelf uses a list to store
+                    # slot_0_occupied through slot_5_occupied, and also checks that the
+                    # object block states are being registered to is non-null for some reason
+                    # (_after_ already using it? This seems to be automatic for lambdas, I guess?)
+                    assert ins.operands[0].class_.name == "java/util/Objects"
+                    assert ins.operands[0].name_and_type.name == "requireNonNull"
+                    assert ins.operands[0].name_and_type.descriptor == "(Ljava/lang/Object;)Ljava/lang/Object;"
+                    # requireNonNull just returns its parameter, so we don't need to do anything
+                elif ins == "invokedynamic":
+                    # As implied above, this is used in 22w46a for chiseled bookshelves,
+                    # as something like this:
+                    """
+                    void registerStates(BlockStateContainer instance) {
+                        instance.register(BlockStates.LAST_INTERACTION_BOOK_SLOT)
+                                .register(BlockAbstractBookshelf.FACING);
+                        // compiler-generated for instance::register some reason, and like this and
+                        // not making use of requireNonNull's return value.
+                        Objects.requireNonNull(instance);
+                        BlockChiseledBookshelf.SLOT_OCCUPIED.forEach(instance::register);
+                    }
+                    """
+                    # We can just ignore this and assume any invokedynamic is for this purpose.
+                    desc = method_descriptor(ins.operands[0].name_and_type.descriptor.value)
+                    assert ins.operands[0].name_and_type.name == 'accept'
+                    assert desc.returns.name == 'java/util/function/Consumer'
+                elif ins == "invokeinterface":
+                    # This is the forEach in 22w46a for chiseled bookshelves.
+                    assert ins.operands[0].class_.name == "java/util/List"
+                    assert ins.operands[0].name_and_type.name == "forEach"
+                    assert ins.operands[0].name_and_type.descriptor == "(Ljava/util/function/Consumer;)V"
+                    stack.pop()  # removing the consumer argument
+                    properties.extend(stack.pop())  # And this is the field.
                 elif verbose:
                     print("%s createBlockState contains unimplemented ins %s" % (name, ins))
 
