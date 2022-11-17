@@ -2,6 +2,7 @@
 # -*- coding: utf8 -*-
 
 from .topping import Topping
+from burger.util import InvokeDynamicInfo, REF_invokeStatic, get_enum_constants
 
 from jawa.constants import *
 from jawa.util.descriptor import method_descriptor, field_descriptor
@@ -68,6 +69,160 @@ class BlockStateTopping(Topping):
         _property_types = set()
         # Properties that are used by each block class
         properties_by_class = {}
+
+        def process_superclass_invokespecial(name):
+            """
+            glow_lichen, sculk_vein, and cave_vines all call the superclass's
+            block state registration method with an invokespecial instruction,
+            and then add their own states. cave_vines can just call it directly,
+            but glow_lichen and sculk_vein have complicated logic involving
+            a Map of properties, which is easier to manually handle.
+
+            Returns a tuple containing a copy of the properties (which the
+            caller can safely mutate) and a tuple of (method_descriptor, name)
+            for a function (useDirection) that the caller needs to verify does
+            not exist in the calling class (that tuple is None for cave_vines,
+            in which case no checking is needed).
+            """
+
+            cf = classloader[name]
+            method = cf.methods.find_one(f=matches)
+            assert method is not None
+
+            for ins in method.code.disassemble():
+                if ins == "astore" and ins.operands[0].value == 2:
+                    # This instruction (astore_2) only appears in glow_lichen
+                    # and sculk_vein (and not in cave_vines).
+                    break
+            else:
+                # This is cave_vines, so we can just use the normal logic.
+                return (list(process_class(name)), None)
+
+            # The code in question looks like this:
+            """
+            private static final Map<EnumFacing, BoolProperty> PROPERTY_BY_FACING = MultidirectionalBlock.PROPERTY_BY_FACING;
+            protected static final EnumFacing[] ENUMFACING_VALUES = EnumFacing.values();
+            protected boolean useDirection(EnumFacing dir) {
+                return true;  // this code assumes nothing overrides this function
+            }
+            @Override
+            public void registerStates(BlockStateContainer container) {
+                for (EnumFacing dir : ENUMFACING_VALUES) {
+                    if (useDirection(dir)) {
+                        container.register(getProperty(dir));
+                    }
+                }
+            }
+            public static BoolProperty getProperty(EnumFacing dir) {
+                return PROPERTY_BY_FACING.get(dir);
+            }
+            """
+            # where getProperty is the call we find below.
+            # MultidirectionalBlock is NOT a parent of these multiface blocks
+            # (glow_lichen/sculk_vein) but is a parent of chorus plant.
+            # useDirection fortunately is unused in all actual implementations.
+
+            for ins in method.code.disassemble():
+                if ins == "invokestatic":
+                    const = ins.operands[0]
+                    desc = method_descriptor(const.name_and_type.descriptor.value)
+                    method2 = cf.methods.find_one(name=const.name_and_type.name, args=desc.args_descriptor)
+                    enumfacing = method2.args[0].name
+                    break
+            else:
+                raise Exception("Failed to find invokestatic instruction")
+
+            # Note: the invokevirtual comes before the invokestatic, but we want to know
+            # what enumfacing is to verify that method_that_should_not_exist is correct.
+            for ins in method.code.disassemble():
+                if ins == "invokevirtual":
+                    const = ins.operands[0]
+                    method_that_should_not_exist_desc = method_descriptor(const.name_and_type.descriptor.value)
+                    method_that_should_not_exist_name = const.name_and_type.name.value
+                    assert method_that_should_not_exist_desc.returns.name == 'boolean'
+                    assert len(method_that_should_not_exist_desc.args) == 1
+                    assert method_that_should_not_exist_desc.args[0].name == enumfacing
+                    break
+            else:
+                raise Exception("Failed to find invokevirtual instruction")
+
+            for ins2 in method2.code.disassemble():
+                if ins2 == "getstatic":
+                    const2 = ins2.operands[0]
+                    assert const2.class_.name == name
+                    property_by_facing_field = cf.fields.find_one(name=const2.name_and_type.name.value)
+                    assert property_by_facing_field is not None
+                    break
+            else:
+                raise Exception("Failed to find getstatic instruction")
+
+            method3 = cf.methods.find_one(name='<clinit>')
+            source_ins = None
+            for ins3 in method3.code.disassemble():
+                if ins3 == "getstatic":
+                    source_ins = ins3
+                elif ins3 == "putstatic":
+                    if ins3.operands[0].name_and_type.name == property_by_facing_field.name:
+                        assert source_ins != None
+                        # Note: using source_ins, not ins3, here
+                        multidirectional_cf = classloader[source_ins.operands[0].class_.name.value]
+                        real_property_by_facing_field = multidirectional_cf.fields.find_one(name=source_ins.operands[0].name_and_type.name.value)
+                        assert real_property_by_facing_field is not None
+                        break
+            else:
+                raise Exception("Failed to find putfield corresponding to " + property_by_facing_field.name.value)
+
+            # Now we need to deal with a lambda...
+            """
+            public static final Map<EnumFacing, BoolProperty> PROPERTY_BY_FACING =
+                    ImutableMap.copyOf(Util.make(Maps.newEnumMap(EnumFacing.class),
+                            (map) -> {
+                                    map.put(EnumFacing.NORTH, NORTH);
+                                    map.put(EnumFacing.EAST, EAST);
+                                    map.put(EnumFacing.SOUTH, SOUTH);
+                                    map.put(EnumFacing.WEST, WEST);
+                                    map.put(EnumFacing.UP, UP);
+                                    map.put(EnumFacing.DOWN, DOWN);
+                            }));
+            """
+            method4 = multidirectional_cf.methods.find_one(name='<clinit>')
+            next_is_lambda = False
+            for ins4 in method4.code.disassemble():
+                if ins4 == "invokestatic":
+                    if ins4.operands[0].name_and_type.name == "newEnumMap":
+                        next_is_lambda = True
+                elif next_is_lambda:
+                    info = InvokeDynamicInfo.create(ins4, multidirectional_cf)
+                    assert info.ref_kind == REF_invokeStatic
+                    assert info.method_class == multidirectional_cf.this.name
+                    lambda_method = multidirectional_cf.methods.find_one(name=info.method_name, args=info.method_desc.args_descriptor, returns=info.method_desc.returns_descriptor)
+                    assert lambda_method is not None
+                    break
+            else:
+                raise Exception("Failed to find lambda")
+
+            property_by_facing = {}
+            stack5 = []
+            for ins5 in lambda_method.code.disassemble():
+                if ins5 == "getstatic":
+                    const5 = ins5.operands[0]
+                    prop = {
+                        "field_name": const5.name_and_type.name.value,
+                        "field_class": const5.class_.name.value
+                    }
+                    stack5.append(prop)
+                elif ins5 == "invokevirtual":
+                    value = stack5.pop()
+                    key = stack5.pop()["field_name"]
+                    property_by_facing[key] = value
+
+            enumfacing_members = get_enum_constants(classloader[enumfacing], verbose)
+            assert len(property_by_facing) == len(enumfacing_members)
+            properties = []
+            for facing in enumfacing_members.values():
+                properties.append(property_by_facing[facing["field"]])
+            return properties, (method_that_should_not_exist_desc, method_that_should_not_exist_name)
+
         def process_class(name):
             """
             Gets the properties for the given block class, checking the parent
@@ -175,6 +330,7 @@ class BlockStateTopping(Topping):
                     desc = method_descriptor(const.name_and_type.descriptor.value)
                     if const.name_and_type.name == "<init>":
                         # This constructor call is only used in 1.12 and earlier; it isn't used in 1.13.
+                        assert not is_18w19a
                         assert len(desc.args) == 2
 
                         # Normally this constructor call would return nothing, but
@@ -191,7 +347,15 @@ class BlockStateTopping(Topping):
                         assert const.name_and_type.name.value == base_method.name.value
                         assert const.name_and_type.descriptor.value == base_method.descriptor.value
                         assert properties == None
-                        properties = process_class(cf.super_.name.value)
+                        properties, method_that_should_not_exist = process_superclass_invokespecial(cf.super_.name.value)
+
+                        if method_that_should_not_exist is not None:
+                            method_that_should_not_exist_desc, method_that_should_not_exist_name = method_that_should_not_exist
+                            assert cf.methods.find_one(name=method_that_should_not_exist_name, args=method_that_should_not_exist_desc.args_descriptor, returns=method_that_should_not_exist_desc.returns_descriptor) is None
+
+                        assert is_18w19a
+                        stack.pop() # blockstatecontainer instance
+                        stack.pop() # this
                 elif ins == "invokevirtual":
                     # Two possibilities (both only present pre-flattening):
                     # 1. It's isDouble() for a slab.  Two different sets of
