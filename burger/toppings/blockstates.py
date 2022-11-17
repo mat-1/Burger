@@ -426,19 +426,12 @@ class BlockStateTopping(Topping):
 
             stack = []
             locals = {}
-            # After certain calls, we're no longer storing properties.
-            # But, we still want to assign values for remaining fields;
-            # go through and put None in, only looking at putstatic.
-            ignore_remaining = False
 
             for ins in init.code.disassemble():
                 if ins == "putstatic":
                     const = ins.operands[0]
                     name = const.name_and_type.name.value
-                    if ignore_remaining:
-                        value = None
-                    else:
-                        value = stack.pop()
+                    value = stack.pop()
 
                     if isinstance(value, dict):
                         if "declared_in" not in value:
@@ -455,8 +448,6 @@ class BlockStateTopping(Topping):
                             assert value["enum_name"] in PLANES
                             value = PLANES[value["enum_name"]]
                     fields_by_class[cls][name] = value
-                elif ignore_remaining:
-                    continue
                 elif ins == "getstatic":
                     const = ins.operands[0]
                     target = const.class_.name.value
@@ -513,11 +504,6 @@ class BlockStateTopping(Topping):
                     args.reverse()
 
                     if ins == "invokestatic":
-                        if const.class_.name.value.startswith("com/google/"):
-                            # Call to e.g. Maps.newHashMap, beyond what we
-                            # care about
-                            ignore_remaining = True
-                            continue
                         obj = None
                     else:
                         obj = stack.pop()
