@@ -60,6 +60,84 @@
                     "from_client": false,
                     "from_server": true,
                     "id": 93,
+                    "instructions": [
+                        {
+                            "field": "a.getKind()",
+                            "instructions": [
+                                {
+                                    "operation": "case",
+                                    "value": "Kind.REFERENCE"
+                                },
+                                {
+                                    "field": "iw.c.t().getId(a) + 1",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "operation": "break"
+                                },
+                                {
+                                    "operation": "case",
+                                    "value": "Kind.DIRECT"
+                                },
+                                {
+                                    "field": "0",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "a.d",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                },
+                                {
+                                    "field": "a.b().isPresent()",
+                                    "operation": "write",
+                                    "type": "boolean"
+                                },
+                                {
+                                    "condition": "a.b().isPresent()",
+                                    "instructions": [
+                                        {
+                                            "field": "a.b().get()",
+                                            "operation": "write",
+                                            "type": "float"
+                                        }
+                                    ],
+                                    "operation": "if"
+                                },
+                                {
+                                    "operation": "break"
+                                }
+                            ],
+                            "operation": "switch"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "c",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "float"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "long"
+                        }
+                    ],
                     "state": "PLAY"
                 }
             ]
