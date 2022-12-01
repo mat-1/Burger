@@ -850,6 +850,30 @@ class PacketInstructionsTopping(Topping):
             )
             operations.append(Operation(instruction.pos + 2 - SUB_INS_EPSILON, "endif"))
             return operations
+        elif desc.args[0].name == classes.get("idmap"):
+            # Write an optional ID, falling back to a lambda if it's not present
+            operations = []
+            id_map = args[0]
+            key = args[1]
+            consumer = args[2]
+            operations.append(Operation(instruction.pos, "switch",
+                                        field=key.value + ".getKind()"))
+            operations.append(Operation(instruction.pos + SUB_INS_EPSILON, "case",
+                                        value="Kind.REFERENCE"))
+            operations.append(Operation(instruction.pos + SUB_INS_EPSILON * 2, "write", type="varint",
+                                        field="%s.getId(%s) + 1" % (id_map, key)))
+            operations.append(Operation(instruction.pos + SUB_INS_EPSILON * 3, "break"))
+            operations.append(Operation(instruction.pos + 1 - SUB_INS_EPSILON * 2, "case",
+                                        value="Kind.DIRECT"))
+            operations.append(Operation(instruction.pos + 1 - SUB_INS_EPSILON, "write", type="varint",
+                                        field="0"))
+            operations += _PIT._lambda_operations(
+                classloader, classes, instruction.pos + 1, verbose,
+                consumer, [instance, key.value]
+            )
+            operations.append(Operation(instruction.pos + 2 - SUB_INS_EPSILON * 2, "break"))
+            operations.append(Operation(instruction.pos + 2 - SUB_INS_EPSILON, "endswitch"))
+            return operations
         else:
             raise Exception("Unexpected descriptor " + desc.descriptor)
 
