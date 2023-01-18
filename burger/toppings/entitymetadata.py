@@ -146,7 +146,7 @@ class EntityMetadataTopping(Topping):
             class MetadataDefaultsContext(WalkerCallback):
                 def __init__(self, wait_for_putfield=False):
                     self.textcomponentstring = None
-                    # True whlie waiting for "this.dataManager = new EntityDataManager(this);" when going through the entity constructor
+                    # True while waiting for "this.dataManager = new EntityDataManager(this);" when going through the entity constructor
                     self.waiting_for_putfield = wait_for_putfield
 
                 def on_invoke(self, ins, const, obj, args):
@@ -237,7 +237,7 @@ class EntityMetadataTopping(Topping):
 
             register = cf.methods.find_one(name=register_data_method_name, f=lambda m: m.descriptor == register_data_method_desc)
             if register and not register.access_flags.acc_abstract:
-                walk_method(cf, register, MetadataDefaultsContext(), verbose)
+                walk_method(cf, register, MetadataDefaultsContext(False), verbose)
             elif cls == base_entity_class:
                 walk_method(cf, cf.methods.find_one(name="<init>"), MetadataDefaultsContext(True), verbose)
 
