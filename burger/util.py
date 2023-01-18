@@ -541,6 +541,8 @@ def walk_method(cf, method, callback, verbose, input_args=None):
             stack.append(ins.operands[0].value)
         elif ins.mnemonic.startswith("fconst") or ins.mnemonic.startswith("dconst"):
             stack.append(float(ins.mnemonic[-1]))
+        elif ins.mnemonic.startswith("lconst"):
+            stack.append(int(ins.mnemonic[-1]))
         elif ins == "aconst_null":
             stack.append(None)
         elif ins in ("ldc", "ldc_w", "ldc2_w"):
