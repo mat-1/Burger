@@ -37,7 +37,7 @@ from .topping import Topping
 
 from jawa.constants import *
 
-RESOURCES_SITE = "http://resources.download.minecraft.net/%(short_hash)s/%(hash)s"
+RESOURCES_SITE = "https://resources.download.minecraft.net/%(short_hash)s/%(hash)s"
 
 def get_sounds(asset_index, resources_site=RESOURCES_SITE):
     """Downloads the sounds.json file from the assets index"""
