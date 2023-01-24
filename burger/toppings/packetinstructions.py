@@ -874,6 +874,15 @@ class PacketInstructionsTopping(Topping):
             operations.append(Operation(instruction.pos + 2 - SUB_INS_EPSILON * 2, "break"))
             operations.append(Operation(instruction.pos + 2 - SUB_INS_EPSILON, "endswitch"))
             return operations
+        elif desc.args[0].name == "com/mojang/serialization/DynamicOps" and desc.args[1].name == "com/mojang/serialization/Codec":
+            # Introduced in 23w04a, replacing the version that only takes the Codec
+            dynamicops = args[0]
+            codec = args[1]
+            value = args[2]
+            # This isn't the exact syntax used by DataFixerUpper,
+            # but it's close enough for our purposes
+            field = "%s.encode(%s, %s)" % (codec, dynamicops, value)
+            return [Operation(instruction.pos, "write", type="nbtcompound", field=field)]
         else:
             raise Exception("Unexpected descriptor " + desc.descriptor)
 
