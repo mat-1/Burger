@@ -1,0 +1,84 @@
+<!doctype html>
+              <html>
+                <head>
+                  <title>Burger Vitrine</title>
+                  <link rel="stylesheet" href="resources/style.css" />
+                  <script src="resources/jquery.js"></script>
+                  <script src="resources/vitrine.js"></script>
+                </head>
+                <body>
+                    <div id="vitrine">
+                        <a href="#blocks"><h2 id="blocks">Blocks</h2></a><span class="info">No entries</span>
+<a href="#tags"><h2 id="tags">Tags</h2></a><span class="info">No entries</span>
+<a href="#entities"><h2 id="entities">Entities</h2></a><span class="info">No entries</span>
+<a href="#block_entities"><h2 id="block_entities">Block entities</h2></a><span class="info">No entries</span>
+<a href="#packets"><h2 id="packets">Packets</h2></a><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_26"><h3 id="packets:play_clientbound_26">PLAY_CLIENTBOUND_26</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>38</dd></dl><pre><span class="hl_n">writeInt</span><span class="hl_o">(</span><span class="hl_n">a</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">b</span><span class="hl_o">);</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">c</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">());</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">ckh</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">));</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">.</span><span class="hl_na">size</span><span class="hl_o">());</span>
+<span class="hl_n">Iterator</span> <span class="hl_n">it</span> <span class="hl_o">=</span> <span class="hl_k">this</span><span class="hl_o">.</span><span class="hl_na">e</span><span class="hl_o">.</span><span class="hl_na">iterator</span><span class="hl_o">();</span>
+<span class="hl_k">while</span><span class="hl_o">(</span><span class="hl_n">it</span><span class="hl_o">.</span><span class="hl_na">hasNext</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+  <span class="hl_n">acl</span> <span class="hl_n">itv</span> <span class="hl_o">=</span> <span class="hl_n">it</span><span class="hl_o">.</span><span class="hl_na">next</span><span class="hl_o">();</span>
+  <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">itv</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">());</span>
+<span class="hl_o">}</span>
+<span class="hl_n">writeNBTCompound</span><span class="hl_o">(</span><span class="hl_n">hq</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">.</span><span class="hl_na">encode</span><span class="hl_o">(</span><span class="hl_n">f</span><span class="hl_o">));</span>
+<span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">g</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">());</span>
+<span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">h</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">());</span>
+<span class="hl_n">writeLong</span><span class="hl_o">(</span><span class="hl_n">i</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">j</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">k</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">l</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">m</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">n</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">o</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">p</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">q</span><span class="hl_o">.</span><span class="hl_na">isPresent</span><span class="hl_o">());</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">q</span><span class="hl_o">.</span><span class="hl_na">isPresent</span><span class="hl_o">())</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeIdentifier</span><span class="hl_o">(</span><span class="hl_n">q</span><span class="hl_o">.</span><span class="hl_na">get</span><span class="hl_o">().</span><span class="hl_na">a</span><span class="hl_o">().</span><span class="hl_na">a</span><span class="hl_o">());</span>
+  <span class="hl_n">writePosition</span><span class="hl_o">(</span><span class="hl_n">q</span><span class="hl_o">.</span><span class="hl_na">get</span><span class="hl_o">().</span><span class="hl_na">b</span><span class="hl_o">());</span>
+<span class="hl_o">}</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_26"><h3 id="packets:play_clientbound_26">PLAY_CLIENTBOUND_26</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>38</dd></dl>(no instruction data - did the packet fail to parse?)</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#packets:play_clientbound_6a"><h3 id="packets:play_clientbound_6a">PLAY_CLIENTBOUND_6A</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>106</dd></dl><pre><span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">d</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">iw</span><span class="hl_o">.</span><span class="hl_na">e</span><span class="hl_o">.</span><span class="hl_na">getId</span><span class="hl_o">(</span><span class="hl_n">e</span><span class="hl_o">));</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">f</span><span class="hl_o">);</span>
+<span class="hl_n">writeVarInt</span><span class="hl_o">(</span><span class="hl_n">g</span><span class="hl_o">);</span>
+<span class="hl_n">writeByte</span><span class="hl_o">(</span><span class="hl_n">h</span><span class="hl_o">);</span>
+<span class="hl_n">writeBoolean</span><span class="hl_o">(</span><span class="hl_n">i</span> <span class="hl_o">!=</span> <span class="hl_kc">null</span><span class="hl_o">);</span>
+<span class="hl_k">if</span><span class="hl_o">(</span><span class="hl_n">i</span> <span class="hl_o">!=</span> <span class="hl_kc">null</span><span class="hl_o">)</span> <span class="hl_o">{</span>
+  <span class="hl_n">writeNBTCompound</span><span class="hl_o">(</span><span class="hl_n">bdx$a</span><span class="hl_o">.</span><span class="hl_na">a</span><span class="hl_o">.</span><span class="hl_na">encode</span><span class="hl_o">(</span><span class="hl_n">i</span><span class="hl_o">));</span>
+<span class="hl_o">}</span>
+</pre></div></div>
+</div><div class="right"><div class="entry"><a href="#packets:play_clientbound_6a"><h3 id="packets:play_clientbound_6a">PLAY_CLIENTBOUND_6A</h3></a><div><dl><dt>Direction</dt><dd>Server to client</dd><dt>ID</dt><dd>106</dd></dl>(no instruction data - did the packet fail to parse?)</div></div>
+</div></div>
+<a href="#entity_metadata_serializers"><h2 id="entity_metadata_serializers">Entity Metadata Serializers</h2></a><span class="info">No entries</span>
+<a href="#versions"><h2 id="versions">Versions</h2></a><div class="split"><div class="left"><div class="entry"><a href="#versions:data"><h3 id="versions:data">data</h3></a><div>3320</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:data"><h3 id="versions:data">data</h3></a><div>3321</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:id"><h3 id="versions:id">id</h3></a><div>23w03a</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:id"><h3 id="versions:id">id</h3></a><div>23w04a</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:name"><h3 id="versions:name">name</h3></a><div>23w03a</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:name"><h3 id="versions:name">name</h3></a><div>23w04a</div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>1073741939</div></div>
+</div><div class="right"><div class="entry"><a href="#versions:protocol"><h3 id="versions:protocol">protocol</h3></a><div>1073741940</div></div>
+</div></div>
+<a href="#stats"><h2 id="stats">Stats</h2></a><span class="info">No entries</span>
+<a href="#achievements"><h2 id="achievements">Achievements</h2></a><span class="info">No entries</span>
+<a href="#language"><h2 id="language">Language</h2></a><div class="split"><div class="left"><div class="entry"><a href="#language:container"><h3 id="language:container">container</h3></a><div><dl class="wide"><dt>upgrade.error_tooltip</dt><dd>-</dd><dt>upgrade.missing_template_tooltip</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:container"><h3 id="language:container">container</h3></a><div><dl class="wide"><dt>upgrade.error_tooltip</dt><dd>Your item cannot be upgraded in this way</dd><dt>upgrade.missing_template_tooltip</dt><dd>Put a Smithing Template here</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:item"><h3 id="language:item">item</h3></a><div><dl class="wide"><dt>minecraft.smithing_template</dt><dd>-</dd><dt>minecraft.smithing_template.applies_to</dt><dd>-</dd><dt>minecraft.smithing_template.armor_trim.additions_slot_description</dt><dd>-</dd><dt>minecraft.smithing_template.armor_trim.applies_to</dt><dd>-</dd><dt>minecraft.smithing_template.armor_trim.base_slot_description</dt><dd>-</dd><dt>minecraft.smithing_template.armor_trim.ingredients</dt><dd>-</dd><dt>minecraft.smithing_template.ingredients</dt><dd>-</dd><dt>minecraft.smithing_template.netherite_upgrade.additions_slot_description</dt><dd>-</dd><dt>minecraft.smithing_template.netherite_upgrade.applies_to</dt><dd>-</dd><dt>minecraft.smithing_template.netherite_upgrade.base_slot_description</dt><dd>-</dd><dt>minecraft.smithing_template.netherite_upgrade.ingredients</dt><dd>-</dd><dt>minecraft.smithing_template.upgrade</dt><dd>-</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:item"><h3 id="language:item">item</h3></a><div><dl class="wide"><dt>minecraft.smithing_template</dt><dd>Smithing Template</dd><dt>minecraft.smithing_template.applies_to</dt><dd>Applies to:</dd><dt>minecraft.smithing_template.armor_trim.additions_slot_description</dt><dd>Put an ingot or crystal here</dd><dt>minecraft.smithing_template.armor_trim.applies_to</dt><dd>Armor</dd><dt>minecraft.smithing_template.armor_trim.base_slot_description</dt><dd>Put a piece of armor here</dd><dt>minecraft.smithing_template.armor_trim.ingredients</dt><dd>Ingots &amp; Crystals</dd><dt>minecraft.smithing_template.ingredients</dt><dd>Ingredients:</dd><dt>minecraft.smithing_template.netherite_upgrade.additions_slot_description</dt><dd>Put Netherite Ingot here</dd><dt>minecraft.smithing_template.netherite_upgrade.applies_to</dt><dd>Diamond Equipment</dd><dt>minecraft.smithing_template.netherite_upgrade.base_slot_description</dt><dd>Put a piece of Diamond armor, weapon or tool here</dd><dt>minecraft.smithing_template.netherite_upgrade.ingredients</dt><dd>Netherite Ingot</dd><dt>minecraft.smithing_template.upgrade</dt><dd>Upgrade: </dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="entry"><a href="#language:selectworld"><h3 id="language:selectworld">selectWorld</h3></a><div><dl class="wide"><dt>mapFeatures.info</dt><dd>Villages, dungeons etc.</dd></dl></div></div>
+</div><div class="right"><div class="entry"><a href="#language:selectworld"><h3 id="language:selectworld">selectWorld</h3></a><div><dl class="wide"><dt>mapFeatures.info</dt><dd>Villages, Shipwrecks etc.</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="no entry"></div>
+</div><div class="right"><div class="entry"><a href="#language:trim_material"><h3 id="language:trim_material">trim_material</h3></a><div><dl class="wide"><dt>minecraft.amethyst</dt><dd>Amethyst Material</dd><dt>minecraft.copper</dt><dd>Copper Material</dd><dt>minecraft.diamond</dt><dd>Diamond Material</dd><dt>minecraft.emerald</dt><dd>Emerald Material</dd><dt>minecraft.gold</dt><dd>Gold Material</dd><dt>minecraft.iron</dt><dd>Iron Material</dd><dt>minecraft.lapis</dt><dd>Lapis Material</dd><dt>minecraft.netherite</dt><dd>Netherite Material</dd><dt>minecraft.quartz</dt><dd>Quartz Material</dd><dt>minecraft.redstone</dt><dd>Redstone Material</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="no entry"></div>
+</div><div class="right"><div class="entry"><a href="#language:trim_pattern"><h3 id="language:trim_pattern">trim_pattern</h3></a><div><dl class="wide"><dt>minecraft.coast</dt><dd>Coast Armor Trim</dd><dt>minecraft.dune</dt><dd>Dune Armor Trim</dd><dt>minecraft.eye</dt><dd>Eye Armor Trim</dd><dt>minecraft.rib</dt><dd>Rib Armor Trim</dd><dt>minecraft.sentry</dt><dd>Sentry Armor Trim</dd><dt>minecraft.snout</dt><dd>Snout Armor Trim</dd><dt>minecraft.spire</dt><dd>Spire Armor Trim</dd><dt>minecraft.tide</dt><dd>Tide Armor Trim</dd><dt>minecraft.vex</dt><dd>Vex Armor Trim</dd><dt>minecraft.ward</dt><dd>Ward Armor Trim</dd><dt>minecraft.wild</dt><dd>Wild Armor Trim</dd></dl></div></div>
+</div></div><div class="split"><div class="left"><div class="no entry"></div>
+</div><div class="right"><div class="entry"><a href="#language:upgrade"><h3 id="language:upgrade">upgrade</h3></a><div><dl class="wide"><dt>minecraft.netherite_upgrade</dt><dd>Netherite Upgrade</dd></dl></div></div>
+</div></div>
+<a href="#sounds"><h2 id="sounds">Sounds</h2></a><span class="info">No entries</span>
+
+                    </div>
+                </body>
+              </html>

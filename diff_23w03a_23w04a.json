@@ -1,0 +1,348 @@
+{
+    "achievements": {},
+    "blocks": {
+        "block": {}
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {}
+    },
+    "language": {
+        "container": {
+            "upgrade.error_tooltip": [
+                null,
+                "Your item cannot be upgraded in this way"
+            ],
+            "upgrade.missing_template_tooltip": [
+                null,
+                "Put a Smithing Template here"
+            ]
+        },
+        "item": {
+            "minecraft.smithing_template": [
+                null,
+                "Smithing Template"
+            ],
+            "minecraft.smithing_template.applies_to": [
+                null,
+                "Applies to:"
+            ],
+            "minecraft.smithing_template.armor_trim.additions_slot_description": [
+                null,
+                "Put an ingot or crystal here"
+            ],
+            "minecraft.smithing_template.armor_trim.applies_to": [
+                null,
+                "Armor"
+            ],
+            "minecraft.smithing_template.armor_trim.base_slot_description": [
+                null,
+                "Put a piece of armor here"
+            ],
+            "minecraft.smithing_template.armor_trim.ingredients": [
+                null,
+                "Ingots & Crystals"
+            ],
+            "minecraft.smithing_template.ingredients": [
+                null,
+                "Ingredients:"
+            ],
+            "minecraft.smithing_template.netherite_upgrade.additions_slot_description": [
+                null,
+                "Put Netherite Ingot here"
+            ],
+            "minecraft.smithing_template.netherite_upgrade.applies_to": [
+                null,
+                "Diamond Equipment"
+            ],
+            "minecraft.smithing_template.netherite_upgrade.base_slot_description": [
+                null,
+                "Put a piece of Diamond armor, weapon or tool here"
+            ],
+            "minecraft.smithing_template.netherite_upgrade.ingredients": [
+                null,
+                "Netherite Ingot"
+            ],
+            "minecraft.smithing_template.upgrade": [
+                null,
+                "Upgrade: "
+            ]
+        },
+        "selectWorld": {
+            "mapFeatures.info": [
+                "Villages, dungeons etc.",
+                "Villages, Shipwrecks etc."
+            ]
+        },
+        "trim_material": [
+            null,
+            {
+                "minecraft.amethyst": "Amethyst Material",
+                "minecraft.copper": "Copper Material",
+                "minecraft.diamond": "Diamond Material",
+                "minecraft.emerald": "Emerald Material",
+                "minecraft.gold": "Gold Material",
+                "minecraft.iron": "Iron Material",
+                "minecraft.lapis": "Lapis Material",
+                "minecraft.netherite": "Netherite Material",
+                "minecraft.quartz": "Quartz Material",
+                "minecraft.redstone": "Redstone Material"
+            }
+        ],
+        "trim_pattern": [
+            null,
+            {
+                "minecraft.coast": "Coast Armor Trim",
+                "minecraft.dune": "Dune Armor Trim",
+                "minecraft.eye": "Eye Armor Trim",
+                "minecraft.rib": "Rib Armor Trim",
+                "minecraft.sentry": "Sentry Armor Trim",
+                "minecraft.snout": "Snout Armor Trim",
+                "minecraft.spire": "Spire Armor Trim",
+                "minecraft.tide": "Tide Armor Trim",
+                "minecraft.vex": "Vex Armor Trim",
+                "minecraft.ward": "Ward Armor Trim",
+                "minecraft.wild": "Wild Armor Trim"
+            }
+        ],
+        "upgrade": [
+            null,
+            {
+                "minecraft.netherite_upgrade": "Netherite Upgrade"
+            }
+        ]
+    },
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_26": [
+                {
+                    "class": "we.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 38,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "c.a()",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "ckh.a(d)",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "e.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.e.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "acl",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.a()",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "hq.a.encode(f)",
+                            "operation": "write",
+                            "type": "nbtcompound"
+                        },
+                        {
+                            "field": "g.a()",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "h.a()",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "i",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "j",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "k",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "l",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "m",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "n",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "o",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "p",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "q.isPresent()",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "q.isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "q.get().a().a()",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                },
+                                {
+                                    "field": "q.get().b()",
+                                    "operation": "write",
+                                    "type": "position"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "wk.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 38,
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_6A": [
+                {
+                    "class": "ys.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 106,
+                    "instructions": [
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "iw.e.getId(e)",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "byte"
+                        },
+                        {
+                            "field": "i != null",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "i != null",
+                            "instructions": [
+                                {
+                                    "field": "bdx$a.a.encode(i)",
+                                    "operation": "write",
+                                    "type": "nbtcompound"
+                                }
+                            ],
+                            "operation": "if"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "yy.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 106,
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "sounds": {},
+    "stats": {},
+    "tags": {},
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            3320,
+            3321
+        ],
+        "id": [
+            "23w03a",
+            "23w04a"
+        ],
+        "name": [
+            "23w03a",
+            "23w04a"
+        ],
+        "protocol": [
+            1073741939,
+            1073741940
+        ]
+    }
+}
