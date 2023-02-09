@@ -232,8 +232,17 @@ class ItemsTopping(Topping):
                 if desc.returns.name != "void":
                     if desc.returns.name == builder_class or is_item_class(desc.returns.name):
                         if ins.mnemonic == "invokestatic":
-                            # Probably returning itself, but through a synthetic method
-                            return args[0]
+                            if len(desc.args) > 0 and desc.args[0].name == builder_class:
+                                # Probably returning itself, but through a synthetic method
+                                # This case doesn't seem to actually happen in practice
+                                # (it did exist in 1.13/18w33a, though)
+                                return args[0]
+                            else:
+                                # 23w04a added trimmed armor, which sets up the builder in a static
+                                # method in its own class. So, we need to recurse into that...
+                                new_cf = classloader[const.class_.name.value]
+                                new_method = new_cf.methods.find_one(name=method_name, args=desc.args_descriptor, returns=desc.returns_descriptor)
+                                return walk_method(new_cf, new_method, self, verbose)
                         else:
                             # Probably returning itself
                             return obj
@@ -404,6 +413,7 @@ class ItemsTopping(Topping):
                     if desc.returns.name == builder_class or is_item_class(desc.returns.name):
                         if ins == "invokestatic":
                             # Probably returning itself, but through a synthetic method
+                            assert(desc.args[0].name == builder_class)
                             return args[0]
                         else:
                             # Probably returning itself
