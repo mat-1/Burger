@@ -1,0 +1,1494 @@
+{
+    "achievements": {},
+    "entities": {
+        "dataserializers": {},
+        "entity": {}
+    },
+    "language": {
+        "advancements": {
+            "adventure.craft_decorated_pot_using_only_sherds.description": [
+                null,
+                "Make a Decorated Pot out of 4 Pottery Sherds"
+            ],
+            "adventure.craft_decorated_pot_using_only_sherds.title": [
+                null,
+                "Careful restoration"
+            ],
+            "adventure.salvage_sherd.description": [
+                null,
+                "Brush a Suspicious block to obtain a Pottery Sherd"
+            ],
+            "adventure.salvage_sherd.title": [
+                null,
+                "Respecting the remnants"
+            ],
+            "adventure.trim_with_all_exclusive_armor_patterns.description": [
+                null,
+                "Apply these smithing templates at least once: Spire, Snout, Rib, Ward, Silence, Vex, Tide, Wayfinder"
+            ],
+            "adventure.trim_with_all_exclusive_armor_patterns.title": [
+                null,
+                "Smithing with style"
+            ],
+            "adventure.trim_with_any_armor_pattern.description": [
+                null,
+                "Craft a trimmed armor at a Smithing Table"
+            ],
+            "adventure.trim_with_any_armor_pattern.title": [
+                null,
+                "Crafting a new look"
+            ],
+            "husbandry.feed_snifflet.description": [
+                null,
+                "Feed a Snifflet"
+            ],
+            "husbandry.feed_snifflet.title": [
+                null,
+                "Little sniffs"
+            ],
+            "husbandry.obtain_sniffer_egg.description": [
+                null,
+                "Obtain a Sniffer Egg"
+            ],
+            "husbandry.obtain_sniffer_egg.title": [
+                null,
+                "Smells interesting"
+            ],
+            "husbandry.plant_any_sniffer_seed.description": [
+                null,
+                "Plant any Sniffer seed"
+            ],
+            "husbandry.plant_any_sniffer_seed.title": [
+                null,
+                "Planting the past"
+            ]
+        },
+        "item": {
+            "minecraft.music_disc_relic": [
+                null,
+                "Music Disc"
+            ],
+            "minecraft.music_disc_relic.desc": [
+                null,
+                "Aaron Cherof - Relic"
+            ]
+        },
+        "multiplayer": {
+            "disconnect.invalid_public_key_signature.new": [
+                null,
+                "Invalid signature for profile public key.\nTry restarting your game."
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "PLAY_CLIENTBOUND_24": [
+                {
+                    "class": "wd.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 36,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "c.b",
+                            "operation": "write",
+                            "type": "nbtcompound"
+                        },
+                        {
+                            "field": "c.c.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c.c",
+                            "operation": "write",
+                            "type": "byte[]"
+                        },
+                        {
+                            "field": "c.d.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.c.d.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "wc$a",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.a",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "itv.b",
+                                    "operation": "write",
+                                    "type": "short"
+                                },
+                                {
+                                    "field": "jb.l.getId(itv.c)",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "itv.d",
+                                    "operation": "write",
+                                    "type": "nbtcompound"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "d.g",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "d.a.toLongArray().length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "d.a.toLongArray()",
+                            "operation": "write",
+                            "type": "long[]"
+                        },
+                        {
+                            "field": "d.b.toLongArray().length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "d.b.toLongArray()",
+                            "operation": "write",
+                            "type": "long[]"
+                        },
+                        {
+                            "field": "d.c.toLongArray().length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "d.c.toLongArray()",
+                            "operation": "write",
+                            "type": "long[]"
+                        },
+                        {
+                            "field": "d.d.toLongArray().length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "d.d.toLongArray()",
+                            "operation": "write",
+                            "type": "long[]"
+                        },
+                        {
+                            "field": "d.e.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.d.e.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "byte",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "itv",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "d.f.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.d.f.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "byte",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "itv",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "wd.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 36,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "int"
+                        },
+                        {
+                            "field": "c.b",
+                            "operation": "write",
+                            "type": "nbtcompound"
+                        },
+                        {
+                            "field": "c.c.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c.c",
+                            "operation": "write",
+                            "type": "byte[]"
+                        },
+                        {
+                            "field": "c.d.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.c.d.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "wc$a",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.a",
+                                    "operation": "write",
+                                    "type": "byte"
+                                },
+                                {
+                                    "field": "itv.b",
+                                    "operation": "write",
+                                    "type": "short"
+                                },
+                                {
+                                    "field": "jb.l.getId(itv.c)",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "itv.d",
+                                    "operation": "write",
+                                    "type": "nbtcompound"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "d.a.toLongArray().length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "d.a.toLongArray()",
+                            "operation": "write",
+                            "type": "long[]"
+                        },
+                        {
+                            "field": "d.b.toLongArray().length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "d.b.toLongArray()",
+                            "operation": "write",
+                            "type": "long[]"
+                        },
+                        {
+                            "field": "d.c.toLongArray().length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "d.c.toLongArray()",
+                            "operation": "write",
+                            "type": "long[]"
+                        },
+                        {
+                            "field": "d.d.toLongArray().length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "d.d.toLongArray()",
+                            "operation": "write",
+                            "type": "long[]"
+                        },
+                        {
+                            "field": "d.e.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.d.e.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "byte",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "itv",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "d.f.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.d.f.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "byte",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "itv",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_27": [
+                {
+                    "class": "wg.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 39,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c.g",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "c.a.toLongArray().length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c.a.toLongArray()",
+                            "operation": "write",
+                            "type": "long[]"
+                        },
+                        {
+                            "field": "c.b.toLongArray().length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c.b.toLongArray()",
+                            "operation": "write",
+                            "type": "long[]"
+                        },
+                        {
+                            "field": "c.c.toLongArray().length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c.c.toLongArray()",
+                            "operation": "write",
+                            "type": "long[]"
+                        },
+                        {
+                            "field": "c.d.toLongArray().length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c.d.toLongArray()",
+                            "operation": "write",
+                            "type": "long[]"
+                        },
+                        {
+                            "field": "c.e.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.c.e.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "byte",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "itv",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "c.f.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.c.f.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "byte",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "itv",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "wg.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 39,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c.a.toLongArray().length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c.a.toLongArray()",
+                            "operation": "write",
+                            "type": "long[]"
+                        },
+                        {
+                            "field": "c.b.toLongArray().length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c.b.toLongArray()",
+                            "operation": "write",
+                            "type": "long[]"
+                        },
+                        {
+                            "field": "c.c.toLongArray().length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c.c.toLongArray()",
+                            "operation": "write",
+                            "type": "long[]"
+                        },
+                        {
+                            "field": "c.d.toLongArray().length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "c.d.toLongArray()",
+                            "operation": "write",
+                            "type": "long[]"
+                        },
+                        {
+                            "field": "c.e.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.c.e.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "byte",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "itv",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "c.f.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.c.f.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "byte",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.length",
+                                    "operation": "write",
+                                    "type": "varint"
+                                },
+                                {
+                                    "field": "itv",
+                                    "operation": "write",
+                                    "type": "byte[]"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ],
+            "PLAY_CLIENTBOUND_43": [
+                {
+                    "class": "xh.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 67,
+                    "instructions": [
+                        {
+                            "field": "b.s()",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "c.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2 < c.length",
+                            "instructions": [
+                                {
+                                    "field": "(((long)cpe.i(d[var2])) << 0xc) | ((long)c[var2])",
+                                    "operation": "write",
+                                    "type": "varlong"
+                                },
+                                {
+                                    "amount": "1",
+                                    "field": "var2",
+                                    "operation": "increment"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "xh.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 67,
+                    "instructions": [
+                        {
+                            "field": "b.s()",
+                            "operation": "write",
+                            "type": "long"
+                        },
+                        {
+                            "field": "c.length",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "int",
+                            "value": "0",
+                            "var": "var2"
+                        },
+                        {
+                            "condition": "var2 < c.length",
+                            "instructions": [
+                                {
+                                    "field": "(((long)cpg.i(d[var2])) << 0xc) | ((long)c[var2])",
+                                    "operation": "write",
+                                    "type": "varlong"
+                                },
+                                {
+                                    "amount": "1",
+                                    "field": "var2",
+                                    "operation": "increment"
+                                }
+                            ],
+                            "operation": "loop"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "sounds": {
+        "music.overworld.badlands": [
+            null,
+            {
+                "field": "oO",
+                "id": 819,
+                "name": "music.overworld.badlands",
+                "sounds": [
+                    {
+                        "hash": "a0ad97718ec427d5651ef602331ebda9c91bc906",
+                        "name": "music/game/crescent_dunes",
+                        "stream": true,
+                        "volume": 0.4,
+                        "weight": 2
+                    },
+                    {
+                        "hash": "a40303dd9d4bfbb0986e66fc93553a0755621880",
+                        "name": "music/game/echo_in_the_wind",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "df1ff11b79757432c5c3f279e5ecde7b63ceda64",
+                        "name": "music/game/hal1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "ceaaaa1d57dfdfbb0bd4da5ea39628b42897a687",
+                        "name": "music/game/hal2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "dd85fb564e96ee2dbd4754f711ae9deb08a169f9",
+                        "name": "music/game/hal3",
+                        "stream": true
+                    },
+                    {
+                        "hash": "5e7d63e75c6e042f452bc5e151276911ef92fed8",
+                        "name": "music/game/hal4",
+                        "stream": true
+                    },
+                    {
+                        "hash": "cc1a80b6becfc6d6489c069f053d0a8adc71c339",
+                        "name": "music/game/nuance1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "78152dc42b036e0de7616e6e669ce5a81d17f82a",
+                        "name": "music/game/nuance2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "8b0b49dcab54157bb02ef81380990dac2a187b99",
+                        "name": "music/game/one_more_day",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "0f374764aafba398f4ba90dba05a53a9e6166138",
+                        "name": "music/game/piano1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "98a918eb2694defd19726436d4b9dca9e7dd6a65",
+                        "name": "music/game/piano2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "9528b6a76e7bac64ca1145cc682e8a8448cc04e5",
+                        "name": "music/game/piano3",
+                        "stream": true
+                    }
+                ]
+            }
+        ],
+        "music.overworld.bamboo_jungle": [
+            null,
+            {
+                "field": "oR",
+                "id": 822,
+                "name": "music.overworld.bamboo_jungle",
+                "sounds": [
+                    {
+                        "hash": "62171ee4d5ed33a224c59f985a6b304860523b17",
+                        "name": "music/game/bromeliad",
+                        "stream": true,
+                        "volume": 0.4,
+                        "weight": 2
+                    },
+                    {
+                        "hash": "df1ff11b79757432c5c3f279e5ecde7b63ceda64",
+                        "name": "music/game/hal1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "ceaaaa1d57dfdfbb0bd4da5ea39628b42897a687",
+                        "name": "music/game/hal2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "dd85fb564e96ee2dbd4754f711ae9deb08a169f9",
+                        "name": "music/game/hal3",
+                        "stream": true
+                    },
+                    {
+                        "hash": "5e7d63e75c6e042f452bc5e151276911ef92fed8",
+                        "name": "music/game/hal4",
+                        "stream": true
+                    },
+                    {
+                        "hash": "aa1d3aace1c481ac32d5827fba287294b6bc99fb",
+                        "name": "music/game/left_to_bloom",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "cc1a80b6becfc6d6489c069f053d0a8adc71c339",
+                        "name": "music/game/nuance1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "78152dc42b036e0de7616e6e669ce5a81d17f82a",
+                        "name": "music/game/nuance2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "0f374764aafba398f4ba90dba05a53a9e6166138",
+                        "name": "music/game/piano1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "98a918eb2694defd19726436d4b9dca9e7dd6a65",
+                        "name": "music/game/piano2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "9528b6a76e7bac64ca1145cc682e8a8448cc04e5",
+                        "name": "music/game/piano3",
+                        "stream": true
+                    }
+                ]
+            }
+        ],
+        "music.overworld.desert": [
+            null,
+            {
+                "field": "oN",
+                "id": 818,
+                "name": "music.overworld.desert",
+                "sounds": [
+                    {
+                        "hash": "a0ad97718ec427d5651ef602331ebda9c91bc906",
+                        "name": "music/game/crescent_dunes",
+                        "stream": true,
+                        "volume": 0.4,
+                        "weight": 3
+                    },
+                    {
+                        "hash": "df1ff11b79757432c5c3f279e5ecde7b63ceda64",
+                        "name": "music/game/hal1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "ceaaaa1d57dfdfbb0bd4da5ea39628b42897a687",
+                        "name": "music/game/hal2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "dd85fb564e96ee2dbd4754f711ae9deb08a169f9",
+                        "name": "music/game/hal3",
+                        "stream": true
+                    },
+                    {
+                        "hash": "5e7d63e75c6e042f452bc5e151276911ef92fed8",
+                        "name": "music/game/hal4",
+                        "stream": true
+                    },
+                    {
+                        "hash": "cc1a80b6becfc6d6489c069f053d0a8adc71c339",
+                        "name": "music/game/nuance1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "78152dc42b036e0de7616e6e669ce5a81d17f82a",
+                        "name": "music/game/nuance2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "8b0b49dcab54157bb02ef81380990dac2a187b99",
+                        "name": "music/game/one_more_day",
+                        "stream": true,
+                        "volume": 0.4
+                    }
+                ]
+            }
+        ],
+        "music.overworld.flower_forest": [
+            null,
+            {
+                "field": "oM",
+                "id": 817,
+                "name": "music.overworld.flower_forest",
+                "sounds": [
+                    {
+                        "hash": "62171ee4d5ed33a224c59f985a6b304860523b17",
+                        "name": "music/game/bromeliad",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "a40303dd9d4bfbb0986e66fc93553a0755621880",
+                        "name": "music/game/echo_in_the_wind",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "df1ff11b79757432c5c3f279e5ecde7b63ceda64",
+                        "name": "music/game/hal1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "ceaaaa1d57dfdfbb0bd4da5ea39628b42897a687",
+                        "name": "music/game/hal2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "dd85fb564e96ee2dbd4754f711ae9deb08a169f9",
+                        "name": "music/game/hal3",
+                        "stream": true
+                    },
+                    {
+                        "hash": "5e7d63e75c6e042f452bc5e151276911ef92fed8",
+                        "name": "music/game/hal4",
+                        "stream": true
+                    },
+                    {
+                        "hash": "aa1d3aace1c481ac32d5827fba287294b6bc99fb",
+                        "name": "music/game/left_to_bloom",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "cc1a80b6becfc6d6489c069f053d0a8adc71c339",
+                        "name": "music/game/nuance1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "78152dc42b036e0de7616e6e669ce5a81d17f82a",
+                        "name": "music/game/nuance2",
+                        "stream": true
+                    }
+                ]
+            }
+        ],
+        "music.overworld.forest": [
+            null,
+            {
+                "field": "oC",
+                "id": 807,
+                "name": "music.overworld.forest",
+                "sounds": [
+                    {
+                        "hash": "62171ee4d5ed33a224c59f985a6b304860523b17",
+                        "name": "music/game/bromeliad",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "50a59a4f56e4046701b758ddbb1c1587efa4cadf",
+                        "name": "music/game/calm1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "74da65c99aa578486efa7b69983d3533e14c0d6e",
+                        "name": "music/game/calm2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "14ae57a6bce3d4254daa8be2b098c2d99743cc3f",
+                        "name": "music/game/calm3",
+                        "stream": true
+                    },
+                    {
+                        "hash": "cab779f1a15d9fe49bcc975d077717ebd1f87cda",
+                        "name": "music/game/comforting_memories",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "45bdfe06cc8c375dc507e59527c9a89105980085",
+                        "name": "music/game/floating_dream",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "df1ff11b79757432c5c3f279e5ecde7b63ceda64",
+                        "name": "music/game/hal1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "ceaaaa1d57dfdfbb0bd4da5ea39628b42897a687",
+                        "name": "music/game/hal2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "dd85fb564e96ee2dbd4754f711ae9deb08a169f9",
+                        "name": "music/game/hal3",
+                        "stream": true
+                    },
+                    {
+                        "hash": "5e7d63e75c6e042f452bc5e151276911ef92fed8",
+                        "name": "music/game/hal4",
+                        "stream": true
+                    },
+                    {
+                        "hash": "aa1d3aace1c481ac32d5827fba287294b6bc99fb",
+                        "name": "music/game/left_to_bloom",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "cc1a80b6becfc6d6489c069f053d0a8adc71c339",
+                        "name": "music/game/nuance1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "78152dc42b036e0de7616e6e669ce5a81d17f82a",
+                        "name": "music/game/nuance2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "8b0b49dcab54157bb02ef81380990dac2a187b99",
+                        "name": "music/game/one_more_day",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "0f374764aafba398f4ba90dba05a53a9e6166138",
+                        "name": "music/game/piano1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "98a918eb2694defd19726436d4b9dca9e7dd6a65",
+                        "name": "music/game/piano2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "9528b6a76e7bac64ca1145cc682e8a8448cc04e5",
+                        "name": "music/game/piano3",
+                        "stream": true
+                    },
+                    {
+                        "hash": "6615ab7f668384cf98b0cb034ce8e4c52eaf86b2",
+                        "name": "music/game/swamp/aerie",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "352bc5b46e08effbb8d92298b601e688cc36c4de",
+                        "name": "music/game/swamp/firebugs",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "b83bbafa9799680da24f10215de2c40b73ce1fe3",
+                        "name": "music/game/swamp/labyrinthine",
+                        "stream": true,
+                        "volume": 0.4
+                    }
+                ]
+            }
+        ],
+        "music.overworld.jungle": [
+            null,
+            {
+                "field": "oP",
+                "id": 820,
+                "name": "music.overworld.jungle",
+                "sounds": [
+                    {
+                        "hash": "62171ee4d5ed33a224c59f985a6b304860523b17",
+                        "name": "music/game/bromeliad",
+                        "stream": true,
+                        "volume": 0.4,
+                        "weight": 3
+                    },
+                    {
+                        "hash": "df1ff11b79757432c5c3f279e5ecde7b63ceda64",
+                        "name": "music/game/hal1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "ceaaaa1d57dfdfbb0bd4da5ea39628b42897a687",
+                        "name": "music/game/hal2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "dd85fb564e96ee2dbd4754f711ae9deb08a169f9",
+                        "name": "music/game/hal3",
+                        "stream": true
+                    },
+                    {
+                        "hash": "5e7d63e75c6e042f452bc5e151276911ef92fed8",
+                        "name": "music/game/hal4",
+                        "stream": true
+                    },
+                    {
+                        "hash": "aa1d3aace1c481ac32d5827fba287294b6bc99fb",
+                        "name": "music/game/left_to_bloom",
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "cc1a80b6becfc6d6489c069f053d0a8adc71c339",
+                        "name": "music/game/nuance1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "78152dc42b036e0de7616e6e669ce5a81d17f82a",
+                        "name": "music/game/nuance2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "0f374764aafba398f4ba90dba05a53a9e6166138",
+                        "name": "music/game/piano1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "98a918eb2694defd19726436d4b9dca9e7dd6a65",
+                        "name": "music/game/piano2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "9528b6a76e7bac64ca1145cc682e8a8448cc04e5",
+                        "name": "music/game/piano3",
+                        "stream": true
+                    }
+                ]
+            }
+        ],
+        "music.overworld.jungle_and_forest": [
+            {
+                "field": "oB",
+                "id": 806,
+                "name": "music.overworld.jungle_and_forest"
+            },
+            null
+        ],
+        "music.overworld.sparse_jungle": [
+            null,
+            {
+                "field": "oQ",
+                "id": 821,
+                "name": "music.overworld.sparse_jungle",
+                "sounds": [
+                    {
+                        "hash": "62171ee4d5ed33a224c59f985a6b304860523b17",
+                        "name": "music/game/bromeliad",
+                        "stream": true,
+                        "volume": 0.4,
+                        "weight": 2
+                    },
+                    {
+                        "hash": "df1ff11b79757432c5c3f279e5ecde7b63ceda64",
+                        "name": "music/game/hal1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "ceaaaa1d57dfdfbb0bd4da5ea39628b42897a687",
+                        "name": "music/game/hal2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "dd85fb564e96ee2dbd4754f711ae9deb08a169f9",
+                        "name": "music/game/hal3",
+                        "stream": true
+                    },
+                    {
+                        "hash": "5e7d63e75c6e042f452bc5e151276911ef92fed8",
+                        "name": "music/game/hal4",
+                        "stream": true
+                    },
+                    {
+                        "hash": "aa1d3aace1c481ac32d5827fba287294b6bc99fb",
+                        "name": "music/game/left_to_bloom",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "cc1a80b6becfc6d6489c069f053d0a8adc71c339",
+                        "name": "music/game/nuance1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "78152dc42b036e0de7616e6e669ce5a81d17f82a",
+                        "name": "music/game/nuance2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "0f374764aafba398f4ba90dba05a53a9e6166138",
+                        "name": "music/game/piano1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "98a918eb2694defd19726436d4b9dca9e7dd6a65",
+                        "name": "music/game/piano2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "9528b6a76e7bac64ca1145cc682e8a8448cc04e5",
+                        "name": "music/game/piano3",
+                        "stream": true
+                    }
+                ]
+            }
+        ],
+        "music_disc.relic": [
+            null,
+            {
+                "field": "op",
+                "id": 794,
+                "name": "music_disc.relic",
+                "sounds": [
+                    {
+                        "hash": "f6c8af3b270a609b12eddd4a56fe2139662782e8",
+                        "name": "records/relic",
+                        "stream": true
+                    }
+                ]
+            }
+        ]
+    },
+    "stats": {},
+    "tags": {
+        "items/decorated_pot_ingredients": [
+            null,
+            {
+                "name": "decorated_pot_ingredients",
+                "type": "items",
+                "values": [
+                    "minecraft:brick",
+                    "minecraft:angler_pottery_sherd",
+                    "minecraft:archer_pottery_sherd",
+                    "minecraft:arms_up_pottery_sherd",
+                    "minecraft:blade_pottery_sherd",
+                    "minecraft:brewer_pottery_sherd",
+                    "minecraft:burn_pottery_sherd",
+                    "minecraft:danger_pottery_sherd",
+                    "minecraft:explorer_pottery_sherd",
+                    "minecraft:friend_pottery_sherd",
+                    "minecraft:heart_pottery_sherd",
+                    "minecraft:heartbreak_pottery_sherd",
+                    "minecraft:howl_pottery_sherd",
+                    "minecraft:miner_pottery_sherd",
+                    "minecraft:mourner_pottery_sherd",
+                    "minecraft:plenty_pottery_sherd",
+                    "minecraft:prize_pottery_sherd",
+                    "minecraft:sheaf_pottery_sherd",
+                    "minecraft:shelter_pottery_sherd",
+                    "minecraft:skull_pottery_sherd",
+                    "minecraft:snort_pottery_sherd"
+                ]
+            }
+        ],
+        "items/decorated_pot_sherds": [
+            {
+                "name": "decorated_pot_sherds",
+                "type": "items",
+                "values": [
+                    "minecraft:brick",
+                    "minecraft:angler_pottery_sherd",
+                    "minecraft:archer_pottery_sherd",
+                    "minecraft:arms_up_pottery_sherd",
+                    "minecraft:blade_pottery_sherd",
+                    "minecraft:brewer_pottery_sherd",
+                    "minecraft:burn_pottery_sherd",
+                    "minecraft:danger_pottery_sherd",
+                    "minecraft:explorer_pottery_sherd",
+                    "minecraft:friend_pottery_sherd",
+                    "minecraft:heart_pottery_sherd",
+                    "minecraft:heartbreak_pottery_sherd",
+                    "minecraft:howl_pottery_sherd",
+                    "minecraft:miner_pottery_sherd",
+                    "minecraft:mourner_pottery_sherd",
+                    "minecraft:plenty_pottery_sherd",
+                    "minecraft:prize_pottery_sherd",
+                    "minecraft:sheaf_pottery_sherd",
+                    "minecraft:shelter_pottery_sherd",
+                    "minecraft:skull_pottery_sherd",
+                    "minecraft:snort_pottery_sherd"
+                ]
+            },
+            {
+                "name": "decorated_pot_sherds",
+                "type": "items",
+                "values": [
+                    "minecraft:angler_pottery_sherd",
+                    "minecraft:archer_pottery_sherd",
+                    "minecraft:arms_up_pottery_sherd",
+                    "minecraft:blade_pottery_sherd",
+                    "minecraft:brewer_pottery_sherd",
+                    "minecraft:burn_pottery_sherd",
+                    "minecraft:danger_pottery_sherd",
+                    "minecraft:explorer_pottery_sherd",
+                    "minecraft:friend_pottery_sherd",
+                    "minecraft:heart_pottery_sherd",
+                    "minecraft:heartbreak_pottery_sherd",
+                    "minecraft:howl_pottery_sherd",
+                    "minecraft:miner_pottery_sherd",
+                    "minecraft:mourner_pottery_sherd",
+                    "minecraft:plenty_pottery_sherd",
+                    "minecraft:prize_pottery_sherd",
+                    "minecraft:sheaf_pottery_sherd",
+                    "minecraft:shelter_pottery_sherd",
+                    "minecraft:skull_pottery_sherd",
+                    "minecraft:snort_pottery_sherd"
+                ]
+            }
+        ],
+        "items/music_discs": [
+            {
+                "name": "music_discs",
+                "type": "items",
+                "values": [
+                    "minecraft:music_disc_13",
+                    "minecraft:music_disc_cat",
+                    "minecraft:music_disc_blocks",
+                    "minecraft:music_disc_chirp",
+                    "minecraft:music_disc_far",
+                    "minecraft:music_disc_mall",
+                    "minecraft:music_disc_mellohi",
+                    "minecraft:music_disc_stal",
+                    "minecraft:music_disc_strad",
+                    "minecraft:music_disc_ward",
+                    "minecraft:music_disc_11",
+                    "minecraft:music_disc_wait",
+                    "minecraft:music_disc_pigstep",
+                    "minecraft:music_disc_otherside",
+                    "minecraft:music_disc_5"
+                ]
+            },
+            {
+                "name": "music_discs",
+                "type": "items",
+                "values": [
+                    "minecraft:music_disc_13",
+                    "minecraft:music_disc_cat",
+                    "minecraft:music_disc_blocks",
+                    "minecraft:music_disc_chirp",
+                    "minecraft:music_disc_far",
+                    "minecraft:music_disc_mall",
+                    "minecraft:music_disc_mellohi",
+                    "minecraft:music_disc_stal",
+                    "minecraft:music_disc_strad",
+                    "minecraft:music_disc_ward",
+                    "minecraft:music_disc_11",
+                    "minecraft:music_disc_wait",
+                    "minecraft:music_disc_pigstep",
+                    "minecraft:music_disc_otherside",
+                    "minecraft:music_disc_5",
+                    "minecraft:music_disc_relic"
+                ]
+            }
+        ]
+    },
+    "version": {
+        "data": [
+            3449,
+            3452
+        ],
+        "id": [
+            "23w16a",
+            "23w17a"
+        ],
+        "name": [
+            "23w16a",
+            "23w17a"
+        ],
+        "protocol": [
+            1073741955,
+            1073741956
+        ]
+    }
+}
