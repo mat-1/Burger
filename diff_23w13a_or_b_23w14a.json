@@ -46621,7 +46621,7 @@
                             "data": [
                                 {
                                     "default": 0,
-                                    "field": "bW",
+                                    "field": "bV",
                                     "index": 19,
                                     "serializer": "VarInt",
                                     "serializer_id": 1
@@ -46944,55 +46944,55 @@
                                 },
                                 {
                                     "default": 1.0,
-                                    "field": "bK",
+                                    "field": "bJ",
                                     "index": 9,
                                     "serializer": "Float",
                                     "serializer_id": 3
                                 },
                                 {
                                     "default": 0,
-                                    "field": "bL",
+                                    "field": "bK",
                                     "index": 10,
                                     "serializer": "VarInt",
                                     "serializer_id": 1
                                 },
                                 {
                                     "default": false,
-                                    "field": "bM",
+                                    "field": "bL",
                                     "index": 11,
                                     "serializer": "Boolean",
                                     "serializer_id": 8
                                 },
                                 {
                                     "default": 0,
-                                    "field": "bN",
+                                    "field": "bM",
                                     "index": 12,
                                     "serializer": "VarInt",
                                     "serializer_id": 1
                                 },
                                 {
                                     "default": 0,
-                                    "field": "bO",
+                                    "field": "bN",
                                     "index": 13,
                                     "serializer": "VarInt",
                                     "serializer_id": 1
                                 },
                                 {
                                     "default": "Empty",
-                                    "field": "bP",
+                                    "field": "bO",
                                     "index": 14,
                                     "serializer": "OptBlockPos",
                                     "serializer_id": 11
                                 },
                                 {
-                                    "field": "bQ",
+                                    "field": "bP",
                                     "index": 15,
                                     "serializer": "Rotations",
                                     "serializer_id": 28
                                 },
                                 {
                                     "default": false,
-                                    "field": "bR",
+                                    "field": "bQ",
                                     "index": 16,
                                     "serializer": "Boolean",
                                     "serializer_id": 8
@@ -49093,6 +49093,7 @@
             ]
         }
     },
+    "pluginchannels": {},
     "recipes": {
         "air_block": [
             [
@@ -50190,41 +50191,88 @@
         ]
     },
     "sounds": {
+        "block.sign.waxed_interact_fail": [
+            {
+                "field": "zB",
+                "id": 1378,
+                "name": "block.sign.waxed_interact_fail",
+                "sounds": [
+                    {
+                        "hash": "fdccd564ca6278c4e670235bab60bfaf561907fd",
+                        "name": "block/sign/waxed_interact_fail1"
+                    },
+                    {
+                        "hash": "fdccd564ca6278c4e670235bab60bfaf561907fd",
+                        "name": "block/sign/waxed_interact_fail1",
+                        "pitch": 0.9
+                    },
+                    {
+                        "hash": "d732fca96cca70dcf5ceebbd629cb8a02f2ef9eb",
+                        "name": "block/sign/waxed_interact_fail2",
+                        "pitch": 0.8
+                    },
+                    {
+                        "hash": "d732fca96cca70dcf5ceebbd629cb8a02f2ef9eb",
+                        "name": "block/sign/waxed_interact_fail2",
+                        "pitch": 0.9
+                    },
+                    {
+                        "hash": "4a578ad692287e7114cc7a726dd969b9aadfb2fe",
+                        "name": "block/sign/waxed_interact_fail3",
+                        "pitch": 0.8
+                    },
+                    {
+                        "hash": "4a578ad692287e7114cc7a726dd969b9aadfb2fe",
+                        "name": "block/sign/waxed_interact_fail3",
+                        "pitch": 0.9
+                    }
+                ]
+            },
+            {
+                "field": "zB",
+                "id": 1378,
+                "name": "block.sign.waxed_interact_fail",
+                "sounds": [
+                    {
+                        "hash": "fdccd564ca6278c4e670235bab60bfaf561907fd",
+                        "name": "block/sign/waxed_interact_fail1"
+                    },
+                    {
+                        "hash": "fdccd564ca6278c4e670235bab60bfaf561907fd",
+                        "name": "block/sign/waxed_interact_fail1",
+                        "pitch": 0.9
+                    },
+                    {
+                        "hash": "d732fca96cca70dcf5ceebbd629cb8a02f2ef9eb",
+                        "name": "block/sign/waxed_interact_fail2",
+                        "pitch": 0.8
+                    },
+                    {
+                        "hash": "d732fca96cca70dcf5ceebbd629cb8a02f2ef9eb",
+                        "name": "block/sign/waxed_interact_fail2",
+                        "pitch": 0.9
+                    },
+                    {
+                        "hash": "4a578ad692287e7114cc7a726dd969b9aadfb2fe",
+                        "name": "block/sign/waxed_interact_fail3",
+                        "pitch": 0.8
+                    },
+                    {
+                        "hash": "4a578ad692287e7114cc7a726dd969b9aadfb2fe",
+                        "name": "block/sign/waxed_interact_fail3",
+                        "pitch": 0.9
+                    }
+                ],
+                "subtitle": "Sign wobbles",
+                "subtitle_key": "subtitles.block.sign.waxed_interact_fail"
+            }
+        ],
         "block.sniffer.egg_crack": [
             null,
             {
                 "field": "wD",
                 "id": 1224,
-                "name": "block.sniffer.egg_crack",
-                "sounds": [
-                    {
-                        "hash": "6052cacd15b52952a134d16be64317624c69c90b",
-                        "name": "mob/turtle/egg/egg_crack1",
-                        "pitch": 0.8
-                    },
-                    {
-                        "hash": "ee34dddc64b250b6fc61a6f970d97fa912ccd331",
-                        "name": "mob/turtle/egg/egg_crack2",
-                        "pitch": 0.8
-                    },
-                    {
-                        "hash": "4a9dd965158908b99241d945828dd976a8b8db58",
-                        "name": "mob/turtle/egg/egg_crack3",
-                        "pitch": 0.8
-                    },
-                    {
-                        "hash": "95fd23c72f240e9256b6eb6049a9f7229807029b",
-                        "name": "mob/turtle/egg/egg_crack4",
-                        "pitch": 0.8
-                    },
-                    {
-                        "hash": "14b3534e2622470a71dbe69474c15e6a233cc1c6",
-                        "name": "mob/turtle/egg/egg_crack5",
-                        "pitch": 0.8
-                    }
-                ],
-                "subtitle": "Sniffer Egg cracks",
-                "subtitle_key": "subtitles.block.sniffer.egg_crack"
+                "name": "block.sniffer.egg_crack"
             }
         ],
         "block.sniffer.egg_hatch": [
@@ -50232,21 +50280,7 @@
             {
                 "field": "wE",
                 "id": 1225,
-                "name": "block.sniffer.egg_hatch",
-                "sounds": [
-                    {
-                        "hash": "ba7d23893ae4740476f904450dd764a7a78b9d21",
-                        "name": "mob/turtle/egg/egg_break1",
-                        "pitch": 0.8
-                    },
-                    {
-                        "hash": "ede6207fca58c1530ab8ca51a54f082509ff790e",
-                        "name": "mob/turtle/egg/egg_break2",
-                        "pitch": 0.8
-                    }
-                ],
-                "subtitle": "Sniffer Egg hatches",
-                "subtitle_key": "subtitles.block.sniffer.egg_hatch"
+                "name": "block.sniffer.egg_hatch"
             }
         ],
         "entity.sniffer.egg_crack": [
@@ -50264,6 +50298,618 @@
                 "name": "entity.sniffer.egg_hatch"
             },
             null
+        ],
+        "music.game": [
+            {
+                "field": "or",
+                "id": 796,
+                "name": "music.game",
+                "sounds": [
+                    {
+                        "hash": "50a59a4f56e4046701b758ddbb1c1587efa4cadf",
+                        "name": "music/game/calm1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "74da65c99aa578486efa7b69983d3533e14c0d6e",
+                        "name": "music/game/calm2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "14ae57a6bce3d4254daa8be2b098c2d99743cc3f",
+                        "name": "music/game/calm3",
+                        "stream": true
+                    },
+                    {
+                        "hash": "cab779f1a15d9fe49bcc975d077717ebd1f87cda",
+                        "name": "music/game/comforting_memories",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "45bdfe06cc8c375dc507e59527c9a89105980085",
+                        "name": "music/game/floating_dream",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "df1ff11b79757432c5c3f279e5ecde7b63ceda64",
+                        "name": "music/game/hal1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "ceaaaa1d57dfdfbb0bd4da5ea39628b42897a687",
+                        "name": "music/game/hal2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "dd85fb564e96ee2dbd4754f711ae9deb08a169f9",
+                        "name": "music/game/hal3",
+                        "stream": true
+                    },
+                    {
+                        "hash": "5e7d63e75c6e042f452bc5e151276911ef92fed8",
+                        "name": "music/game/hal4",
+                        "stream": true
+                    },
+                    {
+                        "hash": "aa1d3aace1c481ac32d5827fba287294b6bc99fb",
+                        "name": "music/game/left_to_bloom",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "cc1a80b6becfc6d6489c069f053d0a8adc71c339",
+                        "name": "music/game/nuance1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "78152dc42b036e0de7616e6e669ce5a81d17f82a",
+                        "name": "music/game/nuance2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "8b0b49dcab54157bb02ef81380990dac2a187b99",
+                        "name": "music/game/one_more_day",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "0f374764aafba398f4ba90dba05a53a9e6166138",
+                        "name": "music/game/piano1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "98a918eb2694defd19726436d4b9dca9e7dd6a65",
+                        "name": "music/game/piano2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "9528b6a76e7bac64ca1145cc682e8a8448cc04e5",
+                        "name": "music/game/piano3",
+                        "stream": true
+                    }
+                ]
+            },
+            {
+                "field": "or",
+                "id": 796,
+                "name": "music.game",
+                "sounds": [
+                    {
+                        "hash": "c1c3b7233b080ffc17389af8b68a46b2df798ef1",
+                        "name": "music/game/a_familiar_room",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "50a59a4f56e4046701b758ddbb1c1587efa4cadf",
+                        "name": "music/game/calm1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "74da65c99aa578486efa7b69983d3533e14c0d6e",
+                        "name": "music/game/calm2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "14ae57a6bce3d4254daa8be2b098c2d99743cc3f",
+                        "name": "music/game/calm3",
+                        "stream": true
+                    },
+                    {
+                        "hash": "cab779f1a15d9fe49bcc975d077717ebd1f87cda",
+                        "name": "music/game/comforting_memories",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "45bdfe06cc8c375dc507e59527c9a89105980085",
+                        "name": "music/game/floating_dream",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "df1ff11b79757432c5c3f279e5ecde7b63ceda64",
+                        "name": "music/game/hal1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "ceaaaa1d57dfdfbb0bd4da5ea39628b42897a687",
+                        "name": "music/game/hal2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "dd85fb564e96ee2dbd4754f711ae9deb08a169f9",
+                        "name": "music/game/hal3",
+                        "stream": true
+                    },
+                    {
+                        "hash": "5e7d63e75c6e042f452bc5e151276911ef92fed8",
+                        "name": "music/game/hal4",
+                        "stream": true
+                    },
+                    {
+                        "hash": "aa1d3aace1c481ac32d5827fba287294b6bc99fb",
+                        "name": "music/game/left_to_bloom",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "cc1a80b6becfc6d6489c069f053d0a8adc71c339",
+                        "name": "music/game/nuance1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "78152dc42b036e0de7616e6e669ce5a81d17f82a",
+                        "name": "music/game/nuance2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "8b0b49dcab54157bb02ef81380990dac2a187b99",
+                        "name": "music/game/one_more_day",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "0f374764aafba398f4ba90dba05a53a9e6166138",
+                        "name": "music/game/piano1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "98a918eb2694defd19726436d4b9dca9e7dd6a65",
+                        "name": "music/game/piano2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "9528b6a76e7bac64ca1145cc682e8a8448cc04e5",
+                        "name": "music/game/piano3",
+                        "stream": true
+                    }
+                ]
+            }
+        ],
+        "music.menu": [
+            {
+                "field": "os",
+                "id": 797,
+                "name": "music.menu",
+                "sounds": [
+                    {
+                        "hash": "6615ab7f668384cf98b0cb034ce8e4c52eaf86b2",
+                        "name": "music/game/swamp/aerie",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "352bc5b46e08effbb8d92298b601e688cc36c4de",
+                        "name": "music/game/swamp/firebugs",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "b83bbafa9799680da24f10215de2c40b73ce1fe3",
+                        "name": "music/game/swamp/labyrinthine",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "c157c56846f0e50620f808fecd9d069423dd6c41",
+                        "name": "music/menu/menu1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "783ddccf4681a0c50d3e651f4e6ac27a0f4ea76f",
+                        "name": "music/menu/menu2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "87722a59c8d488370f3d430cd4c97a3161081785",
+                        "name": "music/menu/menu3",
+                        "stream": true
+                    },
+                    {
+                        "hash": "15f38314274e759c44f50ac641d11bde12474a25",
+                        "name": "music/menu/menu4",
+                        "stream": true
+                    }
+                ]
+            },
+            {
+                "field": "os",
+                "id": 797,
+                "name": "music.menu",
+                "sounds": [
+                    {
+                        "hash": "c1c3b7233b080ffc17389af8b68a46b2df798ef1",
+                        "name": "music/game/a_familiar_room",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "62171ee4d5ed33a224c59f985a6b304860523b17",
+                        "name": "music/game/bromeliad",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "a0ad97718ec427d5651ef602331ebda9c91bc906",
+                        "name": "music/game/crescent_dunes",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "a40303dd9d4bfbb0986e66fc93553a0755621880",
+                        "name": "music/game/echo_in_the_wind",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "c157c56846f0e50620f808fecd9d069423dd6c41",
+                        "name": "music/menu/menu1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "783ddccf4681a0c50d3e651f4e6ac27a0f4ea76f",
+                        "name": "music/menu/menu2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "87722a59c8d488370f3d430cd4c97a3161081785",
+                        "name": "music/menu/menu3",
+                        "stream": true
+                    },
+                    {
+                        "hash": "15f38314274e759c44f50ac641d11bde12474a25",
+                        "name": "music/menu/menu4",
+                        "stream": true
+                    }
+                ]
+            }
+        ],
+        "music.overworld.cherry_grove": [
+            {
+                "field": "oE",
+                "id": 809,
+                "name": "music.overworld.cherry_grove"
+            },
+            {
+                "field": "oE",
+                "id": 809,
+                "name": "music.overworld.cherry_grove",
+                "sounds": [
+                    {
+                        "hash": "62171ee4d5ed33a224c59f985a6b304860523b17",
+                        "name": "music/game/bromeliad",
+                        "stream": true,
+                        "volume": 0.4,
+                        "weight": 3
+                    },
+                    {
+                        "hash": "50a59a4f56e4046701b758ddbb1c1587efa4cadf",
+                        "name": "music/game/calm1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "74da65c99aa578486efa7b69983d3533e14c0d6e",
+                        "name": "music/game/calm2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "14ae57a6bce3d4254daa8be2b098c2d99743cc3f",
+                        "name": "music/game/calm3",
+                        "stream": true
+                    },
+                    {
+                        "hash": "a40303dd9d4bfbb0986e66fc93553a0755621880",
+                        "name": "music/game/echo_in_the_wind",
+                        "stream": true,
+                        "volume": 0.4,
+                        "weight": 3
+                    },
+                    {
+                        "hash": "aa1d3aace1c481ac32d5827fba287294b6bc99fb",
+                        "name": "music/game/left_to_bloom",
+                        "stream": true,
+                        "volume": 0.4
+                    }
+                ]
+            }
+        ],
+        "music.overworld.jungle_and_forest": [
+            {
+                "field": "oB",
+                "id": 806,
+                "name": "music.overworld.jungle_and_forest",
+                "sounds": [
+                    {
+                        "hash": "50a59a4f56e4046701b758ddbb1c1587efa4cadf",
+                        "name": "music/game/calm1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "74da65c99aa578486efa7b69983d3533e14c0d6e",
+                        "name": "music/game/calm2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "14ae57a6bce3d4254daa8be2b098c2d99743cc3f",
+                        "name": "music/game/calm3",
+                        "stream": true
+                    },
+                    {
+                        "hash": "cab779f1a15d9fe49bcc975d077717ebd1f87cda",
+                        "name": "music/game/comforting_memories",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "45bdfe06cc8c375dc507e59527c9a89105980085",
+                        "name": "music/game/floating_dream",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "df1ff11b79757432c5c3f279e5ecde7b63ceda64",
+                        "name": "music/game/hal1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "ceaaaa1d57dfdfbb0bd4da5ea39628b42897a687",
+                        "name": "music/game/hal2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "dd85fb564e96ee2dbd4754f711ae9deb08a169f9",
+                        "name": "music/game/hal3",
+                        "stream": true
+                    },
+                    {
+                        "hash": "5e7d63e75c6e042f452bc5e151276911ef92fed8",
+                        "name": "music/game/hal4",
+                        "stream": true
+                    },
+                    {
+                        "hash": "aa1d3aace1c481ac32d5827fba287294b6bc99fb",
+                        "name": "music/game/left_to_bloom",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "cc1a80b6becfc6d6489c069f053d0a8adc71c339",
+                        "name": "music/game/nuance1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "78152dc42b036e0de7616e6e669ce5a81d17f82a",
+                        "name": "music/game/nuance2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "8b0b49dcab54157bb02ef81380990dac2a187b99",
+                        "name": "music/game/one_more_day",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "0f374764aafba398f4ba90dba05a53a9e6166138",
+                        "name": "music/game/piano1",
+                        "stream": true
+                    },
+                    {
+                        "hash": "98a918eb2694defd19726436d4b9dca9e7dd6a65",
+                        "name": "music/game/piano2",
+                        "stream": true
+                    },
+                    {
+                        "hash": "9528b6a76e7bac64ca1145cc682e8a8448cc04e5",
+                        "name": "music/game/piano3",
+                        "stream": true
+                    },
+                    {
+                        "hash": "6615ab7f668384cf98b0cb034ce8e4c52eaf86b2",
+                        "name": "music/game/swamp/aerie",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "352bc5b46e08effbb8d92298b601e688cc36c4de",
+                        "name": "music/game/swamp/firebugs",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "b83bbafa9799680da24f10215de2c40b73ce1fe3",
+                        "name": "music/game/swamp/labyrinthine",
+                        "stream": true,
+                        "volume": 0.4
+                    }
+                ]
+            },
+            {
+                "field": "oB",
+                "id": 806,
+                "name": "music.overworld.jungle_and_forest"
+            }
+        ],
+        "music.overworld.lush_caves": [
+            {
+                "field": "oz",
+                "id": 804,
+                "name": "music.overworld.lush_caves",
+                "sounds": [
+                    {
+                        "hash": "fb47d8c0ba3756e2c5066fcd865e866fa209ae2d",
+                        "name": "music/game/an_ordinary_day",
+                        "stream": true,
+                        "weight": 2
+                    },
+                    {
+                        "hash": "50a59a4f56e4046701b758ddbb1c1587efa4cadf",
+                        "name": "music/game/calm1",
+                        "stream": true,
+                        "weight": 2
+                    },
+                    {
+                        "hash": "74da65c99aa578486efa7b69983d3533e14c0d6e",
+                        "name": "music/game/calm2",
+                        "stream": true,
+                        "weight": 2
+                    },
+                    {
+                        "hash": "14ae57a6bce3d4254daa8be2b098c2d99743cc3f",
+                        "name": "music/game/calm3",
+                        "stream": true,
+                        "weight": 2
+                    },
+                    {
+                        "hash": "45bdfe06cc8c375dc507e59527c9a89105980085",
+                        "name": "music/game/floating_dream",
+                        "stream": true,
+                        "weight": 2
+                    },
+                    {
+                        "hash": "aa1d3aace1c481ac32d5827fba287294b6bc99fb",
+                        "name": "music/game/left_to_bloom",
+                        "stream": true,
+                        "volume": 0.4,
+                        "weight": 4
+                    },
+                    {
+                        "hash": "8b0b49dcab54157bb02ef81380990dac2a187b99",
+                        "name": "music/game/one_more_day",
+                        "stream": true,
+                        "volume": 0.4,
+                        "weight": 2
+                    },
+                    {
+                        "hash": "9528b6a76e7bac64ca1145cc682e8a8448cc04e5",
+                        "name": "music/game/piano3",
+                        "stream": true,
+                        "weight": 2
+                    },
+                    {
+                        "hash": "6615ab7f668384cf98b0cb034ce8e4c52eaf86b2",
+                        "name": "music/game/swamp/aerie",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "352bc5b46e08effbb8d92298b601e688cc36c4de",
+                        "name": "music/game/swamp/firebugs",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "b83bbafa9799680da24f10215de2c40b73ce1fe3",
+                        "name": "music/game/swamp/labyrinthine",
+                        "stream": true,
+                        "volume": 0.4
+                    }
+                ]
+            },
+            {
+                "field": "oz",
+                "id": 804,
+                "name": "music.overworld.lush_caves",
+                "sounds": [
+                    {
+                        "hash": "fb47d8c0ba3756e2c5066fcd865e866fa209ae2d",
+                        "name": "music/game/an_ordinary_day",
+                        "stream": true,
+                        "weight": 2
+                    },
+                    {
+                        "hash": "50a59a4f56e4046701b758ddbb1c1587efa4cadf",
+                        "name": "music/game/calm1",
+                        "stream": true,
+                        "weight": 2
+                    },
+                    {
+                        "hash": "74da65c99aa578486efa7b69983d3533e14c0d6e",
+                        "name": "music/game/calm2",
+                        "stream": true,
+                        "weight": 2
+                    },
+                    {
+                        "hash": "14ae57a6bce3d4254daa8be2b098c2d99743cc3f",
+                        "name": "music/game/calm3",
+                        "stream": true,
+                        "weight": 2
+                    },
+                    {
+                        "hash": "a40303dd9d4bfbb0986e66fc93553a0755621880",
+                        "name": "music/game/echo_in_the_wind",
+                        "stream": true,
+                        "volume": 0.4,
+                        "weight": 2
+                    },
+                    {
+                        "hash": "45bdfe06cc8c375dc507e59527c9a89105980085",
+                        "name": "music/game/floating_dream",
+                        "stream": true,
+                        "weight": 2
+                    },
+                    {
+                        "hash": "aa1d3aace1c481ac32d5827fba287294b6bc99fb",
+                        "name": "music/game/left_to_bloom",
+                        "stream": true,
+                        "volume": 0.4,
+                        "weight": 4
+                    },
+                    {
+                        "hash": "8b0b49dcab54157bb02ef81380990dac2a187b99",
+                        "name": "music/game/one_more_day",
+                        "stream": true,
+                        "volume": 0.4,
+                        "weight": 2
+                    },
+                    {
+                        "hash": "9528b6a76e7bac64ca1145cc682e8a8448cc04e5",
+                        "name": "music/game/piano3",
+                        "stream": true,
+                        "weight": 2
+                    },
+                    {
+                        "hash": "6615ab7f668384cf98b0cb034ce8e4c52eaf86b2",
+                        "name": "music/game/swamp/aerie",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "352bc5b46e08effbb8d92298b601e688cc36c4de",
+                        "name": "music/game/swamp/firebugs",
+                        "stream": true,
+                        "volume": 0.4
+                    },
+                    {
+                        "hash": "b83bbafa9799680da24f10215de2c40b73ce1fe3",
+                        "name": "music/game/swamp/labyrinthine",
+                        "stream": true,
+                        "volume": 0.4
+                    }
+                ]
+            }
         ],
         "nothingtoseeheremovealong:the_joke": [
             {
