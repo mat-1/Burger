@@ -375,8 +375,9 @@ class PacketsTopping(Topping):
 
         # Identify the enum constants, though this skips over the rest of the initialization we care about:
         states.update(get_enum_constants(cf, verbose))
-        # These are the states on this version, which hopefully won't change
-        assert states.keys() == set(("HANDSHAKING", "PLAY", "STATUS", "LOGIN"))
+        # These are the states on this version. The CONFIGURATION state was added in 23w31a (data version 3567).
+        assert states.keys() == set(("HANDSHAKING", "PLAY", "STATUS", "LOGIN")) or \
+               states.keys() == set(("HANDSHAKING", "PLAY", "STATUS", "LOGIN", "CONFIGURATION"))
 
         # Identify the direction class, by first locating builder() as the first call...
         for ins in clinit.code.disassemble():

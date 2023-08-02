@@ -34,13 +34,14 @@ import traceback
 MATCHES = (
     (['Fetching addPacket for removed entity', 'Fetching packet for removed entity'], 'entity.trackerentry'),
     (['#%04d/%d%s', 'attribute.modifier.equals.'], 'itemstack'),
-    (['disconnect.lost'], 'nethandler.client'),
+    (['disconnect.lost', 'connect.reconfiging'], 'nethandler.client'),
     ([' just tried to change non-editable sign'], 'nethandler.server'),
     (['Corrupt NBT tag'], 'nbtcompound'),
-    ([' is already assigned to protocol '], 'packet.connectionstate'),
+    (['HANDSHAKING'], 'packet.connectionstate'),
     (
         ['The received encoded string buffer length is ' \
-        'less than zero! Weird string!'],
+            'less than zero! Weird string!',
+        'VarIntArray with size '],
         'packet.packetbuffer'
     ),
     (['Data value id is too big'], 'metadata'),
@@ -73,7 +74,17 @@ MAYBE_MATCHES = (
 
 # In 1.18-pre8, the "Getting block state" message now appears in both rendering
 # code and world code, but in both cases the return type is correct.
-IGNORE_DUPLICATES = [ "biome.register", "particletypes", "blockstate" ]
+
+# In 23w31a, a new configuration state was added with its own nethandler.
+# disconnect.lost was in a base class for nethandler.client, while a new message
+# (connect.reconfiging) was in nethandler.client itself. Unfortunately,
+# Skipping Entity with id is still in nethandler.client, so matching that base
+# class instead of the actual nethandler means two things match entity.list,
+# with the wrong thing coming first.
+
+# Also in 23w31a, the packet buffer class was split from the string encoder.
+# Fortunately the packet buffer also comes first.
+IGNORE_DUPLICATES = [ "biome.register", "particletypes", "blockstate", "nethandler.client", "packet.packetbuffer" ]
 
 def check_match(value, match_list):
     exact = False
