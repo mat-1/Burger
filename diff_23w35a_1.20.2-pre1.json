@@ -1,0 +1,1000 @@
+{
+    "achievements": {},
+    "blocks": {
+        "block": {}
+    },
+    "entities": {
+        "dataserializers": {},
+        "entity": {
+            "player": [
+                {
+                    "class": "cbp",
+                    "display_name": "Player",
+                    "field": "bt",
+                    "height": 1.8,
+                    "id": 122,
+                    "metadata": [
+                        {
+                            "class": "bjb",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "cbp",
+                            "data": [
+                                {
+                                    "default": 0.0,
+                                    "field": "e",
+                                    "index": 15,
+                                    "serializer": "Float",
+                                    "serializer_id": 3
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "f",
+                                    "index": 16,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bK",
+                                    "index": 17,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": 1,
+                                    "field": "bL",
+                                    "index": 18,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bM",
+                                    "index": 19,
+                                    "serializer": "NBT",
+                                    "serializer_id": 16
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bN",
+                                    "index": 20,
+                                    "serializer": "NBT",
+                                    "serializer_id": 16
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "player",
+                    "serializable": "false",
+                    "width": 0.6
+                },
+                {
+                    "class": "cbu",
+                    "display_name": "Player",
+                    "field": "bt",
+                    "height": 1.8,
+                    "id": 122,
+                    "metadata": [
+                        {
+                            "class": "bjg",
+                            "entity": "~abstract_living"
+                        },
+                        {
+                            "bitfields": [],
+                            "class": "cbu",
+                            "data": [
+                                {
+                                    "default": 0.0,
+                                    "field": "e",
+                                    "index": 15,
+                                    "serializer": "Float",
+                                    "serializer_id": 3
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "f",
+                                    "index": 16,
+                                    "serializer": "VarInt",
+                                    "serializer_id": 1
+                                },
+                                {
+                                    "default": 0,
+                                    "field": "bM",
+                                    "index": 17,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "field": "bN",
+                                    "index": 18,
+                                    "serializer": "Byte",
+                                    "serializer_id": 0
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bO",
+                                    "index": 19,
+                                    "serializer": "NBT",
+                                    "serializer_id": 16
+                                },
+                                {
+                                    "default": "Empty",
+                                    "field": "bP",
+                                    "index": 20,
+                                    "serializer": "NBT",
+                                    "serializer_id": 16
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "player",
+                    "serializable": "false",
+                    "width": 0.6
+                }
+            ]
+        }
+    },
+    "items": {
+        "item": {}
+    },
+    "language": {
+        "advancements": {
+            "progress": [
+                null,
+                "%s/%s"
+            ]
+        },
+        "commands": {
+            "banlist.entry.unknown": [
+                null,
+                "(Unknown)"
+            ],
+            "random.roll": [
+                "%s rolled %s (between %s and %s)",
+                "%s rolled %s (from %s to %s)"
+            ]
+        },
+        "container": {
+            "shulkerBox.itemCount": [
+                null,
+                "%s x%s"
+            ],
+            "shulkerBox.unknownContents": [
+                null,
+                "???????"
+            ]
+        },
+        "death": {
+            "attack.anvil.player": [
+                "%1$s was squashed by a falling anvil whilst fighting %2$s",
+                "%1$s was squashed by a falling anvil while fighting %2$s"
+            ],
+            "attack.cactus.player": [
+                "%1$s walked into a cactus whilst trying to escape %2$s",
+                "%1$s walked into a cactus while trying to escape %2$s"
+            ],
+            "attack.drown.player": [
+                "%1$s drowned whilst trying to escape %2$s",
+                "%1$s drowned while trying to escape %2$s"
+            ],
+            "attack.dryout.player": [
+                "%1$s died from dehydration whilst trying to escape %2$s",
+                "%1$s died from dehydration while trying to escape %2$s"
+            ],
+            "attack.fall.player": [
+                "%1$s hit the ground too hard whilst trying to escape %2$s",
+                "%1$s hit the ground too hard while trying to escape %2$s"
+            ],
+            "attack.fallingBlock.player": [
+                "%1$s was squashed by a falling block whilst fighting %2$s",
+                "%1$s was squashed by a falling block while fighting %2$s"
+            ],
+            "attack.fallingStalactite.player": [
+                "%1$s was skewered by a falling stalactite whilst fighting %2$s",
+                "%1$s was skewered by a falling stalactite while fighting %2$s"
+            ],
+            "attack.fireworks.player": [
+                "%1$s went off with a bang whilst fighting %2$s",
+                "%1$s went off with a bang while fighting %2$s"
+            ],
+            "attack.flyIntoWall.player": [
+                "%1$s experienced kinetic energy whilst trying to escape %2$s",
+                "%1$s experienced kinetic energy while trying to escape %2$s"
+            ],
+            "attack.genericKill.player": [
+                "%1$s was killed whilst fighting %2$s",
+                "%1$s was killed while fighting %2$s"
+            ],
+            "attack.inFire.player": [
+                "%1$s walked into fire whilst fighting %2$s",
+                "%1$s walked into fire while fighting %2$s"
+            ],
+            "attack.inWall.player": [
+                "%1$s suffocated in a wall whilst fighting %2$s",
+                "%1$s suffocated in a wall while fighting %2$s"
+            ],
+            "attack.lightningBolt.player": [
+                "%1$s was struck by lightning whilst fighting %2$s",
+                "%1$s was struck by lightning while fighting %2$s"
+            ],
+            "attack.magic.player": [
+                "%1$s was killed by magic whilst trying to escape %2$s",
+                "%1$s was killed by magic while trying to escape %2$s"
+            ],
+            "attack.message_too_long": [
+                "Actually, the message was too long to deliver fully. Sorry! Here's stripped version: %s",
+                "Actually, the message was too long to deliver fully. Sorry! Here's a stripped version: %s"
+            ],
+            "attack.onFire.item": [
+                "%1$s was burnt to a crisp whilst fighting %2$s wielding %3$s",
+                "%1$s was burned to a crisp while fighting %2$s wielding %3$s"
+            ],
+            "attack.onFire.player": [
+                "%1$s was burnt to a crisp whilst fighting %2$s",
+                "%1$s was burned to a crisp while fighting %2$s"
+            ],
+            "attack.outsideBorder.player": [
+                "%1$s left the confines of this world whilst fighting %2$s",
+                "%1$s left the confines of this world while fighting %2$s"
+            ],
+            "attack.sonic_boom.item": [
+                "%1$s was obliterated by a sonically-charged shriek whilst trying to escape %2$s wielding %3$s",
+                "%1$s was obliterated by a sonically-charged shriek while trying to escape %2$s wielding %3$s"
+            ],
+            "attack.sonic_boom.player": [
+                "%1$s was obliterated by a sonically-charged shriek whilst trying to escape %2$s",
+                "%1$s was obliterated by a sonically-charged shriek while trying to escape %2$s"
+            ],
+            "attack.stalagmite.player": [
+                "%1$s was impaled on a stalagmite whilst fighting %2$s",
+                "%1$s was impaled on a stalagmite while fighting %2$s"
+            ],
+            "attack.starve.player": [
+                "%1$s starved to death whilst fighting %2$s",
+                "%1$s starved to death while fighting %2$s"
+            ],
+            "attack.sweetBerryBush.player": [
+                "%1$s was poked to death by a sweet berry bush whilst trying to escape %2$s",
+                "%1$s was poked to death by a sweet berry bush while trying to escape %2$s"
+            ],
+            "attack.thorns": [
+                "%1$s was killed trying to hurt %2$s",
+                "%1$s was killed while trying to hurt %2$s"
+            ],
+            "attack.thorns.item": [
+                "%1$s was killed by %3$s trying to hurt %2$s",
+                "%1$s was killed by %3$s while trying to hurt %2$s"
+            ],
+            "attack.wither.player": [
+                "%1$s withered away whilst fighting %2$s",
+                "%1$s withered away while fighting %2$s"
+            ]
+        },
+        "deathScreen": {
+            "score.value": [
+                null,
+                "Score: %s"
+            ]
+        },
+        "event": {
+            "minecraft.raid.defeat.full": [
+                null,
+                "Raid - Defeat"
+            ],
+            "minecraft.raid.victory.full": [
+                null,
+                "Raid - Victory"
+            ]
+        },
+        "filled_map": {
+            "explorer_jungle": [
+                null,
+                "Jungle Explorer Map"
+            ],
+            "explorer_swamp": [
+                null,
+                "Swamp Explorer Map"
+            ],
+            "village_desert": [
+                null,
+                "Desert Village Map"
+            ],
+            "village_plains": [
+                null,
+                "Plains Village Map"
+            ],
+            "village_savanna": [
+                null,
+                "Savanna Village Map"
+            ],
+            "village_snowy": [
+                null,
+                "Snowy Village Map"
+            ],
+            "village_taiga": [
+                null,
+                "Taiga Village Map"
+            ]
+        },
+        "gamerule": {
+            "enderPearlsVanishOnDeath": [
+                null,
+                "Thrown ender pearls vanish on death"
+            ],
+            "enderPearlsVanishOnDeath.description": [
+                null,
+                "Whether ender pearls thrown by a player vanish when that player dies."
+            ]
+        },
+        "gui": {
+            "recipebook.page": [
+                null,
+                "%s/%s"
+            ]
+        },
+        "loading": [
+            null,
+            {
+                "progress": "%s%%"
+            }
+        ],
+        "mco": {
+            "download.speed.narration": [
+                null,
+                "%s/s"
+            ],
+            "upload.percent": [
+                null,
+                "%s %%"
+            ]
+        },
+        "merchant": {
+            "title": [
+                null,
+                "%s - %s"
+            ]
+        },
+        "multiplayer": {
+            "player.list.hp": [
+                null,
+                "%shp"
+            ],
+            "status.player_count": [
+                null,
+                "%s/%s"
+            ]
+        },
+        "optimizeWorld": {
+            "progress.counter": [
+                null,
+                "%s / %s"
+            ],
+            "progress.percentage": [
+                null,
+                "%s%%"
+            ]
+        },
+        "options": {
+            "languageAccuracyWarning": [
+                null,
+                "(Language translations may not be 100%% accurate)"
+            ]
+        },
+        "outOfMemory": {
+            "message": [
+                "Minecraft has run out of memory.\n\nThis could be caused by a bug in the game or by the Java Virtual Machine not being allocated enough memory.\n\nTo prevent level corruption, the current game has quit. We've tried to free up enough memory to let you go back to the main menu and back to playing, but this may not have worked.\n\nPlease restart the game if you see this message again.",
+                "Minecraft has run out of memory.\n\nThis could be caused by a bug in the game or by the Java Virtual Machine not being allocated enough memory.\n\nTo prevent world corruption, the current game has quit. We've tried to free up enough memory to let you go back to the main menu and back to playing, but this may not have worked.\n\nPlease restart the game if you see this message again."
+            ]
+        },
+        "stats": {
+            "none": [
+                null,
+                "-"
+            ]
+        },
+        "title": {
+            "credits": [
+                null,
+                "Copyright Mojang AB. Do not distribute!"
+            ]
+        }
+    },
+    "packets": {
+        "packet": {
+            "CONFIGURATION_SERVERBOUND_00": [
+                {
+                    "class": "vl.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 0,
+                    "instructions": [
+                        {
+                            "field": "a.a()",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "args": "packetbuffer",
+                            "field": "a",
+                            "method": "a(Lsl;)V",
+                            "name": "a",
+                            "operation": "interfacecall",
+                            "target": "vs",
+                            "type": "interface"
+                        }
+                    ],
+                    "state": "CONFIGURATION"
+                },
+                {
+                    "class": "vo.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 0,
+                    "instructions": [
+                        {
+                            "field": "a.b",
+                            "operation": "write",
+                            "type": "string"
+                        },
+                        {
+                            "field": "a.c",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "a.d",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "a.e",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "a.f",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "a.g",
+                            "operation": "write",
+                            "type": "enum"
+                        },
+                        {
+                            "field": "a.h",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "a.i",
+                            "operation": "write",
+                            "type": "boolean"
+                        }
+                    ],
+                    "state": "CONFIGURATION"
+                }
+            ],
+            "CONFIGURATION_SERVERBOUND_01": [
+                {
+                    "class": "wq.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 1,
+                    "instructions": [],
+                    "state": "CONFIGURATION"
+                },
+                {
+                    "class": "vp.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 1,
+                    "instructions": [
+                        {
+                            "field": "a.a()",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "args": "packetbuffer",
+                            "field": "a",
+                            "method": "a(Lso;)V",
+                            "name": "a",
+                            "operation": "interfacecall",
+                            "target": "vw",
+                            "type": "interface"
+                        }
+                    ],
+                    "state": "CONFIGURATION"
+                }
+            ],
+            "CONFIGURATION_SERVERBOUND_02": [
+                {
+                    "class": "vm.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 2,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varlong"
+                        }
+                    ],
+                    "state": "CONFIGURATION"
+                },
+                {
+                    "class": "wu.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 2,
+                    "instructions": [],
+                    "state": "CONFIGURATION"
+                }
+            ],
+            "CONFIGURATION_SERVERBOUND_03": [
+                {
+                    "class": "vn.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 3,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "CONFIGURATION"
+                },
+                {
+                    "class": "vq.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 3,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varlong"
+                        }
+                    ],
+                    "state": "CONFIGURATION"
+                }
+            ],
+            "CONFIGURATION_SERVERBOUND_04": [
+                {
+                    "class": "vo.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 4,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "CONFIGURATION"
+                },
+                {
+                    "class": "vr.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 4,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "CONFIGURATION"
+                }
+            ],
+            "CONFIGURATION_SERVERBOUND_05": [
+                null,
+                {
+                    "class": "vs.class",
+                    "direction": "SERVERBOUND",
+                    "from_client": true,
+                    "from_server": false,
+                    "id": 5,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "enum"
+                        }
+                    ],
+                    "state": "CONFIGURATION"
+                }
+            ],
+            "PLAY_CLIENTBOUND_2A": [
+                {
+                    "class": "yi.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 42,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "c.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.c.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "aet",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.a()",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "i.a.a()",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "i.b.a()",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "i.c",
+                            "operation": "write",
+                            "type": "varlong"
+                        },
+                        {
+                            "field": "i.d.a()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "cpn.a(i.e)",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "i.f",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "i.g",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "i.h.isPresent()",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "i.h.isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "i.h.get().a().a()",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                },
+                                {
+                                    "field": "i.h.get().b().a()",
+                                    "operation": "write",
+                                    "type": "varlong"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "i.i",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                },
+                {
+                    "class": "ym.class",
+                    "direction": "CLIENTBOUND",
+                    "from_client": false,
+                    "from_server": true,
+                    "id": 42,
+                    "instructions": [
+                        {
+                            "field": "a",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "b",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "c.size()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "operation": "store",
+                            "type": "Iterator",
+                            "value": "this.c.iterator()",
+                            "var": "it"
+                        },
+                        {
+                            "condition": "it.hasNext()",
+                            "instructions": [
+                                {
+                                    "operation": "store",
+                                    "type": "aew",
+                                    "value": "it.next()",
+                                    "var": "itv"
+                                },
+                                {
+                                    "field": "itv.a()",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                }
+                            ],
+                            "operation": "loop"
+                        },
+                        {
+                            "field": "d",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "e",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "f",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "g",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "h",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "i",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "j.a.a()",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "j.b.a()",
+                            "operation": "write",
+                            "type": "identifier"
+                        },
+                        {
+                            "field": "j.c",
+                            "operation": "write",
+                            "type": "varlong"
+                        },
+                        {
+                            "field": "j.d.a()",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "cps.a(j.e)",
+                            "operation": "write",
+                            "type": "varint"
+                        },
+                        {
+                            "field": "j.f",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "j.g",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "field": "j.h.isPresent()",
+                            "operation": "write",
+                            "type": "boolean"
+                        },
+                        {
+                            "condition": "j.h.isPresent()",
+                            "instructions": [
+                                {
+                                    "field": "j.h.get().a().a()",
+                                    "operation": "write",
+                                    "type": "identifier"
+                                },
+                                {
+                                    "field": "j.h.get().b().a()",
+                                    "operation": "write",
+                                    "type": "varlong"
+                                }
+                            ],
+                            "operation": "if"
+                        },
+                        {
+                            "field": "j.i",
+                            "operation": "write",
+                            "type": "varint"
+                        }
+                    ],
+                    "state": "PLAY"
+                }
+            ]
+        }
+    },
+    "pluginchannels": {},
+    "recipes": {},
+    "sounds": {},
+    "stats": {},
+    "tags": {
+        "worldgen/structure/on_desert_village_maps": [
+            null,
+            {
+                "name": "structure/on_desert_village_maps",
+                "type": "worldgen",
+                "values": [
+                    "minecraft:village_desert"
+                ]
+            }
+        ],
+        "worldgen/structure/on_jungle_explorer_maps": [
+            null,
+            {
+                "name": "structure/on_jungle_explorer_maps",
+                "type": "worldgen",
+                "values": [
+                    "minecraft:jungle_pyramid"
+                ]
+            }
+        ],
+        "worldgen/structure/on_plains_village_maps": [
+            null,
+            {
+                "name": "structure/on_plains_village_maps",
+                "type": "worldgen",
+                "values": [
+                    "minecraft:village_plains"
+                ]
+            }
+        ],
+        "worldgen/structure/on_savanna_village_maps": [
+            null,
+            {
+                "name": "structure/on_savanna_village_maps",
+                "type": "worldgen",
+                "values": [
+                    "minecraft:village_savanna"
+                ]
+            }
+        ],
+        "worldgen/structure/on_snowy_village_maps": [
+            null,
+            {
+                "name": "structure/on_snowy_village_maps",
+                "type": "worldgen",
+                "values": [
+                    "minecraft:village_snowy"
+                ]
+            }
+        ],
+        "worldgen/structure/on_swamp_explorer_maps": [
+            null,
+            {
+                "name": "structure/on_swamp_explorer_maps",
+                "type": "worldgen",
+                "values": [
+                    "minecraft:swamp_hut"
+                ]
+            }
+        ],
+        "worldgen/structure/on_taiga_village_maps": [
+            null,
+            {
+                "name": "structure/on_taiga_village_maps",
+                "type": "worldgen",
+                "values": [
+                    "minecraft:village_taiga"
+                ]
+            }
+        ]
+    },
+    "tileentity": {
+        "tileentities": {}
+    },
+    "version": {
+        "data": [
+            3571,
+            3572
+        ],
+        "id": [
+            "23w35a",
+            "1.20.2-pre1"
+        ],
+        "name": [
+            "23w35a",
+            "1.20.2 Pre-release 1"
+        ],
+        "protocol": [
+            1073741971,
+            1073741972
+        ]
+    }
+}
