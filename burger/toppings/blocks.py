@@ -103,7 +103,9 @@ class BlocksTopping(Topping):
         # All of the registration happens in the list class in this version.
         listclass = aggregate["classes"]["block.list"]
         lcf = classloader[listclass]
-        superclass = next(lcf.fields.find()).type.name # The first field in the list class is a block
+        # The first field in the list class is a block
+        # (restricted to public fields as 23w40a has a different first field)
+        superclass = next(lcf.fields.find(f=lambda m: m.access_flags.acc_public)).type.name
         cf = classloader[superclass]
         aggregate["classes"]["block.superclass"] = superclass
 
@@ -255,7 +257,11 @@ class BlocksTopping(Topping):
                     # Probably getting the static AIR resource location
                     return "air"
                 elif const.class_.name.value == listclass:
-                    return block[block_fields[const.name_and_type.name.value]]
+                    if const.name_and_type.name.value in block_fields:
+                        return block[block_fields[const.name_and_type.name.value]]
+                    else:
+                        # Can occur in 23w40a+ due to the additional private field
+                        return None
                 elif const.name_and_type.descriptor == "Ljava/util/function/ToIntFunction;":
                     # Light level lambda, used by candles.  Not something we
                     # can evaluate (it depends on the block state).

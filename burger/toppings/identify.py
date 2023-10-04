@@ -25,7 +25,7 @@ THE SOFTWARE.
 from .topping import Topping
 from burger.util import string_from_invokedymanic
 
-from jawa.constants import String
+from jawa.constants import String, ConstantClass
 
 import traceback
 
@@ -168,13 +168,18 @@ def identify(classloader, path, verbose):
                 if c2 == 'doTileDrops':
                     # not in the list, only in registry
                     return 'block.register', class_file.this.name.value
-            else:
-                for c2 in class_file.constants.find(type_=String):
-                    if c2 == 'Tesselating block in world':
-                        # Rendering code, which we don't care about
-                        return
-                else:
-                    return 'block.list', class_file.this.name.value
+            for c2 in class_file.constants.find(type_=String):
+                if c2 == 'Tesselating block in world':
+                    # Rendering code, which we don't care about
+                    return
+            for c2 in class_file.constants.find(type_=ConstantClass):
+                if c2.name == 'com/mojang/serialization/MapCodec':
+                    # In 23w40a, a BlockTypes class was added that handles the codec for blocks,
+                    # which duplicates all of the block identifier strings. As a pretty awful
+                    # heuristic, ignore classes that reference the codec. Note that the codec
+                    # system isn't obfuscated.
+                    return
+            return 'block.list', class_file.this.name.value
 
         if value == 'diamond_pickaxe':
             # Similarly, diamond_pickaxe is only an item.  This exists in 3 classes, though:
