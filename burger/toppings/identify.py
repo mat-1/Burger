@@ -126,26 +126,22 @@ def identify(classloader, path, verbose):
                 possible_match = (match_name, class_file.this.name.value)
                 # Continue searching through the other constants in the class
 
-        if 'as a Component' in value:
+        if "as a Component" in value or "Couldn't get field 'lineStart' for JsonReader" in value:
             # This class is the JSON serializer/deserializer for the chat component.
-            # (This string constant exists starting in 13w36a (1.7.2))
+            # (The "as a Component" String exists starting in 13w36a (1.7.2), but
+            # was removed in 23w40a. The "Couldn't get field 'lineStart' for JsonReader"
+            # string exists in at least 1.20.2 (before 23w40a), and still exists in 23w40a).
 
+            # Look for a method that returns a String, and assume that it takes a component as its
+            # sole parameter.
             class_file = classloader[path]
-            # First, look for the method referencing that constant...
-            for method in class_file.methods:
-                for ins in method.code.disassemble():
-                    if ins.mnemonic in ("ldc", "ldc_w"):
-                        if isinstance(ins.operands[0], String) and 'as a Component' in ins.operands[0].string.value:
-                            # This method is the serializing one.
-                            # The chatcomponent type is its first parameter.
-                            return 'chatcomponent', method.args[0][2]
-                    elif ins.mnemonic == "invokedynamic":
-                        const = string_from_invokedymanic(ins, class_file)
-                        if const is not None and 'as a Component' in const:
-                            return 'chatcomponent', method.args[0][2]
-            else:
-                if verbose:
-                    print("Found chat component serializer as %s, but didn't find the method serializes it" % path)
+
+            def is_serialize_method(m):
+                return m.access_flags.acc_public and m.access_flags.acc_static and \
+                       len(m.args) == 1 and m.returns.name == "java/lang/String"
+
+            methods = list(class_file.methods.find(f=is_serialize_method))
+            return "chatcomponent", methods[0].args[0].name
 
         if value == 'ambient.cave':
             # This is found in both the sounds list class and sounds event class.
