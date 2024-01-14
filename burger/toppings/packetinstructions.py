@@ -119,11 +119,12 @@ class PacketInstructionsTopping(Topping):
     @staticmethod
     def act(aggregate, classloader, verbose=False):
         """Finds all packets and decompiles them"""
+        thunks = _PIT.list_thunks(classloader, aggregate["classes"]["packet.packetbuffer"])
         for key, packet in six.iteritems(aggregate["packets"]["packet"]):
             operations = None
             try:
                 classname = packet["class"][:-len(".class")]
-                operations = _PIT.class_operations(classloader, classname, aggregate["classes"], verbose)
+                operations = _PIT.class_operations(classloader, classname, aggregate["classes"], verbose, thunks)
                 packet.update(_PIT.format(operations))
             except Exception as e:
                 if verbose:
@@ -135,7 +136,11 @@ class PacketInstructionsTopping(Topping):
                     print()
 
     @staticmethod
-    def class_operations(classloader, classname, classes, verbose):
+    def list_thunks(classloader, packetbuffer_class):
+        return []
+
+    @staticmethod
+    def class_operations(classloader, classname, classes, verbose, thunks):
         """Decompiles the instructions for a specific packet."""
         # Find the writing method
         cf = classloader[classname]
@@ -156,17 +161,17 @@ class PacketInstructionsTopping(Topping):
             assert len(methods) == 0 # There shouldn't be more than 2 packetbuffer-related methods
             if cf.super_.name.value != "java/lang/Object":
                 # Try the superclass
-                return _PIT.class_operations(classloader, cf.super_.name.value, classes, verbose)
+                return _PIT.class_operations(classloader, cf.super_.name.value, classes, verbose, thunks)
             else:
                 raise Exception("Failed to find method in class or superclass")
 
         assert not method.access_flags.acc_static
         assert not method.access_flags.acc_abstract
 
-        return _PIT.operations(classloader, cf, classes, verbose, method, ("this", PACKETBUF_NAME))
+        return _PIT.operations(classloader, cf, classes, verbose, method, ("this", PACKETBUF_NAME), thunks)
 
     @staticmethod
-    def operations(classloader, cf, classes, verbose, method, arg_names, special_fields={}):
+    def operations(classloader, cf, classes, verbose, method, arg_names, thunks, special_fields={}):
         """Decompiles the specified method."""
         if method.access_flags.acc_static:
             assert len(arg_names) == len(method.args)
@@ -234,7 +239,7 @@ class PacketInstructionsTopping(Topping):
             if mnemonic in ("invokevirtual", "invokespecial", "invokestatic", "invokeinterface"):
                 operations.extend(_PIT._handle_invoke(
                     classloader, classes, instruction, verbose, operands[0].c,
-                    operands[0].name, method_descriptor(operands[0].descriptor), stack,
+                    operands[0].name, method_descriptor(operands[0].descriptor), stack, thunks,
                     special_fields if operands[0].c == cf.this.name.value else {}
                 ))
 
@@ -465,7 +470,7 @@ class PacketInstructionsTopping(Topping):
 
     @staticmethod
     def _handle_invoke(classloader, classes, instruction, verbose,
-                      cls, name, desc, stack, special_fields):
+                       cls, name, desc, stack, thunks, special_fields):
         """
         Handles invocation of a method, returning the operations for it and also
         updating the stack.
@@ -507,17 +512,17 @@ class PacketInstructionsTopping(Topping):
                 result = _PIT._handle_1_arg_buffer_call(classloader, classes,
                                                         instruction, verbose,
                                                         cls, name, desc, obj,
-                                                        arguments[0])
+                                                        arguments[0], thunks)
             elif num_arguments == 2:
                 result = _PIT._handle_2_arg_buffer_call(classloader, classes,
                                                         instruction, verbose,
                                                         cls, name, desc, obj,
-                                                        arguments)
+                                                        arguments, thunks)
             elif num_arguments == 3:
                 result = _PIT._handle_3_arg_buffer_call(classloader, classes,
                                                         instruction, verbose,
                                                         cls, name, desc, obj,
-                                                        arguments)
+                                                        arguments, thunks)
             else:
                 raise Exception("Unexpected num_arguments: " + str(num_arguments) + " - desc " + desc)
 
@@ -542,7 +547,7 @@ class PacketInstructionsTopping(Topping):
             assert num_arguments == 1
             assert not is_static
             return _PIT._handle_foreach(classloader, classes, instruction, verbose,
-                                        cls, name, desc, obj, arguments[0])
+                                        cls, name, desc, obj, arguments[0], thunks)
         elif isinstance(obj, InvokeDynamicInfo) and name == obj.dynamic_name:
             # Only check the dynamic name, as we won't have an exact match for
             # the descriptor due to type erasure (I think?)
@@ -555,7 +560,7 @@ class PacketInstructionsTopping(Topping):
 
             # This is used for special field handling by entitymetadata.
             return _PIT._lambda_operations(
-                classloader, classes, instruction.pos, verbose, obj, arguments
+                classloader, classes, instruction.pos, verbose, obj, arguments, thunks
             )
         else:
             if desc.returns.name != "void":
@@ -596,7 +601,7 @@ class PacketInstructionsTopping(Topping):
                             classloader, classes, instruction, verbose,
                             cls, name, desc,
                             [obj] + arguments if not is_static else arguments,
-                            special_fields
+                            thunks, special_fields
                         )
                 else:
                     # Call to a method that does not take a packetbuffer.
@@ -608,7 +613,7 @@ class PacketInstructionsTopping(Topping):
 
     @staticmethod
     def _handle_1_arg_buffer_call(classloader, classes, instruction, verbose,
-                                  cls, name, desc, instance, arg):
+                                  cls, name, desc, instance, arg, thunks):
         arg_type = desc.args[0].name
 
         if desc.args[0].dimensions == 1:
@@ -667,11 +672,11 @@ class PacketInstructionsTopping(Topping):
         if verbose:
             print("Inlining PacketBuffer.%s(%s)" % (name, arg_type))
         return _PIT._sub_operations(classloader, classes, instruction, verbose,
-                                    cls, name, desc, [instance, arg])
+                                    cls, name, desc, [instance, arg], thunks)
 
     @staticmethod
     def _handle_2_arg_buffer_call(classloader, classes, instruction, verbose,
-                                  cls, name, desc, instance, args):
+                                  cls, name, desc, instance, args, thunks):
         if desc.args[0].name == "java/lang/String" and desc.args[1].name == "int":
             max_length = int(args[1].value, 0) # the 0 makes it handle the 0x prefix if it's there
             return [Operation(instruction.pos, "write", type="string", field=args[0], length=max_length)]
@@ -712,7 +717,7 @@ class PacketInstructionsTopping(Topping):
                                         var="itv", value="it.next()"))
             operations += _PIT._lambda_operations(
                 classloader, classes, instruction.pos, verbose,
-                info, [instance, "itv"]
+                info, [instance, "itv"], thunks
             )
             # Jank: the part of the program that converts loop+endloop
             # to a nested setup sorts the operations.
@@ -739,7 +744,7 @@ class PacketInstructionsTopping(Topping):
             assert isinstance(info, InvokeDynamicInfo)
             operations += _PIT._lambda_operations(
                 classloader, classes, instruction.pos, verbose,
-                info, [instance, field.value + ".get()"]
+                info, [instance, field.value + ".get()"], thunks
             )
             # Jank: the part of the program that converts loop+endloop
             # to a nested setup sorts the operations.
@@ -764,7 +769,7 @@ class PacketInstructionsTopping(Topping):
             assert isinstance(info, InvokeDynamicInfo)
             operations += _PIT._lambda_operations(
                 classloader, classes, instruction.pos, verbose,
-                info, [instance, field.value]
+                info, [instance, field.value], thunks
             )
             operations.append(Operation(instruction.pos + 1 - SUB_INS_EPSILON, "endif"))
             return operations
@@ -784,7 +789,7 @@ class PacketInstructionsTopping(Topping):
 
     @staticmethod
     def _handle_3_arg_buffer_call(classloader, classes, instruction, verbose,
-                                  cls, name, desc, instance, args):
+                                  cls, name, desc, instance, args, thunks):
         if desc.args[0].name == "java/util/Map":
             # Loop that calls the consumers with the packetbuffer
             # and key, and then packetbuffer and value, for each
@@ -813,14 +818,14 @@ class PacketInstructionsTopping(Topping):
                                         var="itv", value="it.next()"))
             operations += _PIT._lambda_operations(
                 classloader, classes, instruction.pos, verbose,
-                key_info, [instance, "itv.getKey()"]
+                key_info, [instance, "itv.getKey()"], thunks
             )
             # TODO: Does the SUB_INS_EPSILON work correctly here?
             # I think this will lead to [1.01, 1.02, 1.03, 1.01, 1.02, 1.03]
             # which would get sorted wrongly, but I'm not sure
             operations += _PIT._lambda_operations(
                 classloader, classes, instruction.pos, verbose,
-                val_info, [instance, "itv.getValue()"]
+                val_info, [instance, "itv.getValue()"], thunks
             )
             # Same jank as with the one in _handle_2_arg_buffer_call
             operations.append(Operation(instruction.pos + 1 - SUB_INS_EPSILON, "endloop"))
@@ -841,12 +846,12 @@ class PacketInstructionsTopping(Topping):
                                         condition=field.value + ".isLeft()"))
             operations += _PIT._lambda_operations(
                 classloader, classes, instruction.pos, verbose,
-                left_consumer, [instance, field.value + ".left()"]
+                left_consumer, [instance, field.value + ".left()"], thunks
             )
             operations.append(Operation(instruction.pos + 1 - SUB_INS_EPSILON, "else"))
             operations += _PIT._lambda_operations(
                 classloader, classes, instruction.pos + 1, verbose,
-                right_consumer, [instance, field.value + ".right()"]
+                right_consumer, [instance, field.value + ".right()"], thunks
             )
             operations.append(Operation(instruction.pos + 2 - SUB_INS_EPSILON, "endif"))
             return operations
@@ -869,7 +874,7 @@ class PacketInstructionsTopping(Topping):
                                         field="0"))
             operations += _PIT._lambda_operations(
                 classloader, classes, instruction.pos + 1, verbose,
-                consumer, [instance, key.value]
+                consumer, [instance, key.value], thunks
             )
             operations.append(Operation(instruction.pos + 2 - SUB_INS_EPSILON * 2, "break"))
             operations.append(Operation(instruction.pos + 2 - SUB_INS_EPSILON, "endswitch"))
@@ -888,7 +893,7 @@ class PacketInstructionsTopping(Topping):
 
     @staticmethod
     def _handle_foreach(classloader, classes, instruction, verbose,
-                        cls, name, desc, instance, consumer):
+                        cls, name, desc, instance, consumer, thunks):
         assert isinstance(instance, StackOperand)
         assert isinstance(consumer, InvokeDynamicInfo)
         assert "Consumer" in desc.args[0].name
@@ -902,7 +907,7 @@ class PacketInstructionsTopping(Topping):
                                     type=consumer.method_desc.args[-1].name.replace("/", "."),
                                     var="itv", value="it.next()"))
         operations += _PIT._lambda_operations(
-            classloader, classes, instruction.pos, verbose, consumer, ["itv"]
+            classloader, classes, instruction.pos, verbose, consumer, ["itv"], thunks
         )
         # See comment in _handle_1_arg_buffer_call
         operations.append(Operation(instruction.pos + 1 - SUB_INS_EPSILON, "endloop"))
@@ -928,7 +933,7 @@ class PacketInstructionsTopping(Topping):
 
     @staticmethod
     def _sub_operations(classloader, classes, instruction, verbose, invoked_class,
-                        name, desc, args, special_fields={}):
+                        name, desc, args, thunks, special_fields={}):
         """
         Gets the instructions for a call to a different function.
         Usually that function is in a different class.
@@ -969,7 +974,7 @@ class PacketInstructionsTopping(Topping):
                                         args=_PIT.join(args[1:]))]
             else:
                 operations = _PIT.operations(classloader, cf, classes, verbose,
-                                             method, args, special_fields)
+                                             method, args, thunks, special_fields)
 
         # Sort operations by position, and try to ensure all of them fit between
         # two normal instructions.  Note that since operations are renumbered
@@ -990,7 +995,7 @@ class PacketInstructionsTopping(Topping):
         return operations
 
     @staticmethod
-    def _lambda_operations(classloader, classes, instruction_pos, verbose, info, args):
+    def _lambda_operations(classloader, classes, instruction_pos, verbose, info, args, thunks):
         assert isinstance(info, InvokeDynamicInfo)
         assert len(args) == len(info.instantiated_desc.args)
 
@@ -1011,7 +1016,7 @@ class PacketInstructionsTopping(Topping):
         # Note that info is included because this is
         cf, method = info.create_method()
         operations = _PIT.operations(classloader, cf, classes, verbose,
-                                     method, effective_args)
+                                     method, effective_args, thunks)
 
         position = 0
         # See note in _sub_operations

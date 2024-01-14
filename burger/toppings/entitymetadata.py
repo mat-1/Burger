@@ -359,6 +359,9 @@ class EntityMetadataTopping(Topping):
 
     @staticmethod
     def identify_serializers(classloader, dataserializer_class, dataserializers_class, classes, data_version, verbose):
+        from .packetinstructions import PacketInstructionsTopping as _PIT
+        thunks = _PIT.list_thunks(classloader, classes["packet.packetbuffer"])
+
         serializers = {}
         dataserializer_cf = classloader[dataserializer_class]
         static_funcs_to_classes = {}
@@ -456,7 +459,7 @@ class EntityMetadataTopping(Topping):
                     value["name"] = name
 
                 # Perform decompilation
-                EntityMetadataTopping._decompile_serializer(classloader, classloader[value["class"]], classes, verbose, value, value["special_fields"])
+                EntityMetadataTopping._decompile_serializer(classloader, classloader[value["class"]], classes, verbose, value, thunks, value["special_fields"])
                 del value["special_fields"]
 
                 self.serializers_by_field[field] = value
@@ -552,7 +555,7 @@ class EntityMetadataTopping(Topping):
             return None
 
     @staticmethod
-    def _decompile_serializer(classloader, cf, classes, verbose, serializer, special_fields):
+    def _decompile_serializer(classloader, cf, classes, verbose, serializer, thunks, special_fields):
         # In here because otherwise the import messes with finding the topping in this file
         from .packetinstructions import PacketInstructionsTopping as _PIT
         from .packetinstructions import PACKETBUF_NAME
@@ -566,7 +569,7 @@ class EntityMetadataTopping(Topping):
             methods = list(cf.methods.find(returns="V", args=write_args))
             assert len(methods) == 1
             operations = _PIT.operations(classloader, cf, classes, verbose,
-                    methods[0], ("this", PACKETBUF_NAME, "value"), special_fields)
+                    methods[0], ("this", PACKETBUF_NAME, "value"), thunks, special_fields)
             serializer.update(_PIT.format(operations))
         except:
             if verbose:
