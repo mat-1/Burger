@@ -137,7 +137,75 @@ class PacketInstructionsTopping(Topping):
 
     @staticmethod
     def list_thunks(classloader, packetbuffer_class):
-        return []
+        """ Look for obfuscated thunk functions that call Netty ByteBuf functions.
+        Since the Netty rewrite in 1.7, Mojang's PacketBuffer overrode all Netty ByteBuf functions
+        to call the same function on a stored ByteBuf field, like this:
+
+        public ByteBuf writeBytes(byte[] $$0, int $$1, int $$2) {
+            return this.f.writeBytes($$0, $$1, $$2);
+        }
+
+        However, this returns the stored ByteBuf field, meaning that you couldn't call any Mojang
+        functions (e.g. writeVarInt) on the return value. (I don't think any packets actually did
+        chain calls like that, though).
+
+        1.20.2 (23w31a) changed it so that the functions instead look like this:
+
+        public ui b(byte[] $$0, int $$1, int $$2) {
+            this.d.writeBytes($$0, $$1, $$2);
+            return this;
+        }
+
+        Since those functions don't exactly match the original signature, they get obfuscated. This
+        breaks Burger's assumption that Netty functions aren't obfuscated. (Note that because these
+        override ByteBuf functions, a synthetic function with the original name and return type also
+        exists (and would exist even without obfuscation), but Minecraft code doesn't call it.)
+
+        These thunks (for writes at least) look like this:
+
+        public ui b(byte[], int, int);
+               0: aload_0
+               1: getfield      #44                 // Field d:Lio/netty/buffer/ByteBuf;
+               4: aload_1
+               5: iload_2
+               6: iload_3
+               7: invokevirtual #1546               // Method io/netty/buffer/ByteBuf.writeBytes:([BII)Lio/netty/buffer/ByteBuf;
+              10: pop
+              11: aload_0
+              12: areturn
+        """
+        cf = classloader[packetbuffer_class]
+        thunks = {}
+        for method in cf.methods.find(returns="L" + packetbuffer_class + ";"):
+            insts = list(method.code.disassemble())
+            if len(insts) < 6:
+                continue
+            # NOTE: simple_swap transform (from classloader configuration in munch.py) changes aload_0 to aload
+            if insts[0].mnemonic != "aload" or insts[1].mnemonic != "getfield":
+                continue
+            if insts[-4].mnemonic != "invokevirtual" or insts[-3].mnemonic != "pop" or insts[-2].mnemonic != "aload" or insts[-1].mnemonic != "areturn":
+                continue
+            if insts[1].operands[0].name_and_type.descriptor.value != "Lio/netty/buffer/ByteBuf;":
+                continue
+            if not insts[-4].operands[0].name_and_type.descriptor.value.endswith("Lio/netty/buffer/ByteBuf;"):
+                continue
+            def is_expected_load(i, inst):
+                # iload_2 becomes iload 2 due to simple_swap
+                if not inst.mnemonic.endswith("load"):
+                    return False
+                if inst.operands[0].value != (i + 1):
+                    return False
+                return True
+            if not all(is_expected_load(i, inst) for i, inst in enumerate(insts[2:-4])):
+                continue
+
+            old_name = method.name.value
+            old_desc = method.descriptor.value
+            new_name = insts[-4].operands[0].name_and_type.name.value
+            new_desc = insts[-4].operands[0].name_and_type.descriptor.value
+            thunks[(old_name, old_desc)] = (new_name, new_desc)
+
+        return thunks
 
     @staticmethod
     def class_operations(classloader, classname, classes, verbose, thunks):
@@ -475,6 +543,12 @@ class PacketInstructionsTopping(Topping):
         Handles invocation of a method, returning the operations for it and also
         updating the stack.
         """
+
+        # Handle thunks
+        if cls == classes["packet.packetbuffer"] and (name, desc.descriptor) in thunks:
+            new_name, new_desc = thunks[(name, desc.descriptor)]
+            name = new_name
+            desc = method_descriptor(new_desc)
 
         num_arguments = len(desc.args)
         assert len(stack) >= num_arguments
