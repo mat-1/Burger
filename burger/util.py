@@ -648,6 +648,10 @@ def walk_method(cf, method, callback, verbose, input_args=None):
             stack.append(callback.on_invokedynamic(ins, ins.operands[0], args))
         elif ins == "checkcast":
             pass
+        elif ins == "fmul":
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(a * b)
         elif verbose:
             print("Unknown instruction %s: stack is %s" % (ins, stack))
 

@@ -204,6 +204,33 @@ class EntityTopping(Topping):
 
             def on_get_field(self, ins, const, obj):
                 # 19w05a+: used to set entity types.
+
+                # 23w51a+: used to get tadpole hitbox height (since the register call references Tadpole.HITBOX_HEIGHT)
+                class_name = const.class_.name.value
+                cf = classloader[class_name]
+
+                field_name = const.name_and_type.name.value
+                init_method = cf.methods.find_one(name="<clinit>")
+                stack = []
+                for ins in init_method.code.disassemble():
+                    if ins in ("ldc", "ldc_w"):
+                        const = ins.operands[0]
+                        if isinstance(const, ConstantClass):
+                            stack.append(const.name.value)
+                        elif isinstance(const, String):
+                            stack.append(const.string.value)
+                        else:
+                            stack.append(const.value)
+                    elif ins == "putstatic":
+                        const = ins.operands[0]
+                        if const.name_and_type.name.value == field_name:
+                            if stack != []:
+                                # it's possible for this to return an incorrect value, but it
+                                # currently doesn't break anything and I think it's unlikely to in
+                                # the future since statics are usually pretty simple
+                                return stack.pop()
+
+                # fallback
                 return object()
 
         walk_method(cf, method, EntityContext(), verbose)
