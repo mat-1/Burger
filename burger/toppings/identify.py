@@ -42,6 +42,13 @@ MATCHES = (
         'VarIntArray with size '],
         'packet.packetbuffer'
     ),
+    (['cookie_request'], 'packet.list.cookie'),
+    (['resource_pack_pop'], 'packet.list.common'),
+    (['block_destruction'], 'packet.list.game'),
+    ((['intention'], True), 'packet.list.handshake'),
+    (['custom_query'], 'packet.list.login'),
+    (['ping_request'], 'packet.list.ping'),
+    (['status_request'], 'packet.list.status'),
     (['Data value id is too big'], 'metadata'),
     (['X#X'], 'recipe.superclass'),
     (['Skipping BlockEntity with id '], 'tileentity.superclass'),
