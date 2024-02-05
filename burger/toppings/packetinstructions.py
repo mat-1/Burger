@@ -227,11 +227,26 @@ class PacketInstructionsTopping(Topping):
             method = methods[0]
         else:
             assert len(methods) == 0 # There shouldn't be more than 2 packetbuffer-related methods
-            if cf.super_.name.value != "java/lang/Object":
-                # Try the superclass
-                return _PIT.class_operations(classloader, cf.super_.name.value, classes, verbose, thunks)
+
+            # 24w03a adds a subclass of packetbuffer. This is a bit of a pain since that class has no strings to identify it.
+            # We can sometimes identify it via the constructor though.
+            # TODO: This approach is very hacky and doesn't work for all packets (even in 24w03a). Not sure what to do about it.
+            for m in cf.methods.find(name="<init>", f=lambda m: len(m.args)==1):
+                tmp_cf = classloader[m.args[0].name]
+                if tmp_cf.super_.name.value == classes["packet.packetbuffer"]:
+                    methods_2 = list(cf.methods.find(returns="V", args="L" + m.args[0].name + ";"))
+                    if len(methods_2) == 2:
+                        method = methods_2[1]
+                        break
+                    elif len(methods_2) == 1:
+                        method = methods_2[0]
+                        break
             else:
-                raise Exception("Failed to find method in class or superclass")
+                if cf.super_.name.value != "java/lang/Object" and cf.super_.name.value != "java/lang/Record":
+                    # Try the superclass
+                    return _PIT.class_operations(classloader, cf.super_.name.value, classes, verbose, thunks)
+                else:
+                    raise Exception("Failed to find method in class or superclass")
 
         assert not method.access_flags.acc_static
         assert not method.access_flags.acc_abstract
