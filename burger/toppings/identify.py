@@ -90,7 +90,10 @@ MAYBE_MATCHES = (
 
 # Also in 23w31a, the packet buffer class was split from the string encoder.
 # Fortunately the packet buffer also comes first.
-IGNORE_DUPLICATES = [ "biome.register", "particletypes", "blockstate", "nethandler.client", "packet.packetbuffer" ]
+
+# In 24w06b, "Data value id is too big" appears both in metadata and an inner class of metadata.
+# TODO: Including it here seems to fix things, though further testing is needed as the entities topping was broken in an earlier snapshot.
+IGNORE_DUPLICATES = [ "biome.register", "particletypes", "blockstate", "nethandler.client", "packet.packetbuffer", "metadata" ]
 
 def check_match(value, match_list):
     exact = False
