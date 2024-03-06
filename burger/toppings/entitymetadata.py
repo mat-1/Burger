@@ -1,7 +1,7 @@
 import six
 
 from .topping import Topping
-from burger.util import WalkerCallback, walk_method, string_from_invokedymanic, InvokeDynamicInfo
+from burger.util import LambdaInvokeDynamicInfo, WalkerCallback, walk_method, string_from_invokedymanic, InvokeDynamicInfo
 
 from jawa.constants import *
 from jawa.util.descriptor import method_descriptor
@@ -439,6 +439,15 @@ class EntityMetadataTopping(Topping):
                     return
 
                 field = const.name_and_type.name.value
+
+                # in 24w03a the entity serializers were changed to reference ByteBufCodecs
+                # this code is a hack and doesn't really work, but it's enough to get burger to at least generate the basic things for the dataserializers
+                if isinstance(value, LambdaInvokeDynamicInfo):
+                    value = {
+                        'class': value.method_class,
+                        'special_fields': {}
+                    }
+
                 value["field"] = field
 
                 field_obj = dataserializers_cf.fields.find_one(name=field)
