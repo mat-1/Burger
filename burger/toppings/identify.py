@@ -49,7 +49,7 @@ MATCHES = (
     (['custom_query'], 'packet.list.login'),
     (['ping_request'], 'packet.list.ping'),
     (['status_request'], 'packet.list.status'),
-    (['Data value id is too big'], 'metadata'),
+    (['! (Max is 254)'], 'metadata'),
     (['X#X'], 'recipe.superclass'),
     (['Skipping BlockEntity with id '], 'tileentity.superclass'),
     (
@@ -352,10 +352,10 @@ def identify(classloader, path, verbose):
                         and f.access_flags.acc_final and f.descriptor == 'Lcom/google/gson/Gson;'
                 gson_fields = class_file.fields.find(f=is_gson_field)
                 if next(gson_fields, None) is not None:
-                    # and also a method that looks like `public static String toJson(Component)`
+                    # and also a method that looks like `public static String toJson(Component, HolderLookup.Provider)`
                     def is_serialize_method(m):
                         return m.access_flags.acc_public and m.access_flags.acc_static and \
-                                len(m.args) == 1 and m.returns.name == "java/lang/String"
+                                len(m.args) == 2 and m.returns.name == "java/lang/String"
                     serialize_methods = list(class_file.methods.find(f=is_serialize_method))
                     if len(serialize_methods) == 1:
                         # final check to avoid false positives, abort if it has any string constants

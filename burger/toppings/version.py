@@ -66,14 +66,19 @@ class VersionTopping(Topping):
                 # "name" was used, and "id" looked like
                 # "1.14.2 / f647ba8dc371474797bee24b2b312ff4".
                 # Our heuristic for this is whether the ID is shorter than the name.
-                if len(version_json["id"]) <= len(version_json["name"]):
-                    if verbose:
-                        print("Using id '%s' over name '%s' for id as it is shorter" % (version_json["id"], version_json["name"]))
-                    aggregate["version"]["id"] = version_json["id"]
-                else:
-                    if verbose:
-                        print("Using name '%s' over id '%s' for id as it is shorter" % (version_json["name"], version_json["id"]))
-                    aggregate["version"]["id"] = version_json["name"]
+                version_id = version_json["id"]
+                version_name = version_json["name"]
+
+                version_id_chosen = version_id if len(version_id) <= len(version_name) else version_name
+                version_id_not_chosen = version_name if len(version_id) <= len(version_name) else version_id
+                aggregate["version"]["id"] = version_id_chosen
+
+                if verbose:
+                    if version_id_chosen == version_id_not_chosen:
+                        print("Using id '%s'" % version_id_chosen)
+                    else:
+                        print("Using id '%s' over name '%s' for id as it is shorter" % (version_id_chosen, version_id_not_chosen))
+
         except:
             # Find it manually
             VersionTopping.get_protocol_version(aggregate, classloader, verbose)

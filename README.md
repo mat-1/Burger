@@ -1,3 +1,7 @@
+# Fork info
+
+This is a fork of Burger with hacky and partially-broken fixes that are only intended to work on the latest Minecraft snapshot, meant for use in [Azalea](https://github.com/mat-1/azalea)'s code generator.
+
 # Burger
 Burger is a "framework" for automatically extracting data
 from the Minecraft game for the purpose of writing the protocol

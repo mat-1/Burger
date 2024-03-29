@@ -536,7 +536,7 @@ def walk_method(cf, method, callback, verbose, input_args=None):
         for arg in method.args:
             locals[cur_index] = object()
             cur_index += 1
-
+        
     ins_list = list(method.code.disassemble())
     for ins in ins_list[:-1]:
         if ins in ("bipush", "sipush"):

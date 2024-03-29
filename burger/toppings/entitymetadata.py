@@ -30,28 +30,32 @@ class EntityMetadataTopping(Topping):
         # This approach works in 1.9 and later; before then metadata was different.
         entities = aggregate["entities"]["entity"]
 
-        datamanager_class = aggregate["classes"]["metadata"]
-        datamanager_cf = classloader[datamanager_class]
+        synched_entity_data_class = aggregate["classes"]["metadata"]
+        synched_entity_data_cf = classloader[synched_entity_data_class]
 
-        create_key_method = datamanager_cf.methods.find_one(f=lambda m: len(m.args) == 2 and m.args[0].name == "java/lang/Class")
-        dataparameter_class = create_key_method.returns.name
-        dataserializer_class = create_key_method.args[1].name
+        # get the SynchedEntityData.Builder class, which happens to be the first inner class
+        synched_entity_data_builder_class = synched_entity_data_cf.constants.find_one(type_=ConstantClass, f=lambda c: c.name.value.startswith(synched_entity_data_class + '$')).name.value
+        synched_entity_data_builder_cf = classloader[synched_entity_data_builder_class]
 
-        register_method = datamanager_cf.methods.find_one(f=lambda m: len(m.args) == 2 and m.args[0].name == dataparameter_class)
+        define_id_method = synched_entity_data_cf.methods.find_one(f=lambda m: len(m.args) == 2 and m.args[0].name == "java/lang/Class")
+        entity_data_accessor_class = define_id_method.returns.name
+        entity_data_serializer_class = define_id_method.args[1].name
 
-        dataserializers_class = None
-        for ins in register_method.code.disassemble():
-            # The code loops up an ID and throws an exception if it's not registered
+        define_method = synched_entity_data_builder_cf.methods.find_one(f=lambda m: len(m.args) == 2 and m.args[0].name == entity_data_accessor_class)
+
+        entity_data_serializers_class = None
+        for ins in define_method.code.disassemble():
+            # The code looks up an ID and throws an exception if it's not registered
             # We want the class that it looks the ID up in
             if ins == "invokestatic":
                 const = ins.operands[0]
-                dataserializers_class = const.class_.name.value
-            elif dataserializers_class and ins in ("ldc", "ldc_w"):
+                entity_data_serializers_class = const.class_.name.value
+            elif entity_data_serializers_class and ins in ("ldc", "ldc_w"):
                 const = ins.operands[0]
                 if const == "Unregistered serializer ":
                     break
-            elif dataserializers_class and ins == "invokedynamic":
-                text = string_from_invokedymanic(ins, datamanager_cf)
+            elif entity_data_serializers_class and ins == "invokedynamic":
+                text = string_from_invokedymanic(ins, synched_entity_data_builder_cf)
                 if "Unregistered serializer " in text:
                     break
         else:
@@ -59,17 +63,20 @@ class EntityMetadataTopping(Topping):
 
         base_entity_class = entities["~abstract_entity"]["class"]
         base_entity_cf = classloader[base_entity_class]
-        register_data_method_name = None
-        register_data_method_desc = "()V"
+        define_synched_data_method_name = None
+        define_synched_data_method_desc = None
         # The last call in the base entity constructor is to registerData() (formerly entityInit())
         for ins in base_entity_cf.methods.find_one(name="<init>").code.disassemble():
             if ins.mnemonic == "invokevirtual":
                 const = ins.operands[0]
-                if const.name_and_type.descriptor == register_data_method_desc:
-                    register_data_method_name = const.name_and_type.name.value
+                candidate_method = base_entity_cf.methods.find_one(name=const.name_and_type.name.value, f=lambda m: m.descriptor == const.name_and_type.descriptor)
+                # protected void defineSynchedData(SynchedEntityData.Builder var1)
+                if candidate_method and len(candidate_method.args) == 1 and candidate_method.args[0].name == synched_entity_data_builder_class:
+                    define_synched_data_method_name = const.name_and_type.name.value
+                    define_synched_data_method_desc = const.name_and_type.descriptor.value
                     # Keep looping, to find the last call
 
-        dataserializers = EntityMetadataTopping.identify_serializers(classloader, dataserializer_class, dataserializers_class, aggregate["classes"], aggregate["version"]["data"], verbose)
+        dataserializers = EntityMetadataTopping.identify_serializers(classloader, entity_data_serializer_class, entity_data_serializers_class, aggregate["classes"], aggregate["version"]["data"], verbose)
         aggregate["entities"]["dataserializers"] = dataserializers
         dataserializers_by_field = {serializer["field"]: serializer for serializer in six.itervalues(dataserializers)}
 
@@ -100,7 +107,7 @@ class EntityMetadataTopping(Topping):
                     self.cur_index = index
 
                 def on_invoke(self, ins, const, obj, args):
-                    if const.class_.name == datamanager_class and const.name_and_type.name == create_key_method.name and const.name_and_type.descriptor == create_key_method.descriptor:
+                    if const.class_.name == synched_entity_data_class and const.name_and_type.name == define_id_method.name and const.name_and_type.descriptor == define_id_method.descriptor:
                         # Call to createKey.
                         # Sanity check: entities should only register metadata for themselves
                         if args[0] != cls + ".class":
@@ -128,7 +135,7 @@ class EntityMetadataTopping(Topping):
                         value["field"] = const.name_and_type.name.value
 
                 def on_get_field(self, ins, const, obj):
-                    if const.class_.name == dataserializers_class:
+                    if const.class_.name == entity_data_serializers_class:
                         return dataserializers_by_field[const.name_and_type.name.value]
 
                 def on_invokedynamic(self, ins, const, args):
@@ -152,6 +159,8 @@ class EntityMetadataTopping(Topping):
                 def on_invoke(self, ins, const, obj, args):
                     if self.waiting_for_putfield:
                         return
+                    
+                    print('const.class_.name', const.class_.name)
 
                     if "Optional" in const.class_.name.value:
                         if const.name_and_type.name in ("absent", "empty"):
@@ -176,24 +185,26 @@ class EntityMetadataTopping(Topping):
                                 obj["x"], obj["y"], obj["z"], obj["w"] = args
 
                         return
-                    elif const.class_.name == datamanager_class:
-                        assert const.name_and_type.name == register_method.name
-                        assert const.name_and_type.descriptor == register_method.descriptor
+                    elif const.class_.name == synched_entity_data_builder_class:
+                        assert const.name_and_type.name == define_method.name
+                        assert const.name_and_type.descriptor == define_method.descriptor
+
+                        print('default', args)
 
                         # args[0] is the metadata entry, and args[1] is the default value
                         if isinstance(args[0], dict) and args[1] is not None:
                             args[0]["default"] = args[1]
 
                         return
-                    elif const.name_and_type.descriptor.value.endswith("L" + datamanager_class + ";"):
+                    elif const.name_and_type.descriptor.value.endswith("L" + synched_entity_data_builder_class + ";"):
                         # getDataManager, which doesn't really have a reason to exist given that the data manager field is accessible
                         return None
-                    elif const.name_and_type.name == register_data_method_name and const.name_and_type.descriptor == register_data_method_desc:
+                    elif const.name_and_type.name == define_synched_data_method_name and const.name_and_type.descriptor == define_synched_data_method_desc:
                         # Call to super.registerData()
                         return
 
                 def on_put_field(self, ins, const, obj, value):
-                    if const.name_and_type.descriptor == "L" + datamanager_class + ";":
+                    if const.name_and_type.descriptor == "L" + synched_entity_data_builder_class + ";":
                         if not self.waiting_for_putfield:
                             raise Exception("Unexpected putfield: %s" % (ins,))
                         self.waiting_for_putfield = False
@@ -202,7 +213,7 @@ class EntityMetadataTopping(Topping):
                     if self.waiting_for_putfield:
                         return
 
-                    if const.name_and_type.descriptor == "L" + dataparameter_class + ";":
+                    if const.name_and_type.descriptor == "L" + entity_data_accessor_class + ";":
                         # Definitely shouldn't be registering something declared elsewhere
                         assert const.class_.name == cls
                         for metadata_entry in metadata:
@@ -219,7 +230,7 @@ class EntityMetadataTopping(Topping):
                     elif const.class_.name == aggregate["classes"]["itemstack"]:
                         # Assume ItemStack.EMPTY
                         return "Empty"
-                    elif const.name_and_type.descriptor == "L" + datamanager_class + ";":
+                    elif const.name_and_type.descriptor == "L" + synched_entity_data_builder_class + ";":
                         return
                     else:
                         return None
@@ -246,7 +257,9 @@ class EntityMetadataTopping(Topping):
                     elif const.name == self.textcomponentstring:
                         return {'text': None}
 
-            register = cf.methods.find_one(name=register_data_method_name, f=lambda m: m.descriptor == register_data_method_desc)
+            register = cf.methods.find_one(name=define_synched_data_method_name, f=lambda m: m.descriptor == define_synched_data_method_desc)
+            if register:
+                print('nyaaaa~', register, define_synched_data_method_name, define_synched_data_method_desc, register.access_flags.acc_abstract)
             if register and not register.access_flags.acc_abstract:
                 walk_method(cf, register, MetadataDefaultsContext(False), verbose)
             elif cls == base_entity_class:
