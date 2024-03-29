@@ -244,6 +244,7 @@ class BlockStateTopping(Topping):
             properties = None
             if_pos = None
             stack = []
+
             for ins in method.code.disassemble():
                 # This could _almost_ just be checking for getstatic, but
                 # brewing stands use an array of properties as the field,
@@ -469,24 +470,24 @@ class BlockStateTopping(Topping):
                     traceback.print_exc()
                 properties_by_class[cls] = []
 
-        assert len(_property_types) == 4
+        assert len(_property_types) == 5
         property_types = {}
         for type in _property_types:
             cf = classloader[type]
-            if cf.super_.name.value in _property_types:
-                property_types[type] = "direction"
+
+            attribute = cf.attributes.find_one(name='Signature')
+            signature = attribute.signature.value
+            # Somewhat ugly behavior until an actual parser is added for these
+            if "Enum" in signature:
+                property_types[type] = "enum"
+            elif "Integer" in signature:
+                property_types[type] = "int"
+            elif "Boolean" in signature:
+                property_types[type] = "bool"
             else:
-                attribute = cf.attributes.find_one(name='Signature')
-                signature = attribute.signature.value
-                # Somewhat ugly behavior until an actual parser is added for these
-                if "Enum" in signature:
-                    property_types[type] = "enum"
-                elif "Integer" in signature:
-                    property_types[type] = "int"
-                elif "Boolean" in signature:
-                    property_types[type] = "bool"
-                elif verbose:
+                if verbose:
                     print("Unknown property type %s with signature %s" % (type, signature))
+                property_types[type] = "direction"
 
         # Part 2: figure out what each field is.
         is_enum_cache = {}

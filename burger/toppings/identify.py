@@ -122,9 +122,12 @@ def identify(classloader, path, verbose):
     """
     possible_match = None
 
+    if path == 'drc': print('a')
+
     for c in classloader.search_constant_pool(path=path, type_=(String, ConstantClass)):
         if isinstance(c, String):
             value = c.string.value
+
             for match_list, match_name in MATCHES:
                 if check_match(value, match_list):
                     class_file = classloader[path]
@@ -393,13 +396,21 @@ class IdentifyTopping(Topping):
         "identify.nethandler.server",
         "identify.packet.connectionstate",
         "identify.packet.packetbuffer",
+        "identify.packet.list.common",
+        "identify.packet.list.cookie",
+        "identify.packet.list.game",
+        "identify.packet.list.handshake",
+        "identify.packet.list.login",
+        "identify.packet.list.ping",
+        "identify.packet.list.status",
         "identify.particle",
         "identify.particletypes",
         "identify.position",
         "identify.recipe.superclass",
         "identify.sounds.event",
         "identify.sounds.list",
-        "identify.tileentity.superclass"
+        "identify.tileentity.superclass",
+        "identify.resourcekey"
     ]
 
     DEPENDS = []
