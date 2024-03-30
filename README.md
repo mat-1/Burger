@@ -8,7 +8,7 @@ from the Minecraft game for the purpose of writing the protocol
 specification, interoperability, and other neat uses.
 
 ## The Idea
-Burger is made up of *toppings*, which can provide and satisfy
+Burger is made up of *toppings* and *condiments*, which can provide and satisfy
 simple dependencies, and which can be run all-together or just
 a few specifically. Each topping is then aggregated by
 `munch.py` into the whole and output as a JSON dictionary.
