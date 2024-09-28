@@ -123,15 +123,18 @@ class ItemsTopping(Topping):
         builder_cf = classloader[builder_class]
 
         # Find the max stack size method
+        # public Item.Properties stacksTo(int var1) {
+        #     return this.component(DataComponents.MAX_STACK_SIZE, var1);
+        # }
         max_stack_method = None
         for method in builder_cf.methods.find(args='I'):
-            for ins in method.code.disassemble():
-                if ins.mnemonic in ("ldc", "ldc_w"):
-                    const = ins.operands[0]
-                    if isinstance(const, String) and const.string.value == "Unable to have damage AND stack.":
-                        max_stack_method = method
-                        break
-            if max_stack_method:
+            expected_instructions = (
+                'aload', 'getstatic', 'iload', 'invokestatic', 'invokevirtual', 'areturn'
+            )
+            insts = method.code.disassemble()
+            given_instructions = tuple(ins.mnemonic for ins in insts)
+            if given_instructions == expected_instructions:
+                max_stack_method = method
                 break
         if not max_stack_method:
             raise Exception("Couldn't find max stack size setter in " + builder_class)
@@ -156,6 +159,8 @@ class ItemsTopping(Topping):
             elif name == 'java/lang/Object':
                 return True
             elif '/' in name:
+                return False
+            elif name == 'int':
                 return False
 
             cf = classloader[name]
@@ -295,6 +300,10 @@ class ItemsTopping(Topping):
                     field = const.name_and_type.name.value
                     value["field"] = field
                     item_fields[const.name_and_type.name.value] = value["text_id"]
+            
+            def on_invokedynamic(self, ins, const, args):
+                # we might be able to just ignore these?
+                print('invokedynamic', ins, const, args)
 
         walk_method(cf, method, Walker(), verbose)
 

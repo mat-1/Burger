@@ -195,7 +195,13 @@ class BlocksTopping(Topping):
                 if ins.mnemonic == "invokestatic":
                     if const.class_.name.value == listclass:
                         if (
-                            len(desc.args) == 2
+                            # most blocks have 2 args, but some (like air) have 3:
+                            # public static final Block AIR = register(
+                            #   "air",
+                            #   AirBlock::new,
+                            #   BlockBehaviour.Properties.of().replaceable().noCollission().noLootTable().air()
+                            # );
+                            len(desc.args) in {2, 3}
                             # In 23w40a+ (1.20.3) the first argument can also be a reference to a
                             # ResourceKey<Block> in the block references class. We have a check in
                             # on_get_field that makes the argument get converted to a block ID
@@ -204,11 +210,14 @@ class BlocksTopping(Topping):
                                 desc.args[0].name == "java/lang/String"
                                 or desc.args[0].name == aggregate["classes"].get("resourcekey")
                             )
-                            and desc.args[1].name == superclass
+                            and (
+                                desc.args[-1].name == superclass
+                                or desc.args[-1].name == builder_class
+                            )
                         ):
                             # Call to the static register method.
                             text_id = args[0]
-                            current_block = args[1]
+                            current_block = args[-1]
                             current_block["text_id"] = text_id
                             current_block["numeric_id"] = self.cur_id
                             self.cur_id += 1
@@ -304,6 +313,8 @@ class BlocksTopping(Topping):
                     return object()
 
             def on_put_field(self, ins, const, obj, value):
+                if const.name_and_type.name.value == 'a':
+                    print('put_field', const.name_and_type.name.value, '=', value)
                 if isinstance(value, dict):
                     field = const.name_and_type.name.value
                     value["field"] = field
@@ -603,6 +614,9 @@ class BlocksTopping(Topping):
                 stack.append(stack[-1])
             elif ins == "checkcast":
                 pass
+            elif ins == 'ifeq':
+                # we don't actually handle branches, so just pop the value
+                stack.pop()
             elif verbose:
                 print("Unknown instruction %s: stack is %s" % (ins, stack))
 

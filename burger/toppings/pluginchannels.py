@@ -124,14 +124,14 @@ def _get_custom_payload_packets(classloader, ignore_clientbound=False, ignore_se
     serverbound_packet = None
 
     for class_name in classloader.classes:
-
         if (ignore_clientbound or clientbound_packet is not None) and (ignore_serverbound or serverbound_packet is not None):
             break
-
+    
         constants = _get_class_constants(classloader, class_name)
 
         # Make sure we have the right message, and at least one identifier declared in the class (to avoid login custom payload packet)
         if not ignore_clientbound and clientbound_packet is None and "Payload may not be larger than 1048576 bytes" in constants:
+            print('!!!', class_name, constants)
             if any([const for const in constants if _is_channel_identifier(const)]):
                 clientbound_packet = class_name
         elif not ignore_serverbound and serverbound_packet is None and "Payload may not be larger than 32767 bytes" in constants:

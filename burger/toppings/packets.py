@@ -551,17 +551,20 @@ class PacketsTopping(Topping):
 
         # The handshake class only has serverbound packets (the rest have both)
         handshake_list_cf = classloader[classes['packet.list.handshake']]
+        print("handshake_list_cf", handshake_list_cf, handshake_list_cf.methods)
         assert len(handshake_list_cf.methods) == 3
         assert len(list(handshake_list_cf.methods.find(args='Ljava/lang/String;'))) == 1
 
         def check_register_method_insts(insts):
-            assert len(insts) == 9
             # NOTE: simple_swap transform (from classloader configuration in munch.py) changes aload_0 to aload
-            assert insts[0].mnemonic == 'new' and insts[1].mnemonic == 'dup' and \
-                   insts[2].mnemonic == 'getstatic' and insts[3].mnemonic == 'new' and \
-                   insts[4].mnemonic == 'dup' and insts[5].mnemonic == 'aload' and \
-                   insts[6].mnemonic == 'invokespecial' and insts[7].mnemonic == 'invokespecial' and \
-                   insts[8].mnemonic == 'areturn'
+
+            expected_instructions = (
+                'new', 'dup', 'getstatic', 'aload', 'invokestatic', 'invokespecial', 'areturn'
+            )
+            assert len(insts) == len(expected_instructions)
+            given_instructions = tuple(inst.mnemonic for inst in insts)
+            assert given_instructions == expected_instructions, f"Expected {expected_instructions}, got {given_instructions}"
+
 
         handshake_register_method = handshake_list_cf.methods.find_one(args='Ljava/lang/String;')
         handshake_register_insts = list(handshake_register_method.code.disassemble())
