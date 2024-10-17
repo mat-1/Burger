@@ -122,8 +122,6 @@ def identify(classloader, path, verbose):
     """
     possible_match = None
 
-    if path == 'drc': print('a')
-
     for c in classloader.search_constant_pool(path=path, type_=(String, ConstantClass)):
         if isinstance(c, String):
             value = c.string.value
@@ -266,22 +264,8 @@ def identify(classloader, path, verbose):
                 if len(list(fields)) == 2:
                     return 'identifier', class_file.this.name.value
 
-            if value == 'PooledMutableBlockPosition modified after it was released.':
-                # Keep on going up the class hierarchy until we find a logger,
-                # which is declared in the main BlockPos class
-                # We can't hardcode a specific number of classes to go up, as
-                # in some versions PooledMutableBlockPos extends BlockPos directly,
-                # but in others have PooledMutableBlockPos extend MutableBlockPos.
-                # Also, this is the _only_ string constant available to us.
-                # Finally, note that PooledMutableBlockPos was introduced in 1.9.
-                # This technique will not work in 1.8.
+            if value == 'The two directions cannot be on the same axis':
                 cf = classloader[path]
-                logger_type = "Lorg/apache/logging/log4j/Logger;"
-                while not cf.fields.find_one(type_=logger_type):
-                    if cf.super_.name == "java/lang/Object":
-                        cf = None
-                        break
-                    cf = classloader[cf.super_.name.value]
                 if cf:
                     return 'position', cf.this.name.value
 

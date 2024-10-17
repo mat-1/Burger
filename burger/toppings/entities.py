@@ -74,7 +74,7 @@ class EntityTopping(Topping):
         if verbose:
             print("Using 1.13 entity format")
 
-        listclass = aggregate["classes"]["entity.list"]
+        listclass = aggregate["classes"]["entity.list"] # EntityType
         cf = classloader[listclass]
 
         entities = aggregate.setdefault("entities", {})
@@ -126,8 +126,10 @@ class EntityTopping(Topping):
 
             def on_invoke(self, ins, const, obj, args):
                 if const.class_.name == listclass:
-                    assert len(args) == 2
-                    # Call to register
+                    if len(args) != 2:
+                        # probably something like a boatFactory call, don't care
+                        return
+                    # register call
                     name = args[0]
                     new_entity = args[1]
                     new_entity["name"] = name

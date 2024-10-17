@@ -16,13 +16,14 @@ class EntityMetadataTopping(Topping):
         "identify.metadata",
         "version.data",
         # For serializers
-        "packets.instructions",
+        # "packets.instructions",
         "identify.packet.packetbuffer",
         "identify.blockstate",
         "identify.chatcomponent",
         "identify.itemstack",
         "identify.nbtcompound",
-        "identify.particle"
+        "identify.particle",
+        "identify.position"
     ]
 
     @staticmethod
@@ -41,15 +42,20 @@ class EntityMetadataTopping(Topping):
         entity_data_accessor_class = define_id_method.returns.name
         entity_data_serializer_class = define_id_method.args[1].name
 
-        define_method = synched_entity_data_builder_cf.methods.find_one(f=lambda m: len(m.args) == 2 and m.args[0].name == entity_data_accessor_class)
+        define_method = synched_entity_data_builder_cf.methods.find_one(
+            f=lambda m: len(m.args) == 2 and m.args[0].name == entity_data_accessor_class
+        )
 
+        # net.minecraft.network.syncher.EntityDataSerializers
         entity_data_serializers_class = None
         for ins in define_method.code.disassemble():
             # The code looks up an ID and throws an exception if it's not registered
             # We want the class that it looks the ID up in
             if ins == "invokestatic":
                 const = ins.operands[0]
-                entity_data_serializers_class = const.class_.name.value
+                candidate_class = const.class_.name.value
+                if not candidate_class.startswith('java/'):
+                    entity_data_serializers_class = candidate_class
             elif entity_data_serializers_class and ins in ("ldc", "ldc_w"):
                 const = ins.operands[0]
                 if const == "Unregistered serializer ":
@@ -60,6 +66,8 @@ class EntityMetadataTopping(Topping):
                     break
         else:
             raise Exception("Failed to identify dataserializers")
+
+        assert not entity_data_serializers_class.startswith('java/'), f"entity_data_serializers_class should not be a java class: {entity_data_serializers_class}"
 
         base_entity_class = entities["~abstract_entity"]["class"]
         base_entity_cf = classloader[base_entity_class]
@@ -160,8 +168,6 @@ class EntityMetadataTopping(Topping):
                     if self.waiting_for_putfield:
                         return
                     
-                    print('const.class_.name', const.class_.name)
-
                     if "Optional" in const.class_.name.value:
                         if const.name_and_type.name in ("absent", "empty"):
                             return "Empty"
@@ -189,8 +195,6 @@ class EntityMetadataTopping(Topping):
                         assert const.name_and_type.name == define_method.name
                         assert const.name_and_type.descriptor == define_method.descriptor
 
-                        print('default', args)
-
                         # args[0] is the metadata entry, and args[1] is the default value
                         if isinstance(args[0], dict) and args[1] is not None:
                             args[0]["default"] = args[1]
@@ -202,6 +206,12 @@ class EntityMetadataTopping(Topping):
                     elif const.name_and_type.name == define_synched_data_method_name and const.name_and_type.descriptor == define_synched_data_method_desc:
                         # Call to super.registerData()
                         return
+
+                def on_invokedynamic(self, ins, const, args):
+                    # used in Wolf for
+                    # var1.define(DATA_VARIANT_ID, var3.get(WolfVariants.DEFAULT).or(var3::getAny).orElseThrow());
+
+                    return
 
                 def on_put_field(self, ins, const, obj, value):
                     if const.name_and_type.descriptor == "L" + synched_entity_data_builder_class + ";":
@@ -258,8 +268,6 @@ class EntityMetadataTopping(Topping):
                         return {'text': None}
 
             register = cf.methods.find_one(name=define_synched_data_method_name, f=lambda m: m.descriptor == define_synched_data_method_desc)
-            if register:
-                print('nyaaaa~', register, define_synched_data_method_name, define_synched_data_method_desc, register.access_flags.acc_abstract)
             if register and not register.access_flags.acc_abstract:
                 walk_method(cf, register, MetadataDefaultsContext(False), verbose)
             elif cls == base_entity_class:

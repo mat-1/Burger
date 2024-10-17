@@ -313,8 +313,6 @@ class BlocksTopping(Topping):
                     return object()
 
             def on_put_field(self, ins, const, obj, value):
-                if const.name_and_type.name.value == 'a':
-                    print('put_field', const.name_and_type.name.value, '=', value)
                 if isinstance(value, dict):
                     field = const.name_and_type.name.value
                     value["field"] = field

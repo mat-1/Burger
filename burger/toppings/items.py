@@ -302,8 +302,8 @@ class ItemsTopping(Topping):
                     item_fields[const.name_and_type.name.value] = value["text_id"]
             
             def on_invokedynamic(self, ins, const, args):
-                # we might be able to just ignore these?
-                print('invokedynamic', ins, const, args)
+                # we can just ignore these
+                pass
 
         walk_method(cf, method, Walker(), verbose)
 
