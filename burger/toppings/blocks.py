@@ -21,6 +21,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
+import jawa
+import jawa.classloader
 from .topping import Topping
 
 from jawa.constants import *
@@ -98,10 +100,12 @@ class BlocksTopping(Topping):
                 block_fields[field] = blk_name
 
     @staticmethod
-    def _process_1point14(aggregate, classloader, verbose):
+    def _process_1point14(aggregate, classloader: jawa.classloader.ClassLoader, verbose):
         # Handles versions after 1.14 (specifically >= 18w43a)
         # All of the registration happens in the list class in this version.
-        listclass = aggregate["classes"]["block.list"]
+
+        # net.minecraft.world.level.block.Blocks
+        listclass = aggregate["classes"]["block.list"] 
         lcf = classloader[listclass]
         # The first field in the list class is a block
         # (restricted to public fields as 23w40a has a different first field)
@@ -180,6 +184,7 @@ class BlocksTopping(Topping):
             def __init__(self):
                 self.cur_id = 0
 
+            # unused
             def on_new(self, ins, const):
                 class_name = const.name.value
 
@@ -217,7 +222,17 @@ class BlocksTopping(Topping):
                         ):
                             # Call to the static register method.
                             text_id = args[0]
+
+                            if text_id == 'stone_stairs':
+                                print('MEOW', args)
+                                exit()
+
                             current_block = args[-1]
+                            if len(args) == 3 and type(args[1]) == dict:
+                                # args[1] is what we got from the invokedynamic (like the AirBlock::new)
+                                current_block.update(args[1])
+
+                            # if 'class' not in current_block:
                             current_block["text_id"] = text_id
                             current_block["numeric_id"] = self.cur_id
                             self.cur_id += 1
@@ -313,6 +328,7 @@ class BlocksTopping(Topping):
                     return object()
 
             def on_put_field(self, ins, const, obj, value):
+                print('put field', ins, const, obj, value)
                 if isinstance(value, dict):
                     field = const.name_and_type.name.value
                     value["field"] = field
@@ -328,9 +344,9 @@ class BlocksTopping(Topping):
 
                 # 20w12a changed light levels to use a lambda, and we do
                 # care about those.  The light level is a ToIntFunction<BlockState>.
-                method_desc = const.name_and_type.descriptor.value
+                method_desc: str = const.name_and_type.descriptor.value
                 desc = method_descriptor(method_desc)
-                if desc.returns.name == "java/util/function/ToIntFunction":
+                if desc.returns.name in "java/util/function/ToIntFunction":
                     # Try to invoke the function.
                     try:
                         args.append(object()) # The state that the lambda gets
@@ -339,7 +355,28 @@ class BlocksTopping(Topping):
                         if verbose:
                             print("Failed to call lambda for light data:", ex)
                         return None
+                # if it's a ::new then return {"class": class_name, "super": super_classes}
+                elif desc.returns.name == "java/util/function/Function":
+                    print('invokedynamic', desc, ins, const, args)
+
+                    # the constant pool looks like this, so...
+                    #2263 = String             #2262        // air
+                    #2264 = Utf8               dji
+                    #2265 = Class              #2264        // dji
+                    #2266 = Methodref          #2265.#1407  // dji."<init>":(Ldxt$d;)V
+                    #2267 = MethodHandle       8:#2266      // REF_newInvokeSpecial dji."<init>":(Ldxt$d;)V      <-- this is what const.index-1 points to
+                    #2268 = InvokeDynamic      #16:#1411    // #16:apply:()Ljava/util/function/Function;         <-- this is what const.index points to
+                    # i am aware this is cursed
+                    class_name = lcf.constants.get(const.index - 1)
+                    try:
+                        class_name = class_name.reference.class_.name.value
+                    except AttributeError:
+                        return object()
+
+                    super_classes = BlocksTopping.list_super_classes(class_name, superclass, classloader)
+                    return {"class": class_name, "super": super_classes}
                 else:
+                    print('invokedynamic', desc, ins, const, args)
                     return object()
 
         walk_method(lcf, method, Walker(), verbose)

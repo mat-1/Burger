@@ -461,6 +461,7 @@ class BlockStateTopping(Topping):
             return properties
 
         for block in six.itervalues(aggregate["blocks"]["block"]):
+            print('block', block)
             cls = block["class"]
             try:
                 process_class(cls)

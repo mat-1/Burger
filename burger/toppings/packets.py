@@ -551,7 +551,6 @@ class PacketsTopping(Topping):
 
         # The handshake class only has serverbound packets (the rest have both)
         handshake_list_cf = classloader[classes['packet.list.handshake']]
-        print("handshake_list_cf", handshake_list_cf, handshake_list_cf.methods)
         assert len(handshake_list_cf.methods) == 3
         assert len(list(handshake_list_cf.methods.find(args='Ljava/lang/String;'))) == 1
 
