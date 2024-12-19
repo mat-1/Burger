@@ -505,3 +505,4 @@ class EntityTopping(Topping):
         abstract_entity("animal", "sheep", "Sheep") # EntityAnimal
         abstract_entity("ageable", "~abstract_animal") # EntityAgeable
         abstract_entity("creature", "~abstract_ageable") # EntityCreature
+        abstract_entity("display", "block_display") # Display.BlockDisplay
