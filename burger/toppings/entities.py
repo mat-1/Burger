@@ -506,3 +506,13 @@ class EntityTopping(Topping):
         abstract_entity("ageable", "~abstract_animal") # EntityAgeable
         abstract_entity("creature", "~abstract_ageable") # EntityCreature
         abstract_entity("display", "block_display") # Display.BlockDisplay
+        abstract_entity("horse", "horse") # AbstractHorse
+        abstract_entity("villager", "villager") # AbstractVillager
+        abstract_entity("arrow", "arrow") # AbstractVillager
+        abstract_entity("fish", "cod") # AbstractVillager
+        abstract_entity("boat", "birch_boat")
+        abstract_entity("thrown_item_projectile", "egg") # ThrowableItemProjectile
+        abstract_entity("raider", "ravager") # Raider
+        abstract_entity("spellcaster_illager", "illusioner") # SpellcasterIllager
+        
+
