@@ -514,5 +514,6 @@ class EntityTopping(Topping):
         abstract_entity("thrown_item_projectile", "egg") # ThrowableItemProjectile
         abstract_entity("raider", "ravager") # Raider
         abstract_entity("spellcaster_illager", "illusioner") # SpellcasterIllager
+        abstract_entity("chested_horse", "mule") # AbstractChestedHorse
         
 
