@@ -497,7 +497,8 @@ class EntityTopping(Topping):
                     print("Failed to find abstract entity %s as a superclass of %s" % (abstract_name, subclass_names))
 
         abstract_entity("entity", "item", "Item")
-        abstract_entity("minecart", "minecart", "MinecartRideable")
+        abstract_entity("minecart", "minecart") # AbstractMinecart
+        abstract_entity("vehicle", "~abstract_minecart") # VehicleEntity
         abstract_entity("living", "armor_stand", "ArmorStand") # EntityLivingBase
         abstract_entity("insentient", "ender_dragon", "EnderDragon") # EntityLiving
         abstract_entity("monster", "enderman", "Enderman") # EntityMob
@@ -515,5 +516,6 @@ class EntityTopping(Topping):
         abstract_entity("raider", "ravager") # Raider
         abstract_entity("spellcaster_illager", "illusioner") # SpellcasterIllager
         abstract_entity("chested_horse", "mule") # AbstractChestedHorse
+        abstract_entity("piglin", "piglin") # AbstractChestedHorse
         
 

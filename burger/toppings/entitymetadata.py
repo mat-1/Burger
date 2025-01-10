@@ -331,6 +331,8 @@ class EntityMetadataTopping(Topping):
                             break
                         elif ins.mnemonic == "bipush":
                             stack.append(ins.operands[0].value)
+                        elif ins.mnemonic == "sipush":
+                            stack.append(ins.operands[0].value)
                     if bitmask_value:
                         bitfields.append({
                             "method": method.name.value,
