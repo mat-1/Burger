@@ -491,7 +491,10 @@ class EntityMetadataTopping(Topping):
                     value["name"] = name
 
                 # Perform decompilation
-                EntityMetadataTopping._decompile_serializer(classloader, classloader[value["class"]], classes, verbose, value, thunks, value["special_fields"])
+                # In new versions (at the latest 24w09b), all metadata fields
+                # are codecs now, so decompilation doesn't work (and thus has been commented out)
+
+                # EntityMetadataTopping._decompile_serializer(classloader, classloader[value["class"]], classes, verbose, value, thunks, value["special_fields"])
                 del value["special_fields"]
 
                 self.serializers_by_field[field] = value
@@ -597,11 +600,21 @@ class EntityMetadataTopping(Topping):
         # and not the more specific method that for the given serializer which is
         # called by that bridge (_PIT.operations will inline that call for us)
         try:
+            print('cf', cf)
             write_args = "L" + classes["packet.packetbuffer"] + ";Ljava/lang/Object;"
             methods = list(cf.methods.find(returns="V", args=write_args))
+            print('methods', methods)
             assert len(methods) == 1
-            operations = _PIT.operations(classloader, cf, classes, verbose,
-                    methods[0], ("this", PACKETBUF_NAME, "value"), thunks, special_fields)
+            operations = _PIT.operations(
+                classloader,
+                cf,
+                classes,
+                verbose,
+                methods[0],
+                ("this", PACKETBUF_NAME, "value"),
+                thunks,
+                special_fields
+            )
             serializer.update(_PIT.format(operations))
         except:
             if verbose:

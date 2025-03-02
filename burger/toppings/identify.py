@@ -34,7 +34,7 @@ MATCHES = (
     (['#%04d/%d%s', 'attribute.modifier.equals.'], 'itemstack'),
     (['disconnect.lost', 'connect.reconfiging', 'connect.reconfiguring'], 'nethandler.client'),
     ([' just tried to change non-editable sign'], 'nethandler.server'),
-    (['Corrupt NBT tag'], 'nbtcompound'),
+    (['Corrupt NBT tag', 'TAG_Compound'], 'nbtcompound'),
     (['HANDSHAKING'], 'packet.connectionstate'),
     (
         ['The received encoded string buffer length is ' \
