@@ -600,10 +600,8 @@ class EntityMetadataTopping(Topping):
         # and not the more specific method that for the given serializer which is
         # called by that bridge (_PIT.operations will inline that call for us)
         try:
-            print('cf', cf)
             write_args = "L" + classes["packet.packetbuffer"] + ";Ljava/lang/Object;"
             methods = list(cf.methods.find(returns="V", args=write_args))
-            print('methods', methods)
             assert len(methods) == 1
             operations = _PIT.operations(
                 classloader,
