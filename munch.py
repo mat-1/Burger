@@ -38,6 +38,7 @@ from jawa.classloader import ClassLoader
 from jawa.transforms import simple_swap, expand_constants
 
 from burger import website
+from burger.mappings import Mappings, MAPPINGS, set_global_mappings
 from burger.roundedfloats import transform_floats
 
 
@@ -93,7 +94,8 @@ if __name__ == "__main__":
                 "download-latest",
                 "list",
                 "compact",
-                "url="
+                "url=",
+                "mappings=",
             ]
         )
     except getopt.GetoptError as err:
@@ -127,6 +129,8 @@ if __name__ == "__main__":
             list_toppings = True
         elif o in ("-s", "--url"):
             url = a
+        elif o in ('-m', '--mappings'):
+            set_global_mappings(Mappings.parse(open(a, 'r').read()))
 
     # Load all toppings
     all_toppings = import_toppings()
@@ -135,9 +139,10 @@ if __name__ == "__main__":
     # as well as their docstring if available.
     if list_toppings:
         for topping in all_toppings:
-            print("%s" % topping)
-            if all_toppings[topping].__doc__:
-                print(" -- %s\n" % all_toppings[topping].__doc__)
+            print(topping)
+            topping_doc = all_toppings[topping].__doc__
+            if topping_doc:
+                print(f' -- {topping_doc}\n')
         sys.exit(0)
 
     # Get the toppings we want
@@ -147,7 +152,7 @@ if __name__ == "__main__":
         loaded_toppings = []
         for topping in toppings:
             if topping not in all_toppings:
-                print("Topping '%s' doesn't exist" % topping)
+                print(f"Topping '{topping}' doesn't exist")
             else:
                 loaded_toppings.append(all_toppings[topping])
 

@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
+from burger.mappings import MAPPINGS
 import jawa
 import jawa.classloader
 from .topping import Topping
@@ -139,6 +140,14 @@ class BlocksTopping(Topping):
             light_setter = builder_cf.methods.find_one(args='Ljava/util/function/ToIntFunction;')
         assert light_setter != None
 
+        # public BlockBehaviour.Properties forceSolidOn() {
+
+        properties_class = MAPPINGS.get_class_from_deobfuscated_name('net.minecraft.world.level.block.state.BlockBehaviour$Properties')
+        force_solid_on_setter_name = MAPPINGS.get_method_from_deobfuscated_name(properties_class, 'forceSolidOn')
+        force_solid_on_setter = classloader[properties_class].methods.find_one(name=force_solid_on_setter_name)
+        force_solid_off_setter_name = MAPPINGS.get_method_from_deobfuscated_name(properties_class, 'forceSolidOff')
+        force_solid_off_setter = classloader[properties_class].methods.find_one(name=force_solid_off_setter_name)
+
         blocks = aggregate.setdefault("blocks", {})
         block = blocks.setdefault("block", {})
         ordered_blocks = blocks.setdefault("ordered_blocks", [])
@@ -245,6 +254,10 @@ class BlocksTopping(Topping):
                     elif method_name == light_setter.name.value and method_desc == light_setter.descriptor.value:
                         if args[0] != None:
                             obj["light"] = args[0]
+                    elif method_name == force_solid_on_setter.name.value and method_desc == force_solid_on_setter.descriptor.value:
+                        obj["force_solid_on"] = True
+                    elif method_name == force_solid_off_setter.name.value and method_desc == force_solid_off_setter.descriptor.value:
+                        obj["force_solid_off"] = True
                     elif method_name == "<init>":
                         # Call to the constructor for the block
                         # The majority of blocks have a 1-arg constructor simply taking the builder.
