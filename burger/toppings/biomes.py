@@ -29,29 +29,29 @@ from jawa.util.descriptor import method_descriptor
 
 from jawa.constants import *
 
+
 class BiomeTopping(Topping):
     """Gets most biome types."""
 
-    PROVIDES = [
-        "identify.biome.superclass",
-        "biomes"
-    ]
+    PROVIDES = ["identify.biome.superclass", "biomes"]
 
     DEPENDS = [
         "identify.biome.register",
         "identify.biome.list",
         "version.data",
-        "language"
+        "language",
     ]
 
     @staticmethod
     def act(aggregate, classloader, verbose=False):
         if "biome.register" not in aggregate["classes"]:
             return
-        data_version = aggregate["version"]["data"] if "data" in aggregate["version"] else -1
-        if data_version >= 1901: # 18w43a
+        data_version = (
+            aggregate["version"]["data"] if "data" in aggregate["version"] else -1
+        )
+        if data_version >= 1901:  # 18w43a
             BiomeTopping._process_114(aggregate, classloader, verbose)
-        elif data_version >= 1466: # snapshot 18w06a
+        elif data_version >= 1466:  # snapshot 18w06a
             BiomeTopping._process_113(aggregate, classloader, verbose)
         elif data_version != -1:
             BiomeTopping._process_19(aggregate, classloader, verbose)
@@ -71,7 +71,11 @@ class BiomeTopping(Topping):
 
         mutate_method_desc = None
         mutate_method_name = None
-        void_methods = cf.methods.find(returns="L" + superclass + ";", args="", f=lambda m: m.access_flags.acc_protected and not m.access_flags.acc_static)
+        void_methods = cf.methods.find(
+            returns="L" + superclass + ";",
+            args="",
+            f=lambda m: m.access_flags.acc_protected and not m.access_flags.acc_static,
+        )
         for method in void_methods:
             for ins in method.code.disassemble():
                 if ins == "sipush" and ins.operands[0].value == 128:
@@ -80,7 +84,11 @@ class BiomeTopping(Topping):
 
         make_mutated_method_desc = None
         make_mutated_method_name = None
-        int_methods = cf.methods.find(returns="L" + superclass + ";", args="I", f=lambda m: m.access_flags.acc_protected and not m.access_flags.acc_static)
+        int_methods = cf.methods.find(
+            returns="L" + superclass + ";",
+            args="I",
+            f=lambda m: m.access_flags.acc_protected and not m.access_flags.acc_static,
+        )
         for method in int_methods:
             for ins in method.code.disassemble():
                 if ins == "new":
@@ -110,18 +118,22 @@ class BiomeTopping(Topping):
                     "rainfall": 0.5,
                     "height": [0.1, 0.2],
                     "temperature": 0.5,
-                    "class": const.name.value
+                    "class": const.name.value,
                 }
             elif tmp is None:
                 continue
             elif ins == "invokespecial":
                 const = ins.operands[0]
                 name = const.name_and_type.name.value
-                if len(stack) == 2 and (isinstance(stack[1], float) or isinstance(stack[0], float)):
+                if len(stack) == 2 and (
+                    isinstance(stack[1], float) or isinstance(stack[0], float)
+                ):
                     # Height constructor
                     tmp["height"] = [stack[0], stack[1]]
                     stack = []
-                elif len(stack) >= 1 and isinstance(stack[0], int): # 1, 2, 3-argument beginning with int = id
+                elif len(stack) >= 1 and isinstance(
+                    stack[0], int
+                ):  # 1, 2, 3-argument beginning with int = id
                     tmp["id"] = stack[0]
                     stack = []
                 elif name != "<init>":
@@ -137,18 +149,21 @@ class BiomeTopping(Topping):
                     tmp["id"] += 128
                     if "field" in tmp:
                         del tmp["field"]
-                    tmp["height"][0] += .1
-                    tmp["height"][1] += .2
+                    tmp["height"][0] += 0.1
+                    tmp["height"][1] += 0.2
                     store_biome_if_valid(tmp)
-                elif name == make_mutated_method_name and desc == make_mutated_method_desc:
+                elif (
+                    name == make_mutated_method_name
+                    and desc == make_mutated_method_desc
+                ):
                     # New, separate biome, but with a custom ID
                     tmp = tmp.copy()
                     tmp["name"] += " M"
                     tmp["id"] += stack.pop()
                     if "field" in tmp:
                         del tmp["field"]
-                    tmp["height"][0] += .1
-                    tmp["height"][1] += .2
+                    tmp["height"][0] += 0.1
+                    tmp["height"][1] += 0.2
                     store_biome_if_valid(tmp)
                 elif len(stack) == 1:
                     stack.pop()
@@ -158,7 +173,7 @@ class BiomeTopping(Topping):
             elif ins == "putstatic":
                 const = ins.operands[0]
                 field = const.name_and_type.name.value
-                if "height" in tmp and not "name" in tmp:
+                if "height" in tmp and "name" not in tmp:
                     # Actually creating a height
                     heights_by_field[field] = tmp["height"]
                 else:
@@ -201,7 +216,11 @@ class BiomeTopping(Topping):
         aggregate["classes"]["biome.superclass"] = superclass
         cf = classloader[superclass]
 
-        method = cf.methods.find_one(returns="V", args="", f=lambda m: m.access_flags.acc_public and m.access_flags.acc_static)
+        method = cf.methods.find_one(
+            returns="V",
+            args="",
+            f=lambda m: m.access_flags.acc_public and m.access_flags.acc_static,
+        )
         heights_by_field = {}
         first_new = True
         biome = None
@@ -233,11 +252,11 @@ class BiomeTopping(Topping):
                         "rainfall": 0.5,
                         "height": [0.1, 0.2],
                         "temperature": 0.5,
-                        "class": const.name.value
+                        "class": const.name.value,
                     }
                     stack = []
 
-                first_new = not(first_new)
+                first_new = not (first_new)
             elif ins == "invokestatic":
                 # Call to the static registration method
                 # We already saved its parameters at the constructor, so we
@@ -246,7 +265,7 @@ class BiomeTopping(Topping):
             elif ins == "invokespecial":
                 # Possibly the constructor for biome properties, which takes
                 # the name as a string.
-                if len(stack) > 0 and not "name" in biome:
+                if len(stack) > 0 and "name" not in biome:
                     biome["name"] = stack.pop()
 
                 stack = []
@@ -296,7 +315,10 @@ class BiomeTopping(Topping):
                 if isinstance(const, String):
                     biome_name = const.string.value
             elif ins == "putstatic":
-                if biome_name is None or biome_name == "Accessed Biomes before Bootstrap!":
+                if (
+                    biome_name is None
+                    or biome_name == "Accessed Biomes before Bootstrap!"
+                ):
                     continue
                 const = ins.operands[0]
                 field = const.name_and_type.name.value
@@ -314,7 +336,11 @@ class BiomeTopping(Topping):
         aggregate["classes"]["biome.superclass"] = superclass
         cf = classloader[superclass]
 
-        method = cf.methods.find_one(returns="V", args="", f=lambda m: m.access_flags.acc_public and m.access_flags.acc_static)
+        method = cf.methods.find_one(
+            returns="V",
+            args="",
+            f=lambda m: m.access_flags.acc_public and m.access_flags.acc_static,
+        )
 
         # First pass: identify all the biomes.
         stack = []
@@ -339,7 +365,7 @@ class BiomeTopping(Topping):
                     "rainfall": 0.5,
                     "height": [0.1, 0.2],
                     "temperature": 0.5,
-                    "class": stack[2]
+                    "class": stack[2],
                 }
                 stack = []
             elif ins == "anewarray":
@@ -349,7 +375,7 @@ class BiomeTopping(Topping):
                 break
 
         # Second pass: check the biome constructors and fill in data from there.
-        if aggregate["version"]["data"] >= 1483: # 18w16a
+        if aggregate["version"]["data"] >= 1483:  # 18w16a
             BiomeTopping._process_113_classes_new(aggregate, classloader, verbose)
         else:
             BiomeTopping._process_113_classes_old(aggregate, classloader, verbose)
@@ -366,13 +392,15 @@ class BiomeTopping(Topping):
                 if isinstance(const, String):
                     biome_name = const.string.value
             elif ins == "putstatic":
-                if biome_name is None or biome_name == "Accessed Biomes before Bootstrap!":
+                if (
+                    biome_name is None
+                    or biome_name == "Accessed Biomes before Bootstrap!"
+                ):
                     continue
                 const = ins.operands[0]
                 field = const.name_and_type.name.value
                 biomes[biome_name]["field"] = field
                 biome_fields[field] = biome_name
-
 
     @staticmethod
     def _process_113_classes_old(aggregate, classloader, verbose):
@@ -419,7 +447,9 @@ class BiomeTopping(Topping):
         # After 18w16a, biomes used a builder again.  The name is now also translatable.
 
         for biome in six.itervalues(aggregate["biomes"]["biome"]):
-            biome["name"] = aggregate["language"]["biome"]["minecraft." + biome["text_id"]]
+            biome["name"] = aggregate["language"]["biome"][
+                "minecraft." + biome["text_id"]
+            ]
 
             cf = classloader[biome["class"]]
             method = cf.methods.find_one(name="<init>")
@@ -428,7 +458,10 @@ class BiomeTopping(Topping):
                 if ins == "invokespecial":
                     const = ins.operands[0]
                     name = const.name_and_type.name.value
-                    if const.class_.name.value == cf.super_.name.value and name == "<init>":
+                    if (
+                        const.class_.name.value == cf.super_.name.value
+                        and name == "<init>"
+                    ):
                         # Calling biome init; we're done
                         break
                 elif ins == "invokevirtual":
@@ -474,7 +507,9 @@ class BiomeTopping(Topping):
         # Processes biomes for Minecraft 1.14
         listclass = aggregate["classes"]["biome.list"]
         lcf = classloader[listclass]
-        superclass = next(lcf.fields.find()).type.name # The first field in the list is a biome
+        superclass = next(
+            lcf.fields.find()
+        ).type.name  # The first field in the list is a biome
         aggregate["classes"]["biome.superclass"] = superclass
 
         biomes_base = aggregate.setdefault("biomes", {})
@@ -506,10 +541,10 @@ class BiomeTopping(Topping):
                     "rainfall": 0.5,
                     "height": [0.1, 0.2],
                     "temperature": 0.5,
-                    "class": stack[2]
+                    "class": stack[2],
                 }
                 biomes[stack[1]] = tmp_biome
-                stack = [tmp_biome] # Registration returns the biome
+                stack = [tmp_biome]  # Registration returns the biome
             elif ins.mnemonic == "anewarray":
                 # End of biome initialization; now creating the list of biomes
                 # for the explore all biomes achievement but we don't need
@@ -530,4 +565,3 @@ class BiomeTopping(Topping):
 
         # Second pass: check the biome constructors and fill in data from there.
         BiomeTopping._process_113_classes_new(aggregate, classloader, verbose)
-

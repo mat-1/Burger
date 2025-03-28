@@ -8,6 +8,7 @@ from .topping import Topping
 from jawa.constants import ConstantClass, String
 from burger.util import class_from_invokedynamic
 
+
 class TileEntityTopping(Topping):
     """Gets tile entity (block entity) types."""
 
@@ -15,14 +16,14 @@ class TileEntityTopping(Topping):
         "identify.tileentity.list",
         "tileentities.list",
         "tileentities.tags",
-        "tileentities.networkids"
+        "tileentities.networkids",
     ]
 
     DEPENDS = [
         "identify.tileentity.superclass",
         "identify.block.superclass",
         "packets.classes",
-        "blocks"
+        "blocks",
     ]
 
     @staticmethod
@@ -45,7 +46,9 @@ class TileEntityTopping(Topping):
 
         # First, figure out whether this is a version where the TE superclass
         # is also the TE list.
-        if cf.constants.find_one(String, lambda c: c.string.value in ('daylight_detector', 'DLDetector')):
+        if cf.constants.find_one(
+            String, lambda c: c.string.value in ("daylight_detector", "DLDetector")
+        ):
             # Yes, it is
             listclass = superclass
         else:
@@ -96,7 +99,11 @@ class TileEntityTopping(Topping):
 
         tileentityprovider = cf.interfaces[0].name.value
         cf = classloader[tileentityprovider]
-        methods = list(cf.methods.find(returns="L" + aggregate["classes"]["tileentity.superclass"] + ";"))
+        methods = list(
+            cf.methods.find(
+                returns="L" + aggregate["classes"]["tileentity.superclass"] + ";"
+            )
+        )
         assert len(methods) == 1
         create_te_name = methods[0].name.value
         create_te_desc = methods[0].descriptor.value
@@ -140,7 +147,10 @@ class TileEntityTopping(Topping):
             while not create_te:
                 cf = classloader[cls]
                 cls = cf.super_.name.value
-                create_te = cf.methods.find_one(f=lambda m: m.name == create_te_name and m.descriptor == create_te_desc)
+                create_te = cf.methods.find_one(
+                    f=lambda m: m.name == create_te_name
+                    and m.descriptor == create_te_desc
+                )
 
             for ins in create_te.code.disassemble():
                 if ins.mnemonic == "new":
@@ -160,18 +170,23 @@ class TileEntityTopping(Topping):
         if "nethandler.client" in aggregate["classes"]:
             updatepacket = None
             for packet in six.itervalues(aggregate["packets"]["packet"]):
-                if (packet["direction"] != "CLIENTBOUND" or
-                        packet["state"] != "PLAY"):
+                if packet["direction"] != "CLIENTBOUND" or packet["state"] != "PLAY":
                     continue
 
-                packet_cf = classloader[packet["class"][:-len(".class")]] # XXX should we be including the .class sufix in the packet class if we just trim it everywhere we use it?
+                packet_cf = classloader[
+                    packet["class"][: -len(".class")]
+                ]  # XXX should we be including the .class sufix in the packet class if we just trim it everywhere we use it?
                 # Check if the packet has the expected fields in the class file
                 # for the update tile entity packet
-                if (len(packet_cf.fields) >= 3 and
-                        # Tile entity type int, at least (maybe also position)
-                        len(list(packet_cf.fields.find(type_="I"))) >= 1 and
-                        # New NBT tag
-                        len(list(packet_cf.fields.find(type_=nbt_tag_type))) >= 1):
+                if (
+                    len(packet_cf.fields) >= 3
+                    and
+                    # Tile entity type int, at least (maybe also position)
+                    len(list(packet_cf.fields.find(type_="I"))) >= 1
+                    and
+                    # New NBT tag
+                    len(list(packet_cf.fields.find(type_=nbt_tag_type))) >= 1
+                ):
                     # There are other fields, but they vary by version.
                     updatepacket = packet
                     break
@@ -187,8 +202,7 @@ class TileEntityTopping(Topping):
 
             updatepacket_name = updatepacket["class"].replace(".class", "")
 
-            method = nethandler_cf.methods.find_one(
-                    args="L" + updatepacket_name + ";")
+            method = nethandler_cf.methods.find_one(args="L" + updatepacket_name + ";")
 
             value = None
             for ins in method.code.disassemble():

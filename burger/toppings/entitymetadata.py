@@ -1,15 +1,19 @@
 import six
 
 from .topping import Topping
-from burger.util import LambdaInvokeDynamicInfo, WalkerCallback, walk_method, string_from_invokedymanic, InvokeDynamicInfo
+from burger.util import (
+    LambdaInvokeDynamicInfo,
+    WalkerCallback,
+    walk_method,
+    string_from_invokedymanic,
+    InvokeDynamicInfo,
+)
 
-from jawa.constants import *
-from jawa.util.descriptor import method_descriptor
+from jawa.constants import String, ConstantClass
+
 
 class EntityMetadataTopping(Topping):
-    PROVIDES = [
-        "entities.metadata"
-    ]
+    PROVIDES = ["entities.metadata"]
 
     DEPENDS = [
         "entities.entity",
@@ -23,7 +27,7 @@ class EntityMetadataTopping(Topping):
         "identify.itemstack",
         "identify.nbtcompound",
         "identify.particle",
-        "identify.position"
+        "identify.position",
     ]
 
     @staticmethod
@@ -35,15 +39,21 @@ class EntityMetadataTopping(Topping):
         synched_entity_data_cf = classloader[synched_entity_data_class]
 
         # get the SynchedEntityData.Builder class, which happens to be the first inner class
-        synched_entity_data_builder_class = synched_entity_data_cf.constants.find_one(type_=ConstantClass, f=lambda c: c.name.value.startswith(synched_entity_data_class + '$')).name.value
+        synched_entity_data_builder_class = synched_entity_data_cf.constants.find_one(
+            type_=ConstantClass,
+            f=lambda c: c.name.value.startswith(synched_entity_data_class + "$"),
+        ).name.value
         synched_entity_data_builder_cf = classloader[synched_entity_data_builder_class]
 
-        define_id_method = synched_entity_data_cf.methods.find_one(f=lambda m: len(m.args) == 2 and m.args[0].name == "java/lang/Class")
+        define_id_method = synched_entity_data_cf.methods.find_one(
+            f=lambda m: len(m.args) == 2 and m.args[0].name == "java/lang/Class"
+        )
         entity_data_accessor_class = define_id_method.returns.name
         entity_data_serializer_class = define_id_method.args[1].name
 
         define_method = synched_entity_data_builder_cf.methods.find_one(
-            f=lambda m: len(m.args) == 2 and m.args[0].name == entity_data_accessor_class
+            f=lambda m: len(m.args) == 2
+            and m.args[0].name == entity_data_accessor_class
         )
 
         # net.minecraft.network.syncher.EntityDataSerializers
@@ -54,7 +64,7 @@ class EntityMetadataTopping(Topping):
             if ins == "invokestatic":
                 const = ins.operands[0]
                 candidate_class = const.class_.name.value
-                if not candidate_class.startswith('java/'):
+                if not candidate_class.startswith("java/"):
                     entity_data_serializers_class = candidate_class
             elif entity_data_serializers_class and ins in ("ldc", "ldc_w"):
                 const = ins.operands[0]
@@ -67,7 +77,9 @@ class EntityMetadataTopping(Topping):
         else:
             raise Exception("Failed to identify dataserializers")
 
-        assert not entity_data_serializers_class.startswith('java/'), f"entity_data_serializers_class should not be a java class: {entity_data_serializers_class}"
+        assert not entity_data_serializers_class.startswith("java/"), (
+            f"entity_data_serializers_class should not be a java class: {entity_data_serializers_class}"
+        )
 
         base_entity_class = entities["~abstract_entity"]["class"]
         base_entity_cf = classloader[base_entity_class]
@@ -77,16 +89,36 @@ class EntityMetadataTopping(Topping):
         for ins in base_entity_cf.methods.find_one(name="<init>").code.disassemble():
             if ins.mnemonic == "invokevirtual":
                 const = ins.operands[0]
-                candidate_method = base_entity_cf.methods.find_one(name=const.name_and_type.name.value, f=lambda m: m.descriptor == const.name_and_type.descriptor)
+                candidate_method = base_entity_cf.methods.find_one(
+                    name=const.name_and_type.name.value,
+                    f=lambda m: m.descriptor == const.name_and_type.descriptor,
+                )
                 # protected void defineSynchedData(SynchedEntityData.Builder var1)
-                if candidate_method and len(candidate_method.args) == 1 and candidate_method.args[0].name == synched_entity_data_builder_class:
+                if (
+                    candidate_method
+                    and len(candidate_method.args) == 1
+                    and candidate_method.args[0].name
+                    == synched_entity_data_builder_class
+                ):
                     define_synched_data_method_name = const.name_and_type.name.value
-                    define_synched_data_method_desc = const.name_and_type.descriptor.value
+                    define_synched_data_method_desc = (
+                        const.name_and_type.descriptor.value
+                    )
                     # Keep looping, to find the last call
 
-        dataserializers = EntityMetadataTopping.identify_serializers(classloader, entity_data_serializer_class, entity_data_serializers_class, aggregate["classes"], aggregate["version"]["data"], verbose)
+        dataserializers = EntityMetadataTopping.identify_serializers(
+            classloader,
+            entity_data_serializer_class,
+            entity_data_serializers_class,
+            aggregate["classes"],
+            aggregate["version"]["data"],
+            verbose,
+        )
         aggregate["entities"]["dataserializers"] = dataserializers
-        dataserializers_by_field = {serializer["field"]: serializer for serializer in six.itervalues(dataserializers)}
+        dataserializers_by_field = {
+            serializer["field"]: serializer
+            for serializer in six.itervalues(dataserializers)
+        }
 
         entity_classes = {e["class"]: e["name"] for e in six.itervalues(entities)}
         parent_by_class = {}
@@ -95,7 +127,9 @@ class EntityMetadataTopping(Topping):
 
         # this flag is shared among all entities
         # getSharedFlag is currently the only method in Entity with those specific args and returns, this may change in the future! (hopefully not)
-        shared_get_flag_method = base_entity_cf.methods.find_one(args="I", returns="Z").name.value
+        shared_get_flag_method = base_entity_cf.methods.find_one(
+            args="I", returns="Z"
+        ).name.value
 
         def fill_class(cls):
             # Returns the starting index for metadata in subclasses of cls
@@ -110,21 +144,30 @@ class EntityMetadataTopping(Topping):
             index = fill_class(super)
 
             metadata = []
+
             class MetadataFieldContext(WalkerCallback):
                 def __init__(self):
                     self.cur_index = index
 
                 def on_invoke(self, ins, const, obj, args):
-                    if const.class_.name == synched_entity_data_class and const.name_and_type.name == define_id_method.name and const.name_and_type.descriptor == define_id_method.descriptor:
+                    if (
+                        const.class_.name == synched_entity_data_class
+                        and const.name_and_type.name == define_id_method.name
+                        and const.name_and_type.descriptor
+                        == define_id_method.descriptor
+                    ):
                         # Call to createKey.
                         # Sanity check: entities should only register metadata for themselves
                         if args[0] != cls + ".class":
                             # ... but in some versions, mojang messed this up with potions... hence why the sanity check exists in vanilla now.
                             if verbose:
-                                other_class = args[0][:-len(".class")]
+                                other_class = args[0][: -len(".class")]
                                 name = entity_classes.get(cls, "Unknown")
                                 other_name = entity_classes.get(other_class, "Unknown")
-                                print("An entity tried to register metadata for another entity: %s (%s) from %s (%s)" % (other_name, other_class, name, cls))
+                                print(
+                                    "An entity tried to register metadata for another entity: %s (%s) from %s (%s)"
+                                    % (other_name, other_class, name, cls)
+                                )
 
                         serializer = args[1]
                         index = self.cur_index
@@ -132,8 +175,10 @@ class EntityMetadataTopping(Topping):
 
                         metadata_entry = {
                             "serializer_id": serializer["id"],
-                            "serializer": serializer["name"] if "name" in serializer else serializer["id"],
-                            "index": index
+                            "serializer": serializer["name"]
+                            if "name" in serializer
+                            else serializer["id"],
+                            "index": index,
                         }
                         metadata.append(metadata_entry)
                         return metadata_entry
@@ -167,7 +212,7 @@ class EntityMetadataTopping(Topping):
                 def on_invoke(self, ins, const, obj, args):
                     if self.waiting_for_putfield:
                         return
-                    
+
                     if "Optional" in const.class_.name.value:
                         if const.name_and_type.name in ("absent", "empty"):
                             return "Empty"
@@ -183,27 +228,35 @@ class EntityMetadataTopping(Topping):
                     elif const.name_and_type.name == "<init>":
                         if const.class_.name == self.textcomponentstring:
                             obj["text"] = args[0]
-                        elif const.class_.name == 'org/joml/Vector3f':
+                        elif const.class_.name == "org/joml/Vector3f":
                             if len(args) > 0:
                                 obj["x"], obj["y"], obj["z"] = args
-                        elif const.class_.name == 'org/joml/Quaternionf':
+                        elif const.class_.name == "org/joml/Quaternionf":
                             if len(args) > 0:
                                 obj["x"], obj["y"], obj["z"], obj["w"] = args
 
                         return
                     elif const.class_.name == synched_entity_data_builder_class:
                         assert const.name_and_type.name == define_method.name
-                        assert const.name_and_type.descriptor == define_method.descriptor
+                        assert (
+                            const.name_and_type.descriptor == define_method.descriptor
+                        )
 
                         # args[0] is the metadata entry, and args[1] is the default value
                         if isinstance(args[0], dict) and args[1] is not None:
                             args[0]["default"] = args[1]
 
                         return
-                    elif const.name_and_type.descriptor.value.endswith("L" + synched_entity_data_builder_class + ";"):
+                    elif const.name_and_type.descriptor.value.endswith(
+                        "L" + synched_entity_data_builder_class + ";"
+                    ):
                         # getDataManager, which doesn't really have a reason to exist given that the data manager field is accessible
                         return None
-                    elif const.name_and_type.name == define_synched_data_method_name and const.name_and_type.descriptor == define_synched_data_method_desc:
+                    elif (
+                        const.name_and_type.name == define_synched_data_method_name
+                        and const.name_and_type.descriptor
+                        == define_synched_data_method_desc
+                    ):
                         # Call to super.registerData()
                         return
 
@@ -214,7 +267,10 @@ class EntityMetadataTopping(Topping):
                     return
 
                 def on_put_field(self, ins, const, obj, value):
-                    if const.name_and_type.descriptor == "L" + synched_entity_data_builder_class + ";":
+                    if (
+                        const.name_and_type.descriptor
+                        == "L" + synched_entity_data_builder_class + ";"
+                    ):
                         if not self.waiting_for_putfield:
                             raise Exception("Unexpected putfield: %s" % (ins,))
                         self.waiting_for_putfield = False
@@ -223,7 +279,10 @@ class EntityMetadataTopping(Topping):
                     if self.waiting_for_putfield:
                         return
 
-                    if const.name_and_type.descriptor == "L" + entity_data_accessor_class + ";":
+                    if (
+                        const.name_and_type.descriptor
+                        == "L" + entity_data_accessor_class + ";"
+                    ):
                         # Definitely shouldn't be registering something declared elsewhere
                         assert const.class_.name == cls
                         for metadata_entry in metadata:
@@ -231,7 +290,10 @@ class EntityMetadataTopping(Topping):
                                 return metadata_entry
                         else:
                             if verbose:
-                                print("Can't figure out metadata entry for field %s; default will not be set." % (const,))
+                                print(
+                                    "Can't figure out metadata entry for field %s; default will not be set."
+                                    % (const,)
+                                )
                             return None
 
                     if const.class_.name == aggregate["classes"]["position"]:
@@ -240,7 +302,10 @@ class EntityMetadataTopping(Topping):
                     elif const.class_.name == aggregate["classes"]["itemstack"]:
                         # Assume ItemStack.EMPTY
                         return "Empty"
-                    elif const.name_and_type.descriptor == "L" + synched_entity_data_builder_class + ";":
+                    elif (
+                        const.name_and_type.descriptor
+                        == "L" + synched_entity_data_builder_class + ";"
+                    ):
                         return
                     else:
                         return None
@@ -254,7 +319,7 @@ class EntityMetadataTopping(Topping):
                     elif const.name.value == "org/joml/Vector3f":
                         return {"x": 0, "y": 0, "z": 0}
 
-                    elif self.textcomponentstring == None:
+                    elif self.textcomponentstring is None:
                         # Check if this is TextComponentString
                         temp_cf = classloader[const.name.value]
                         for str in temp_cf.constants.find(type_=String):
@@ -265,13 +330,21 @@ class EntityMetadataTopping(Topping):
                     if const.name == aggregate["classes"]["nbtcompound"]:
                         return "Empty"
                     elif const.name == self.textcomponentstring:
-                        return {'text': None}
+                        return {"text": None}
 
-            register = cf.methods.find_one(name=define_synched_data_method_name, f=lambda m: m.descriptor == define_synched_data_method_desc)
+            register = cf.methods.find_one(
+                name=define_synched_data_method_name,
+                f=lambda m: m.descriptor == define_synched_data_method_desc,
+            )
             if register and not register.access_flags.acc_abstract:
                 walk_method(cf, register, MetadataDefaultsContext(False), verbose)
             elif cls == base_entity_class:
-                walk_method(cf, cf.methods.find_one(name="<init>"), MetadataDefaultsContext(True), verbose)
+                walk_method(
+                    cf,
+                    cf.methods.find_one(name="<init>"),
+                    MetadataDefaultsContext(True),
+                    verbose,
+                )
 
             get_flag_method = None
 
@@ -282,8 +355,22 @@ class EntityMetadataTopping(Topping):
                     if ins.mnemonic == "bipush":
                         # check for a series of operators that looks something like this
                         # `return ((Byte)this.R.a(bo) & var1) != 0;`
-                        operator_matcher = ["aload", "getfield", "getstatic", "invokevirtual", "checkcast", "invokevirtual", "iload", "iand", "ifeq", "bipush", "goto"]
-                        previous_operators_match = previous_operators == operator_matcher
+                        operator_matcher = [
+                            "aload",
+                            "getfield",
+                            "getstatic",
+                            "invokevirtual",
+                            "checkcast",
+                            "invokevirtual",
+                            "iload",
+                            "iand",
+                            "ifeq",
+                            "bipush",
+                            "goto",
+                        ]
+                        previous_operators_match = (
+                            previous_operators == operator_matcher
+                        )
 
                         if previous_operators_match and ins.operands[0].value == 0:
                             # store the method name as the result for later
@@ -300,13 +387,26 @@ class EntityMetadataTopping(Topping):
                     stack = []
                     for ins in method.code.disassemble():
                         # the method calls getField() or getSharedField()
-                        if ins.mnemonic in ("invokevirtual", "invokespecial", "invokeinterface", "invokestatic"):
+                        if ins.mnemonic in (
+                            "invokevirtual",
+                            "invokespecial",
+                            "invokeinterface",
+                            "invokestatic",
+                        ):
                             calling_method = ins.operands[0].name_and_type.name.value
 
-                            has_correct_arguments = ins.operands[0].name_and_type.descriptor.value == "(I)Z"
+                            has_correct_arguments = (
+                                ins.operands[0].name_and_type.descriptor.value == "(I)Z"
+                            )
 
-                            is_getflag_method = has_correct_arguments and calling_method == get_flag_method
-                            is_shared_getflag_method = has_correct_arguments and calling_method == shared_get_flag_method
+                            is_getflag_method = (
+                                has_correct_arguments
+                                and calling_method == get_flag_method
+                            )
+                            is_shared_getflag_method = (
+                                has_correct_arguments
+                                and calling_method == shared_get_flag_method
+                            )
 
                             # if it's a shared flag, update the bitfields_by_class for abstract_entity
                             if is_shared_getflag_method and stack:
@@ -315,12 +415,14 @@ class EntityMetadataTopping(Topping):
                                     base_entity_cls = base_entity_cf.this.name.value
                                     if base_entity_cls not in bitfields_by_class:
                                         bitfields_by_class[base_entity_cls] = []
-                                    bitfields_by_class[base_entity_cls].append({
-                                        # we include the class here so it can be easily figured out from the mappings
-                                        "class": cls,
-                                        "method": method.name.value,
-                                        "mask": 1 << bitmask_value
-                                    })
+                                    bitfields_by_class[base_entity_cls].append(
+                                        {
+                                            # we include the class here so it can be easily figured out from the mappings
+                                            "class": cls,
+                                            "method": method.name.value,
+                                            "mask": 1 << bitmask_value,
+                                        }
+                                    )
                                 bitmask_value = None
                             elif is_getflag_method and stack:
                                 bitmask_value = stack.pop()
@@ -334,11 +436,9 @@ class EntityMetadataTopping(Topping):
                         elif ins.mnemonic == "sipush":
                             stack.append(ins.operands[0].value)
                     if bitmask_value:
-                        bitfields.append({
-                            "method": method.name.value,
-                            "mask": bitmask_value
-                        })
-
+                        bitfields.append(
+                            {"method": method.name.value, "mask": bitmask_value}
+                        )
 
             metadata_by_class[cls] = metadata
             if cls not in bitfields_by_class:
@@ -355,47 +455,61 @@ class EntityMetadataTopping(Topping):
             metadata = e["metadata"] = []
 
             if metadata_by_class[cls]:
-                metadata.append({
-                    "class": cls,
-                    "data": metadata_by_class[cls],
-                    "bitfields": bitfields_by_class[cls]
-                })
-
-            cls = parent_by_class[cls]
-            while cls not in entity_classes and cls != "java/lang/Object" :
-                # Add metadata from _abstract_ parent classes, at the start
-                if metadata_by_class[cls]:
-                    metadata.insert(0, {
+                metadata.append(
+                    {
                         "class": cls,
                         "data": metadata_by_class[cls],
-                        "bitfields": bitfields_by_class[cls]
-                    })
+                        "bitfields": bitfields_by_class[cls],
+                    }
+                )
+
+            cls = parent_by_class[cls]
+            while cls not in entity_classes and cls != "java/lang/Object":
+                # Add metadata from _abstract_ parent classes, at the start
+                if metadata_by_class[cls]:
+                    metadata.insert(
+                        0,
+                        {
+                            "class": cls,
+                            "data": metadata_by_class[cls],
+                            "bitfields": bitfields_by_class[cls],
+                        },
+                    )
                 cls = parent_by_class[cls]
 
             # And then, add a marker for the concrete parent class.
             if cls in entity_classes:
                 # Always do this, even if the immediate concrete parent has no metadata
-                metadata.insert(0, {
-                    "class": cls,
-                    "entity": entity_classes[cls]
-                })
+                metadata.insert(0, {"class": cls, "entity": entity_classes[cls]})
 
     @staticmethod
-    def identify_serializers(classloader, dataserializer_class, dataserializers_class, classes, data_version, verbose):
-        from .packetinstructions import PacketInstructionsTopping as _PIT
-        thunks = _PIT.list_thunks(classloader, classes["packet.packetbuffer"])
+    def identify_serializers(
+        classloader,
+        dataserializer_class,
+        dataserializers_class,
+        classes,
+        data_version,
+        verbose,
+    ):
+        # from .packetinstructions import PacketInstructionsTopping as _PIT
+
+        # thunks = _PIT.list_thunks(classloader, classes["packet.packetbuffer"])
 
         serializers = {}
         dataserializer_cf = classloader[dataserializer_class]
         static_funcs_to_classes = {}
-        for func in dataserializer_cf.methods.find(f=lambda f: f.access_flags.acc_static and len(f.args) == 2):
+        for func in dataserializer_cf.methods.find(
+            f=lambda f: f.access_flags.acc_static and len(f.args) == 2
+        ):
             # This applies to 22w14a, where there are some special register functions
             # that take lambdas (as well as ones that take a class for an enum, or a registry)
             # We are only interested in the lambda ones here.  The arguments are the functions
             # to call for writing and for reading.
             for ins in func.code.disassemble():
                 if ins.mnemonic == "new":
-                    static_funcs_to_classes[func.name.value + func.descriptor.value] = ins.operands[0].name.value
+                    static_funcs_to_classes[func.name.value + func.descriptor.value] = (
+                        ins.operands[0].name.value
+                    )
                     break
 
         dataserializers_cf = classloader[dataserializers_class]
@@ -405,6 +519,7 @@ class EntityMetadataTopping(Topping):
             # invoke and invokedynamic there.
             def on_new(self, ins, const):
                 raise Exception("Illegal new")
+
             def on_invoke(self, ins, const, obj, args):
                 # In 22w18a, the optional variant of the two-args method now calls
                 # the non-optional version, and both take a subinterface of BiConsumer
@@ -416,7 +531,9 @@ class EntityMetadataTopping(Topping):
                 desc = const.name_and_type.descriptor.value
                 if name == "asOptional":
                     biconsumer_cf = classloader[const.class_.name.value]
-                    method = biconsumer_cf.methods.find_one(name=name, f=lambda f: f.descriptor.value == desc)
+                    method = biconsumer_cf.methods.find_one(
+                        name=name, f=lambda f: f.descriptor.value == desc
+                    )
                     for ins2 in method.code.disassemble():
                         if ins2.mnemonic == "invokedynamic":
                             fake_stack = [obj, *args]
@@ -424,7 +541,11 @@ class EntityMetadataTopping(Topping):
                             info.apply_to_stack(fake_stack)
                             return fake_stack.pop()
                     else:
-                        raise Exception("Expected invokedynamic call in asOptional (called from " + repr(ins) + ")")
+                        raise Exception(
+                            "Expected invokedynamic call in asOptional (called from "
+                            + repr(ins)
+                            + ")"
+                        )
 
                 # It's not asOptional, so assume that any call not related to the
                 # data serializer is irrelevant.
@@ -435,12 +556,25 @@ class EntityMetadataTopping(Topping):
                 key = name + desc
                 if len(args) == 2 and key in static_funcs_to_classes:
                     special_fields = {"a": args[0], "b": args[1]}
-                    return {"class": static_funcs_to_classes[key], "special_fields": special_fields}
+                    return {
+                        "class": static_funcs_to_classes[key],
+                        "special_fields": special_fields,
+                    }
                 else:
                     # Assume that this calls the 2-args method
-                    return walk_method(dataserializer_cf, dataserializer_cf.methods.find_one(name=name, f=lambda f: f.descriptor.value == desc), SubCallback(), verbose, input_args=args)
+                    return walk_method(
+                        dataserializer_cf,
+                        dataserializer_cf.methods.find_one(
+                            name=name, f=lambda f: f.descriptor.value == desc
+                        ),
+                        SubCallback(),
+                        verbose,
+                        input_args=args,
+                    )
+
             def on_get_field(self, ins, const, obj):
                 raise Exception("Illegal getfield")
+
             def on_put_field(self, ins, const, obj, value):
                 raise Exception("Illegal putfield")
 
@@ -457,7 +591,10 @@ class EntityMetadataTopping(Topping):
                 return {"class": const.name.value, "special_fields": {}}
 
             def on_put_field(self, ins, const, obj, value):
-                if const.name_and_type.descriptor.value != "L" + dataserializer_class + ";":
+                if (
+                    const.name_and_type.descriptor.value
+                    != "L" + dataserializer_class + ";"
+                ):
                     # E.g. setting the registry.
                     return
 
@@ -466,10 +603,7 @@ class EntityMetadataTopping(Topping):
                 # in 24w03a the entity serializers were changed to reference ByteBufCodecs
                 # this code is a hack and doesn't really work, but it's enough to get burger to at least generate the basic things for the dataserializers
                 if isinstance(value, LambdaInvokeDynamicInfo):
-                    value = {
-                        'class': value.method_class,
-                        'special_fields': {}
-                    }
+                    value = {"class": value.method_class, "special_fields": {}}
 
                 value["field"] = field
 
@@ -486,7 +620,9 @@ class EntityMetadataTopping(Topping):
                 value["type"] = inner_type
 
                 # Try to do some recognition of what it is:
-                name = EntityMetadataTopping._serializer_name(classloader, inner_type, classes, verbose)
+                name = EntityMetadataTopping._serializer_name(
+                    classloader, inner_type, classes, verbose
+                )
                 if name is not None:
                     value["name"] = name
 
@@ -500,8 +636,14 @@ class EntityMetadataTopping(Topping):
                 self.serializers_by_field[field] = value
 
             def on_get_field(self, ins, const, obj):
-                if const.name_and_type.descriptor.value != "L" + dataserializer_class + ";":
-                    return "%s.%s" % (const.class_.name.value, const.name_and_type.name.value)
+                if (
+                    const.name_and_type.descriptor.value
+                    != "L" + dataserializer_class + ";"
+                ):
+                    return "%s.%s" % (
+                        const.class_.name.value,
+                        const.name_and_type.name.value,
+                    )
                 # Actually registering the serializer
                 const = ins.operands[0]
                 field = const.name_and_type.name.value
@@ -513,8 +655,13 @@ class EntityMetadataTopping(Topping):
                     serializers[name] = serializer
                 else:
                     if verbose:
-                        print("Duplicate serializer with identified name %s: original %s, new %s" % (name, serializers[name], serializer))
-                    serializers[str(id)] = serializer # This hopefully will not clash but still shouldn't happen in the first place
+                        print(
+                            "Duplicate serializer with identified name %s: original %s, new %s"
+                            % (name, serializers[name], serializer)
+                        )
+                    serializers[str(id)] = (
+                        serializer  # This hopefully will not clash but still shouldn't happen in the first place
+                    )
 
                 self.id += 1
 
@@ -525,7 +672,12 @@ class EntityMetadataTopping(Topping):
                 info.stored_args = args
                 return info
 
-        walk_method(dataserializers_cf, dataserializers_cf.methods.find_one(name="<clinit>"), Callback(), verbose)
+        walk_method(
+            dataserializers_cf,
+            dataserializers_cf.methods.find_one(name="<clinit>"),
+            Callback(),
+            verbose,
+        )
 
         return serializers
 
@@ -541,14 +693,16 @@ class EntityMetadataTopping(Topping):
             # NOTE: both java and guava optionals are used at different times
             name_prefix = "Opt"
             # Get rid of another parameter
-            inner_type = inner_type[inner_type.index("<") + 1 : inner_type.rindex(">")][1:-1]
+            inner_type = inner_type[inner_type.index("<") + 1 : inner_type.rindex(">")][
+                1:-1
+            ]
 
         if inner_type.startswith("java/lang/"):
-            name = inner_type[len("java/lang/"):]
+            name = inner_type[len("java/lang/") :]
             if name == "Integer":
                 name = "VarInt"
         elif inner_type.startswith("org/joml/"):
-            name = inner_type[len("org/joml/"):]
+            name = inner_type[len("org/joml/") :]
         elif inner_type == "java/util/UUID":
             name = "UUID"
         elif inner_type == "java/util/OptionalInt":
@@ -563,7 +717,7 @@ class EntityMetadataTopping(Topping):
             name = "BlockPos"
         elif inner_type == classes["blockstate"]:
             name = "BlockState"
-        elif inner_type == classes.get("particle"): # doesn't exist in all versions
+        elif inner_type == classes.get("particle"):  # doesn't exist in all versions
             name = "Particle"
         else:
             # Try some more tests, based on the class itself:
@@ -571,17 +725,27 @@ class EntityMetadataTopping(Topping):
                 content_cf = classloader[inner_type]
                 if len(list(content_cf.fields.find(type_="F"))) == 3:
                     name = "Rotations"
-                elif content_cf.constants.find_one(type_=String, f=lambda c: c == "down"):
+                elif content_cf.constants.find_one(
+                    type_=String, f=lambda c: c == "down"
+                ):
                     name = "Facing"
-                elif content_cf.constants.find_one(type_=String, f=lambda c: c == "FALL_FLYING"):
+                elif content_cf.constants.find_one(
+                    type_=String, f=lambda c: c == "FALL_FLYING"
+                ):
                     assert content_cf.access_flags.acc_enum
                     name = "Pose"
-                elif content_cf.constants.find_one(type_=String, f=lambda c: c == "profession"):
+                elif content_cf.constants.find_one(
+                    type_=String, f=lambda c: c == "profession"
+                ):
                     name = "VillagerData"
-            except:
+            except Exception:
                 if verbose:
-                    print("Failed to determine name of metadata content type %s" % inner_type)
+                    print(
+                        "Failed to determine name of metadata content type %s"
+                        % inner_type
+                    )
                     import traceback
+
                     traceback.print_exc()
 
         if name:
@@ -590,7 +754,9 @@ class EntityMetadataTopping(Topping):
             return None
 
     @staticmethod
-    def _decompile_serializer(classloader, cf, classes, verbose, serializer, thunks, special_fields):
+    def _decompile_serializer(
+        classloader, cf, classes, verbose, serializer, thunks, special_fields
+    ):
         # In here because otherwise the import messes with finding the topping in this file
         from .packetinstructions import PacketInstructionsTopping as _PIT
         from .packetinstructions import PACKETBUF_NAME
@@ -611,12 +777,14 @@ class EntityMetadataTopping(Topping):
                 methods[0],
                 ("this", PACKETBUF_NAME, "value"),
                 thunks,
-                special_fields
+                special_fields,
             )
             serializer.update(_PIT.format(operations))
-        except:
+        except Exception:
             if verbose:
-                print("Failed to process operations for metadata serializer", serializer)
+                print(
+                    "Failed to process operations for metadata serializer", serializer
+                )
                 import traceback
-                traceback.print_exc()
 
+                traceback.print_exc()

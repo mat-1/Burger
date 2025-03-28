@@ -21,20 +21,17 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
+
 from .topping import Topping
 import six
 
-try:
-    import json
-except ImportError:
-    import simplejson as json
+import json
+
 
 class LanguageTopping(Topping):
     """Provides the contents of the English language files."""
 
-    PROVIDES = [
-        "language"
-    ]
+    PROVIDES = ["language"]
 
     DEPENDS = []
 
@@ -42,35 +39,19 @@ class LanguageTopping(Topping):
     def act(aggregate, classloader, verbose=False):
         aggregate["language"] = {}
         LanguageTopping.load_language(
-            aggregate,
-            classloader,
-            "lang/stats_US.lang",
-            verbose
+            aggregate, classloader, "lang/stats_US.lang", verbose
         )
         LanguageTopping.load_language(
-            aggregate,
-            classloader,
-            "lang/en_US.lang",
-            verbose
+            aggregate, classloader, "lang/en_US.lang", verbose
         )
         LanguageTopping.load_language(
-            aggregate,
-            classloader,
-            "assets/minecraft/lang/en_US.lang",
-            verbose
+            aggregate, classloader, "assets/minecraft/lang/en_US.lang", verbose
         )
         LanguageTopping.load_language(
-            aggregate,
-            classloader,
-            "assets/minecraft/lang/en_us.lang",
-            verbose
+            aggregate, classloader, "assets/minecraft/lang/en_us.lang", verbose
         )
         LanguageTopping.load_language(
-            aggregate,
-            classloader,
-            "assets/minecraft/lang/en_us.json",
-            verbose,
-            True
+            aggregate, classloader, "assets/minecraft/lang/en_us.json", verbose, True
         )
 
     @staticmethod
@@ -78,12 +59,14 @@ class LanguageTopping(Topping):
         try:
             with classloader.open(path) as fin:
                 contents = fin.read().decode("utf-8")
-        except:
+        except Exception:
             if verbose:
                 print("Can't find file %s in jar" % path)
             return
 
-        for category, name, value in LanguageTopping.parse_lang(contents, verbose, is_json):
+        for category, name, value in LanguageTopping.parse_lang(
+            contents, verbose, is_json
+        ):
             cat = aggregate["language"].setdefault(category, {})
             cat[name] = value
 
@@ -107,7 +90,7 @@ class LanguageTopping(Topping):
                 if line[0] == "#":
                     continue
 
-                if not "=" in line or not "." in line:
+                if "=" not in line or "." not in line:
                     if verbose:
                         print("Language file line %s is malformed: %s" % (lineno, line))
                     continue

@@ -23,33 +23,32 @@ THE SOFTWARE.
 """
 
 import six
-from copy import copy
 
 from .topping import Topping
 
-from jawa.constants import *
 
 class ObjectTopping(Topping):
     """Gets most vehicle/object types."""
 
-    PROVIDES = [
-        "entities.object"
-    ]
+    PROVIDES = ["entities.object"]
 
     DEPENDS = [
         "identify.nethandler.client",
         "identify.entity.trackerentry",
         "version.data",
         "entities.entity",
-        "packets.classes"
+        "packets.classes",
     ]
 
     @staticmethod
     def act(aggregate, classloader, verbose=False):
-        if aggregate["version"]["data"] >= 1930: # 19w05a+
+        if aggregate["version"]["data"] >= 1930:  # 19w05a+
             # Object IDs were removed in 19w05a, and entity IDs are now used instead.  Skip this topping entirely.
             return
-        if "entity.trackerentry" not in aggregate["classes"] or "nethandler.client" not in aggregate["classes"]:
+        if (
+            "entity.trackerentry" not in aggregate["classes"]
+            or "nethandler.client" not in aggregate["classes"]
+        ):
             return
 
         entities = aggregate["entities"]
@@ -59,13 +58,21 @@ class ObjectTopping(Topping):
         entitytrackerentry = aggregate["classes"]["entity.trackerentry"]
         entitytrackerentry_cf = classloader[entitytrackerentry]
 
-        createspawnpacket_method = entitytrackerentry_cf.methods.find_one(args="",
-                f=lambda x: x.access_flags.acc_private and not x.access_flags.acc_static and not x.returns.name == "void")
+        createspawnpacket_method = entitytrackerentry_cf.methods.find_one(
+            args="",
+            f=lambda x: x.access_flags.acc_private
+            and not x.access_flags.acc_static
+            and not x.returns.name == "void",
+        )
 
         packet_class_name = None
 
         # Handle capitalization changes from 1.11
-        item_entity_class = entities["entity"]["item"]["class"] if "item" in entities["entity"] else entities["entity"]["Item"]["class"]
+        item_entity_class = (
+            entities["entity"]["item"]["class"]
+            if "item" in entities["entity"]
+            else entities["entity"]["Item"]["class"]
+        )
 
         will_be_spawn_object_packet = False
         for ins in createspawnpacket_method.code.disassemble():
@@ -111,10 +118,15 @@ class ObjectTopping(Topping):
                 tmp = {"id": current_id, "class": const.name.value}
                 objects[tmp["id"]] = tmp
 
-        entities_by_class = {entity["class"]: entity for entity in six.itervalues(entities["entity"])}
+        entities_by_class = {
+            entity["class"]: entity for entity in six.itervalues(entities["entity"])
+        }
 
         from .entities import EntityTopping
-        EntityTopping.compute_sizes(classloader, aggregate, objects) # Needed because some objects aren't in the entity list
+
+        EntityTopping.compute_sizes(
+            classloader, aggregate, objects
+        )  # Needed because some objects aren't in the entity list
 
         for o in six.itervalues(objects):
             if o["class"] in entities_by_class:

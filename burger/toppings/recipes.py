@@ -24,23 +24,16 @@ THE SOFTWARE.
 
 from .topping import Topping
 
-from jawa.util.descriptor import method_descriptor
-from jawa.constants import *
-
-try:
-    import json
-except ImportError:
-    import simplejson as json
+import json
 
 import six
 import copy
 
+
 class RecipesTopping(Topping):
     """Provides a list of most possible crafting recipes."""
 
-    PROVIDES = [
-        "recipes"
-    ]
+    PROVIDES = ["recipes"]
 
     DEPENDS = [
         "identify.recipe.superclass",
@@ -48,22 +41,26 @@ class RecipesTopping(Topping):
         "identify.item.list",
         "blocks",
         "items",
-        "tags"
+        "tags",
     ]
 
     @staticmethod
     def act(aggregate, classloader, verbose=False):
         if "assets/minecraft/recipes/stick.json" in classloader.path_map:
-            recipe_list = RecipesTopping.find_from_json(aggregate, classloader, "assets/minecraft/recipes/", verbose)
+            recipe_list = RecipesTopping.find_from_json(
+                aggregate, classloader, "assets/minecraft/recipes/", verbose
+            )
         elif "data/minecraft/recipes/stick.json" in classloader.path_map:
-            recipe_list = RecipesTopping.find_from_json(aggregate, classloader, "data/minecraft/recipes/", verbose)
+            recipe_list = RecipesTopping.find_from_json(
+                aggregate, classloader, "data/minecraft/recipes/", verbose
+            )
         else:
             recipe_list = RecipesTopping.find_from_jar(aggregate, classloader, verbose)
 
         recipes = aggregate.setdefault("recipes", {})
 
         for recipe in recipe_list:
-            makes = recipe['makes']['name']
+            makes = recipe["makes"]["name"]
 
             recipes_for_item = recipes.setdefault(makes, [])
             recipes_for_item.append(recipe)
@@ -91,7 +88,7 @@ class RecipesTopping(Topping):
                     res = []
                     tag = blob["tag"]
                     if tag.startswith("minecraft:"):
-                        tag = tag[len("minecraft:"):]
+                        tag = tag[len("minecraft:") :]
                     for id in aggregate["tags"]["items/" + tag]["values"]:
                         res.append(parse_item({"item": id}))
                     return res
@@ -100,13 +97,13 @@ class RecipesTopping(Topping):
             # There's some wierd stuff regarding 0 or 32767 here; I'm not worrying about it though
             # Probably 0 is the default for results, and 32767 means "any" for ingredients
             assert "item" in blob
-            result = {
-                "type": "item"
-            }
+            result = {"type": "item"}
 
             id = blob["item"]
             if id.startswith("minecraft:"):
-                id = id[len("minecraft:"):] # TODO: In the future, we don't want to strip namespaces
+                id = id[
+                    len("minecraft:") :
+                ]  # TODO: In the future, we don't want to strip namespaces
 
             if verbose and id not in aggregate["items"]["item"]:
                 print("A recipe references item %s but that doesn't exist" % id)
@@ -122,7 +119,7 @@ class RecipesTopping(Topping):
 
         for name in classloader.path_map.keys():
             if name.startswith(prefix) and name.endswith(".json"):
-                recipe_id = "minecraft:" + name[len(prefix):-len(".json")]
+                recipe_id = "minecraft:" + name[len(prefix) : -len(".json")]
                 try:
                     with classloader.open(name) as fin:
                         data = json.load(fin)
@@ -130,28 +127,29 @@ class RecipesTopping(Topping):
                     assert "type" in data
                     recipe_type = data["type"]
                     if recipe_type.startswith("minecraft:"):
-                        recipe_type = recipe_type[len("minecraft:"):]
+                        recipe_type = recipe_type[len("minecraft:") :]
 
                     if recipe_type not in ("crafting_shaped", "crafting_shapeless"):
                         # We only care about regular recipes, not furnace/loom/whatever ones.
                         continue
 
                     recipe = {}
-                    recipe["id"] = recipe_id # new for 1.12, but used ingame
+                    recipe["id"] = recipe_id  # new for 1.12, but used ingame
 
                     if "group" in data:
                         recipe["group"] = data["group"]
 
-
                     assert "result" in data
                     recipe["makes"] = parse_item(data["result"], False)
                     if "count" not in recipe["makes"]:
-                        recipe["makes"]["count"] = 1 # default, TODO should we keep specifying this?
+                        recipe["makes"]["count"] = (
+                            1  # default, TODO should we keep specifying this?
+                        )
 
                     matching_recipes = [recipe]
 
                     if recipe_type == "crafting_shapeless":
-                        recipe["type"] = 'shapeless'
+                        recipe["type"] = "shapeless"
 
                         assert "ingredients" in data
 
@@ -162,32 +160,37 @@ class RecipesTopping(Topping):
                                 tmp = []
                                 for recipe_choice in matching_recipes:
                                     for real_item in item:
-                                        recipe_choice_work = copy.deepcopy(recipe_choice)
-                                        recipe_choice_work["ingredients"].append(real_item)
+                                        recipe_choice_work = copy.deepcopy(
+                                            recipe_choice
+                                        )
+                                        recipe_choice_work["ingredients"].append(
+                                            real_item
+                                        )
                                         tmp.append(recipe_choice_work)
                                 matching_recipes = tmp
                             else:
                                 for recipe_choice in matching_recipes:
                                     recipe_choice["ingredients"].append(item)
                     elif recipe_type == "crafting_shaped":
-                        recipe["type"] = 'shape'
+                        recipe["type"] = "shape"
 
                         assert "pattern" in data
                         assert "key" in data
 
                         pattern = data["pattern"]
-                        recipe["raw"] = {
-                            "rows": pattern,
-                            "subs": {}
-                        }
-                        for (id, value) in six.iteritems(data["key"]):
+                        recipe["raw"] = {"rows": pattern, "subs": {}}
+                        for id, value in six.iteritems(data["key"]):
                             item = parse_item(value)
                             if isinstance(item, list):
                                 tmp = []
                                 for recipe_choice in matching_recipes:
                                     for real_item in item:
-                                        recipe_choice_work = copy.deepcopy(recipe_choice)
-                                        recipe_choice_work["raw"]["subs"][id] = real_item
+                                        recipe_choice_work = copy.deepcopy(
+                                            recipe_choice
+                                        )
+                                        recipe_choice_work["raw"]["subs"][id] = (
+                                            real_item
+                                        )
                                         tmp.append(recipe_choice_work)
                                 matching_recipes = tmp
                             else:
@@ -200,7 +203,9 @@ class RecipesTopping(Topping):
                                 shape_row = []
                                 for char in row:
                                     if not char.isspace():
-                                        shape_row.append(recipe_choice["raw"]["subs"][char])
+                                        shape_row.append(
+                                            recipe_choice["raw"]["subs"][char]
+                                        )
                                     else:
                                         shape_row.append(None)
                                 shape.append(shape_row)
@@ -223,16 +228,18 @@ class RecipesTopping(Topping):
         cf = classloader[superclass]
 
         # Find the constructor
-        method = cf.methods.find_one(
-            name="<init>"
-        )
+        method = cf.methods.find_one(name="<init>")
 
         # Find the set function, so we can figure out what class defines
         # a recipe.
         # This method's second parameter is an array of objects.
-        setters = list(cf.methods.find(
-            f = lambda m: len(m.args) == 2 and m.args[1].dimensions == 1 and m.args[1].name == "java/lang/Object"
-        ))
+        setters = list(
+            cf.methods.find(
+                f=lambda m: len(m.args) == 2
+                and m.args[1].dimensions == 1
+                and m.args[1].name == "java/lang/Object"
+            )
+        )
 
         itemstack = aggregate["classes"]["itemstack"]
 
@@ -244,19 +251,13 @@ class RecipesTopping(Topping):
             if clazz == aggregate["classes"]["block.list"]:
                 if field in aggregate["blocks"]["block_fields"]:
                     name = aggregate["blocks"]["block_fields"][field]
-                    return {
-                        'type': 'block',
-                        'name': name
-                    }
+                    return {"type": "block", "name": name}
                 else:
                     raise Exception("Unknown block with field " + field)
             elif clazz == aggregate["classes"]["item.list"]:
                 if field in aggregate["items"]["item_fields"]:
                     name = aggregate["items"]["item_fields"][field]
-                    return {
-                        'type': 'item',
-                        'name': name
-                    }
+                    return {"type": "item", "name": name}
                 else:
                     raise Exception("Unknown item with field " + field)
             else:
@@ -281,7 +282,7 @@ class RecipesTopping(Topping):
                     # matches the enum constant's position... and do math from that.
                     name = stack.pop()[1]
                     # As I said... ugly.  There's probably a way better way of doing this.
-                    dv = int(name, 36) - int('a', 36)
+                    dv = int(name, 36) - int("a", 36)
                     stack.append(dv)
                 elif ins == "iadd":
                     # For whatever reason, there are a few cases where 4 is both
@@ -289,11 +290,11 @@ class RecipesTopping(Topping):
                     # So we need to handle that :/
                     i2 = stack.pop()
                     i1 = stack.pop()
-                    stack.append(i1 + i2);
+                    stack.append(i1 + i2)
                 elif ins == "isub":
                     i2 = stack.pop()
                     i1 = stack.pop()
-                    stack.append(i1 - i2);
+                    stack.append(i1 - i2)
                 elif ins == "invokespecial":
                     const = ins.operands[0]
                     if const.name_and_type.name == "<init>":
@@ -301,10 +302,10 @@ class RecipesTopping(Topping):
 
             item = get_material(*stack[0])
             if len(stack) == 3:
-                item['count'] = stack[1]
-                item['metadata'] = stack[2]
+                item["count"] = stack[1]
+                item["metadata"] = stack[2]
             elif len(stack) == 2:
-                item['count'] = stack[1]
+                item["count"] = stack[1]
             return item
 
         def find_recipes(classloader, cf, method, target_class, setter_names):
@@ -330,7 +331,10 @@ class RecipesTopping(Topping):
                     if ins in ("bipush", "sipush"):
                         param_count = ins.operands[0].value
                     else:
-                        raise Exception('Unexpected instruction: expected int constant, got ' + str(ins))
+                        raise Exception(
+                            "Unexpected instruction: expected int constant, got "
+                            + str(ins)
+                        )
 
                     num_astore = 0
                     data = None
@@ -357,10 +361,15 @@ class RecipesTopping(Topping):
                             data = ins.operands[0].value
                         elif ins == "invokestatic":
                             const = ins.operands[0]
-                            if const.class_.name == "java/lang/Character" and const.name_and_type.name == "valueOf":
+                            if (
+                                const.class_.name == "java/lang/Character"
+                                and const.name_and_type.name == "valueOf"
+                            ):
                                 data = chr(data)
                             else:
-                                raise Exception("Unknown method invocation: " + repr(const))
+                                raise Exception(
+                                    "Unknown method invocation: " + repr(const)
+                                )
                         elif ins == "getstatic":
                             const = ins.operands[0]
                             clazz = const.class_.name.value
@@ -376,8 +385,8 @@ class RecipesTopping(Topping):
                     recipe_data = {}
                     if const.name_and_type.name == setter_names[0]:
                         # Shaped
-                        recipe_data['type'] = 'shape'
-                        recipe_data['makes'] = crafted_item
+                        recipe_data["type"] = "shape"
+                        recipe_data["makes"] = crafted_item
                         rows = []
                         subs = {}
                         # Keys are a list while values are a single character;
@@ -396,10 +405,7 @@ class RecipesTopping(Topping):
                                     subs[obj] = item
                         except StopIteration:
                             pass
-                        recipe_data['raw'] = {
-                            'rows': rows,
-                            'subs': subs
-                        }
+                        recipe_data["raw"] = {"rows": rows, "subs": subs}
 
                         shape = []
                         for row in rows:
@@ -411,12 +417,12 @@ class RecipesTopping(Topping):
                                     shape_row.append(None)
                             shape.append(shape_row)
 
-                        recipe_data['shape'] = shape
+                        recipe_data["shape"] = shape
                     else:
                         # Shapeless
-                        recipe_data['type'] = 'shapeless'
-                        recipe_data['makes'] = crafted_item
-                        recipe_data['ingredients'] = array
+                        recipe_data["type"] = "shapeless"
+                        recipe_data["makes"] = crafted_item
+                        recipe_data["ingredients"] = array
 
                     recipes.append(recipe_data)
             except StopIteration:

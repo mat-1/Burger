@@ -21,18 +21,17 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
+
 import os
 import urllib.request
 
-try:
-    import json
-except ImportError:
-    import simplejson as json
+import json
 
 VERSION_MANIFEST = "https://piston-meta.mojang.com/mc/game/version_manifest_v2.json"
 
 _cached_version_manifest = None
 _cached_version_metas = {}
+
 
 def _load_json(url):
     stream = urllib.request.urlopen(url)
@@ -41,6 +40,7 @@ def _load_json(url):
     finally:
         stream.close()
 
+
 def get_version_manifest():
     global _cached_version_manifest
     if _cached_version_manifest:
@@ -48,6 +48,7 @@ def get_version_manifest():
 
     _cached_version_manifest = _load_json(VERSION_MANIFEST)
     return _cached_version_manifest
+
 
 def get_version_meta(version: str, verbose: bool):
     """
@@ -73,6 +74,7 @@ def get_version_meta(version: str, verbose: bool):
     _cached_version_metas[version] = meta
     return meta
 
+
 def get_asset_index(version_meta, verbose):
     """Downloads the Minecraft asset index"""
     if "assetIndex" not in version_meta:
@@ -85,30 +87,35 @@ def get_asset_index(version_meta, verbose):
 
 def client_jar(version: str, verbose: bool):
     """Downloads a specific version, by name"""
-    filename = f'{version}.jar'
+    filename = f"{version}.jar"
     if not os.path.exists(filename):
         meta = get_version_meta(version, verbose)
         if verbose:
-            print(f"For version {filename}, the downloads section of the meta is {meta['downloads']}")
+            print(
+                f"For version {filename}, the downloads section of the meta is {meta['downloads']}"
+            )
         url = meta["downloads"]["client"]["url"]
         if verbose:
-            print(f'Downloading {version} from {url}')
+            print(f"Downloading {version} from {url}")
         urllib.request.urlretrieve(url, filename=filename)
     return filename
 
 
 def mappings_txt(version: str, verbose: bool):
     """Downloads the mappings for a specific version, by name"""
-    filename = f'{version}-mappings.txt'
+    filename = f"{version}-mappings.txt"
     if not os.path.exists(filename):
         meta = get_version_meta(version, verbose)
         if verbose:
-            print(f"For version {filename}, the downloads section of the meta is {meta['downloads']}")
+            print(
+                f"For version {filename}, the downloads section of the meta is {meta['downloads']}"
+            )
         url = meta["downloads"]["client_mappings"]["url"]
         if verbose:
-            print(f'Downloading {version} mappings from {url}')
+            print(f"Downloading {version} mappings from {url}")
         urllib.request.urlretrieve(url, filename=filename)
     return filename
+
 
 def latest_client_jar(verbose):
     manifest = get_version_manifest()

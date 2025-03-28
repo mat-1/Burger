@@ -21,20 +21,17 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
+
 from .topping import Topping
 import six
+
 
 class StatsTopping(Topping):
     """Gets all statistics and statistic related strings."""
 
-    PROVIDES = [
-        "stats.statistics",
-        "stats.achievements"
-    ]
+    PROVIDES = ["stats.statistics", "stats.achievements"]
 
-    DEPENDS = [
-        "language"
-    ]
+    DEPENDS = ["language"]
 
     @staticmethod
     def act(aggregate, classloader, verbose=False):

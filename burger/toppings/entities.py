@@ -27,21 +27,16 @@ import six
 from .topping import Topping
 from burger.util import WalkerCallback, class_from_invokedynamic, walk_method
 
-from jawa.constants import *
+from jawa.constants import String, Float, ConstantClass
 from jawa.util.descriptor import method_descriptor
+
 
 class EntityTopping(Topping):
     """Gets most entity types."""
 
-    PROVIDES = [
-        "entities.entity"
-    ]
+    PROVIDES = ["entities.entity"]
 
-    DEPENDS = [
-        "identify.entity.list",
-        "version.entity_format",
-        "language"
-    ]
+    DEPENDS = ["identify.entity.list", "version.entity_format", "language"]
 
     @staticmethod
     def act(aggregate, classloader, verbose=False):
@@ -50,7 +45,7 @@ class EntityTopping(Topping):
         handlers = {
             "1.10": EntityTopping._entities_1point10,
             "1.11": EntityTopping._entities_1point11,
-            "1.13": EntityTopping._entities_1point13
+            "1.13": EntityTopping._entities_1point13,
         }
         entity_format = aggregate["version"]["entity_format"]
         if entity_format in handlers:
@@ -62,9 +57,7 @@ class EntityTopping(Topping):
 
         entities = aggregate["entities"]
 
-        entities["info"] = {
-            "entity_count": len(entities["entity"])
-        }
+        entities["info"] = {"entity_count": len(entities["entity"])}
 
         EntityTopping.abstract_entities(classloader, entities["entity"], verbose)
         EntityTopping.compute_sizes(classloader, aggregate, entities["entity"])
@@ -74,7 +67,7 @@ class EntityTopping(Topping):
         if verbose:
             print("Using 1.13 entity format")
 
-        listclass = aggregate["classes"]["entity.list"] # EntityType
+        listclass = aggregate["classes"]["entity.list"]  # EntityType
         cf = classloader[listclass]
 
         entities = aggregate.setdefault("entities", {})
@@ -83,7 +76,7 @@ class EntityTopping(Topping):
         # Find the inner builder class
         inner_classes = cf.attributes.find_one(name="InnerClasses").inner_classes
         builderclass = None
-        funcclass = None # 19w08a+ - a functional interface for creating new entities
+        funcclass = None  # 19w08a+ - a functional interface for creating new entities
         for entry in inner_classes:
             if entry.outer_class_info_index == 0:
                 # Ignore anonymous classes
@@ -103,7 +96,9 @@ class EntityTopping(Topping):
                     builderclass = inner.name.value
 
         if not builderclass:
-            raise Exception("Failed to find inner class for builder in " + str(inner_classes))
+            raise Exception(
+                "Failed to find inner class for builder in " + str(inner_classes)
+            )
         # Note that funcclass might not be found since it didn't always exist
 
         method = cf.methods.find_one(name="<clinit>")
@@ -135,14 +130,21 @@ class EntityTopping(Topping):
                     new_entity["name"] = name
                     new_entity["id"] = self.cur_id
                     if "minecraft." + name in aggregate["language"]["entity"]:
-                        new_entity["display_name"] = aggregate["language"]["entity"]["minecraft." + name]
+                        new_entity["display_name"] = aggregate["language"]["entity"][
+                            "minecraft." + name
+                        ]
                     self.cur_id += 1
 
                     entity[name] = new_entity
                     return new_entity
                 elif const.class_.name == builderclass:
                     if ins.mnemonic != "invokestatic":
-                        if len(args) == 2 and isinstance(args[0], float) and isinstance(args[1], float) and const.name_and_type.descriptor.value.startswith("(FF)"):
+                        if (
+                            len(args) == 2
+                            and isinstance(args[0], float)
+                            and isinstance(args[1], float)
+                            and const.name_and_type.descriptor.value.startswith("(FF)")
+                        ):
                             # Entity size in 19w03a and newer
                             obj["width"] = args[0]
                             obj["height"] = args[1]
@@ -155,17 +157,26 @@ class EntityTopping(Topping):
                     desc = method_descriptor(method_desc)
 
                     if len(args) == 2:
-                        if desc.args[0].name == "java/lang/Class" and desc.args[1].name == "java/util/function/Function":
+                        if (
+                            desc.args[0].name == "java/lang/Class"
+                            and desc.args[1].name == "java/util/function/Function"
+                        ):
                             # Builder.create(Class, Function), 18w06a+
                             # In 18w06a, they added a parameter for the entity class; check consistency
                             assert args[0] == args[1] + ".class"
                             cls = args[1]
-                        elif desc.args[0].name == "java/util/function/Function" or desc.args[0].name == funcclass:
+                        elif (
+                            desc.args[0].name == "java/util/function/Function"
+                            or desc.args[0].name == funcclass
+                        ):
                             # Builder.create(Function, EntityCategory), 19w05a+
                             cls = args[0]
                         else:
                             if verbose:
-                                print("Unknown entity type builder creation method", method_desc)
+                                print(
+                                    "Unknown entity type builder creation method",
+                                    method_desc,
+                                )
                             cls = None
                     elif len(args) == 1:
                         # There is also a format that creates an entity that cannot be serialized.
@@ -188,7 +199,7 @@ class EntityTopping(Topping):
                         # In 18w05a and below, nonserializable entities
                         cls = None
 
-                    return { "class": cls } if cls else { "serializable": "false" }
+                    return {"class": cls} if cls else {"serializable": "false"}
 
             def on_put_field(self, ins, const, obj, value):
                 if isinstance(value, dict):
@@ -197,8 +208,12 @@ class EntityTopping(Topping):
                     # Also, if this isn't a serializable entity, get the class from the generic signature of the field
                     if "class" not in value:
                         field = cf.fields.find_one(name=const.name_and_type.name.value)
-                        sig = field.attributes.find_one(name="Signature").signature.value # Something like `Laev<Laep;>;`
-                        value["class"] = sig[sig.index("<") + 2 : sig.index(">") - 1] # Awful way of getting the actual type
+                        sig = field.attributes.find_one(
+                            name="Signature"
+                        ).signature.value  # Something like `Laev<Laep;>;`
+                        value["class"] = sig[
+                            sig.index("<") + 2 : sig.index(">") - 1
+                        ]  # Awful way of getting the actual type
 
             def on_new(self, ins, const):
                 # Done once, for the registry, but we don't care
@@ -249,16 +264,25 @@ class EntityTopping(Topping):
         entities = aggregate.setdefault("entities", {})
         entity = entities.setdefault("entity", {})
 
-        method = cf.methods.find_one(args='', returns="V", f=lambda m: m.access_flags.acc_public and m.access_flags.acc_static)
+        method = cf.methods.find_one(
+            args="",
+            returns="V",
+            f=lambda m: m.access_flags.acc_public and m.access_flags.acc_static,
+        )
 
         minecart_info = {}
+
         class EntityContext(WalkerCallback):
             def on_get_field(self, ins, const, obj):
                 # Minecarts use an enum for their data - assume that this is that enum
                 const = ins.operands[0]
-                if not "types_by_field" in minecart_info:
-                    EntityTopping._load_minecart_enum(classloader, const.class_.name.value, minecart_info)
-                minecart_name = minecart_info["types_by_field"][const.name_and_type.name.value]
+                if "types_by_field" not in minecart_info:
+                    EntityTopping._load_minecart_enum(
+                        classloader, const.class_.name.value, minecart_info
+                    )
+                minecart_name = minecart_info["types_by_field"][
+                    const.name_and_type.name.value
+                ]
                 return minecart_info["types"][minecart_name]
 
             def on_invoke(self, ins, const, obj, args):
@@ -270,12 +294,14 @@ class EntityTopping(Topping):
                         entity[name] = {
                             "id": args[0],
                             "name": name,
-                            "class": args[2][:-len(".class")],
-                            "old_name": old_name
+                            "class": args[2][: -len(".class")],
+                            "old_name": old_name,
                         }
 
                         if old_name + ".name" in aggregate["language"]["entity"]:
-                            entity[name]["display_name"] = aggregate["language"]["entity"][old_name + ".name"]
+                            entity[name]["display_name"] = aggregate["language"][
+                                "entity"
+                            ][old_name + ".name"]
                     elif len(args) == 3:
                         # Spawn egg registration
                         name = args[0]
@@ -346,29 +372,35 @@ class EntityTopping(Topping):
                 elif ins == "getstatic":
                     # Minecarts use an enum for their data - assume that this is that enum
                     const = ins.operands[0]
-                    if not "types_by_field" in minecart_info:
-                        EntityTopping._load_minecart_enum(classloader, const.class_.name.value, minecart_info)
+                    if "types_by_field" not in minecart_info:
+                        EntityTopping._load_minecart_enum(
+                            classloader, const.class_.name.value, minecart_info
+                        )
                     # This technically happens when invokevirtual is called, but do it like this for simplicity
-                    minecart_name = minecart_info["types_by_field"][const.name_and_type.name.value]
+                    minecart_name = minecart_info["types_by_field"][
+                        const.name_and_type.name.value
+                    ]
                     stack.append(minecart_info["types"][minecart_name]["entitytype"])
                 elif ins == "invokestatic":  # invokestatic
                     if mode == "entities":
                         tmp["class"] = stack[0]
                         tmp["name"] = stack[1]
                         tmp["id"] = stack[2]
-                        if (len(stack) >= 5):
+                        if len(stack) >= 5:
                             tmp["egg_primary"] = stack[3]
                             tmp["egg_secondary"] = stack[4]
                         if tmp["name"] + ".name" in aggregate["language"]["entity"]:
-                            tmp["display_name"] = aggregate["language"]["entity"][tmp["name"] + ".name"]
+                            tmp["display_name"] = aggregate["language"]["entity"][
+                                tmp["name"] + ".name"
+                            ]
                         entity[tmp["name"]] = tmp
                     elif mode == "aliases":
                         tmp["entity"] = stack[0]
                         tmp["name"] = stack[1]
-                        if (len(stack) >= 5):
+                        if len(stack) >= 5:
                             tmp["egg_primary"] = stack[2]
                             tmp["egg_secondary"] = stack[3]
-                        tmp["class"] = stack[-1] # last item, made by new.
+                        tmp["class"] = stack[-1]  # last item, made by new.
                         if alias is None:
                             alias = entities.setdefault("alias", {})
                         alias[tmp["name"]] = tmp
@@ -412,7 +444,7 @@ class EntityTopping(Topping):
                     "class": minecart_class,
                     "field": minecart_field,
                     "name": minecart_name,
-                    "entitytype": minecart_type
+                    "entitytype": minecart_type,
                 }
                 minecart_types_by_field[minecart_field] = minecart_name
 
@@ -425,10 +457,14 @@ class EntityTopping(Topping):
 
         # NOTE: Use aggregate["entities"] instead of the given entities list because
         # this method is re-used in the objects topping
-        base_entity_cf = classloader[aggregate["entities"]["entity"]["~abstract_entity"]["class"]]
+        base_entity_cf = classloader[
+            aggregate["entities"]["entity"]["~abstract_entity"]["class"]
+        ]
 
         # Note that there are additional methods matching this, used to set camera angle and such
-        set_size = base_entity_cf.methods.find_one(args="FF", returns="V", f=lambda m: m.access_flags.acc_protected)
+        set_size = base_entity_cf.methods.find_one(
+            args="FF", returns="V", f=lambda m: m.access_flags.acc_protected
+        )
 
         set_size_name = set_size.name.value
         set_size_desc = set_size.descriptor.value
@@ -451,8 +487,15 @@ class EntityTopping(Topping):
                         tmp.append(const.value)
                 elif ins == "invokevirtual":
                     const = ins.operands[0]
-                    if const.name_and_type.name == set_size_name and const.name_and_type.descriptor == set_size_desc:
-                        if len(tmp) == 2 and isinstance(tmp[0], float) and isinstance(tmp[1], float):
+                    if (
+                        const.name_and_type.name == set_size_name
+                        and const.name_and_type.descriptor == set_size_desc
+                    ):
+                        if (
+                            len(tmp) == 2
+                            and isinstance(tmp[0], float)
+                            and isinstance(tmp[1], float)
+                        ):
                             result = tmp
                         else:
                             # There was a call to the method, but we couldn't parse it fully
@@ -488,34 +531,41 @@ class EntityTopping(Topping):
                     cf = classloader[entities[name]["class"]]
                     parent = cf.super_.name.value
                     if parent not in entity_classes:
-                        entities["~abstract_" + abstract_name] = { "class": parent, "name": "~abstract_" + abstract_name }
+                        entities["~abstract_" + abstract_name] = {
+                            "class": parent,
+                            "name": "~abstract_" + abstract_name,
+                        }
                     elif verbose:
-                        print("Unexpected non-abstract class for parent of %s: %s" % (name, entity_classes[parent]))
+                        print(
+                            "Unexpected non-abstract class for parent of %s: %s"
+                            % (name, entity_classes[parent])
+                        )
                     break
             else:
                 if verbose:
-                    print("Failed to find abstract entity %s as a superclass of %s" % (abstract_name, subclass_names))
+                    print(
+                        "Failed to find abstract entity %s as a superclass of %s"
+                        % (abstract_name, subclass_names)
+                    )
 
         abstract_entity("entity", "item", "Item")
-        abstract_entity("minecart", "minecart") # AbstractMinecart
-        abstract_entity("vehicle", "~abstract_minecart") # VehicleEntity
-        abstract_entity("living", "armor_stand", "ArmorStand") # EntityLivingBase
-        abstract_entity("insentient", "ender_dragon", "EnderDragon") # EntityLiving
-        abstract_entity("monster", "enderman", "Enderman") # EntityMob
-        abstract_entity("tameable", "wolf", "Wolf") # EntityTameable
-        abstract_entity("animal", "sheep", "Sheep") # EntityAnimal
-        abstract_entity("ageable", "~abstract_animal") # EntityAgeable
-        abstract_entity("creature", "~abstract_ageable") # EntityCreature
-        abstract_entity("display", "block_display") # Display.BlockDisplay
-        abstract_entity("horse", "horse") # AbstractHorse
-        abstract_entity("villager", "villager") # AbstractVillager
-        abstract_entity("arrow", "arrow") # AbstractVillager
-        abstract_entity("fish", "cod") # AbstractVillager
+        abstract_entity("minecart", "minecart")  # AbstractMinecart
+        abstract_entity("vehicle", "~abstract_minecart")  # VehicleEntity
+        abstract_entity("living", "armor_stand", "ArmorStand")  # EntityLivingBase
+        abstract_entity("insentient", "ender_dragon", "EnderDragon")  # EntityLiving
+        abstract_entity("monster", "enderman", "Enderman")  # EntityMob
+        abstract_entity("tameable", "wolf", "Wolf")  # EntityTameable
+        abstract_entity("animal", "sheep", "Sheep")  # EntityAnimal
+        abstract_entity("ageable", "~abstract_animal")  # EntityAgeable
+        abstract_entity("creature", "~abstract_ageable")  # EntityCreature
+        abstract_entity("display", "block_display")  # Display.BlockDisplay
+        abstract_entity("horse", "horse")  # AbstractHorse
+        abstract_entity("villager", "villager")  # AbstractVillager
+        abstract_entity("arrow", "arrow")  # AbstractVillager
+        abstract_entity("fish", "cod")  # AbstractVillager
         abstract_entity("boat", "birch_boat")
-        abstract_entity("thrown_item_projectile", "egg") # ThrowableItemProjectile
-        abstract_entity("raider", "ravager") # Raider
-        abstract_entity("spellcaster_illager", "illusioner") # SpellcasterIllager
-        abstract_entity("chested_horse", "mule") # AbstractChestedHorse
-        abstract_entity("piglin", "piglin") # AbstractChestedHorse
-        
-
+        abstract_entity("thrown_item_projectile", "egg")  # ThrowableItemProjectile
+        abstract_entity("raider", "ravager")  # Raider
+        abstract_entity("spellcaster_illager", "illusioner")  # SpellcasterIllager
+        abstract_entity("chested_horse", "mule")  # AbstractChestedHorse
+        abstract_entity("piglin", "piglin")  # AbstractChestedHorse

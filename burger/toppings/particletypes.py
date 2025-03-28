@@ -13,13 +13,13 @@ class ParticleTypesTopping(Topping):
         cf = classloader[aggregate["classes"]["particletypes"]]
         # Method is either <clinit> or a void with no parameters, check both
         # until we find one that loads constants
-        for meth in cf.methods.find(args='', returns='V'):
+        for meth in cf.methods.find(args="", returns="V"):
             ops = tuple(meth.code.disassemble())
-            if next(filter(lambda op: 'ldc' in op.name, ops), False):
+            if next(filter(lambda op: "ldc" in op.name, ops), False):
                 break
 
         for idx, op in enumerate(ops):
-            if 'ldc' in op.name:
+            if "ldc" in op.name:
                 str_val = op.operands[0].string.value
 
                 # Enum identifiers in older version of MC are all uppercase,
@@ -29,7 +29,7 @@ class ParticleTypesTopping(Topping):
                     continue
 
                 # This instruction sequence is unique to particle type fields
-                if ops[idx + 1].name in ('bipush', 'getstatic'):
+                if ops[idx + 1].name in ("bipush", "getstatic"):
                     particletypes.append(str_val)
 
-        aggregate['particletypes'] = particletypes
+        aggregate["particletypes"] = particletypes

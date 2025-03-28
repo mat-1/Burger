@@ -23,29 +23,27 @@ THE SOFTWARE.
 """
 
 import re
-import sys
 import traceback
 import six
-import six.moves
 
-from types import LambdaType
 
-from jawa.util.descriptor import method_descriptor, parse_descriptor
-from jawa.constants import *
+from jawa.util.descriptor import method_descriptor, parse_descriptor, field_descriptor
+from jawa.constants import Integer, Float, Long, Double, UTF8, String, ConstantClass
 from jawa.transforms import simple_swap
 
 from .topping import Topping
 from burger.util import InvokeDynamicInfo, REF_invokeStatic, get_enum_constants
 
-SUB_INS_EPSILON = .01
-PACKETBUF_NAME = "packetbuffer" # Used to specially identify the PacketBuffer we care about
+SUB_INS_EPSILON = 0.01
+PACKETBUF_NAME = (
+    "packetbuffer"  # Used to specially identify the PacketBuffer we care about
+)
+
 
 class PacketInstructionsTopping(Topping):
     """Provides the instructions used to construct network packets."""
 
-    PROVIDES = [
-        "packets.instructions"
-    ]
+    PROVIDES = ["packets.instructions"]
 
     DEPENDS = [
         "packets.classes",
@@ -67,7 +65,7 @@ class PacketInstructionsTopping(Topping):
         "writeFloat": "float",
         "writeInt": "int",
         "writeLong": "long",
-        "writeShort": "short"
+        "writeShort": "short",
     }
 
     CACHE = {}
@@ -76,7 +74,9 @@ class PacketInstructionsTopping(Topping):
     OPCODES = {}
 
     @classmethod
-    def register_ins(cls, opcodes, stack_count, template, extra_method=None, category=1):
+    def register_ins(
+        cls, opcodes, stack_count, template, extra_method=None, category=1
+    ):
         """
         Registers an instruction handler.  This should be used for instructions
         that pop some one or more things from the stack and then push a new
@@ -94,50 +94,62 @@ class PacketInstructionsTopping(Topping):
             "stack_count": stack_count,
             "template": template,
             "extra_method": extra_method,
-            "category": category
+            "category": category,
         }
         for opcode in opcodes:
             cls.OPCODES[opcode] = data
 
     # Prefix types used in instructions
     INSTRUCTION_TYPES = {
-        'a': 'Object',
-        'b': 'boolean',
-        'c': 'char',
-        'd': 'double',
-        'f': 'float',
-        'i': 'int',
-        'l': 'long',
-        's': 'short'
+        "a": "Object",
+        "b": "boolean",
+        "c": "char",
+        "d": "double",
+        "f": "float",
+        "i": "int",
+        "l": "long",
+        "s": "short",
     }
 
     CLEANUP_PATTERN = [
-        (re.compile(r'^\((.*[^(])\)$'), '\\1'),
-        (re.compile(r"(^|[() ])this\."), '\\1')
+        (re.compile(r"^\((.*[^(])\)$"), "\\1"),
+        (re.compile(r"(^|[() ])this\."), "\\1"),
     ]
 
     @staticmethod
     def act(aggregate, classloader, verbose=False):
         """Finds all packets and decompiles them"""
-        thunks = _PIT.list_thunks(classloader, aggregate["classes"]["packet.packetbuffer"])
+        thunks = _PIT.list_thunks(
+            classloader, aggregate["classes"]["packet.packetbuffer"]
+        )
         for key, packet in six.iteritems(aggregate["packets"]["packet"]):
             operations = None
             try:
-                classname = packet["class"][:-len(".class")]
-                operations = _PIT.class_operations(classloader, classname, aggregate["classes"], verbose, thunks)
+                classname = packet["class"][: -len(".class")]
+                operations = _PIT.class_operations(
+                    classloader, classname, aggregate["classes"], verbose, thunks
+                )
                 packet.update(_PIT.format(operations))
             except Exception as e:
                 if verbose:
-                    print("Error: Failed to parse instructions of packet %s (%s): %s" % (key, packet["class"], e))
+                    print(
+                        "Error: Failed to parse instructions of packet %s (%s): %s"
+                        % (key, packet["class"], e)
+                    )
                     traceback.print_exc()
                     if operations:
                         import json
-                        print(json.dumps(operations, default=lambda o:o.__dict__, indent=4))
+
+                        print(
+                            json.dumps(
+                                operations, default=lambda o: o.__dict__, indent=4
+                            )
+                        )
                     print()
 
     @staticmethod
     def list_thunks(classloader, packetbuffer_class):
-        """ Look for obfuscated thunk functions that call Netty ByteBuf functions.
+        """Look for obfuscated thunk functions that call Netty ByteBuf functions.
         Since the Netty rewrite in 1.7, Mojang's PacketBuffer overrode all Netty ByteBuf functions
         to call the same function on a stored ByteBuf field, like this:
 
@@ -183,12 +195,25 @@ class PacketInstructionsTopping(Topping):
             # NOTE: simple_swap transform (from classloader configuration in munch.py) changes aload_0 to aload
             if insts[0].mnemonic != "aload" or insts[1].mnemonic != "getfield":
                 continue
-            if insts[-4].mnemonic != "invokevirtual" or insts[-3].mnemonic != "pop" or insts[-2].mnemonic != "aload" or insts[-1].mnemonic != "areturn":
+            if (
+                insts[-4].mnemonic != "invokevirtual"
+                or insts[-3].mnemonic != "pop"
+                or insts[-2].mnemonic != "aload"
+                or insts[-1].mnemonic != "areturn"
+            ):
                 continue
-            if insts[1].operands[0].name_and_type.descriptor.value != "Lio/netty/buffer/ByteBuf;":
+            if (
+                insts[1].operands[0].name_and_type.descriptor.value
+                != "Lio/netty/buffer/ByteBuf;"
+            ):
                 continue
-            if not insts[-4].operands[0].name_and_type.descriptor.value.endswith("Lio/netty/buffer/ByteBuf;"):
+            if (
+                not insts[-4]
+                .operands[0]
+                .name_and_type.descriptor.value.endswith("Lio/netty/buffer/ByteBuf;")
+            ):
                 continue
+
             def is_expected_load(i, inst):
                 # iload_2 becomes iload 2 due to simple_swap
                 if not inst.mnemonic.endswith("load"):
@@ -196,6 +221,7 @@ class PacketInstructionsTopping(Topping):
                 if inst.operands[0].value != (i + 1):
                     return False
                 return True
+
             if not all(is_expected_load(i, inst) for i, inst in enumerate(insts[2:-4])):
                 continue
 
@@ -213,7 +239,11 @@ class PacketInstructionsTopping(Topping):
         # Find the writing method
         cf = classloader[classname]
 
-        methods = list(cf.methods.find(returns="V", args="L" + classes["packet.packetbuffer"] + ";"))
+        methods = list(
+            cf.methods.find(
+                returns="V", args="L" + classes["packet.packetbuffer"] + ";"
+            )
+        )
 
         if len(methods) == 2:
             # Assume the second method is the one that writes
@@ -226,15 +256,19 @@ class PacketInstructionsTopping(Topping):
             # so just assume that that method handles writing.
             method = methods[0]
         else:
-            assert len(methods) == 0 # There shouldn't be more than 2 packetbuffer-related methods
+            assert (
+                len(methods) == 0
+            )  # There shouldn't be more than 2 packetbuffer-related methods
 
             # 24w03a adds a subclass of packetbuffer. This is a bit of a pain since that class has no strings to identify it.
             # We can sometimes identify it via the constructor though.
             # TODO: This approach is very hacky and doesn't work for all packets (even in 24w03a). Not sure what to do about it.
-            for m in cf.methods.find(name="<init>", f=lambda m: len(m.args)==1):
+            for m in cf.methods.find(name="<init>", f=lambda m: len(m.args) == 1):
                 tmp_cf = classloader[m.args[0].name]
                 if tmp_cf.super_.name.value == classes["packet.packetbuffer"]:
-                    methods_2 = list(cf.methods.find(returns="V", args="L" + m.args[0].name + ";"))
+                    methods_2 = list(
+                        cf.methods.find(returns="V", args="L" + m.args[0].name + ";")
+                    )
                     if len(methods_2) == 2:
                         method = methods_2[1]
                         break
@@ -242,19 +276,28 @@ class PacketInstructionsTopping(Topping):
                         method = methods_2[0]
                         break
             else:
-                if cf.super_.name.value != "java/lang/Object" and cf.super_.name.value != "java/lang/Record":
+                if (
+                    cf.super_.name.value != "java/lang/Object"
+                    and cf.super_.name.value != "java/lang/Record"
+                ):
                     # Try the superclass
-                    return _PIT.class_operations(classloader, cf.super_.name.value, classes, verbose, thunks)
+                    return _PIT.class_operations(
+                        classloader, cf.super_.name.value, classes, verbose, thunks
+                    )
                 else:
                     raise Exception("Failed to find method in class or superclass")
 
         assert not method.access_flags.acc_static
         assert not method.access_flags.acc_abstract
 
-        return _PIT.operations(classloader, cf, classes, verbose, method, ("this", PACKETBUF_NAME), thunks)
+        return _PIT.operations(
+            classloader, cf, classes, verbose, method, ("this", PACKETBUF_NAME), thunks
+        )
 
     @staticmethod
-    def operations(classloader, cf, classes, verbose, method, arg_names, thunks, special_fields={}):
+    def operations(
+        classloader, cf, classes, verbose, method, arg_names, thunks, special_fields={}
+    ):
         """Decompiles the specified method."""
         if method.access_flags.acc_static:
             assert len(arg_names) == len(method.args)
@@ -280,8 +323,10 @@ class PacketInstructionsTopping(Topping):
                     continue
 
             mnemonic = instruction.mnemonic
-            operands = [InstructionField(operand, instruction, cf.constants)
-                        for operand in instruction.operands]
+            operands = [
+                InstructionField(operand, instruction, cf.constants)
+                for operand in instruction.operands
+            ]
 
             # Shortcut if
             if instruction.pos == shortif_pos:
@@ -295,11 +340,17 @@ class PacketInstructionsTopping(Topping):
                 operations.pop()
                 operations.pop()
                 category = stack[-1].category
-                stack.append(StackOperand("((%(cond)s) ? %(sec)s : %(first)s)" % {
-                    "cond": shortif_cond,
-                    "first": stack.pop(),
-                    "sec": stack.pop()
-                }, category))
+                stack.append(
+                    StackOperand(
+                        "((%(cond)s) ? %(sec)s : %(first)s)"
+                        % {
+                            "cond": shortif_cond,
+                            "first": stack.pop(),
+                            "sec": stack.pop(),
+                        },
+                        category,
+                    )
+                )
                 shortif_cond = None
                 shortif_pos = None
 
@@ -307,7 +358,10 @@ class PacketInstructionsTopping(Topping):
             # Unlike everything else, this does not use elif, since we want the
             # default handler to be used if the field isn't special.
             if mnemonic == "getfield":
-                if operands[0].classname == cf.this.name.value and operands[0].name in special_fields:
+                if (
+                    operands[0].classname == cf.this.name.value
+                    and operands[0].name in special_fields
+                ):
                     stack.pop()
                     stack.append(special_fields[operands[0].name])
                     continue
@@ -319,12 +373,26 @@ class PacketInstructionsTopping(Topping):
                         continue
 
             # Method calls
-            if mnemonic in ("invokevirtual", "invokespecial", "invokestatic", "invokeinterface"):
-                operations.extend(_PIT._handle_invoke(
-                    classloader, classes, instruction, verbose, operands[0].c,
-                    operands[0].name, method_descriptor(operands[0].descriptor), stack, thunks,
-                    special_fields if operands[0].c == cf.this.name.value else {}
-                ))
+            if mnemonic in (
+                "invokevirtual",
+                "invokespecial",
+                "invokestatic",
+                "invokeinterface",
+            ):
+                operations.extend(
+                    _PIT._handle_invoke(
+                        classloader,
+                        classes,
+                        instruction,
+                        verbose,
+                        operands[0].c,
+                        operands[0].name,
+                        method_descriptor(operands[0].descriptor),
+                        stack,
+                        thunks,
+                        special_fields if operands[0].c == cf.this.name.value else {},
+                    )
+                )
 
             elif mnemonic == "invokedynamic":
                 InvokeDynamicInfo.create(instruction, cf).apply_to_stack(stack)
@@ -357,7 +425,9 @@ class PacketInstructionsTopping(Topping):
                 elif mnemonic in ("ifle", "if_icmple"):
                     comparison = ">"
                 else:
-                    raise Exception("Unknown if mnemonic %s (0x%x)" % (mnemonic, instruction.opcode))
+                    raise Exception(
+                        "Unknown if mnemonic %s (0x%x)" % (mnemonic, instruction.opcode)
+                    )
 
                 if comparison == "!=" and value2 == 0:
                     # if (something != 0) -> if (something)
@@ -365,8 +435,7 @@ class PacketInstructionsTopping(Topping):
                 else:
                     condition = "%s %s %s" % (value1, comparison, value2)
 
-                operations.append(Operation(instruction.pos, "if",
-                                            condition=condition))
+                operations.append(Operation(instruction.pos, "if", condition=condition))
                 operations.append(Operation(operands[0].target, "endif"))
                 if shortif_pos is not None:
                     # Clearly not a ternary-if if we have another nested if
@@ -387,16 +456,16 @@ class PacketInstructionsTopping(Topping):
                 shortif_cond = condition
 
             elif mnemonic == "tableswitch":
-                operations.append(Operation(instruction.pos, "switch",
-                                            field=stack.pop()))
+                operations.append(
+                    Operation(instruction.pos, "switch", field=stack.pop())
+                )
 
                 default = operands[0].target
                 low = operands[1].value
-                high = operands[2].value
-                for opr in six.moves.range(3, len(operands)):
+                _high = operands[2].value
+                for opr in range(3, len(operands)):
                     target = operands[opr].target
-                    operations.append(Operation(target, "case",
-                                                value=low + opr - 3))
+                    operations.append(Operation(target, "case", value=low + opr - 3))
                 # TODO: Default might not be the right place for endswitch,
                 # though it seems like default isn't used in any other way
                 # in the normal code.
@@ -406,7 +475,7 @@ class PacketInstructionsTopping(Topping):
                 raise Exception("lookupswitch is not supported")
                 # operations.append(Operation(instruction.pos, "switch",
                 #                             field=stack.pop()))
-                # for opr in six.moves.range(1, len(operands)):
+                # for opr in range(1, len(operands)):
                 #     target = operands[opr].find_target(1)
                 #     operations.append(Operation(target, "case",
                 #                                 value=operands[opr].value[0]))
@@ -426,24 +495,26 @@ class PacketInstructionsTopping(Topping):
                             shortif_pos = target
                     else:
                         endif.operation = "endloop"
-                        _PIT.find_next(
-                            operations, target, "if"
-                        ).operation = "loop"
+                        _PIT.find_next(operations, target, "if").operation = "loop"
                 elif target > instruction.pos:
                     skip_until = target
 
             elif mnemonic == "iinc":
-                operations.append(Operation(instruction.pos, "increment",
-                                            field="var%s" % operands[0],
-                                            amount=operands[1]))
+                operations.append(
+                    Operation(
+                        instruction.pos,
+                        "increment",
+                        field="var%s" % operands[0],
+                        amount=operands[1],
+                    )
+                )
 
             # Other manually handled instructions
             elif mnemonic == "multianewarray":
                 operand = ""
-                for i in six.moves.range(operands[1].value):
+                for i in range(operands[1].value):
                     operand = "[%s]%s" % (stack.pop(), operand)
-                stack.append(StackOperand(
-                    "new %s%s" % (operands[0].type, operand)))
+                stack.append(StackOperand("new %s%s" % (operands[0].type, operand)))
             elif mnemonic == "pop":
                 stack.pop()
             elif mnemonic == "pop2":
@@ -470,17 +541,18 @@ class PacketInstructionsTopping(Topping):
                     stack.insert(-3, stack[-1])
             elif mnemonic == "dup2_x2":
                 if stack[-1].category == 2:
-                    stack.insert(
-                        -2 if stack[-2].category == 2 else -3, stack[-1]
-                    )
+                    stack.insert(-2 if stack[-2].category == 2 else -3, stack[-1])
                 else:
-                    stack.insert(
-                        -3 if stack[-3].category == 2 else -4, stack[-2]
-                    )
-                    stack.insert(
-                        -3 if stack[-3].category == 2 else -4, stack[-1]
-                    )
-            elif mnemonic in ("return", "ireturn", "lreturn", "freturn", "dreturn", "areturn"):
+                    stack.insert(-3 if stack[-3].category == 2 else -4, stack[-2])
+                    stack.insert(-3 if stack[-3].category == 2 else -4, stack[-1])
+            elif mnemonic in (
+                "return",
+                "ireturn",
+                "lreturn",
+                "freturn",
+                "dreturn",
+                "areturn",
+            ):
                 # Don't attempt to lookup the instruction in the handler
                 pass
 
@@ -490,51 +562,74 @@ class PacketInstructionsTopping(Topping):
                 arg = operands.pop().value
 
                 var = arg_names[arg] if arg < len(arg_names) else "var%s" % arg
-                operations.append(Operation(instruction.pos, "store",
-                                            type=type,
-                                            var=var,
-                                            value=stack.pop()))
+                operations.append(
+                    Operation(
+                        instruction.pos, "store", type=type, var=var, value=stack.pop()
+                    )
+                )
 
-            elif instruction in ("iastore", "lastore", "fastore", "dastore", "aastore", "bastore", "castore", "sastore"):
+            elif instruction in (
+                "iastore",
+                "lastore",
+                "fastore",
+                "dastore",
+                "aastore",
+                "bastore",
+                "castore",
+                "sastore",
+            ):
                 type = _PIT.INSTRUCTION_TYPES[instruction.mnemonic[0]]
 
                 # Array store
                 value = stack.pop()
                 index = stack.pop()
                 array = stack.pop()
-                operations.append(Operation(instruction.pos, "arraystore",
-                                            type=type,
-                                            index=index,
-                                            var=array,
-                                            value=value))
+                operations.append(
+                    Operation(
+                        instruction.pos,
+                        "arraystore",
+                        type=type,
+                        index=index,
+                        var=array,
+                        value=value,
+                    )
+                )
 
-            elif instruction == 'putfield':
+            elif instruction == "putfield":
                 # Set a field in an object
                 value = stack.pop()
                 obj = stack.pop()
-                operations.append(Operation(instruction.pos, "putfield",
-                                            field=operands[0].name,
-                                            obj=obj,
-                                            value=value))
+                operations.append(
+                    Operation(
+                        instruction.pos,
+                        "putfield",
+                        field=operands[0].name,
+                        obj=obj,
+                        value=value,
+                    )
+                )
 
             # Default handlers
             else:
                 if mnemonic not in _PIT.OPCODES:
-                    raise Exception("Unhandled instruction opcode %s (0x%x)" % (mnemonic, instruction.opcode))
+                    raise Exception(
+                        "Unhandled instruction opcode %s (0x%x)"
+                        % (mnemonic, instruction.opcode)
+                    )
 
                 handler = _PIT.OPCODES[mnemonic]
 
                 ins_stack = []
                 assert len(stack) >= handler["stack_count"]
 
-                for _ in six.moves.range(handler["stack_count"]):
+                for _ in range(handler["stack_count"]):
                     ins_stack.insert(0, stack.pop())
 
                 ctx = {
                     "operands": operands,
                     "stack": ins_stack,
                     "ins": instruction,
-                    "arg_names": arg_names
+                    "arg_names": arg_names,
                 }
 
                 if handler["extra_method"]:
@@ -544,16 +639,28 @@ class PacketInstructionsTopping(Topping):
                 try:
                     formatted = handler["template"].format(**ctx)
                 except Exception as ex:
-                    raise Exception("Failed to format info for %s (0x%x) with template %s and ctx %s: %s" %
-                        (mnemonic, instruction.opcode, handler["template"], ctx, ex))
+                    raise Exception(
+                        "Failed to format info for %s (0x%x) with template %s and ctx %s: %s"
+                        % (mnemonic, instruction.opcode, handler["template"], ctx, ex)
+                    )
 
                 stack.append(StackOperand(formatted, handler["category"]))
 
         return operations
 
     @staticmethod
-    def _handle_invoke(classloader, classes, instruction, verbose,
-                       cls, name, desc, stack, thunks, special_fields):
+    def _handle_invoke(
+        classloader,
+        classes,
+        instruction,
+        verbose,
+        cls,
+        name,
+        desc,
+        stack,
+        thunks,
+        special_fields,
+    ):
         """
         Handles invocation of a method, returning the operations for it and also
         updating the stack.
@@ -571,10 +678,10 @@ class PacketInstructionsTopping(Topping):
             arguments = stack[-num_arguments:]
         else:
             arguments = []
-        for i in six.moves.range(num_arguments):
+        for i in range(num_arguments):
             stack.pop()
 
-        is_static = (instruction.mnemonic == "invokestatic")
+        is_static = instruction.mnemonic == "invokestatic"
         obj = cls if is_static else stack.pop()
 
         if name in _PIT.TYPES:
@@ -587,40 +694,87 @@ class PacketInstructionsTopping(Topping):
                 # We allow writeBytes to have a length of 3, because there is a
                 # variant that takes the array, but also srcIndex and length.
                 # It is used in 13w41a, but is not used in modern versions.
-                return [Operation(instruction.pos, "write", type=_PIT.TYPES[name],
-                                  field="arrayRange(%s, %s, %s)" % (arguments[0],
-                                        arguments[1], arguments[2]))]
+                return [
+                    Operation(
+                        instruction.pos,
+                        "write",
+                        type=_PIT.TYPES[name],
+                        field="arrayRange(%s, %s, %s)"
+                        % (arguments[0], arguments[1], arguments[2]),
+                    )
+                ]
             else:
                 assert num_arguments == 1
-                return [Operation(instruction.pos, "write", type=_PIT.TYPES[name],
-                                  field=arguments[0])]
-        elif len(name) == 1 and isinstance(obj, StackOperand) and obj.value == PACKETBUF_NAME:
+                return [
+                    Operation(
+                        instruction.pos,
+                        "write",
+                        type=_PIT.TYPES[name],
+                        field=arguments[0],
+                    )
+                ]
+        elif (
+            len(name) == 1
+            and isinstance(obj, StackOperand)
+            and obj.value == PACKETBUF_NAME
+        ):
             # Checking len(name) == 1 is used to see if it's a Minecraft method
             # (due to obfuscation).  Netty methods have real (and thus longer) names.
             if num_arguments == 1:
-                result = _PIT._handle_1_arg_buffer_call(classloader, classes,
-                                                        instruction, verbose,
-                                                        cls, name, desc, obj,
-                                                        arguments[0], thunks)
+                result = _PIT._handle_1_arg_buffer_call(
+                    classloader,
+                    classes,
+                    instruction,
+                    verbose,
+                    cls,
+                    name,
+                    desc,
+                    obj,
+                    arguments[0],
+                    thunks,
+                )
             elif num_arguments == 2:
-                result = _PIT._handle_2_arg_buffer_call(classloader, classes,
-                                                        instruction, verbose,
-                                                        cls, name, desc, obj,
-                                                        arguments, thunks)
+                result = _PIT._handle_2_arg_buffer_call(
+                    classloader,
+                    classes,
+                    instruction,
+                    verbose,
+                    cls,
+                    name,
+                    desc,
+                    obj,
+                    arguments,
+                    thunks,
+                )
             elif num_arguments == 3:
-                result = _PIT._handle_3_arg_buffer_call(classloader, classes,
-                                                        instruction, verbose,
-                                                        cls, name, desc, obj,
-                                                        arguments, thunks)
+                result = _PIT._handle_3_arg_buffer_call(
+                    classloader,
+                    classes,
+                    instruction,
+                    verbose,
+                    cls,
+                    name,
+                    desc,
+                    obj,
+                    arguments,
+                    thunks,
+                )
             else:
-                raise Exception("Unexpected num_arguments: " + str(num_arguments) + " - desc " + desc)
+                raise Exception(
+                    "Unexpected num_arguments: "
+                    + str(num_arguments)
+                    + " - desc "
+                    + desc
+                )
 
             if desc.returns.name == classes["packet.packetbuffer"]:
                 # Return the packetbuffer back to the stack.
                 stack.append(obj)
             elif desc.returns.name != "void":
                 if verbose:
-                    print("PacketBuffer method that returns something other than PacketBuffer used!")
+                    print(
+                        "PacketBuffer method that returns something other than PacketBuffer used!"
+                    )
                 stack.append(object())
 
             return result
@@ -630,13 +784,23 @@ class PacketInstructionsTopping(Topping):
             # Add the arguments to that object.
             assert stack[-1] is obj
             assert isinstance(obj, StackOperand)
-            obj.value += "(" + _PIT.join(arguments) + ")";
+            obj.value += "(" + _PIT.join(arguments) + ")"
             return []
         elif name == "forEach":
             assert num_arguments == 1
             assert not is_static
-            return _PIT._handle_foreach(classloader, classes, instruction, verbose,
-                                        cls, name, desc, obj, arguments[0], thunks)
+            return _PIT._handle_foreach(
+                classloader,
+                classes,
+                instruction,
+                verbose,
+                cls,
+                name,
+                desc,
+                obj,
+                arguments[0],
+                thunks,
+            )
         elif isinstance(obj, InvokeDynamicInfo) and name == obj.dynamic_name:
             # Only check the dynamic name, as we won't have an exact match for
             # the descriptor due to type erasure (I think?)
@@ -655,18 +819,21 @@ class PacketInstructionsTopping(Topping):
             if desc.returns.name != "void":
                 # Assume that any function that returns something does not write
                 # to the buffer.
-                stack.append(StackOperand(
-                    "%s.%s(%s)" % (
-                        obj, name, _PIT.join(arguments)
-                    ),
-                    2 if desc.returns.name in ("long", "double") else 1)
+                stack.append(
+                    StackOperand(
+                        "%s.%s(%s)" % (obj, name, _PIT.join(arguments)),
+                        2 if desc.returns.name in ("long", "double") else 1,
+                    )
                 )
                 return []
             else:
                 for arg in desc.args:
                     # In modern versions, Mojang always uses their packetbuffer class, but in 13w41a
                     # they do have some functions that take ByteBuf, so we need to handle that too.
-                    if arg.name == classes["packet.packetbuffer"] or arg.name == "io/netty/buffer/ByteBuf":
+                    if (
+                        arg.name == classes["packet.packetbuffer"]
+                        or arg.name == "io/netty/buffer/ByteBuf"
+                    ):
                         if cls == classes["metadata"]:
                             # Special case - metadata is a complex type but
                             # well documented; we don't want to include its
@@ -678,8 +845,14 @@ class PacketInstructionsTopping(Topping):
                             # out the instance, and the other is a
                             # static method that takes a list and then
                             # writes that list.
-                            return [Operation(instruction.pos, "write", type="metadata",
-                                              field=obj if not is_static else arguments[0])]
+                            return [
+                                Operation(
+                                    instruction.pos,
+                                    "write",
+                                    type="metadata",
+                                    field=obj if not is_static else arguments[0],
+                                )
+                            ]
 
                         # If calling a sub-method that takes a packetbuffer as a
                         # parameter, it's possible that it's a sub-method that
@@ -687,49 +860,78 @@ class PacketInstructionsTopping(Topping):
                         # Note that we do this even if the method is abstract
                         # or part of an interface; _sub_operations checks that.
                         return _PIT._sub_operations(
-                            classloader, classes, instruction, verbose,
-                            cls, name, desc,
+                            classloader,
+                            classes,
+                            instruction,
+                            verbose,
+                            cls,
+                            name,
+                            desc,
                             [obj] + arguments if not is_static else arguments,
-                            thunks, special_fields
+                            thunks,
+                            special_fields,
                         )
                 else:
                     # Call to a method that does not take a packetbuffer.
                     # It might have side-effects, but we don't know what they
                     # would be and can't do anything with them.
                     if verbose:
-                        print("Call to %s.%s%s does not use buffer; ignoring" % (cls, name, desc.descriptor))
+                        print(
+                            "Call to %s.%s%s does not use buffer; ignoring"
+                            % (cls, name, desc.descriptor)
+                        )
                     return []
 
     @staticmethod
-    def _handle_1_arg_buffer_call(classloader, classes, instruction, verbose,
-                                  cls, name, desc, instance, arg, thunks):
+    def _handle_1_arg_buffer_call(
+        classloader,
+        classes,
+        instruction,
+        verbose,
+        cls,
+        name,
+        desc,
+        instance,
+        arg,
+        thunks,
+    ):
         arg_type = desc.args[0].name
 
         if desc.args[0].dimensions == 1:
             # Array methods, which prefix a length
-            operations = [Operation(instruction.pos, "write",
-                                    type="varint", field="%s.length" % arg)]
+            operations = [
+                Operation(
+                    instruction.pos, "write", type="varint", field="%s.length" % arg
+                )
+            ]
             if arg_type == "byte":
-                operations.append(Operation(instruction.pos, "write",
-                                            type="byte[]", field=arg))
+                operations.append(
+                    Operation(instruction.pos, "write", type="byte[]", field=arg)
+                )
             elif arg_type == "int":
-                operations.append(Operation(instruction.pos, "write",
-                                            type="varint[]", field=arg))
+                operations.append(
+                    Operation(instruction.pos, "write", type="varint[]", field=arg)
+                )
             elif arg_type == "long":
-                operations.append(Operation(instruction.pos, "write",
-                                            type="long[]", field=arg))
+                operations.append(
+                    Operation(instruction.pos, "write", type="long[]", field=arg)
+                )
             else:
                 raise Exception("Unexpected array type: " + arg_type)
             return operations
 
         assert desc.args[0].dimensions == 0
         if arg_type == "java/lang/String":
-            max_length = 32767 # not using this at the time
+            _max_length = 32767  # not using this at the time
             return [Operation(instruction.pos, "write", type="string", field=arg)]
         elif arg_type == "java/util/UUID":
             return [Operation(instruction.pos, "write", type="uuid", field=arg)]
         elif arg_type == "java/util/Date":
-            return [Operation(instruction.pos, "write", type="long", field="%s.getTime()" % arg)]
+            return [
+                Operation(
+                    instruction.pos, "write", type="long", field="%s.getTime()" % arg
+                )
+            ]
         elif arg_type == "int":
             # We know that the obfuscated function that takes an int or long is
             # the VarInt/VarLong version, and the non-obfuscated one with a netty
@@ -745,7 +947,9 @@ class PacketInstructionsTopping(Topping):
         elif arg_type == classes["itemstack"]:
             return [Operation(instruction.pos, "write", type="itemstack", field=arg)]
         elif arg_type == classes["chatcomponent"]:
-            return [Operation(instruction.pos, "write", type="chatcomponent", field=arg)]
+            return [
+                Operation(instruction.pos, "write", type="chatcomponent", field=arg)
+            ]
         elif arg_type == classes.get("identifier"):
             return [Operation(instruction.pos, "write", type="identifier", field=arg)]
         elif "position" not in classes or arg_type == classes["position"]:
@@ -760,22 +964,53 @@ class PacketInstructionsTopping(Topping):
         # and not e.g. writeVarInt)
         if verbose:
             print("Inlining PacketBuffer.%s(%s)" % (name, arg_type))
-        return _PIT._sub_operations(classloader, classes, instruction, verbose,
-                                    cls, name, desc, [instance, arg], thunks)
+        return _PIT._sub_operations(
+            classloader,
+            classes,
+            instruction,
+            verbose,
+            cls,
+            name,
+            desc,
+            [instance, arg],
+            thunks,
+        )
 
     @staticmethod
-    def _handle_2_arg_buffer_call(classloader, classes, instruction, verbose,
-                                  cls, name, desc, instance, args, thunks):
+    def _handle_2_arg_buffer_call(
+        classloader,
+        classes,
+        instruction,
+        verbose,
+        cls,
+        name,
+        desc,
+        instance,
+        args,
+        thunks,
+    ):
         if desc.args[0].name == "java/lang/String" and desc.args[1].name == "int":
-            max_length = int(args[1].value, 0) # the 0 makes it handle the 0x prefix if it's there
-            return [Operation(instruction.pos, "write", type="string", field=args[0], length=max_length)]
+            max_length = int(
+                args[1].value, 0
+            )  # the 0 makes it handle the 0x prefix if it's there
+            return [
+                Operation(
+                    instruction.pos,
+                    "write",
+                    type="string",
+                    field=args[0],
+                    length=max_length,
+                )
+            ]
         elif desc.args[0].name == "com/mojang/serialization/Codec":
             codec = args[0]
             value = args[1]
             # This isn't the exact syntax used by DataFixerUpper,
             # but it's close enough for our purposes
             field = "%s.encode(%s)" % (codec, value)
-            return [Operation(instruction.pos, "write", type="nbtcompound", field=field)]
+            return [
+                Operation(instruction.pos, "write", type="nbtcompound", field=field)
+            ]
         elif desc.args[0].name == "java/util/Collection":
             # Loop that calls the consumer with the packetbuffer
             # and value for each value in collection
@@ -792,21 +1027,45 @@ class PacketInstructionsTopping(Topping):
             operations = []
             field = args[0]
             assert isinstance(field, StackOperand)
-            operations.append(Operation(instruction.pos, "write", type="varint",
-                                        field=field.value + ".size()"))
-            operations.append(Operation(instruction.pos, "store",
-                                        type="Iterator", var="it",
-                                        value=field.value + ".iterator()"))
-            operations.append(Operation(instruction.pos, "loop",
-                                        condition="it.hasNext()"))
+            operations.append(
+                Operation(
+                    instruction.pos,
+                    "write",
+                    type="varint",
+                    field=field.value + ".size()",
+                )
+            )
+            operations.append(
+                Operation(
+                    instruction.pos,
+                    "store",
+                    type="Iterator",
+                    var="it",
+                    value=field.value + ".iterator()",
+                )
+            )
+            operations.append(
+                Operation(instruction.pos, "loop", condition="it.hasNext()")
+            )
             info = args[1]
             assert isinstance(info, InvokeDynamicInfo)
-            operations.append(Operation(instruction.pos, "store",
-                                        type=info.method_desc.args[-1].name.replace("/", "."),
-                                        var="itv", value="it.next()"))
+            operations.append(
+                Operation(
+                    instruction.pos,
+                    "store",
+                    type=info.method_desc.args[-1].name.replace("/", "."),
+                    var="itv",
+                    value="it.next()",
+                )
+            )
             operations += _PIT._lambda_operations(
-                classloader, classes, instruction.pos, verbose,
-                info, [instance, "itv"], thunks
+                classloader,
+                classes,
+                instruction.pos,
+                verbose,
+                info,
+                [instance, "itv"],
+                thunks,
             )
             # Jank: the part of the program that converts loop+endloop
             # to a nested setup sorts the operations.
@@ -815,7 +1074,9 @@ class PacketInstructionsTopping(Topping):
             # come after the endloop.
             # Assume that 1 - SUB_INS_EPSILON (e.g. .99) will put
             # the endloop past everything.
-            operations.append(Operation(instruction.pos + 1 - SUB_INS_EPSILON, "endloop"))
+            operations.append(
+                Operation(instruction.pos + 1 - SUB_INS_EPSILON, "endloop")
+            )
             return operations
         elif desc.args[0].name == "java/util/Optional":
             # Write a boolean indicating whether the optional is present.
@@ -825,15 +1086,27 @@ class PacketInstructionsTopping(Topping):
             operations = []
             field = args[0]
             assert isinstance(field, StackOperand)
-            operations.append(Operation(instruction.pos, "write", type="boolean",
-                                        field=field.value + ".isPresent()"))
-            operations.append(Operation(instruction.pos, "if",
-                                        condition=field.value + ".isPresent()"))
+            operations.append(
+                Operation(
+                    instruction.pos,
+                    "write",
+                    type="boolean",
+                    field=field.value + ".isPresent()",
+                )
+            )
+            operations.append(
+                Operation(instruction.pos, "if", condition=field.value + ".isPresent()")
+            )
             info = args[1]
             assert isinstance(info, InvokeDynamicInfo)
             operations += _PIT._lambda_operations(
-                classloader, classes, instruction.pos, verbose,
-                info, [instance, field.value + ".get()"], thunks
+                classloader,
+                classes,
+                instruction.pos,
+                verbose,
+                info,
+                [instance, field.value + ".get()"],
+                thunks,
             )
             # Jank: the part of the program that converts loop+endloop
             # to a nested setup sorts the operations.
@@ -850,35 +1123,82 @@ class PacketInstructionsTopping(Topping):
             operations = []
             field = args[0]
             assert isinstance(field, StackOperand)
-            operations.append(Operation(instruction.pos, "write", type="boolean",
-                                        field=field.value + " != null"))
-            operations.append(Operation(instruction.pos, "if",
-                                        condition=field.value + " != null"))
+            operations.append(
+                Operation(
+                    instruction.pos,
+                    "write",
+                    type="boolean",
+                    field=field.value + " != null",
+                )
+            )
+            operations.append(
+                Operation(instruction.pos, "if", condition=field.value + " != null")
+            )
             info = args[1]
             assert isinstance(info, InvokeDynamicInfo)
             operations += _PIT._lambda_operations(
-                classloader, classes, instruction.pos, verbose,
-                info, [instance, field.value], thunks
+                classloader,
+                classes,
+                instruction.pos,
+                verbose,
+                info,
+                [instance, field.value],
+                thunks,
             )
             operations.append(Operation(instruction.pos + 1 - SUB_INS_EPSILON, "endif"))
             return operations
         elif desc.args[0].name == classes.get("idmap"):
-            return [Operation(instruction.pos, "write", type="varint", field="%s.getId(%s)" % (args[0], args[1]))]
+            return [
+                Operation(
+                    instruction.pos,
+                    "write",
+                    type="varint",
+                    field="%s.getId(%s)" % (args[0], args[1]),
+                )
+            ]
         elif desc.args[0].name == "java/util/BitSet":
-            max_length = int(args[1].value, 0) # the 0 makes it handle the 0x prefix if it's there
-            return [Operation(instruction.pos, "write", type="bitset", field=args[0], length=max_length)]
+            max_length = int(
+                args[1].value, 0
+            )  # the 0 makes it handle the 0x prefix if it's there
+            return [
+                Operation(
+                    instruction.pos,
+                    "write",
+                    type="bitset",
+                    field=args[0],
+                    length=max_length,
+                )
+            ]
         elif desc.args[0].name == "java/util/EnumSet":
             # bitset with a max length of the enum's constant count
             enum_class = classloader[args[1]]
             enum_constants = get_enum_constants(enum_class, verbose)
             max_length = len(enum_constants)
-            return [Operation(instruction.pos, "write", type="bitset", field=args[0], length=max_length)]
+            return [
+                Operation(
+                    instruction.pos,
+                    "write",
+                    type="bitset",
+                    field=args[0],
+                    length=max_length,
+                )
+            ]
         else:
             raise Exception("Unexpected descriptor " + desc.descriptor)
 
     @staticmethod
-    def _handle_3_arg_buffer_call(classloader, classes, instruction, verbose,
-                                  cls, name, desc, instance, args, thunks):
+    def _handle_3_arg_buffer_call(
+        classloader,
+        classes,
+        instruction,
+        verbose,
+        cls,
+        name,
+        desc,
+        instance,
+        args,
+        thunks,
+    ):
         if desc.args[0].name == "java/util/Map":
             # Loop that calls the consumers with the packetbuffer
             # and key, and then packetbuffer and value, for each
@@ -888,13 +1208,26 @@ class PacketInstructionsTopping(Topping):
             operations = []
             field = args[0]
             assert isinstance(field, StackOperand)
-            operations.append(Operation(instruction.pos, "write", type="varint",
-                                        field=field.value + ".size()"))
-            operations.append(Operation(instruction.pos, "store",
-                                        type="Iterator", var="it",
-                                        value=field.value + ".iterator()"))
-            operations.append(Operation(instruction.pos, "loop",
-                                        condition="it.hasNext()"))
+            operations.append(
+                Operation(
+                    instruction.pos,
+                    "write",
+                    type="varint",
+                    field=field.value + ".size()",
+                )
+            )
+            operations.append(
+                Operation(
+                    instruction.pos,
+                    "store",
+                    type="Iterator",
+                    var="it",
+                    value=field.value + ".iterator()",
+                )
+            )
+            operations.append(
+                Operation(instruction.pos, "loop", condition="it.hasNext()")
+            )
             key_info = args[1]
             val_info = args[2]
             assert isinstance(key_info, InvokeDynamicInfo)
@@ -902,22 +1235,40 @@ class PacketInstructionsTopping(Topping):
             # TODO: these are violated
             key_type = key_info.method_desc.args[-1].name.replace("/", ".")
             val_type = val_info.method_desc.args[-1].name.replace("/", ".")
-            operations.append(Operation(instruction.pos, "store",
-                                        type="Map.Entry<" + key_type + ", " + val_type + ">",
-                                        var="itv", value="it.next()"))
+            operations.append(
+                Operation(
+                    instruction.pos,
+                    "store",
+                    type="Map.Entry<" + key_type + ", " + val_type + ">",
+                    var="itv",
+                    value="it.next()",
+                )
+            )
             operations += _PIT._lambda_operations(
-                classloader, classes, instruction.pos, verbose,
-                key_info, [instance, "itv.getKey()"], thunks
+                classloader,
+                classes,
+                instruction.pos,
+                verbose,
+                key_info,
+                [instance, "itv.getKey()"],
+                thunks,
             )
             # TODO: Does the SUB_INS_EPSILON work correctly here?
             # I think this will lead to [1.01, 1.02, 1.03, 1.01, 1.02, 1.03]
             # which would get sorted wrongly, but I'm not sure
             operations += _PIT._lambda_operations(
-                classloader, classes, instruction.pos, verbose,
-                val_info, [instance, "itv.getValue()"], thunks
+                classloader,
+                classes,
+                instruction.pos,
+                verbose,
+                val_info,
+                [instance, "itv.getValue()"],
+                thunks,
             )
             # Same jank as with the one in _handle_2_arg_buffer_call
-            operations.append(Operation(instruction.pos + 1 - SUB_INS_EPSILON, "endloop"))
+            operations.append(
+                Operation(instruction.pos + 1 - SUB_INS_EPSILON, "endloop")
+            )
             return operations
         elif desc.args[0].name == "com/mojang/datafixers/util/Either":
             # Write a boolean indicating whether it's left, and then call the correct consumer
@@ -929,18 +1280,35 @@ class PacketInstructionsTopping(Topping):
             assert isinstance(field, StackOperand)
             assert isinstance(left_consumer, InvokeDynamicInfo)
             assert isinstance(right_consumer, InvokeDynamicInfo)
-            operations.append(Operation(instruction.pos, "write", type="boolean",
-                                        field=field.value + ".isLeft()"))
-            operations.append(Operation(instruction.pos, "if",
-                                        condition=field.value + ".isLeft()"))
+            operations.append(
+                Operation(
+                    instruction.pos,
+                    "write",
+                    type="boolean",
+                    field=field.value + ".isLeft()",
+                )
+            )
+            operations.append(
+                Operation(instruction.pos, "if", condition=field.value + ".isLeft()")
+            )
             operations += _PIT._lambda_operations(
-                classloader, classes, instruction.pos, verbose,
-                left_consumer, [instance, field.value + ".left()"], thunks
+                classloader,
+                classes,
+                instruction.pos,
+                verbose,
+                left_consumer,
+                [instance, field.value + ".left()"],
+                thunks,
             )
             operations.append(Operation(instruction.pos + 1 - SUB_INS_EPSILON, "else"))
             operations += _PIT._lambda_operations(
-                classloader, classes, instruction.pos + 1, verbose,
-                right_consumer, [instance, field.value + ".right()"], thunks
+                classloader,
+                classes,
+                instruction.pos + 1,
+                verbose,
+                right_consumer,
+                [instance, field.value + ".right()"],
+                thunks,
             )
             operations.append(Operation(instruction.pos + 2 - SUB_INS_EPSILON, "endif"))
             return operations
@@ -950,25 +1318,58 @@ class PacketInstructionsTopping(Topping):
             id_map = args[0]
             key = args[1]
             consumer = args[2]
-            operations.append(Operation(instruction.pos, "switch",
-                                        field=key.value + ".getKind()"))
-            operations.append(Operation(instruction.pos + SUB_INS_EPSILON, "case",
-                                        value="Kind.REFERENCE"))
-            operations.append(Operation(instruction.pos + SUB_INS_EPSILON * 2, "write", type="varint",
-                                        field="%s.getId(%s) + 1" % (id_map, key)))
-            operations.append(Operation(instruction.pos + SUB_INS_EPSILON * 3, "break"))
-            operations.append(Operation(instruction.pos + 1 - SUB_INS_EPSILON * 2, "case",
-                                        value="Kind.DIRECT"))
-            operations.append(Operation(instruction.pos + 1 - SUB_INS_EPSILON, "write", type="varint",
-                                        field="0"))
-            operations += _PIT._lambda_operations(
-                classloader, classes, instruction.pos + 1, verbose,
-                consumer, [instance, key.value], thunks
+            operations.append(
+                Operation(instruction.pos, "switch", field=key.value + ".getKind()")
             )
-            operations.append(Operation(instruction.pos + 2 - SUB_INS_EPSILON * 2, "break"))
-            operations.append(Operation(instruction.pos + 2 - SUB_INS_EPSILON, "endswitch"))
+            operations.append(
+                Operation(
+                    instruction.pos + SUB_INS_EPSILON, "case", value="Kind.REFERENCE"
+                )
+            )
+            operations.append(
+                Operation(
+                    instruction.pos + SUB_INS_EPSILON * 2,
+                    "write",
+                    type="varint",
+                    field="%s.getId(%s) + 1" % (id_map, key),
+                )
+            )
+            operations.append(Operation(instruction.pos + SUB_INS_EPSILON * 3, "break"))
+            operations.append(
+                Operation(
+                    instruction.pos + 1 - SUB_INS_EPSILON * 2,
+                    "case",
+                    value="Kind.DIRECT",
+                )
+            )
+            operations.append(
+                Operation(
+                    instruction.pos + 1 - SUB_INS_EPSILON,
+                    "write",
+                    type="varint",
+                    field="0",
+                )
+            )
+            operations += _PIT._lambda_operations(
+                classloader,
+                classes,
+                instruction.pos + 1,
+                verbose,
+                consumer,
+                [instance, key.value],
+                thunks,
+            )
+            operations.append(
+                Operation(instruction.pos + 2 - SUB_INS_EPSILON * 2, "break")
+            )
+            operations.append(
+                Operation(instruction.pos + 2 - SUB_INS_EPSILON, "endswitch")
+            )
             return operations
-        elif desc.args[0].name == "com/mojang/serialization/DynamicOps" and desc.args[1].name == "com/mojang/serialization/Codec":
+        elif (
+            desc.args[0].name == "com/mojang/serialization/DynamicOps"
+            and desc.args[1].name == "com/mojang/serialization/Codec"
+        ):
             # Introduced in 23w04a, replacing the version that only takes the Codec
             dynamicops = args[0]
             codec = args[1]
@@ -976,25 +1377,48 @@ class PacketInstructionsTopping(Topping):
             # This isn't the exact syntax used by DataFixerUpper,
             # but it's close enough for our purposes
             field = "%s.encode(%s, %s)" % (codec, dynamicops, value)
-            return [Operation(instruction.pos, "write", type="nbtcompound", field=field)]
+            return [
+                Operation(instruction.pos, "write", type="nbtcompound", field=field)
+            ]
         else:
             raise Exception("Unexpected descriptor " + desc.descriptor)
 
     @staticmethod
-    def _handle_foreach(classloader, classes, instruction, verbose,
-                        cls, name, desc, instance, consumer, thunks):
+    def _handle_foreach(
+        classloader,
+        classes,
+        instruction,
+        verbose,
+        cls,
+        name,
+        desc,
+        instance,
+        consumer,
+        thunks,
+    ):
         assert isinstance(instance, StackOperand)
         assert isinstance(consumer, InvokeDynamicInfo)
         assert "Consumer" in desc.args[0].name
         operations = []
-        operations.append(Operation(instruction.pos, "store",
-                                    type="Iterator", var="it",
-                                    value=instance.value + ".iterator()"))
-        operations.append(Operation(instruction.pos, "loop",
-                                    condition="it.hasNext()"))
-        operations.append(Operation(instruction.pos, "store",
-                                    type=consumer.method_desc.args[-1].name.replace("/", "."),
-                                    var="itv", value="it.next()"))
+        operations.append(
+            Operation(
+                instruction.pos,
+                "store",
+                type="Iterator",
+                var="it",
+                value=instance.value + ".iterator()",
+            )
+        )
+        operations.append(Operation(instruction.pos, "loop", condition="it.hasNext()"))
+        operations.append(
+            Operation(
+                instruction.pos,
+                "store",
+                type=consumer.method_desc.args[-1].name.replace("/", "."),
+                var="itv",
+                value="it.next()",
+            )
+        )
         operations += _PIT._lambda_operations(
             classloader, classes, instruction.pos, verbose, consumer, ["itv"], thunks
         )
@@ -1011,8 +1435,10 @@ class PacketInstructionsTopping(Topping):
     def find_next(operations, position, operation_search):
         """Finds an operation"""
         for operation in _PIT.ordered_operations(operations):
-            if (operation.position > position and
-                    operation.operation == operation_search):
+            if (
+                operation.position > position
+                and operation.operation == operation_search
+            ):
                 return operation
 
     @staticmethod
@@ -1021,15 +1447,31 @@ class PacketInstructionsTopping(Topping):
         return sorted(operations, key=lambda op: op.position)
 
     @staticmethod
-    def _sub_operations(classloader, classes, instruction, verbose, invoked_class,
-                        name, desc, args, thunks, special_fields={}):
+    def _sub_operations(
+        classloader,
+        classes,
+        instruction,
+        verbose,
+        invoked_class,
+        name,
+        desc,
+        args,
+        thunks,
+        special_fields={},
+    ):
         """
         Gets the instructions for a call to a different function.
         Usually that function is in a different class.
 
         Note that for instance methods, `this` is included in args.
         """
-        cache_key = "%s/%s/%s/%s/%s" % (invoked_class, name, desc, _PIT.join(args, ","), special_fields)
+        cache_key = "%s/%s/%s/%s/%s" % (
+            invoked_class,
+            name,
+            desc,
+            _PIT.join(args, ","),
+            special_fields,
+        )
 
         if cache_key in _PIT.CACHE:
             cache = _PIT.CACHE[cache_key]
@@ -1043,27 +1485,46 @@ class PacketInstructionsTopping(Topping):
 
             while True:
                 method = cf.methods.find_one(name=name, args=desc.args_descriptor)
-                if method != None:
+                if method is not None:
                     break
                 if cf.super_.name.value == "java/util/Object":
                     break
                 cf = classloader[cf.super_.name.value]
 
-            if method == None:
+            if method is None:
                 if verbose:
-                    print("Failed to find method corresponding to %s(%s) in %s or its parent classes" % (name, desc.args_descriptor, invoked_class))
-                assert method != None
+                    print(
+                        "Failed to find method corresponding to %s(%s) in %s or its parent classes"
+                        % (name, desc.args_descriptor, invoked_class)
+                    )
+                assert method is not None
 
             if method.access_flags.acc_abstract:
                 assert not method.access_flags.acc_static
                 call_type = "interface" if cf.access_flags.acc_interface else "abstract"
-                operations = [Operation(0, "interfacecall", type=call_type,
-                                        target=invoked_class, name=name,
-                                        method=name + desc.descriptor, field=args[0],
-                                        args=_PIT.join(args[1:]))]
+                operations = [
+                    Operation(
+                        0,
+                        "interfacecall",
+                        type=call_type,
+                        target=invoked_class,
+                        name=name,
+                        method=name + desc.descriptor,
+                        field=args[0],
+                        args=_PIT.join(args[1:]),
+                    )
+                ]
             else:
-                operations = _PIT.operations(classloader, cf, classes, verbose,
-                                             method, args, thunks, special_fields)
+                operations = _PIT.operations(
+                    classloader,
+                    cf,
+                    classes,
+                    verbose,
+                    method,
+                    args,
+                    thunks,
+                    special_fields,
+                )
 
         # Sort operations by position, and try to ensure all of them fit between
         # two normal instructions.  Note that since operations are renumbered
@@ -1076,7 +1537,7 @@ class PacketInstructionsTopping(Topping):
             # However, it will break if the position gets too large, as then
             # something like [1.01, 1.02, ..., 1.99, 2.00, 2.01, 2] could occur.
             # If this happens, just shrink SUB_INS_EPSILON.
-            assert(position < 1)
+            assert position < 1
             operation.position = instruction.pos + (position)
 
         _PIT.CACHE[cache_key] = operations
@@ -1084,7 +1545,9 @@ class PacketInstructionsTopping(Topping):
         return operations
 
     @staticmethod
-    def _lambda_operations(classloader, classes, instruction_pos, verbose, info, args, thunks):
+    def _lambda_operations(
+        classloader, classes, instruction_pos, verbose, info, args, thunks
+    ):
         assert isinstance(info, InvokeDynamicInfo)
         assert len(args) == len(info.instantiated_desc.args)
 
@@ -1104,14 +1567,15 @@ class PacketInstructionsTopping(Topping):
         # Now just call the (generated) method.
         # Note that info is included because this is
         cf, method = info.create_method()
-        operations = _PIT.operations(classloader, cf, classes, verbose,
-                                     method, effective_args, thunks)
+        operations = _PIT.operations(
+            classloader, cf, classes, verbose, method, effective_args, thunks
+        )
 
         position = 0
         # See note in _sub_operations
         for operation in _PIT.ordered_operations(operations):
             position += SUB_INS_EPSILON
-            assert(position < 1)
+            assert position < 1
             operation.position = instruction_pos + (position)
 
         return operations
@@ -1160,6 +1624,7 @@ class PacketInstructionsTopping(Topping):
 
 class Operation:
     """Represents a performed operation"""
+
     def __init__(self, position, operation, **args):
         self.position = position
         self.operation = operation
@@ -1183,6 +1648,7 @@ class Operation:
 
 class InstructionField:
     """Represents a operand in a instruction"""
+
     def __init__(self, operand, instruction, constants):
         assert instruction.mnemonic != "lookupswitch"
         # Note: this will fail if operand is not actually an instance of
@@ -1198,7 +1664,7 @@ class InstructionField:
             "descriptor": self.find_descriptor,
             "target": self.find_target,
             "atype": self.find_atype,
-            "type": self.find_type
+            "type": self.find_type,
         }
 
     def __str__(self):
@@ -1259,20 +1725,13 @@ class InstructionField:
         # This may be broken, as current code does not use it
         descriptor = self.constants[self.value].name_and_type.descriptor.value
         descriptor = field_descriptor(descriptor)
-        return descriptor[:descriptor.find("[")]
+        return descriptor[: descriptor.find("[")]
 
     def find_atype(self):
         """Finds the type used by the `newarray` instruction"""
-        return [
-            "boolean",
-            "char",
-            "float",
-            "double",
-            "byte",
-            "short",
-            "int",
-            "long"
-        ][self.value - 4]
+        return ["boolean", "char", "float", "double", "byte", "short", "int", "long"][
+            self.value - 4
+        ]
 
 
 class StackOperand:
@@ -1282,6 +1741,7 @@ class StackOperand:
     category is the JVM category/type, see
     https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.11.1-320
     """
+
     def __init__(self, value, category=1):
         self.value = value
         self.category = category
@@ -1292,7 +1752,9 @@ class StackOperand:
     def __repr__(self):
         return "%s [%s]" % (self.value, self.category)
 
+
 _PIT = PacketInstructionsTopping
+
 
 # Register instructions now
 def arg_name(arg_index=lambda ctx: ctx["operands"][0].value):
@@ -1300,16 +1762,38 @@ def arg_name(arg_index=lambda ctx: ctx["operands"][0].value):
     Returns a lambda that gets the name of the argument at the given index.
     The index defaults to the first operand's value.
     """
-    return lambda ctx: (ctx["arg_names"][arg_index(ctx)]
-                            if arg_index(ctx) < len(ctx["arg_names"])
-                            else "var%s" % arg_index(ctx))
+    return lambda ctx: (
+        ctx["arg_names"][arg_index(ctx)]
+        if arg_index(ctx) < len(ctx["arg_names"])
+        else "var%s" % arg_index(ctx)
+    )
+
 
 _PIT.register_ins("aconst_null", 0, "null")
 _PIT.register_ins("iconst_m1", 0, "-1")
-_PIT.register_ins(["lconst_0", "lconst_1"], 0, "{extra}", lambda ctx: int(ctx["ins"].mnemonic[-1], 2))
-_PIT.register_ins(["fconst_0", "fconst_1", "fconst_2"], 0, "{extra}.0f", lambda ctx: int(ctx["ins"].mnemonic[-1]))
-_PIT.register_ins(["dconst_0", "dconst_1"], 0, "{extra}.0", lambda ctx: int(ctx["ins"].mnemonic[-1], 2))
-_PIT.register_ins(["bipush", "sipush"], 0, "{extra}", lambda ctx: ("0x{0:x}" if ctx["operands"][0].value > 5 else "{0}").format(ctx["operands"][0].value))
+_PIT.register_ins(
+    ["lconst_0", "lconst_1"], 0, "{extra}", lambda ctx: int(ctx["ins"].mnemonic[-1], 2)
+)
+_PIT.register_ins(
+    ["fconst_0", "fconst_1", "fconst_2"],
+    0,
+    "{extra}.0f",
+    lambda ctx: int(ctx["ins"].mnemonic[-1]),
+)
+_PIT.register_ins(
+    ["dconst_0", "dconst_1"],
+    0,
+    "{extra}.0",
+    lambda ctx: int(ctx["ins"].mnemonic[-1], 2),
+)
+_PIT.register_ins(
+    ["bipush", "sipush"],
+    0,
+    "{extra}",
+    lambda ctx: ("0x{0:x}" if ctx["operands"][0].value > 5 else "{0}").format(
+        ctx["operands"][0].value
+    ),
+)
 _PIT.register_ins(["ldc", "ldc_w"], 0, "{operands[0].name}")
 _PIT.register_ins("ldc2_w", 0, "{operands[0].name}", category=2)
 _PIT.register_ins("iload", 0, "{extra}", arg_name())
@@ -1371,14 +1855,24 @@ _PIT.register_ins("i2s", 1, "((short){stack[0]})")
 _PIT.register_ins("lcmp", 2, "compare({stack[0]}, {stack[1]})", category=2)
 _PIT.register_ins("fcmpg", 2, "compare({stack[0]}, {stack[1]} /*, NaN -> 1 */)")
 _PIT.register_ins("fcmpl", 2, "compare({stack[0]}, {stack[1]} /*, NaN -> -1 */)")
-_PIT.register_ins("dcmpg", 2, "compare({stack[0]}, {stack[1]} /*, NaN -> 1 */)", category=2)
-_PIT.register_ins("dcmpl", 2, "compare({stack[0]}, {stack[1]} /*, NaN -> -1 */)", category=2)
-_PIT.register_ins("getstatic", 0, "{operands[0].classname}.{operands[0].name}") # Doesn't handle category
-_PIT.register_ins("getfield", 1, "{stack[0]}.{operands[0].name}") # Doesn't handle category
+_PIT.register_ins(
+    "dcmpg", 2, "compare({stack[0]}, {stack[1]} /*, NaN -> 1 */)", category=2
+)
+_PIT.register_ins(
+    "dcmpl", 2, "compare({stack[0]}, {stack[1]} /*, NaN -> -1 */)", category=2
+)
+_PIT.register_ins(
+    "getstatic", 0, "{operands[0].classname}.{operands[0].name}"
+)  # Doesn't handle category
+_PIT.register_ins(
+    "getfield", 1, "{stack[0]}.{operands[0].name}"
+)  # Doesn't handle category
 _PIT.register_ins("new", 0, "new {operands[0].classname}")
 _PIT.register_ins("newarray", 1, "new {operands[0].atype}[{stack[0]}]")
 _PIT.register_ins("anewarray", 1, "new {operands[0].classname}[{stack[0]}]")
 _PIT.register_ins("arraylength", 1, "{stack[0]}.length")
-_PIT.register_ins("athrow", 1, "throw {stack[0]}") # this is a bit weird, but throw does put the exception back on the stack, kinda
+_PIT.register_ins(
+    "athrow", 1, "throw {stack[0]}"
+)  # this is a bit weird, but throw does put the exception back on the stack, kinda
 _PIT.register_ins("checkcast", 1, "(({operands[0].classname}){stack[0]})")
 _PIT.register_ins("instanceof", 1, "({stack[0]} instanceof {operands[0].classname})")

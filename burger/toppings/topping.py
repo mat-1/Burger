@@ -30,4 +30,3 @@ class Topping(object):
     @staticmethod
     def act(aggregate, classloader, verbose=False):
         raise NotImplementedError()
-

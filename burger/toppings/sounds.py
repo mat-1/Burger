@@ -22,59 +22,57 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
-try:
-    import json
-except ImportError:
-    import simplejson as json
+import json
 
 import traceback
 
 import six
-import six.moves.urllib.request
+import urllib.request
 
 from burger import website
 from .topping import Topping
 
-from jawa.constants import *
 
 RESOURCES_SITE = "https://resources.download.minecraft.net/%(short_hash)s/%(hash)s"
+
 
 def get_sounds(asset_index, resources_site=RESOURCES_SITE):
     """Downloads the sounds.json file from the assets index"""
     hash = asset_index["objects"]["minecraft/sounds.json"]["hash"]
     short_hash = hash[0:2]
-    sounds_url = resources_site % {'hash': hash, 'short_hash': short_hash}
+    sounds_url = resources_site % {"hash": hash, "short_hash": short_hash}
 
-    sounds_file = six.moves.urllib.request.urlopen(sounds_url)
+    sounds_file = urllib.request.urlopen(sounds_url)
 
     try:
         return json.load(sounds_file)
     finally:
         sounds_file.close()
 
+
 class SoundTopping(Topping):
     """Finds all named sound effects which are both used in the server and
-       available for download."""
+    available for download."""
 
-    PROVIDES = [
-        "sounds"
-    ]
+    PROVIDES = ["sounds"]
 
     DEPENDS = [
         "identify.sounds.list",
         "identify.sounds.event",
         "version.name",
-        "language"
+        "language",
     ]
 
     @staticmethod
     def act(aggregate, classloader, verbose=False):
-        sounds = aggregate.setdefault('sounds', {})
+        sounds = aggregate.setdefault("sounds", {})
 
-        if 'sounds.event' not in aggregate["classes"]:
+        if "sounds.event" not in aggregate["classes"]:
             # 1.8 - TODO implement this for 1.8
             if verbose:
-                print("Not enough information to run sounds topping; missing sounds.event")
+                print(
+                    "Not enough information to run sounds topping; missing sounds.event"
+                )
             return
 
         try:
@@ -103,19 +101,18 @@ class SoundTopping(Topping):
         cf = classloader[soundevent]
 
         # Find the static sound registration method
-        method = cf.methods.find_one(args='', returns="V", f=lambda m: m.access_flags.acc_static)
+        method = cf.methods.find_one(
+            args="", returns="V", f=lambda m: m.access_flags.acc_static
+        )
 
         sound_name = None
         sound_id = 0
         for ins in method.code.disassemble():
-            if ins in ('ldc', 'ldc_w'):
+            if ins in ("ldc", "ldc_w"):
                 const = ins.operands[0]
                 sound_name = const.string.value
-            elif ins == 'invokestatic':
-                sound = {
-                    "name": sound_name,
-                    "id": sound_id
-                }
+            elif ins == "invokestatic":
+                sound = {"name": sound_name, "id": sound_id}
                 sound_id += 1
 
                 if sound_name in sounds_json:
@@ -140,9 +137,11 @@ class SoundTopping(Topping):
                         sound["subtitle_key"] = subtitle
                         # Get rid of the starting key since the language topping
                         # splits it off like that
-                        subtitle_trimmed = subtitle[len("subtitles."):]
+                        subtitle_trimmed = subtitle[len("subtitles.") :]
                         if subtitle_trimmed in aggregate["language"]["subtitles"]:
-                            sound["subtitle"] = aggregate["language"]["subtitles"][subtitle_trimmed]
+                            sound["subtitle"] = aggregate["language"]["subtitles"][
+                                subtitle_trimmed
+                            ]
 
                 sounds[sound_name] = sound
 
@@ -152,11 +151,14 @@ class SoundTopping(Topping):
 
         method = lcf.methods.find_one(name="<clinit>")
         for ins in method.code.disassemble():
-            if ins in ('ldc', 'ldc_w'):
+            if ins in ("ldc", "ldc_w"):
                 const = ins.operands[0]
                 sound_name = const.string.value
             elif ins == "putstatic":
-                if sound_name is None or sound_name == "Accessed Sounds before Bootstrap!":
+                if (
+                    sound_name is None
+                    or sound_name == "Accessed Sounds before Bootstrap!"
+                ):
                     continue
                 const = ins.operands[0]
                 field = const.name_and_type.name.value

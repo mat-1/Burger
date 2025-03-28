@@ -2,12 +2,9 @@ from abc import ABC, abstractmethod
 
 from jawa.assemble import assemble
 from jawa.cf import ClassFile
-from jawa.methods import Method
-from jawa.constants import *
+from jawa.constants import String, ConstantClass
 from jawa.util.descriptor import method_descriptor
 from jawa.util.bytecode import Operand
-
-import six.moves
 
 # See https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-4.html#jvms-4.4.8
 REF_getField = 1
@@ -22,10 +19,11 @@ REF_invokeInterface = 9
 
 FIELD_REFS = (REF_getField, REF_getStatic, REF_putField, REF_putStatic)
 
+
 class InvokeDynamicInfo(ABC):
     @staticmethod
     def create(ins, cf):
-        assert(ins.mnemonic == "invokedynamic")
+        assert ins.mnemonic == 'invokedynamic'
 
         if isinstance(ins.operands[0], Operand):
             # Hack due to packetinstructions not expanding constants
@@ -35,12 +33,14 @@ class InvokeDynamicInfo(ABC):
 
         bootstrap = cf.bootstrap_methods[const.method_attr_index]
         method = cf.constants.get(bootstrap.method_ref)
-        if method.reference.class_.name == "java/lang/invoke/LambdaMetafactory":
+        if method.reference.class_.name == 'java/lang/invoke/LambdaMetafactory':
             return LambdaInvokeDynamicInfo(ins, cf, const)
-        elif method.reference.class_.name == "java/lang/invoke/StringConcatFactory":
+        elif method.reference.class_.name == 'java/lang/invoke/StringConcatFactory':
             return StringConcatInvokeDynamicInfo(ins, cf, const)
         else:
-            raise Exception("Unknown invokedynamic class: " + method.reference.class_.name.value)
+            raise Exception(
+                'Unknown invokedynamic class: ' + method.reference.class_.name.value
+            )
 
     def __init__(self, ins, cf, const):
         self._ins = ins
@@ -56,14 +56,14 @@ class InvokeDynamicInfo(ABC):
         Used to simulate an invokedynamic instruction.  Pops relevant args, and
         puts this object (used to simulate the function we return) onto the stack.
         """
-        assert self.stored_args == None # Should only be called once
+        assert self.stored_args is None  # Should only be called once
 
         num_arguments = len(self.dynamic_desc.args)
         if num_arguments > 0:
-            self.stored_args = stack[-len(self.dynamic_desc.args):]
+            self.stored_args = stack[-len(self.dynamic_desc.args) :]
         else:
             self.stored_args = []
-        for _ in six.moves.range(num_arguments):
+        for _ in range(num_arguments):
             stack.pop()
 
         stack.append(self)
@@ -71,6 +71,7 @@ class InvokeDynamicInfo(ABC):
     @abstractmethod
     def create_method(self):
         pass
+
 
 class LambdaInvokeDynamicInfo(InvokeDynamicInfo):
     """
@@ -86,9 +87,9 @@ class LambdaInvokeDynamicInfo(InvokeDynamicInfo):
         method = cf.constants.get(bootstrap.method_ref)
         # Make sure this is a reference to LambdaMetafactory.metafactory
         assert method.reference_kind == REF_invokeStatic
-        assert method.reference.class_.name == "java/lang/invoke/LambdaMetafactory"
-        assert method.reference.name_and_type.name == "metafactory"
-        assert len(bootstrap.bootstrap_args) == 3 # Num arguments
+        assert method.reference.class_.name == 'java/lang/invoke/LambdaMetafactory'
+        assert method.reference.name_and_type.name == 'metafactory'
+        assert len(bootstrap.bootstrap_args) == 3  # Num arguments
         # It could also be a reference to LambdaMetafactory.altMetafactory.
         # This is used for intersection types, which I don't think I've ever seen
         # used in the wild, and maybe for some other things.  Here's an example:
@@ -130,14 +131,16 @@ class LambdaInvokeDynamicInfo(InvokeDynamicInfo):
 
         self.method_class = methodhandle.reference.class_.name.value
         self.method_name = methodhandle.reference.name_and_type.name.value
-        self.method_desc = method_descriptor(methodhandle.reference.name_and_type.descriptor.value)
+        self.method_desc = method_descriptor(
+            methodhandle.reference.name_and_type.descriptor.value
+        )
 
         if self.ref_kind == REF_newInvokeSpecial:
             # https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-4.html#jvms-4.4.8-200-C.2
-            assert self.method_name == "<init>"
+            assert self.method_name == '<init>'
         else:
             # https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-4.html#jvms-4.4.8-200-C.1
-            assert self.method_name not in ("<init>", "<clinit>")
+            assert self.method_name not in ('<init>', '<clinit>')
 
         # As for stack changes, consider the following:
         """
@@ -217,7 +220,7 @@ class LambdaInvokeDynamicInfo(InvokeDynamicInfo):
         self.dynamic_name = const.name_and_type.name.value
         self.dynamic_desc = method_descriptor(const.name_and_type.descriptor.value)
 
-        assert self.dynamic_desc.returns.name != "void"
+        assert self.dynamic_desc.returns.name != 'void'
         self.implemented_iface = self.dynamic_desc.returns.name
 
         # created_type is the type returned by the function we return.
@@ -228,10 +231,17 @@ class LambdaInvokeDynamicInfo(InvokeDynamicInfo):
 
     def __str__(self):
         # TODO: be closer to Java syntax (using the stored args)
-        return "%s::%s" % (self.method_class, self.method_name)
+        return '%s::%s' % (self.method_class, self.method_name)
 
     def __repr__(self):
-        return "<%s::%s%s as %s::%s%s>" % (self.method_class, self.method_name, self.method_desc.descriptor, self.implemented_iface, self.dynamic_name, self.instantiated_desc.descriptor)
+        return '<%s::%s%s as %s::%s%s>' % (
+            self.method_class,
+            self.method_name,
+            self.method_desc.descriptor,
+            self.implemented_iface,
+            self.dynamic_name,
+            self.instantiated_desc.descriptor,
+        )
 
     def create_method(self):
         """
@@ -239,11 +249,11 @@ class LambdaInvokeDynamicInfo(InvokeDynamicInfo):
         It will be part of a class that implements the right interface, and will
         have the appropriate name and signature.
         """
-        assert self.stored_args != None
-        if self.generated_method != None:
+        assert self.stored_args is not None
+        if self.generated_method is not None:
             return (self.generated_cf, self.generated_method)
 
-        class_name = self._cf.this.name.value + "_lambda_" + str(self._ins.pos)
+        class_name = self._cf.this.name.value + '_lambda_' + str(self._ins.pos)
         self.generated_cf = ClassFile.create(class_name)
         # Jawa doesn't seem to expose this cleanly.  Technically we don't need
         # to implement the interface because the caller doesn't actually care,
@@ -258,11 +268,16 @@ class LambdaInvokeDynamicInfo(InvokeDynamicInfo):
         # instantiated descriptor to make packetinstructions work better
         # (otherwise we'd need to generate and load fields in a way that
         # packetinstructions understands)
-        descriptor = "(" + self.dynamic_desc.args_descriptor + \
-                        self.instantiated_desc.args_descriptor + ")" + \
-                        self.instantiated_desc.returns_descriptor
-        method = self.generated_cf.methods.create(self.dynamic_name,
-                                                  descriptor, code=True)
+        descriptor = (
+            '('
+            + self.dynamic_desc.args_descriptor
+            + self.instantiated_desc.args_descriptor
+            + ')'
+            + self.instantiated_desc.returns_descriptor
+        )
+        method = self.generated_cf.methods.create(
+            self.dynamic_name, descriptor, code=True
+        )
         self.generated_method = method
         # Similar hack: make the method static, so that packetinstructions
         # doesn't look for the corresponding instance.
@@ -274,17 +289,19 @@ class LambdaInvokeDynamicInfo(InvokeDynamicInfo):
         # instruction for each type.
         instructions = []
         for i in range(len(method.args)):
-            instructions.append(("aload", i))
+            instructions.append(('aload', i))
 
         cls_ref = self.generated_cf.constants.create_class(self.method_class)
         if self.ref_kind in FIELD_REFS:
             # This case is not currently hit, but provided for future use
             # (Likely method_name and method_descriptor would no longer be used though)
             ref = self.generated_cf.constants.create_field_ref(
-                    self.method_class, self.method_name, self.method_desc.descriptor)
+                self.method_class, self.method_name, self.method_desc.descriptor
+            )
         elif self.ref_kind == REF_invokeInterface:
             ref = self.generated_cf.constants.create_interface_method_ref(
-                    self.method_class, self.method_name, self.method_desc.descriptor)
+                self.method_class, self.method_name, self.method_desc.descriptor
+            )
             # See https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html#jvms-6.5.invokeinterface.notes
             # Since the generated classfile only exists for use by burger,
             # we don't _really_ need to handle this, other than providing
@@ -295,39 +312,42 @@ class LambdaInvokeDynamicInfo(InvokeDynamicInfo):
             count = len(method.args)
         else:
             ref = self.generated_cf.constants.create_method_ref(
-                    self.method_class, self.method_name, self.method_desc.descriptor)
+                self.method_class, self.method_name, self.method_desc.descriptor
+            )
 
         # See https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html#jvms-5.4.3.5
         if self.ref_kind == REF_getField:
-            instructions.append(("getfield", ref))
+            instructions.append(('getfield', ref))
         elif self.ref_kind == REF_getStatic:
-            instructions.append(("getstatic", ref))
+            instructions.append(('getstatic', ref))
         elif self.ref_kind == REF_putField:
-            instructions.append(("putfield", ref))
+            instructions.append(('putfield', ref))
         elif self.ref_kind == REF_putStatic:
-            instructions.append(("putstatic", ref))
+            instructions.append(('putstatic', ref))
         elif self.ref_kind == REF_invokeVirtual:
-            instructions.append(("invokevirtual", ref))
+            instructions.append(('invokevirtual', ref))
         elif self.ref_kind == REF_invokeStatic:
-            instructions.append(("invokestatic", ref))
+            instructions.append(('invokestatic', ref))
         elif self.ref_kind == REF_invokeSpecial:
-            instructions.append(("invokespecial", ref))
+            instructions.append(('invokespecial', ref))
         elif self.ref_kind == REF_newInvokeSpecial:
-            instructions.append(("new", cls_ref))
-            instructions.append(("dup",))
-            instructions.append(("invokespecial", ref))
+            instructions.append(('new', cls_ref))
+            instructions.append(('dup',))
+            instructions.append(('invokespecial', ref))
         elif self.ref_kind == REF_invokeInterface:
-            instructions.append(("invokeinterface", ref, count, 0))
+            instructions.append(('invokeinterface', ref, count, 0))
 
         method.code.assemble(assemble(instructions))
 
         return (self.generated_cf, self.generated_method)
+
 
 class StringConcatInvokeDynamicInfo(InvokeDynamicInfo):
     """
     Java 9+ uses invokedynamic for string concatenation:
     https://www.guardsquare.com/blog/string-concatenation-java-9-untangling-invokedynamic
     """
+
     # An example:
     """
     public static String foo(int num, int num2) {
@@ -364,9 +384,11 @@ class StringConcatInvokeDynamicInfo(InvokeDynamicInfo):
         method = cf.constants.get(bootstrap.method_ref)
         # Make sure this is a reference to StringConcatFactory.makeConcatWithConstants
         assert method.reference_kind == REF_invokeStatic
-        assert method.reference.class_.name == "java/lang/invoke/StringConcatFactory"
-        assert method.reference.name_and_type.name == "makeConcatWithConstants"
-        assert len(bootstrap.bootstrap_args) == 1 # Num arguments - may change with constants
+        assert method.reference.class_.name == 'java/lang/invoke/StringConcatFactory'
+        assert method.reference.name_and_type.name == 'makeConcatWithConstants'
+        assert (
+            len(bootstrap.bootstrap_args) == 1
+        )  # Num arguments - may change with constants
 
         # Now check the arguments.  Note that StringConcatFactory has some
         # arguments automatically filled in.  The bootstrap arguments are:
@@ -379,17 +401,21 @@ class StringConcatInvokeDynamicInfo(InvokeDynamicInfo):
         self.dynamic_name = const.name_and_type.name.value
         self.dynamic_desc = method_descriptor(const.name_and_type.descriptor.value)
 
-        assert self.dynamic_desc.returns.name == "java/lang/String"
+        assert self.dynamic_desc.returns.name == 'java/lang/String'
 
     def __str__(self):
-        recipe = self.recipe.replace("\u0001", "\\u0001").replace("\u0002", "\\u0002")
-        if (self.stored_args == None):
-            return "format_concat(\"%s\", ...)" % (recipe,)
+        recipe = self.recipe.replace('\u0001', '\\u0001').replace('\u0002', '\\u0002')
+        if self.stored_args is None:
+            return 'format_concat("%s", ...)' % (recipe,)
         else:
-            return "format_concat(\"%s\", %s)" % (recipe, ", ".join(str(a) for a in self.stored_args))
+            return 'format_concat("%s", %s)' % (
+                recipe,
+                ', '.join(str(a) for a in self.stored_args),
+            )
 
     def create_method(self):
         raise NotImplementedError()
+
 
 def class_from_invokedynamic(ins, cf):
     """
@@ -397,8 +423,9 @@ def class_from_invokedynamic(ins, cf):
     calls a constructor.
     """
     info = InvokeDynamicInfo.create(ins, cf)
-    assert info.created_type != "void"
+    assert info.created_type != 'void'
     return info.created_type
+
 
 def try_eval_lambda(ins, args, cf):
     """
@@ -410,22 +437,30 @@ def try_eval_lambda(ins, args, cf):
     assert info.ref_kind == REF_invokeStatic
     assert info.method_class == cf.this.name
 
-    lambda_method = cf.methods.find_one(name=info.method_name, args=info.method_desc.args_descriptor, returns=info.method_desc.returns_descriptor)
-    assert lambda_method != None
+    lambda_method = cf.methods.find_one(
+        name=info.method_name,
+        args=info.method_desc.args_descriptor,
+        returns=info.method_desc.returns_descriptor,
+    )
+    assert lambda_method is not None
 
     class Callback(WalkerCallback):
         def on_new(self, ins, const):
-            raise Exception("Illegal new")
+            raise Exception('Illegal new')
+
         def on_invoke(self, ins, const, obj, args):
-            raise Exception("Illegal invoke")
+            raise Exception('Illegal invoke')
+
         def on_get_field(self, ins, const, obj):
-            raise Exception("Illegal getfield")
+            raise Exception('Illegal getfield')
+
         def on_put_field(self, ins, const, obj, value):
-            raise Exception("Illegal putfield")
+            raise Exception('Illegal putfield')
 
     # Set verbose to false because we don't want lots of output if this errors
     # (since it is expected to for more complex methods)
     return walk_method(cf, lambda_method, Callback(), False, args)
+
 
 def string_from_invokedymanic(ins, cf):
     """
@@ -434,8 +469,9 @@ def string_from_invokedymanic(ins, cf):
     info = InvokeDynamicInfo.create(ins, cf)
     if not isinstance(info, StringConcatInvokeDynamicInfo):
         return
-    
+
     return info.recipe
+
 
 class WalkerCallback(ABC):
     """
@@ -506,7 +542,8 @@ class WalkerCallback(ABC):
 
         return value: what to put on the stack
         """
-        raise Exception("Unexpected invokedynamic: %s" % str(ins))
+        raise Exception('Unexpected invokedynamic: %s' % str(ins))
+
 
 def walk_method(cf, method, callback, verbose, input_args=None):
     """
@@ -527,7 +564,7 @@ def walk_method(cf, method, callback, verbose, input_args=None):
         locals[cur_index] = object()
         cur_index += 1
 
-    if input_args != None:
+    if input_args is not None:
         assert len(input_args) == len(method.args)
         for arg in input_args:
             locals[cur_index] = arg
@@ -536,36 +573,36 @@ def walk_method(cf, method, callback, verbose, input_args=None):
         for arg in method.args:
             locals[cur_index] = object()
             cur_index += 1
-        
+
     ins_list = list(method.code.disassemble())
     for ins in ins_list[:-1]:
-        if ins in ("bipush", "sipush"):
+        if ins in ('bipush', 'sipush'):
             stack.append(ins.operands[0].value)
-        elif ins.mnemonic.startswith("fconst") or ins.mnemonic.startswith("dconst"):
+        elif ins.mnemonic.startswith('fconst') or ins.mnemonic.startswith('dconst'):
             stack.append(float(ins.mnemonic[-1]))
-        elif ins.mnemonic.startswith("lconst"):
+        elif ins.mnemonic.startswith('lconst'):
             stack.append(int(ins.mnemonic[-1]))
-        elif ins == "aconst_null":
+        elif ins == 'aconst_null':
             stack.append(None)
-        elif ins in ("ldc", "ldc_w", "ldc2_w"):
+        elif ins in ('ldc', 'ldc_w', 'ldc2_w'):
             const = ins.operands[0]
 
             if isinstance(const, ConstantClass):
-                stack.append("%s.class" % const.name.value)
+                stack.append('%s.class' % const.name.value)
             elif isinstance(const, String):
                 stack.append(const.string.value)
             else:
                 stack.append(const.value)
-        elif ins == "new":
+        elif ins == 'new':
             const = ins.operands[0]
 
             try:
                 stack.append(callback.on_new(ins, const))
             except StopIteration:
                 break
-        elif ins in ("getfield", "getstatic"):
+        elif ins in ('getfield', 'getstatic'):
             const = ins.operands[0]
-            if ins.mnemonic != "getstatic":
+            if ins.mnemonic != 'getstatic':
                 obj = stack.pop()
             else:
                 obj = None
@@ -574,10 +611,10 @@ def walk_method(cf, method, callback, verbose, input_args=None):
                 stack.append(callback.on_get_field(ins, const, obj))
             except StopIteration:
                 break
-        elif ins in ("putfield", "putstatic"):
+        elif ins in ('putfield', 'putstatic'):
             const = ins.operands[0]
             value = stack.pop()
-            if ins.mnemonic != "putstatic":
+            if ins.mnemonic != 'putstatic':
                 obj = stack.pop()
             else:
                 obj = None
@@ -586,7 +623,12 @@ def walk_method(cf, method, callback, verbose, input_args=None):
                 callback.on_put_field(ins, const, obj, value)
             except StopIteration:
                 break
-        elif ins in ("invokevirtual", "invokespecial", "invokeinterface", "invokestatic"):
+        elif ins in (
+            'invokevirtual',
+            'invokespecial',
+            'invokeinterface',
+            'invokestatic',
+        ):
             const = ins.operands[0]
             method_desc = const.name_and_type.descriptor.value
             desc = method_descriptor(method_desc)
@@ -594,9 +636,9 @@ def walk_method(cf, method, callback, verbose, input_args=None):
 
             args = []
 
-            for i in six.moves.range(num_args):
+            for i in range(num_args):
                 args.insert(0, stack.pop())
-            if ins.mnemonic != "invokestatic":
+            if ins.mnemonic != 'invokestatic':
                 obj = stack.pop()
             else:
                 obj = None
@@ -605,36 +647,57 @@ def walk_method(cf, method, callback, verbose, input_args=None):
                 ret = callback.on_invoke(ins, const, obj, args)
             except StopIteration:
                 break
-            if desc.returns.name != "void":
+            if desc.returns.name != 'void':
                 stack.append(ret)
-        elif ins in ("astore", "istore", "lstore", "fstore", "dstore"):
+        elif ins in ('astore', 'istore', 'lstore', 'fstore', 'dstore'):
             locals[ins.operands[0].value] = stack.pop()
-        elif ins in ("aload", "iload", "lload", "fload", "dload"):
+        elif ins in ('aload', 'iload', 'lload', 'fload', 'dload'):
             stack.append(locals[ins.operands[0].value])
-        elif ins == "dup":
+        elif ins == 'dup':
             stack.append(stack[-1])
-        elif ins == "pop":
+        elif ins == 'pop':
             stack.pop()
-        elif ins == "anewarray":
+        elif ins == 'anewarray':
             stack.append([None] * stack.pop())
-        elif ins == "newarray":
+        elif ins == 'newarray':
             stack.append([0] * stack.pop())
-        elif ins in ("aastore", "bastore", "castore", "sastore", "iastore", "lastore", "fastore", "dastore"):
+        elif ins in (
+            'aastore',
+            'bastore',
+            'castore',
+            'sastore',
+            'iastore',
+            'lastore',
+            'fastore',
+            'dastore',
+        ):
             value = stack.pop()
             index = stack.pop()
             array = stack.pop()
             if isinstance(array, list) and isinstance(index, int):
                 array[index] = value
             elif verbose:
-                print("Failed to execute %s: array %s index %s value %s" % (ins, array, index, value))
-        elif ins in ("aaload", "baload", "caload", "saload", "iaload", "laload", "faload", "daload"):
+                print(
+                    'Failed to execute %s: array %s index %s value %s'
+                    % (ins, array, index, value)
+                )
+        elif ins in (
+            'aaload',
+            'baload',
+            'caload',
+            'saload',
+            'iaload',
+            'laload',
+            'faload',
+            'daload',
+        ):
             index = stack.pop()
             array = stack.pop()
             if isinstance(array, list) and isinstance(index, int):
                 stack.push(array[index])
             elif verbose:
-                print("Failed to execute %s: array %s index %s" % (ins, array, index))
-        elif ins == "invokedynamic":
+                print('Failed to execute %s: array %s index %s' % (ins, array, index))
+        elif ins == 'invokedynamic':
             const = ins.operands[0]
             method_desc = const.name_and_type.descriptor.value
             desc = method_descriptor(method_desc)
@@ -642,28 +705,29 @@ def walk_method(cf, method, callback, verbose, input_args=None):
 
             args = []
 
-            for i in six.moves.range(num_args):
+            for i in range(num_args):
                 args.insert(0, stack.pop())
 
             stack.append(callback.on_invokedynamic(ins, ins.operands[0], args))
-        elif ins == "checkcast":
+        elif ins == 'checkcast':
             pass
-        elif ins == "fmul":
+        elif ins == 'fmul':
             a = stack.pop()
             b = stack.pop()
             stack.append(a * b)
         elif verbose:
-            print("Unknown instruction %s: stack is %s" % (ins, stack))
+            print('Unknown instruction %s: stack is %s' % (ins, stack))
 
     last_ins = ins_list[-1]
-    if last_ins.mnemonic in ("ireturn", "lreturn", "freturn", "dreturn", "areturn"):
+    if last_ins.mnemonic in ('ireturn', 'lreturn', 'freturn', 'dreturn', 'areturn'):
         # Non-void method returning
         return stack.pop()
-    elif last_ins.mnemonic == "return":
+    elif last_ins.mnemonic == 'return':
         # Void method returning
         pass
     elif verbose:
-        print("Unexpected final instruction %s: stack is %s" % (ins, stack))
+        print('Unexpected final instruction %s: stack is %s' % (ins, stack))
+
 
 def get_enum_constants(cf, verbose):
     # Gets enum constants declared in the given class.
@@ -778,7 +842,7 @@ def get_enum_constants(cf, verbose):
     # does it touch ACC_ENUM.
     # For this method, we don't care about parameters other than the name.
     if not cf.access_flags.acc_enum:
-        raise Exception(cf.this.name.value + " is not an enum!")
+        raise Exception(cf.this.name.value + ' is not an enum!')
 
     enum_fields = list(cf.fields.find(f=lambda field: field.access_flags.acc_enum))
     enum_class = None
@@ -786,22 +850,29 @@ def get_enum_constants(cf, verbose):
 
     result = {}
 
-    for ins in cf.methods.find_one(name="<clinit>").code.disassemble():
-        if ins == "new" and enum_class is None:
+    for ins in cf.methods.find_one(name='<clinit>').code.disassemble():
+        if ins == 'new' and enum_class is None:
             const = ins.operands[0]
             enum_class = const.name.value
-        elif ins in ("ldc", "ldc_w") and enum_name is None:
+        elif ins in ('ldc', 'ldc_w') and enum_name is None:
             const = ins.operands[0]
             if isinstance(const, String):
                 enum_name = const.string.value
-        elif ins == "putstatic":
+        elif ins == 'putstatic':
             if enum_class is None or enum_name is None:
                 if verbose:
-                    print("Ignoring putstatic for %s as enum_class or enum_name is unset" % str(ins))
+                    print(
+                        'Ignoring putstatic for %s as enum_class or enum_name is unset'
+                        % str(ins)
+                    )
                 continue
             const = ins.operands[0]
             assigned_field = const.name_and_type
-            if not any(field.name == assigned_field.name and field.descriptor == assigned_field.descriptor for field in enum_fields):
+            if not any(
+                field.name == assigned_field.name
+                and field.descriptor == assigned_field.descriptor
+                for field in enum_fields
+            ):
                 # This could happen with an enum constant that sets a field in
                 # its constructor, which is unlikely but happens with e.g. this:
                 """
@@ -812,12 +883,15 @@ def get_enum_constants(cf, verbose):
                 }
                 """
                 if verbose:
-                    print("Ignoring putstatic for %s as it is to a field not in enum_fields (%s)" % (str(ins), enum_fields))
+                    print(
+                        'Ignoring putstatic for %s as it is to a field not in enum_fields (%s)'
+                        % (str(ins), enum_fields)
+                    )
                 continue
             result[enum_name] = {
                 'name': enum_name,
                 'field': assigned_field.name.value,
-                'class': enum_class
+                'class': enum_class,
             }
             enum_class = None
             enum_name = None
@@ -826,6 +900,9 @@ def get_enum_constants(cf, verbose):
                 break
 
     if verbose and len(result) != len(enum_fields):
-        print("Did not find assignments to all enum fields - fields are %s and result is %s" % (result, enum_fields))
+        print(
+            'Did not find assignments to all enum fields - fields are %s and result is %s'
+            % (result, enum_fields)
+        )
 
     return result

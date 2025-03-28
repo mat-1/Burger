@@ -24,6 +24,7 @@ THE SOFTWARE.
 
 import six
 
+
 def transform_floats(o):
     if isinstance(o, float):
         return round(o, 5)
@@ -32,4 +33,3 @@ def transform_floats(o):
     elif isinstance(o, (list, tuple)):
         return [transform_floats(v) for v in o]
     return o
-
