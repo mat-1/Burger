@@ -112,8 +112,8 @@ class PacketInstructionsTopping(Topping):
     }
 
     CLEANUP_PATTERN = [
-        (re.compile("^\((.*[^(])\)$"), "\\1"),
-        (re.compile("(^|[() ])this\."), "\\1")
+        (re.compile(r'^\((.*[^(])\)$'), '\\1'),
+        (re.compile(r"(^|[() ])this\."), '\\1')
     ]
 
     @staticmethod

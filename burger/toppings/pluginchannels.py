@@ -28,8 +28,8 @@ from jawa.constants import String
 
 import re
 
-_CHANNEL_IDENTIFIER = re.compile("^(minecraft:)?[a-z0-9/_.]+$")
-_CHANNEL_STRING = re.compile("^MC\|[a-zA-Z0-9]+$")
+_CHANNEL_IDENTIFIER = re.compile('^(minecraft:)?[a-z0-9/_.]+$')
+_CHANNEL_STRING = re.compile(r'^MC\|[a-zA-Z0-9]+$')
 
 _is_channel_identifier = lambda text: _CHANNEL_IDENTIFIER.match(text) is not None
 _is_channel_string = lambda text: _CHANNEL_STRING.match(text) is not None

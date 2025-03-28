@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 import os
-import six.moves.urllib.request
+import urllib.request
 
 try:
     import json
@@ -30,13 +30,12 @@ except ImportError:
     import simplejson as json
 
 VERSION_MANIFEST = "https://piston-meta.mojang.com/mc/game/version_manifest_v2.json"
-LEGACY_VERSION_META = "https://s3.amazonaws.com/Minecraft.Download/versions/%(version)s/%(version)s.json" # DEPRECATED
 
 _cached_version_manifest = None
 _cached_version_metas = {}
 
 def _load_json(url):
-    stream = six.moves.urllib.request.urlopen(url)
+    stream = urllib.request.urlopen(url)
     try:
         return json.load(stream)
     finally:
@@ -50,15 +49,12 @@ def get_version_manifest():
     _cached_version_manifest = _load_json(VERSION_MANIFEST)
     return _cached_version_manifest
 
-def get_version_meta(version, verbose):
+def get_version_meta(version: str, verbose: bool):
     """
     Gets a version JSON file, first attempting the to use the version manifest
     and then falling back to the legacy site if that fails.
     Note that the main manifest should include all versions as of august 2018.
     """
-    if version == "20w14~":
-        # April fools snapshot, labeled 20w14~ ingame but 20w14infinite in the launcher
-        version = "20w14infinite"
 
     if version in _cached_version_metas:
         return _cached_version_metas[version]
@@ -69,11 +65,9 @@ def get_version_meta(version, verbose):
             address = version_info["url"]
             break
     else:
-        if verbose:
-            print("Failed to find %s in the main version manifest; using legacy site" % version)
-        address = LEGACY_VERSION_META % {'version': version}
+        raise Exception(f"Failed to find {version} in the main version manifest.")
     if verbose:
-        print("Loading version manifest for %s from %s" % (version, address))
+        print(f"Loading version manifest for {version} from {address}")
     meta = _load_json(address)
 
     _cached_version_metas[version] = meta
@@ -89,17 +83,31 @@ def get_asset_index(version_meta, verbose):
     return _load_json(asset_index["url"])
 
 
-def client_jar(version, verbose):
+def client_jar(version: str, verbose: bool):
     """Downloads a specific version, by name"""
-    filename = version + ".jar"
+    filename = f'{version}.jar'
     if not os.path.exists(filename):
         meta = get_version_meta(version, verbose)
         if verbose:
-            print("For version %s, the downloads section of the meta is %s" % (filename, meta["downloads"]))
+            print(f"For version {filename}, the downloads section of the meta is {meta['downloads']}")
         url = meta["downloads"]["client"]["url"]
         if verbose:
-            print("Downloading %s from %s" % (version, url))
-        six.moves.urllib.request.urlretrieve(url, filename=filename)
+            print(f'Downloading {version} from {url}')
+        urllib.request.urlretrieve(url, filename=filename)
+    return filename
+
+
+def mappings_txt(version: str, verbose: bool):
+    """Downloads the mappings for a specific version, by name"""
+    filename = f'{version}-mappings.txt'
+    if not os.path.exists(filename):
+        meta = get_version_meta(version, verbose)
+        if verbose:
+            print(f"For version {filename}, the downloads section of the meta is {meta['downloads']}")
+        url = meta["downloads"]["client_mappings"]["url"]
+        if verbose:
+            print(f'Downloading {version} mappings from {url}')
+        urllib.request.urlretrieve(url, filename=filename)
     return filename
 
 def latest_client_jar(verbose):

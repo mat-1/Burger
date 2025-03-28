@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
+import argparse
 import os
 import sys
 import getopt
@@ -81,56 +82,62 @@ def import_toppings():
 
     return toppings
 
-if __name__ == "__main__":
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+        prog='Burger',
+        description='A simple tool for picking out information from Minecraft jar files, primarily useful for developers.',
+    )
+    
+    parser.add_argument('version', help='Either a file name that ends with .jar, a version string like 1.21.5, a URL that directly downloads a jar file, or the word "latest"')
+    parser.add_argument('-t', '--toppings')
+    parser.add_argument('-o', '--output')
+    parser.add_argument('-v', '--verbose', action='store_true')
+    parser.add_argument('-c', '--compact', action='store_true')
+    parser.add_argument('-l', '--list', action='store_true')
+    parser.add_argument('-m', '--mappings')
+    parser.add_argument('-s', '--url')
     try:
-        opts, args = getopt.gnu_getopt(
-            sys.argv[1:],
-            "t:o:vd:Dlc",
-            [
-                "toppings=",
-                "output=",
-                "verbose",
-                "download=",
-                "download-latest",
-                "list",
-                "compact",
-                "url=",
-                "mappings=",
-            ]
-        )
-    except getopt.GetoptError as err:
-        print(str(err))
+        args = parser.parse_args()
+    except argparse.ArgumentError as e:
+        print(str(e))
+        sys.exit(1)
+    
+    # Default options
+    toppings = args.toppings.split(",") if args.toppings else None
+    output = open(args.output, "w") if args.output else sys.stdout
+    verbose = args.verbose
+    list_toppings = args.list
+    compact = args.compact
+    url = args.url
+    mappings_path = args.mappings
+
+
+    version_name = None
+    url_path = None
+
+    if '://' in args.version:
+        # Download a JAR from the given URL
+        url_path = args.version
+        client_path = urllib.urlretrieve(url_path)[0]
+    if args.version.endswith('.jar'):
+        client_path = args.version
+    if args.version == 'latest':
+        # Download a copy of the latest snapshot jar
+        client_path = website.latest_client_jar(verbose)
+    else:
+        # version name
+        version_name = args.version
+        client_path = website.client_jar(version_name, verbose)
+
+    if version_name and not mappings_path:
+        # download mappings
+        mappings_path = website.mappings_txt(args.version, verbose)
+
+    if not mappings_path:
+        print("Mappings are required")
         sys.exit(1)
 
-    # Default options
-    toppings = None
-    output = sys.stdout
-    verbose = False
-    download_jars = []
-    download_latest = False
-    list_toppings = False
-    compact = False
-    url = None
-
-    for o, a in opts:
-        if o in ("-t", "--toppings"):
-            toppings = a.split(",")
-        elif o in ("-o", "--output"):
-            output = open(a, "w")
-        elif o in ("-v", "--verbose"):
-            verbose = True
-        elif o in ("-c", "--compact"):
-            compact = True
-        elif o in ("-d", "--download"):
-            download_jars.append(a)
-        elif o in ("-D", "--download-latest"):
-            download_latest = True
-        elif o in ("-l", "--list"):
-            list_toppings = True
-        elif o in ("-s", "--url"):
-            url = a
-        elif o in ('-m', '--mappings'):
-            set_global_mappings(Mappings.parse(open(a, 'r').read()))
+    set_global_mappings(Mappings.parse(open(mappings_path, 'r').read()))
 
     # Load all toppings
     all_toppings = import_toppings()
@@ -211,58 +218,40 @@ if __name__ == "__main__":
             print("Can't resolve dependencies")
             sys.exit(1)
 
-    jarlist = args
-
-    # Download any jars that have already been specified
-    for version in download_jars:
-        client_path = website.client_jar(version, verbose)
-        jarlist.append(client_path)
-
-    # Download a copy of the latest snapshot jar
-    if download_latest:
-        client_path = website.latest_client_jar(verbose)
-        jarlist.append(client_path)
-
-    # Download a JAR from the given URL
-    if url:
-        url_path = urllib.urlretrieve(url)[0]
-        jarlist.append(url_path)
-
     summary = []
 
-    for path in jarlist:
-        classloader = ClassLoader(path, max_cache=0, bytecode_transforms=[simple_swap, expand_constants])
-        names = classloader.path_map.keys()
-        num_classes = sum(1 for name in names if name.endswith(".class"))
+    classloader = ClassLoader(client_path, max_cache=0, bytecode_transforms=[simple_swap, expand_constants])
+    names = classloader.path_map.keys()
+    num_classes = sum(1 for name in names if name.endswith(".class"))
 
-        aggregate = {
-            "source": {
-                "file": path,
-                "classes": num_classes,
-                "other": len(names),
-                "size": os.path.getsize(path)
-            }
+    aggregate = {
+        "source": {
+            "file": client_path,
+            "classes": num_classes,
+            "other": len(names),
+            "size": os.path.getsize(client_path)
         }
+    }
 
-        available = []
-        for topping in to_be_run:
-            missing = [dep for dep in topping.DEPENDS if dep not in available]
-            if len(missing) != 0:
-                if verbose:
-                    print("Dependencies failed for %s: Missing %s" % (topping, missing))
-                continue
+    available = []
+    for topping in to_be_run:
+        missing = [dep for dep in topping.DEPENDS if dep not in available]
+        if len(missing) != 0:
+            if verbose:
+                print("Dependencies failed for %s: Missing %s" % (topping, missing))
+            continue
 
-            orig_aggregate = aggregate.copy()
-            try:
-                topping.act(aggregate, classloader, verbose)
-                available.extend(topping.PROVIDES)
-            except:
-                aggregate = orig_aggregate # If the topping failed, don't leave things in an incomplete state
-                if verbose:
-                    print("Failed to run %s" % topping)
-                    traceback.print_exc()
+        orig_aggregate = aggregate.copy()
+        try:
+            topping.act(aggregate, classloader, verbose)
+            available.extend(topping.PROVIDES)
+        except:
+            aggregate = orig_aggregate # If the topping failed, don't leave things in an incomplete state
+            if verbose:
+                print("Failed to run %s" % topping)
+                traceback.print_exc()
 
-        summary.append(aggregate)
+    summary.append(aggregate)
 
     if not compact:
         json.dump(transform_floats(summary), output, sort_keys=True, indent=4)
@@ -270,7 +259,7 @@ if __name__ == "__main__":
         json.dump(transform_floats(summary), output)
 
     # Cleanup temporary downloads (the URL download is temporary)
-    if url:
+    if url_path:
         os.remove(url_path)
     # Cleanup file output (if used)
     if output is not sys.stdout:
