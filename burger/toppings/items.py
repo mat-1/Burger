@@ -22,6 +22,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
+import logging
+
+from jawa.classloader import ClassLoader
 from jawa.util.descriptor import method_descriptor
 
 from burger.util import WalkerCallback, walk_method
@@ -46,11 +49,11 @@ class ItemsTopping(Topping):
     ]
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
-        ItemsTopping._process(aggregate, classloader, verbose)
+    def act(aggregate, classloader: ClassLoader):
+        ItemsTopping._process(aggregate, classloader)
 
     @staticmethod
-    def _process(aggregate, classloader, verbose):
+    def _process(aggregate, classloader: ClassLoader):
         # All of the registration happens in the list class
         listclass = aggregate['classes']['item.list']
         lcf = classloader[listclass]
@@ -185,19 +188,15 @@ class ItemsTopping(Topping):
                                 text_id = args[idx]
 
                         if current_item == {} and not text_id:
-                            if verbose:
-                                print(
-                                    "Couldn't find any identifying information for the call to %s with %s"
-                                    % (method_desc, args)
-                                )
+                            logging.debug(
+                                f"Couldn't find any identifying information for the call to {method_desc} with {args}"
+                            )
                             return
 
                         if not text_id:
-                            if verbose:
-                                print(
-                                    'Could not find text_id for call to %s with %s'
-                                    % (method_desc, args)
-                                )
+                            logging.debug(
+                                f'Could not find text_id for call to {method_desc} with {args}'
+                            )
                             return
 
                         # Call to the static register method.
@@ -258,7 +257,7 @@ class ItemsTopping(Topping):
                                     args=desc.args_descriptor,
                                     returns=desc.returns_descriptor,
                                 )
-                                return walk_method(new_cf, new_method, self, verbose)
+                                return walk_method(new_cf, new_method, self)
                         else:
                             # Probably returning itself
                             return obj
@@ -272,11 +271,9 @@ class ItemsTopping(Topping):
                         const.name_and_type.name.value
                     ]
                     if block_name not in aggregate['blocks']['block']:
-                        if verbose:
-                            print(
-                                'No information available for item-block for %s/%s'
-                                % (const.name_and_type.name.value, block_name)
-                            )
+                        logging.debug(
+                            f'No information available for item-block for {const.name_and_type.name.value}/{block_name}'
+                        )
                         return {}
                     else:
                         return aggregate['blocks']['block'][block_name]
@@ -290,13 +287,9 @@ class ItemsTopping(Topping):
                             const.name_and_type.name.value
                         ]
                     else:
-                        if verbose:
-                            print(
-                                'Unknown field',
-                                const.name_and_type.name.value,
-                                'in references class',
-                                references_class,
-                            )
+                        logging.debug(
+                            f'Unknown field {const.name_and_type.name.value} in references class {references_class}'
+                        )
                         return None
 
                 elif const.class_.name.value == listclass:
@@ -314,4 +307,4 @@ class ItemsTopping(Topping):
                 # we can just ignore these
                 pass
 
-        walk_method(cf, method, Walker(), verbose)
+        walk_method(cf, method, Walker())

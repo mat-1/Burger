@@ -22,7 +22,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
+import logging
+
 import six
+from jawa.classloader import ClassLoader
 from jawa.constants import ConstantClass, Float, String
 from jawa.util.descriptor import method_descriptor
 
@@ -39,33 +42,21 @@ class EntityTopping(Topping):
     DEPENDS = ['identify.entity.list', 'version.entity_format', 'language']
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
+    def act(aggregate, classloader: ClassLoader):
         # Decide which type of entity logic should be used.
 
-        handlers = {
-            '1.10': EntityTopping._entities_1point10,
-            '1.11': EntityTopping._entities_1point11,
-            '1.13': EntityTopping._entities_1point13,
-        }
-        entity_format = aggregate['version']['entity_format']
-        if entity_format in handlers:
-            handlers[entity_format](aggregate, classloader, verbose)
-        else:
-            if verbose:
-                print('Unknown entity format %s' % entity_format)
-            return
+        EntityTopping._entities_1point13(aggregate, classloader)
 
         entities = aggregate['entities']
 
         entities['info'] = {'entity_count': len(entities['entity'])}
 
-        EntityTopping.abstract_entities(classloader, entities['entity'], verbose)
+        EntityTopping.abstract_entities(classloader, entities['entity'])
         EntityTopping.compute_sizes(classloader, aggregate, entities['entity'])
 
     @staticmethod
-    def _entities_1point13(aggregate, classloader, verbose):
-        if verbose:
-            print('Using 1.13 entity format')
+    def _entities_1point13(aggregate, classloader: ClassLoader):
+        logging.debug('Using 1.13 entity format')
 
         listclass = aggregate['classes']['entity.list']  # EntityType
         cf = classloader[listclass]
@@ -172,11 +163,9 @@ class EntityTopping(Topping):
                             # Builder.create(Function, EntityCategory), 19w05a+
                             cls = args[0]
                         else:
-                            if verbose:
-                                print(
-                                    'Unknown entity type builder creation method',
-                                    method_desc,
-                                )
+                            logging.debug(
+                                f'Unknown entity type builder creation method {method_desc}'
+                            )
                             cls = None
                     elif len(args) == 1:
                         # There is also a format that creates an entity that cannot be serialized.
@@ -250,166 +239,10 @@ class EntityTopping(Topping):
                 # fallback
                 return object()
 
-        walk_method(cf, method, EntityContext(), verbose)
+        walk_method(cf, method, EntityContext())
 
     @staticmethod
-    def _entities_1point11(aggregate, classloader, verbose):
-        # 1.11 logic
-        if verbose:
-            print('Using 1.11 entity format')
-
-        listclass = aggregate['classes']['entity.list']
-        cf = classloader[listclass]
-
-        entities = aggregate.setdefault('entities', {})
-        entity = entities.setdefault('entity', {})
-
-        method = cf.methods.find_one(
-            args='',
-            returns='V',
-            f=lambda m: m.access_flags.acc_public and m.access_flags.acc_static,
-        )
-
-        minecart_info = {}
-
-        class EntityContext(WalkerCallback):
-            def on_get_field(self, ins, const, obj):
-                # Minecarts use an enum for their data - assume that this is that enum
-                const = ins.operands[0]
-                if 'types_by_field' not in minecart_info:
-                    EntityTopping._load_minecart_enum(
-                        classloader, const.class_.name.value, minecart_info
-                    )
-                minecart_name = minecart_info['types_by_field'][
-                    const.name_and_type.name.value
-                ]
-                return minecart_info['types'][minecart_name]
-
-            def on_invoke(self, ins, const, obj, args):
-                if const.class_.name == listclass:
-                    if len(args) == 4:
-                        # Initial registration
-                        name = args[1]
-                        old_name = args[3]
-                        entity[name] = {
-                            'id': args[0],
-                            'name': name,
-                            'class': args[2][: -len('.class')],
-                            'old_name': old_name,
-                        }
-
-                        if old_name + '.name' in aggregate['language']['entity']:
-                            entity[name]['display_name'] = aggregate['language'][
-                                'entity'
-                            ][old_name + '.name']
-                    elif len(args) == 3:
-                        # Spawn egg registration
-                        name = args[0]
-                        if name in entity:
-                            entity[name]['egg_primary'] = args[1]
-                            entity[name]['egg_secondary'] = args[2]
-                        elif verbose:
-                            print('Missing entity during egg registration: %s' % name)
-                elif const.class_.name == minecart_info['class']:
-                    # Assume that obj is the minecart info, and the method being called is the one that gets the name
-                    return obj['entitytype']
-
-            def on_new(self, ins, const):
-                raise Exception('unexpected new: %s' % ins)
-
-            def on_put_field(self, ins, const, obj, value):
-                raise Exception('unexpected putfield: %s' % ins)
-
-        walk_method(cf, method, EntityContext(), verbose)
-
-    @staticmethod
-    def _entities_1point10(aggregate, classloader, verbose):
-        # 1.10 logic
-        if verbose:
-            print('Using 1.10 entity format')
-
-        superclass = aggregate['classes']['entity.list']
-        cf = classloader[superclass]
-
-        method = cf.methods.find_one(name='<clinit>')
-        mode = 'starting'
-
-        superclass = aggregate['classes']['entity.list']
-        cf = classloader[superclass]
-
-        entities = aggregate.setdefault('entities', {})
-        entity = entities.setdefault('entity', {})
-        alias = None
-
-        stack = []
-        tmp = {}
-        minecart_info = {}
-
-        for ins in method.code.disassemble():
-            if mode == 'starting':
-                # We don't care about the logger setup stuff at the beginning;
-                # wait until an entity definition starts.
-                if ins in ('ldc', 'ldc_w'):
-                    mode = 'entities'
-            # elif is not used here because we need to handle modes changing
-            if mode != 'starting':
-                if ins in ('ldc', 'ldc_w'):
-                    const = ins.operands[0]
-                    if isinstance(const, ConstantClass):
-                        stack.append(const.name.value)
-                    elif isinstance(const, String):
-                        stack.append(const.string.value)
-                    else:
-                        stack.append(const.value)
-                elif ins in ('bipush', 'sipush'):
-                    stack.append(ins.operands[0].value)
-                elif ins == 'new':
-                    # Entity aliases (for lack of a better term) start with 'new's.
-                    # Switch modes (this operation will be processed there)
-                    mode = 'aliases'
-                    const = ins.operands[0]
-                    stack.append(const.name.value)
-                elif ins == 'getstatic':
-                    # Minecarts use an enum for their data - assume that this is that enum
-                    const = ins.operands[0]
-                    if 'types_by_field' not in minecart_info:
-                        EntityTopping._load_minecart_enum(
-                            classloader, const.class_.name.value, minecart_info
-                        )
-                    # This technically happens when invokevirtual is called, but do it like this for simplicity
-                    minecart_name = minecart_info['types_by_field'][
-                        const.name_and_type.name.value
-                    ]
-                    stack.append(minecart_info['types'][minecart_name]['entitytype'])
-                elif ins == 'invokestatic':  # invokestatic
-                    if mode == 'entities':
-                        tmp['class'] = stack[0]
-                        tmp['name'] = stack[1]
-                        tmp['id'] = stack[2]
-                        if len(stack) >= 5:
-                            tmp['egg_primary'] = stack[3]
-                            tmp['egg_secondary'] = stack[4]
-                        if tmp['name'] + '.name' in aggregate['language']['entity']:
-                            tmp['display_name'] = aggregate['language']['entity'][
-                                tmp['name'] + '.name'
-                            ]
-                        entity[tmp['name']] = tmp
-                    elif mode == 'aliases':
-                        tmp['entity'] = stack[0]
-                        tmp['name'] = stack[1]
-                        if len(stack) >= 5:
-                            tmp['egg_primary'] = stack[2]
-                            tmp['egg_secondary'] = stack[3]
-                        tmp['class'] = stack[-1]  # last item, made by new.
-                        if alias is None:
-                            alias = entities.setdefault('alias', {})
-                        alias[tmp['name']] = tmp
-
-                    tmp = {}
-                    stack = []
-
-    @staticmethod
-    def _load_minecart_enum(classloader, classname, minecart_info):
+    def _load_minecart_enum(classloader: ClassLoader, classname, minecart_info):
         """Stores data about the minecart enum in aggregate"""
         minecart_info['class'] = classname
 
@@ -451,7 +284,7 @@ class EntityTopping(Topping):
                 already_has_minecart_name = False
 
     @staticmethod
-    def compute_sizes(classloader, aggregate, entities):
+    def compute_sizes(classloader: ClassLoader, aggregate, entities):
         # Class -> size
         size_cache = {}
 
@@ -520,7 +353,7 @@ class EntityTopping(Topping):
                     entity['height'] = size[1]
 
     @staticmethod
-    def abstract_entities(classloader, entities, verbose):
+    def abstract_entities(classloader: ClassLoader, entities):
         entity_classes = {e['class']: e['name'] for e in six.itervalues(entities)}
 
         # Add some abstract classes, to help with metadata, and for reference only;
@@ -535,18 +368,15 @@ class EntityTopping(Topping):
                             'class': parent,
                             'name': '~abstract_' + abstract_name,
                         }
-                    elif verbose:
-                        print(
-                            'Unexpected non-abstract class for parent of %s: %s'
-                            % (name, entity_classes[parent])
+                    else:
+                        logging.debug(
+                            f'Unexpected non-abstract class for parent of {name}: {entity_classes[parent]}'
                         )
                     break
             else:
-                if verbose:
-                    print(
-                        'Failed to find abstract entity %s as a superclass of %s'
-                        % (abstract_name, subclass_names)
-                    )
+                logging.debug(
+                    f'Failed to find abstract entity {abstract_name} as a superclass of {subclass_names}'
+                )
 
         abstract_entity('entity', 'item', 'Item')
         abstract_entity('minecart', 'minecart')  # AbstractMinecart

@@ -23,6 +23,7 @@ THE SOFTWARE.
 """
 
 import json
+import logging
 import traceback
 import urllib.request
 
@@ -63,36 +64,34 @@ class SoundTopping(Topping):
     ]
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
+    def act(aggregate, classloader):
         sounds = aggregate.setdefault('sounds', {})
 
         if 'sounds.event' not in aggregate['classes']:
-            # 1.8 - TODO implement this for 1.8
-            if verbose:
-                print(
-                    'Not enough information to run sounds topping; missing sounds.event'
-                )
+            logging.debug(
+                'Not enough information to run sounds topping; missing sounds.event'
+            )
             return
 
         try:
-            version_meta = website.get_version_meta(aggregate['version']['id'], verbose)
+            version_meta = website.get_version_meta(aggregate['version']['id'])
         except Exception as e:
-            if verbose:
-                print('Error: Failed to download version meta for sounds: %s' % e)
+            logging.error(f'Failed to download version meta for sounds: {e}')
+            if logging.root.isEnabledFor(logging.ERROR):
                 traceback.print_exc()
             return
         try:
-            assets = website.get_asset_index(version_meta, verbose)
+            assets = website.get_asset_index(version_meta)
         except Exception as e:
-            if verbose:
-                print('Error: Failed to download asset index for sounds: %s' % e)
+            logging.error(f'Failed to download asset index for sounds: {e}')
+            if logging.root.isEnabledFor(logging.ERROR):
                 traceback.print_exc()
             return
         try:
             sounds_json = get_sounds(assets)
         except Exception as e:
-            if verbose:
-                print('Error: Failed to download sound list: %s' % e)
+            logging.error(f'Failed to download sound list: {e}')
+            if logging.root.isEnabledFor(logging.ERROR):
                 traceback.print_exc()
             return
 

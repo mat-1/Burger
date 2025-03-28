@@ -22,11 +22,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
+from jawa.classloader import ClassLoader
+
 
 class Topping(object):
     PROVIDES = None
     DEPENDS = None
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
+    def act(aggregate, classloader: ClassLoader):
         raise NotImplementedError()

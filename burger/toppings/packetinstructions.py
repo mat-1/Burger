@@ -22,10 +22,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
+import json
+import logging
 import re
 import traceback
 
 import six
+from jawa.cf import ClassFile
+from jawa.classloader import ClassLoader
 from jawa.constants import UTF8, ConstantClass, Double, Float, Integer, Long, String
 from jawa.transforms import simple_swap
 from jawa.util.descriptor import field_descriptor, method_descriptor, parse_descriptor
@@ -117,7 +121,7 @@ class PacketInstructionsTopping(Topping):
     ]
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
+    def act(aggregate, classloader: ClassLoader):
         """Finds all packets and decompiles them"""
         thunks = _PIT.list_thunks(
             classloader, aggregate['classes']['packet.packetbuffer']
@@ -127,25 +131,22 @@ class PacketInstructionsTopping(Topping):
             try:
                 classname = packet['class'][: -len('.class')]
                 operations = _PIT.class_operations(
-                    classloader, classname, aggregate['classes'], verbose, thunks
+                    classloader, classname, aggregate['classes'], thunks
                 )
                 packet.update(_PIT.format(operations))
             except Exception as e:
-                if verbose:
-                    print(
-                        'Error: Failed to parse instructions of packet %s (%s): %s'
-                        % (key, packet['class'], e)
+                if logging.root.isEnabledFor(logging.DEBUG):
+                    logging.debug(
+                        f'Error: Failed to parse instructions of packet {key} ({packet["class"]}): {e}'
                     )
                     traceback.print_exc()
                     if operations:
-                        import json
-
-                        print(
+                        logging.debug(
                             json.dumps(
                                 operations, default=lambda o: o.__dict__, indent=4
                             )
                         )
-                    print()
+                    logging.debug()
 
     @staticmethod
     def list_thunks(classloader, packetbuffer_class):
@@ -234,7 +235,7 @@ class PacketInstructionsTopping(Topping):
         return thunks
 
     @staticmethod
-    def class_operations(classloader, classname, classes, verbose, thunks):
+    def class_operations(classloader: ClassLoader, classname: str, classes, thunks):
         """Decompiles the instructions for a specific packet."""
         # Find the writing method
         cf = classloader[classname]
@@ -282,7 +283,7 @@ class PacketInstructionsTopping(Topping):
                 ):
                     # Try the superclass
                     return _PIT.class_operations(
-                        classloader, cf.super_.name.value, classes, verbose, thunks
+                        classloader, cf.super_.name.value, classes, thunks
                     )
                 else:
                     raise Exception('Failed to find method in class or superclass')
@@ -291,12 +292,18 @@ class PacketInstructionsTopping(Topping):
         assert not method.access_flags.acc_abstract
 
         return _PIT.operations(
-            classloader, cf, classes, verbose, method, ('this', PACKETBUF_NAME), thunks
+            classloader, cf, classes, method, ('this', PACKETBUF_NAME), thunks
         )
 
     @staticmethod
     def operations(
-        classloader, cf, classes, verbose, method, arg_names, thunks, special_fields={}
+        classloader: ClassLoader,
+        cf: ClassFile,
+        classes,
+        method,
+        arg_names,
+        thunks,
+        special_fields={},
     ):
         """Decompiles the specified method."""
         if method.access_flags.acc_static:
@@ -384,7 +391,6 @@ class PacketInstructionsTopping(Topping):
                         classloader,
                         classes,
                         instruction,
-                        verbose,
                         operands[0].c,
                         operands[0].name,
                         method_descriptor(operands[0].descriptor),
@@ -650,10 +656,9 @@ class PacketInstructionsTopping(Topping):
 
     @staticmethod
     def _handle_invoke(
-        classloader,
+        classloader: ClassLoader,
         classes,
         instruction,
-        verbose,
         cls,
         name,
         desc,
@@ -725,7 +730,6 @@ class PacketInstructionsTopping(Topping):
                     classloader,
                     classes,
                     instruction,
-                    verbose,
                     cls,
                     name,
                     desc,
@@ -738,7 +742,6 @@ class PacketInstructionsTopping(Topping):
                     classloader,
                     classes,
                     instruction,
-                    verbose,
                     cls,
                     name,
                     desc,
@@ -751,7 +754,6 @@ class PacketInstructionsTopping(Topping):
                     classloader,
                     classes,
                     instruction,
-                    verbose,
                     cls,
                     name,
                     desc,
@@ -771,10 +773,9 @@ class PacketInstructionsTopping(Topping):
                 # Return the packetbuffer back to the stack.
                 stack.append(obj)
             elif desc.returns.name != 'void':
-                if verbose:
-                    print(
-                        'PacketBuffer method that returns something other than PacketBuffer used!'
-                    )
+                logging.debug(
+                    'PacketBuffer method that returns something other than PacketBuffer used!'
+                )
                 stack.append(object())
 
             return result
@@ -793,7 +794,6 @@ class PacketInstructionsTopping(Topping):
                 classloader,
                 classes,
                 instruction,
-                verbose,
                 cls,
                 name,
                 desc,
@@ -813,7 +813,7 @@ class PacketInstructionsTopping(Topping):
 
             # This is used for special field handling by entitymetadata.
             return _PIT._lambda_operations(
-                classloader, classes, instruction.pos, verbose, obj, arguments, thunks
+                classloader, classes, instruction.pos, obj, arguments, thunks
             )
         else:
             if desc.returns.name != 'void':
@@ -863,7 +863,6 @@ class PacketInstructionsTopping(Topping):
                             classloader,
                             classes,
                             instruction,
-                            verbose,
                             cls,
                             name,
                             desc,
@@ -875,19 +874,16 @@ class PacketInstructionsTopping(Topping):
                     # Call to a method that does not take a packetbuffer.
                     # It might have side-effects, but we don't know what they
                     # would be and can't do anything with them.
-                    if verbose:
-                        print(
-                            'Call to %s.%s%s does not use buffer; ignoring'
-                            % (cls, name, desc.descriptor)
-                        )
+                    logging.debug(
+                        f'Call to {cls}.{name}{desc.descriptor} does not use buffer; ignoring'
+                    )
                     return []
 
     @staticmethod
     def _handle_1_arg_buffer_call(
-        classloader,
+        classloader: ClassLoader,
         classes,
         instruction,
-        verbose,
         cls,
         name,
         desc,
@@ -955,20 +951,17 @@ class PacketInstructionsTopping(Topping):
         elif 'position' not in classes or arg_type == classes['position']:
             if 'position' not in classes:
                 classes['position'] = arg_type
-                if verbose:
-                    print('Assuming', arg_type, 'is the position class')
+                logging.debug(f'Assuming {arg_type} is the position class')
             return [Operation(instruction.pos, 'write', type='position', field=arg)]
 
         # Unknown type in packetbuffer; try inlining it as well
         # (on the assumption that it's something made of a few calls,
         # and not e.g. writeVarInt)
-        if verbose:
-            print('Inlining PacketBuffer.%s(%s)' % (name, arg_type))
+        logging.debug(f'Inlining PacketBuffer.{name}({arg_type})')
         return _PIT._sub_operations(
             classloader,
             classes,
             instruction,
-            verbose,
             cls,
             name,
             desc,
@@ -978,10 +971,9 @@ class PacketInstructionsTopping(Topping):
 
     @staticmethod
     def _handle_2_arg_buffer_call(
-        classloader,
+        classloader: ClassLoader,
         classes,
         instruction,
-        verbose,
         cls,
         name,
         desc,
@@ -1062,7 +1054,6 @@ class PacketInstructionsTopping(Topping):
                 classloader,
                 classes,
                 instruction.pos,
-                verbose,
                 info,
                 [instance, 'itv'],
                 thunks,
@@ -1103,7 +1094,6 @@ class PacketInstructionsTopping(Topping):
                 classloader,
                 classes,
                 instruction.pos,
-                verbose,
                 info,
                 [instance, field.value + '.get()'],
                 thunks,
@@ -1140,7 +1130,6 @@ class PacketInstructionsTopping(Topping):
                 classloader,
                 classes,
                 instruction.pos,
-                verbose,
                 info,
                 [instance, field.value],
                 thunks,
@@ -1172,7 +1161,7 @@ class PacketInstructionsTopping(Topping):
         elif desc.args[0].name == 'java/util/EnumSet':
             # bitset with a max length of the enum's constant count
             enum_class = classloader[args[1]]
-            enum_constants = get_enum_constants(enum_class, verbose)
+            enum_constants = get_enum_constants(enum_class)
             max_length = len(enum_constants)
             return [
                 Operation(
@@ -1191,7 +1180,6 @@ class PacketInstructionsTopping(Topping):
         classloader,
         classes,
         instruction,
-        verbose,
         cls,
         name,
         desc,
@@ -1248,7 +1236,6 @@ class PacketInstructionsTopping(Topping):
                 classloader,
                 classes,
                 instruction.pos,
-                verbose,
                 key_info,
                 [instance, 'itv.getKey()'],
                 thunks,
@@ -1260,7 +1247,6 @@ class PacketInstructionsTopping(Topping):
                 classloader,
                 classes,
                 instruction.pos,
-                verbose,
                 val_info,
                 [instance, 'itv.getValue()'],
                 thunks,
@@ -1295,7 +1281,6 @@ class PacketInstructionsTopping(Topping):
                 classloader,
                 classes,
                 instruction.pos,
-                verbose,
                 left_consumer,
                 [instance, field.value + '.left()'],
                 thunks,
@@ -1305,7 +1290,6 @@ class PacketInstructionsTopping(Topping):
                 classloader,
                 classes,
                 instruction.pos + 1,
-                verbose,
                 right_consumer,
                 [instance, field.value + '.right()'],
                 thunks,
@@ -1354,7 +1338,6 @@ class PacketInstructionsTopping(Topping):
                 classloader,
                 classes,
                 instruction.pos + 1,
-                verbose,
                 consumer,
                 [instance, key.value],
                 thunks,
@@ -1388,7 +1371,6 @@ class PacketInstructionsTopping(Topping):
         classloader,
         classes,
         instruction,
-        verbose,
         cls,
         name,
         desc,
@@ -1420,7 +1402,7 @@ class PacketInstructionsTopping(Topping):
             )
         )
         operations += _PIT._lambda_operations(
-            classloader, classes, instruction.pos, verbose, consumer, ['itv'], thunks
+            classloader, classes, instruction.pos, consumer, ['itv'], thunks
         )
         # See comment in _handle_1_arg_buffer_call
         operations.append(Operation(instruction.pos + 1 - SUB_INS_EPSILON, 'endloop'))
@@ -1448,10 +1430,9 @@ class PacketInstructionsTopping(Topping):
 
     @staticmethod
     def _sub_operations(
-        classloader,
+        classloader: ClassLoader,
         classes,
         instruction,
-        verbose,
         invoked_class,
         name,
         desc,
@@ -1492,11 +1473,9 @@ class PacketInstructionsTopping(Topping):
                 cf = classloader[cf.super_.name.value]
 
             if method is None:
-                if verbose:
-                    print(
-                        'Failed to find method corresponding to %s(%s) in %s or its parent classes'
-                        % (name, desc.args_descriptor, invoked_class)
-                    )
+                logging.debug(
+                    f'Failed to find method corresponding to {name}({desc.args_descriptor}) in {invoked_class} or its parent classes'
+                )
                 assert method is not None
 
             if method.access_flags.acc_abstract:
@@ -1519,7 +1498,6 @@ class PacketInstructionsTopping(Topping):
                     classloader,
                     cf,
                     classes,
-                    verbose,
                     method,
                     args,
                     thunks,
@@ -1546,7 +1524,7 @@ class PacketInstructionsTopping(Topping):
 
     @staticmethod
     def _lambda_operations(
-        classloader, classes, instruction_pos, verbose, info, args, thunks
+        classloader: ClassLoader, classes, instruction_pos, info, args, thunks
     ):
         assert isinstance(info, InvokeDynamicInfo)
         assert len(args) == len(info.instantiated_desc.args)
@@ -1568,7 +1546,7 @@ class PacketInstructionsTopping(Topping):
         # Note that info is included because this is
         cf, method = info.create_method()
         operations = _PIT.operations(
-            classloader, cf, classes, verbose, method, effective_args, thunks
+            classloader, cf, classes, method, effective_args, thunks
         )
 
         position = 0

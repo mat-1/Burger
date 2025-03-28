@@ -24,6 +24,7 @@ THE SOFTWARE.
 
 import re
 
+from jawa.classloader import ClassLoader
 from jawa.constants import String
 
 from .topping import Topping
@@ -52,7 +53,7 @@ class PluginChannelsTopping(Topping):
     ]
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
+    def act(aggregate, classloader):
         pluginchannels = aggregate.setdefault('pluginchannels', {})
         clientbound = pluginchannels.setdefault('clientbound', [])
         serverbound = pluginchannels.setdefault('serverbound', [])
@@ -145,7 +146,7 @@ def _get_version_info(aggregate):
 
 
 def _get_custom_payload_packets(
-    classloader, ignore_clientbound=False, ignore_serverbound=False
+    classloader: ClassLoader, ignore_clientbound=False, ignore_serverbound=False
 ):
     clientbound_packet = None
     serverbound_packet = None

@@ -24,8 +24,10 @@ THE SOFTWARE.
 
 import copy
 import json
+import logging
 
 import six
+from jawa.classloader import ClassLoader
 
 from .topping import Topping
 
@@ -45,17 +47,17 @@ class RecipesTopping(Topping):
     ]
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
+    def act(aggregate, classloader):
         if 'assets/minecraft/recipes/stick.json' in classloader.path_map:
             recipe_list = RecipesTopping.find_from_json(
-                aggregate, classloader, 'assets/minecraft/recipes/', verbose
+                aggregate, classloader, 'assets/minecraft/recipes/'
             )
         elif 'data/minecraft/recipes/stick.json' in classloader.path_map:
             recipe_list = RecipesTopping.find_from_json(
-                aggregate, classloader, 'data/minecraft/recipes/', verbose
+                aggregate, classloader, 'data/minecraft/recipes/'
             )
         else:
-            recipe_list = RecipesTopping.find_from_jar(aggregate, classloader, verbose)
+            recipe_list = RecipesTopping.find_from_jar(aggregate, classloader)
 
         recipes = aggregate.setdefault('recipes', {})
 
@@ -66,9 +68,8 @@ class RecipesTopping(Topping):
             recipes_for_item.append(recipe)
 
     @staticmethod
-    def find_from_json(aggregate, classloader, prefix, verbose):
-        if verbose:
-            print('Extracting recipes from JSON')
+    def find_from_json(aggregate, classloader: ClassLoader, prefix):
+        logging.debug('Extracting recipes from JSON')
 
         recipes = []
 
@@ -105,8 +106,8 @@ class RecipesTopping(Topping):
                     len('minecraft:') :
                 ]  # TODO: In the future, we don't want to strip namespaces
 
-            if verbose and id not in aggregate['items']['item']:
-                print("A recipe references item %s but that doesn't exist" % id)
+            if id not in aggregate['items']['item']:
+                logging.debug(f"A recipe references item {id} but that doesn't exist")
 
             result['name'] = id
 
@@ -213,17 +214,16 @@ class RecipesTopping(Topping):
 
                     recipes.extend(matching_recipes)
                 except Exception as e:
-                    print('Failed to parse %s: %s' % (recipe_id, e))
-                    raise
+                    logging.warning(f'Failed to parse {recipe_id}: {e}')
+                    raise e
 
         return recipes
 
     @staticmethod
-    def find_from_jar(aggregate, classloader, verbose):
+    def find_from_jar(aggregate, classloader: ClassLoader):
         superclass = aggregate['classes']['recipe.superclass']
 
-        if verbose:
-            print('Extracting recipes from %s' % superclass)
+        logging.debug(f'Extracting recipes from {superclass}')
 
         cf = classloader[superclass]
 

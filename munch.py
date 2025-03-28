@@ -24,6 +24,7 @@ THE SOFTWARE.
 
 import argparse
 import json
+import logging
 import os
 import sys
 import traceback
@@ -69,9 +70,9 @@ def import_toppings():
         subclasses = list([o for o in current if o not in last])
         last = Topping.__subclasses__()
         if len(subclasses) == 0:
-            print("Topping '%s' contains no topping" % topping)
+            logging.error(f"Topping '{topping}' contains no topping")
         elif len(subclasses) >= 2:
-            print("Topping '%s' contains more than one topping" % topping)
+            logging.error(f"Topping '{topping}' contains more than one topping")
         else:
             toppings[topping] = subclasses[0]
 
@@ -90,7 +91,12 @@ if __name__ == '__main__':
     )
     parser.add_argument('-t', '--toppings')
     parser.add_argument('-o', '--output')
-    parser.add_argument('-v', '--verbose', action='store_true')
+    parser.add_argument(
+        '-L',
+        '--log',
+        help="The log level, may be 'error', 'warn', 'info', or 'debug'. Defaults to 'info'.",
+        default='info',
+    )
     parser.add_argument('-c', '--compact', action='store_true')
     parser.add_argument('-l', '--list', action='store_true')
     parser.add_argument('-m', '--mappings')
@@ -98,13 +104,11 @@ if __name__ == '__main__':
     try:
         args = parser.parse_args()
     except argparse.ArgumentError as e:
-        print(str(e))
+        sys.stderr.write(str(e))
         sys.exit(1)
 
-    # Default options
     toppings = args.toppings.split(',') if args.toppings else None
     output = open(args.output, 'w') if args.output else sys.stdout
-    verbose = args.verbose
     list_toppings = args.list
     compact = args.compact
     url = args.url
@@ -112,6 +116,10 @@ if __name__ == '__main__':
 
     version_name = None
     url_path = None
+
+    # logging should be initialized before we do anything that requires it
+    logger = logging.getLogger(__name__)
+    logging.basicConfig(level=args.log.upper())
 
     if '://' in args.version:
         # Download a JAR from the given URL
@@ -121,18 +129,20 @@ if __name__ == '__main__':
         client_path = args.version
     if args.version == 'latest':
         # Download a copy of the latest snapshot jar
-        client_path = website.latest_client_jar(verbose)
+        client_path = website.latest_client_jar()
     else:
         # version name
         version_name = args.version
-        client_path = website.client_jar(version_name, verbose)
+        client_path = website.client_jar(version_name)
 
     if version_name and not mappings_path:
         # download mappings
-        mappings_path = website.mappings_txt(args.version, verbose)
+        mappings_path = website.mappings_txt(args.version)
 
     if not mappings_path:
-        print('Mappings are required')
+        sys.stderr.write(
+            'Version name was not passed explicitly, please provide mappings file using --mappings'
+        )
         sys.exit(1)
 
     set_global_mappings(Mappings.parse(open(mappings_path, 'r').read()))
@@ -157,7 +167,7 @@ if __name__ == '__main__':
         loaded_toppings = []
         for topping in toppings:
             if topping not in all_toppings:
-                print(f"Topping '{topping}' doesn't exist")
+                logging.error(f"Topping '{topping}' doesn't exist")
             else:
                 loaded_toppings.append(all_toppings[topping])
 
@@ -195,7 +205,7 @@ if __name__ == '__main__':
     for topping in topping_nodes:
         for dependency in topping.depends:
             if dependency not in topping_provides:
-                print('(%s) requires (%s)' % (topping, dependency))
+                sys.stderr.write(f'({topping}) requires ({dependency})')
                 sys.exit(1)
             if topping_provides[dependency] not in topping.childs:
                 topping.childs.append(topping_provides[dependency])
@@ -213,7 +223,7 @@ if __name__ == '__main__':
                 to_be_run.append(topping.topping)
                 topping_nodes.remove(topping)
         if stuck:
-            print("Can't resolve dependencies")
+            sys.stderr.write("Can't resolve dependencies")
             sys.exit(1)
 
     summary = []
@@ -237,18 +247,17 @@ if __name__ == '__main__':
     for topping in to_be_run:
         missing = [dep for dep in topping.DEPENDS if dep not in available]
         if len(missing) != 0:
-            if verbose:
-                print('Dependencies failed for %s: Missing %s' % (topping, missing))
+            logging.debug(f'Dependencies failed for {topping}: Missing {missing}')
             continue
 
         orig_aggregate = aggregate.copy()
         try:
-            topping.act(aggregate, classloader, verbose)
+            topping.act(aggregate, classloader)
             available.extend(topping.PROVIDES)
         except Exception:
             aggregate = orig_aggregate  # If the topping failed, don't leave things in an incomplete state
-            if verbose:
-                print('Failed to run %s' % topping)
+            logger.debug(f'Failed to run {topping}')
+            if logging.root.isEnabledFor(logging.DEBUG):
                 traceback.print_exc()
 
     summary.append(aggregate)

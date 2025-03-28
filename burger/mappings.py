@@ -85,7 +85,6 @@ class Mappings:
         if '<' in obfuscated_class_name:
             first_part, args = obfuscated_class_name.split('<')
             args = args.rstrip('>').strip(';').split(';')
-            print(args)
             assert len(args) == 1
             arg = self.get_class(args[0][1:])
             return f'{first_part}<{arg}>'
@@ -102,7 +101,6 @@ class Mappings:
         for method_obfuscated_name, candidate_method_name in self.methods[
             obfuscated_class_name
         ].items():
-            print(candidate_method_name)
             if candidate_method_name == method_name:
                 return method_obfuscated_name.split('(')[0]
         raise ValueError(

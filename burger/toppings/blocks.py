@@ -22,8 +22,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
-import jawa
-import jawa.classloader
+import logging
+
+from jawa.classloader import ClassLoader
 from jawa.util.descriptor import method_descriptor
 
 from burger.mappings import MAPPINGS
@@ -59,13 +60,12 @@ class BlocksTopping(Topping):
         return super_classes
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
-        BlocksTopping._process(aggregate, classloader, verbose)
+    def act(aggregate, classloader: ClassLoader):
+        BlocksTopping._process(aggregate, classloader)
         return
 
     @staticmethod
-    def _process(aggregate, classloader: jawa.classloader.ClassLoader, verbose):
-        # Handles versions after 1.14 (specifically >= 18w43a)
+    def _process(aggregate, classloader: ClassLoader):
         # All of the registration happens in the list class in this version.
 
         # net.minecraft.world.level.block.Blocks
@@ -251,7 +251,7 @@ class BlocksTopping(Topping):
                                 args=desc.args_descriptor,
                                 returns=desc.returns_descriptor,
                             )
-                            return walk_method(lcf, sub_method, self, verbose, args)
+                            return walk_method(lcf, sub_method, self, args)
                     elif const.class_.name.value == builder_class:
                         if (
                             len(desc.args) == 1 and desc.args[0].name == superclass
@@ -342,13 +342,9 @@ class BlocksTopping(Topping):
                             const.name_and_type.name.value
                         ]
                     else:
-                        if verbose:
-                            print(
-                                'Unknown field',
-                                const.name_and_type.name.value,
-                                'in references class',
-                                references_class,
-                            )
+                        logging.debug(
+                            f'Unknown field {const.name_and_type.name.value} in references class {references_class}'
+                        )
                         return None
                 elif const.class_.name.value == listclass:
                     if const.name_and_type.name.value in block_fields:
@@ -367,7 +363,6 @@ class BlocksTopping(Topping):
                     return object()
 
             def on_put_field(self, ins, const, obj, value):
-                print('put field', ins, const, obj, value)
                 if isinstance(value, dict):
                     field = const.name_and_type.name.value
                     value['field'] = field
@@ -391,13 +386,10 @@ class BlocksTopping(Topping):
                         args.append(object())  # The state that the lambda gets
                         return try_eval_lambda(ins, args, lcf)
                     except Exception as ex:
-                        if verbose:
-                            print('Failed to call lambda for light data:', ex)
+                        logging.debug(f'Failed to call lambda for light data: {ex}')
                         return None
                 # if it's a ::new then return {"class": class_name, "super": super_classes}
                 elif desc.returns.name == 'java/util/function/Function':
-                    print('invokedynamic', desc, ins, const, args)
-
                     # the constant pool looks like this, so...
                     # 2263 = String             #2262        // air
                     # 2264 = Utf8               dji
@@ -417,7 +409,6 @@ class BlocksTopping(Topping):
                     )
                     return {'class': class_name, 'super': super_classes}
                 else:
-                    print('invokedynamic', desc, ins, const, args)
                     return object()
 
-        walk_method(lcf, method, Walker(), verbose)
+        walk_method(lcf, method, Walker())

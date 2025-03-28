@@ -1,4 +1,7 @@
 import json
+import logging
+
+from jawa.classloader import ClassLoader
 
 from .topping import Topping
 
@@ -10,7 +13,7 @@ class TagsTopping(Topping):
     DEPENDS = []
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
+    def act(aggregate, classloader: ClassLoader):
         tags = aggregate.setdefault('tags', {})
         prefix = 'data/minecraft/tags/'
         suffix = '.json'
@@ -32,11 +35,9 @@ class TagsTopping(Topping):
 
         def flatten_tag(name):
             if name in flattening:
-                if verbose:
-                    print(
-                        'Already flattening ' + name + ' -- is there a cycle?',
-                        flattening,
-                    )
+                logging.debug(
+                    f'Already flattening {name} -- is there a cycle? {flattening}'
+                )
                 return
             if name in flattened:
                 return

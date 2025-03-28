@@ -22,7 +22,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
+import logging
+
 import six
+from jawa.classloader import ClassLoader
 
 from .topping import Topping
 
@@ -41,7 +44,7 @@ class ObjectTopping(Topping):
     ]
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
+    def act(aggregate, classloader: ClassLoader):
         if aggregate['version']['data'] >= 1930:  # 19w05a+
             # Object IDs were removed in 19w05a, and entity IDs are now used instead.  Skip this topping entirely.
             return
@@ -87,8 +90,7 @@ class ObjectTopping(Topping):
                 break
 
         if packet_class_name is None:
-            if verbose:
-                print('Failed to find spawn object packet')
+            logging.debug('Failed to find spawn object packet')
             return
 
         # Get the packet info for the spawn object packet - not required but it is helpful information

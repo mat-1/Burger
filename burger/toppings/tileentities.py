@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
 
+import logging
+
 import six
+from jawa.classloader import ClassLoader
 from jawa.constants import ConstantClass, String
 
 from burger.util import class_from_invokedynamic
@@ -27,18 +30,17 @@ class TileEntityTopping(Topping):
     ]
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
+    def act(aggregate, classloader):
         if 'tileentity.superclass' not in aggregate['classes']:
-            if verbose:
-                print('Missing tileentity.superclass')
+            logging.debug('Missing tileentity.superclass')
             return
 
-        TileEntityTopping.identify_block_entities(aggregate, classloader, verbose)
-        TileEntityTopping.identify_associated_blocks(aggregate, classloader, verbose)
-        TileEntityTopping.identify_network_ids(aggregate, classloader, verbose)
+        TileEntityTopping.identify_block_entities(aggregate, classloader)
+        TileEntityTopping.identify_associated_blocks(aggregate, classloader)
+        TileEntityTopping.identify_network_ids(aggregate, classloader)
 
     @staticmethod
-    def identify_block_entities(aggregate, classloader, verbose):
+    def identify_block_entities(aggregate, classloader: ClassLoader):
         te = aggregate.setdefault('tileentity', {})
 
         superclass = aggregate['classes']['tileentity.superclass']
@@ -83,7 +85,7 @@ class TileEntityTopping(Topping):
                     tmp = {}
 
     @staticmethod
-    def identify_associated_blocks(aggregate, classloader, verbose):
+    def identify_associated_blocks(aggregate, classloader: ClassLoader):
         te = aggregate['tileentity']
         tileentities = te['tileentities']
         te_classes = te['classes']
@@ -161,7 +163,7 @@ class TileEntityTopping(Topping):
                     break
 
     @staticmethod
-    def identify_network_ids(aggregate, classloader, verbose):
+    def identify_network_ids(aggregate, classloader: ClassLoader):
         te = aggregate['tileentity']
         tileentities = te['tileentities']
         te_classes = te['classes']
@@ -192,8 +194,7 @@ class TileEntityTopping(Topping):
                     break
 
             if not updatepacket:
-                if verbose:
-                    print('Failed to identify update tile entity packet')
+                logging.debug('Failed to identify update tile entity packet')
                 return
 
             te['update_packet'] = updatepacket

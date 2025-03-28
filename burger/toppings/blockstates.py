@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
 
+import logging
 import traceback
 
 import six
@@ -42,10 +43,9 @@ class BlockStateTopping(Topping):
     ]
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
+    def act(aggregate, classloader):
         if 'blockstatecontainer' not in aggregate['classes']:
-            if verbose:
-                print('blockstatecontainer not found; skipping blockstates')
+            logging.warning('blockstatecontainer not found; skipping blockstates')
             return
 
         is_flattened = aggregate['version']['is_flattened']
@@ -246,7 +246,7 @@ class BlockStateTopping(Topping):
                     key = stack5.pop()['field_name']
                     property_by_facing[key] = value
 
-            enumfacing_members = get_enum_constants(classloader[enumfacing], verbose)
+            enumfacing_members = get_enum_constants(classloader[enumfacing])
             assert len(property_by_facing) == len(enumfacing_members)
             properties = []
             for facing in enumfacing_members.values():
@@ -512,32 +512,32 @@ class BlockStateTopping(Topping):
                     )
                     stack.pop()  # removing the consumer argument
                     properties.extend(stack.pop())  # And this is the field.
-                elif verbose:
-                    print(
-                        '%s createBlockState contains unimplemented ins %s'
-                        % (name, ins)
+                else:
+                    logging.debug(
+                        f'{name} createBlockState contains unimplemented ins {ins}'
                     )
 
             if properties is None:
                 # If we never set properties, warn; however, this is normal for
                 # the base implementation in Block in 18w19a
-                if verbose and name != aggregate['classes']['block.superclass']:
-                    print("Didn't find anything that set properties for %s" % name)
+                if name != aggregate['classes']['block.superclass']:
+                    logging.debug(
+                        f"Didn't find anything that set properties for {name}"
+                    )
                 properties = []
             properties_by_class[name] = properties
             return properties
 
         for block in six.itervalues(aggregate['blocks']['block']):
-            print('block', block)
             cls = block['class']
             try:
                 process_class(cls)
             except Exception:
-                if verbose:
-                    print(
-                        'Failed to process properties for %s (for %s)'
-                        % (cls, block['text_id'])
-                    )
+                logging.debug(
+                    'Failed to process properties for %s (for %s)'
+                    % (cls, block['text_id'])
+                )
+                if logging.root.isEnabledFor(logging.DEBUG):
                     traceback.print_exc()
                 properties_by_class[cls] = []
 
@@ -556,10 +556,9 @@ class BlockStateTopping(Topping):
             elif 'Boolean' in signature:
                 property_types[type] = 'bool'
             else:
-                if verbose:
-                    print(
-                        'Unknown property type %s with signature %s' % (type, signature)
-                    )
+                logging.debug(
+                    f'Unknown property type {type} with signature {signature}'
+                )
                 property_types[type] = 'direction'
 
         # Part 2: figure out what each field is.
@@ -646,10 +645,9 @@ class BlockStateTopping(Topping):
             """
             if cls in fields_by_class:
                 if field_name is not None:
-                    if field_name not in fields_by_class[cls] and verbose:
-                        print(
-                            "Requested field %s.%s but that wasn't found last time"
-                            % (cls, field_name)
+                    if field_name not in fields_by_class[cls]:
+                        logging.debug(
+                            f"Requested field {cls}.{field_name} but that wasn't found last time"
                         )
                     return fields_by_class[cls][field_name]
                 else:
@@ -826,8 +824,8 @@ class BlockStateTopping(Topping):
                 elif ins == 'iadd':
                     # used for skulls - we don't care about the result in practice
                     stack.append({'add': [stack.pop(), stack.pop()]})
-                elif verbose:
-                    print('%s initializer contains unimplemented ins %s' % (cls, ins))
+                else:
+                    logging.debug(f'{cls} initializer contains unimplemented ins {ins}')
 
             if field_name is not None:
                 return fields_by_class[cls][field_name]
@@ -908,11 +906,9 @@ class BlockStateTopping(Topping):
                         predicate_type = cf.interfaces[0].name.value
                         predicate_class = args[2]['class']
                     else:
-                        if verbose:
-                            print(
-                                'Could not find predicate class for args %s and interfaces %s'
-                                % (args, cf.interfaces)
-                            )
+                        logging.debug(
+                            f'Could not find predicate class for args {args} and interfaces {cf.interfaces}'
+                        )
                         predicate_type = None
                         predicate_class = None
 
@@ -924,13 +920,12 @@ class BlockStateTopping(Topping):
                         for c in six.itervalues(find_field(class_name, None))
                         if isinstance(c, dict) and c['is_enum']
                     ]
-                elif verbose:
-                    print('Unhandled args for %s' % prop)
+                else:
+                    logging.debug(f'Unhandled args for {prop}')
                     values = []
             else:
                 # Regular Collection (unused)
-                if verbose:
-                    print('Unhandled args for %s' % prop)
+                logging.debug(f'Unhandled args for {prop}')
                 values = []
             ret['values'] = values
             ret['num_values'] = len(values)
@@ -965,11 +960,9 @@ class BlockStateTopping(Topping):
                         predicate_type = cf.interfaces[0].name.value
                         predicate_class = args[1]['class']
                     else:
-                        if verbose:
-                            print(
-                                'Could not find predicate class for args %s and interfaces %s'
-                                % (args, cf.interfaces)
-                            )
+                        logging.debug(
+                            f'Could not find predicate class for args {args} and interfaces {cf.interfaces}'
+                        )
                         predicate_type = None
                         predicate_class = None
 
@@ -977,13 +970,12 @@ class BlockStateTopping(Topping):
                     ret['predicate'] = predicate_class
                     # Will be filled in later
                     values = ['DOWN', 'UP', 'NORTH', 'SOUTH', 'EAST', 'WEST']
-                elif verbose:
-                    print('Unhandled args for %s' % prop)
+                else:
+                    logging.debug(f'Unhandled args for {prop}')
                     values = []
             else:
                 # Regular Collection (unused)
-                if verbose:
-                    print('Unhandled args for %s' % prop)
+                logging.debug(f'Unhandled args for {prop}')
                 values = []
             ret['values'] = values
             ret['num_values'] = len(values)
@@ -1007,11 +999,10 @@ class BlockStateTopping(Topping):
 
                 property['data'] = property_handlers[field['type']](property)
             except Exception:
-                if verbose:
-                    print(
-                        'Failed to handle property %s (accessed as %s.%s)'
-                        % (property, field_class, field_name)
-                    )
+                logging.debug(
+                    f'Failed to handle property {property} (accessed as {field_class}.{field_name})'
+                )
+                if logging.root.isEnabledFor(logging.DEBUG):
                     traceback.print_exc()
                 property['data'] = None
 
@@ -1026,9 +1017,9 @@ class BlockStateTopping(Topping):
                 elif property is None:
                     # Manual handling
                     pass
-                elif verbose:
-                    print(
-                        'Skipping odd property %s (accessed from %s)' % (property, cls)
+                else:
+                    logging.debug(
+                        f'Skipping odd property {property} (accessed from {cls})'
                     )
 
         # Part 4: attach that information to blocks.
@@ -1084,13 +1075,11 @@ class BlockStateTopping(Topping):
                             }
                         }
                     else:
-                        if verbose:
-                            print('Skipping missing prop for %s' % block_id)
+                        logging.debug(f'Skipping missing prop for {block_id}')
                         continue
 
                 if not isinstance(prop, dict) or not isinstance(prop['data'], dict):
-                    if verbose:
-                        print('Skipping bad prop %s for %s' % (prop, block_id))
+                    logging.debug(f'Skipping bad prop {prop} for {block_id}')
                     continue
                 if 'predicate' in prop['data']:
                     data = prop['data'].copy()
@@ -1121,11 +1110,9 @@ class BlockStateTopping(Topping):
                     elif block_id == 'leaves2' or block_id == 'log2':
                         predicate = lambda v: v in ('DARK_OAK', 'ACACIA')
                     else:
-                        if verbose:
-                            print(
-                                'Unhandled predicate for prop %s for %s'
-                                % (prop, block_id)
-                            )
+                        logging.debug(
+                            f'Unhandled predicate for prop {prop} for {block_id}'
+                        )
                         predicate = lambda v: False
 
                     data['values'] = [v for v in data['values'] if predicate(v)]

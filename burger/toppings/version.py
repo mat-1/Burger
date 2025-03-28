@@ -21,7 +21,9 @@ THE SOFTWARE.
 """
 
 import json
+import logging
 
+from jawa.classloader import ClassLoader
 from jawa.constants import Integer, String
 
 from .topping import Topping
@@ -44,11 +46,11 @@ class VersionTopping(Topping):
     DEPENDS = ['identify.nethandler.handshake', 'identify.anvilchunkloader']
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
+    def act(aggregate, classloader: ClassLoader):
         aggregate.setdefault('version', {})
 
         aggregate['version']['distribution'] = VersionTopping.get_distribution(
-            classloader, verbose
+            classloader
         )
 
         try:
@@ -74,19 +76,17 @@ class VersionTopping(Topping):
                 )
                 aggregate['version']['id'] = version_id_chosen
 
-                if verbose:
-                    if version_id_chosen == version_id_not_chosen:
-                        print("Using id '%s'" % version_id_chosen)
-                    else:
-                        print(
-                            "Using id '%s' over name '%s' for id as it is shorter"
-                            % (version_id_chosen, version_id_not_chosen)
-                        )
+                if version_id_chosen == version_id_not_chosen:
+                    logging.debug(f"Using id '{version_id_chosen}'")
+                else:
+                    logging.debug(
+                        f"Using id '{version_id_chosen}' over name '{version_id_not_chosen}' for id as it is shorter"
+                    )
 
         except Exception:
             # Find it manually
-            VersionTopping.get_protocol_version(aggregate, classloader, verbose)
-            VersionTopping.get_data_version(aggregate, classloader, verbose)
+            VersionTopping.get_protocol_version(aggregate, classloader)
+            VersionTopping.get_data_version(aggregate, classloader)
 
         if 'data' in aggregate['version']:
             data_version = aggregate['version']['data']
@@ -123,12 +123,14 @@ class VersionTopping(Topping):
                 'io/netty/buffer/Unpooled'
                 in classloader.dependencies(aggregate['classes']['nethandler.client'])
             )
-        elif verbose:
+        else:
             # This SHOULD never happen
-            print('Unable to determine if this version is pre/post netty rewrite')
+            logging.error(
+                'Unable to determine if this version is pre/post netty rewrite'
+            )
 
     @staticmethod
-    def get_distribution(classloader, verbose):
+    def get_distribution(classloader: ClassLoader):
         found_client = False
         found_server = False
 
@@ -152,12 +154,11 @@ class VersionTopping(Topping):
             return 'server'
         else:
             # This SHOULD never happen
-            if verbose:
-                print('Unable to determine the distribution of the jar file')
+            logging.error('Unable to determine the distribution of the jar file')
             return 'unknown'
 
     @staticmethod
-    def get_protocol_version(aggregate, classloader, verbose):
+    def get_protocol_version(aggregate, classloader: ClassLoader):
         versions = aggregate['version']
         if 'nethandler.handshake' in aggregate['classes']:
             nethandler = aggregate['classes']['nethandler.handshake']
@@ -267,11 +268,10 @@ class VersionTopping(Topping):
                         versions['protocol'] = instr.operands[0].value
                         return
 
-        if verbose:
-            print('Unable to determine protocol version')
+        logging.warning('Unable to determine protocol version')
 
     @staticmethod
-    def get_data_version(aggregate, classloader, verbose):
+    def get_data_version(aggregate, classloader: ClassLoader):
         if 'anvilchunkloader' in aggregate['classes']:
             anvilchunkloader = aggregate['classes']['anvilchunkloader']
             cf = classloader[anvilchunkloader]
@@ -316,5 +316,5 @@ class VersionTopping(Topping):
                 if found_version is not None:
                     aggregate['version']['data'] = found_version
                     break
-        elif verbose:
-            print('Unable to determine data version')
+        else:
+            logging.warning('Unable to determine data version')

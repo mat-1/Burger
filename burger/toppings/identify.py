@@ -22,6 +22,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
+import logging
+
+from jawa.classloader import ClassLoader
 from jawa.constants import ConstantClass, String
 
 from .topping import Topping
@@ -122,7 +125,7 @@ def check_match(value, match_list):
     return False
 
 
-def identify(classloader, path, verbose):
+def identify(classloader: ClassLoader, path):
     """
     The first pass across the jar will identify all possible classes it
     can, mapping them by the 'type' it implements.
@@ -301,11 +304,9 @@ def identify(classloader, path, verbose):
                             if ins.operands[0] == 'Getting block state':
                                 return 'blockstate', method.returns.name
                 else:
-                    if verbose:
-                        print(
-                            "Found chunk as %s, but didn't find the method that returns blockstate"
-                            % path
-                        )
+                    logging.debug(
+                        f"Found chunk as {path}, but didn't find the method that returns blockstate"
+                    )
 
             if value == 'particle.notFound':
                 # This is in ParticleArgument, which is used for commands and
@@ -322,10 +323,9 @@ def identify(classloader, path, verbose):
                     ).signature.value
                     inner_type = sig[sig.index('<') + 1 : sig.rindex('>')][1:-1]
                     return 'particle', inner_type
-                elif verbose:
-                    print(
-                        "Found ParticleArgument as %s, but it didn't implement the expected interface"
-                        % path
+                else:
+                    logging.debug(
+                        f"Found ParticleArgument as {path}, but it didn't implement the expected interface"
                     )
 
             if value == 'HORIZONTAL':
@@ -461,13 +461,13 @@ class IdentifyTopping(Topping):
     DEPENDS = []
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
+    def act(aggregate, classloader):
         classes = aggregate.setdefault('classes', {})
         for path in classloader.path_map.keys():
             if not path.endswith('.class'):
                 continue
 
-            result = identify(classloader, path[: -len('.class')], verbose)
+            result = identify(classloader, path[: -len('.class')])
             if result:
                 if result[0] in classes:
                     if result[0] in IGNORE_DUPLICATES:
@@ -498,5 +498,4 @@ class IdentifyTopping(Topping):
         if 'biome.list' not in classes and 'biome.register' in classes:
             classes['biome.list'] = classes['biome.register']
 
-        if verbose:
-            print('identify classes: %s' % classes)
+        logging.debug(f'Identify classes: {classes}')

@@ -22,6 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
+from jawa.classloader import ClassLoader
+
 from burger.util import get_enum_constants
 
 from .topping import Topping
@@ -39,7 +41,7 @@ class PacketsTopping(Topping):
     DEPENDS = ['identify.packet.connectionstate', 'identify.packet.packetbuffer']
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
+    def act(aggregate, classloader: ClassLoader):
         packets = aggregate.setdefault('packets', {})
         packet = packets.setdefault('packet', {})
         states = packets.setdefault('states', {})
@@ -51,14 +53,13 @@ class PacketsTopping(Topping):
             directions,
             states,
             packet,
-            verbose,
         )
 
         info = packets.setdefault('info', {})
         info['count'] = len(packet)
 
     @staticmethod
-    def parse(classloader, classes, directions, states, packets, verbose):
+    def parse(classloader: ClassLoader, classes, directions, states, packets):
         # The relevant code looks like this:
         """
         public enum ProtocolType {
@@ -100,7 +101,7 @@ class PacketsTopping(Topping):
         protocol_type_cf = classloader[classes['packet.connectionstate']]
 
         # Identify the enum constants:
-        states.update(get_enum_constants(protocol_type_cf, verbose))
+        states.update(get_enum_constants(protocol_type_cf))
         # All 1.21 versions have CONFIGURATION
         assert states.keys() == set(
             ('HANDSHAKING', 'PLAY', 'STATUS', 'LOGIN', 'CONFIGURATION')
@@ -137,7 +138,7 @@ class PacketsTopping(Topping):
 
         direction_class = handshake_register_insts[2].operands[0].class_.name.value
 
-        directions.update(get_enum_constants(classloader[direction_class], verbose))
+        directions.update(get_enum_constants(classloader[direction_class]))
         directions_by_field = {
             direction['field']: direction for direction in directions.values()
         }

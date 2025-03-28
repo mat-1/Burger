@@ -1,3 +1,4 @@
+import logging
 from abc import ABC, abstractmethod
 
 from jawa.assemble import assemble
@@ -457,9 +458,7 @@ def try_eval_lambda(ins, args, cf):
         def on_put_field(self, ins, const, obj, value):
             raise Exception('Illegal putfield')
 
-    # Set verbose to false because we don't want lots of output if this errors
-    # (since it is expected to for more complex methods)
-    return walk_method(cf, lambda_method, Callback(), False, args)
+    return walk_method(cf, lambda_method, Callback(), args)
 
 
 def string_from_invokedymanic(ins, cf):
@@ -545,7 +544,7 @@ class WalkerCallback(ABC):
         raise Exception('Unexpected invokedynamic: %s' % str(ins))
 
 
-def walk_method(cf, method, callback, verbose, input_args=None):
+def walk_method(cf, method, callback, input_args=None):
     """
     Walks through a method, evaluating instructions and using the callback
     for side-effects.
@@ -676,10 +675,9 @@ def walk_method(cf, method, callback, verbose, input_args=None):
             array = stack.pop()
             if isinstance(array, list) and isinstance(index, int):
                 array[index] = value
-            elif verbose:
-                print(
-                    'Failed to execute %s: array %s index %s value %s'
-                    % (ins, array, index, value)
+            else:
+                logging.debug(
+                    f'Failed to execute {ins}: array {array} index {index} value {value}'
                 )
         elif ins in (
             'aaload',
@@ -695,8 +693,8 @@ def walk_method(cf, method, callback, verbose, input_args=None):
             array = stack.pop()
             if isinstance(array, list) and isinstance(index, int):
                 stack.push(array[index])
-            elif verbose:
-                print('Failed to execute %s: array %s index %s' % (ins, array, index))
+            else:
+                logging.debug(f'Failed to execute {ins}: array {array} index {index}')
         elif ins == 'invokedynamic':
             const = ins.operands[0]
             method_desc = const.name_and_type.descriptor.value
@@ -715,8 +713,8 @@ def walk_method(cf, method, callback, verbose, input_args=None):
             a = stack.pop()
             b = stack.pop()
             stack.append(a * b)
-        elif verbose:
-            print('Unknown instruction %s: stack is %s' % (ins, stack))
+        else:
+            logging.warning(f'Unknown instruction {ins}: stack is {stack}')
 
     last_ins = ins_list[-1]
     if last_ins.mnemonic in ('ireturn', 'lreturn', 'freturn', 'dreturn', 'areturn'):
@@ -725,11 +723,11 @@ def walk_method(cf, method, callback, verbose, input_args=None):
     elif last_ins.mnemonic == 'return':
         # Void method returning
         pass
-    elif verbose:
-        print('Unexpected final instruction %s: stack is %s' % (ins, stack))
+    else:
+        logging.error(f'Unexpected final instruction {ins}: stack is {stack}')
 
 
-def get_enum_constants(cf, verbose):
+def get_enum_constants(cf: ClassFile):
     # Gets enum constants declared in the given class.
     # Consider the following code:
     """
@@ -860,11 +858,9 @@ def get_enum_constants(cf, verbose):
                 enum_name = const.string.value
         elif ins == 'putstatic':
             if enum_class is None or enum_name is None:
-                if verbose:
-                    print(
-                        'Ignoring putstatic for %s as enum_class or enum_name is unset'
-                        % str(ins)
-                    )
+                logging.debug(
+                    f'Ignoring putstatic for {ins} as enum_class or enum_name is unset'
+                )
                 continue
             const = ins.operands[0]
             assigned_field = const.name_and_type
@@ -882,11 +878,9 @@ def get_enum_constants(cf, verbose):
                     private Foo(int n) {}
                 }
                 """
-                if verbose:
-                    print(
-                        'Ignoring putstatic for %s as it is to a field not in enum_fields (%s)'
-                        % (str(ins), enum_fields)
-                    )
+                logging.debug(
+                    f'Ignoring putstatic for {ins} as it is to a field not in enum_fields ({enum_fields})'
+                )
                 continue
             result[enum_name] = {
                 'name': enum_name,
@@ -899,10 +893,9 @@ def get_enum_constants(cf, verbose):
             if len(result) == len(enum_fields):
                 break
 
-    if verbose and len(result) != len(enum_fields):
-        print(
-            'Did not find assignments to all enum fields - fields are %s and result is %s'
-            % (result, enum_fields)
+    if len(result) != len(enum_fields):
+        logging.debug(
+            f'Did not find assignments to all enum fields - fields are {result} and result is {enum_fields}'
         )
 
     return result

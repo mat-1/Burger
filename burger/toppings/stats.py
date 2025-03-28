@@ -23,6 +23,7 @@ THE SOFTWARE.
 """
 
 import six
+from jawa.classloader import ClassLoader
 
 from .topping import Topping
 
@@ -35,7 +36,7 @@ class StatsTopping(Topping):
     DEPENDS = ['language']
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
+    def act(aggregate, classloader: ClassLoader):
         stats = aggregate.setdefault('stats', {})
         if 'stat' in aggregate['language']:
             stat_lang = aggregate['language']['stat']

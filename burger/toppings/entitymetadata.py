@@ -1,4 +1,9 @@
+import logging
+import traceback
+
 import six
+from jawa.cf import ClassFile
+from jawa.classloader import ClassLoader
 from jawa.constants import ConstantClass, String
 
 from burger.util import (
@@ -31,7 +36,7 @@ class EntityMetadataTopping(Topping):
     ]
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
+    def act(aggregate, classloader: ClassLoader):
         # This approach works in 1.9 and later; before then metadata was different.
         entities = aggregate['entities']['entity']
 
@@ -112,7 +117,6 @@ class EntityMetadataTopping(Topping):
             entity_data_serializers_class,
             aggregate['classes'],
             aggregate['version']['data'],
-            verbose,
         )
         aggregate['entities']['dataserializers'] = dataserializers
         dataserializers_by_field = {
@@ -160,13 +164,12 @@ class EntityMetadataTopping(Topping):
                         # Sanity check: entities should only register metadata for themselves
                         if args[0] != cls + '.class':
                             # ... but in some versions, mojang messed this up with potions... hence why the sanity check exists in vanilla now.
-                            if verbose:
+                            if logging.root.isEnabledFor(logging.DEBUG):
                                 other_class = args[0][: -len('.class')]
                                 name = entity_classes.get(cls, 'Unknown')
                                 other_name = entity_classes.get(other_class, 'Unknown')
-                                print(
-                                    'An entity tried to register metadata for another entity: %s (%s) from %s (%s)'
-                                    % (other_name, other_class, name, cls)
+                                logging.debug(
+                                    f'An entity tried to register metadata for another entity: {other_name} ({other_class}) from {name} ({cls})'
                                 )
 
                         serializer = args[1]
@@ -200,7 +203,7 @@ class EntityMetadataTopping(Topping):
             init = cf.methods.find_one(name='<clinit>')
             if init:
                 ctx = MetadataFieldContext()
-                walk_method(cf, init, ctx, verbose)
+                walk_method(cf, init, ctx)
                 index = ctx.cur_index
 
             class MetadataDefaultsContext(WalkerCallback):
@@ -289,11 +292,9 @@ class EntityMetadataTopping(Topping):
                             if const.name_and_type.name == metadata_entry.get('field'):
                                 return metadata_entry
                         else:
-                            if verbose:
-                                print(
-                                    "Can't figure out metadata entry for field %s; default will not be set."
-                                    % (const,)
-                                )
+                            logging.debug(
+                                f"Can't figure out metadata entry for field {const}; default will not be set."
+                            )
                             return None
 
                     if const.class_.name == aggregate['classes']['position']:
@@ -337,13 +338,12 @@ class EntityMetadataTopping(Topping):
                 f=lambda m: m.descriptor == define_synched_data_method_desc,
             )
             if register and not register.access_flags.acc_abstract:
-                walk_method(cf, register, MetadataDefaultsContext(False), verbose)
+                walk_method(cf, register, MetadataDefaultsContext(False))
             elif cls == base_entity_class:
                 walk_method(
                     cf,
                     cf.methods.find_one(name='<init>'),
                     MetadataDefaultsContext(True),
-                    verbose,
                 )
 
             get_flag_method = None
@@ -484,12 +484,11 @@ class EntityMetadataTopping(Topping):
 
     @staticmethod
     def identify_serializers(
-        classloader,
+        classloader: ClassLoader,
         dataserializer_class,
         dataserializers_class,
         classes,
         data_version,
-        verbose,
     ):
         # from .packetinstructions import PacketInstructionsTopping as _PIT
 
@@ -568,7 +567,6 @@ class EntityMetadataTopping(Topping):
                             name=name, f=lambda f: f.descriptor.value == desc
                         ),
                         SubCallback(),
-                        verbose,
                         input_args=args,
                     )
 
@@ -621,7 +619,7 @@ class EntityMetadataTopping(Topping):
 
                 # Try to do some recognition of what it is:
                 name = EntityMetadataTopping._serializer_name(
-                    classloader, inner_type, classes, verbose
+                    classloader, inner_type, classes
                 )
                 if name is not None:
                     value['name'] = name
@@ -630,7 +628,7 @@ class EntityMetadataTopping(Topping):
                 # In new versions (at the latest 24w09b), all metadata fields
                 # are codecs now, so decompilation doesn't work (and thus has been commented out)
 
-                # EntityMetadataTopping._decompile_serializer(classloader, classloader[value["class"]], classes, verbose, value, thunks, value["special_fields"])
+                # EntityMetadataTopping._decompile_serializer(classloader, classloader[value["class"]], classes, value, thunks, value["special_fields"])
                 del value['special_fields']
 
                 self.serializers_by_field[field] = value
@@ -654,11 +652,9 @@ class EntityMetadataTopping(Topping):
                 if name not in serializers:
                     serializers[name] = serializer
                 else:
-                    if verbose:
-                        print(
-                            'Duplicate serializer with identified name %s: original %s, new %s'
-                            % (name, serializers[name], serializer)
-                        )
+                    logging.debug(
+                        f'Duplicate serializer with identified name {name}: original {serializers[name]}, new {serializer}'
+                    )
                     serializers[str(id)] = (
                         serializer  # This hopefully will not clash but still shouldn't happen in the first place
                     )
@@ -676,13 +672,12 @@ class EntityMetadataTopping(Topping):
             dataserializers_cf,
             dataserializers_cf.methods.find_one(name='<clinit>'),
             Callback(),
-            verbose,
         )
 
         return serializers
 
     @staticmethod
-    def _serializer_name(classloader, inner_type, classes, verbose):
+    def _serializer_name(classloader: ClassLoader, inner_type, classes):
         """
         Attempt to identify the serializer based on the generic signature
         of the type it serializes.
@@ -739,13 +734,10 @@ class EntityMetadataTopping(Topping):
                 ):
                     name = 'VillagerData'
             except Exception:
-                if verbose:
-                    print(
-                        'Failed to determine name of metadata content type %s'
-                        % inner_type
-                    )
-                    import traceback
-
+                logging.debug(
+                    f'Failed to determine name of metadata content type {inner_type}'
+                )
+                if logging.root.isEnabledFor(logging.DEBUG):
                     traceback.print_exc()
 
         if name:
@@ -755,7 +747,12 @@ class EntityMetadataTopping(Topping):
 
     @staticmethod
     def _decompile_serializer(
-        classloader, cf, classes, verbose, serializer, thunks, special_fields
+        classloader: ClassLoader,
+        cf: ClassFile,
+        classes,
+        serializer,
+        thunks,
+        special_fields,
     ):
         # In here because otherwise the import messes with finding the topping in this file
         from .packetinstructions import PACKETBUF_NAME
@@ -773,7 +770,6 @@ class EntityMetadataTopping(Topping):
                 classloader,
                 cf,
                 classes,
-                verbose,
                 methods[0],
                 ('this', PACKETBUF_NAME, 'value'),
                 thunks,
@@ -781,10 +777,8 @@ class EntityMetadataTopping(Topping):
             )
             serializer.update(_PIT.format(operations))
         except Exception:
-            if verbose:
-                print(
-                    'Failed to process operations for metadata serializer', serializer
-                )
-                import traceback
-
+            logging.debug(
+                f'Failed to process operations for metadata serializer {serializer}'
+            )
+            if logging.root.isEnabledFor(logging.DEBUG):
                 traceback.print_exc()

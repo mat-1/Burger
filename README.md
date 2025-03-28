@@ -37,8 +37,7 @@ Alternatively, you can specify the client jar by passing it as an argument.
     $ python munch.py 1.21.5.jar
 
 You can redirect the output from the default `stdout` by passing `-o <path>` or
-`--output <path>`. This is useful when combined with verbose output (`-v` or
-`--verbose`) so that the output doesn't go into the file.
+`--output <path>`.
 
     $ python munch.py latest --output output.json
 

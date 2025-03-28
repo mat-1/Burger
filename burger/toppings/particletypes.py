@@ -8,7 +8,7 @@ class ParticleTypesTopping(Topping):
     DEPENDS = ['identify.particletypes']
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
+    def act(aggregate, classloader):
         particletypes = []
         cf = classloader[aggregate['classes']['particletypes']]
         # Method is either <clinit> or a void with no parameters, check both

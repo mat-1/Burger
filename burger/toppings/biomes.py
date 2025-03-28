@@ -22,7 +22,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
-from jawa.constants import String
+from jawa.classloader import ClassLoader
+from jawa.constants import Float, Integer, String
+from jawa.util.descriptor import method_descriptor
 
 from .topping import Topping
 
@@ -40,14 +42,13 @@ class BiomeTopping(Topping):
     ]
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
+    def act(aggregate, classloader: ClassLoader):
         if 'biome.register' not in aggregate['classes']:
             return
-        BiomeTopping._process(aggregate, classloader, verbose)
+        BiomeTopping._process(aggregate, classloader)
 
     @staticmethod
-    def _process(aggregate, classloader, verbose):
-        # Processes biomes for Minecraft 1.14
+    def _process(aggregate, classloader: ClassLoader):
         listclass = aggregate['classes']['biome.list']
         lcf = classloader[listclass]
         superclass = next(
@@ -107,4 +108,64 @@ class BiomeTopping(Topping):
                 stack.pop()
 
         # Second pass: check the biome constructors and fill in data from there.
-        BiomeTopping._process_113_classes_new(aggregate, classloader, verbose)
+        BiomeTopping._process_113_classes_new(aggregate, classloader)
+
+    @staticmethod
+    def _process_113_classes_new(aggregate, classloader: ClassLoader):
+        # After 18w16a, biomes used a builder again.  The name is now also translatable.
+
+        for biome in aggregate['biomes']['biome'].values():
+            biome['name'] = aggregate['language']['biome'][
+                'minecraft.' + biome['text_id']
+            ]
+
+            cf = classloader[biome['class']]
+            method = cf.methods.find_one(name='<init>')
+            stack = []
+            for ins in method.code.disassemble():
+                if ins == 'invokespecial':
+                    const = ins.operands[0]
+                    name = const.name_and_type.name.value
+                    if (
+                        const.class_.name.value == cf.super_.name.value
+                        and name == '<init>'
+                    ):
+                        # Calling biome init; we're done
+                        break
+                elif ins == 'invokevirtual':
+                    const = ins.operands[0]
+                    name = const.name_and_type.name.value
+                    desc = method_descriptor(const.name_and_type.descriptor.value)
+
+                    if len(desc.args) == 1:
+                        if desc.args[0].name == 'float':
+                            # Ugly portion - different methods with different names
+                            # Hopefully the order doesn't change
+                            if name == 'a':
+                                biome['height'][0] = stack.pop()
+                            elif name == 'b':
+                                biome['height'][1] = stack.pop()
+                            elif name == 'c':
+                                biome['temperature'] = stack.pop()
+                            elif name == 'd':
+                                biome['rainfall'] = stack.pop()
+                        elif desc.args[0].name == 'java/lang/String':
+                            val = stack.pop()
+                            if val is not None:
+                                biome['mutated_from'] = val
+
+                    stack = []
+                # Constants
+                elif ins in ('ldc', 'ldc_w'):
+                    const = ins.operands[0]
+                    if isinstance(const, String):
+                        stack.append(const.string.value)
+                    if isinstance(const, (Integer, Float)):
+                        stack.append(const.value)
+
+                elif ins.mnemonic.startswith('fconst'):
+                    stack.append(float(ins.mnemonic[-1]))
+                elif ins in ('bipush', 'sipush'):
+                    stack.append(ins.operands[0].value)
+                elif ins == 'aconst_null':
+                    stack.append(None)

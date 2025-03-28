@@ -23,8 +23,10 @@ THE SOFTWARE.
 """
 
 import json
+import logging
 
 import six
+from jawa.classloader import ClassLoader
 
 from .topping import Topping
 
@@ -37,42 +39,35 @@ class LanguageTopping(Topping):
     DEPENDS = []
 
     @staticmethod
-    def act(aggregate, classloader, verbose=False):
+    def act(aggregate, classloader):
         aggregate['language'] = {}
+        LanguageTopping.load_language(aggregate, classloader, 'lang/stats_US.lang')
+        LanguageTopping.load_language(aggregate, classloader, 'lang/en_US.lang')
         LanguageTopping.load_language(
-            aggregate, classloader, 'lang/stats_US.lang', verbose
+            aggregate, classloader, 'assets/minecraft/lang/en_US.lang'
         )
         LanguageTopping.load_language(
-            aggregate, classloader, 'lang/en_US.lang', verbose
+            aggregate, classloader, 'assets/minecraft/lang/en_us.lang'
         )
         LanguageTopping.load_language(
-            aggregate, classloader, 'assets/minecraft/lang/en_US.lang', verbose
-        )
-        LanguageTopping.load_language(
-            aggregate, classloader, 'assets/minecraft/lang/en_us.lang', verbose
-        )
-        LanguageTopping.load_language(
-            aggregate, classloader, 'assets/minecraft/lang/en_us.json', verbose, True
+            aggregate, classloader, 'assets/minecraft/lang/en_us.json', True
         )
 
     @staticmethod
-    def load_language(aggregate, classloader, path, verbose=False, is_json=False):
+    def load_language(aggregate, classloader: ClassLoader, path, is_json: bool = False):
         try:
             with classloader.open(path) as fin:
                 contents = fin.read().decode('utf-8')
         except Exception:
-            if verbose:
-                print("Can't find file %s in jar" % path)
+            logging.debug(f"Can't find file {path} in jar")
             return
 
-        for category, name, value in LanguageTopping.parse_lang(
-            contents, verbose, is_json
-        ):
+        for category, name, value in LanguageTopping.parse_lang(contents, is_json):
             cat = aggregate['language'].setdefault(category, {})
             cat[name] = value
 
     @staticmethod
-    def parse_lang(contents, verbose, is_json):
+    def parse_lang(contents, is_json: bool):
         if is_json:
             contents = json.loads(contents)
             for tag, value in six.iteritems(contents):
@@ -92,8 +87,7 @@ class LanguageTopping(Topping):
                     continue
 
                 if '=' not in line or '.' not in line:
-                    if verbose:
-                        print('Language file line %s is malformed: %s' % (lineno, line))
+                    logging.debug(f'Language file line {lineno} is malformed: {line}')
                     continue
 
                 tag, value = line.split('=', 1)
