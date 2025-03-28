@@ -22,14 +22,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
-from .topping import Topping
+import re
 
 from jawa.constants import String
 
-import re
+from .topping import Topping
 
-_CHANNEL_IDENTIFIER = re.compile("^(minecraft:)?[a-z0-9/_.]+$")
-_CHANNEL_STRING = re.compile(r"^MC\|[a-zA-Z0-9]+$")
+_CHANNEL_IDENTIFIER = re.compile('^(minecraft:)?[a-z0-9/_.]+$')
+_CHANNEL_STRING = re.compile(r'^MC\|[a-zA-Z0-9]+$')
 
 
 def _is_channel_identifier(text: str):
@@ -43,27 +43,27 @@ def _is_channel_string(text: str):
 class PluginChannelsTopping(Topping):
     """Provides a list of all plugin channels"""
 
-    PROVIDES = ["pluginchannels.clientbound", "pluginchannels.serverbound"]
+    PROVIDES = ['pluginchannels.clientbound', 'pluginchannels.serverbound']
     DEPENDS = [
-        "identify.nethandler.client",
-        "identify.nethandler.server",
-        "version.id",
-        "version.protocol",
+        'identify.nethandler.client',
+        'identify.nethandler.server',
+        'version.id',
+        'version.protocol',
     ]
 
     @staticmethod
     def act(aggregate, classloader, verbose=False):
-        pluginchannels = aggregate.setdefault("pluginchannels", {})
-        clientbound = pluginchannels.setdefault("clientbound", [])
-        serverbound = pluginchannels.setdefault("serverbound", [])
+        pluginchannels = aggregate.setdefault('pluginchannels', {})
+        clientbound = pluginchannels.setdefault('clientbound', [])
+        serverbound = pluginchannels.setdefault('serverbound', [])
 
         _require_fields(
-            aggregate, {"version": ["protocol", "netty_rewrite", "distribution"]}
+            aggregate, {'version': ['protocol', 'netty_rewrite', 'distribution']}
         )
 
         protocol, netty_rewrite, distribution = _get_version_info(aggregate)
 
-        assert distribution == "client", "This topping only works with the client .jar"
+        assert distribution == 'client', 'This topping only works with the client .jar'
 
         if not netty_rewrite:
             if protocol < 31:
@@ -72,11 +72,11 @@ class PluginChannelsTopping(Topping):
             elif protocol == 31:
                 # 12w17a (31) is the last version pre-merge, and so, is missing the nethandler.server necessary for the logic below
                 # To avoid unnecessary handling of edge cases, let's just return the hardcoded fields for this version
-                serverbound += ["MC|BEdit", "MC|BSign"]
+                serverbound += ['MC|BEdit', 'MC|BSign']
                 return
 
         _require_fields(
-            aggregate, {"classes": ["nethandler.client", "nethandler.server"]}
+            aggregate, {'classes': ['nethandler.client', 'nethandler.server']}
         )
 
         if protocol > 385:
@@ -87,10 +87,10 @@ class PluginChannelsTopping(Topping):
         elif protocol < 385:
             # Before 1.13-pre3 (385), the channels are strings declared in the two play packet handlers
             # The internal channels use the format "MC|<channel>"
-            classes = aggregate["classes"]
+            classes = aggregate['classes']
             channel_declaration_classes = [
-                classes["nethandler.client"],
-                classes["nethandler.server"],
+                classes['nethandler.client'],
+                classes['nethandler.server'],
             ]
             filters = [_is_channel_string, _is_channel_string]
         else:
@@ -99,7 +99,7 @@ class PluginChannelsTopping(Topping):
             payload_packets = _get_custom_payload_packets(
                 classloader, ignore_serverbound=True
             )
-            nethandler = aggregate["classes"]["nethandler.server"]
+            nethandler = aggregate['classes']['nethandler.server']
 
             channel_declaration_classes = [payload_packets[0], nethandler]
             filters = [_is_channel_identifier, _is_channel_string]
@@ -115,7 +115,7 @@ class PluginChannelsTopping(Topping):
             # After 18w43c (442), channels are not explicitly defined with the "minecraft" namespace
             # Semantics don't change, so let's add it back for consistency between versions
             all_channels = [
-                [f"minecraft:{channel}" for channel in channels]
+                [f'minecraft:{channel}' for channel in channels]
                 for channels in all_channels
             ]
 
@@ -128,18 +128,18 @@ class PluginChannelsTopping(Topping):
 
 def _require_fields(aggregate, required_fields):
     for field in required_fields:
-        assert field in aggregate, f"{field} is missing from aggregate"
+        assert field in aggregate, f'{field} is missing from aggregate'
 
         for subfield in required_fields[field]:
             assert subfield in aggregate[field], (
-                f"{field}.{subfield} is mising from aggregate"
+                f'{field}.{subfield} is mising from aggregate'
             )
 
 
 def _get_version_info(aggregate):
-    protocol = aggregate["version"].get("protocol")
-    netty_rewrite = aggregate["version"].get("netty_rewrite")
-    distribution = aggregate["version"].get("distribution")
+    protocol = aggregate['version'].get('protocol')
+    netty_rewrite = aggregate['version'].get('netty_rewrite')
+    distribution = aggregate['version'].get('distribution')
 
     return (protocol, netty_rewrite, distribution)
 
@@ -162,14 +162,14 @@ def _get_custom_payload_packets(
         if (
             not ignore_clientbound
             and clientbound_packet is None
-            and "Payload may not be larger than 1048576 bytes" in constants
+            and 'Payload may not be larger than 1048576 bytes' in constants
         ):
             if any([const for const in constants if _is_channel_identifier(const)]):
                 clientbound_packet = class_name
         elif (
             not ignore_serverbound
             and serverbound_packet is None
-            and "Payload may not be larger than 32767 bytes" in constants
+            and 'Payload may not be larger than 32767 bytes' in constants
         ):
             if any([const for const in constants if _is_channel_identifier(const)]):
                 serverbound_packet = class_name
@@ -177,7 +177,7 @@ def _get_custom_payload_packets(
     assert (ignore_clientbound or clientbound_packet is not None) and (
         ignore_serverbound or serverbound_packet is not None
     ), (
-        f"Unable to find required custom payload packets (client: {clientbound_packet}, server: {serverbound_packet})"
+        f'Unable to find required custom payload packets (client: {clientbound_packet}, server: {serverbound_packet})'
     )
 
     return [clientbound_packet, serverbound_packet]

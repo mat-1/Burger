@@ -1,29 +1,29 @@
-from .topping import Topping
-
 import json
+
+from .topping import Topping
 
 
 class TagsTopping(Topping):
     """Provides a list of all block and item tags"""
 
-    PROVIDES = ["tags"]
+    PROVIDES = ['tags']
     DEPENDS = []
 
     @staticmethod
     def act(aggregate, classloader, verbose=False):
-        tags = aggregate.setdefault("tags", {})
-        prefix = "data/minecraft/tags/"
-        suffix = ".json"
+        tags = aggregate.setdefault('tags', {})
+        prefix = 'data/minecraft/tags/'
+        suffix = '.json'
         for path in classloader.path_map:
             if not path.startswith(prefix) or not path.endswith(suffix):
                 continue
             key = path[len(prefix) : -len(suffix)]
-            idx = key.find("/")
+            idx = key.find('/')
             type, name = key[:idx], key[idx + 1 :]
             with classloader.open(path) as fin:
                 data = json.load(fin)
-            data["type"] = type
-            data["name"] = name
+            data['type'] = type
+            data['name'] = name
             tags[key] = data
 
         # Tags can reference other tags -- flatten that out.
@@ -34,7 +34,7 @@ class TagsTopping(Topping):
             if name in flattening:
                 if verbose:
                     print(
-                        "Already flattening " + name + " -- is there a cycle?",
+                        'Already flattening ' + name + ' -- is there a cycle?',
                         flattening,
                     )
                 return
@@ -44,21 +44,21 @@ class TagsTopping(Topping):
             flattening.add(name)
 
             tag = tags[name]
-            values = tag["values"]
+            values = tag['values']
             new_values = []
             for entry in values:
-                if entry.startswith("#"):
-                    assert entry.startswith("#minecraft:")
+                if entry.startswith('#'):
+                    assert entry.startswith('#minecraft:')
                     referenced_tag_name = (
-                        tag["type"] + "/" + entry[len("#minecraft:") :]
+                        tag['type'] + '/' + entry[len('#minecraft:') :]
                     )
-                    if "worldgen" in referenced_tag_name:
+                    if 'worldgen' in referenced_tag_name:
                         continue
                     flatten_tag(referenced_tag_name)
-                    new_values.extend(tags[referenced_tag_name]["values"])
+                    new_values.extend(tags[referenced_tag_name]['values'])
                 else:
                     new_values.append(entry)
-            tag["values"] = new_values
+            tag['values'] = new_values
 
             flattening.discard(name)
             flattened.add(name)

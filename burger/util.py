@@ -2,9 +2,9 @@ from abc import ABC, abstractmethod
 
 from jawa.assemble import assemble
 from jawa.cf import ClassFile
-from jawa.constants import String, ConstantClass
-from jawa.util.descriptor import method_descriptor
+from jawa.constants import ConstantClass, String
 from jawa.util.bytecode import Operand
+from jawa.util.descriptor import method_descriptor
 
 # See https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-4.html#jvms-4.4.8
 REF_getField = 1

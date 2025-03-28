@@ -22,40 +22,40 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
-from .topping import Topping
-
 from burger.util import get_enum_constants
+
+from .topping import Topping
 
 
 def packet_name(packet):
-    return "%s_%s_%02X" % (packet["state"], packet["direction"], packet["id"])
+    return '%s_%s_%02X' % (packet['state'], packet['direction'], packet['id'])
 
 
 class PacketsTopping(Topping):
     """Provides minimal information on all network packets."""
 
-    PROVIDES = ["packets.ids", "packets.classes", "packets.directions"]
+    PROVIDES = ['packets.ids', 'packets.classes', 'packets.directions']
 
-    DEPENDS = ["identify.packet.connectionstate", "identify.packet.packetbuffer"]
+    DEPENDS = ['identify.packet.connectionstate', 'identify.packet.packetbuffer']
 
     @staticmethod
     def act(aggregate, classloader, verbose=False):
-        packets = aggregate.setdefault("packets", {})
-        packet = packets.setdefault("packet", {})
-        states = packets.setdefault("states", {})
-        directions = packets.setdefault("directions", {})
+        packets = aggregate.setdefault('packets', {})
+        packet = packets.setdefault('packet', {})
+        states = packets.setdefault('states', {})
+        directions = packets.setdefault('directions', {})
 
         PacketsTopping.parse(
             classloader,
-            aggregate["classes"],
+            aggregate['classes'],
             directions,
             states,
             packet,
             verbose,
         )
 
-        info = packets.setdefault("info", {})
-        info["count"] = len(packet)
+        info = packets.setdefault('info', {})
+        info['count'] = len(packet)
 
     @staticmethod
     def parse(classloader, classes, directions, states, packets, verbose):
@@ -97,40 +97,40 @@ class PacketsTopping(Topping):
         }
         """
         # Note that StatusPackets and PingPackets are separate in this, but there is still only one ProtocolType for them.
-        protocol_type_cf = classloader[classes["packet.connectionstate"]]
+        protocol_type_cf = classloader[classes['packet.connectionstate']]
 
         # Identify the enum constants:
         states.update(get_enum_constants(protocol_type_cf, verbose))
         # All 1.21 versions have CONFIGURATION
         assert states.keys() == set(
-            ("HANDSHAKING", "PLAY", "STATUS", "LOGIN", "CONFIGURATION")
+            ('HANDSHAKING', 'PLAY', 'STATUS', 'LOGIN', 'CONFIGURATION')
         )
 
         # The handshake class only has serverbound packets (the rest have both)
-        handshake_list_cf = classloader[classes["packet.list.handshake"]]
+        handshake_list_cf = classloader[classes['packet.list.handshake']]
         assert len(handshake_list_cf.methods) == 3
-        assert len(list(handshake_list_cf.methods.find(args="Ljava/lang/String;"))) == 1
+        assert len(list(handshake_list_cf.methods.find(args='Ljava/lang/String;'))) == 1
 
         def check_register_method_insts(insts):
             # NOTE: simple_swap transform (from classloader configuration in munch.py) changes aload_0 to aload
 
             expected_instructions = (
-                "new",
-                "dup",
-                "getstatic",
-                "aload",
-                "invokestatic",
-                "invokespecial",
-                "areturn",
+                'new',
+                'dup',
+                'getstatic',
+                'aload',
+                'invokestatic',
+                'invokespecial',
+                'areturn',
             )
             assert len(insts) == len(expected_instructions)
             given_instructions = tuple(inst.mnemonic for inst in insts)
             assert given_instructions == expected_instructions, (
-                f"Expected {expected_instructions}, got {given_instructions}"
+                f'Expected {expected_instructions}, got {given_instructions}'
             )
 
         handshake_register_method = handshake_list_cf.methods.find_one(
-            args="Ljava/lang/String;"
+            args='Ljava/lang/String;'
         )
         handshake_register_insts = list(handshake_register_method.code.disassemble())
         check_register_method_insts(handshake_register_insts)
@@ -139,24 +139,24 @@ class PacketsTopping(Topping):
 
         directions.update(get_enum_constants(classloader[direction_class], verbose))
         directions_by_field = {
-            direction["field"]: direction for direction in directions.values()
+            direction['field']: direction for direction in directions.values()
         }
 
         def get_register_method_direction(insts):
             return directions_by_field[insts[2].operands[0].name_and_type.name.value][
-                "name"
+                'name'
             ]
 
-        assert get_register_method_direction(handshake_register_insts) == "SERVERBOUND"
+        assert get_register_method_direction(handshake_register_insts) == 'SERVERBOUND'
 
-        handshake_clinit_method = handshake_list_cf.methods.find_one(name="<clinit>")
+        handshake_clinit_method = handshake_list_cf.methods.find_one(name='<clinit>')
         handshake_clinit_insts = list(handshake_clinit_method.code.disassemble())
         assert len(handshake_clinit_insts) == 4
         assert (
-            handshake_clinit_insts[0].mnemonic == "ldc"
-            and handshake_clinit_insts[1].mnemonic == "invokestatic"
-            and handshake_clinit_insts[2].mnemonic == "putstatic"
-            and handshake_clinit_insts[3].mnemonic == "return"
+            handshake_clinit_insts[0].mnemonic == 'ldc'
+            and handshake_clinit_insts[1].mnemonic == 'invokestatic'
+            and handshake_clinit_insts[2].mnemonic == 'putstatic'
+            and handshake_clinit_insts[3].mnemonic == 'return'
         )
 
         state_counter = {}
@@ -165,12 +165,12 @@ class PacketsTopping(Topping):
             list_cf = classloader[name]
             assert len(list_cf.methods) == 2 + num_register_methods
             assert (
-                len(list(list_cf.methods.find(args="Ljava/lang/String;")))
+                len(list(list_cf.methods.find(args='Ljava/lang/String;')))
                 == num_register_methods
             )
 
             register_method_dirs_by_method_name = {}
-            for m in list_cf.methods.find(args="Ljava/lang/String;"):
+            for m in list_cf.methods.find(args='Ljava/lang/String;'):
                 insts = list(m.code.disassemble())
                 check_register_method_insts(insts)
                 register_method_dirs_by_method_name[m.name.value] = (
@@ -181,25 +181,25 @@ class PacketsTopping(Topping):
             for f in list_cf.fields:
                 # e.g. Lxz<Lagr;>; becomes agr.class (packetinstructions expects
                 # .class for some reason, and that also ends up in the final JSON)
-                signature = f.attributes.find_one(name="Signature").signature.value
+                signature = f.attributes.find_one(name='Signature').signature.value
                 inner_type = signature[
-                    signature.index("<") + 2 : signature.rindex(">") - 1
+                    signature.index('<') + 2 : signature.rindex('>') - 1
                 ]
-                field_to_class[f.name.value] = inner_type + ".class"
+                field_to_class[f.name.value] = inner_type + '.class'
 
             clinit_insts = list(
-                list_cf.methods.find_one(name="<clinit>").code.disassemble()
+                list_cf.methods.find_one(name='<clinit>').code.disassemble()
             )
-            assert clinit_insts[-1].mnemonic == "return"
+            assert clinit_insts[-1].mnemonic == 'return'
             # Groups of 3 instructions: ldc, invokestatic, then putstatic
             assert (len(clinit_insts) - 1) % 3 == 0
             for i in range(0, len(clinit_insts) - 1, 3):
                 assert (
-                    clinit_insts[i + 0].mnemonic == "ldc"
-                    or clinit_insts[i + 0].mnemonic == "ldc_w"
+                    clinit_insts[i + 0].mnemonic == 'ldc'
+                    or clinit_insts[i + 0].mnemonic == 'ldc_w'
                 )
-                assert clinit_insts[i + 1].mnemonic == "invokestatic"
-                assert clinit_insts[i + 2].mnemonic == "putstatic"
+                assert clinit_insts[i + 1].mnemonic == 'invokestatic'
+                assert clinit_insts[i + 2].mnemonic == 'putstatic'
 
                 packet_name = clinit_insts[i + 0].operands[0].string.value
                 packet_dir = register_method_dirs_by_method_name[
@@ -218,25 +218,25 @@ class PacketsTopping(Topping):
                     id = 0
                 state_counter[state][packet_dir] = id + 1
 
-                from_client = packet_dir == "SERVERBOUND"
-                from_server = packet_dir == "CLIENTBOUND"
+                from_client = packet_dir == 'SERVERBOUND'
+                from_server = packet_dir == 'CLIENTBOUND'
                 packet = {
                     # "id": id,  - disabled since I'm pretty sure this is the wrong way of calculating things
-                    "id": -1,
-                    "class": packet_class,
-                    "direction": packet_dir,
-                    "from_client": from_client,
-                    "from_server": from_server,
-                    "state": state,
+                    'id': -1,
+                    'class': packet_class,
+                    'direction': packet_dir,
+                    'from_client': from_client,
+                    'from_server': from_server,
+                    'state': state,
                 }
-                packets[state + "_" + packet["direction"] + "_" + packet_name] = packet
+                packets[state + '_' + packet['direction'] + '_' + packet_name] = packet
 
         process_packet_list(
-            classes["packet.list.handshake"], "HANDSHAKING", num_register_methods=1
+            classes['packet.list.handshake'], 'HANDSHAKING', num_register_methods=1
         )
-        process_packet_list(classes["packet.list.login"], "LOGIN")
-        process_packet_list(classes["packet.list.cookie"], "CONFIGURATION")
-        process_packet_list(classes["packet.list.common"], "PLAY")
-        process_packet_list(classes["packet.list.game"], "PLAY")
-        process_packet_list(classes["packet.list.ping"], "STATUS")
-        process_packet_list(classes["packet.list.status"], "STATUS")
+        process_packet_list(classes['packet.list.login'], 'LOGIN')
+        process_packet_list(classes['packet.list.cookie'], 'CONFIGURATION')
+        process_packet_list(classes['packet.list.common'], 'PLAY')
+        process_packet_list(classes['packet.list.game'], 'PLAY')
+        process_packet_list(classes['packet.list.ping'], 'STATUS')
+        process_packet_list(classes['packet.list.status'], 'STATUS')

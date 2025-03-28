@@ -22,27 +22,27 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
-from .topping import Topping
-
 from jawa.util.descriptor import method_descriptor
 
 from burger.util import WalkerCallback, walk_method
+
+from .topping import Topping
 
 
 class ItemsTopping(Topping):
     """Provides some information on most available items."""
 
-    PROVIDES = ["identify.item.superclass", "items"]
+    PROVIDES = ['identify.item.superclass', 'items']
 
     DEPENDS = [
-        "identify.block.superclass",
-        "identify.block.list",
-        "identify.item.register",
-        "identify.item.list",
-        "language",
-        "blocks",
-        "version.protocol",
-        "version.is_flattened",
+        'identify.block.superclass',
+        'identify.block.list',
+        'identify.item.register',
+        'identify.item.list',
+        'language',
+        'blocks',
+        'version.protocol',
+        'version.is_flattened',
     ]
 
     @staticmethod
@@ -52,40 +52,40 @@ class ItemsTopping(Topping):
     @staticmethod
     def _process(aggregate, classloader, verbose):
         # All of the registration happens in the list class
-        listclass = aggregate["classes"]["item.list"]
+        listclass = aggregate['classes']['item.list']
         lcf = classloader[listclass]
         superclass = next(
             lcf.fields.find()
         ).type.name  # The first field in the list class is an item
         cf = classloader[superclass]
-        aggregate["classes"]["item.superclass"] = superclass
-        blockclass = aggregate["classes"]["block.superclass"]
-        blocklist = aggregate["classes"]["block.list"]
+        aggregate['classes']['item.superclass'] = superclass
+        blockclass = aggregate['classes']['block.superclass']
+        blocklist = aggregate['classes']['block.list']
 
         cf = classloader[superclass]
 
-        if "item" in aggregate["language"]:
-            language = aggregate["language"]["item"]
+        if 'item' in aggregate['language']:
+            language = aggregate['language']['item']
         else:
             language = None
 
         # 23w40a+ (1.20.3) has a references class that defines the IDs for some items
-        references_class = aggregate["classes"].get("item.references")
+        references_class = aggregate['classes'].get('item.references')
         references_class_fields_to_item_ids = {}
         if references_class:
             # process the references class
             references_cf = classloader[references_class]
-            for method in references_cf.methods.find(name="<clinit>"):
+            for method in references_cf.methods.find(name='<clinit>'):
                 item_id = None
                 for ins in method.code.disassemble():
-                    if ins.mnemonic == "ldc":
+                    if ins.mnemonic == 'ldc':
                         item_id = ins.operands[0].string.value
-                    if ins.mnemonic == "putstatic":
+                    if ins.mnemonic == 'putstatic':
                         field = ins.operands[0].name_and_type.name.value
                         references_class_fields_to_item_ids[field] = item_id
 
         # Figure out what the builder class is
-        ctor = cf.methods.find_one(name="<init>")
+        ctor = cf.methods.find_one(name='<init>')
         builder_class = ctor.args[0].name
         builder_cf = classloader[builder_class]
 
@@ -94,14 +94,14 @@ class ItemsTopping(Topping):
         #     return this.component(DataComponents.MAX_STACK_SIZE, var1);
         # }
         max_stack_method = None
-        for method in builder_cf.methods.find(args="I"):
+        for method in builder_cf.methods.find(args='I'):
             expected_instructions = (
-                "aload",
-                "getstatic",
-                "iload",
-                "invokestatic",
-                "invokevirtual",
-                "areturn",
+                'aload',
+                'getstatic',
+                'iload',
+                'invokestatic',
+                'invokevirtual',
+                'areturn',
             )
             insts = method.code.disassemble()
             given_instructions = tuple(ins.mnemonic for ins in insts)
@@ -112,30 +112,30 @@ class ItemsTopping(Topping):
             raise Exception("Couldn't find max stack size setter in " + builder_class)
 
         register_item_block_method = lcf.methods.find_one(
-            args="L" + blockclass + ";", returns="L" + superclass + ";"
+            args='L' + blockclass + ';', returns='L' + superclass + ';'
         )
         item_block_class = None
         # Find the class used that represents an item that is a block
         for ins in register_item_block_method.code.disassemble():
-            if ins.mnemonic == "new":
+            if ins.mnemonic == 'new':
                 const = ins.operands[0]
                 item_block_class = const.name.value
                 break
 
-        items = aggregate.setdefault("items", {})
-        item_list = items.setdefault("item", {})
-        item_fields = items.setdefault("item_fields", {})
+        items = aggregate.setdefault('items', {})
+        item_list = items.setdefault('item', {})
+        item_fields = items.setdefault('item_fields', {})
 
         is_item_class_cache = {superclass: True}
 
         def is_item_class(name):
             if name in is_item_class_cache:
                 return is_item_class_cache
-            elif name == "java/lang/Object":
+            elif name == 'java/lang/Object':
                 return True
-            elif "/" in name:
+            elif '/' in name:
                 return False
-            elif name == "int":
+            elif name == 'int':
                 return False
 
             cf = classloader[name]
@@ -144,7 +144,7 @@ class ItemsTopping(Topping):
             return result
 
         # Find the static block registration method
-        method = lcf.methods.find_one(name="<clinit>")
+        method = lcf.methods.find_one(name='<clinit>')
 
         class Walker(WalkerCallback):
             def __init__(self):
@@ -152,14 +152,14 @@ class ItemsTopping(Topping):
 
             def on_new(self, ins, const):
                 class_name = const.name.value
-                return {"class": class_name}
+                return {'class': class_name}
 
             def on_invoke(self, ins, const, obj, args):
                 method_name = const.name_and_type.name.value
                 method_desc = const.name_and_type.descriptor.value
                 desc = method_descriptor(method_desc)
 
-                if ins.mnemonic == "invokestatic":
+                if ins.mnemonic == 'invokestatic':
                     if const.class_.name.value == listclass:
                         current_item = {}
 
@@ -169,19 +169,19 @@ class ItemsTopping(Topping):
                                 if isinstance(args[idx], list):
                                     continue
                                 block = args[idx]
-                                text_id = block["text_id"]
-                                if "name" in block:
-                                    current_item["name"] = block["name"]
-                                if "display_name" in block:
-                                    current_item["display_name"] = block["display_name"]
+                                text_id = block['text_id']
+                                if 'name' in block:
+                                    current_item['name'] = block['name']
+                                if 'display_name' in block:
+                                    current_item['display_name'] = block['display_name']
                             elif arg.name == superclass:
                                 current_item.update(args[idx])
                             elif arg.name == item_block_class:
                                 current_item.update(args[idx])
-                                text_id = current_item["text_id"]
-                            elif arg.name == "java/lang/String":
+                                text_id = current_item['text_id']
+                            elif arg.name == 'java/lang/String':
                                 text_id = args[idx]
-                            elif arg.name == aggregate["classes"].get("resourcekey"):
+                            elif arg.name == aggregate['classes'].get('resourcekey'):
                                 text_id = args[idx]
 
                         if current_item == {} and not text_id:
@@ -195,52 +195,52 @@ class ItemsTopping(Topping):
                         if not text_id:
                             if verbose:
                                 print(
-                                    "Could not find text_id for call to %s with %s"
+                                    'Could not find text_id for call to %s with %s'
                                     % (method_desc, args)
                                 )
                             return
 
                         # Call to the static register method.
-                        current_item["text_id"] = text_id
-                        current_item["numeric_id"] = self.cur_id
+                        current_item['text_id'] = text_id
+                        current_item['numeric_id'] = self.cur_id
                         self.cur_id += 1
-                        lang_key = "minecraft.%s" % text_id
+                        lang_key = 'minecraft.%s' % text_id
                         if language is not None and lang_key in language:
-                            current_item["display_name"] = language[lang_key]
-                        if "max_stack_size" not in current_item:
-                            current_item["max_stack_size"] = 64
+                            current_item['display_name'] = language[lang_key]
+                        if 'max_stack_size' not in current_item:
+                            current_item['max_stack_size'] = 64
                         item_list[text_id] = current_item
 
                         return current_item
                 else:
-                    if method_name == "<init>":
+                    if method_name == '<init>':
                         # Call to a constructor.  Check if the builder is in the args,
                         # and if so update the item with it
                         idx = 0
                         for arg in desc.args:
                             if arg.name == builder_class:
                                 # Update from the builder
-                                if "max_stack_size" in args[idx]:
-                                    obj["max_stack_size"] = args[idx]["max_stack_size"]
-                            elif arg.name == blockclass and "text_id" not in obj:
+                                if 'max_stack_size' in args[idx]:
+                                    obj['max_stack_size'] = args[idx]['max_stack_size']
+                            elif arg.name == blockclass and 'text_id' not in obj:
                                 block = args[idx]
-                                obj["text_id"] = block["text_id"]
-                                if "name" in block:
-                                    obj["name"] = block["name"]
-                                if "display_name" in block:
-                                    obj["display_name"] = block["display_name"]
+                                obj['text_id'] = block['text_id']
+                                if 'name' in block:
+                                    obj['name'] = block['name']
+                                if 'display_name' in block:
+                                    obj['display_name'] = block['display_name']
                             idx += 1
                     elif (
                         method_name == max_stack_method.name.value
                         and method_desc == max_stack_method.descriptor.value
                     ):
-                        obj["max_stack_size"] = args[0]
+                        obj['max_stack_size'] = args[0]
 
-                if desc.returns.name != "void":
+                if desc.returns.name != 'void':
                     if desc.returns.name == builder_class or is_item_class(
                         desc.returns.name
                     ):
-                        if ins.mnemonic == "invokestatic":
+                        if ins.mnemonic == 'invokestatic':
                             if (
                                 len(desc.args) > 0
                                 and desc.args[0].name == builder_class
@@ -268,18 +268,18 @@ class ItemsTopping(Topping):
             def on_get_field(self, ins, const, obj):
                 if const.class_.name.value == blocklist:
                     # Getting a block; put it on the stack.
-                    block_name = aggregate["blocks"]["block_fields"][
+                    block_name = aggregate['blocks']['block_fields'][
                         const.name_and_type.name.value
                     ]
-                    if block_name not in aggregate["blocks"]["block"]:
+                    if block_name not in aggregate['blocks']['block']:
                         if verbose:
                             print(
-                                "No information available for item-block for %s/%s"
+                                'No information available for item-block for %s/%s'
                                 % (const.name_and_type.name.value, block_name)
                             )
                         return {}
                     else:
-                        return aggregate["blocks"]["block"][block_name]
+                        return aggregate['blocks']['block'][block_name]
                 elif const.class_.name.value == references_class:
                     # get the block key from the references.Item class
                     if (
@@ -292,9 +292,9 @@ class ItemsTopping(Topping):
                     else:
                         if verbose:
                             print(
-                                "Unknown field",
+                                'Unknown field',
                                 const.name_and_type.name.value,
-                                "in references class",
+                                'in references class',
                                 references_class,
                             )
                         return None
@@ -307,8 +307,8 @@ class ItemsTopping(Topping):
             def on_put_field(self, ins, const, obj, value):
                 if isinstance(value, dict):
                     field = const.name_and_type.name.value
-                    value["field"] = field
-                    item_fields[const.name_and_type.name.value] = value["text_id"]
+                    value['field'] = field
+                    item_fields[const.name_and_type.name.value] = value['text_id']
 
             def on_invokedynamic(self, ins, const, args):
                 # we can just ignore these

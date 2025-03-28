@@ -1,6 +1,6 @@
 from typing import Optional
 
-MAPPINGS: Optional["Mappings"] = None
+MAPPINGS: Optional['Mappings'] = None
 
 
 def set_global_mappings(mappings):
@@ -9,7 +9,7 @@ def set_global_mappings(mappings):
 
 
 class Mappings:
-    __slots__ = ("classes", "fields", "methods", "field_types", "method_types")
+    __slots__ = ('classes', 'fields', 'methods', 'field_types', 'method_types')
 
     def __init__(self, classes, fields, methods, field_types, method_types):
         self.classes = classes
@@ -29,38 +29,38 @@ class Mappings:
         current_obfuscated_class_name = None
 
         for line in mappings_txt.splitlines():
-            if line.startswith("#") or line == "":
+            if line.startswith('#') or line == '':
                 continue
 
-            if line.startswith("    "):
+            if line.startswith('    '):
                 # if a line starts with 4 spaces, that means it's a method or a field
-                if "(" in line:
+                if '(' in line:
                     # if it has an opening parenthesis, it's a method
                     real_name_with_parameters_and_line, obfuscated_name = (
-                        line.strip().split(" -> ")
+                        line.strip().split(' -> ')
                     )
                     real_name_with_parameters = (
-                        real_name_with_parameters_and_line.split(":")[-1]
+                        real_name_with_parameters_and_line.split(':')[-1]
                     )
 
-                    real_type, real_name = real_name_with_parameters.split("(")[
+                    real_type, real_name = real_name_with_parameters.split('(')[
                         0
-                    ].split(" ")
-                    parameters = real_name_with_parameters.split("(")[1].split(")")[0]
+                    ].split(' ')
+                    parameters = real_name_with_parameters.split('(')[1].split(')')[0]
 
                     if current_obfuscated_class_name not in methods:
                         methods[current_obfuscated_class_name] = {}
                         method_types[current_obfuscated_class_name] = {}
                     methods[current_obfuscated_class_name][
-                        f"{obfuscated_name}({parameters})"
+                        f'{obfuscated_name}({parameters})'
                     ] = real_name
                     method_types[current_obfuscated_class_name][
-                        f"{obfuscated_name}({parameters})"
+                        f'{obfuscated_name}({parameters})'
                     ] = real_type
                 else:
                     # otherwise, it's a field
-                    real_name_with_type, obfuscated_name = line.strip().split(" -> ")
-                    real_type, real_name = real_name_with_type.split(" ")
+                    real_name_with_type, obfuscated_name = line.strip().split(' -> ')
+                    real_type, real_name = real_name_with_type.split(' ')
 
                     if current_obfuscated_class_name not in fields:
                         fields[current_obfuscated_class_name] = {}
@@ -71,7 +71,7 @@ class Mappings:
                     )
             else:
                 # otherwise it's a class
-                real_name, obfuscated_name = line.strip(":").split(" -> ")
+                real_name, obfuscated_name = line.strip(':').split(' -> ')
                 current_obfuscated_class_name = obfuscated_name
 
                 classes[obfuscated_name] = real_name
@@ -82,20 +82,20 @@ class Mappings:
         return self.fields.get(obfuscated_class_name, {}).get(obfuscated_field_name)
 
     def get_class(self, obfuscated_class_name):
-        if "<" in obfuscated_class_name:
-            first_part, args = obfuscated_class_name.split("<")
-            args = args.rstrip(">").strip(";").split(";")
+        if '<' in obfuscated_class_name:
+            first_part, args = obfuscated_class_name.split('<')
+            args = args.rstrip('>').strip(';').split(';')
             print(args)
             assert len(args) == 1
             arg = self.get_class(args[0][1:])
-            return f"{first_part}<{arg}>"
+            return f'{first_part}<{arg}>'
         return self.classes[obfuscated_class_name]
 
     def get_method(
         self, obfuscated_class_name, obfuscated_method_name, obfuscated_signature
     ):
         return self.methods[obfuscated_class_name][
-            f"{obfuscated_method_name}({obfuscated_signature})"
+            f'{obfuscated_method_name}({obfuscated_signature})'
         ]
 
     def get_method_from_deobfuscated_name(self, obfuscated_class_name, method_name):
@@ -104,9 +104,9 @@ class Mappings:
         ].items():
             print(candidate_method_name)
             if candidate_method_name == method_name:
-                return method_obfuscated_name.split("(")[0]
+                return method_obfuscated_name.split('(')[0]
         raise ValueError(
-            f"Method {method_name} not found in class {obfuscated_class_name}"
+            f'Method {method_name} not found in class {obfuscated_class_name}'
         )
 
     def get_field_type(self, obfuscated_class_name, obfuscated_field_name) -> str:
@@ -116,7 +116,7 @@ class Mappings:
         self, obfuscated_class_name, obfuscated_method_name, obfuscated_signature
     ) -> str:
         return self.method_types[obfuscated_class_name][
-            f"{obfuscated_method_name}({obfuscated_signature})"
+            f'{obfuscated_method_name}({obfuscated_signature})'
         ]
 
     def get_class_from_deobfuscated_name(self, deobfuscated_name) -> Optional[str]:

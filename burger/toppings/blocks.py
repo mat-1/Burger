@@ -22,14 +22,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
-from burger.mappings import MAPPINGS
 import jawa
 import jawa.classloader
-from .topping import Topping
-
 from jawa.util.descriptor import method_descriptor
 
-from burger.util import WalkerCallback, walk_method, try_eval_lambda
+from burger.mappings import MAPPINGS
+from burger.util import WalkerCallback, try_eval_lambda, walk_method
+
+from .topping import Topping
 
 
 class BlocksTopping(Topping):

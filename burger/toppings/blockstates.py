@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
 
-from .topping import Topping
+import traceback
+
+import six
+from jawa.constants import ConstantClass, String
+from jawa.util.descriptor import field_descriptor, method_descriptor
+
 from burger.util import InvokeDynamicInfo, REF_invokeStatic, get_enum_constants
 
-from jawa.constants import String, ConstantClass
-from jawa.util.descriptor import method_descriptor, field_descriptor
-
-import traceback
-import six
+from .topping import Topping
 
 
 # EnumFacing.Plane.  Needed because this is also a predicate, which is used
