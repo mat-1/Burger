@@ -103,7 +103,7 @@ if __name__ == '__main__':
         client_path = urllib.urlretrieve(url_path)[0]
     if args.version.endswith('.jar'):
         client_path = args.version
-    if args.version == 'latest':
+    elif args.version == 'latest':
         # Download a copy of the latest snapshot jar
         client_path = website.latest_client_jar()
     else:
