@@ -122,6 +122,10 @@ class BlocksTopping(Topping):
             )
         assert light_setter is not None
 
+        block_behavior_class = MAPPINGS.get_class_from_classloader(
+            classloader,
+            'net.minecraft.world.level.block.state.BlockBehaviour',
+        )
         properties_class = MAPPINGS.get_class_from_classloader(
             classloader,
             'net.minecraft.world.level.block.state.BlockBehaviour$Properties',
@@ -229,12 +233,15 @@ class BlocksTopping(Topping):
                             return walk_method(lcf, sub_method, self, args)
                     elif const.class_.name.value == builder_class:
                         if (
-                            len(desc.args) == 1 and desc.args[0].name == superclass
-                        ):  # Copy constructor
+                            len(desc.args) == 1 and desc.args[0].name == block_behavior_class.this.name
+                        ):
+                            # ofLegacyCopy and ofFullCopy
+
                             copy = dict(args[0])
                             del copy['text_id']
                             del copy['numeric_id']
-                            del copy['class']
+                            if 'class' in copy:
+                                del copy['class']
                             if 'display_name' in copy:
                                 del copy['display_name']
                             return copy
