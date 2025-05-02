@@ -122,22 +122,21 @@ class BlocksTopping(Topping):
             )
         assert light_setter is not None
 
-        # public BlockBehaviour.Properties forceSolidOn() {
-
-        properties_class = MAPPINGS.get_class_from_deobfuscated_name(
-            'net.minecraft.world.level.block.state.BlockBehaviour$Properties'
+        properties_class = MAPPINGS.get_class_from_classloader(
+            classloader,
+            'net.minecraft.world.level.block.state.BlockBehaviour$Properties',
         )
-        force_solid_on_setter_name = MAPPINGS.get_method_from_deobfuscated_name(
+        force_solid_on_setter = MAPPINGS.get_method_from_classfile(
             properties_class, 'forceSolidOn'
         )
-        force_solid_on_setter = classloader[properties_class].methods.find_one(
-            name=force_solid_on_setter_name
-        )
-        force_solid_off_setter_name = MAPPINGS.get_method_from_deobfuscated_name(
+        force_solid_off_setter = MAPPINGS.get_method_from_classfile(
             properties_class, 'forceSolidOff'
         )
-        force_solid_off_setter = classloader[properties_class].methods.find_one(
-            name=force_solid_off_setter_name
+        requires_correct_tool_for_drops_setter = MAPPINGS.get_method_from_classfile(
+            properties_class, 'requiresCorrectToolForDrops'
+        )
+        friction_setter = MAPPINGS.get_method_from_classfile(
+            properties_class, 'friction', args='F'
         )
 
         blocks = aggregate.setdefault('blocks', {})
@@ -281,6 +280,17 @@ class BlocksTopping(Topping):
                         and method_desc == force_solid_off_setter.descriptor.value
                     ):
                         obj['force_solid_off'] = True
+                    elif (
+                        method_name == requires_correct_tool_for_drops_setter.name.value
+                        and method_desc
+                        == requires_correct_tool_for_drops_setter.descriptor.value
+                    ):
+                        obj['requires_correct_tool_for_drops'] = True
+                    elif (
+                        method_name == friction_setter.name.value
+                        and method_desc == friction_setter.descriptor.value
+                    ):
+                        obj['friction'] = args[0]
                     elif method_name == '<init>':
                         # Call to the constructor for the block
                         # The majority of blocks have a 1-arg constructor simply taking the builder.

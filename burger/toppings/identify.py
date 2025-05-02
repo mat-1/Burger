@@ -234,8 +234,8 @@ def identify(classloader: ClassLoader, path):
                 return 'item.references', class_file.this.name.value
 
             if value in ('Ice Plains', 'mutated_ice_flats', 'ice_spikes'):
-                # Finally, biomes.  There's several different names that were used for this one biome
-                # Only classes are the list class and the one with registration.  Note that the list didn't exist in 1.8.
+                # Finally, biomes. There's several different names that were used for this one biome
+                # Only classes are the list class and the one with registration. Note that the list didn't exist in 1.8.
                 class_file = classloader[path]
 
                 for c2 in class_file.constants.find(type_=String):

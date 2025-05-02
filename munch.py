@@ -117,7 +117,7 @@ if __name__ == '__main__':
 
     if not mappings_path:
         sys.stderr.write(
-            'Version name was not passed explicitly, please provide mappings file using --mappings'
+            'Version name was not passed explicitly, please provide mappings file using --mappings\n'
         )
         sys.exit(1)
 

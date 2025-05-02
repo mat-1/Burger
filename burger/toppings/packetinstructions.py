@@ -122,7 +122,6 @@ class PacketInstructionsTopping(Topping):
                                 operations, default=lambda o: o.__dict__, indent=4
                             )
                         )
-                    logging.debug()
 
     @staticmethod
     def list_thunks(classloader, packetbuffer_class):

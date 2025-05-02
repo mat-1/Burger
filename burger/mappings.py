@@ -1,4 +1,5 @@
 from typing import Optional
+from jawa.classloader import ClassLoader, ClassFile
 
 MAPPINGS: Optional['Mappings'] = None
 
@@ -78,30 +79,34 @@ class Mappings:
 
         return Mappings(classes, fields, methods, field_types, method_types)
 
-    def get_field(self, obfuscated_class_name, obfuscated_field_name):
+    def deobfuscate_field_name(
+        self, obfuscated_class_name: str, obfuscated_field_name: str
+    ) -> Optional[str]:
         return self.fields.get(obfuscated_class_name, {}).get(obfuscated_field_name)
 
-    def get_class(self, obfuscated_class_name):
+    def deobfuscate_class_name(self, obfuscated_class_name: str) -> str:
         if '<' in obfuscated_class_name:
             first_part, args = obfuscated_class_name.split('<')
             args = args.rstrip('>').strip(';').split(';')
             assert len(args) == 1
-            arg = self.get_class(args[0][1:])
+            arg = self.deobfuscate_class_name(args[0][1:])
             return f'{first_part}<{arg}>'
         return self.classes[obfuscated_class_name]
 
-    def get_method(
+    def deobfuscate_method_name(
         self, obfuscated_class_name, obfuscated_method_name, obfuscated_signature
     ):
         return self.methods[obfuscated_class_name][
             f'{obfuscated_method_name}({obfuscated_signature})'
         ]
 
-    def get_method_from_deobfuscated_name(self, obfuscated_class_name, method_name):
-        for method_obfuscated_name, candidate_method_name in self.methods[
+    def obfuscate_method_name(
+        self, obfuscated_class_name: str, method_name: str
+    ) -> str:
+        for method_obfuscated_name, real_name in self.methods[
             obfuscated_class_name
         ].items():
-            if candidate_method_name == method_name:
+            if real_name == method_name:
                 return method_obfuscated_name.split('(')[0]
         raise ValueError(
             f'Method {method_name} not found in class {obfuscated_class_name}'
@@ -111,14 +116,38 @@ class Mappings:
         return self.field_types[obfuscated_class_name][obfuscated_field_name]
 
     def get_method_type(
-        self, obfuscated_class_name, obfuscated_method_name, obfuscated_signature
+        self,
+        obfuscated_class_name: str,
+        obfuscated_method_name: str,
+        obfuscated_signature: str,
     ) -> str:
         return self.method_types[obfuscated_class_name][
             f'{obfuscated_method_name}({obfuscated_signature})'
         ]
 
-    def get_class_from_deobfuscated_name(self, deobfuscated_name) -> Optional[str]:
+    def obfuscate_class_name(self, deobfuscated_name) -> Optional[str]:
         for obfuscated_name, real_name in self.classes.items():
             if real_name == deobfuscated_name:
                 return obfuscated_name
         return None
+
+    def get_class_from_classloader(
+        self, classloader: ClassLoader, deobfuscated_class_name: str
+    ) -> ClassFile:
+        obfuscated_name = self.obfuscate_class_name(deobfuscated_class_name)
+        return classloader[obfuscated_name]
+
+    def get_method_from_classfile(
+        self,
+        classfile: ClassFile,
+        deobfuscated_method_name: str,
+        args: Optional[str] = None,
+        returns: Optional[str] = None,
+    ) -> Optional[str]:
+        obfuscated_class_name = classfile.this.name.value
+        obfuscated_name = self.obfuscate_method_name(
+            obfuscated_class_name, deobfuscated_method_name
+        )
+        return classfile.methods.find_one(
+            name=obfuscated_name, args=args, returns=returns
+        )
