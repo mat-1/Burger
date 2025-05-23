@@ -100,14 +100,17 @@ class Mappings:
             f'{obfuscated_method_name}({obfuscated_signature})'
         ]
 
-    def obfuscate_method_name(
+    def obfuscate_method_name_and_args(
         self, obfuscated_class_name: str, method_name: str
     ) -> str:
         for method_obfuscated_name, real_name in self.methods[
             obfuscated_class_name
         ].items():
             if real_name == method_name:
-                return method_obfuscated_name.split('(')[0]
+                method_obfuscated_name, args = method_obfuscated_name.split('(')
+                args = args.split(')')[0]
+
+                return method_obfuscated_name, self.obfuscate_descriptor(args)
         raise ValueError(
             f'Method {method_name} not found in class {obfuscated_class_name}'
         )
@@ -125,7 +128,7 @@ class Mappings:
             f'{obfuscated_method_name}({obfuscated_signature})'
         ]
 
-    def obfuscate_class_name(self, deobfuscated_name) -> Optional[str]:
+    def obfuscate_class_name(self, deobfuscated_name: str) -> Optional[str]:
         for obfuscated_name, real_name in self.classes.items():
             if real_name == deobfuscated_name:
                 return obfuscated_name
@@ -137,6 +140,31 @@ class Mappings:
         obfuscated_name = self.obfuscate_class_name(deobfuscated_class_name)
         return classloader[obfuscated_name]
 
+    def obfuscate_descriptor(self, descriptor: str) -> str:
+        obf_desc = ''
+        for arg in descriptor.split(','):
+            if not arg:
+                continue
+            primitives = {
+                'int': 'I',
+                'long': 'J',
+                'float': 'F',
+                'double': 'D',
+                'char': 'C',
+                'byte': 'B',
+                'short': 'S',
+                'boolean': 'Z',
+            }
+            if arg in primitives:
+                obf_desc += primitives[arg]
+            else:
+                # assume it's a class
+                obf_name = self.obfuscate_class_name(arg) or arg
+                obf_desc += f'L{obf_name.replace(".", "/")};'
+
+        # looks like Ljava/lang/String;Ldoe;
+        return obf_desc
+
     def get_method_from_classfile(
         self,
         classfile: ClassFile,
@@ -144,10 +172,17 @@ class Mappings:
         args: Optional[str] = None,
         returns: Optional[str] = None,
     ) -> Optional[str]:
+        args = self.obfuscate_descriptor(args) if args else None
+
         obfuscated_class_name = classfile.this.name.value
-        obfuscated_name = self.obfuscate_method_name(
+        obfuscated_name, new_args = self.obfuscate_method_name_and_args(
             obfuscated_class_name, deobfuscated_method_name
         )
+        if args is None:
+            args = new_args
+
         return classfile.methods.find_one(
-            name=obfuscated_name, args=args, returns=returns
+            name=obfuscated_name,
+            args=args,
+            returns=returns,
         )

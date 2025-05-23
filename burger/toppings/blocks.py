@@ -1,4 +1,5 @@
 import logging
+from typing import Optional
 
 from jawa.classloader import ClassLoader
 from jawa.util.descriptor import method_descriptor
@@ -45,12 +46,12 @@ class BlocksTopping(Topping):
         # All of the registration happens in the list class in this version.
 
         # net.minecraft.world.level.block.Blocks
-        listclass = aggregate['classes']['block.list']
-        lcf = classloader[listclass]
+        blocks_class: str = aggregate['classes']['block.list']
+        blocks_cf = classloader[blocks_class]
         # The first field in the list class is a block
         # (restricted to public fields as 23w40a has a different first field)
         superclass = next(
-            lcf.fields.find(f=lambda m: m.access_flags.acc_public)
+            blocks_cf.fields.find(f=lambda m: m.access_flags.acc_public)
         ).type.name
         cf = classloader[superclass]
         aggregate['classes']['block.superclass'] = superclass
@@ -59,6 +60,11 @@ class BlocksTopping(Topping):
             language = aggregate['language']['block']
         else:
             language = None
+
+        def get_display_name_for_block_id(text_id: str) -> Optional[str]:
+            lang_key = f'minecraft.{text_id}'
+            if language is not None and lang_key in language:
+                return language[lang_key]
 
         # 23w40a+ (1.20.3) has a references class that defines the IDs for some blocks
         references_class = aggregate['classes'].get('block.references')
@@ -111,36 +117,33 @@ class BlocksTopping(Topping):
                         break
         assert hardness_setter_3 is not None
 
-        light_setter = builder_cf.methods.find_one(args='I')
-        if light_setter is None:
-            # 20w12a replaced the simple setter with one that takes a lambda
-            # that is called to compute the light level for a given block
-            # state.  Most blocks simply return a constant value, but some
-            # such as sea pickles have varying light levels by state.
-            light_setter = builder_cf.methods.find_one(
-                args='Ljava/util/function/ToIntFunction;'
-            )
-        assert light_setter is not None
-
-        block_behavior_class = MAPPINGS.get_class_from_classloader(
+        block_behavior_cf = MAPPINGS.get_class_from_classloader(
             classloader,
             'net.minecraft.world.level.block.state.BlockBehaviour',
         )
-        properties_class = MAPPINGS.get_class_from_classloader(
+        properties_cf = MAPPINGS.get_class_from_classloader(
             classloader,
             'net.minecraft.world.level.block.state.BlockBehaviour$Properties',
         )
         force_solid_on_setter = MAPPINGS.get_method_from_classfile(
-            properties_class, 'forceSolidOn'
+            properties_cf, 'forceSolidOn'
         )
         force_solid_off_setter = MAPPINGS.get_method_from_classfile(
-            properties_class, 'forceSolidOff'
+            properties_cf, 'forceSolidOff'
         )
         requires_correct_tool_for_drops_setter = MAPPINGS.get_method_from_classfile(
-            properties_class, 'requiresCorrectToolForDrops'
+            properties_cf, 'requiresCorrectToolForDrops'
         )
-        friction_setter = MAPPINGS.get_method_from_classfile(
-            properties_class, 'friction', args='F'
+        friction_setter = MAPPINGS.get_method_from_classfile(properties_cf, 'friction')
+        light_setter = MAPPINGS.get_method_from_classfile(properties_cf, 'lightLevel')
+
+        register_legacy_stair = MAPPINGS.get_method_from_classfile(
+            blocks_cf,
+            'registerLegacyStair',
+            args='java.lang.String,net.minecraft.world.level.block.Block',
+        )
+        stair_block_class: str = MAPPINGS.obfuscate_class_name(
+            'net.minecraft.world.level.block.StairBlock'
         )
 
         blocks = aggregate.setdefault('blocks', {})
@@ -149,7 +152,7 @@ class BlocksTopping(Topping):
         block_fields = blocks.setdefault('block_fields', {})
 
         # Find the static block registration method
-        method = lcf.methods.find_one(name='<clinit>')
+        method = blocks_cf.methods.find_one(name='<clinit>')
 
         class Walker(WalkerCallback):
             def __init__(self):
@@ -157,6 +160,7 @@ class BlocksTopping(Topping):
 
             # unused
             def on_new(self, ins, const):
+                raise NotImplementedError()
                 class_name = const.name.value
 
                 super_classes = BlocksTopping.list_super_classes(
@@ -171,7 +175,7 @@ class BlocksTopping(Topping):
                 desc = method_descriptor(method_desc)
 
                 if ins.mnemonic == 'invokestatic':
-                    if const.class_.name.value == listclass:
+                    if const.class_.name.value == blocks_class:
                         if (
                             # most blocks have 2 args, but some (like air) have 3:
                             # public static final Block AIR = register(
@@ -206,9 +210,17 @@ class BlocksTopping(Topping):
                             current_block['text_id'] = text_id
                             current_block['numeric_id'] = self.cur_id
                             self.cur_id += 1
-                            lang_key = 'minecraft.%s' % text_id
-                            if language is not None and lang_key in language:
-                                current_block['display_name'] = language[lang_key]
+                            current_block['display_name'] = (
+                                get_display_name_for_block_id(text_id)
+                            )
+
+                            if (
+                                method_name == register_legacy_stair.name.value
+                                and method_desc
+                                == register_legacy_stair.descriptor.value
+                            ):
+                                current_block['class'] = stair_block_class
+
                             block[text_id] = current_block
                             ordered_blocks.append(text_id)
                             return current_block
@@ -225,15 +237,16 @@ class BlocksTopping(Topping):
                         else:
                             # In 20w12a+ (1.16), some blocks (e.g. logs) use a separate method
                             # for initialization.  Call them.
-                            sub_method = lcf.methods.find_one(
+                            sub_method = blocks_cf.methods.find_one(
                                 name=method_name,
                                 args=desc.args_descriptor,
                                 returns=desc.returns_descriptor,
                             )
-                            return walk_method(lcf, sub_method, self, args)
+                            return walk_method(blocks_cf, sub_method, self, args)
                     elif const.class_.name.value == builder_class:
                         if (
-                            len(desc.args) == 1 and desc.args[0].name == block_behavior_class.this.name
+                            len(desc.args) == 1
+                            and desc.args[0].name == block_behavior_cf.this.name
                         ):
                             # ofLegacyCopy and ofFullCopy
 
@@ -339,7 +352,7 @@ class BlocksTopping(Topping):
                             f'Unknown field {const.name_and_type.name.value} in references class {references_class}'
                         )
                         return None
-                elif const.class_.name.value == listclass:
+                elif const.class_.name.value == blocks_class:
                     if const.name_and_type.name.value in block_fields:
                         return block[block_fields[const.name_and_type.name.value]]
                     else:
@@ -377,7 +390,7 @@ class BlocksTopping(Topping):
                     # Try to invoke the function.
                     try:
                         args.append(object())  # The state that the lambda gets
-                        return try_eval_lambda(ins, args, lcf)
+                        return try_eval_lambda(ins, args, blocks_cf)
                     except Exception as ex:
                         logging.debug(f'Failed to call lambda for light data: {ex}')
                         return None
@@ -391,7 +404,7 @@ class BlocksTopping(Topping):
                     # 2267 = MethodHandle       8:#2266      // REF_newInvokeSpecial dji."<init>":(Ldxt$d;)V      <-- this is what const.index-1 points to
                     # 2268 = InvokeDynamic      #16:#1411    // #16:apply:()Ljava/util/function/Function;         <-- this is what const.index points to
                     # i am aware this is cursed
-                    class_name = lcf.constants.get(const.index - 1)
+                    class_name = blocks_cf.constants.get(const.index - 1)
                     try:
                         class_name = class_name.reference.class_.name.value
                     except AttributeError:
@@ -404,4 +417,4 @@ class BlocksTopping(Topping):
                 else:
                     return object()
 
-        walk_method(lcf, method, Walker())
+        walk_method(blocks_cf, method, Walker())

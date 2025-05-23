@@ -3,6 +3,8 @@ import logging
 from jawa.classloader import ClassLoader
 from jawa.constants import ConstantClass, String
 
+from burger.mappings import MAPPINGS
+
 from .topping import Topping
 
 # We can identify almost every class we need just by
@@ -110,8 +112,12 @@ def identify(classloader: ClassLoader, path):
     check for known signatures and predictable constants. In the next pass,
     we'll have the initial mapping from this pass available to us.
     """
-    possible_match = None
 
+    deobfuscated_name = path if '/' in path else MAPPINGS.deobfuscate_class_name(path)
+    if deobfuscated_name == 'net.minecraft.network.chat.Component':
+        return 'chatcomponent', path
+
+    possible_match = None
     for c in classloader.search_constant_pool(path=path, type_=(String, ConstantClass)):
         if isinstance(c, String):
             value = c.string.value
@@ -126,32 +132,6 @@ def identify(classloader: ClassLoader, path):
                     class_file = classloader[path]
                     possible_match = (match_name, class_file.this.name.value)
                     # Continue searching through the other constants in the class
-
-            if (
-                'as a Component' in value
-                or "Couldn't get field 'lineStart' for JsonReader" in value
-            ):
-                # This class is the JSON serializer/deserializer for the chat component.
-                # (The "as a Component" String exists starting in 13w36a (1.7.2), but
-                # was removed in 23w40a. The "Couldn't get field 'lineStart' for JsonReader"
-                # string exists since at least 1.20.2 and was removed in 1.20.3. We have another
-                # check in the `if isinstance(c, ConstantClass):` to handle 1.20.3+.)
-
-                # Look for a method that returns a String, and assume that it takes a component as its
-                # sole parameter.
-                class_file = classloader[path]
-
-                def is_serialize_method(m):
-                    return (
-                        m.access_flags.acc_public
-                        and m.access_flags.acc_static
-                        and len(m.args) == 1
-                        and m.returns.name == 'java/lang/String'
-                    )
-
-                methods = list(class_file.methods.find(f=is_serialize_method))
-                if len(methods) > 0:
-                    return 'chatcomponent', methods[0].args[0].name
 
             if value == 'ambient.cave':
                 # This is found in both the sounds list class and sounds event class.
@@ -351,38 +331,6 @@ def identify(classloader: ClassLoader, path):
                 class_file = classloader[path]
 
                 return 'nethandler.handshake', class_file.this.name.value
-        elif isinstance(c, ConstantClass):
-            if c.name == 'com/google/gson/Gson':
-                class_file = classloader[path]
-
-                # the class should have one `private static final Gson GSON`
-                def is_gson_field(f):
-                    return (
-                        f.access_flags.acc_private
-                        and f.access_flags.acc_static
-                        and f.access_flags.acc_final
-                        and f.descriptor == 'Lcom/google/gson/Gson;'
-                    )
-
-                gson_fields = class_file.fields.find(f=is_gson_field)
-                if next(gson_fields, None) is not None:
-                    # and also a method that looks like `public static String toJson(Component, HolderLookup.Provider)`
-                    def is_serialize_method(m):
-                        return (
-                            m.access_flags.acc_public
-                            and m.access_flags.acc_static
-                            and len(m.args) == 2
-                            and m.returns.name == 'java/lang/String'
-                        )
-
-                    serialize_methods = list(
-                        class_file.methods.find(f=is_serialize_method)
-                    )
-                    if len(serialize_methods) == 1:
-                        # final check to avoid false positives, abort if it has any string constants
-                        for c2 in class_file.constants.find(type_=String):
-                            return
-                        return 'chatcomponent', serialize_methods[0].args[0].name
 
     # May (will usually) be None
     return possible_match
