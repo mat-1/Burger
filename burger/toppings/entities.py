@@ -2,9 +2,10 @@ import logging
 
 import six
 from jawa.classloader import ClassLoader
-from jawa.constants import ConstantClass, Float, String
+from jawa.constants import ConstantClass, String
 from jawa.util.descriptor import method_descriptor
 
+from burger.mappings import MAPPINGS
 from burger.util import WalkerCallback, class_from_invokedynamic, walk_method
 
 from .topping import Topping
@@ -28,7 +29,6 @@ class EntityTopping(Topping):
         entities['info'] = {'entity_count': len(entities['entity'])}
 
         EntityTopping.abstract_entities(classloader, entities['entity'])
-        EntityTopping.compute_sizes(classloader, aggregate, entities['entity'])
 
     @staticmethod
     def _entities_1point13(aggregate, classloader: ClassLoader):
@@ -78,6 +78,18 @@ class EntityTopping(Topping):
         # and in even older versions:
         # public static final EntityType<EntityAreaEffectCloud> AREA_EFFECT_CLOUD = register("area_effect_cloud", EntityType.Builder.create(EntityAreaEffectCloud::new)); // through 18w05a
 
+        entity_type_builder_cf = MAPPINGS.get_class_from_classloader(
+            classloader,
+            'net.minecraft.world.entity.EntityType$Builder',
+        )
+        set_size_method = MAPPINGS.get_method_from_classfile(
+            entity_type_builder_cf, 'sized'
+        )
+        set_eye_height_method = MAPPINGS.get_method_from_classfile(
+            entity_type_builder_cf, 'eyeHeight'
+        )
+        print('set_eye_height_method', set_eye_height_method)
+
         class EntityContext(WalkerCallback):
             def __init__(self):
                 self.cur_id = 0
@@ -107,14 +119,18 @@ class EntityTopping(Topping):
                 elif const.class_.name == builderclass:
                     if ins.mnemonic != 'invokestatic':
                         if (
-                            len(args) == 2
-                            and isinstance(args[0], float)
-                            and isinstance(args[1], float)
-                            and const.name_and_type.descriptor.value.startswith('(FF)')
+                            const.name_and_type.name.value == set_size_method.name
+                            and const.name_and_type.descriptor.value
+                            == set_size_method.descriptor
                         ):
-                            # Entity size in 19w03a and newer
                             obj['width'] = args[0]
                             obj['height'] = args[1]
+                        if (
+                            const.name_and_type.name.value == set_eye_height_method.name
+                            and const.name_and_type.descriptor.value
+                            == set_eye_height_method.descriptor
+                        ):
+                            obj['eye_height'] = args[0]
 
                         # There are other properties on the builder (related to whether the entity can be created)
                         # We don't care about these
@@ -258,75 +274,6 @@ class EntityTopping(Topping):
                 minecart_types_by_field[minecart_field] = minecart_name
 
                 already_has_minecart_name = False
-
-    @staticmethod
-    def compute_sizes(classloader: ClassLoader, aggregate, entities):
-        # Class -> size
-        size_cache = {}
-
-        # NOTE: Use aggregate["entities"] instead of the given entities list because
-        # this method is re-used in the objects topping
-        base_entity_cf = classloader[
-            aggregate['entities']['entity']['~abstract_entity']['class']
-        ]
-
-        # Note that there are additional methods matching this, used to set camera angle and such
-        set_size = base_entity_cf.methods.find_one(
-            args='FF', returns='V', f=lambda m: m.access_flags.acc_protected
-        )
-
-        set_size_name = set_size.name.value
-        set_size_desc = set_size.descriptor.value
-
-        def compute_size(class_name):
-            if class_name == 'java/lang/Object':
-                return None
-
-            if class_name in size_cache:
-                return size_cache[class_name]
-
-            cf = classloader[class_name]
-            constructor = cf.methods.find_one(name='<init>')
-
-            tmp = []
-            for ins in constructor.code.disassemble():
-                if ins in ('ldc', 'ldc_w'):
-                    const = ins.operands[0]
-                    if isinstance(const, Float):
-                        tmp.append(const.value)
-                elif ins == 'invokevirtual':
-                    const = ins.operands[0]
-                    if (
-                        const.name_and_type.name == set_size_name
-                        and const.name_and_type.descriptor == set_size_desc
-                    ):
-                        if (
-                            len(tmp) == 2
-                            and isinstance(tmp[0], float)
-                            and isinstance(tmp[1], float)
-                        ):
-                            result = tmp
-                        else:
-                            # There was a call to the method, but we couldn't parse it fully
-                            result = None
-                        break
-                    tmp = []
-                else:
-                    # We want only the simplest parse, so even things like multiplication should cause this to be reset
-                    tmp = []
-            else:
-                # No result, so use the superclass
-                result = compute_size(cf.super_.name.value)
-
-            size_cache[class_name] = result
-            return result
-
-        for entity in six.itervalues(entities):
-            if 'width' not in entity:
-                size = compute_size(entity['class'])
-                if size is not None:
-                    entity['width'] = size[0]
-                    entity['height'] = size[1]
 
     @staticmethod
     def abstract_entities(classloader: ClassLoader, entities):
