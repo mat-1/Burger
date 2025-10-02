@@ -322,3 +322,4 @@ class EntityTopping(Topping):
         abstract_entity('spellcaster_illager', 'illusioner')  # SpellcasterIllager
         abstract_entity('chested_horse', 'mule')  # AbstractChestedHorse
         abstract_entity('piglin', 'piglin')  # AbstractChestedHorse
+        abstract_entity('avatar', 'mannequin')  # Avatar
